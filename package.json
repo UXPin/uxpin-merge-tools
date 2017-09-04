@@ -1,0 +1,15 @@
+{
+  "name": "uxpin-code",
+  "version": "1.0.0",
+  "description": "Command-line tool integrating Design System repository with http://code.uxpin.com",
+  "main": "index.js",
+  "author": "UXPin Inc.",
+  "license": "MIT",
+  "keywords": [
+    "UXPin",
+    "design system",
+    "command-line",
+    "style guide",
+    "UI components"
+  ]
+}
