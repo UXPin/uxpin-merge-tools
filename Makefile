@@ -4,7 +4,8 @@ SHELL := /bin/bash -o pipefail
 .PHONY: build check test clean
 
 check:
-	tslint --project tsconfig.json --type-check
+	cd ./src && tslint --project tsconfig.json --type-check
+	cd ./test && tslint --project tsconfig.json --type-check
 
 build:
 	cd ./src && tsc
