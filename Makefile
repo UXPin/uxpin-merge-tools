@@ -7,7 +7,6 @@ check:
 	tslint --project tsconfig.json --type-check
 
 build:
-	@echo $$PATH
 	cd ./src && tsc
 
 test:
