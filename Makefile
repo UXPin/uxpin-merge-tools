@@ -11,7 +11,6 @@ build:
 	cd ./src && tsc
 
 test:
-	cd ./test && tsc
 	jest --forceExit
 
 clean:

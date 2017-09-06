@@ -13,11 +13,31 @@
     "style guide",
     "UI components"
   ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.d.ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "**/test/**/*.test.ts"
+    ],
+    "testEnvironment": "node"
+  },
   "devDependencies": {
     "@types/jest": "^20.0.8",
     "@types/node": "^8.0.26",
     "child-process-promise": "^2.2.1",
+    "codecov": "^2.3.0",
     "jest": "^21.0.1",
+    "jest-junit-reporter": "^1.1.0",
+    "ts-jest": "^21.0.0",
     "tslint": "^5.7.0",
     "tslint-config-airbnb": "^5.2.1",
     "typescript": "^2.5.2"
