@@ -21,4 +21,4 @@ clean:
 	find ./test -type d -empty -delete
 	rm -rf ./coverage
 	rm -rf ./coverage-cli
-	rm -rf ./.nyc-output
+	rm -rf ./.nyc_output
