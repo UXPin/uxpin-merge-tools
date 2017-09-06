@@ -36,7 +36,7 @@ src
 ```
 #### Component implementation
 
-Components may be functional or stateful, however must be **default exported** from the implementation file. Allowed implementation files examples:
+Components may be functional or stateful, however must be **default exported** from the implementation file. Allowed implementation file examples:
 
 ```
 components/Button/index.jsx

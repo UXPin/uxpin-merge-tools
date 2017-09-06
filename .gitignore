@@ -1,7 +1,2 @@
-/node_modules
-/dist
-/test/**/*.js
-/test/**/*.js.map
-/coverage
-/coverage-cli
-.nyc_output
+.idea/
+node_modules/
