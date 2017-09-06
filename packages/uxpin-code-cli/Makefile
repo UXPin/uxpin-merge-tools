@@ -3,12 +3,12 @@ SHELL := /bin/bash -o pipefail
 
 .PHONY: build check test clean
 
+build:
+	cd ./src && tsc
+
 check:
 	cd ./src && tslint --project tsconfig.json --type-check
 	cd ./test && tslint --project tsconfig.json --type-check
-
-build:
-	cd ./src && tsc
 
 test:
 	jest --forceExit
