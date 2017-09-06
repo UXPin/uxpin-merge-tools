@@ -14,6 +14,11 @@
     "UI components"
   ],
   "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "test/tsconfig.json"
+      }
+    },
     "collectCoverageFrom": [
       "src/**/*.ts",
       "!src/**/*.d.ts"
