@@ -19,3 +19,6 @@ clean:
 	find ./test -name "*.js" -delete
 	find ./test -name "*.js.map" -delete
 	find ./test -type d -empty -delete
+	rm -rf ./coverage
+	rm -rf ./coverage-cli
+	rm -rf ./.nyc-output

@@ -2,3 +2,6 @@
 /dist
 /test/**/*.js
 /test/**/*.js.map
+/coverage
+/coverage-cli
+.nyc_output
