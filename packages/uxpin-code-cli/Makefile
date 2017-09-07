@@ -23,6 +23,7 @@ clean:
 	rm -rf ./coverage
 	rm -rf ./coverage-cli
 	rm -rf ./.nyc_output
+	rm -rf ./test/resources/repos/*
 
 test-resources: test/resources/repos/nordnet-ui-kit test/resources/repos/arui-feather test/resources/repos/travix-ui-kit
 
