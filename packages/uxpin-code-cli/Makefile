@@ -1,7 +1,7 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 
-.PHONY: build check test clean
+.PHONY: build check test clean test-resources
 
 build:
 	cd ./src && tsc
@@ -11,6 +11,7 @@ check:
 	cd ./test && tslint --project tsconfig.json --type-check
 
 test:
+	make test-resources
 	jest --forceExit
 
 clean:
@@ -22,3 +23,14 @@ clean:
 	rm -rf ./coverage
 	rm -rf ./coverage-cli
 	rm -rf ./.nyc_output
+
+test-resources: test/resources/repos/nordnet-ui-kit test/resources/repos/arui-feather test/resources/repos/travix-ui-kit
+
+test/resources/repos/nordnet-ui-kit:
+	ln -s $(shell npm root)/nordnet-ui-kit test/resources/repos/nordnet-ui-kit
+
+test/resources/repos/arui-feather:
+	ln -s $(shell npm root)/arui-feather test/resources/repos/arui-feather
+
+test/resources/repos/travix-ui-kit:
+	ln -s $(shell npm root)/travix-ui-kit test/resources/repos/travix-ui-kit
