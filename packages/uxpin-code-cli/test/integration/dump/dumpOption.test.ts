@@ -6,8 +6,7 @@ describe('--dump option integration', () => {
       // when
       return runUxPinCodeCommand('resources/repos/arui-feather', '--dump').then((output) => {
         // then
-        expect(output).toContain(`
-amount
+        expect(output).toContain(`amount
 app-content
 app-menu
 app-title
@@ -21,7 +20,46 @@ checkbox
 collapse
 copyright
 dropdown
-email-input`);
+email-input
+error-page
+footer
+form-field
+form
+header
+heading
+icon
+input-autocomplete
+input-group
+input
+isolated-container
+label
+link
+list
+masked-input
+menu-item
+menu
+money-input
+mq
+notification
+page
+paragraph
+phone-input
+plate
+popup-container-provider
+popup-header
+popup
+radio-group
+radio
+render-in-container
+resize-sensor
+select
+sidebar
+slide-down
+spin
+support
+textarea
+theme-provider
+user`);
       });
     });
   });
