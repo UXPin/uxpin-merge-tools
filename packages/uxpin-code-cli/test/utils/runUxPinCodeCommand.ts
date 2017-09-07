@@ -6,12 +6,17 @@ const nycPath:string = path.join(__dirname, '../../node_modules/.bin/nyc');
 const uxPinPath:string = path.join(__dirname, '../../bin/uxpin-code');
 
 export function runUxPinCodeCommand(workingDir:string, options?:string):Promise<string> {
-  const coverageDirName:string = getRandomString();
   const absoluteWorkingDir:string = getAbsoluteWorkingDir(workingDir);
-  const coverageCommand:string = `${nycPath} --reporter=lcov --report-dir=./coverage-cli/${coverageDirName}`;
+  const coverageDir:string = getCoverageDirPath();
+  const coverageCommand:string = `${nycPath} --reporter=lcov --report-dir=${coverageDir}`;
   return runCommand(`cd ${absoluteWorkingDir} && ${coverageCommand} ${uxPinPath} ${options}`);
 }
 
 function getAbsoluteWorkingDir(pathRelativeToTestDir:string) {
   return path.join(__dirname, '../', pathRelativeToTestDir);
+}
+
+function getCoverageDirPath() {
+  const coverageDirName:string = getRandomString();
+  return path.join(__dirname, '../../coverage-cli/', coverageDirName);
 }
