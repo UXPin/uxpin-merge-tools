@@ -1,5 +1,11 @@
 #!/usr/bin/env node
 
+const program = require('commander');
 const uxPinCode = require('../dist/index').uxPinCode;
+
+program
+  .version('0.1.0')
+  .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
+  .parse(process.argv);
 
 console.log(uxPinCode());
