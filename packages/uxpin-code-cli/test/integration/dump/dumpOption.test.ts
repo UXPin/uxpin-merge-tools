@@ -2,7 +2,7 @@ import { runUxPinCodeCommand } from '../../utils/runUxPinCodeCommand';
 
 describe('--dump option integration', () => {
   describe('--dump option prints ', () => {
-    it('', () => {
+    it.skip('', () => {
       // when
       return runUxPinCodeCommand('resources/repos/arui-feather', '--dump').then((output) => {
         // then

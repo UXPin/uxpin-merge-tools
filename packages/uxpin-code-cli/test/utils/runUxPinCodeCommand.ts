@@ -9,7 +9,7 @@ export function runUxPinCodeCommand(workingDir:string, options?:string):Promise<
   const coverageDirName:string = getRandomString();
   const absoluteWorkingDir:string = getAbsoluteWorkingDir(workingDir);
   const coverageCommand:string = `${nycPath} --reporter=lcov --report-dir=./coverage-cli/${coverageDirName}`;
-  return runCommand(`cd ${absoluteWorkingDir} ${coverageCommand} ${uxPinPath} ${options}`);
+  return runCommand(`cd ${absoluteWorkingDir} && ${coverageCommand} ${uxPinPath} ${options}`);
 }
 
 function getAbsoluteWorkingDir(pathRelativeToTestDir:string) {
