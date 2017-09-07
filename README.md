@@ -1,5 +1,8 @@
 # UXPin code
 
+[![CircleCI](https://circleci.com/gh/UXPin/uxpin-code-tools/tree/master.svg?style=svg&circle-token=3be428149d85d471f8a2661cc39d764a12df725f)](https://circleci.com/gh/UXPin/uxpin-code-tools/tree/master)
+[![codecov](https://codecov.io/gh/UXPin/uxpin-code-tools/branch/%2310270-build-console-tool/graph/badge.svg?token=oCSlKMhJDN)](https://codecov.io/gh/UXPin/uxpin-code-tools)
+
 ## Motivation
 
 Creating design system is not a one time project but an ongoing process that is never complete. Constant changes of existing components and optimization may cause a lack of synchronization between Design Systems and the existing code. 
