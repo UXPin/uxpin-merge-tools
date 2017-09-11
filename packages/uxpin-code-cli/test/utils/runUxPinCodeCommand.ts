@@ -12,11 +12,11 @@ export function runUxPinCodeCommand(workingDir:string, options?:string):Promise<
   return runCommand(`cd ${absoluteWorkingDir} && ${coverageCommand} ${uxPinPath} ${options}`);
 }
 
-function getAbsoluteWorkingDir(pathRelativeToTestDir:string) {
+function getAbsoluteWorkingDir(pathRelativeToTestDir:string):string {
   return path.join(__dirname, '../', pathRelativeToTestDir);
 }
 
-function getCoverageDirPath() {
+function getCoverageDirPath():string {
   const coverageDirName:string = getRandomString();
   return path.join(__dirname, '../../coverage-cli/', coverageDirName);
 }
