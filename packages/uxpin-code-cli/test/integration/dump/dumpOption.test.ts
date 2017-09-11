@@ -1,4 +1,4 @@
-import { runUxPinCodeCommand } from '../../utils/runUxPinCodeCommand';
+import { runUxPinCodeCommand } from '../../utils/command/runUxPinCodeCommand';
 
 describe('--dump option integration', () => {
   describe('--dump option prints ', () => {

@@ -1,4 +1,4 @@
-import { runUxPinCodeCommand } from '../../utils/runUxPinCodeCommand';
+import { runUxPinCodeCommand } from '../../utils/command/runUxPinCodeCommand';
 
 describe('--help option', () => {
   it('it prints help for --dump option', () => {
