@@ -1,14 +1,14 @@
 export interface ComponentPropertyDefinition {
   name:string;
   isRequired:boolean;
-  defaultValue:PropertyDefaultValue;
+  defaultValue?:PropertyDefaultValue;
   description:string;
   type:PropertyType;
 }
 
 export interface PropertyDefaultValue {
   value:any;
-  computed:boolean;
+  isComputed:boolean;
 }
 
 export interface PropertyType<T extends keyof PropertyTypeStructureMap = keyof PropertyTypeStructureMap> {
@@ -16,7 +16,7 @@ export interface PropertyType<T extends keyof PropertyTypeStructureMap = keyof P
   structure:PropertyTypeStructureMap[T];
 }
 
-interface PropertyTypeStructureMap {
+export interface PropertyTypeStructureMap {
   any:{};
   array:{};
   bool:{};
