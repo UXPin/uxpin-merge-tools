@@ -6,6 +6,7 @@
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": "../",
+    "skipLibCheck": true,
     "outDir": "../dist/",
     "skipLibCheck": true,
     "paths": {
