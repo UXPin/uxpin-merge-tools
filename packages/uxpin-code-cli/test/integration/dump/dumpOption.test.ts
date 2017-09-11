@@ -62,5 +62,36 @@ theme-provider
 user`);
       });
     });
+    it('prints the list of components found in nordnet-ui-kit example', () => {
+      // when
+      return runUxPinCodeCommand('resources/repos/arui-feather', '--dump').then((output) => {
+        // then
+        expect(output).toContain(`alert
+animate
+avatar
+badge
+button
+dropdown
+flag
+icon
+input
+labeled-value
+li
+logo
+pane
+radio-group
+segmented-control
+spinner
+table
+tbody\n` + // no examples
+`td\n` + // no examples
+`tfoot\n` + // no examples
+`th\n` + // no examples
+`thead\n` + // no examples
+`tooltip
+tr\n` + // no examples
+`ul`);
+      });
+    });
   });
 });
