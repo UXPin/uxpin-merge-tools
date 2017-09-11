@@ -45,7 +45,6 @@
     "jest-junit-reporter": "^1.1.0",
     "nordnet-ui-kit": "https://github.com/nordnet/nordnet-ui-kit.git",
     "nyc": "^11.2.1",
-    "travix-ui-kit": "https://github.com/Travix-International/travix-ui-kit.git",
     "ts-jest": "^21.0.0",
     "tslint": "^5.7.0",
     "tslint-config-airbnb": "^5.2.1",
