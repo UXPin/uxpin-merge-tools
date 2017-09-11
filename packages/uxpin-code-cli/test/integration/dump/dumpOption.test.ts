@@ -64,7 +64,7 @@ user`);
     });
     it('prints the list of components found in nordnet-ui-kit example', () => {
       // when
-      return runUxPinCodeCommand('resources/repos/arui-feather', '--dump').then((output) => {
+      return runUxPinCodeCommand('resources/repos/nordnet-ui-kit', '--dump').then((output) => {
         // then
         expect(output).toContain(`alert
 animate

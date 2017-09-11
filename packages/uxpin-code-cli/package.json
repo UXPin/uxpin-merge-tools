@@ -36,6 +36,7 @@
     "testEnvironment": "node"
   },
   "devDependencies": {
+    "@shopify/polaris": "https://github.com/Shopify/polaris.git",
     "@types/jest": "^20.0.8",
     "@types/node": "^8.0.26",
     "arui-feather": "https://github.com/alfa-laboratory/arui-feather.git",

@@ -25,10 +25,13 @@ clean:
 	rm -rf ./.nyc_output
 	rm -rf ./test/resources/repos/*
 
-test-resources: test/resources/repos/nordnet-ui-kit test/resources/repos/arui-feather
+test-resources: test/resources/repos/nordnet-ui-kit test/resources/repos/arui-feather test/resources/repos/polaris
 
 test/resources/repos/nordnet-ui-kit:
 	ln -s $(shell npm root)/nordnet-ui-kit test/resources/repos/nordnet-ui-kit
 
 test/resources/repos/arui-feather:
 	ln -s $(shell npm root)/arui-feather test/resources/repos/arui-feather
+
+test/resources/repos/polaris:
+	ln -s $(shell npm root)/@shopify/polaris test/resources/repos/polaris
