@@ -98,7 +98,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*":
+"@types/react@*", "@types/react@^16.0.5":
   version "16.0.5"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.5.tgz#d713cf67cc211dea20463d2a0b66005c22070c4b"
 
@@ -2607,6 +2607,10 @@ react-addons-transition-group@^15.4.2:
   resolved "https://registry.yarnpkg.com/react-addons-transition-group/-/react-addons-transition-group-15.6.0.tgz#0f220b9f9597db3a80a88dbd6fe805fc644ce21c"
   dependencies:
     react-transition-group "^1.2.0"
+
+react-docgen-typescript@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-docgen-typescript/-/react-docgen-typescript-1.0.2.tgz#be2f96d751cbf53ab0802e1b943938f346eb3494"
 
 react-dom@^15.5.3, react-dom@^15.5.4:
   version "15.6.1"
