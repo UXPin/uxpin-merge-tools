@@ -1,7 +1,7 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 
-.PHONY: build check test clean
+.PHONY: build check test test-ci clean
 
 build:
 	cd ./src && tsc
@@ -11,7 +11,10 @@ check:
 	cd ./test && tslint --project tsconfig.json --type-check
 
 test:
-	jest --forceExit
+	jest --forceExit --config=jest.config.json
+
+test-ci:
+	jest --config=jest.config.json --testResultsProcessor="jest-junit-reporter" --coverage
 
 clean:
 	rm -rf ./dist/*

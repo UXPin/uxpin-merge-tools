@@ -13,28 +13,6 @@
     "style guide",
     "UI components"
   ],
-  "jest": {
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "test/tsconfig.json"
-      }
-    },
-    "collectCoverageFrom": [
-      "src/**/*.ts",
-      "!src/**/*.d.ts"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
-    },
-    "testMatch": [
-      "**/test/**/*.test.ts"
-    ],
-    "testEnvironment": "node"
-  },
   "devDependencies": {
     "@types/jest": "^20.0.8",
     "@types/node": "^8.0.26",
