@@ -1,4 +1,4 @@
-import { runUxPinCodeCommand } from '../../utils/runUxPinCodeCommand';
+import { runUxPinCodeCommand } from '../../utils/command/runUxPinCodeCommand';
 
 describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
