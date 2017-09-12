@@ -16,6 +16,8 @@ test:
 
 clean:
 	rm -rf ./dist/*
+	find ./src -name "*.js" -delete
+	find ./src -name "*.js.map" -delete
 	find ./src -type d -empty -delete
 	find ./test -name "*.js" -delete
 	find ./test -name "*.js.map" -delete

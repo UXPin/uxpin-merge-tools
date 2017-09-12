@@ -1,3 +1,2 @@
-export function uxPinCode():string {
-  return 'Hello World!';
-}
+export { getDesignSystemMetadata } from './getDesignSystemMetadata';
+export { getDesignSystemSummary } from './getDesignSystemSummary';
