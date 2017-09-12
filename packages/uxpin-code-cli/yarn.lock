@@ -3135,9 +3135,9 @@ tslint-config-airbnb@^5.2.1:
     tslint-microsoft-contrib "^5.0.0"
     vrsource-tslint-rules "^5.1.0"
 
-tslint-config-uxpin@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/tslint-config-uxpin/-/tslint-config-uxpin-1.0.0.tgz#a1bf867cfa3d043964da0e5ebcf99900e10d170e"
+tslint-config-uxpin@latest:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/tslint-config-uxpin/-/tslint-config-uxpin-1.2.0.tgz#e93bb22551f27b3e022c257ecc1e61e387107ba0"
   dependencies:
     tslint-config-airbnb "^5.2.1"
 

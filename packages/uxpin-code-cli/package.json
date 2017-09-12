@@ -49,7 +49,7 @@
     "nyc": "^11.2.1",
     "ts-jest": "^21.0.0",
     "tslint": "^5.7.0",
-    "tslint-config-uxpin": "^1.0.0",
+    "tslint-config-uxpin": "latest",
     "typescript": "^2.5.2"
   },
   "dependencies": {
