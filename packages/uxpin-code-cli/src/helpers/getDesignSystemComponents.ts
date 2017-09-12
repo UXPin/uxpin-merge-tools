@@ -1,6 +1,6 @@
 import * as FS from 'fs';
-import * as Path from 'path';
 import { every, find, reduce, some } from 'lodash';
+import * as Path from 'path';
 
 const DIR_COMPONENTS:string = 'components';
 const DIR_SRC:string = 'src';
@@ -54,7 +54,7 @@ export function getDesignSystemComponents():Promise<string[]> {
       }
 
       resolve(reduce(fileNames, (componentPaths:string[], fileName:string) => {
-        const path = Path.join(componentsDirectory, fileName);
+        const path:string = Path.join(componentsDirectory, fileName);
 
         if (isComponent(path, fileName)) {
           return [...componentPaths, getComponentPath(path, fileName)];
