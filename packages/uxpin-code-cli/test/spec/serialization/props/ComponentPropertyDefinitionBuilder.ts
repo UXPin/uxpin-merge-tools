@@ -42,7 +42,6 @@ export class ComponentPropertyDefinitionBuilder {
 
   public build():ComponentPropertyDefinition {
     const typeDef:ComponentPropertyDefinition = {
-      defaultValue: this.defaultValue,
       description: this.description,
       isRequired: this.isRequired,
       name: this.name,
