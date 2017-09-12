@@ -5,6 +5,7 @@
     "sourceMap": true,
     "strict": true,
     "moduleResolution": "node",
+    "skipLibCheck": true,
     "baseUrl": "../",
     "paths": {
       "*": [
@@ -13,5 +14,9 @@
         "test/types/*"
       ]
     }
-  }
+  },
+  "exclude": [
+    "resources/repos/**",
+    "../node_modules/**"
+  ]
 }
