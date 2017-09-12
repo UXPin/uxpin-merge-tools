@@ -8,7 +8,6 @@ export interface ComponentPropertyDefinition {
 
 export interface PropertyDefaultValue {
   value:any;
-  isComputed:boolean;
 }
 
 export interface PropertyType<T extends keyof PropertyTypeStructureMap = keyof PropertyTypeStructureMap> {
@@ -16,10 +15,12 @@ export interface PropertyType<T extends keyof PropertyTypeStructureMap = keyof P
   structure:PropertyTypeStructureMap[T];
 }
 
+export type PropertyTypeName = keyof PropertyTypeStructureMap;
+
 export interface PropertyTypeStructureMap {
   any:{};
   array:{};
-  bool:{};
+  boolean:{};
   custom:{};
   element:{};
   func:{};

@@ -3,12 +3,6 @@ import { PropertyDefaultValue } from '../../../../src/serialization/props/Compon
 export class PropertyDefaultValueBuilder {
 
   private value:any = '';
-  private isComputed:boolean = false;
-
-  public withIsComputed(isComputed:boolean):PropertyDefaultValueBuilder {
-    this.isComputed = isComputed;
-    return this;
-  }
 
   public withValue(value:any):PropertyDefaultValueBuilder {
     this.value = value;
@@ -17,7 +11,6 @@ export class PropertyDefaultValueBuilder {
 
   public build():PropertyDefaultValue {
     return {
-      isComputed: this.isComputed,
       value: this.value,
     };
   }
