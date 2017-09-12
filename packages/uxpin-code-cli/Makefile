@@ -11,7 +11,7 @@ check:
 	cd ./test && tslint --project tsconfig.json --type-check
 
 test:
-	jest --forceExit
+	jest --forceExit --config=jest.config.json
 
 clean:
 	rm -rf ./dist/*

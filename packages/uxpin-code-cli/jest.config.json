@@ -1,0 +1,22 @@
+{
+  "globals": {
+    "ts-jest": {
+      "tsConfigFile": "test/tsconfig.json"
+    }
+  },
+  "collectCoverageFrom": [
+    "src/**/*.ts",
+    "!src/**/*.d.ts"
+  ],
+  "moduleFileExtensions": [
+    "ts",
+    "js"
+  ],
+  "transform": {
+    "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
+  },
+  "testMatch": [
+    "**/test/**/*.test.ts"
+  ],
+  "testEnvironment": "node"
+}
