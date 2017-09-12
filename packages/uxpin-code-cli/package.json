@@ -49,7 +49,7 @@
     "nyc": "^11.2.1",
     "ts-jest": "^21.0.0",
     "tslint": "^5.7.0",
-    "tslint-config-airbnb": "^5.2.1",
+    "tslint-config-uxpin": "^1.0.0",
     "typescript": "^2.5.2"
   },
   "dependencies": {
