@@ -3,7 +3,7 @@ import {
   PropertyTypeStructureMap,
 } from '../../../../src/serialization/props/ComponentPropertyDefinition';
 
-export class PropertyTypeBuilder<T extends keyof PropertyTypeStructureMap> {
+export class PropertyTypeBuilder<T extends keyof PropertyTypeStructureMap = keyof PropertyTypeStructureMap> {
   private name:T;
   private structure:PropertyTypeStructureMap[T] = {};
 

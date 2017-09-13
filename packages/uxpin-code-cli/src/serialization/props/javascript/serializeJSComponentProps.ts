@@ -2,7 +2,7 @@ import fsReadfilePromise = require('fs-readfile-promise');
 import { isEmpty, toPairs } from 'lodash';
 import { parse } from 'react-docgen';
 import { ComponentDoc, PropItem } from 'react-docgen-typescript/lib';
-import { ComponentPropertyDefinition, PropertyTypeName, } from '../ComponentPropertyDefinition';
+import { ComponentPropertyDefinition, PropertyTypeName } from '../ComponentPropertyDefinition';
 import { ComponentPropsList } from '../ComponentPropsList';
 import { convertTypeName } from './type/convertTypeName';
 import { convertTypeStructure } from './type/structure/convertTypeStructure';

@@ -1,4 +1,4 @@
-import { UnionTypeStructure, } from '../../../../../../../../src/serialization/props/ComponentPropertyDefinition';
+import { UnionTypeStructure } from '../../../../../../../../src/serialization/props/ComponentPropertyDefinition';
 // tslint:disable-next-line:max-line-length
 import { convertOneOfTypeStructure } from '../../../../../../../../src/serialization/props/javascript/type/structure/oneOf/convertOneOfTypeStructure';
 
