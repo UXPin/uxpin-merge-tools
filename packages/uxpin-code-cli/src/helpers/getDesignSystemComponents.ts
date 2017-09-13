@@ -1,5 +1,5 @@
 import { existsSync, readdir, statSync } from 'fs';
-import { every, find, reduce, some } from 'lodash';
+import { every, some } from 'lodash';
 import { join } from 'path';
 
 const DIR_COMPONENTS:string = 'components';
@@ -13,7 +13,7 @@ const PATHS:string[][] = [
 function getComponentsDirectory():string {
   const cwd:string = process.cwd();
   const paths:string[] = PATHS.map((directories) => join(cwd, ...directories));
-  const found:string|undefined = find(paths, (path) => existsSync(path));
+  const found:string|undefined = paths.find((path) => existsSync(path));
 
   if (!found) {
     throw new Error('Unable to locate components source directory');
@@ -53,7 +53,7 @@ export function getDesignSystemComponents():Promise<string[]> {
         return reject(err);
       }
 
-      resolve(reduce(fileNames, (componentPaths:string[], fileName:string) => {
+      resolve(fileNames.reduce((componentPaths, fileName) => {
         const path:string = join(componentsDirectory, fileName);
 
         if (isComponent(path, fileName)) {
@@ -61,7 +61,7 @@ export function getDesignSystemComponents():Promise<string[]> {
         }
 
         return componentPaths;
-      }, []));
+      }, [] as string[]));
     });
   });
 }
