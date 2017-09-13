@@ -2,12 +2,7 @@
 
 const program = require('commander');
 
-const getDesignSystemMetadata = require('../dist/index').getDesignSystemMetadata;
-const getDesignSystemSummary = require('../dist/index').getDesignSystemSummary;
-
-function logError(error) {
-  console.log('ERROR:', error.message);
-}
+const { getDesignSystemMetadata, getDesignSystemSummary } = require('../dist/index');
 
 program
   .version('0.1.0')
@@ -24,3 +19,7 @@ if (program.summary) {
 getDesignSystemMetadata(!!program.dump)
   .then(console.log)
   .catch(logError);
+
+function logError(error) {
+  console.log('ERROR:', error.message);
+}

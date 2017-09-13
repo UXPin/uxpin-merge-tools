@@ -1,6 +1,6 @@
-import * as FS from 'fs';
-import * as Path from 'path';
-import { every, find, reduce, some } from 'lodash';
+import { existsSync, readdir, statSync } from 'fs';
+import { every, some } from 'lodash';
+import { join } from 'path';
 
 const DIR_COMPONENTS:string = 'components';
 const DIR_SRC:string = 'src';
@@ -12,8 +12,8 @@ const PATHS:string[][] = [
 
 function getComponentsDirectory():string {
   const cwd:string = process.cwd();
-  const paths:string[] = PATHS.map((directories) => Path.join(cwd, ...directories));
-  const found:string|undefined = find(paths, (path) => FS.existsSync(path));
+  const paths:string[] = PATHS.map((directories) => join(cwd, ...directories));
+  const found:string|undefined = paths.find((path) => existsSync(path));
 
   if (!found) {
     throw new Error('Unable to locate components source directory');
@@ -27,13 +27,13 @@ function getComponentPath(path:string, fileName:string):string {
 }
 
 function isDirectory(path:string):boolean {
-  return FS.statSync(path).isDirectory();
+  return statSync(path).isDirectory();
 }
 
 function containsJSXFile(path:string, fileName:string):boolean {
   return some([
-    FS.existsSync(Path.join(path, `${fileName}.jsx`)),
-    FS.existsSync(Path.join(path, `${fileName}.tsx`)),
+    existsSync(join(path, `${fileName}.jsx`)),
+    existsSync(join(path, `${fileName}.tsx`)),
   ]);
 }
 
@@ -48,20 +48,20 @@ export function getDesignSystemComponents():Promise<string[]> {
   return new Promise((resolve, reject) => {
     const componentsDirectory:string = getComponentsDirectory();
 
-    FS.readdir(componentsDirectory, (err, fileNames) => {
+    readdir(componentsDirectory, (err, fileNames) => {
       if (err) {
         return reject(err);
       }
 
-      resolve(reduce(fileNames, (componentPaths:string[], fileName:string) => {
-        const path = Path.join(componentsDirectory, fileName);
+      resolve(fileNames.reduce((componentPaths, fileName) => {
+        const path:string = join(componentsDirectory, fileName);
 
         if (isComponent(path, fileName)) {
           return [...componentPaths, getComponentPath(path, fileName)];
         }
 
         return componentPaths;
-      }, []));
+      }, [] as string[]));
     });
   });
 }
