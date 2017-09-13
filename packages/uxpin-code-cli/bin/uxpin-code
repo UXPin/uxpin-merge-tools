@@ -2,12 +2,13 @@
 
 const program = require('commander');
 
-const { getDesignSystemMetadata, getDesignSystemSummary } = require('../dist/index');
+const { buildDesignSystem, getDesignSystemMetadata, getDesignSystemSummary } = require('../dist/index');
 
 program
   .version('0.1.0')
   .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
   .option('-s, --summary', 'Show design system summary')
+  .option('-l, --libraries', 'Use custom babel libraries')
   .parse(process.argv);
 
 if (program.summary) {
@@ -16,7 +17,8 @@ if (program.summary) {
     .catch(logError);
 }
 
-getDesignSystemMetadata(!!program.dump)
+buildDesignSystem(!!program.dump)
+  .then(getDesignSystemSummary)
   .then(console.log)
   .catch(logError);
 

@@ -40,7 +40,10 @@
     "@types/jest": "^20.0.8",
     "@types/lodash": "^4.14.74",
     "@types/node": "^8.0.26",
+    "@types/webpack": "^3.0.10",
     "arui-feather": "https://github.com/alfa-laboratory/arui-feather.git",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "child-process-promise": "^2.2.1",
     "codecov": "^2.3.0",
     "jest": "^21.0.1",
@@ -53,6 +56,10 @@
     "typescript": "^2.5.2"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "lodash": "^4.17.4",
+    "webpack": "^3.5.6"
   }
 }
