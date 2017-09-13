@@ -1,15 +1,19 @@
 import * as webpack from 'webpack';
 import { Compiler, Stats } from 'webpack';
 
-import { config } from './config/webpack.config';
+import { getConfig } from './config/webpack.config';
 
-function bundle():Promise<Stats> {
+function bundle(libraries:string[] = []):Promise<Stats> {
   return new Promise((resolve, reject) => {
-    const compiler:Compiler = webpack(config);
+    const compiler:Compiler = webpack(getConfig(libraries));
 
     compiler.run((err, stats) => {
       if (err) {
-        return reject(err);
+        return reject(err.message);
+      }
+
+      if (stats.hasErrors()) {
+        return reject(stats.toString({ errors: true }));
       }
 
       resolve(stats);
@@ -17,6 +21,6 @@ function bundle():Promise<Stats> {
   });
 }
 
-export function buildDesignSystem():Promise<Stats> {
-  return bundle();
+export function buildDesignSystem(libraries:string[]):Promise<Stats> {
+  return bundle(libraries);
 }

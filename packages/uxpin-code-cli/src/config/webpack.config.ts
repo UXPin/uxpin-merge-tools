@@ -1,4 +1,4 @@
-export const config:any = {
+const CONFIG:any = {
   entry: './src/components.js',
   module: {
     rules: [
@@ -9,8 +9,6 @@ export const config:any = {
           options: {
             babelrc: false,
             plugins: [
-              'transform-class-properties',
-              'transform-object-rest-spread',
             ],
             presets: [
               'react',
@@ -32,3 +30,27 @@ export const config:any = {
     extensions: ['.js', '.jsx'],
   },
 };
+
+const LOADER_BABEL:string = 'babel-loader';
+
+function getConfigDecoratedWithLibraries(libraries:string[]):any {
+  const config:any = Object.assign({}, CONFIG);
+
+  config.module.rules.forEach((rule:any) => {
+    if (!rule || !rule.use) {
+      return;
+    }
+
+    rule.use.forEach((loader:any) => {
+      if (loader.loader === LOADER_BABEL) {
+        loader.options.plugins = libraries;
+      }
+    });
+  });
+
+  return config;
+}
+
+export function getConfig(libraries:string[]):any {
+  return getConfigDecoratedWithLibraries(libraries);
+}
