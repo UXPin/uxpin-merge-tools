@@ -244,6 +244,33 @@ describe('serializeComponentProps – integration', () => {
           expect(serializedProps).toEqual(expectedProps);
         });
       });
+
+      it('component with shape property type', () => {
+        // given
+        const componentPath:string = getJavaScriptComponentPath('ClassPropShapeType');
+        const expectedProps:ComponentPropsList = [
+          aComponentPropertyDefinition()
+            .withName('item')
+            .withType(aPropertyType()
+              .withName('shape')
+              .withStructure({
+                param1: aPropertyType().withName('string').build(),
+                param2: aPropertyType().withName('string').build(),
+                param3: aPropertyType()
+                  .withName('shape')
+                  .withStructure({
+                    name: aPropertyType().withName('string').build(),
+                  }),
+              }))
+            .withIsRequired(true).build(),
+        ];
+
+        // when
+        return serializeComponentProps(componentPath).then((serializedProps) => {
+          // then
+          expect(serializedProps).toEqual(expectedProps);
+        });
+      });
     });
   });
 
