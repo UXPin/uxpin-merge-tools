@@ -33,5 +33,9 @@ export interface PropertyTypeStructureMap {
   symbol:{};
   typedArray:{ memberType:PropertyType };
   dictionary:{ valueType:PropertyType };
-  union:{ elements:PropertyType[] };
+  union:UnionTypeStructure;
+}
+
+export interface UnionTypeStructure {
+  elements:PropertyType[];
 }

@@ -261,8 +261,7 @@ describe('serializeComponentProps – integration', () => {
                   .withStructure({
                     name: aPropertyType().withName('string').build(),
                   }),
-              }))
-            .withIsRequired(true).build(),
+              })).build(),
         ];
 
         // when
