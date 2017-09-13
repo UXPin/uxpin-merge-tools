@@ -9,7 +9,7 @@ export interface Props {
   hidden:boolean;
 }
 
-export function labelID(id:string):string {
+function labelID(id:string):string {
   return `${id}Label`;
 }
 
@@ -18,11 +18,8 @@ const FunctionWithDefaults:StatelessComponent<Props> = ({ children, id, appearan
     <div>
       <button id={labelID(id)}
               className={`${(hidden ? 'hidden' : '')} ${appearance} ${modifier}`}>
-        {
-          children
-        }
+        {children}
       </button>
-      ;
     </div>
   );
 };

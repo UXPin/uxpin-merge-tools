@@ -5,10 +5,6 @@ export interface Props {
   appearance:'secondary' | 'primary' | 'link';
 }
 
-export function labelID(id:string):string {
-  return `${id}Label`;
-}
-
 export default class ClassWithDefaults extends React.Component<Props> {
 
   public static defaultProps:Partial<Props> = {

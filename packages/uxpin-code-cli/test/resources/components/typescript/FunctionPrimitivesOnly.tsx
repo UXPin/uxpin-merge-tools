@@ -7,7 +7,7 @@ export interface Props {
   hidden?:boolean;
 }
 
-export function labelID(id:string):string {
+function labelID(id:string):string {
   return `${id}Label`;
 }
 
@@ -17,10 +17,8 @@ export default function FunctionPrimitivesOnly({ children, id, action, hidden }:
       <label id={labelID(id)}
              htmlFor={id}
              className={hidden ? 'hidden' : ''}>
-        {
-          children
-        }
-      </label>;
+        {children}
+      </label>
     </div>
   );
 }
