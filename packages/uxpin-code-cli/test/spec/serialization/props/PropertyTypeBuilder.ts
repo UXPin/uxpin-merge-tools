@@ -3,16 +3,16 @@ import {
   PropertyTypeStructureMap,
 } from '../../../../src/serialization/props/ComponentPropertyDefinition';
 
-export class PropertyTypeBuilder<T extends keyof PropertyTypeStructureMap = keyof PropertyTypeStructureMap> {
+export class PropertyTypeBuilder<T extends keyof PropertyTypeStructureMap> {
   private name:T;
   private structure:PropertyTypeStructureMap[T] = {};
 
-  public withStructure(structure:PropertyTypeStructureMap[T]):PropertyTypeBuilder {
+  public withStructure(structure:PropertyTypeStructureMap[T]):PropertyTypeBuilder<T> {
     this.structure = structure;
     return this;
   }
 
-  public withName(name:T):PropertyTypeBuilder {
+  public withName(name:T):PropertyTypeBuilder<T> {
     this.name = name;
     return this;
   }
@@ -25,6 +25,6 @@ export class PropertyTypeBuilder<T extends keyof PropertyTypeStructureMap = keyo
   }
 }
 
-export function aPropertyType():PropertyTypeBuilder {
-  return new PropertyTypeBuilder();
+export function aPropertyType<T extends keyof PropertyTypeStructureMap>():PropertyTypeBuilder<T> {
+  return new PropertyTypeBuilder<T>();
 }
