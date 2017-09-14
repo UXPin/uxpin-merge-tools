@@ -141,5 +141,42 @@ describe('serializeJSComponentProps', () => {
         expect(serializedProps).toEqual(expectedProps);
       });
     });
+
+    it('component with shape property type and a default value for it', () => {
+      // given
+      const componentPath:string = getJavaScriptComponentPath('PropShapeTypeWithDefault');
+      const expectedProps:ComponentPropsList = [
+        {
+          defaultValue: {
+            value: {
+              param1: 'param1 default value',
+              param3: { name: 'param3.name value' },
+            },
+          },
+          description: '',
+          isRequired: false,
+          name: 'item',
+          type: {
+            name: 'shape',
+            structure: {
+              param1: { name: 'string', structure: {} },
+              param2: { name: 'string', structure: {} },
+              param3: {
+                name: 'shape',
+                structure: {
+                  name: { name: 'string', structure: {} },
+                },
+              },
+            },
+          },
+        },
+      ];
+
+      // when
+      return serializeJSComponentProps(componentPath).then((serializedProps) => {
+        // then
+        expect(serializedProps).toEqual(expectedProps);
+      });
+    });
   });
 });
