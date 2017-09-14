@@ -44,6 +44,7 @@
     "arui-feather": "https://github.com/alfa-laboratory/arui-feather.git",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "child-process-promise": "^2.2.1",
     "codecov": "^2.3.0",
     "jest": "^21.0.1",
