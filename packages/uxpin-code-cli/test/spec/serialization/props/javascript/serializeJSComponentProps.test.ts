@@ -1,3 +1,4 @@
+import { WarningDetails } from '../../../../../src/common/warning/WarningDetails';
 import { ComponentPropsList } from '../../../../../src/serialization/props/ComponentPropsList';
 import { serializeJSComponentProps } from '../../../../../src/serialization/props/javascript/serializeJSComponentProps';
 import { getJavaScriptComponentPath } from '../../../../utils/resources/getExampleComponentPath';
@@ -114,7 +115,7 @@ describe('serializeJSComponentProps', () => {
       });
     });
 
-    it('component with shape property type', () => {
+    it('serializes component with shape property type', () => {
       // given
       const componentPath:string = getJavaScriptComponentPath('ClassPropShapeType');
       const expectedProps:ComponentPropsList = [
@@ -146,7 +147,7 @@ describe('serializeJSComponentProps', () => {
       });
     });
 
-    it('component with shape property type and a default value for it', () => {
+    it('serializes component with shape property type and a default value for it', () => {
       // given
       const componentPath:string = getJavaScriptComponentPath('PropShapeTypeWithDefault');
       const expectedProps:ComponentPropsList = [
@@ -181,6 +182,35 @@ describe('serializeJSComponentProps', () => {
         // then
         expect(serializedProps.props).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('provides warning details for corrupted default property values', () => {
+      // given
+      const componentPath:string = getJavaScriptComponentPath('CorruptedDefaultPropertyValue');
+      const expectedProps:ComponentPropsList = [
+        {
+          description: '',
+          isRequired: false,
+          name: 'value',
+          type: {
+            name: 'string',
+            structure: {},
+          },
+        },
+      ];
+      const expectedWarning:WarningDetails = {
+        message: 'Cannot compute default value for property `value` of `CorruptedDefaultPropertyValue` component.',
+        sourcePath: componentPath,
+      };
+
+      // when
+      return serializeJSComponentProps(componentPath).then((serializedProps) => {
+        // then
+        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.warnings[0].message).toEqual(expectedWarning.message);
+        expect(serializedProps.warnings[0].sourcePath).toEqual(expectedWarning.sourcePath);
+        expect(serializedProps.warnings[0].originalError).toBeInstanceOf(Error);
       });
     });
   });

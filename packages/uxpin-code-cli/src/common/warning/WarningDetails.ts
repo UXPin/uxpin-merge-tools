@@ -1,5 +1,5 @@
 export interface WarningDetails {
   message:string;
-  sourceFilePath?:string;
+  sourcePath?:string;
   originalError?:Error;
 }
