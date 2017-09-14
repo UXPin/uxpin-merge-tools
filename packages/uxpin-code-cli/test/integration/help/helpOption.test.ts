@@ -15,7 +15,16 @@ describe('--help option', () => {
     return runUxPinCodeCommand('./', '--help').then((output) => {
       // then
       expect(output).toContain('--summary');
-      expect(output).toContain('Show design system summary');
+      expect(output).toContain('Show only design system summary without building it');
+    });
+  });
+
+  it('it prints help for --libraries <items> option', () => {
+    // when
+    return runUxPinCodeCommand('./', '--help').then((output) => {
+      // then
+      expect(output).toContain('--libraries <items>');
+      expect(output).toContain('Use custom babel libraries');
     });
   });
 });

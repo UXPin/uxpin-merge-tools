@@ -1,5 +1,8 @@
 import { runUxPinCodeCommand } from '../../utils/runUxPinCodeCommand';
 
+beforeAll(() => jest.setTimeout(10000));
+afterAll(() => jest.setTimeout(5000);
+
 describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in arui-feather example', () => {
