@@ -4,16 +4,18 @@ import { parse } from 'react-docgen';
 import { ComponentDoc, PropItem } from 'react-docgen-typescript/lib';
 import { ComponentPropertyDefinition, PropertyTypeName } from '../ComponentPropertyDefinition';
 import { ComponentPropsList } from '../ComponentPropsList';
+import { parseValue } from './defaultValue/parseValue';
 import { convertTypeName } from './type/convertTypeName';
 import { convertTypeStructure } from './type/structure/convertTypeStructure';
 
 export function serializeJSComponentProps(componentFileLocation:string):Promise<ComponentPropsList> {
   return getDefaultComponentFrom(componentFileLocation).then((component:ComponentDoc) => {
-    return toPairs(component.props).map(([propName, propType]) => propItemToPropDefinition(propName, propType));
+    return Promise.all(
+      toPairs(component.props).map(([propName, propType]) => propItemToPropDefinition(propName, propType)));
   });
 }
 
-function propItemToPropDefinition(propName:string, propType:PropItem):ComponentPropertyDefinition {
+function propItemToPropDefinition(propName:string, propType:PropItem):Promise<ComponentPropertyDefinition> {
   const propTypeName:PropertyTypeName = convertTypeName(propType.type.name);
   const definition:ComponentPropertyDefinition = {
     description: propType.description,
@@ -24,10 +26,14 @@ function propItemToPropDefinition(propName:string, propType:PropItem):ComponentP
       structure: convertTypeStructure(propTypeName, propType.type.value),
     },
   };
+
   if (propType.defaultValue) {
-    definition.defaultValue = { value: propType.defaultValue.value };
+    return parseValue(propType.defaultValue.value).then((value:any) => {
+      definition.defaultValue = { value };
+      return definition;
+    });
   }
-  return definition;
+  return Promise.resolve(definition);
 }
 
 function getDefaultComponentFrom(filePath:string):Promise<ComponentDoc> {

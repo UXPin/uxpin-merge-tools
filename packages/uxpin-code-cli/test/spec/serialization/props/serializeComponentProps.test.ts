@@ -43,12 +43,14 @@ describe('serializeComponentProps – integration', () => {
       const componentPath:string = getJavaScriptComponentPath('IntegrationCombo');
       const expectedProps:ComponentPropsList = [
         {
+          defaultValue: { value: 'Submit' },
           description: '',
           isRequired: false,
           name: 'value',
           type: { name: 'string', structure: {} },
         },
         {
+          defaultValue: { value: 'secondary' },
           description: '',
           isRequired: true,
           name: 'appearance',

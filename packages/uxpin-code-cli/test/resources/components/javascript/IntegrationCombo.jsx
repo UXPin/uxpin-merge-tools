@@ -18,3 +18,8 @@ ClassWithDefaults.propTypes = {
   value: PropTypes.string,
   appearance: PropTypes.oneOf(['secondary', 'primary', 'link']).isRequired,
 };
+
+ClassWithDefaults.defaultProps = {
+  value: 'Submit',
+  appearance: 'secondary',
+};
