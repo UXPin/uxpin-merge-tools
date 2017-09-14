@@ -18,13 +18,13 @@ describe('serializeComponentProps – integration', () => {
           type: { name: 'node', structure: {} },
         },
         {
-          description: '',
+          description: 'Description for `value` property',
           isRequired: true,
           name: 'value',
           type: { name: 'string', structure: {} },
         },
         {
-          description: '',
+          description: 'Description for optional `id` property',
           isRequired: false,
           name: 'id',
           type: { name: 'number', structure: {} },
@@ -44,14 +44,14 @@ describe('serializeComponentProps – integration', () => {
       const expectedProps:ComponentPropsList = [
         {
           defaultValue: { value: 'Submit' },
-          description: '',
+          description: 'Description for `value` property',
           isRequired: false,
           name: 'value',
           type: { name: 'string', structure: {} },
         },
         {
           defaultValue: { value: 'secondary' },
-          description: '',
+          description: 'Select the appearance of the button',
           isRequired: true,
           name: 'appearance',
           type: {

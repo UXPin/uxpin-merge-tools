@@ -15,7 +15,13 @@ export default class ClassWithDefaults extends Component {
 }
 
 ClassWithDefaults.propTypes = {
+  /**
+   * Description for `value` property
+   */
   value: PropTypes.string,
+  /**
+   * Select the appearance of the button
+   */
   appearance: PropTypes.oneOf(['secondary', 'primary', 'link']).isRequired,
 };
 

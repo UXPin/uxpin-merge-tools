@@ -1,7 +1,13 @@
 import * as React from 'react';
 
 export interface Props {
+  /**
+   * Description for `value` property
+   */
   value:string;
+  /**
+   * Description for optional `id` property
+   */
   id?:number;
 }
 
