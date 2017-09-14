@@ -1,20 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 
-function labelID(id) {
-  return `${id}Label`;
-}
-
 export default class ClassEnumTypes extends Component {
 
   render() {
-    const { children, id, hidden, appearance, modifier } = this.props;
+    const { children, appearance } = this.props;
     return (
       <div>
-        <button id={labelID(id)}
-                className={`${(hidden ? 'hidden' : '')} ${appearance} ${modifier}`}>
-          {
-            children
-          }
+        <button className={appearance}>
+          {children}
         </button>
       </div>
     );
@@ -23,8 +16,5 @@ export default class ClassEnumTypes extends Component {
 
 ClassEnumTypes.propTypes = {
   children: PropTypes.node,
-  id: PropTypes.string.isRequired,
   appearance: PropTypes.oneOf(['secondary', 'primary', 'link']).isRequired,
-  modifier: PropTypes.oneOf(['neutral', 'danger', 'positive']).isRequired,
-  hidden: PropTypes.bool.isRequired,
 };
