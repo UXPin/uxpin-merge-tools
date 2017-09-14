@@ -12,20 +12,31 @@ describe('serializeComponentProps – integration', () => {
         // given
         const componentPath:string = getTypeScriptComponentPath('FunctionPrimitivesOnly');
         const expectedProps:ComponentPropsList = [
-          aComponentPropertyDefinition()
-            .withName('children')
-            .withType(aPropertyType().withName('string')),
-          aComponentPropertyDefinition()
-            .withName('id')
-            .withType(aPropertyType().withName('string'))
-            .withIsRequired(true),
-          aComponentPropertyDefinition()
-            .withName('action')
-            .withType(aPropertyType().withName('number')),
-          aComponentPropertyDefinition()
-            .withName('hidden')
-            .withType(aPropertyType().withName('boolean')),
-        ].map((d:ComponentPropertyDefinitionBuilder) => d.build());
+          {
+            description: '',
+            isRequired: false,
+            name: 'children',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'id',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'action',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'hidden',
+            type: { name: 'boolean', structure: {} },
+          },
+        ];
 
         // when
         return serializeComponentProps(componentPath).then((serializedProps) => {
@@ -38,42 +49,28 @@ describe('serializeComponentProps – integration', () => {
         // given
         const componentPath:string = getTypeScriptComponentPath('ClassEnumTypes');
         const expectedProps:ComponentPropsList = [
-          aComponentPropertyDefinition()
-            .withName('children')
-            .withType(aPropertyType().withName('node')),
-          aComponentPropertyDefinition()
-            .withName('id')
-            .withType(aPropertyType().withName('string'))
-            .withIsRequired(true),
-          aComponentPropertyDefinition()
-            .withName('appearance')
-            .withType(aPropertyType()
-              .withName('union')
-              .withStructure({
+          {
+            description: '',
+            isRequired: false,
+            name: 'children',
+            type: { name: 'node', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'appearance',
+            type: {
+              name: 'union',
+              structure: {
                 elements: [
-                  aPropertyType().withName('literal').withStructure({ value: 'secondary' }),
-                  aPropertyType().withName('literal').withStructure({ value: 'primary' }),
-                  aPropertyType().withName('literal').withStructure({ value: 'link' }),
+                  { name: 'literal', structure: { value: 'secondary' } },
+                  { name: 'literal', structure: { value: 'primary' } },
+                  { name: 'literal', structure: { value: 'link' } },
                 ],
-              }))
-            .withIsRequired(true),
-          aComponentPropertyDefinition()
-            .withName('modifier')
-            .withType(aPropertyType()
-              .withName('union')
-              .withStructure({
-                elements: [
-                  aPropertyType().withName('literal').withStructure({ value: 'neutral' }),
-                  aPropertyType().withName('literal').withStructure({ value: 'danger' }),
-                  aPropertyType().withName('literal').withStructure({ value: 'positive' }),
-                ],
-              }))
-            .withIsRequired(true),
-          aComponentPropertyDefinition()
-            .withName('hidden')
-            .withType(aPropertyType().withName('boolean'))
-            .withIsRequired(true),
-        ].map((d:ComponentPropertyDefinitionBuilder) => d.build());
+              },
+            },
+          },
+        ];
 
         // when
         return serializeComponentProps(componentPath).then((serializedProps) => {
@@ -86,24 +83,30 @@ describe('serializeComponentProps – integration', () => {
         // given
         const componentPath:string = getTypeScriptComponentPath('ClassWithDefaults');
         const expectedProps:ComponentPropsList = [
-          aComponentPropertyDefinition()
-            .withName('value')
-            .withType(aPropertyType().withName('string'))
-            .withDefaultValue(aDefaultValue().withValue('Submit')),
-          aComponentPropertyDefinition()
-            .withName('appearance')
-            .withType(aPropertyType()
-              .withName('union')
-              .withStructure({
+          {
+            defaultValue: { value: 'Submit' },
+            description: '',
+            isRequired: false,
+            name: 'value',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            defaultValue: { value: 'secondary' },
+            description: '',
+            isRequired: true,
+            name: 'appearance',
+            type: {
+              name: 'union',
+              structure: {
                 elements: [
-                  aPropertyType().withName('literal').withStructure({ value: 'secondary' }),
-                  aPropertyType().withName('literal').withStructure({ value: 'primary' }),
-                  aPropertyType().withName('literal').withStructure({ value: 'link' }),
+                  { name: 'literal', structure: { value: 'secondary' } },
+                  { name: 'literal', structure: { value: 'primary' } },
+                  { name: 'literal', structure: { value: 'link' } },
                 ],
-              }))
-            .withIsRequired(true)
-            .withDefaultValue(aDefaultValue().withValue('secondary')),
-        ].map((d:ComponentPropertyDefinitionBuilder) => d.build());
+              },
+            },
+          },
+        ];
 
         // when
         return serializeComponentProps(componentPath).then((serializedProps) => {
@@ -116,20 +119,24 @@ describe('serializeComponentProps – integration', () => {
         // given
         const componentPath:string = getTypeScriptComponentPath('ClassInterfaceTypes');
         const expectedProps:ComponentPropsList = [
-          aComponentPropertyDefinition()
-            .withName('item')
-            .withType(aPropertyType()
-              .withName('shape')
-              .withStructure({
-                param1: aPropertyType().withName('string').build(),
-                param2: aPropertyType().withName('string').build(),
-                param3: aPropertyType()
-                  .withName('shape')
-                  .withStructure({
-                    name: aPropertyType().withName('string').build(),
-                  }),
-              }))
-            .withIsRequired(true).build(),
+          {
+            description: '',
+            isRequired: true,
+            name: 'item',
+            type: {
+              name: 'shape',
+              structure: {
+                param1: { name: 'string', structure: {} },
+                param2: { name: 'string', structure: {} },
+                param3: {
+                  name: 'shape',
+                  structure: {
+                    name: { name: 'string', structure: {} },
+                  },
+                },
+              },
+            },
+          },
         ];
 
         // when
