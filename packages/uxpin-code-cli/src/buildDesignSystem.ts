@@ -23,12 +23,12 @@ function bundle(libraries:string[] = []):Promise<Stats> {
   });
 }
 
-function createLibrary():Promise<void> {
+function createLibrary(wrapper:string):Promise<void> {
   return getDesignSystemComponents()
-    .then(createComponentsLibrary);
+    .then((components) => createComponentsLibrary(components, wrapper));
 }
 
-export function buildDesignSystem(libraries:string[]):Promise<Stats> {
-  return createLibrary()
+export function buildDesignSystem(libraries:string[], wrapper:string):Promise<Stats> {
+  return createLibrary(wrapper)
     .then(() => bundle(libraries));
 }
