@@ -35,8 +35,10 @@ const CONFIG:any = {
 
 const LOADER_BABEL:string = 'babel-loader';
 
-function getConfigDecoratedWithLibraries(libraries:string[]):any {
+function getConfigDecoratedWithLibraries(libraries:string[], target:string):any {
   const config:any = Object.assign({}, CONFIG);
+
+  config.output.libraryTarget = target;
 
   config.module.rules.forEach((rule:any) => {
     if (!rule || !rule.use) {
@@ -53,6 +55,6 @@ function getConfigDecoratedWithLibraries(libraries:string[]):any {
   return config;
 }
 
-export function getConfig(libraries:string[]):any {
-  return getConfigDecoratedWithLibraries(libraries);
+export function getConfig(libraries:string[], target:string):any {
+  return getConfigDecoratedWithLibraries(libraries, target);
 }

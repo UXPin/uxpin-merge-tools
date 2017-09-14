@@ -1,6 +1,6 @@
 import { runUxPinCodeCommand } from '../../utils/runUxPinCodeCommand';
 
-beforeAll(() => jest.setTimeout(10000));
+beforeAll(() => jest.setTimeout(15000));
 afterAll(() => jest.setTimeout(5000);
 
 describe('--summary option integration', () => {

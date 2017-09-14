@@ -5,9 +5,9 @@ import { getConfig } from './config/webpack.config';
 import { createComponentsLibrary } from './helpers/createComponentsLibrary';
 import { getDesignSystemComponents } from './helpers/getDesignSystemComponents';
 
-function bundle(libraries:string[] = []):Promise<Stats> {
+function bundle(libraries:string[] = [], target:string):Promise<Stats> {
   return new Promise((resolve, reject) => {
-    const compiler:Compiler = webpack(getConfig(libraries));
+    const compiler:Compiler = webpack(getConfig(libraries, target));
 
     compiler.run((err, stats) => {
       if (err) {
@@ -28,7 +28,7 @@ function createLibrary(wrapper:string):Promise<void> {
     .then((components) => createComponentsLibrary(components, wrapper));
 }
 
-export function buildDesignSystem(libraries:string[], wrapper:string):Promise<Stats> {
+export function buildDesignSystem(libraries:string[], wrapper:string, target:string):Promise<Stats> {
   return createLibrary(wrapper)
-    .then(() => bundle(libraries));
+    .then(() => bundle(libraries, target));
 }
