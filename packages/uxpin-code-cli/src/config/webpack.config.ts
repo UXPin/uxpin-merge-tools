@@ -24,7 +24,9 @@ const CONFIG:any = {
     ],
   },
   output: {
-    filename: 'bundle.js',
+    filename: 'components.js',
+    library: 'Components',
+    libraryTarget: 'amd',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
