@@ -28,7 +28,7 @@ export interface PropertyTypeStructureMap {
   node:{};
   number:{};
   object:{};
-  shape:{ [propName:string]:PropertyType };
+  shape:ShapeTypeStructure;
   string:{};
   symbol:{};
   typedArray:{ memberType:PropertyType };
@@ -38,4 +38,8 @@ export interface PropertyTypeStructureMap {
 
 export interface UnionTypeStructure {
   elements:PropertyType[];
+}
+
+export interface ShapeTypeStructure {
+  [propName:string]:PropertyType;
 }

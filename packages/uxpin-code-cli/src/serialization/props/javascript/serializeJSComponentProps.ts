@@ -2,11 +2,10 @@ import fsReadfilePromise = require('fs-readfile-promise');
 import { isEmpty, toPairs } from 'lodash';
 import { parse } from 'react-docgen';
 import { ComponentDoc, PropItem } from 'react-docgen-typescript/lib';
-import { ComponentPropertyDefinition, PropertyTypeName } from '../ComponentPropertyDefinition';
+import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { ComponentPropsList } from '../ComponentPropsList';
 import { parseValue } from './defaultValue/parseValue';
-import { convertTypeName } from './type/convertTypeName';
-import { convertTypeStructure } from './type/structure/convertTypeStructure';
+import { convertPropertyType } from './type/convertPropertyType';
 
 export function serializeJSComponentProps(componentFileLocation:string):Promise<ComponentPropsList> {
   return getDefaultComponentFrom(componentFileLocation).then((component:ComponentDoc) => {
@@ -15,20 +14,16 @@ export function serializeJSComponentProps(componentFileLocation:string):Promise<
   });
 }
 
-function propItemToPropDefinition(propName:string, propType:PropItem):Promise<ComponentPropertyDefinition> {
-  const propTypeName:PropertyTypeName = convertTypeName(propType.type.name);
+function propItemToPropDefinition(propName:string, propItem:PropItem):Promise<ComponentPropertyDefinition> {
   const definition:ComponentPropertyDefinition = {
-    description: propType.description,
-    isRequired: propType.required,
+    description: propItem.description,
+    isRequired: propItem.required,
     name: propName,
-    type: {
-      name: propTypeName,
-      structure: convertTypeStructure(propTypeName, propType.type.value),
-    },
+    type: convertPropertyType(propItem.type),
   };
 
-  if (propType.defaultValue) {
-    return parseValue(propType.defaultValue.value).then((value:any) => {
+  if (propItem.defaultValue) {
+    return parseValue(propItem.defaultValue.value).then((value:any) => {
       definition.defaultValue = { value };
       return definition;
     });

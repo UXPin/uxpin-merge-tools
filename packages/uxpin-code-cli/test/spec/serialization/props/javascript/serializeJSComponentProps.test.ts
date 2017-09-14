@@ -117,7 +117,7 @@ describe('serializeJSComponentProps', () => {
       const expectedProps:ComponentPropsList = [
         {
           description: '',
-          isRequired: true,
+          isRequired: false,
           name: 'item',
           type: {
             name: 'shape',
