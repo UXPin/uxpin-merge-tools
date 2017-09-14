@@ -1,12 +1,9 @@
 import { toPairs } from 'lodash';
 import { parse as parsePath } from 'path';
 import { ComponentDoc, parse, PropItem } from 'react-docgen-typescript/lib';
-import {
-  ComponentPropertyDefinition,
-  PropertyTypeName,
-  PropertyTypeStructureMap,
-} from '../ComponentPropertyDefinition';
+import { ComponentPropertyDefinition, PropertyTypeName } from '../ComponentPropertyDefinition';
 import { ComponentPropsList } from '../ComponentPropsList';
+import { convertTypeName } from './type/convertTypeName';
 
 export function serializeTSComponentProps(componentFileLocation:string):Promise<ComponentPropsList> {
   return new Promise((resolve) => {
@@ -17,24 +14,20 @@ export function serializeTSComponentProps(componentFileLocation:string):Promise<
 }
 
 function propItemToPropDefinition(propName:string, propType:PropItem):ComponentPropertyDefinition {
-  const propTypeName:PropertyTypeName = propType.type.name as PropertyTypeName;
+  const propTypeName:PropertyTypeName = convertTypeName(propType.type.name);
   const definition:ComponentPropertyDefinition = {
     description: propType.description,
     isRequired: propType.required,
     name: propName,
     type: {
       name: propTypeName,
-      structure: getTypeStructure(propTypeName, propType.type.value),
+      structure: {},
     },
   };
   if (propType.defaultValue) {
     definition.defaultValue = { value: propType.defaultValue };
   }
   return definition;
-}
-
-function getTypeStructure<T extends PropertyTypeName>(name:T, typeValue:any):PropertyTypeStructureMap[T] {
-  return { typeValue: typeValue as PropertyTypeStructureMap[T] };
 }
 
 function getDefaultComponentFrom(filePath:string):ComponentDoc {
