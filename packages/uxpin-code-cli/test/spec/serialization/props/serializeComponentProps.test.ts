@@ -1,295 +1,75 @@
 import { ComponentPropsList } from '../../../../src/serialization/props/ComponentPropsList';
 import { serializeComponentProps } from '../../../../src/serialization/props/serializeComponentProps';
-import { testDirPath } from '../../../utils/env/testDirPath';
+import {
+  getJavaScriptComponentPath,
+  getTypeScriptComponentPath,
+} from '../../../utils/resources/getExampleComponentPath';
 
 describe('serializeComponentProps – integration', () => {
   describe('providing array of objects describing all properties of the component', () => {
-    describe('implemented in TypeScript', () => {
-      it('serializes functional component with primitive property types', () => {
-        // given
-        const componentPath:string = getTypeScriptComponentPath('FunctionPrimitivesOnly');
-        const expectedProps:ComponentPropsList = [
-          {
-            description: '',
-            isRequired: false,
-            name: 'children',
-            type: { name: 'string', structure: {} },
-          },
-          {
-            description: '',
-            isRequired: true,
-            name: 'id',
-            type: { name: 'string', structure: {} },
-          },
-          {
-            description: '',
-            isRequired: false,
-            name: 'action',
-            type: { name: 'number', structure: {} },
-          },
-          {
-            description: '',
-            isRequired: false,
-            name: 'hidden',
-            type: { name: 'boolean', structure: {} },
-          },
-        ];
+    it('serializes component implemented in TypeScript', () => {
+      // given
+      const componentPath:string = getTypeScriptComponentPath('IntegrationCombo');
+      const expectedProps:ComponentPropsList = [
+        {
+          description: '',
+          isRequired: false,
+          name: 'children',
+          type: { name: 'string', structure: {} },
+        },
+        {
+          description: '',
+          isRequired: true,
+          name: 'value',
+          type: { name: 'string', structure: {} },
+        },
+        {
+          description: '',
+          isRequired: false,
+          name: 'id',
+          type: { name: 'number', structure: {} },
+        },
+      ];
 
-        // when
-        return serializeComponentProps(componentPath).then((serializedProps) => {
-          // then
-          expect(serializedProps).toEqual(expectedProps);
-        });
-      });
-
-      it('serializes class component with enum property types', () => {
-        // given
-        const componentPath:string = getTypeScriptComponentPath('ClassEnumTypes');
-        const expectedProps:ComponentPropsList = [
-          {
-            description: '',
-            isRequired: false,
-            name: 'children',
-            type: { name: 'node', structure: {} },
-          },
-          {
-            description: '',
-            isRequired: true,
-            name: 'appearance',
-            type: {
-              name: 'union',
-              structure: {
-                elements: [
-                  { name: 'literal', structure: { value: 'secondary' } },
-                  { name: 'literal', structure: { value: 'primary' } },
-                  { name: 'literal', structure: { value: 'link' } },
-                ],
-              },
-            },
-          },
-        ];
-
-        // when
-        return serializeComponentProps(componentPath).then((serializedProps) => {
-          // then
-          expect(serializedProps).toEqual(expectedProps);
-        });
-      });
-
-      it('serializes class component with default property values', () => {
-        // given
-        const componentPath:string = getTypeScriptComponentPath('ClassWithDefaults');
-        const expectedProps:ComponentPropsList = [
-          {
-            defaultValue: { value: 'Submit' },
-            description: '',
-            isRequired: false,
-            name: 'value',
-            type: { name: 'string', structure: {} },
-          },
-          {
-            defaultValue: { value: 'secondary' },
-            description: '',
-            isRequired: true,
-            name: 'appearance',
-            type: {
-              name: 'union',
-              structure: {
-                elements: [
-                  { name: 'literal', structure: { value: 'secondary' } },
-                  { name: 'literal', structure: { value: 'primary' } },
-                  { name: 'literal', structure: { value: 'link' } },
-                ],
-              },
-            },
-          },
-        ];
-
-        // when
-        return serializeComponentProps(componentPath).then((serializedProps) => {
-          // then
-          expect(serializedProps).toEqual(expectedProps);
-        });
-      });
-
-      it('component with interface property type', () => {
-        // given
-        const componentPath:string = getTypeScriptComponentPath('ClassInterfaceTypes');
-        const expectedProps:ComponentPropsList = [
-          {
-            description: '',
-            isRequired: true,
-            name: 'item',
-            type: {
-              name: 'shape',
-              structure: {
-                param1: { name: 'string', structure: {} },
-                param2: { name: 'string', structure: {} },
-                param3: {
-                  name: 'shape',
-                  structure: {
-                    name: { name: 'string', structure: {} },
-                  },
-                },
-              },
-            },
-          },
-        ];
-
-        // when
-        return serializeComponentProps(componentPath).then((serializedProps) => {
-          // then
-          expect(serializedProps).toEqual(expectedProps);
-        });
+      // when
+      return serializeComponentProps(componentPath).then((serializedProps) => {
+        // then
+        expect(serializedProps).toEqual(expectedProps);
       });
     });
 
-    describe('implemented in JavaScript', () => {
-      it('serializes functional component with primitive property types', () => {
-        // given
-        const componentPath:string = getJavaScriptComponentPath('FunctionPrimitivesOnly');
-        const expectedProps:ComponentPropsList = [
-          {
-            description: '',
-            isRequired: false,
-            name: 'children',
-            type: { name: 'string', structure: {} },
-          },
-          {
-            description: '',
-            isRequired: true,
-            name: 'id',
-            type: { name: 'string', structure: {} },
-          },
-          {
-            description: '',
-            isRequired: false,
-            name: 'action',
-            type: { name: 'number', structure: {} },
-          },
-          {
-            description: '',
-            isRequired: false,
-            name: 'hidden',
-            type: { name: 'boolean', structure: {} },
-          },
-        ];
-
-        // when
-        return serializeComponentProps(componentPath).then((serializedProps) => {
-          // then
-          expect(serializedProps).toEqual(expectedProps);
-        });
-      });
-
-      it('serializes class component with enum property types', () => {
-        // given
-        const componentPath:string = getJavaScriptComponentPath('ClassEnumTypes');
-        const expectedProps:ComponentPropsList = [
-          {
-            description: '',
-            isRequired: false,
-            name: 'children',
-            type: { name: 'node', structure: {} },
-          },
-          {
-            description: '',
-            isRequired: true,
-            name: 'appearance',
-            type: {
-              name: 'union',
-              structure: {
-                elements: [
-                  { name: 'literal', structure: { value: 'secondary' } },
-                  { name: 'literal', structure: { value: 'primary' } },
-                  { name: 'literal', structure: { value: 'link' } },
-                ],
-              },
+    it('serializes component implemented in JavaScript', () => {
+      // given
+      const componentPath:string = getJavaScriptComponentPath('IntegrationCombo');
+      const expectedProps:ComponentPropsList = [
+        {
+          description: '',
+          isRequired: false,
+          name: 'value',
+          type: { name: 'string', structure: {} },
+        },
+        {
+          description: '',
+          isRequired: true,
+          name: 'appearance',
+          type: {
+            name: 'union',
+            structure: {
+              elements: [
+                { name: 'literal', structure: { value: 'secondary' } },
+                { name: 'literal', structure: { value: 'primary' } },
+                { name: 'literal', structure: { value: 'link' } },
+              ],
             },
           },
-        ];
+        },
+      ];
 
-        // when
-        return serializeComponentProps(componentPath).then((serializedProps) => {
-          // then
-          expect(serializedProps).toEqual(expectedProps);
-        });
-      });
-
-      it('serializes class component with default property values', () => {
-        // given
-        const componentPath:string = getJavaScriptComponentPath('ClassWithDefaults');
-        const expectedProps:ComponentPropsList = [
-          {
-            defaultValue: { value: 'Submit' },
-            description: '',
-            isRequired: false,
-            name: 'value',
-            type: { name: 'string', structure: {} },
-          },
-          {
-            defaultValue: { value: 'secondary' },
-            description: '',
-            isRequired: true,
-            name: 'appearance',
-            type: {
-              name: 'union',
-              structure: {
-                elements: [
-                  { name: 'literal', structure: { value: 'secondary' } },
-                  { name: 'literal', structure: { value: 'primary' } },
-                  { name: 'literal', structure: { value: 'link' } },
-                ],
-              },
-            },
-          },
-        ];
-
-        // when
-        return serializeComponentProps(componentPath).then((serializedProps) => {
-          // then
-          expect(serializedProps).toEqual(expectedProps);
-        });
-      });
-
-      it('component with shape property type', () => {
-        // given
-        const componentPath:string = getJavaScriptComponentPath('ClassPropShapeType');
-        const expectedProps:ComponentPropsList = [
-          {
-            description: '',
-            isRequired: true,
-            name: 'item',
-            type: {
-              name: 'shape',
-              structure: {
-                param1: { name: 'string', structure: {} },
-                param2: { name: 'string', structure: {} },
-                param3: {
-                  name: 'shape',
-                  structure: {
-                    name: { name: 'string', structure: {} },
-                  },
-                },
-              },
-            },
-          },
-        ];
-
-        // when
-        return serializeComponentProps(componentPath).then((serializedProps) => {
-          // then
-          expect(serializedProps).toEqual(expectedProps);
-        });
+      // when
+      return serializeComponentProps(componentPath).then((serializedProps) => {
+        // then
+        expect(serializedProps).toEqual(expectedProps);
       });
     });
   });
-
-  function getTypeScriptComponentPath(componentName:string):string {
-    return `${testDirPath}resources/components/typescript/${componentName}.tsx`;
-  }
-
-  function getJavaScriptComponentPath(componentName:string):string {
-    return `${testDirPath}resources/components/javascript/${componentName}.jsx`;
-  }
 });
