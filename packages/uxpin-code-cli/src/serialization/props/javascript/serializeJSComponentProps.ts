@@ -1,48 +1,33 @@
-import fsReadfilePromise = require('fs-readfile-promise');
-import { isEmpty, toPairs } from 'lodash';
-import { parse } from 'react-docgen';
-import { ComponentDoc, PropItem } from 'react-docgen-typescript/lib';
-import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
+import { toPairs } from 'lodash';
+import { ComponentDoc } from 'react-docgen-typescript/lib';
+import { WarningDetails } from '../../../common/warning/WarningDetails';
+import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { PropsSerializationResult } from '../PropsSerializationResult';
-import { parseValue } from './defaultValue/parseValue';
-import { convertPropertyType } from './type/convertPropertyType';
+import { convertPropItemToPropertyDefinition } from './convertPropItemToPropertyDefinition';
+import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 
 export function serializeJSComponentProps(componentFileLocation:string):Promise<PropsSerializationResult> {
   return getDefaultComponentFrom(componentFileLocation).then((component:ComponentDoc) => {
     return Promise.all(
-      toPairs(component.props).map(([propName, propType]) => propItemToPropDefinition(propName, propType)));
-  }).then((props) => {
-    return { props, warnings: [] };
+      toPairs(component.props).map(([propName, propType]) => convertPropItemToPropertyDefinition(propName, propType)));
+  }).then((propResults:PropDefinitionSerializationResult[]) => {
+    return {
+      props: propResults.map((p) => p.definition),
+      warnings: joinWarningLists(componentFileLocation, propResults),
+    };
   });
 }
 
-function propItemToPropDefinition(propName:string, propItem:PropItem):Promise<ComponentPropertyDefinition> {
-  const definition:ComponentPropertyDefinition = {
-    description: propItem.description,
-    isRequired: propItem.required,
-    name: propName,
-    type: convertPropertyType(propItem.type),
+function joinWarningLists(componentPath:string, propResults:PropDefinitionSerializationResult[]):WarningDetails[] {
+  return propResults.reduce((aggregator, serializationResult) => {
+    [].push.apply(aggregator, serializationResult.warnings.map(supplyPathToWarning(componentPath)));
+    return aggregator;
+  }, [] as WarningDetails[]);
+}
+
+function supplyPathToWarning(path:string):(warning:WarningDetails) => WarningDetails {
+  return (warning:WarningDetails) => {
+    warning.sourcePath = path;
+    return warning;
   };
-
-  if (propItem.defaultValue) {
-    return parseValue(propItem.defaultValue.value).then((value:any) => {
-      definition.defaultValue = { value };
-      return definition;
-    });
-  }
-  return Promise.resolve(definition);
-}
-
-function getDefaultComponentFrom(filePath:string):Promise<ComponentDoc> {
-  return getFileContents(filePath).then((fileContents:string) => {
-    const component:ComponentDoc | undefined = parse(fileContents);
-    if (isEmpty(component)) {
-      throw new Error(`Cannot find default exported component in ${filePath}`);
-    }
-    return component;
-  });
-}
-
-function getFileContents(filePath:string):Promise<string> {
-  return fsReadfilePromise(filePath, { encoding: 'utf8' });
 }

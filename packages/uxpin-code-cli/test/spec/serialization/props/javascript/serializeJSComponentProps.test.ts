@@ -191,7 +191,7 @@ describe('serializeJSComponentProps', () => {
       const expectedProps:ComponentPropsList = [
         {
           description: '',
-          isRequired: false,
+          isRequired: true,
           name: 'value',
           type: {
             name: 'string',
@@ -200,7 +200,7 @@ describe('serializeJSComponentProps', () => {
         },
       ];
       const expectedWarning:WarningDetails = {
-        message: 'Cannot compute default value for property `value` of `CorruptedDefaultPropertyValue` component.',
+        message: 'Cannot compute default value for property `value`.',
         sourcePath: componentPath,
       };
 
