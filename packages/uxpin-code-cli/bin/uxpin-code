@@ -7,7 +7,7 @@ const { buildDesignSystem, getDesignSystemMetadata, getDesignSystemSummary } = r
 program
   .version('0.1.0')
   .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
-  .option('-s, --summary', 'Show design system summary')
+  .option('-s, --summary', 'Show only design system summary without building it')
   .option('-l, --libraries <items>', 'Use custom babel libraries', (items) => items.split(','))
   .parse(process.argv);
 
