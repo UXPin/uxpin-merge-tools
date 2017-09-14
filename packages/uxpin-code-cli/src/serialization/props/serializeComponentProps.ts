@@ -1,9 +1,9 @@
 import { extname } from 'path';
-import { ComponentPropsList } from './ComponentPropsList';
 import { serializeJSComponentProps } from './javascript/serializeJSComponentProps';
+import { PropsSerializationResult } from './PropsSerializationResult';
 import { serializeTSComponentProps } from './typescript/serializeTSComponentProps';
 
-export function serializeComponentProps(componentFileLocation:string):Promise<ComponentPropsList> {
+export function serializeComponentProps(componentFileLocation:string):Promise<PropsSerializationResult> {
   const TYPESCRIPT_COMPONENT_EXTENSION:string = '.tsx';
   const extension:string = extname(componentFileLocation);
   if (extension === TYPESCRIPT_COMPONENT_EXTENSION) {

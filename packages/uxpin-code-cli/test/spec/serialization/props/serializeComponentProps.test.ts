@@ -34,7 +34,8 @@ describe('serializeComponentProps – integration', () => {
       // when
       return serializeComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps).toEqual(expectedProps);
+        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
       });
     });
 
@@ -70,7 +71,8 @@ describe('serializeComponentProps – integration', () => {
       // when
       return serializeComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps).toEqual(expectedProps);
+        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
       });
     });
   });

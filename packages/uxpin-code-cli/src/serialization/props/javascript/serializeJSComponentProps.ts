@@ -3,14 +3,16 @@ import { isEmpty, toPairs } from 'lodash';
 import { parse } from 'react-docgen';
 import { ComponentDoc, PropItem } from 'react-docgen-typescript/lib';
 import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
-import { ComponentPropsList } from '../ComponentPropsList';
+import { PropsSerializationResult } from '../PropsSerializationResult';
 import { parseValue } from './defaultValue/parseValue';
 import { convertPropertyType } from './type/convertPropertyType';
 
-export function serializeJSComponentProps(componentFileLocation:string):Promise<ComponentPropsList> {
+export function serializeJSComponentProps(componentFileLocation:string):Promise<PropsSerializationResult> {
   return getDefaultComponentFrom(componentFileLocation).then((component:ComponentDoc) => {
     return Promise.all(
       toPairs(component.props).map(([propName, propType]) => propItemToPropDefinition(propName, propType)));
+  }).then((props) => {
+    return { props, warnings: [] };
   });
 }
 

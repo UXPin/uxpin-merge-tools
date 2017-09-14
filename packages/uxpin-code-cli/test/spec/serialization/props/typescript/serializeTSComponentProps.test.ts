@@ -37,7 +37,8 @@ describe('serializeTSComponentProps', () => {
       // when
       return serializeTSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps).toEqual(expectedProps);
+        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
       });
     });
 
@@ -72,7 +73,8 @@ describe('serializeTSComponentProps', () => {
       // when
       return serializeTSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps).toEqual(expectedProps);
+        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
       });
     });
 
@@ -109,7 +111,8 @@ describe('serializeTSComponentProps', () => {
       // when
       return serializeTSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps).toEqual(expectedProps);
+        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
       });
     });
 
@@ -141,7 +144,8 @@ describe('serializeTSComponentProps', () => {
       // when
       return serializeTSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps).toEqual(expectedProps);
+        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
       });
     });
   });
