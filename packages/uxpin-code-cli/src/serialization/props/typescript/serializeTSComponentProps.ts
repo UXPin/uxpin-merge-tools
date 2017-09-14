@@ -15,7 +15,7 @@ export function serializeTSComponentProps(componentFileLocation:string):Promise<
 
 function propItemToPropDefinition(propName:string, propType:PropItem):ComponentPropertyDefinition {
   const propTypeName:PropertyTypeName = convertTypeName(propType.type.name);
-  const definition:ComponentPropertyDefinition = {
+  return {
     description: propType.description,
     isRequired: propType.required,
     name: propName,
@@ -24,10 +24,6 @@ function propItemToPropDefinition(propName:string, propType:PropItem):ComponentP
       structure: {},
     },
   };
-  if (propType.defaultValue) {
-    definition.defaultValue = { value: propType.defaultValue };
-  }
-  return definition;
 }
 
 function getDefaultComponentFrom(filePath:string):ComponentDoc {
