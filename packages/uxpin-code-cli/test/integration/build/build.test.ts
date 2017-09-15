@@ -32,14 +32,16 @@ describe('Building design system', () => {
 
       it('contains Button component', () => {
         // when
+        const { Button } = components;
         // then
-        expect(components.Components.Button).toBeInstanceOf(Function);
+        expect(Button).toBeInstanceOf(Function);
       });
 
       it('contains custom wrapper', () => {
         // when
+        const { Wrapper } = components;
         // then
-        expect(components.Components.Wrapper).toBeInstanceOf(Function);
+        expect(Wrapper).toBeInstanceOf(Function);
       });
     });
   });

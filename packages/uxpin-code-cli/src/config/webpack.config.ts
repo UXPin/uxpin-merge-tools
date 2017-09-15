@@ -25,7 +25,6 @@ const CONFIG:any = {
   },
   output: {
     filename: 'components.js',
-    library: 'Components',
     libraryTarget: 'amd',
   },
   resolve: {
