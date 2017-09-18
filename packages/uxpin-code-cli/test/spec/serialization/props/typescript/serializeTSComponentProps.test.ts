@@ -1,4 +1,4 @@
-import { ComponentPropsList } from '../../../../../src/serialization/props/ComponentPropsList';
+import { ComponentPropertyDefinition } from '../../../../../src/serialization/props/ComponentPropertyDefinition';
 import { serializeTSComponentProps } from '../../../../../src/serialization/props/typescript/serializeTSComponentProps';
 import { getTypeScriptComponentPath } from '../../../../utils/resources/getExampleComponentPath';
 
@@ -7,7 +7,7 @@ describe('serializeTSComponentProps', () => {
     it('serializes functional component with primitive property types', () => {
       // given
       const componentPath:string = getTypeScriptComponentPath('FunctionPrimitivesOnly');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           description: '',
           isRequired: false,
@@ -46,7 +46,7 @@ describe('serializeTSComponentProps', () => {
     xit('serializes class component with enum property types', () => {
       // given
       const componentPath:string = getTypeScriptComponentPath('ClassEnumTypes');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           description: '',
           isRequired: false,
@@ -82,7 +82,7 @@ describe('serializeTSComponentProps', () => {
     xit('serializes class component with default property values', () => {
       // given
       const componentPath:string = getTypeScriptComponentPath('ClassWithDefaults');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           defaultValue: { value: 'Submit' },
           description: '',
@@ -120,7 +120,7 @@ describe('serializeTSComponentProps', () => {
     xit('component with interface property type', () => {
       // given
       const componentPath:string = getTypeScriptComponentPath('ClassInterfaceTypes');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           description: '',
           isRequired: true,

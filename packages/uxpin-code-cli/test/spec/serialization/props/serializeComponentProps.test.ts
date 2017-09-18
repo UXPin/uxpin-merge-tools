@@ -1,4 +1,4 @@
-import { ComponentPropsList } from '../../../../src/serialization/props/ComponentPropsList';
+import { ComponentPropertyDefinition } from '../../../../src/serialization/props/ComponentPropertyDefinition';
 import { serializeComponentProps } from '../../../../src/serialization/props/serializeComponentProps';
 import {
   getJavaScriptComponentPath,
@@ -10,7 +10,7 @@ describe('serializeComponentProps – integration', () => {
     it('serializes component implemented in TypeScript', () => {
       // given
       const componentPath:string = getTypeScriptComponentPath('IntegrationCombo');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           description: '',
           isRequired: false,
@@ -42,7 +42,7 @@ describe('serializeComponentProps – integration', () => {
     it('serializes component implemented in JavaScript', () => {
       // given
       const componentPath:string = getJavaScriptComponentPath('IntegrationCombo');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           defaultValue: { value: 'Submit' },
           description: 'Description for `value` property',

@@ -2,6 +2,7 @@ import { ComponentPropertyDefinition } from '../props/ComponentPropertyDefinitio
 
 export interface ComponentDefinition {
   name:string;
+  dirPath:string;
   implementation:ComponentImplementation;
   properties:ComponentPropertyDefinition[];
 }

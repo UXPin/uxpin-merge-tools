@@ -1,5 +1,5 @@
 import { WarningDetails } from '../../../../../src/common/warning/WarningDetails';
-import { ComponentPropsList } from '../../../../../src/serialization/props/ComponentPropsList';
+import { ComponentPropertyDefinition } from '../../../../../src/serialization/props/ComponentPropertyDefinition';
 import { serializeJSComponentProps } from '../../../../../src/serialization/props/javascript/serializeJSComponentProps';
 import { getJavaScriptComponentPath } from '../../../../utils/resources/getExampleComponentPath';
 
@@ -8,7 +8,7 @@ describe('serializeJSComponentProps', () => {
     it('serializes functional component with primitive property types', () => {
       // given
       const componentPath:string = getJavaScriptComponentPath('FunctionPrimitivesOnly');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           description: '',
           isRequired: false,
@@ -46,7 +46,7 @@ describe('serializeJSComponentProps', () => {
     it('serializes class component with enum property types', () => {
       // given
       const componentPath:string = getJavaScriptComponentPath('ClassEnumTypes');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           description: '',
           isRequired: false,
@@ -81,7 +81,7 @@ describe('serializeJSComponentProps', () => {
     it('serializes class component with default property values', () => {
       // given
       const componentPath:string = getJavaScriptComponentPath('ClassWithDefaults');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           defaultValue: { value: 'Submit' },
           description: '',
@@ -118,7 +118,7 @@ describe('serializeJSComponentProps', () => {
     it('serializes component with shape property type', () => {
       // given
       const componentPath:string = getJavaScriptComponentPath('ClassPropShapeType');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           description: '',
           isRequired: false,
@@ -150,7 +150,7 @@ describe('serializeJSComponentProps', () => {
     it('serializes component with shape property type and a default value for it', () => {
       // given
       const componentPath:string = getJavaScriptComponentPath('PropShapeTypeWithDefault');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           defaultValue: {
             value: {
@@ -188,7 +188,7 @@ describe('serializeJSComponentProps', () => {
     it('provides warning details for corrupted default property values', () => {
       // given
       const componentPath:string = getJavaScriptComponentPath('CorruptedDefaultPropertyValue');
-      const expectedProps:ComponentPropsList = [
+      const expectedProps:ComponentPropertyDefinition[] = [
         {
           description: '',
           isRequired: true,
