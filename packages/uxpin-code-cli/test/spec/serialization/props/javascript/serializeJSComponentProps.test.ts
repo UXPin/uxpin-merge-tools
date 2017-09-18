@@ -213,5 +213,29 @@ describe('serializeJSComponentProps', () => {
         expect(serializedProps.warnings[0].originalError).toBeInstanceOf(Error);
       });
     });
+
+    it('rejects returned promise when there is no React component in the given file', (done) => {
+      // given
+      const filePath:string = getJavaScriptComponentPath('FileWithoutComponent');
+
+      // when
+      serializeJSComponentProps(filePath).catch((error) => {
+        // then
+        expect(error.message).toMatch(/No .*component .*found/i);
+        done();
+      });
+    });
+
+    it('rejects returned promise when there is no file at the given path', (done) => {
+      // given
+      const filePath:string = getJavaScriptComponentPath('NonexistentFile');
+
+      // when
+      serializeJSComponentProps(filePath).catch((error) => {
+        // then
+        expect(error.message).toMatch(/No .*such .*file/i);
+        done();
+      });
+    });
   });
 });

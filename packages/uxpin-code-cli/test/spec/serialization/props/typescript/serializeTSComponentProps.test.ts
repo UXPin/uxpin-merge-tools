@@ -148,5 +148,28 @@ describe('serializeTSComponentProps', () => {
         expect(serializedProps.warnings).toEqual([]);
       });
     });
+
+    it('rejects returned promise when there is no React component in the given file', (done) => {
+      // given
+      const filePath:string = getTypeScriptComponentPath('FileWithoutComponent');
+
+      // when
+      serializeTSComponentProps(filePath).catch((error) => {
+        // then
+        expect(error.message).toMatch(/No .*component .*found/i);
+        done();
+      });
+    });
+
+    it('rejects returned promise when there is no file at the given path', (done) => {
+      // given
+      const filePath:string = getTypeScriptComponentPath('NonexistentFile');
+
+      // when
+      serializeTSComponentProps(filePath).catch(() => {
+        // then
+        done();
+      });
+    });
   });
 });

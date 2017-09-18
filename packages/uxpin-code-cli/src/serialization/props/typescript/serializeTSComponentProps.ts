@@ -28,12 +28,17 @@ function propItemToPropDefinition(propName:string, propType:PropItem):ComponentP
 }
 
 function getDefaultComponentFrom(filePath:string):ComponentDoc {
-  const components:ComponentDoc[] = parse(filePath);
+  let components:ComponentDoc[];
+  try {
+    components = parse(filePath);
+  } catch (e) {
+    components = [];
+  }
   const expectedComponentName:string = parsePath(filePath).name;
   const nameRegex:RegExp = new RegExp(expectedComponentName, 'i');
   const component:ComponentDoc | undefined = components.find((c) => nameRegex.test(c.displayName));
   if (component) {
     return component;
   }
-  throw new Error(`Cannot find ${expectedComponentName} component in ${filePath}`);
+  throw new Error(`No \`${expectedComponentName}\` component found in ${filePath}`);
 }
