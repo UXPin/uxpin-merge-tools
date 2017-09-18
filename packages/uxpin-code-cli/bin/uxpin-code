@@ -15,10 +15,12 @@ if (program.summary) {
     .then(console.log)
     .catch(logError);
 }
+if (program.dump) {
+  return getDesignSystemMetadata()
+    .then(console.log)
+    .catch(logError);
+}
 
-getDesignSystemMetadata(!!program.dump)
-  .then(console.log)
-  .catch(logError);
 
 function logError(error) {
   console.log('ERROR:', error.message);

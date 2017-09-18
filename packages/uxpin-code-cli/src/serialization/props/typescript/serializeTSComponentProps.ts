@@ -2,13 +2,12 @@ import { toPairs } from 'lodash';
 import { parse as parsePath } from 'path';
 import { ComponentDoc, parse, PropItem } from 'react-docgen-typescript/lib';
 import { ComponentPropertyDefinition, PropertyTypeName } from '../ComponentPropertyDefinition';
-import { ComponentPropsList } from '../ComponentPropsList';
 import { PropsSerializationResult } from '../PropsSerializationResult';
 import { convertTypeName } from './type/convertTypeName';
 
 export function serializeTSComponentProps(componentFileLocation:string):Promise<PropsSerializationResult> {
   return new Promise((resolve) => {
-    const props:ComponentPropsList = toPairs(getDefaultComponentFrom(componentFileLocation).props)
+    const props:ComponentPropertyDefinition[] = toPairs(getDefaultComponentFrom(componentFileLocation).props)
       .map(([propName, propType]) => propItemToPropDefinition(propName, propType));
     resolve({ props, warnings: [] });
   });
