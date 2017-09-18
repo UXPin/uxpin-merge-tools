@@ -1,6 +1,6 @@
 import { toPairs } from 'lodash';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
-import { WarningDetails } from '../../../common/warning/WarningDetails';
+import { joinWarningLists } from '../../../common/warning/joinWarningLists';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { PropsSerializationResult } from '../PropsSerializationResult';
 import { convertPropItemToPropertyDefinition } from './convertPropItemToPropertyDefinition';
@@ -13,21 +13,7 @@ export function serializeJSComponentProps(componentFileLocation:string):Promise<
   }).then((propResults:PropDefinitionSerializationResult[]) => {
     return {
       props: propResults.map((p) => p.definition),
-      warnings: joinWarningLists(componentFileLocation, propResults),
+      warnings: joinWarningLists(propResults.map((p) => p.warnings), componentFileLocation),
     };
   });
-}
-
-function joinWarningLists(componentPath:string, propResults:PropDefinitionSerializationResult[]):WarningDetails[] {
-  return propResults.reduce((aggregator, serializationResult) => {
-    [].push.apply(aggregator, serializationResult.warnings.map(supplyPathToWarning(componentPath)));
-    return aggregator;
-  }, [] as WarningDetails[]);
-}
-
-function supplyPathToWarning(path:string):(warning:WarningDetails) => WarningDetails {
-  return (warning:WarningDetails) => {
-    warning.sourcePath = path;
-    return warning;
-  };
 }
