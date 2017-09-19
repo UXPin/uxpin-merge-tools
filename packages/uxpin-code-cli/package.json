@@ -36,16 +36,23 @@
     "testEnvironment": "node"
   },
   "devDependencies": {
+    "@shopify/polaris": "https://github.com/Shopify/polaris.git",
     "@types/jest": "^20.0.8",
+    "@types/lodash": "^4.14.74",
     "@types/node": "^8.0.26",
+    "arui-feather": "https://github.com/alfa-laboratory/arui-feather.git",
     "child-process-promise": "^2.2.1",
     "codecov": "^2.3.0",
     "jest": "^21.0.1",
     "jest-junit-reporter": "^1.1.0",
+    "nordnet-ui-kit": "https://github.com/nordnet/nordnet-ui-kit.git",
     "nyc": "^11.2.1",
     "ts-jest": "^21.0.0",
     "tslint": "^5.7.0",
     "tslint-config-uxpin": "latest",
     "typescript": "^2.5.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
   }
 }

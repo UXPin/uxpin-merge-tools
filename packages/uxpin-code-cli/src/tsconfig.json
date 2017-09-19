@@ -8,6 +8,7 @@
     "baseUrl": "../",
     "skipLibCheck": true,
     "outDir": "../dist/",
+    "skipLibCheck": true,
     "paths": {
       "*": [
         "node_modules/*",

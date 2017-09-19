@@ -1,7 +1,8 @@
 /node_modules
 /dist
-/packages/uxpin-code-cli/test/**/*.js
-/packages/uxpin-code-cli/test/**/*.js.map
 /coverage
 /coverage-cli
 .nyc_output
+/test/**/*.js
+/test/**/*.js.map
+/test/resources/repos/

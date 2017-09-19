@@ -33,6 +33,9 @@ jobs:
           name: check
           command: make check
       - run:
+          name: test-resources
+          command: make test-resources
+      - run:
           name: test
           command: ./node_modules/.bin/jest --testResultsProcessor="jest-junit-reporter" --coverage
           environment:

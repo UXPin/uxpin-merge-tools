@@ -1,5 +1,25 @@
 #!/usr/bin/env node
 
-const uxPinCode = require('../dist/index').uxPinCode;
+const program = require('commander');
 
-console.log(uxPinCode());
+const { getDesignSystemMetadata, getDesignSystemSummary } = require('../dist/index');
+
+program
+  .version(require('../package.json').version)
+  .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
+  .option('-s, --summary', 'Show design system summary')
+  .parse(process.argv);
+
+if (program.summary) {
+  return getDesignSystemSummary()
+    .then(console.log)
+    .catch(logError);
+}
+
+getDesignSystemMetadata(!!program.dump)
+  .then(console.log)
+  .catch(logError);
+
+function logError(error) {
+  console.log('ERROR:', error.message);
+}
