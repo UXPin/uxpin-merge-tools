@@ -7,7 +7,7 @@ const { buildDesignSystem, getDesignSystemMetadata, getDesignSystemSummary } = r
 const MODE_AMD = 'amd';
 
 program
-  .version('0.1.0')
+  .version(require('../package.json').version)
   .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
   .option('-s, --summary', 'Show only design system summary without building it')
   .option('--libraries <items>', 'Use custom babel libraries', (items) => items.split(','))

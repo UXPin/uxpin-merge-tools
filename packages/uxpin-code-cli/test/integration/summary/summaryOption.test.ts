@@ -1,4 +1,4 @@
-import { runUxPinCodeCommand } from '../../utils/runUxPinCodeCommand';
+import { runUXPinCodeCommand } from '../../utils/runUXPinCodeCommand';
 
 beforeAll(() => jest.setTimeout(15000));
 afterAll(() => jest.setTimeout(5000);
@@ -7,7 +7,7 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in arui-feather example', () => {
       // when
-      return runUxPinCodeCommand('resources/repos/arui-feather', '--summary').then((output) => {
+      return runUXPinCodeCommand('resources/repos/arui-feather', '--summary').then((output) => {
         // then
         expect(output).toContain(`amount
 app-content
@@ -67,7 +67,7 @@ user`);
     });
     it('prints the list of components found in nordnet-ui-kit example', () => {
       // when
-      return runUxPinCodeCommand('resources/repos/nordnet-ui-kit', '--summary').then((output) => {
+      return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', '--summary').then((output) => {
         // then
         expect(output).toContain(`alert
 animate
