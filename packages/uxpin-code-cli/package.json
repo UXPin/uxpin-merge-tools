@@ -30,6 +30,23 @@
     ],
     "testEnvironment": "node"
   },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "lcov"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "test/**/*.ts"
+    ],
+    "all": true,
+    "cache": true
+  },
   "devDependencies": {
     "@shopify/polaris": "https://github.com/Shopify/polaris.git",
     "@types/jest": "^20.0.8",
@@ -42,6 +59,7 @@
     "jest-junit-reporter": "^1.1.0",
     "nordnet-ui-kit": "https://github.com/nordnet/nordnet-ui-kit.git",
     "nyc": "^11.2.1",
+    "source-map-support": "^0.4.18",
     "ts-jest": "^21.0.0",
     "tslint": "^5.7.0",
     "tslint-config-uxpin": "latest",
