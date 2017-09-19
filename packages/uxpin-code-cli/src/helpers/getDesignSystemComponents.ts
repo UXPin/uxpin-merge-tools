@@ -1,4 +1,4 @@
-import { existsSync, readdir, statSync } from 'fs';
+import { readdir, stat } from 'fs';
 import { every, some } from 'lodash';
 import { join } from 'path';
 
@@ -10,58 +10,86 @@ const PATHS:string[][] = [
   [DIR_SRC],
 ];
 
-function getComponentsDirectory():string {
+function getComponentsDirectory():Promise<string> {
   const cwd:string = process.cwd();
   const paths:string[] = PATHS.map((directories) => join(cwd, ...directories));
-  const found:string|undefined = paths.find((path) => existsSync(path));
 
-  if (!found) {
-    throw new Error('Unable to locate components source directory');
-  }
+  return Promise.all(paths.map(isDirectory))
+    .then((isDirectoryList) => {
+      const found:string|undefined = paths.find((path, index) => isDirectoryList[index]);
 
-  return found;
+      if (!found) {
+        throw new Error('Unable to locate components source directory');
+      }
+
+      return found;
+    });
 }
 
-function getComponentPath(path:string, fileName:string):string {
-  return fileName;
+function isDirectory(path:string):Promise<boolean> {
+  return new Promise((resolve) => {
+    stat(path, (error, stats) => {
+      if (error) {
+        return resolve(false);
+      }
+
+      resolve(stats.isDirectory());
+    });
+  });
 }
 
-function isDirectory(path:string):boolean {
-  return statSync(path).isDirectory();
+function isFile(path:string):Promise<boolean> {
+  return new Promise((resolve) => {
+    stat(path, (error, stats) => {
+      if (error) {
+        return resolve(false);
+      }
+
+      resolve(stats.isFile());
+    });
+  });
 }
 
-function containsJSXFile(path:string, fileName:string):boolean {
-  return some([
-    existsSync(join(path, `${fileName}.jsx`)),
-    existsSync(join(path, `${fileName}.tsx`)),
-  ]);
+function containsJSXFile(path:string, fileName:string):Promise<boolean> {
+  return Promise.all([
+    isFile(join(path, `${fileName}.jsx`)),
+    isFile(join(path, `${fileName}.tsx`)),
+  ])
+    .then(some);
 }
 
-function isComponent(path:string, fileName:string):boolean {
-  return every([
+function isComponent(path:string, fileName:string):Promise<boolean> {
+  return Promise.all([
     isDirectory(path),
     containsJSXFile(path, fileName),
-  ]);
+  ])
+    .then(every);
 }
 
-export function getDesignSystemComponents():Promise<string[]> {
+function getDirectoryContent(path:string):Promise<string[]> {
   return new Promise((resolve, reject) => {
-    const componentsDirectory:string = getComponentsDirectory();
-
-    readdir(componentsDirectory, (err, fileNames) => {
+    readdir(path, (err, fileNames) => {
       if (err) {
         return reject(err);
       }
 
-      resolve(fileNames.reduce((componentPaths, fileName) => {
-        const path:string = join(componentsDirectory, fileName);
-
-        if (isComponent(path, fileName)) {
-          return [...componentPaths, getComponentPath(path, fileName)];
-        }
-
-        return componentPaths;
-      }, [] as string[]));
+      resolve(fileNames);
     });
   });
+}
+
+function filterComponents(fileNames:string[], componentsDirectory:string):Promise<string[]> {
+  return Promise.all(fileNames.map((fileName) => {
+    const path:string = join(componentsDirectory, fileName);
+    return isComponent(path, fileName);
+  }))
+    .then((isComponentList) => fileNames.filter((fileName, index) => isComponentList[index]));
+}
+
+export function getDesignSystemComponents():Promise<string[]> {
+  let componentsDirectory:string;
+  return getComponentsDirectory()
+    .then((directory) => componentsDirectory = directory)
+    .then(getDirectoryContent)
+    .then((content) => filterComponents(content, componentsDirectory));
 }
