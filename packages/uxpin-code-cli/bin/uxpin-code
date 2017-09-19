@@ -5,7 +5,7 @@ const program = require('commander');
 const { getDesignSystemMetadata, getDesignSystemSummary } = require('../dist/index');
 
 program
-  .version('0.1.0')
+  .version(require('../package.json').version)
   .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
   .option('-s, --summary', 'Show design system summary')
   .parse(process.argv);

@@ -1,10 +1,10 @@
-import { runUxPinCodeCommand } from '../../utils/command/runUxPinCodeCommand';
+import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
 
 describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in arui-feather example', () => {
       // when
-      return runUxPinCodeCommand('resources/repos/arui-feather', '--summary').then((output) => {
+      return runUXPinCodeCommand('resources/repos/arui-feather', '--summary').then((output) => {
         // then
         expect(output).toContain(`amount
 app-content
@@ -64,7 +64,7 @@ user`);
     });
     it('prints the list of components found in nordnet-ui-kit example', () => {
       // when
-      return runUxPinCodeCommand('resources/repos/nordnet-ui-kit', '--summary').then((output) => {
+      return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', '--summary').then((output) => {
         // then
         expect(output).toContain(`alert
 animate

@@ -5,7 +5,7 @@ import { runCommand } from './runCommand';
 const nycPath:string = path.join(__dirname, '../../../node_modules/.bin/nyc');
 const uxPinPath:string = path.join(__dirname, '../../../bin/uxpin-code');
 
-export function runUxPinCodeCommand(workingDir:string, options?:string):Promise<string> {
+export function runUXPinCodeCommand(workingDir:string, options?:string):Promise<string> {
   const absoluteWorkingDir:string = getAbsoluteWorkingDir(workingDir);
   const coverageDir:string = getCoverageDirPath();
   const coverageCommand:string = `${nycPath} --reporter=lcov --report-dir=${coverageDir}`;
