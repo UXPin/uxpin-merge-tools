@@ -44,8 +44,7 @@
       "**/*.d.ts",
       "test/**/*.ts"
     ],
-    "all": true,
-    "cache": true
+    "all": true
   },
   "devDependencies": {
     "@shopify/polaris": "https://github.com/Shopify/polaris.git",
