@@ -1,6 +1,7 @@
-import { readdir, stat } from 'fs';
-import { every, some } from 'lodash';
 import { join } from 'path';
+
+import { getDirectoryContent, isDirectory } from '../utils/asynchronousFS';
+import { isComponent } from './isComponent';
 
 const DIR_COMPONENTS:string = 'components';
 const DIR_SRC:string = 'src';
@@ -24,58 +25,6 @@ function getComponentsDirectory():Promise<string> {
 
       return found;
     });
-}
-
-function isDirectory(path:string):Promise<boolean> {
-  return new Promise((resolve) => {
-    stat(path, (error, stats) => {
-      if (error) {
-        return resolve(false);
-      }
-
-      resolve(stats.isDirectory());
-    });
-  });
-}
-
-function isFile(path:string):Promise<boolean> {
-  return new Promise((resolve) => {
-    stat(path, (error, stats) => {
-      if (error) {
-        return resolve(false);
-      }
-
-      resolve(stats.isFile());
-    });
-  });
-}
-
-function containsJSXFile(path:string, fileName:string):Promise<boolean> {
-  return Promise.all([
-    isFile(join(path, `${fileName}.jsx`)),
-    isFile(join(path, `${fileName}.tsx`)),
-  ])
-    .then(some);
-}
-
-function isComponent(path:string, fileName:string):Promise<boolean> {
-  return Promise.all([
-    isDirectory(path),
-    containsJSXFile(path, fileName),
-  ])
-    .then(every);
-}
-
-function getDirectoryContent(path:string):Promise<string[]> {
-  return new Promise((resolve, reject) => {
-    readdir(path, (err, fileNames) => {
-      if (err) {
-        return reject(err);
-      }
-
-      resolve(fileNames);
-    });
-  });
 }
 
 function filterComponents(fileNames:string[], componentsDirectory:string):Promise<string[]> {
