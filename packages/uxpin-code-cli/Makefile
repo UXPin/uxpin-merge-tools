@@ -4,18 +4,17 @@ SHELL := /bin/bash -o pipefail
 .PHONY: build check test clean test-resources
 
 build:
-	cd ./src && tsc
+	tsc
 
 check:
-	cd ./src && tslint --project tsconfig.json --type-check
-	cd ./test && tslint --project tsconfig.json --type-check
+	tslint --project tsconfig.json --type-check
 
 test:
 	make test-resources
 	jest --forceExit
 
 clean:
-	rm -rf ./dist/*
+	rm -rf ./dist/
 	find ./src -name "*.js" -delete
 	find ./src -name "*.js.map" -delete
 	find ./src -type d -empty -delete
