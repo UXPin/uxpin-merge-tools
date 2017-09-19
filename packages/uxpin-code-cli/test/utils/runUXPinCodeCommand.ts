@@ -9,7 +9,7 @@ const uxPinPath:string = join(packageRootDir, 'bin/uxpin-code');
 export function runUXPinCodeCommand(workingDir:string, options?:string):Promise<string> {
   const absoluteWorkingDir:string = getAbsoluteWorkingDir(workingDir);
   const coverageDir:string = getCoverageOutputDirPath();
-  const coverageCommand:string = `${nycPath} --cwd="${packageRootDir}" --report-dir="${coverageDir}"`;
+  const coverageCommand:string = `${nycPath} --cwd="${packageRootDir}" --report-dir="${coverageDir}" --reporter=lcov`;
   return runCommand(`cd ${absoluteWorkingDir} && ${coverageCommand} ${uxPinPath} ${options}`);
 }
 

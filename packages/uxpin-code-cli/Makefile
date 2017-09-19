@@ -11,7 +11,7 @@ check:
 
 test:
 	make test-resources
-	jest --forceExit
+	jest
 
 clean:
 	rm -rf ./dist/
