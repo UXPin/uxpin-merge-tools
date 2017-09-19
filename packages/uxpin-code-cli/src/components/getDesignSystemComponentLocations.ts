@@ -11,6 +11,14 @@ const PATHS:string[][] = [
   [DIR_SRC],
 ];
 
+export function getDesignSystemComponentLocations():Promise<string[]> {
+  let componentsDirectory:string;
+  return getComponentsDirectory()
+    .then((directory) => componentsDirectory = directory)
+    .then(getDirectoryContent)
+    .then((content) => filterComponents(content, componentsDirectory));
+}
+
 function getComponentsDirectory():Promise<string> {
   const cwd:string = process.cwd();
   const paths:string[] = PATHS.map((directories) => join(cwd, ...directories));
@@ -33,12 +41,4 @@ function filterComponents(fileNames:string[], componentsDirectory:string):Promis
     return isComponent(path, fileName);
   }))
     .then((isComponentList) => fileNames.filter((fileName, index) => isComponentList[index]));
-}
-
-export function getDesignSystemComponentLocations():Promise<string[]> {
-  let componentsDirectory:string;
-  return getComponentsDirectory()
-    .then((directory) => componentsDirectory = directory)
-    .then(getDirectoryContent)
-    .then((content) => filterComponents(content, componentsDirectory));
 }
