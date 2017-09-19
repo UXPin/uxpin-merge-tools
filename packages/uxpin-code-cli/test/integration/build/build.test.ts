@@ -1,4 +1,4 @@
-import { runUxPinCodeCommand } from '../../utils/runUxPinCodeCommand';
+import { runUXPinCodeCommand } from '../../utils/runUXPinCodeCommand';
 
 beforeAll(() => jest.setTimeout(60000));
 afterAll(() => jest.setTimeout(5000);
@@ -7,7 +7,7 @@ describe('Building design system', () => {
   describe('nordnet-ui-kit', () => {
     describe('without custom libraries', () => {
       it('throws an error', () => {
-        return runUxPinCodeCommand('resources/repos/nordnet-ui-kit')
+        return runUXPinCodeCommand('resources/repos/nordnet-ui-kit')
           .catch((error) => {
             expect(error).toContain('Module build failed');
           });
@@ -24,7 +24,7 @@ describe('Building design system', () => {
           '--wrapper "../documentation/wrapper.jsx"',
         ].join(' ');
 
-        return runUxPinCodeCommand('resources/repos/nordnet-ui-kit', options)
+        return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', options)
           .then(() => {
             components = require('../../resources/repos/nordnet-ui-kit/components.js');
           });

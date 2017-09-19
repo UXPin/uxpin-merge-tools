@@ -1,9 +1,9 @@
 import * as webpack from 'webpack';
 import { Compiler, Stats } from 'webpack';
 
+import { createComponentsLibrary } from './building/library/createComponentsLibrary';
+import { getDesignSystemComponentLocations } from './components/getDesignSystemComponentLocations';
 import { getConfig } from './config/webpack.config';
-import { createComponentsLibrary } from './helpers/createComponentsLibrary';
-import { getDesignSystemComponents } from './helpers/getDesignSystemComponents';
 
 function bundle(libraries:string[] = [], target:string):Promise<Stats> {
   return new Promise((resolve, reject) => {
@@ -24,7 +24,7 @@ function bundle(libraries:string[] = [], target:string):Promise<Stats> {
 }
 
 function createLibrary(wrapper:string):Promise<void> {
-  return getDesignSystemComponents()
+  return getDesignSystemComponentLocations()
     .then((components) => createComponentsLibrary(components, wrapper));
 }
 

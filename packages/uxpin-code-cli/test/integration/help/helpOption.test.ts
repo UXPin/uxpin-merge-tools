@@ -21,7 +21,7 @@ describe('--help option', () => {
 
   it('it prints help for --libraries <items> option', () => {
     // when
-    return runUxPinCodeCommand('./', '--help').then((output) => {
+    return runUXPinCodeCommand('./', '--help').then((output) => {
       // then
       expect(output).toContain('--libraries <items>');
       expect(output).toContain('Use custom babel libraries');
