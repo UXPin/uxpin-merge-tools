@@ -86,7 +86,7 @@ function filterComponents(fileNames:string[], componentsDirectory:string):Promis
     .then((isComponentList) => fileNames.filter((fileName, index) => isComponentList[index]));
 }
 
-export function getDesignSystemComponents():Promise<string[]> {
+export function getDesignSystemComponentLocations():Promise<string[]> {
   let componentsDirectory:string;
   return getComponentsDirectory()
     .then((directory) => componentsDirectory = directory)
