@@ -14,11 +14,9 @@
     "UI components"
   ],
   "jest": {
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "test/tsconfig.json"
-      }
-    },
+    "coverageReporters": [
+      "lcov"
+    ],
     "collectCoverageFrom": [
       "src/**/*.ts",
       "!src/**/*.d.ts"
@@ -34,6 +32,22 @@
       "**/test/**/*.test.ts"
     ],
     "testEnvironment": "node"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "lcov"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "test/**/*.ts"
+    ],
+    "all": true
   },
   "devDependencies": {
     "@shopify/polaris": "https://github.com/Shopify/polaris.git",

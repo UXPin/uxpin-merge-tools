@@ -6,7 +6,7 @@
     "strict": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
-    "baseUrl": "../",
+    "baseUrl": "./",
     "paths": {
       "*": [
         "node_modules/*",
@@ -16,7 +16,7 @@
     }
   },
   "exclude": [
-    "resources/repos/**",
-    "../node_modules/**"
+    "test/resources/repos/**",
+    "node_modules/"
   ]
 }
