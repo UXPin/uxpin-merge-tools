@@ -72,31 +72,31 @@ user`);
       return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', '--summary')
         .then((output) => {
           // then
-          expect(output).toContain(`components/alert
-components/animate
-components/avatar
-components/badge
-components/button
-components/dropdown
-components/flag
-components/icon
-components/input
-components/labeled-value
-components/li
-components/logo
-components/pane
-components/radio-group
-components/segmented-control
-components/spinner
-components/table
-components/tbody\n` + // no examples
-`components/td\n` + // no examples
-`components/tfoot\n` + // no examples
-`components/th\n` + // no examples
-`components/thead\n` + // no examples
-`components/tooltip
-components/tr\n` + // no examples
-`components/ul`);
+          expect(output).toContain(`alert
+animate
+avatar
+badge
+button
+dropdown
+flag
+icon
+input
+labeled-value
+li
+logo
+pane
+radio-group
+segmented-control
+spinner
+table
+tbody\n` + // no examples
+`td\n` + // no examples
+`tfoot\n` + // no examples
+`th\n` + // no examples
+`thead\n` + // no examples
+`tooltip
+tr\n` + // no examples
+`ul`);
         });
     });
 
@@ -105,62 +105,62 @@ components/tr\n` + // no examples
       return runUXPinCodeCommand('resources/repos/polaris', '--summary')
         .then((output) => {
           // then
-          expect(output).toContain(`components/AccountConnection
-components/ActionList
-components/Avatar
-components/Badge
-components/Banner
-components/Breadcrumbs
-components/Button
-components/ButtonGroup
-components/CalloutCard
-components/Caption
-components/Card
-components/Checkbox
-components/Choice
-components/ChoiceList
-components/Collapsible
-components/ColorPicker
-components/Connected
-components/DatePicker
-components/DescriptionList
-components/DisplayText
-components/EmptyState
-components/EventListener
-components/FooterHelp
-components/FormLayout
-components/Heading
-components/Icon
-components/Image
-components/KeyboardKey
-components/KeypressListener
-components/Label
-components/Labelled
-components/Layout
-components/Link
-components/List
-components/Page
-components/PageActions
-components/Pagination
-components/Popover
-components/PositionedOverlay
-components/RadioButton
-components/ResourceList
-components/Scrollable
-components/Select
-components/SettingAction
-components/SettingToggle
-components/Stack
-components/Subheading
-components/Tabs
-components/Tag
-components/TextContainer
-components/TextField
-components/TextStyle
-components/Thumbnail
-components/Tooltip
-components/UnstyledLink
-components/VisuallyHidden`);
+          expect(output).toContain(`AccountConnection
+ActionList
+Avatar
+Badge
+Banner
+Breadcrumbs
+Button
+ButtonGroup
+CalloutCard
+Caption
+Card
+Checkbox
+Choice
+ChoiceList
+Collapsible
+ColorPicker
+Connected
+DatePicker
+DescriptionList
+DisplayText
+EmptyState
+EventListener
+FooterHelp
+FormLayout
+Heading
+Icon
+Image
+KeyboardKey
+KeypressListener
+Label
+Labelled
+Layout
+Link
+List
+Page
+PageActions
+Pagination
+Popover
+PositionedOverlay
+RadioButton
+ResourceList
+Scrollable
+Select
+SettingAction
+SettingToggle
+Stack
+Subheading
+Tabs
+Tag
+TextContainer
+TextField
+TextStyle
+Thumbnail
+Tooltip
+UnstyledLink
+VisuallyHidden`);
         });
     });
   });
