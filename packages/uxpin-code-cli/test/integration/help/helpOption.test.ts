@@ -1,4 +1,4 @@
-import { runUXPinCodeCommand } from '../../utils/runUXPinCodeCommand';
+import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
 
 describe('--help option', () => {
   it('it prints help for --dump option', () => {

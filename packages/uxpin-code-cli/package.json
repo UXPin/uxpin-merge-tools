@@ -33,22 +33,6 @@
     ],
     "testEnvironment": "node"
   },
-  "nyc": {
-    "include": [
-      "src/**/*.ts"
-    ],
-    "extension": [
-      ".ts"
-    ],
-    "reporter": [
-      "lcov"
-    ],
-    "exclude": [
-      "**/*.d.ts",
-      "test/**/*.ts"
-    ],
-    "all": true
-  },
   "devDependencies": {
     "@shopify/polaris": "https://github.com/Shopify/polaris.git",
     "@types/jest": "^20.0.8",
