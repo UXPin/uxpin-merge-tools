@@ -37,9 +37,7 @@ jobs:
           command: make test-resources
       - run:
           name: test
-          command: ./node_modules/.bin/jest --testResultsProcessor="jest-junit-reporter" --coverage
-          environment:
-            TEST_REPORT_PATH: ./reports
+          command: make test-ci
       - store_test_results:
           path: ./reports
       - run:
