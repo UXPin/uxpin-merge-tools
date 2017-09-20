@@ -37,9 +37,6 @@
     "include": [
       "src/**/*.ts"
     ],
-    "extension": [
-      ".ts"
-    ],
     "reporter": [
       "lcov"
     ],
