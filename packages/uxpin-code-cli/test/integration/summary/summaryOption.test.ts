@@ -69,31 +69,31 @@ user`);
       // when
       return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', '--summary').then((output) => {
         // then
-        expect(output).toContain(`alert
-animate
-avatar
-badge
-button
-dropdown
-flag
-icon
-input
-labeled-value
-li
-logo
-pane
-radio-group
-segmented-control
-spinner
-table
-tbody\n` + // no examples
-`td\n` + // no examples
-`tfoot\n` + // no examples
-`th\n` + // no examples
-`thead\n` + // no examples
-`tooltip
-tr\n` + // no examples
-`ul`);
+        expect(output).toContain(`components/alert
+components/animate
+components/avatar
+components/badge
+components/button
+components/dropdown
+components/flag
+components/icon
+components/input
+components/labeled-value
+components/li
+components/logo
+components/pane
+components/radio-group
+components/segmented-control
+components/spinner
+components/table
+components/tbody\n` + // no examples
+`components/td\n` + // no examples
+`components/tfoot\n` + // no examples
+`components/th\n` + // no examples
+`components/thead\n` + // no examples
+`components/tooltip
+components/tr\n` + // no examples
+`components/ul`);
       });
     });
   });

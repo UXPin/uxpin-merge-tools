@@ -10,7 +10,7 @@ program
   .version(require('../package.json').version)
   .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
   .option('-s, --summary', 'Show only design system summary without building it')
-  .option('--libraries <items>', 'Use custom babel libraries', (items) => items.split(','))
+  .option('--libraries <items>', 'Use custom babel libraries', (items) => items.split(',').map(parseLibraryDefinition))
   .option('--target <mode>', 'Set webpack libraryTarget mode', (mode) => mode || MODE_AMD)
   .option('--wrapper <path>', 'Use custom wrapper', (path) => path || '')
   .parse(process.argv);
@@ -27,6 +27,38 @@ buildDesignSystem(libraries, wrapper, target)
   .then(getDesignSystemSummary)
   .then(console.log)
   .catch(logError);
+
+function parseParams(params) {
+  if (!params) {
+    return null;
+  }
+
+  return params
+    .split('&')
+    .reduce((params, param) => {
+      const [paramName, paramValue] = param.split('=');
+      let parsedValue;
+
+      try {
+        parsedValue = JSON.parse(paramValue);
+      } catch (e) {
+        parsedValue = paramValue;
+      }
+
+      return Object.assign({}, params, { [paramName]: parsedValue });
+    }, {});
+}
+
+function parseLibraryDefinition(libraryDefinition) {
+  const library = libraryDefinition.split('?');
+  const params = parseParams(library[1]);
+
+  if (library.length === 1 || !params) {
+    return library[0];
+  }
+
+  return [library[0], params];
+}
 
 function logError(errorMessage) {
   console.log('ERROR:', errorMessage);

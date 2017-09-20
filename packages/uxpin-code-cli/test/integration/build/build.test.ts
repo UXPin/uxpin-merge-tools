@@ -4,6 +4,41 @@ beforeAll(() => jest.setTimeout(60000));
 afterAll(() => jest.setTimeout(5000);
 
 describe('Building design system', () => {
+
+  describe('arui-feather', () => {
+    describe('without custom libraries', () => {
+      it('throws an error', () => {
+        return runUXPinCodeCommand('resources/repos/arui-feather')
+          .catch((error) => {
+            expect(error).toContain('Module build failed');
+          });
+      });
+    });
+
+    describe('with custom libraries', () => {
+      let components:any;
+
+      beforeAll(() => {
+        const options:string = [
+          '--libraries "transform-decorators-legacy,transform-runtime?polyfill=false&helpers=false"',
+          '--target "commonjs"',
+        ].join(' ');
+
+        return runUXPinCodeCommand('resources/repos/arui-feather', options)
+          .then(() => {
+            components = require('../../resources/repos/arui-feather/components.js');
+          });
+      });
+
+      it('contains Button component', () => {
+        // when
+        const { Button } = components;
+        // then
+        expect(Button).toBeInstanceOf(Function);
+      });
+    });
+  });
+
   describe('nordnet-ui-kit', () => {
     describe('without custom libraries', () => {
       it('throws an error', () => {

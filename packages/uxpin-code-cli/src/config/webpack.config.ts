@@ -17,6 +17,7 @@ const CONFIG:any = {
                   browsers: ['last 2 versions'],
                 },
               }],
+              'stage-0',
             ],
           },
         }],
