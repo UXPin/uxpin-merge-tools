@@ -1,3 +1,5 @@
+import { BabelPlugin } from '../building/plugins/BabelPluginDefinition';
+
 const CONFIG:any = {
   entry: './src/components.js',
   module: {
@@ -35,7 +37,7 @@ const CONFIG:any = {
 
 const LOADER_BABEL:string = 'babel-loader';
 
-function getConfigDecoratedWithLibraries(libraries:string[], target:string):any {
+function getConfigDecoratedWithLibraries(babelPlugins:BabelPlugin[], target:string):any {
   const config:any = Object.assign({}, CONFIG);
 
   config.output.libraryTarget = target;
@@ -47,7 +49,7 @@ function getConfigDecoratedWithLibraries(libraries:string[], target:string):any 
 
     rule.use.forEach((loader:any) => {
       if (loader.loader === LOADER_BABEL) {
-        loader.options.plugins = libraries;
+        loader.options.plugins = babelPlugins;
       }
     });
   });
@@ -55,6 +57,6 @@ function getConfigDecoratedWithLibraries(libraries:string[], target:string):any 
   return config;
 }
 
-export function getConfig(libraries:string[], target:string):any {
-  return getConfigDecoratedWithLibraries(libraries, target);
+export function getConfig(babelPlugins:BabelPlugin[], target:string):any {
+  return getConfigDecoratedWithLibraries(babelPlugins, target);
 }

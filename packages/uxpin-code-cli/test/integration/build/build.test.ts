@@ -6,7 +6,7 @@ afterAll(() => jest.setTimeout(5000);
 describe('Building design system', () => {
 
   describe('arui-feather', () => {
-    describe('without custom libraries', () => {
+    describe('without required babel plugins', () => {
       it('throws an error', () => {
         return runUXPinCodeCommand('resources/repos/arui-feather')
           .catch((error) => {
@@ -15,12 +15,12 @@ describe('Building design system', () => {
       });
     });
 
-    describe('with custom libraries', () => {
+    describe('with required babel plugins', () => {
       let components:any;
 
       beforeAll(() => {
         const options:string = [
-          '--libraries "transform-decorators-legacy,transform-runtime?polyfill=false&helpers=false"',
+          '--babel-plugins "transform-decorators-legacy,transform-runtime?polyfill=false&helpers=false"',
           '--target "commonjs"',
         ].join(' ');
 
@@ -40,7 +40,7 @@ describe('Building design system', () => {
   });
 
   describe('nordnet-ui-kit', () => {
-    describe('without custom libraries', () => {
+    describe('without required babel plugins', () => {
       it('throws an error', () => {
         return runUXPinCodeCommand('resources/repos/nordnet-ui-kit')
           .catch((error) => {
@@ -49,12 +49,12 @@ describe('Building design system', () => {
       });
     });
 
-    describe('with custom libraries', () => {
+    describe('with required babel plugins', () => {
       let components:any;
 
       beforeAll(() => {
         const options:string = [
-          '--libraries "transform-class-properties,transform-object-rest-spread"',
+          '--babel-plugins "transform-class-properties,transform-object-rest-spread"',
           '--target "commonjs"',
           '--wrapper "../documentation/wrapper.jsx"',
         ].join(' ');
