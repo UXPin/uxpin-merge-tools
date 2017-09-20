@@ -15,7 +15,7 @@
   ],
   "jest": {
     "coverageReporters": [
-      "lcov"
+      "clover"
     ],
     "collectCoverageFrom": [
       "src/**/*.ts",
