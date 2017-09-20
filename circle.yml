@@ -44,7 +44,7 @@ jobs:
           path: ./reports
       - run:
           name: code-coverage
-          command: ./packages/uxpin-code-cli/node_modules/.bin/codecov -F unittests uxpin-code-cli
+          command: ./packages/uxpin-code-cli/node_modules/.bin/codecov -F unittests -F uxpin_code_cli
           working_directory: ~/project/
 
 workflows:
