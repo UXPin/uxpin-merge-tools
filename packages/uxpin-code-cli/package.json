@@ -14,13 +14,6 @@
     "UI components"
   ],
   "jest": {
-    "coverageReporters": [
-      "lcov"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.ts",
-      "!src/**/*.d.ts"
-    ],
     "moduleFileExtensions": [
       "ts",
       "js"
@@ -45,6 +38,7 @@
     "jest-junit-reporter": "^1.1.0",
     "nordnet-ui-kit": "https://github.com/nordnet/nordnet-ui-kit.git",
     "nyc": "^11.2.1",
+    "remap-istanbul": "^0.9.5",
     "ts-jest": "^21.0.0",
     "tslint": "^5.7.0",
     "tslint-config-uxpin": "latest",

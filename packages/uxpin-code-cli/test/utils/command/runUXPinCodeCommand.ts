@@ -26,6 +26,6 @@ function getNycOptions():string {
   const coverageDir:string = getCoverageOutputDirPath();
   return `--cwd="${packageRootDir}" \
 --report-dir="${coverageDir}" \
---reporter=lcov \
+--reporter=clover \
 --extension=".ts"`;
 }

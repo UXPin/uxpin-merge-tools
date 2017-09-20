@@ -1,0 +1,14 @@
+{
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/**/*.js"
+  ],
+  "coverageReporters": [
+    "json"
+  ],
+  "testMatch": [
+    "**/test/**/*.test.js"
+  ],
+  "testEnvironment": "node",
+  "testResultsProcessor": "jest-junit-reporter"
+}
