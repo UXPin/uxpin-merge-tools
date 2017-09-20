@@ -6,7 +6,7 @@
     "strict": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
-    "baseUrl": "../",
+    "baseUrl": "./",
     "jsx": "react",
     "paths": {
       "*": [
@@ -17,8 +17,7 @@
     }
   },
   "exclude": [
-    "resources/repos/**",
-    "../node_modules/**",
-    "../src/**"
+    "test/resources/repos/**",
+    "node_modules/"
   ]
 }

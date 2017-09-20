@@ -14,11 +14,9 @@
     "UI components"
   ],
   "jest": {
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "test/tsconfig.json"
-      }
-    },
+    "coverageReporters": [
+      "lcov"
+    ],
     "collectCoverageFrom": [
       "src/**/*.ts",
       "!src/**/*.d.ts"

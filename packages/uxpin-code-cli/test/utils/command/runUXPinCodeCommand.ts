@@ -1,22 +1,31 @@
-import * as path from 'path';
+import { join } from 'path';
 import { getRandomString } from './getRandomString';
 import { runCommand } from './runCommand';
 
-const nycPath:string = path.join(__dirname, '../../../node_modules/.bin/nyc');
-const uxPinPath:string = path.join(__dirname, '../../../bin/uxpin-code');
+const packageRootDir:string = join(__dirname, '../../../');
+const nycPath:string = join(packageRootDir, 'node_modules/.bin/nyc');
+const uxPinPath:string = join(packageRootDir, 'bin/uxpin-code');
 
 export function runUXPinCodeCommand(workingDir:string, options?:string):Promise<string> {
   const absoluteWorkingDir:string = getAbsoluteWorkingDir(workingDir);
-  const coverageDir:string = getCoverageDirPath();
-  const coverageCommand:string = `${nycPath} --reporter=lcov --report-dir=${coverageDir}`;
+
+  const coverageCommand:string = `${nycPath} ${getNycOptions()}`;
   return runCommand(`cd ${absoluteWorkingDir} && ${coverageCommand} ${uxPinPath} ${options}`);
 }
 
 function getAbsoluteWorkingDir(pathRelativeToTestDir:string):string {
-  return path.join(__dirname, '../../', pathRelativeToTestDir);
+  return join(packageRootDir, 'test', pathRelativeToTestDir);
 }
 
-function getCoverageDirPath():string {
+function getCoverageOutputDirPath():string {
   const coverageDirName:string = getRandomString();
-  return path.join(__dirname, '../../../coverage-cli/', coverageDirName);
+  return join(packageRootDir, 'coverage-cli', coverageDirName);
+}
+
+function getNycOptions():string {
+  const coverageDir:string = getCoverageOutputDirPath();
+  return `--cwd="${packageRootDir}" \
+--report-dir="${coverageDir}" \
+--reporter=lcov \
+--extension=".ts"`;
 }
