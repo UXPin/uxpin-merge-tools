@@ -12,7 +12,6 @@ check:
 test:
 	make test-resources
 	jest
-	make test-remap-coverage
 
 test-ci:
 	TEST_REPORT_PATH=./reports jest --config="jest-ci.json"
