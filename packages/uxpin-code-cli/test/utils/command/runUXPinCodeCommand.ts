@@ -2,7 +2,7 @@ import { join } from 'path';
 import { getRandomString } from './getRandomString';
 import { runCommand } from './runCommand';
 
-const packageRootDir:string = join(__dirname, '../../');
+const packageRootDir:string = join(__dirname, '../../../');
 const nycPath:string = join(packageRootDir, 'node_modules/.bin/nyc');
 const uxPinPath:string = join(packageRootDir, 'bin/uxpin-code');
 
