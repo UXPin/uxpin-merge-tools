@@ -3,7 +3,7 @@ import { Compiler, Stats } from 'webpack';
 
 import { createComponentsLibrary } from './building/library/createComponentsLibrary';
 import { BabelPlugin } from './building/plugins/BabelPluginDefinition';
-import { getDesignSystemComponentLocations } from './components/getDesignSystemComponentLocations';
+import { getDesignSystemComponentInfos } from './components/getDesignSystemComponentInfos';
 import { getConfig } from './config/webpack.config';
 
 export function buildDesignSystem(babelPlugins:BabelPlugin[], wrapper:string, target:string):Promise<Stats> {
@@ -30,6 +30,6 @@ function bundle(babelPlugins:BabelPlugin[] = [], target:string):Promise<Stats> {
 }
 
 function createLibrary(wrapper:string):Promise<void> {
-  return getDesignSystemComponentLocations()
-    .then((components) => createComponentsLibrary(components, wrapper));
+  return getDesignSystemComponentInfos()
+    .then((componentInfos) => createComponentsLibrary(componentInfos, wrapper));
 }
