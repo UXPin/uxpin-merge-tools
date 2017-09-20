@@ -8,16 +8,24 @@ const uxPinPath:string = join(packageRootDir, 'bin/uxpin-code');
 
 export function runUXPinCodeCommand(workingDir:string, options?:string):Promise<string> {
   const absoluteWorkingDir:string = getAbsoluteWorkingDir(workingDir);
-  const coverageDir:string = getCoverageOutputDirPath();
-  const coverageCommand:string = `${nycPath} --cwd="${packageRootDir}" --report-dir="${coverageDir}" --reporter=lcov`;
+
+  const coverageCommand:string = `${nycPath} ${getNycOptions()}`;
   return runCommand(`cd ${absoluteWorkingDir} && ${coverageCommand} ${uxPinPath} ${options}`);
 }
 
 function getAbsoluteWorkingDir(pathRelativeToTestDir:string):string {
-  return join(__dirname, '../', pathRelativeToTestDir);
+  return join(packageRootDir, 'test', pathRelativeToTestDir);
 }
 
 function getCoverageOutputDirPath():string {
   const coverageDirName:string = getRandomString();
-  return join(packageRootDir, 'coverage-cli/', coverageDirName);
+  return join(packageRootDir, 'coverage-cli', coverageDirName);
+}
+
+function getNycOptions():string {
+  const coverageDir:string = getCoverageOutputDirPath();
+  return `--cwd="${packageRootDir}" \
+--report-dir="${coverageDir}" \
+--reporter=lcov \
+--extension=".ts"`;
 }
