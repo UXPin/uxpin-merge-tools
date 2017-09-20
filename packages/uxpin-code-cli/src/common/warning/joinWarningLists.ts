@@ -1,9 +1,9 @@
 import { WarningDetails } from './WarningDetails';
 
 export function joinWarningLists(warningLists:WarningDetails[][], componentPath:string):WarningDetails[] {
-  return warningLists.reduce((aggregator, warnings) => {
-    [].push.apply(aggregator, warnings.map(fillSourcePath(componentPath)));
-    return aggregator;
+  return warningLists.reduce((warningList, warnings) => {
+    [].push.apply(warningList, warnings.map(fillSourcePath(componentPath)));
+    return warningList;
   }, [] as WarningDetails[]);
 }
 
