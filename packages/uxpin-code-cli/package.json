@@ -31,6 +31,7 @@
     "@types/jest": "^20.0.8",
     "@types/lodash": "^4.14.74",
     "@types/node": "^8.0.26",
+    "@types/react": "^16.0.5",
     "arui-feather": "https://github.com/alfa-laboratory/arui-feather.git",
     "child-process-promise": "^2.2.1",
     "codecov": "^2.3.0",
@@ -45,6 +46,9 @@
     "typescript": "^2.5.2"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "fs-readfile-promise": "^3.0.0",
+    "lodash": "^4.17.4",
+    "react-docgen": "^2.18.0",
+    "react-docgen-typescript": "^1.0.2"
   }
 }

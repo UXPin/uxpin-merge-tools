@@ -1,3 +1,6 @@
 {
-  "extends": "tslint-config-uxpin"
+  "extends": "tslint-config-uxpin",
+  "rules": {
+    "no-function-constructor-with-string-args": false
+  }
 }

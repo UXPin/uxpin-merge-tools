@@ -5,8 +5,8 @@ describe('--help option', () => {
     // when
     return runUXPinCodeCommand('./', '--help').then((output) => {
       // then
-      expect(output).toContain('--dump');
-      expect(output).toContain('Show all information about the design system repository and NOT send to UXPin');
+      expect(output)
+        .toMatch(/--dump\s+Show all information about the design system repository and NOT send to UXPin/);
     });
   });
 
@@ -14,8 +14,7 @@ describe('--help option', () => {
     // when
     return runUXPinCodeCommand('./', '--help').then((output) => {
       // then
-      expect(output).toContain('--summary');
-      expect(output).toContain('Show design system summary');
+      expect(output).toMatch(/--summary\s+Show design system summary/);
     });
   });
 });
