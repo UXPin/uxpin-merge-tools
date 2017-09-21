@@ -47,5 +47,25 @@ describe('convertOneOfTypeStructure', () => {
       // then
       expect(result).toEqual(expectedOutputStructure);
     });
+
+    it('ignores literal values which are not strings', () => {
+      // given
+      const inputTypeStructure:any = [
+        { value: '{"secondary": true}' },
+        { value: '122' },
+        { value: '"link"' },
+      ];
+      const expectedOutputStructure:UnionTypeStructure = {
+        elements: [
+          { name: 'literal', structure: { value: 'link' } },
+        ],
+      };
+
+      // when
+      const result:UnionTypeStructure = convertOneOfTypeStructure(inputTypeStructure);
+
+      // then
+      expect(result).toEqual(expectedOutputStructure);
+    });
   });
 });
