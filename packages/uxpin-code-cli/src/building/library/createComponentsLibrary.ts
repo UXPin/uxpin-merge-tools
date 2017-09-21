@@ -1,11 +1,7 @@
 import { writeFile } from 'fs';
-import { last } from 'lodash';
-import { sep } from 'path';
 
 import { ComponentInfo } from '../../components/ComponentInfo';
 
-const MODE_DEFAULT_EXPORTS:string = 'modeDefaultExports';
-const MODE_NAMED_EXPORTS:string = 'modeNamedExports';
 const CLASS_NAME_WRAPPER:string = 'Wrapper';
 
 export function createComponentsLibrary(componentInfos:ComponentInfo[], wrapper:string):Promise<void> {
@@ -28,7 +24,7 @@ function getImportPath(info:ComponentInfo):string {
   return `./${info.dirPath}/${info.name}`;
 }
 
-function getDefaultExportsFileString(componentInfos:ComponentInfo[], wrapper:string):string {
+function getFileString(componentInfos:ComponentInfo[], wrapper:string):string {
   const imports:string[] = componentInfos.map((info) =>
     `import ${getComponentClassName(info.name)} from '${getImportPath(info)}';`);
 
@@ -42,21 +38,4 @@ function getDefaultExportsFileString(componentInfos:ComponentInfo[], wrapper:str
   ];
 
   return [...imports, ...wrapperImport, ...exports].join('\n');
-}
-
-function getNamedExportsFileString(componentInfos:ComponentInfo[], wrapper:string):string {
-  const exports:string[] = componentInfos.map((info) =>
-    `export { ${getComponentClassName(info.name)} } from '${getImportPath(info)}';`);
-
-  const wrapperExport:string[] = wrapper ? [`export { ${CLASS_NAME_WRAPPER} } from '${wrapper}';`] : [];
-
-  return [...exports, ...wrapperExport].join('\n');
-}
-
-function getFileString(componentInfos:ComponentInfo[], wrapper:string, mode:string = MODE_DEFAULT_EXPORTS):string {
-  if (mode === MODE_NAMED_EXPORTS) {
-    return getNamedExportsFileString(componentInfos, wrapper);
-  }
-
-  return getDefaultExportsFileString(componentInfos, wrapper);
 }
