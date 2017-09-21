@@ -7,13 +7,19 @@ import { convertPropItemToPropertyDefinition } from './convertPropItemToProperty
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 
 export function serializeJSComponentProps(componentFileLocation:string):Promise<PropsSerializationResult> {
-  return getDefaultComponentFrom(componentFileLocation).then((component:ComponentDoc) => {
-    return Promise.all(
-      toPairs(component.props).map(([propName, propType]) => convertPropItemToPropertyDefinition(propName, propType)));
-  }).then((propResults:PropDefinitionSerializationResult[]) => {
-    return {
-      props: propResults.map((p) => p.definition),
-      warnings: joinWarningLists(propResults.map((p) => p.warnings), componentFileLocation),
-    };
+  return getDefaultComponentFrom(componentFileLocation)
+    .then(serializeProperties)
+    .then(getSummaryResult(componentFileLocation));
+}
+
+function serializeProperties(component:ComponentDoc):Promise<PropDefinitionSerializationResult[]> {
+  return Promise.all(toPairs(component.props)
+    .map(([propName, propType]) => convertPropItemToPropertyDefinition(propName, propType)));
+}
+
+function getSummaryResult(path:string):(propResults:PropDefinitionSerializationResult[]) => PropsSerializationResult {
+  return (propResults) => ({
+    props: propResults.map((p) => p.definition),
+    warnings: joinWarningLists(propResults.map((p) => p.warnings), path),
   });
 }
