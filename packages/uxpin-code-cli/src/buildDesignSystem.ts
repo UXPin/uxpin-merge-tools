@@ -1,7 +1,7 @@
 import * as webpack from 'webpack';
 
 import { createComponentsLibrary } from './building/library/createComponentsLibrary';
-import { BabelPlugin } from './building/plugins/BabelPluginDefinition';
+import { BabelPlugin } from './building/plugins/BabelPlugin';
 import { getDesignSystemComponentInfos } from './components/getDesignSystemComponentInfos';
 import { getConfig } from './config/webpack.config';
 

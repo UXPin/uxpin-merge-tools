@@ -1,4 +1,4 @@
-import { BabelPlugin } from '../building/plugins/BabelPluginDefinition';
+import { BabelPlugin } from '../building/plugins/BabelPlugin';
 
 const LOADER_BABEL:string = 'babel-loader';
 
