@@ -8,11 +8,14 @@ export function getDefaultValue(propName:string, propItem:PropItem):Promise<Defa
   const warnings:WarningDetails[] = [];
   return new Promise((resolve) => {
     if (propItem.defaultValue) {
-      return parseValue(propItem.defaultValue.value).then((value:any) => {
-        partialDefinition.defaultValue = { value };
-      }).catch((originalError:Error) => {
-        warnings.push({ originalError, message: `Cannot compute default value for property \`${propName}\`.` });
-      }).then(() => resolve({ partialDefinition, warnings }));
+      return parseValue(propItem.defaultValue.value)
+        .then((value:any) => {
+          partialDefinition.defaultValue = { value };
+        })
+        .catch((originalError:Error) => {
+          warnings.push({ originalError, message: `Cannot compute default value for property \`${propName}\`.` });
+        })
+        .then(() => resolve({ partialDefinition, warnings }));
     } else {
       resolve({ partialDefinition, warnings });
     }
