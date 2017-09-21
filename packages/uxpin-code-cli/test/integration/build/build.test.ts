@@ -8,15 +8,6 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('Building design system', () => {
 
   describe('arui-feather', () => {
-    describe('without required babel plugins', () => {
-      it('throws an error', () => {
-        return runUXPinCodeCommand('resources/repos/arui-feather')
-          .catch((error) => {
-            expect(error).toContain('Module build failed');
-          });
-      });
-    });
-
     describe('with required babel plugins', () => {
       let components:any;
 
@@ -39,18 +30,18 @@ describe('Building design system', () => {
         expect(Button).toBeInstanceOf(Function);
       });
     });
-  });
 
-  describe('nordnet-ui-kit', () => {
     describe('without required babel plugins', () => {
       it('throws an error', () => {
-        return runUXPinCodeCommand('resources/repos/nordnet-ui-kit')
+        return runUXPinCodeCommand('resources/repos/arui-feather')
           .catch((error) => {
             expect(error).toContain('Module build failed');
           });
       });
     });
+  });
 
+  describe('nordnet-ui-kit', () => {
     describe('with required babel plugins', () => {
       let components:any;
 
@@ -79,6 +70,15 @@ describe('Building design system', () => {
         const { Wrapper } = components;
         // then
         expect(Wrapper).toBeInstanceOf(Function);
+      });
+    });
+
+    describe('without required babel plugins', () => {
+      it('throws an error', () => {
+        return runUXPinCodeCommand('resources/repos/nordnet-ui-kit')
+          .catch((error) => {
+            expect(error).toContain('Module build failed');
+          });
       });
     });
   });
