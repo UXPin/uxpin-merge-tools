@@ -37,14 +37,12 @@ jobs:
           command: make test-resources
       - run:
           name: test
-          command: ./node_modules/.bin/jest --testResultsProcessor="jest-junit-reporter" --coverage
-          environment:
-            TEST_REPORT_PATH: ./reports
+          command: make test-ci
       - store_test_results:
           path: ./reports
       - run:
           name: code-coverage
-          command: ./packages/uxpin-code-cli/node_modules/.bin/codecov -F unittests uxpin-code-cli
+          command: ./packages/uxpin-code-cli/node_modules/.bin/codecov -F unittests -F uxpin_code_cli
           working_directory: ~/project/
 
 workflows:

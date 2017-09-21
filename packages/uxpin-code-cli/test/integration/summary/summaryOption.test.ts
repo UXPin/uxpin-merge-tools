@@ -1,4 +1,4 @@
-import { runUXPinCodeCommand } from '../../utils/runUXPinCodeCommand';
+import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
 
 beforeAll(() => jest.setTimeout(15000));
 afterAll(() => jest.setTimeout(5000);

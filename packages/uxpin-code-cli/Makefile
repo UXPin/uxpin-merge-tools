@@ -1,21 +1,24 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 
-.PHONY: build check test clean test-resources
+.PHONY: build check test test-ci clean test-remap-coverage test-resources
 
 build:
-	cd ./src && tsc
+	tsc
 
 check:
-	cd ./src && tslint --project tsconfig.json --type-check
-	cd ./test && tslint --project tsconfig.json --type-check
+	tslint --project tsconfig.json --type-check
 
 test:
 	make test-resources
-	jest --forceExit
+	jest
+
+test-ci:
+	TEST_REPORT_PATH=./reports jest --config="jest-ci.json"
+	make test-remap-coverage
 
 clean:
-	rm -rf ./dist/*
+	rm -rf ./dist/
 	find ./src -name "*.js" -delete
 	find ./src -name "*.js.map" -delete
 	find ./src -type d -empty -delete
@@ -26,6 +29,9 @@ clean:
 	rm -rf ./coverage-cli
 	rm -rf ./.nyc_output
 	rm -rf ./test/resources/repos/*
+
+test-remap-coverage:
+	remap-istanbul -i coverage/coverage-final.json -o coverage/clover.xml -t clover
 
 test-resources: test/resources/repos/nordnet-ui-kit test/resources/repos/arui-feather test/resources/repos/polaris
 

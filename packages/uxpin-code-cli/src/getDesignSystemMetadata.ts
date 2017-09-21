@@ -1,3 +1,8 @@
-export function getDesignSystemMetadata(dumpMode:boolean):Promise<string> {
-  return Promise.resolve('@todo getDesignSystemMetadata');
+import { DesignSystemDefinition } from './serialization/DesignSystemDefinition';
+
+export function getDesignSystemMetadata():Promise<DesignSystemDefinition> {
+  return Promise.resolve({
+    components: [],
+    name: '',
+  });
 }

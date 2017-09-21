@@ -2,7 +2,7 @@
 
 const program = require('commander');
 
-const { buildDesignSystem, getDesignSystemMetadata, getDesignSystemSummary } = require('../dist/index');
+const { buildDesignSystem, getDesignSystemMetadata, getDesignSystemSummary } = require('../src/index');
 
 const MODE_AMD = 'amd';
 
@@ -19,6 +19,11 @@ const { babelPlugins, summary, target, wrapper } = program;
 
 if (summary) {
   return getDesignSystemSummary()
+    .then(console.log)
+    .catch(logError);
+}
+if (program.dump) {
+  return getDesignSystemMetadata()
     .then(console.log)
     .catch(logError);
 }
