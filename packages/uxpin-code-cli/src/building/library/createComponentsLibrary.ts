@@ -1,6 +1,7 @@
 import { writeFile } from 'fs';
 
 import { ComponentInfo } from '../../components/ComponentInfo';
+import { getComponentClassName } from './getComponentClassName';
 
 const CLASS_NAME_WRAPPER:string = 'Wrapper';
 
@@ -14,10 +15,6 @@ export function createComponentsLibrary(componentInfos:ComponentInfo[], wrapper:
       resolve();
     });
   });
-}
-
-function getComponentClassName(componentName:string):string {
-  return componentName.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('');
 }
 
 function getImportPath(info:ComponentInfo):string {
