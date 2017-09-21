@@ -5,12 +5,13 @@ import { BabelPlugin } from './building/plugins/BabelPluginDefinition';
 import { getDesignSystemComponentInfos } from './components/getDesignSystemComponentInfos';
 import { getConfig } from './config/webpack.config';
 
-export function buildDesignSystem(babelPlugins:BabelPlugin[], wrapper:string, target:string):Promise<webpack.Stats> {
-  return createLibrary(wrapper)
+export function buildDesignSystem(babelPlugins:BabelPlugin[], wrapperPath?:string,
+  target?:string):Promise<webpack.Stats> {
+  return createLibrary(wrapperPath)
     .then(() => bundle(babelPlugins, target));
 }
 
-function bundle(babelPlugins:BabelPlugin[] = [], target:string):Promise<webpack.Stats> {
+function bundle(babelPlugins:BabelPlugin[] = [], target?:string):Promise<webpack.Stats> {
   return new Promise((resolve, reject) => {
     const compiler:webpack.Compiler = webpack(getConfig(babelPlugins, target));
 
@@ -28,7 +29,7 @@ function bundle(babelPlugins:BabelPlugin[] = [], target:string):Promise<webpack.
   });
 }
 
-function createLibrary(wrapper:string):Promise<void> {
+function createLibrary(wrapperPath?:string):Promise<void> {
   return getDesignSystemComponentInfos()
-    .then((componentInfos) => createComponentsLibrary(componentInfos, wrapper));
+    .then((componentInfos) => createComponentsLibrary(componentInfos, wrapperPath));
 }

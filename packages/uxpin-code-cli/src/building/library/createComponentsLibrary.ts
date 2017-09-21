@@ -5,9 +5,9 @@ import { getComponentClassName } from './getComponentClassName';
 
 const CLASS_NAME_WRAPPER:string = 'Wrapper';
 
-export function createComponentsLibrary(componentInfos:ComponentInfo[], wrapper:string):Promise<void> {
+export function createComponentsLibrary(componentInfos:ComponentInfo[], wrapperPath?:string):Promise<void> {
   return new Promise((resolve, reject) => {
-    writeFile('src/components.js', getFileString(componentInfos, wrapper), 'utf8', (error) => {
+    writeFile('src/components.js', getFileString(componentInfos, wrapperPath), 'utf8', (error) => {
       if (error) {
         return reject(error.message);
       }
@@ -21,16 +21,16 @@ function getImportPath(info:ComponentInfo):string {
   return `./${info.dirPath}/${info.name}`;
 }
 
-function getFileString(componentInfos:ComponentInfo[], wrapper:string):string {
+function getFileString(componentInfos:ComponentInfo[], wrapperPath?:string):string {
   const imports:string[] = componentInfos.map((info) =>
     `import ${getComponentClassName(info.name)} from '${getImportPath(info)}';`);
 
-  const wrapperImport:string[] = wrapper ? [`import ${CLASS_NAME_WRAPPER} from '${wrapper}';`] : [];
+  const wrapperImport:string[] = wrapperPath ? [`import ${CLASS_NAME_WRAPPER} from '${wrapperPath}';`] : [];
 
   const exports:string[] = [
     `export {`,
     ...componentInfos.map((info) => `  ${getComponentClassName(info.name)},`),
-    ...(wrapper ? [`  ${CLASS_NAME_WRAPPER}`] : []),
+    ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER}`] : []),
     `};`,
   ];
 
