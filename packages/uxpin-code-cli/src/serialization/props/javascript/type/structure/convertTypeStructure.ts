@@ -11,7 +11,7 @@ const TYPE_STRUCTURE_CONVERTERS:Partial<{ [P in PropertyTypeName]:TypeStructureC
 };
 
 export function convertTypeStructure<T extends PropertyTypeName>(typeName:T,
-                                                                 reactDocgenStructure:any):PropertyTypeStructureMap[T] {
+  reactDocgenStructure:any):PropertyTypeStructureMap[T] {
   const convert:TypeStructureConversionStrategy | undefined = TYPE_STRUCTURE_CONVERTERS[typeName];
   if (convert) {
     return convert(reactDocgenStructure);

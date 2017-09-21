@@ -5,7 +5,7 @@ import { getDefaultValue } from './defaultValue/getDefaultValue';
 import { convertPropertyType } from './type/convertPropertyType';
 
 export function convertPropItemToPropertyDefinition(propName:string,
-                                                    propItem:PropItem):Promise<PropDefinitionSerializationResult> {
+  propItem:PropItem):Promise<PropDefinitionSerializationResult> {
   return getDefaultValue(propName, propItem).then(({ partialDefinition, warnings }) => {
     const definition:ComponentPropertyDefinition = {
       ...partialDefinition,
