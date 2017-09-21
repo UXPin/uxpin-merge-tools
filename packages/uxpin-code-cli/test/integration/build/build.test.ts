@@ -1,7 +1,9 @@
-import { runUXPinCodeCommand } from '../../utils/runUXPinCodeCommand';
+import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
+import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
-beforeAll(() => jest.setTimeout(60000));
-afterAll(() => jest.setTimeout(5000));
+const CURRENT_TIMEOUT:number = 60000;
+
+setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Building design system', () => {
 
