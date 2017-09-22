@@ -2,7 +2,7 @@ import { join, relative } from 'path';
 
 import { getDirectoryContent, isDirectory } from '../utils/asynchronousFS';
 import { ComponentInfo } from './ComponentInfo';
-import { isComponent } from './isComponent';
+import { getImplementationInfo } from './discovery/getImplementationInfo';
 
 const DIR_COMPONENTS:string = 'components';
 const DIR_SRC:string = 'src';
@@ -17,15 +17,17 @@ export function getDesignSystemComponentInfos():Promise<ComponentInfo[]> {
   return getComponentsDirectory()
     .then((directory) => componentsDirectory = directory)
     .then(getDirectoryContent)
-    .then((content) => filterComponents(content, componentsDirectory))
-    .then((components) => components.map((component) => toComponentInfo(componentsDirectory, component)));
+    .then((content) => getComponentsInfo(content, componentsDirectory));
 }
 
-function toComponentInfo(componentsDirectory:string, component:string):ComponentInfo {
-  return {
-    dirPath: getRelativePath(join(componentsDirectory, component)),
-    name: component,
-  };
+function getComponentInfo(componentDirectory:string, componentName:string):Promise<ComponentInfo | null> {
+  return getImplementationInfo(componentDirectory, componentName).then((implementation) => {
+    return {
+      dirPath: getRelativePath(join(componentDirectory, componentName)),
+      implementation,
+      name: componentName,
+    };
+  }).catch(() => null);
 }
 
 function getRelativePath(path:string):string {
@@ -38,20 +40,18 @@ function getComponentsDirectory():Promise<string> {
 
   return Promise.all(paths.map(isDirectory))
     .then((isDirectoryList) => {
-      const found:string|undefined = paths.find((path, index) => isDirectoryList[index]);
-
-      if (!found) {
-        throw new Error('Unable to locate components source directory');
+      const found:string | undefined = paths.find((path, index) => isDirectoryList[index]);
+      if (found) {
+        return found;
       }
-
-      return found;
+      throw new Error('Unable to locate components source directory');
     });
 }
 
-function filterComponents(fileNames:string[], componentsDirectory:string):Promise<string[]> {
+function getComponentsInfo(fileNames:string[], componentsDirectory:string):Promise<ComponentInfo[]> {
   return Promise.all(fileNames.map((fileName) => {
     const path:string = join(componentsDirectory, fileName);
-    return isComponent(path, fileName);
+    return getComponentInfo(path, fileName);
   }))
-    .then((isComponentList) => fileNames.filter((fileName, index) => isComponentList[index]));
+    .then((infoList) => infoList.filter(Boolean) as ComponentInfo[]);
 }
