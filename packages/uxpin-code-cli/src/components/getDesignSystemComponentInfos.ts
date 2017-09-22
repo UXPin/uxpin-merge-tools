@@ -1,6 +1,6 @@
 import fsReaddirPromise = require('fs-readdir-promise');
+import isDirPromise = require('is-dir-promise');
 import { join, relative } from 'path';
-import { isDirectory } from '../utils/asynchronousFS';
 import { ComponentInfo } from './ComponentInfo';
 import { getImplementationInfo } from './discovery/getImplementationInfo';
 
@@ -38,7 +38,7 @@ function getComponentsDirectory():Promise<string> {
   const cwd:string = process.cwd();
   const paths:string[] = PATHS.map((directories) => join(cwd, ...directories));
 
-  return Promise.all(paths.map(isDirectory))
+  return Promise.all(paths.map((dirPath) => isDirPromise(dirPath).then(() => true).catch(() => false)))
     .then((isDirectoryList) => {
       const found:string | undefined = paths.find((path, index) => isDirectoryList[index]);
       if (found) {

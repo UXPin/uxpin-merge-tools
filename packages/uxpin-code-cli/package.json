@@ -59,6 +59,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "fs-readdir-promise": "^1.0.1",
     "fs-readfile-promise": "^3.0.0",
+    "is-dir-promise": "^1.0.1",
     "is-file-promise": "^1.0.3",
     "lodash": "^4.17.4",
     "p-any": "^1.1.0",
