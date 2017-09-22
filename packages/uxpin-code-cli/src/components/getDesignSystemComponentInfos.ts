@@ -1,6 +1,6 @@
+import fsReaddirPromise = require('fs-readdir-promise');
 import { join, relative } from 'path';
-
-import { getDirectoryContent, isDirectory } from '../utils/asynchronousFS';
+import { isDirectory } from '../utils/asynchronousFS';
 import { ComponentInfo } from './ComponentInfo';
 import { getImplementationInfo } from './discovery/getImplementationInfo';
 
@@ -16,7 +16,7 @@ export function getDesignSystemComponentInfos():Promise<ComponentInfo[]> {
   let componentsDirectory:string;
   return getComponentsDirectory()
     .then((directory) => componentsDirectory = directory)
-    .then(getDirectoryContent)
+    .then(fsReaddirPromise)
     .then((content) => getComponentsInfo(content, componentsDirectory));
 }
 
