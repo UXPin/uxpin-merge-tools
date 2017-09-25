@@ -15,14 +15,14 @@ program
   .option('--wrapper <path>', 'Use custom wrapper', (path) => path || '')
   .parse(process.argv);
 
-const { babelPlugins, summary, target, wrapper } = program;
+const { babelPlugins, summary, target, wrapper, dump } = program;
 
 if (summary) {
   return getDesignSystemSummary()
     .then(console.log)
     .catch(logError);
 }
-if (program.dump) {
+if (dump) {
   return getDesignSystemMetadata()
     .then(console.log)
     .catch(logError);
