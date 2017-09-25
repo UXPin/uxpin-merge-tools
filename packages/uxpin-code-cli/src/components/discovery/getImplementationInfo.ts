@@ -3,9 +3,9 @@ import { ComponentImplementationInfo } from '../ComponentInfo';
 import { getJSImplementationInfo } from './implementation/strategies/getJSImplementationInfo';
 import { getTSImplementationInfo } from './implementation/strategies/getTSImplementationInfo';
 
-type PathImplementationDiscoveryStrategy = (dirPath:string, fileName:string) => Promise<ComponentImplementationInfo>;
+type ImplementationDiscoveryStrategy = (dirPath:string, fileName:string) => Promise<ComponentImplementationInfo>;
 
-const STRATEGIES:PathImplementationDiscoveryStrategy[] = [
+const STRATEGIES:ImplementationDiscoveryStrategy[] = [
   getTSImplementationInfo,
   getJSImplementationInfo,
 ];
