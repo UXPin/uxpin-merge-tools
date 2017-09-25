@@ -58,6 +58,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "fs-readfile-promise": "^3.0.0",
     "lodash": "^4.17.4",
+    "mkdirp-promise": "^5.0.1",
     "react-docgen": "^2.18.0",
     "react-docgen-typescript": "^1.0.2",
     "webpack": "^3.5.6"

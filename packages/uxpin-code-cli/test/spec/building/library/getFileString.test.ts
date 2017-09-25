@@ -14,8 +14,8 @@ describe('getFileString', () => {
       },
     ];
 
-    const expectedFileString:string = `import Button from './components/button/button';
-import ButtonList from './components/button-list/button-list';
+    const expectedFileString:string = `import Button from '../src/components/button/button';
+import ButtonList from '../src/components/button-list/button-list';
 export {
   Button,
   ButtonList,
@@ -42,8 +42,8 @@ export {
 
     const wrapperPath:string = './wrapper/wrapper.jsx';
 
-    const expectedFileString:string = `import Button from './components/button/button';
-import ButtonList from './components/button-list/button-list';
+    const expectedFileString:string = `import Button from '../src/components/button/button';
+import ButtonList from '../src/components/button-list/button-list';
 import Wrapper from './wrapper/wrapper.jsx';
 export {
   Button,

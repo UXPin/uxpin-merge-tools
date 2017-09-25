@@ -29,7 +29,7 @@ function bundle(babelPlugins:BabelPlugin[] = [], target?:string):Promise<webpack
   });
 }
 
-function createLibrary(wrapperPath?:string):Promise<void> {
+function createLibrary(wrapperPath?:string):Promise<string> {
   return getDesignSystemComponentInfos()
     .then((componentInfos) => createComponentsLibrary(componentInfos, wrapperPath));
 }
