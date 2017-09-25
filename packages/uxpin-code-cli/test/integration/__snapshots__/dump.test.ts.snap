@@ -109,7 +109,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -164,7 +177,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				}
@@ -208,7 +234,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				}
@@ -252,7 +291,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				}
@@ -530,7 +582,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							theme: {
 								name: 'union',
 								structure: {
-									elements: []
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'alfa-on-color'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'alfa-on-white'
+											}
+										}
+									]
 								}
 							},
 							className: {
@@ -657,7 +722,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -1058,7 +1136,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -1352,7 +1443,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -1502,7 +1606,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							theme: {
 								name: 'union',
 								structure: {
-									elements: []
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'alfa-on-color'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'alfa-on-white'
+											}
+										}
+									]
 								}
 							},
 							className: {
@@ -1757,7 +1874,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -2054,7 +2184,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -2225,7 +2368,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -2338,7 +2494,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -2414,7 +2583,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				}
@@ -2619,7 +2801,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							theme: {
 								name: 'union',
 								structure: {
-									elements: []
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'alfa-on-color'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'alfa-on-white'
+											}
+										}
+									]
 								}
 							},
 							onMouseEnter: {
@@ -2771,7 +2966,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -2999,7 +3207,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -3035,7 +3256,26 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'application/x-www-form-urlencoded'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'multipart/form-data'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'text/plain'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -3192,7 +3432,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -3320,7 +3573,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -3425,7 +3691,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -3526,7 +3805,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -3576,6 +3868,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 									name: 'literal',
 									structure: {
 										value: 'ok'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'ok_filled'
 									}
 								},
 								{
@@ -3675,7 +3973,26 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-colored'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -4050,7 +4367,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -4404,7 +4734,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -4497,7 +4840,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -4572,7 +4928,32 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: '_self'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: '_blank'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: '_parent'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: '_top'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -4687,7 +5068,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -4798,7 +5192,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -4935,6 +5342,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 									structure: {
 										value: 'radio'
 									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'radio-check'
+									}
 								}
 							]
 						}
@@ -5063,7 +5476,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -5252,7 +5678,32 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: '_self'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: '_blank'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: '_parent'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: '_top'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -5366,7 +5817,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -5629,7 +6093,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -5784,7 +6261,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -5861,7 +6351,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -5949,7 +6452,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -6235,7 +6751,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -6342,7 +6871,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				}
@@ -6409,7 +6951,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -6613,7 +7168,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -6795,7 +7363,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -6969,6 +7550,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 									name: 'literal',
 									structure: {
 										value: 'radio'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'radio-check'
 									}
 								}
 							]
@@ -7239,7 +7826,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -7360,7 +7960,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -7452,7 +8065,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -7536,7 +8162,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -7626,7 +8265,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -7919,7 +8571,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -8006,7 +8671,26 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-colored'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				}
@@ -8057,7 +8741,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-color'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'alfa-on-white'
+									}
+								}
+							]
 						}
 					}
 				},
@@ -8087,5 +8784,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 	],
 	name: ''
 }
+"
+`;
+
+exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON describing the full repository 1`] = `
+"ERROR: Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:101:55)
 "
 `;
