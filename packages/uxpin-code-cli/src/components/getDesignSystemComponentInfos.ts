@@ -20,20 +20,6 @@ export function getDesignSystemComponentInfos():Promise<ComponentInfo[]> {
     .then((content) => getComponentsInfo(content, componentsDirectory));
 }
 
-function getComponentInfo(componentDirectory:string, componentName:string):Promise<ComponentInfo | null> {
-  return getImplementationInfo(componentDirectory, componentName).then((implementation) => {
-    return {
-      dirPath: getRelativePath(join(componentDirectory, componentName)),
-      implementation,
-      name: componentName,
-    };
-  }).catch(() => null);
-}
-
-function getRelativePath(path:string):string {
-  return relative(join(process.cwd(), DIR_SRC), path);
-}
-
 function getComponentsDirectory():Promise<string> {
   const cwd:string = process.cwd();
   const paths:string[] = PATHS.map((directories) => join(cwd, ...directories));
@@ -54,4 +40,18 @@ function getComponentsInfo(fileNames:string[], componentsDirectory:string):Promi
     return getComponentInfo(path, fileName);
   }))
     .then((infoList) => infoList.filter(Boolean) as ComponentInfo[]);
+}
+
+function getComponentInfo(componentDirectory:string, componentName:string):Promise<ComponentInfo | null> {
+  return getImplementationInfo(componentDirectory, componentName).then((implementation) => {
+    return {
+      dirPath: getRelativePath(join(componentDirectory, componentName)),
+      implementation,
+      name: componentName,
+    };
+  }).catch(() => null);
+}
+
+function getRelativePath(path:string):string {
+  return relative(join(process.cwd(), DIR_SRC), path);
 }
