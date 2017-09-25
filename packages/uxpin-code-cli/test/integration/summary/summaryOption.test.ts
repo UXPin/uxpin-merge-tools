@@ -1,7 +1,9 @@
 import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
+import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
-beforeAll(() => (jest as any).setTimeout(15000));
-afterAll(() => (jest as any).setTimeout(5000));
+const CURRENT_TIMEOUT:number = 15000;
+
+setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('--summary option integration', () => {
   describe('--summary option prints ', () => {

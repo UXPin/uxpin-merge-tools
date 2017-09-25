@@ -1,4 +1,6 @@
-import { BabelPlugin } from '../building/plugins/BabelPluginDefinition';
+import { BabelPlugin } from '../building/plugins/BabelPlugin';
+
+const LOADER_BABEL:string = 'babel-loader';
 
 const CONFIG:any = {
   entry: './src/components.js',
@@ -35,12 +37,16 @@ const CONFIG:any = {
   },
 };
 
-const LOADER_BABEL:string = 'babel-loader';
+export function getConfig(babelPlugins:BabelPlugin[], target?:string):any {
+  return getConfigDecoratedWithLibraries(babelPlugins, target);
+}
 
-function getConfigDecoratedWithLibraries(babelPlugins:BabelPlugin[], target:string):any {
+function getConfigDecoratedWithLibraries(babelPlugins:BabelPlugin[], target?:string):any {
   const config:any = Object.assign({}, CONFIG);
 
-  config.output.libraryTarget = target;
+  if (target) {
+    config.output.libraryTarget = target;
+  }
 
   config.module.rules.forEach((rule:any) => {
     if (!rule || !rule.use) {
@@ -55,8 +61,4 @@ function getConfigDecoratedWithLibraries(babelPlugins:BabelPlugin[], target:stri
   });
 
   return config;
-}
-
-export function getConfig(babelPlugins:BabelPlugin[], target:string):any {
-  return getConfigDecoratedWithLibraries(babelPlugins, target);
 }
