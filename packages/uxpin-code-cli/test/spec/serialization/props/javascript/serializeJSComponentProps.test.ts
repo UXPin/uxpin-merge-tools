@@ -38,7 +38,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -73,7 +73,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -110,7 +110,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -142,7 +142,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -180,7 +180,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -207,7 +207,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings[0].message).toEqual(expectedWarning.message);
         expect(serializedProps.warnings[0].sourcePath).toEqual(expectedWarning.sourcePath);
         expect(serializedProps.warnings[0].originalError).toBeInstanceOf(Error);
