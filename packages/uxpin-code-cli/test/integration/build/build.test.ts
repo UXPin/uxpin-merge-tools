@@ -6,7 +6,7 @@ import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT:number = 60000;
 
-const getDesignSystemLibraryRelativePath = (designSystemDir:string):string =>
+const getDesignSystemLibraryRelativePath:(designSystemDir:string) => string = (designSystemDir) =>
   relative(__dirname, resolve(`test/resources/repos/${designSystemDir}`, LIBRARY_OUTPUT_PATH));
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
