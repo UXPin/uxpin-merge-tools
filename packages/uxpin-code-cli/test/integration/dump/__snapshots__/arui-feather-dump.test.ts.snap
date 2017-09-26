@@ -10251,18 +10251,3 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 }
 "
 `;
-
-exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON describing the full repository 1`] = `
-"ERROR: Error: Multiple exported component definitions found.
-    at Context.exportDeclaration (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
-    at Context.invokeVisitorMethod (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:344:49)
-    at Visitor.PVp.visitWithoutReset (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:196:32)
-    at NodePath.each (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path.js:101:26)
-    at visitChildren (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:219:18)
-    at Visitor.PVp.visitWithoutReset (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:204:20)
-    at visitChildren (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:246:25)
-    at Visitor.PVp.visitWithoutReset (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:204:20)
-    at Visitor.PVp.visit (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:133:29)
-    at Object.visit (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:101:55)
-"
-`;
