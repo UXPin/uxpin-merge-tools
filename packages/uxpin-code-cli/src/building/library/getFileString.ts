@@ -1,4 +1,7 @@
+import { relative } from 'path';
+
 import { ComponentInfo } from '../../components/ComponentInfo';
+import { TEMP_DIR_PATH } from '../../config/webpack.config';
 import { getComponentClassName } from './getComponentClassName';
 
 const CLASS_NAME_WRAPPER:string = 'Wrapper';
@@ -20,5 +23,6 @@ export function getFileString(componentInfos:ComponentInfo[], wrapperPath?:strin
 }
 
 function getImportPath(info:ComponentInfo):string {
-  return `./${info.dirPath}/${info.name}`;
+  const path:string = relative(TEMP_DIR_PATH, `./src/${info.dirPath}`);
+  return `${path}/${info.name}`;
 }
