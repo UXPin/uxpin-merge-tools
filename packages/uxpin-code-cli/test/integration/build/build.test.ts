@@ -1,7 +1,13 @@
+import { relative, resolve } from 'path';
+
+import { LIBRARY_OUTPUT_PATH } from '../../../src/config/webpack.config';
 import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT:number = 60000;
+
+const getDesignSystemLibraryRelativePath:(designSystemDir:string) => string = (designSystemDir) =>
+  relative(__dirname, resolve(`test/resources/repos/${designSystemDir}`, LIBRARY_OUTPUT_PATH));
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
@@ -19,7 +25,7 @@ describe('Building design system', () => {
 
         return runUXPinCodeCommand('resources/repos/arui-feather', options)
           .then(() => {
-            components = require('../../resources/repos/arui-feather/components.js');
+            components = require(getDesignSystemLibraryRelativePath('arui-feather'));
           });
       });
 
@@ -54,7 +60,7 @@ describe('Building design system', () => {
 
         return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', options)
           .then(() => {
-            components = require('../../resources/repos/nordnet-ui-kit/components.js');
+            components = require(getDesignSystemLibraryRelativePath('nordnet-ui-kit'));
           });
       });
 

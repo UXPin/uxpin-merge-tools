@@ -1,9 +1,13 @@
 import { BabelPlugin } from '../building/plugins/BabelPlugin';
 
+export const TEMP_DIR_PATH:string = './.uxpin-temp';
+export const LIBRARY_INPUT_PATH:string = `${TEMP_DIR_PATH}/components.js`;
+export const LIBRARY_OUTPUT_PATH:string = `${TEMP_DIR_PATH}/designsystemlibrary.js`;
+
 const LOADER_BABEL:string = 'babel-loader';
 
 const CONFIG:any = {
-  entry: './src/components.js',
+  entry: LIBRARY_INPUT_PATH,
   module: {
     rules: [
       {
@@ -29,7 +33,7 @@ const CONFIG:any = {
     ],
   },
   output: {
-    filename: 'components.js',
+    filename: LIBRARY_OUTPUT_PATH,
     libraryTarget: 'amd',
   },
   resolve: {

@@ -63,6 +63,7 @@
     "is-dir-promise": "^1.0.1",
     "is-file-promise": "^1.0.3",
     "lodash": "^4.17.4",
+    "mkdirp-promise": "^5.0.1",
     "p-any": "^1.1.0",
     "react-docgen": "^2.18.0",
     "react-docgen-typescript": "^1.0.2",
