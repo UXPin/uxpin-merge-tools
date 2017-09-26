@@ -1,15 +1,20 @@
 import { getFileString } from '../../../../src/building/library/getFileString';
-import { ComponentInfo } from '../../../../src/components/ComponentInfo';
+import { ComponentImplementationInfo, ComponentInfo } from '../../../../src/components/ComponentInfo';
 
 describe('getFileString', () => {
+
+  const implementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
+
   it('returns content of library file for list of ComponentInfo', () => {
     const componentInfos:ComponentInfo[] = [
       {
         dirPath: 'components/button',
+        implementation,
         name: 'button',
       },
       {
         dirPath: 'components/button-list',
+        implementation,
         name: 'button-list',
       },
     ];
@@ -32,10 +37,12 @@ export {
     const componentInfos:ComponentInfo[] = [
       {
         dirPath: 'components/button',
+        implementation,
         name: 'button',
       },
       {
         dirPath: 'components/button-list',
+        implementation,
         name: 'button-list',
       },
     ];
