@@ -15,6 +15,9 @@ export default class ClassEnumTypes extends Component {
 }
 
 ClassEnumTypes.propTypes = {
-  children: PropTypes.node,
+  /**
+   * oneOfType property type
+   */
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.arrayOf(PropTypes.node)]),
   appearance: PropTypes.oneOf(['secondary', 'primary', 'link']).isRequired,
 };

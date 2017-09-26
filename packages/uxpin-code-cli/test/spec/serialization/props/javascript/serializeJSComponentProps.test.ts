@@ -48,10 +48,19 @@ describe('serializeJSComponentProps', () => {
       const componentPath:string = getJavaScriptComponentPath('ClassEnumTypes');
       const expectedProps:ComponentPropertyDefinition[] = [
         {
-          description: '',
+          description: 'oneOfType property type',
           isRequired: false,
           name: 'children',
-          type: { name: 'node', structure: {} },
+          type: {
+            name: 'union',
+            structure: {
+              elements: [
+                { name: 'string', structure: {} },
+                { name: 'number', structure: {} },
+                { name: 'typedArray', structure: { memberType: { name: 'node', structure: {} } } },
+              ],
+            },
+          },
         },
         {
           description: '',
