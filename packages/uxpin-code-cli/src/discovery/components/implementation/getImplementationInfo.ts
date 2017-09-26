@@ -1,7 +1,7 @@
 import pAny = require('p-any');
 import { ComponentImplementationInfo } from '../ComponentInfo';
-import { getJSImplementationInfo } from './implementation/strategies/getJSImplementationInfo';
-import { getTSImplementationInfo } from './implementation/strategies/getTSImplementationInfo';
+import { getJSImplementationInfo } from './strategies/getJSImplementationInfo';
+import { getTSImplementationInfo } from './strategies/getTSImplementationInfo';
 
 type ImplementationDiscoveryStrategy = (dirPath:string, fileName:string) => Promise<ComponentImplementationInfo>;
 

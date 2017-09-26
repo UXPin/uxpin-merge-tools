@@ -2,7 +2,7 @@ import fsReaddirPromise = require('fs-readdir-promise');
 import isDirPromise = require('is-dir-promise');
 import { join, relative } from 'path';
 import { ComponentInfo } from './ComponentInfo';
-import { getImplementationInfo } from './discovery/getImplementationInfo';
+import { getImplementationInfo } from './implementation/getImplementationInfo';
 
 const DIR_COMPONENTS:string = 'components';
 const DIR_SRC:string = 'src';

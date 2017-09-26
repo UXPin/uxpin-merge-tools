@@ -1,5 +1,5 @@
 import { getFileString } from '../../../../src/building/library/getFileString';
-import { ComponentImplementationInfo, ComponentInfo } from '../../../../src/components/ComponentInfo';
+import { ComponentImplementationInfo, ComponentInfo } from '../../../../src/discovery/components/ComponentInfo';
 
 describe('getFileString', () => {
 
