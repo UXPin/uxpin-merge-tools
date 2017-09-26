@@ -67,6 +67,7 @@ theme-provider
 user`);
       });
     });
+
     it('prints the list of components found in nordnet-ui-kit example', () => {
       // when
       return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', '--summary').then((output) => {

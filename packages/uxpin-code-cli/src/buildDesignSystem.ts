@@ -1,16 +1,17 @@
 import * as webpack from 'webpack';
 import { createComponentsLibrary } from './building/library/createComponentsLibrary';
 import { BabelPlugin } from './building/plugins/BabelPlugin';
+import { LibraryTarget } from './config/LibraryTarget';
 import { getConfig } from './config/webpack.config';
 import { getDesignSystemComponentInfos } from './discovery/components/getDesignSystemComponentInfos';
 
 export function buildDesignSystem(babelPlugins:BabelPlugin[], wrapperPath?:string,
-  target?:string):Promise<webpack.Stats> {
+  target?:LibraryTarget):Promise<webpack.Stats> {
   return createLibrary(wrapperPath)
     .then(() => bundle(babelPlugins, target));
 }
 
-function bundle(babelPlugins:BabelPlugin[] = [], target?:string):Promise<webpack.Stats> {
+function bundle(babelPlugins:BabelPlugin[] = [], target?:LibraryTarget):Promise<webpack.Stats> {
   return new Promise((resolve, reject) => {
     const compiler:webpack.Compiler = webpack(getConfig(babelPlugins, target));
 
