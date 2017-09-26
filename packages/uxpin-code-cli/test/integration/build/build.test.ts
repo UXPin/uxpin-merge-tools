@@ -1,6 +1,7 @@
 import { relative, resolve } from 'path';
 
 import { LIBRARY_OUTPUT_PATH } from '../../../src/config/webpack.config';
+import { runCommand } from '../../utils/command/runCommand';
 import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
@@ -13,7 +14,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Building design system', () => {
 
-  describe('arui-feather', () => {
+  describe('repos/arui-feather', () => {
     // @todo fix running this test on ci
     // right now it ignores unsetting babel-loader 'babelrc' flag
     // see https://github.com/babel/babel-loader/issues/418
@@ -51,7 +52,7 @@ describe('Building design system', () => {
     });
   });
 
-  describe('nordnet-ui-kit', () => {
+  describe('repos/nordnet-ui-kit', () => {
     describe('with required babel plugins', () => {
       let components:any;
 
@@ -80,6 +81,19 @@ describe('Building design system', () => {
         // then
         expect(Wrapper).toBeInstanceOf(Function);
       });
+    });
+  });
+
+  describe('designSystems/cantWriteToUxpinTemp', () => {
+    const workingDir:string = 'resources/designSystems/cantWriteToUxpinTemp';
+
+    it('shows permission denied Error when can not write to temporary directory', () => {
+      return runCommand(`chmod 444 test/${workingDir}/.uxpin-temp`)
+        .then(() => runUXPinCodeCommand(workingDir))
+        .then((output) => {
+          expect(output).toContain('ERROR:');
+          expect(output).toContain('EACCES: permission denied');
+        });
     });
   });
 });
