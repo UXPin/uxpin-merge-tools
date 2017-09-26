@@ -133,7 +133,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				}
@@ -155,7 +164,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -166,7 +189,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -212,7 +244,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -223,7 +269,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -269,7 +324,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -280,7 +349,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -601,7 +679,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							className: {
 								name: 'union',
 								structure: {
-									elements: []
+									elements: [
+										{
+											name: 'func',
+											structure: {}
+										},
+										{
+											name: 'string',
+											structure: {}
+										}
+									]
 								}
 							},
 							onClick: {
@@ -746,7 +833,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -1125,7 +1221,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -1160,7 +1270,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -1376,8 +1495,13 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'months',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'string',
+								structure: {}
+							}
+						}
 					}
 				},
 				{
@@ -1396,8 +1520,13 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'weekdays',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'string',
+								structure: {}
+							}
+						}
 					}
 				},
 				{
@@ -1408,8 +1537,13 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'offDays',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'number',
+								structure: {}
+							}
+						}
 					}
 				},
 				{
@@ -1467,7 +1601,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -1580,16 +1723,31 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 								structure: {}
 							},
 							months: {
-								name: 'arrayOf',
-								structure: {}
+								name: 'typedArray',
+								structure: {
+									memberType: {
+										name: 'string',
+										structure: {}
+									}
+								}
 							},
 							weekdays: {
-								name: 'arrayOf',
-								structure: {}
+								name: 'typedArray',
+								structure: {
+									memberType: {
+										name: 'string',
+										structure: {}
+									}
+								}
 							},
 							offDays: {
-								name: 'arrayOf',
-								structure: {}
+								name: 'typedArray',
+								structure: {
+									memberType: {
+										name: 'number',
+										structure: {}
+									}
+								}
 							},
 							showArrows: {
 								name: 'boolean',
@@ -1625,7 +1783,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							className: {
 								name: 'union',
 								structure: {
-									elements: []
+									elements: [
+										{
+											name: 'func',
+											structure: {}
+										},
+										{
+											name: 'string',
+											structure: {}
+										}
+									]
 								}
 							},
 							onKeyDown: {
@@ -1693,8 +1860,94 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'directions',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'anchor'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-left'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-right'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-top'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-bottom'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-top'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-bottom'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-left'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-right'
+											}
+										}
+									]
+								}
+							}
+						}
 					}
 				},
 				{
@@ -1863,7 +2116,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -2208,7 +2470,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -2306,8 +2577,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'value',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'string',
+											structure: {}
+										},
+										{
+											name: 'number',
+											structure: {}
+										}
+									]
+								}
+							}
+						}
 					}
 				},
 				{
@@ -2392,7 +2679,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -2483,7 +2779,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -2518,7 +2828,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -2549,7 +2868,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -2560,7 +2893,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -2669,7 +3011,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							className: {
 								name: 'union',
 								structure: {
-									elements: []
+									elements: [
+										{
+											name: 'func',
+											structure: {}
+										},
+										{
+											name: 'string',
+											structure: {}
+										}
+									]
 								}
 							},
 							type: {
@@ -2717,8 +3068,94 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 								}
 							},
 							directions: {
-								name: 'arrayOf',
-								structure: {}
+								name: 'typedArray',
+								structure: {
+									memberType: {
+										name: 'union',
+										structure: {
+											elements: [
+												{
+													name: 'literal',
+													structure: {
+														value: 'anchor'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'top-left'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'top-center'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'top-right'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'left-top'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'left-center'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'left-bottom'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'right-top'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'right-center'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'right-bottom'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'bottom-left'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'bottom-center'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'bottom-right'
+													}
+												}
+											]
+										}
+									}
+								}
 							},
 							target: {
 								name: 'union',
@@ -2955,7 +3392,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -2990,7 +3441,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -3231,7 +3691,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				}
@@ -3421,7 +3890,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -3456,7 +3939,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -3505,7 +3997,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -3597,7 +4103,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				}
@@ -3715,7 +4230,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -3755,7 +4279,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -3829,7 +4367,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				}
@@ -3962,7 +4509,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -4003,7 +4564,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -4391,7 +4961,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -4540,8 +5119,49 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'options',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'shape',
+								structure: {
+									type: {
+										name: 'union',
+										structure: {
+											elements: [
+												{
+													name: 'literal',
+													structure: {
+														value: 'item'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'group'
+													}
+												}
+											]
+										}
+									},
+									value: {
+										name: 'string',
+										structure: {}
+									},
+									description: {
+										name: 'node',
+										structure: {}
+									},
+									text: {
+										name: 'string',
+										structure: {}
+									},
+									content: {
+										name: 'array',
+										structure: {}
+									}
+								}
+							}
+						}
 					}
 				},
 				{
@@ -4668,8 +5288,88 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'directions',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-left'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-right'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-top'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-bottom'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-top'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-bottom'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-left'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-right'
+											}
+										}
+									]
+								}
+							}
+						}
 					}
 				},
 				{
@@ -4723,7 +5423,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -4758,7 +5472,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				}
@@ -4829,7 +5552,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -4864,7 +5601,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -5057,7 +5803,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -5092,7 +5852,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -5157,8 +5926,22 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'items',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'shape',
+								structure: {
+									key: {
+										name: 'string',
+										structure: {}
+									},
+									value: {
+										name: 'node',
+										structure: {}
+									}
+								}
+							}
+						}
 					}
 				},
 				{
@@ -5216,7 +5999,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				}
@@ -5393,7 +6185,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							ref: {
 								name: 'union',
 								structure: {
-									elements: []
+									elements: [
+										{
+											name: 'number',
+											structure: {}
+										},
+										{
+											name: 'string',
+											structure: {}
+										}
+									]
 								}
 							},
 							item: {
@@ -5408,8 +6209,67 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'content',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'shape',
+								structure: {
+									type: {
+										name: 'union',
+										structure: {
+											elements: [
+												{
+													name: 'literal',
+													structure: {
+														value: 'item'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'group'
+													}
+												}
+											]
+										}
+									},
+									value: {
+										name: 'union',
+										structure: {
+											elements: [
+												{
+													name: 'string',
+													structure: {}
+												},
+												{
+													name: 'number',
+													structure: {}
+												}
+											]
+										}
+									},
+									content: {
+										name: 'union',
+										structure: {
+											elements: [
+												{
+													name: 'node',
+													structure: {}
+												},
+												{
+													name: 'array',
+													structure: {}
+												}
+											]
+										}
+									},
+									props: {
+										name: 'object',
+										structure: {}
+									}
+								}
+							}
+						}
 					}
 				},
 				{
@@ -5417,8 +6277,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'checkedItems',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'string',
+											structure: {}
+										},
+										{
+											name: 'number',
+											structure: {}
+										}
+									]
+								}
+							}
+						}
 					}
 				},
 				{
@@ -5500,7 +6376,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -5714,7 +6599,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'string',
+									structure: {}
+								},
+								{
+									name: 'number',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -5806,7 +6700,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -5841,7 +6749,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -5961,7 +6878,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -6082,7 +7013,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -6117,7 +7062,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -6241,7 +7195,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -6285,7 +7253,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				}
@@ -6340,7 +7317,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -6375,7 +7366,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				}
@@ -6441,7 +7441,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -6476,7 +7490,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -6516,7 +7539,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -6527,7 +7559,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -6590,8 +7636,94 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'directions',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'anchor'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-left'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-right'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-top'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-bottom'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-top'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-bottom'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-left'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-right'
+											}
+										}
+									]
+								}
+							}
+						}
 					}
 				},
 				{
@@ -6840,7 +7972,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -6851,7 +7997,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -6975,7 +8130,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -7192,7 +8356,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -7352,7 +8525,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -7387,7 +8574,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -7454,7 +8650,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -7465,7 +8675,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -7525,7 +8744,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -7629,8 +8857,88 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'directions',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-left'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'top-right'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-top'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'left-bottom'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-top'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'right-bottom'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-left'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-center'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'bottom-right'
+											}
+										}
+									]
+								}
+							}
+						}
 					}
 				},
 				{
@@ -7671,8 +8979,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'value',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'string',
+											structure: {}
+										},
+										{
+											name: 'number',
+											structure: {}
+										}
+									]
+								}
+							}
+						}
 					}
 				},
 				{
@@ -7683,8 +9007,72 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					isRequired: false,
 					name: 'options',
 					type: {
-						name: 'arrayOf',
-						structure: {}
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'shape',
+								structure: {
+									type: {
+										name: 'union',
+										structure: {
+											elements: [
+												{
+													name: 'literal',
+													structure: {
+														value: 'item'
+													}
+												},
+												{
+													name: 'literal',
+													structure: {
+														value: 'group'
+													}
+												}
+											]
+										}
+									},
+									value: {
+										name: 'union',
+										structure: {
+											elements: [
+												{
+													name: 'string',
+													structure: {}
+												},
+												{
+													name: 'number',
+													structure: {}
+												}
+											]
+										}
+									},
+									text: {
+										name: 'node',
+										structure: {}
+									},
+									nativeText: {
+										name: 'string',
+										structure: {}
+									},
+									description: {
+										name: 'node',
+										structure: {}
+									},
+									checkedText: {
+										name: 'string',
+										structure: {}
+									},
+									icon: {
+										name: 'node',
+										structure: {}
+									},
+									content: {
+										name: 'array',
+										structure: {}
+									}
+								}
+							}
+						}
 					}
 				},
 				{
@@ -7984,7 +9372,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -7995,7 +9392,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'node',
+											structure: {}
+										}
+									}
+								},
+								{
+									name: 'node',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -8089,7 +9500,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'string',
+									structure: {}
+								},
+								{
+									name: 'func',
+									structure: {}
+								}
+							]
 						}
 					}
 				}
@@ -8186,7 +9606,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				}
@@ -8289,7 +9718,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -8329,7 +9767,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -8660,7 +10107,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -8712,7 +10168,16 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					type: {
 						name: 'union',
 						structure: {
-							elements: []
+							elements: [
+								{
+									name: 'func',
+									structure: {}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
