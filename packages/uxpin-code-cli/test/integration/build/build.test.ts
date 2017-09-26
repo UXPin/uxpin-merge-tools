@@ -57,7 +57,6 @@ describe('Building design system', () => {
 
       beforeAll(() => {
         const options:string = [
-          '--babel-plugins "transform-class-properties,transform-object-rest-spread"',
           '--target "commonjs"',
           '--wrapper "../documentation/wrapper.jsx"',
         ].join(' ');
@@ -80,15 +79,6 @@ describe('Building design system', () => {
         const { Wrapper } = components;
         // then
         expect(Wrapper).toBeInstanceOf(Function);
-      });
-    });
-
-    describe('without required babel plugins', () => {
-      it('throws an error', () => {
-        return runUXPinCodeCommand('resources/repos/nordnet-ui-kit')
-          .catch((error) => {
-            expect(error).toContain('Module build failed');
-          });
       });
     });
   });
