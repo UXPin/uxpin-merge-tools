@@ -43,8 +43,9 @@ describe('Building design system', () => {
     describe('without required babel plugins', () => {
       it('throws an error', () => {
         return runUXPinCodeCommand('resources/repos/arui-feather')
-          .catch((error) => {
-            expect(error).toContain('Module build failed');
+          .then((output) => {
+            expect(output).toContain('ERROR:');
+            expect(output).toContain('Module build failed');
           });
       });
     });
