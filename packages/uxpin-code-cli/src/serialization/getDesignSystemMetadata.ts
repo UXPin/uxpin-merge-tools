@@ -2,7 +2,7 @@ import { ComponentInfo } from '../discovery/components/ComponentInfo';
 import { getDesignSystemComponentInfos } from '../discovery/components/getDesignSystemComponentInfos';
 import { ComponentDefinition } from './component/ComponentDefinition';
 import { DesignSystemDefinition } from './DesignSystemDefinition';
-import { serializeJSComponentProps } from './props/javascript/serializeJSComponentProps';
+import { serializeComponentProps } from './props/serializeComponentProps';
 
 export function getDesignSystemMetadata():Promise<DesignSystemDefinition> {
   return getDesignSystemComponentInfos()
@@ -11,5 +11,5 @@ export function getDesignSystemMetadata():Promise<DesignSystemDefinition> {
 }
 
 function componentInfoToDefinition(info:ComponentInfo):Promise<ComponentDefinition> {
-  return serializeJSComponentProps(info.implementation.path).then(({ properties }) => ({ ...info, properties }));
+  return serializeComponentProps(info.implementation.path).then(({ properties }) => ({ ...info, properties }));
 }

@@ -1,16 +1,1620 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON describing the full repository 1`] = `
-"ERROR: Error: Multiple exported component definitions found.
-    at Context.exportDeclaration (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
-    at Context.invokeVisitorMethod (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:344:49)
-    at Visitor.PVp.visitWithoutReset (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:196:32)
-    at NodePath.each (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path.js:101:26)
-    at visitChildren (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:219:18)
-    at Visitor.PVp.visitWithoutReset (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:204:20)
-    at visitChildren (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:246:25)
-    at Visitor.PVp.visitWithoutReset (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:204:20)
-    at Visitor.PVp.visit (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:133:29)
-    at Object.visit (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/ast-types/lib/path-visitor.js:101:55)
+"{
+	components: [
+		{
+			dirPath: 'src/components/alert',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/alert/alert.jsx'
+			},
+			name: 'alert',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/animate',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/animate/animate.jsx'
+			},
+			name: 'animate',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/avatar',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/avatar/avatar.jsx'
+			},
+			name: 'avatar',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/badge',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/badge/badge.jsx'
+			},
+			name: 'badge',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/button',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/button/button.jsx'
+			},
+			name: 'button',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/dropdown',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/dropdown/dropdown.jsx'
+			},
+			name: 'dropdown',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/flag',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/flag/flag.jsx'
+			},
+			name: 'flag',
+			properties: [
+				{
+					description: '',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: ''
+					},
+					description: 'A valid 2-character country code',
+					isRequired: false,
+					name: 'countryCode',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'ca'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'de'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'fr'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'ru'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'gb'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'dk'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'fi'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'no'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'se'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'us'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'jp'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'cn'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'eu'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'CA'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'DE'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'FR'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'RU'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'GB'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'DK'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'FI'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'NO'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'SE'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'US'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'JP'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'CN'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'EU'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'secondaryCountryCode',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'ca'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'de'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'fr'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'ru'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'gb'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'dk'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'fi'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'no'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'se'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'us'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'jp'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'cn'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'eu'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'CA'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'DE'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'FR'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'RU'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'GB'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'DK'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'FI'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'NO'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'SE'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'US'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'JP'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'CN'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'EU'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					defaultValue: {
+						value: 32
+					},
+					description: 'Unitless pixel value',
+					isRequired: false,
+					name: 'size',
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'style',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: false
+					},
+					description: '',
+					isRequired: false,
+					name: 'round',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/icon',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/icon/icon.jsx'
+			},
+			name: 'icon',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/input',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/input/input.jsx'
+			},
+			name: 'input',
+			properties: [
+				{
+					description: '',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'style',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: 'text'
+					},
+					description: 'Needs to be a valid input type',
+					isRequired: false,
+					name: 'type',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: 'primary'
+					},
+					description: '',
+					isRequired: false,
+					name: 'variant',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'primary'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'secondary'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'disabled',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'label',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'placeholder',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'id',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'value',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'string',
+									structure: {}
+								},
+								{
+									name: 'number',
+									structure: {}
+								},
+								{
+									name: 'boolean',
+									structure: {}
+								},
+								{
+									name: 'array',
+									structure: {}
+								},
+								{
+									name: 'object',
+									structure: {}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'onFocus',
+					type: {
+						name: 'func',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'onBlur',
+					type: {
+						name: 'func',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'onChange',
+					type: {
+						name: 'func',
+						structure: {}
+					}
+				},
+				{
+					description: 'Manipulates the value of the input, eg. removing unsupported characters from number inputs',
+					isRequired: false,
+					name: 'valueFormatter',
+					type: {
+						name: 'func',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'hasSuccess',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'hasError',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'hasWarning',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'helpText',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'leftAddon',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'rightAddon',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/labeled-value',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/labeled-value/labeled-value.jsx'
+			},
+			name: 'labeled-value',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/li',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/li/li.jsx'
+			},
+			name: 'li',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/logo',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/logo/logo.jsx'
+			},
+			name: 'logo',
+			properties: [
+				{
+					description: '',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: false
+					},
+					description: '',
+					isRequired: false,
+					name: 'onlyIcon',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'style',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: '#00A9EC'
+					},
+					description: '',
+					isRequired: false,
+					name: 'iconColor',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: '#222222'
+					},
+					description: '',
+					isRequired: false,
+					name: 'textColor',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: 27
+					},
+					description: '',
+					isRequired: false,
+					name: 'height',
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/pane',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/pane/pane.jsx'
+			},
+			name: 'pane',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/radio-group',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/radio-group/radio-group.jsx'
+			},
+			name: 'radio-group',
+			properties: [
+				{
+					description: 'The value to be selected',
+					isRequired: false,
+					name: 'selectedValue',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: 'The name of the checkbox elements, leave blank to set names on child elements',
+					isRequired: true,
+					name: 'name',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'onChange',
+					type: {
+						name: 'func',
+						structure: {}
+					}
+				},
+				{
+					description: 'Elements of type \`<Input type=\\"checkbox\\" />\`',
+					isRequired: true,
+					name: 'children',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/segmented-control',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/segmented-control/segmented-control.jsx'
+			},
+			name: 'segmented-control',
+			properties: [
+				{
+					description: '@ignore',
+					isRequired: true,
+					name: 'classes',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'children',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'onChange',
+					type: {
+						name: 'func',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'style',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'name',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'type',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'radio'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'checkbox'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'value',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: 'primary'
+					},
+					description: '',
+					isRequired: false,
+					name: 'variant',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'primary'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'secondary'
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/spinner',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/spinner/spinner.jsx'
+			},
+			name: 'spinner',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/table',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/table/table.jsx'
+			},
+			name: 'table',
+			properties: [
+				{
+					description: '@ignore',
+					isRequired: true,
+					name: 'classes',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'children',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'size',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'xs'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'sm'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'md'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'lg'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					defaultValue: {
+						value: 700
+					},
+					description: '',
+					isRequired: false,
+					name: 'minWidth',
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'style',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/tbody',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/tbody/tbody.jsx'
+			},
+			name: 'tbody',
+			properties: [
+				{
+					description: '@ignore',
+					isRequired: true,
+					name: 'classes',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'children',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'style',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'size',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'xs'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'sm'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'md'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'lg'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					defaultValue: {
+						value: true
+					},
+					description: '',
+					isRequired: false,
+					name: 'colorAlternateRows',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Unitless pixel value',
+					isRequired: false,
+					name: 'maxHeight',
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: false
+					},
+					description: '',
+					isRequired: false,
+					name: 'border',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: false
+					},
+					description: '',
+					isRequired: false,
+					name: 'borderTop',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: false
+					},
+					description: '',
+					isRequired: false,
+					name: 'borderRight',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: false
+					},
+					description: '',
+					isRequired: false,
+					name: 'borderBottom',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: false
+					},
+					description: '',
+					isRequired: false,
+					name: 'borderLeft',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/td',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/td/td.jsx'
+			},
+			name: 'td',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/tfoot',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/tfoot/tfoot.jsx'
+			},
+			name: 'tfoot',
+			properties: [
+				{
+					description: '@ignore',
+					isRequired: true,
+					name: 'classes',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'children',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'size',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'xs'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'sm'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'md'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'lg'
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/th',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/th/th.jsx'
+			},
+			name: 'th',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/thead',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/thead/thead.jsx'
+			},
+			name: 'thead',
+			properties: [
+				{
+					description: '@ignore',
+					isRequired: true,
+					name: 'classes',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'children',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'size',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'xs'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'sm'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'md'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'lg'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'variant',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'primary'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'secondary'
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/tooltip',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/tooltip/tooltip.jsx'
+			},
+			name: 'tooltip',
+			properties: []
+		},
+		{
+			dirPath: 'src/components/tr',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/tr/tr.jsx'
+			},
+			name: 'tr',
+			properties: [
+				{
+					description: '@ignore',
+					isRequired: true,
+					name: 'classes',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'children',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'size',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'xs'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'sm'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'md'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'lg'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					defaultValue: {
+						value: false
+					},
+					description: '',
+					isRequired: false,
+					name: 'border',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'variant',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'primary'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'secondary'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					defaultValue: {
+						value: false
+					},
+					description: '',
+					isRequired: false,
+					name: 'sticky',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					defaultValue: {
+						value: 0
+					},
+					description: 'Unitless pixel value: if there are other sticky elements at the top of the page, use this to compensate',
+					isRequired: false,
+					name: 'stickyOffset',
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/ul',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/components/ul/ul.jsx'
+			},
+			name: 'ul',
+			properties: [
+				{
+					description: '',
+					isRequired: false,
+					name: 'children',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'style',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				}
+			]
+		}
+	],
+	name: ''
+}
 "
 `;
