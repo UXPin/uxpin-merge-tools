@@ -2,15 +2,22 @@
 
 const program = require('commander');
 
-const { getDesignSystemMetadata, getDesignSystemSummary } = require('../src/index');
+const { buildDesignSystem, getDesignSystemMetadata, getDesignSystemSummary } = require('../src/index');
+
+const MODE_AMD = 'amd';
 
 program
   .version(require('../package.json').version)
   .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
-  .option('-s, --summary', 'Show design system summary')
+  .option('-s, --summary', 'Show only design system summary without building it')
+  .option('--babel-plugins <items>', 'Use custom babel plugins', (items) => items.split(',').map(parsePluginDefinition))
+  .option('--target <mode>', 'Set webpack libraryTarget mode', (mode) => mode || MODE_AMD)
+  .option('--wrapper <path>', 'Use custom wrapper', (path) => path || '')
   .parse(process.argv);
 
-if (program.summary) {
+const { babelPlugins, summary, target, wrapper } = program;
+
+if (summary) {
   return getDesignSystemSummary()
     .then(console.log)
     .catch(logError);
@@ -21,7 +28,43 @@ if (program.dump) {
     .catch(logError);
 }
 
+buildDesignSystem(babelPlugins, wrapper, target)
+  .then(getDesignSystemSummary)
+  .then(console.log)
+  .catch(logError);
 
-function logError(error) {
-  console.log('ERROR:', error.message);
+function parseParams(params) {
+  if (!params) {
+    return null;
+  }
+
+  return params
+    .split('&')
+    .reduce((params, param) => {
+      const [paramName, paramValue] = param.split('=');
+      let parsedValue;
+
+      try {
+        parsedValue = JSON.parse(paramValue);
+      } catch (e) {
+        parsedValue = paramValue;
+      }
+
+      return Object.assign({}, params, { [paramName]: parsedValue });
+    }, {});
+}
+
+function parsePluginDefinition(pluginDefinition) {
+  const pluginDefinitionParts = pluginDefinition.split('?');
+  const params = parseParams(pluginDefinitionParts[1]);
+
+  if (pluginDefinitionParts.length === 1 || !params) {
+    return pluginDefinitionParts[0];
+  }
+
+  return [pluginDefinitionParts[0], params];
+}
+
+function logError(errorMessage) {
+  console.log('ERROR:', errorMessage);
 }

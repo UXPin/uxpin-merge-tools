@@ -1,6 +1,7 @@
-import { join } from 'path';
+import { join, relative } from 'path';
 
 import { getDirectoryContent, isDirectory } from '../utils/asynchronousFS';
+import { ComponentInfo } from './ComponentInfo';
 import { isComponent } from './isComponent';
 
 const DIR_COMPONENTS:string = 'components';
@@ -11,12 +12,24 @@ const PATHS:string[][] = [
   [DIR_SRC],
 ];
 
-export function getDesignSystemComponentLocations():Promise<string[]> {
+export function getDesignSystemComponentInfos():Promise<ComponentInfo[]> {
   let componentsDirectory:string;
   return getComponentsDirectory()
     .then((directory) => componentsDirectory = directory)
     .then(getDirectoryContent)
-    .then((content) => filterComponents(content, componentsDirectory));
+    .then((content) => filterComponents(content, componentsDirectory))
+    .then((components) => components.map((component) => toComponentInfo(componentsDirectory, component)));
+}
+
+function toComponentInfo(componentsDirectory:string, component:string):ComponentInfo {
+  return {
+    dirPath: getRelativePath(join(componentsDirectory, component)),
+    name: component,
+  };
+}
+
+function getRelativePath(path:string):string {
+  return relative(join(process.cwd(), DIR_SRC), path);
 }
 
 function getComponentsDirectory():Promise<string> {
