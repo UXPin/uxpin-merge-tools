@@ -1,6 +1,6 @@
-import { getDesignSystemComponentInfos } from './components/getDesignSystemComponentInfos';
+import { getDesignSystemComponentLocations } from './components/getDesignSystemComponentLocations';
 
 export function getDesignSystemSummary():Promise<string> {
-  return getDesignSystemComponentInfos()
-    .then((componentInfos) => componentInfos.map((componentInfo) => componentInfo.name).join('\n'));
+  return getDesignSystemComponentLocations()
+    .then((components) => components.join('\n'));
 }
