@@ -1,5 +1,5 @@
-import { ComponentInfo } from '../components/ComponentInfo';
-import { getDesignSystemComponentInfos } from '../components/getDesignSystemComponentInfos';
+import { ComponentInfo } from '../discovery/components/ComponentInfo';
+import { getDesignSystemComponentInfos } from '../discovery/components/getDesignSystemComponentInfos';
 import { ComponentDefinition } from './component/ComponentDefinition';
 import { DesignSystemDefinition } from './DesignSystemDefinition';
 import { serializeJSComponentProps } from './props/javascript/serializeJSComponentProps';
