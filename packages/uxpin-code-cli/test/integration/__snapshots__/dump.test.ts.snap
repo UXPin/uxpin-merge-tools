@@ -4,11 +4,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 "{
 	components: [
 		{
-			dirPath: 'amount/amount',
+			dirPath: 'src/amount',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/amount/amount.jsx'
+				path: 'src/amount/amount.jsx'
 			},
 			name: 'amount',
 			properties: [
@@ -149,11 +149,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'app-content/app-content',
+			dirPath: 'src/app-content',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/app-content/app-content.jsx'
+				path: 'src/app-content/app-content.jsx'
 			},
 			name: 'app-content',
 			properties: [
@@ -229,11 +229,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'app-menu/app-menu',
+			dirPath: 'src/app-menu',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/app-menu/app-menu.jsx'
+				path: 'src/app-menu/app-menu.jsx'
 			},
 			name: 'app-menu',
 			properties: [
@@ -309,11 +309,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'app-title/app-title',
+			dirPath: 'src/app-title',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/app-title/app-title.jsx'
+				path: 'src/app-title/app-title.jsx'
 			},
 			name: 'app-title',
 			properties: [
@@ -389,11 +389,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'attach/attach',
+			dirPath: 'src/attach',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/attach/attach.jsx'
+				path: 'src/attach/attach.jsx'
 			},
 			name: 'attach',
 			properties: [
@@ -903,11 +903,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'button/button',
+			dirPath: 'src/button',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/button/button.jsx'
+				path: 'src/button/button.jsx'
 			},
 			name: 'button',
 			properties: [
@@ -1376,11 +1376,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'calendar/calendar',
+			dirPath: 'src/calendar',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/calendar/calendar.jsx'
+				path: 'src/calendar/calendar.jsx'
 			},
 			name: 'calendar',
 			properties: [
@@ -1653,11 +1653,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'calendar-input/calendar-input',
+			dirPath: 'src/calendar-input',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/calendar-input/calendar-input.jsx'
+				path: 'src/calendar-input/calendar-input.jsx'
 			},
 			name: 'calendar-input',
 			properties: [
@@ -2246,11 +2246,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'card-input/card-input',
+			dirPath: 'src/card-input',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/card-input/card-input.jsx'
+				path: 'src/card-input/card-input.jsx'
 			},
 			name: 'card-input',
 			properties: [
@@ -2269,11 +2269,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'checkbox/checkbox',
+			dirPath: 'src/checkbox',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/checkbox/checkbox.jsx'
+				path: 'src/checkbox/checkbox.jsx'
 			},
 			name: 'checkbox',
 			properties: [
@@ -2531,11 +2531,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'checkbox-group/checkbox-group',
+			dirPath: 'src/checkbox-group',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/checkbox-group/checkbox-group.jsx'
+				path: 'src/checkbox-group/checkbox-group.jsx'
 			},
 			name: 'checkbox-group',
 			properties: [
@@ -2731,11 +2731,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'collapse/collapse',
+			dirPath: 'src/collapse',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/collapse/collapse.jsx'
+				path: 'src/collapse/collapse.jsx'
 			},
 			name: 'collapse',
 			properties: [
@@ -2853,11 +2853,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'copyright/copyright',
+			dirPath: 'src/copyright',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/copyright/copyright.jsx'
+				path: 'src/copyright/copyright.jsx'
 			},
 			name: 'copyright',
 			properties: [
@@ -2945,11 +2945,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'dropdown/dropdown',
+			dirPath: 'src/dropdown',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/dropdown/dropdown.jsx'
+				path: 'src/dropdown/dropdown.jsx'
 			},
 			name: 'dropdown',
 			properties: [
@@ -3511,21 +3511,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'email-input/email-input',
+			dirPath: 'src/email-input',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/email-input/email-input.jsx'
+				path: 'src/email-input/email-input.jsx'
 			},
 			name: 'email-input',
 			properties: []
 		},
 		{
-			dirPath: 'error-page/error-page',
+			dirPath: 'src/error-page',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/error-page/error-page.jsx'
+				path: 'src/error-page/error-page.jsx'
 			},
 			name: 'error-page',
 			properties: [
@@ -3586,11 +3586,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'footer/footer',
+			dirPath: 'src/footer',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/footer/footer.jsx'
+				path: 'src/footer/footer.jsx'
 			},
 			name: 'footer',
 			properties: [
@@ -3707,11 +3707,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'form/form',
+			dirPath: 'src/form',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/form/form.jsx'
+				path: 'src/form/form.jsx'
 			},
 			name: 'form',
 			properties: [
@@ -3982,11 +3982,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'form-field/form-field',
+			dirPath: 'src/form-field',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/form-field/form-field.jsx'
+				path: 'src/form-field/form-field.jsx'
 			},
 			name: 'form-field',
 			properties: [
@@ -4119,11 +4119,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'header/header',
+			dirPath: 'src/header',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/header/header.jsx'
+				path: 'src/header/header.jsx'
 			},
 			name: 'header',
 			properties: [
@@ -4264,11 +4264,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'heading/heading',
+			dirPath: 'src/heading',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/heading/heading.jsx'
+				path: 'src/heading/heading.jsx'
 			},
 			name: 'heading',
 			properties: [
@@ -4383,11 +4383,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'icon/icon',
+			dirPath: 'src/icon',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/icon/icon.jsx'
+				path: 'src/icon/icon.jsx'
 			},
 			name: 'icon',
 			properties: [
@@ -4589,11 +4589,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'input/input',
+			dirPath: 'src/input',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/input/input.jsx'
+				path: 'src/input/input.jsx'
 			},
 			name: 'input',
 			properties: [
@@ -5103,11 +5103,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'input-autocomplete/input-autocomplete',
+			dirPath: 'src/input-autocomplete',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/input-autocomplete/input-autocomplete.jsx'
+				path: 'src/input-autocomplete/input-autocomplete.jsx'
 			},
 			name: 'input-autocomplete',
 			properties: [
@@ -5384,11 +5384,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'input-group/input-group',
+			dirPath: 'src/input-group',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/input-group/input-group.jsx'
+				path: 'src/input-group/input-group.jsx'
 			},
 			name: 'input-group',
 			properties: [
@@ -5488,21 +5488,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'isolated-container/isolated-container',
+			dirPath: 'src/isolated-container',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/isolated-container/isolated-container.jsx'
+				path: 'src/isolated-container/isolated-container.jsx'
 			},
 			name: 'isolated-container',
 			properties: []
 		},
 		{
-			dirPath: 'label/label',
+			dirPath: 'src/label',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/label/label.jsx'
+				path: 'src/label/label.jsx'
 			},
 			name: 'label',
 			properties: [
@@ -5629,11 +5629,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'link/link',
+			dirPath: 'src/link',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/link/link.jsx'
+				path: 'src/link/link.jsx'
 			},
 			name: 'link',
 			properties: [
@@ -5913,11 +5913,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'list/list',
+			dirPath: 'src/list',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/list/list.jsx'
+				path: 'src/list/list.jsx'
 			},
 			name: 'list',
 			properties: [
@@ -6015,11 +6015,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'masked-input/masked-input',
+			dirPath: 'src/masked-input',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/masked-input/masked-input.jsx'
+				path: 'src/masked-input/masked-input.jsx'
 			},
 			name: 'masked-input',
 			properties: [
@@ -6062,11 +6062,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'menu/menu',
+			dirPath: 'src/menu',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/menu/menu.jsx'
+				path: 'src/menu/menu.jsx'
 			},
 			name: 'menu',
 			properties: [
@@ -6473,11 +6473,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'menu-item/menu-item',
+			dirPath: 'src/menu-item',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/menu-item/menu-item.jsx'
+				path: 'src/menu-item/menu-item.jsx'
 			},
 			name: 'menu-item',
 			properties: [
@@ -6810,11 +6810,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'money-input/money-input',
+			dirPath: 'src/money-input',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/money-input/money-input.jsx'
+				path: 'src/money-input/money-input.jsx'
 			},
 			name: 'money-input',
 			properties: [
@@ -6845,11 +6845,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'mq/mq',
+			dirPath: 'src/mq',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/mq/mq.jsx'
+				path: 'src/mq/mq.jsx'
 			},
 			name: 'mq',
 			properties: [
@@ -6908,11 +6908,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'notification/notification',
+			dirPath: 'src/notification',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/notification/notification.jsx'
+				path: 'src/notification/notification.jsx'
 			},
 			name: 'notification',
 			properties: [
@@ -7171,11 +7171,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'page/page',
+			dirPath: 'src/page',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/page/page.jsx'
+				path: 'src/page/page.jsx'
 			},
 			name: 'page',
 			properties: [
@@ -7269,11 +7269,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'paragraph/paragraph',
+			dirPath: 'src/paragraph',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/paragraph/paragraph.jsx'
+				path: 'src/paragraph/paragraph.jsx'
 			},
 			name: 'paragraph',
 			properties: [
@@ -7382,11 +7382,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'phone-input/phone-input',
+			dirPath: 'src/phone-input',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/phone-input/phone-input.jsx'
+				path: 'src/phone-input/phone-input.jsx'
 			},
 			name: 'phone-input',
 			properties: [
@@ -7405,11 +7405,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'plate/plate',
+			dirPath: 'src/plate',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/plate/plate.jsx'
+				path: 'src/plate/plate.jsx'
 			},
 			name: 'plate',
 			properties: [
@@ -7524,11 +7524,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'popup/popup',
+			dirPath: 'src/popup',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/popup/popup.jsx'
+				path: 'src/popup/popup.jsx'
 			},
 			name: 'popup',
 			properties: [
@@ -7957,11 +7957,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'popup-container-provider/popup-container-provider',
+			dirPath: 'src/popup-container-provider',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/popup-container-provider/popup-container-provider.jsx'
+				path: 'src/popup-container-provider/popup-container-provider.jsx'
 			},
 			name: 'popup-container-provider',
 			properties: [
@@ -8046,11 +8046,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'popup-header/popup-header',
+			dirPath: 'src/popup-header',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/popup-header/popup-header.jsx'
+				path: 'src/popup-header/popup-header.jsx'
 			},
 			name: 'popup-header',
 			properties: [
@@ -8155,11 +8155,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'radio/radio',
+			dirPath: 'src/radio',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/radio/radio.jsx'
+				path: 'src/radio/radio.jsx'
 			},
 			name: 'radio',
 			properties: [
@@ -8417,11 +8417,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'radio-group/radio-group',
+			dirPath: 'src/radio-group',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/radio-group/radio-group.jsx'
+				path: 'src/radio-group/radio-group.jsx'
 			},
 			name: 'radio-group',
 			properties: [
@@ -8635,11 +8635,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'render-in-container/render-in-container',
+			dirPath: 'src/render-in-container',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/render-in-container/render-in-container.jsx'
+				path: 'src/render-in-container/render-in-container.jsx'
 			},
 			name: 'render-in-container',
 			properties: [
@@ -8709,11 +8709,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'resize-sensor/resize-sensor',
+			dirPath: 'src/resize-sensor',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/resize-sensor/resize-sensor.jsx'
+				path: 'src/resize-sensor/resize-sensor.jsx'
 			},
 			name: 'resize-sensor',
 			properties: [
@@ -8729,11 +8729,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'select/select',
+			dirPath: 'src/select',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/select/select.jsx'
+				path: 'src/select/select.jsx'
 			},
 			name: 'select',
 			properties: [
@@ -9333,11 +9333,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'sidebar/sidebar',
+			dirPath: 'src/sidebar',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/sidebar/sidebar.jsx'
+				path: 'src/sidebar/sidebar.jsx'
 			},
 			name: 'sidebar',
 			properties: [
@@ -9443,11 +9443,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'slide-down/slide-down',
+			dirPath: 'src/slide-down',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/slide-down/slide-down.jsx'
+				path: 'src/slide-down/slide-down.jsx'
 			},
 			name: 'slide-down',
 			properties: [
@@ -9516,11 +9516,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'spin/spin',
+			dirPath: 'src/spin',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/spin/spin.jsx'
+				path: 'src/spin/spin.jsx'
 			},
 			name: 'spin',
 			properties: [
@@ -9622,11 +9622,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'support/support',
+			dirPath: 'src/support',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/support/support.jsx'
+				path: 'src/support/support.jsx'
 			},
 			name: 'support',
 			properties: [
@@ -9752,11 +9752,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'textarea/textarea',
+			dirPath: 'src/textarea',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/textarea/textarea.jsx'
+				path: 'src/textarea/textarea.jsx'
 			},
 			name: 'textarea',
 			properties: [
@@ -10083,11 +10083,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'theme-provider/theme-provider',
+			dirPath: 'src/theme-provider',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/theme-provider/theme-provider.jsx'
+				path: 'src/theme-provider/theme-provider.jsx'
 			},
 			name: 'theme-provider',
 			properties: [
@@ -10153,11 +10153,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			]
 		},
 		{
-			dirPath: 'user/user',
+			dirPath: 'src/user',
 			implementation: {
 				framework: 'reactjs',
 				lang: 'javascript',
-				path: '/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/node_modules/arui-feather/src/user/user.jsx'
+				path: 'src/user/user.jsx'
 			},
 			name: 'user',
 			properties: [
