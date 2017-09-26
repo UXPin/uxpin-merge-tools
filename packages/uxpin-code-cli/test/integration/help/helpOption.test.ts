@@ -14,7 +14,16 @@ describe('--help option', () => {
     // when
     return runUXPinCodeCommand('./', '--help').then((output) => {
       // then
-      expect(output).toMatch(/--summary\s+Show design system summary/);
+      expect(output).toMatch(/--summary\s+Show only design system summary without building it/);
+    });
+  });
+
+  it('it prints help for --babel-plugins <items> option', () => {
+    // when
+    return runUXPinCodeCommand('./', '--help').then((output) => {
+      // then
+      expect(output).toContain('--babel-plugins <items>');
+      expect(output).toContain('Use custom babel plugins');
     });
   });
 });
