@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { ProjectPaths } from '../ProjectPaths';
+import { ProjectPaths } from '../paths/ProjectPaths';
 import { ComponentInfo } from './ComponentInfo';
 import { ComponentPaths } from './ComponentPaths';
 import { getImplementationInfo } from './implementation/getImplementationInfo';

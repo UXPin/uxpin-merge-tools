@@ -1,4 +1,4 @@
-import { ProjectPaths } from '../ProjectPaths';
+import { ProjectPaths } from '../paths/ProjectPaths';
 
 export interface ComponentPaths extends ProjectPaths {
   /**

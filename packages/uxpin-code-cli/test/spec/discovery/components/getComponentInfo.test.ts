@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { ComponentInfo } from '../../../../src/discovery/components/ComponentInfo';
 import { getComponentInfo } from '../../../../src/discovery/components/getComponentInfo';
-import { ProjectPaths } from '../../../../src/discovery/ProjectPaths';
+import { ProjectPaths } from '../../../../src/discovery/paths/ProjectPaths';
 import { testDirPath } from '../../../utils/resources/testDirPath';
 
 describe('getComponentInfo', () => {
