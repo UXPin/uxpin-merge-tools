@@ -5,4 +5,7 @@
 .nyc_output
 /test/**/*.js
 /test/**/*.js.map
+/src/**/*.js
+/src/**/*.js.map
 /test/resources/repos/
+/reports/

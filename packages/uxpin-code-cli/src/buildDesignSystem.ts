@@ -1,19 +1,20 @@
 import * as webpack from 'webpack';
-import { Compiler, Stats } from 'webpack';
 
 import { createComponentsLibrary } from './building/library/createComponentsLibrary';
-import { BabelPlugin } from './building/plugins/BabelPluginDefinition';
+import { BabelPlugin } from './building/plugins/BabelPlugin';
 import { getDesignSystemComponentInfos } from './components/getDesignSystemComponentInfos';
+import { LibraryTarget } from './config/LibraryTarget';
 import { getConfig } from './config/webpack.config';
 
-export function buildDesignSystem(babelPlugins:BabelPlugin[], wrapper:string, target:string):Promise<Stats> {
-  return createLibrary(wrapper)
+export function buildDesignSystem(babelPlugins:BabelPlugin[], wrapperPath?:string,
+  target?:LibraryTarget):Promise<webpack.Stats> {
+  return createLibrary(wrapperPath)
     .then(() => bundle(babelPlugins, target));
 }
 
-function bundle(babelPlugins:BabelPlugin[] = [], target:string):Promise<Stats> {
+function bundle(babelPlugins:BabelPlugin[] = [], target?:LibraryTarget):Promise<webpack.Stats> {
   return new Promise((resolve, reject) => {
-    const compiler:Compiler = webpack(getConfig(babelPlugins, target));
+    const compiler:webpack.Compiler = webpack(getConfig(babelPlugins, target));
 
     compiler.run((err, stats) => {
       if (err) {
@@ -29,7 +30,7 @@ function bundle(babelPlugins:BabelPlugin[] = [], target:string):Promise<Stats> {
   });
 }
 
-function createLibrary(wrapper:string):Promise<void> {
+function createLibrary(wrapperPath?:string):Promise<string> {
   return getDesignSystemComponentInfos()
-    .then((componentInfos) => createComponentsLibrary(componentInfos, wrapper));
+    .then((componentInfos) => createComponentsLibrary(componentInfos, wrapperPath));
 }
