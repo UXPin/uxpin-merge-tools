@@ -22,6 +22,6 @@ export function getFileString(componentInfos:ComponentInfo[], wrapperPath?:strin
 }
 
 function getImportPath(info:ComponentInfo):string {
-  const path:string = relative(TEMP_DIR_PATH, `./src/${info.dirPath}`);
+  const path:string = relative(TEMP_DIR_PATH, `./${info.dirPath}`);
   return `${path}/${info.name}`;
 }
