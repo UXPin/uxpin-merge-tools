@@ -1,23 +1,17 @@
 import fsReaddirPromise = require('fs-readdir-promise');
 import isDirPromise = require('is-dir-promise');
 import { join, relative } from 'path';
+import { PATHS } from '../paths';
+import { ProjectPaths } from '../ProjectPaths';
 import { ComponentInfo } from './ComponentInfo';
-import { getImplementationInfo } from './implementation/getImplementationInfo';
-
-const DIR_COMPONENTS:string = 'components';
-const DIR_SRC:string = 'src';
-
-const PATHS:string[][] = [
-  [DIR_SRC, DIR_COMPONENTS],
-  [DIR_SRC],
-];
+import { getComponentInfo } from './getComponentInfo';
 
 export function getDesignSystemComponentInfos():Promise<ComponentInfo[]> {
   let componentsDirectory:string;
   return getComponentsDirectory()
     .then((directory) => componentsDirectory = directory)
     .then(fsReaddirPromise)
-    .then((content) => getComponentsInfo(content, componentsDirectory));
+    .then((content) => getComponentInfos(content, componentsDirectory));
 }
 
 function getComponentsDirectory():Promise<string> {
@@ -34,24 +28,11 @@ function getComponentsDirectory():Promise<string> {
     });
 }
 
-function getComponentsInfo(fileNames:string[], componentsDirectory:string):Promise<ComponentInfo[]> {
-  return Promise.all(fileNames.map((fileName) => {
-    const path:string = join(componentsDirectory, fileName);
-    return getComponentInfo(path, fileName);
-  }))
+function getComponentInfos(fileNames:string[], componentsDirPath:string):Promise<ComponentInfo[]> {
+  const paths:ProjectPaths = {
+    componentsDirPath: relative(process.cwd(), componentsDirPath),
+    projectRoot: process.cwd(),
+  };
+  return Promise.all(fileNames.map((fileName) => getComponentInfo(paths, fileName)))
     .then((infoList) => infoList.filter(Boolean) as ComponentInfo[]);
-}
-
-function getComponentInfo(componentDirectory:string, componentName:string):Promise<ComponentInfo | null> {
-  return getImplementationInfo(componentDirectory, componentName).then((implementation) => {
-    return {
-      dirPath: getRelativePath(join(componentDirectory, componentName)),
-      implementation,
-      name: componentName,
-    };
-  }).catch(() => null);
-}
-
-function getRelativePath(path:string):string {
-  return relative(join(process.cwd(), DIR_SRC), path);
 }

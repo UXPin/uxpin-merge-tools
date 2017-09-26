@@ -1,13 +1,14 @@
 import isFilePromise = require('is-file-promise');
-import { join } from 'path';
+import { join, relative } from 'path';
 import { ComponentImplementationInfo } from '../../ComponentInfo';
+import { ComponentPaths } from '../../ComponentPaths';
 
-export function getTSImplementationInfo(dirPath:string, fileName:string):Promise<ComponentImplementationInfo> {
-  const path:string = join(dirPath, `${fileName}.tsx`);
+export function getTSImplementationInfo(paths:ComponentPaths, name:string):Promise<ComponentImplementationInfo> {
+  const absoluteComponentPath:string = join(paths.projectRoot, paths.componentDirPath, `${name}.tsx`);
   const info:ComponentImplementationInfo = {
     framework: 'reactjs',
     lang: 'typescript',
-    path,
+    path: relative(paths.projectRoot, absoluteComponentPath),
   };
-  return isFilePromise(path).then(() => info);
+  return isFilePromise(absoluteComponentPath).then(() => info);
 }
