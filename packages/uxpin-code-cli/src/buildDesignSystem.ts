@@ -1,10 +1,9 @@
 import * as webpack from 'webpack';
-
 import { createComponentsLibrary } from './building/library/createComponentsLibrary';
 import { BabelPlugin } from './building/plugins/BabelPlugin';
-import { getDesignSystemComponentInfos } from './components/getDesignSystemComponentInfos';
 import { LibraryTarget } from './config/LibraryTarget';
 import { getConfig } from './config/webpack.config';
+import { getDesignSystemComponentInfos } from './discovery/components/getDesignSystemComponentInfos';
 
 export function buildDesignSystem(babelPlugins:BabelPlugin[], wrapperPath?:string,
   target?:LibraryTarget):Promise<webpack.Stats> {

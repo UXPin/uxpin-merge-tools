@@ -1,4 +1,4 @@
-import { getDesignSystemComponentInfos } from './components/getDesignSystemComponentInfos';
+import { getDesignSystemComponentInfos } from './discovery/components/getDesignSystemComponentInfos';
 
 export function getDesignSystemSummary():Promise<string> {
   return getDesignSystemComponentInfos()

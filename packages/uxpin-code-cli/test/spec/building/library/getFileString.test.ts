@@ -1,15 +1,20 @@
 import { getFileString } from '../../../../src/building/library/getFileString';
-import { ComponentInfo } from '../../../../src/components/ComponentInfo';
+import { ComponentImplementationInfo, ComponentInfo } from '../../../../src/discovery/components/ComponentInfo';
 
 describe('getFileString', () => {
+
+  const implementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
+
   it('returns content of library file for list of ComponentInfo', () => {
     const componentInfos:ComponentInfo[] = [
       {
-        dirPath: 'components/button',
+        dirPath: 'src/components/button',
+        implementation,
         name: 'button',
       },
       {
-        dirPath: 'components/button-list',
+        dirPath: 'src/components/button-list',
+        implementation,
         name: 'button-list',
       },
     ];
@@ -31,11 +36,13 @@ export {
   it('returns content of library file for list of ComponentInfo and path of custom wrapper', () => {
     const componentInfos:ComponentInfo[] = [
       {
-        dirPath: 'components/button',
+        dirPath: 'src/components/button',
+        implementation,
         name: 'button',
       },
       {
-        dirPath: 'components/button-list',
+        dirPath: 'src/components/button-list',
+        implementation,
         name: 'button-list',
       },
     ];

@@ -67,6 +67,7 @@ theme-provider
 user`);
       });
     });
+
     it('prints the list of components found in nordnet-ui-kit example', () => {
       // when
       return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', '--summary').then((output) => {
@@ -96,6 +97,16 @@ tbody\n` + // no examples
 `tooltip
 tr\n` + // no examples
 `ul`);
+      });
+    });
+
+    it('prints an error when there`s no `src` directory in the project', () => {
+      // given
+
+      // when
+      return runUXPinCodeCommand('resources/designSystems/noSrcDir', '--summary').then((output) => {
+        // then
+        expect(output).toContain('Unable to locate components source directory');
       });
     });
   });
