@@ -74,6 +74,10 @@
   version "20.0.8"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-20.0.8.tgz#7f8c97f73d20d3bf5448fbe33661a342002b5954"
 
+"@types/locate-path@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/locate-path/-/locate-path-2.0.0.tgz#25f3999012c05cb3ae1aeb6b0a266906b035910d"
+
 "@types/lodash@^4.14.65", "@types/lodash@^4.14.74":
   version "4.14.74"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.74.tgz#ac3bd8db988e7f7038e5d22bd76a7ba13f876168"

@@ -29,6 +29,7 @@
   "devDependencies": {
     "@shopify/polaris": "https://github.com/Shopify/polaris.git",
     "@types/jest": "^20.0.8",
+    "@types/locate-path": "^2.0.0",
     "@types/lodash": "^4.14.74",
     "@types/node": "^8.0.26",
     "@types/p-any": "^1.1.1",
@@ -61,6 +62,7 @@
     "fs-readfile-promise": "^3.0.0",
     "is-dir-promise": "^1.0.1",
     "is-file-promise": "^1.0.3",
+    "locate-path": "^2.0.0",
     "lodash": "^4.17.4",
     "mkdirp-promise": "^5.0.1",
     "p-any": "^1.1.0",
