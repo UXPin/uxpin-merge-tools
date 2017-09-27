@@ -8,13 +8,13 @@ export function convertPropItemToPropertyDefinition(propName:string,
   propItem:PropItem):Promise<PropDefinitionSerializationResult> {
   return getDefaultValue(propName, propItem)
     .then(({ partialDefinition, warnings }) => {
-      const definition:ComponentPropertyDefinition = {
+      const result:ComponentPropertyDefinition = {
         ...partialDefinition,
         description: propItem.description,
         isRequired: propItem.required,
         name: propName,
         type: convertPropertyType(propItem.type),
       };
-      return { definition, warnings };
+      return { result, warnings };
     });
 }

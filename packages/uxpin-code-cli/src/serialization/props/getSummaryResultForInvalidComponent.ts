@@ -8,6 +8,6 @@ export function getSummaryResultForInvalidComponent(sourcePath:string):(error:Er
       originalError,
       sourcePath,
     };
-    return { properties: [], warnings: [warning] };
+    return { result: [], warnings: [warning] };
   };
 }

@@ -11,5 +11,5 @@ export function getDesignSystemMetadata():Promise<DesignSystemDefinition> {
 }
 
 function componentInfoToDefinition(info:ComponentInfo):Promise<ComponentDefinition> {
-  return serializeComponentProps(info.implementation.path).then(({ properties }) => ({ ...info, properties }));
+  return serializeComponentProps(info.implementation.path).then(({ result }) => ({ ...info, properties: result }));
 }
