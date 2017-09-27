@@ -10,5 +10,6 @@ export function getJSImplementationInfo(paths:ComponentPaths, name:string):Promi
     lang: 'javascript',
     path: relative(paths.projectRoot, absoluteComponentPath),
   };
-  return isFilePromise(absoluteComponentPath).then(() => info);
+  return isFilePromise(absoluteComponentPath)
+    .then(() => info);
 }
