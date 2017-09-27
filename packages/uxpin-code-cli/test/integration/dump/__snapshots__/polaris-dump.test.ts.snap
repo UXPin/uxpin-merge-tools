@@ -4404,7 +4404,7 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					isRequired: true,
 					name: 'bold',
 					type: {
-						name: '() => string',
+						name: 'string',
 						structure: {}
 					}
 				},
@@ -4486,6 +4486,303 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					name: 'sup',
 					type: {
 						name: '() => string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'strip',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'stripColors',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'black',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'red',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'green',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'yellow',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'blue',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'magenta',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'cyan',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'white',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'gray',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'grey',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgBlack',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgRed',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgGreen',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgYellow',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgBlue',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgMagenta',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgCyan',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgWhite',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'reset',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'dim',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'italic',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'underline',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'inverse',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'hidden',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'strikethrough',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'rainbow',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'zebra',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'america',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'trap',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'random',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'zalgo',
+					type: {
+						name: 'string',
 						structure: {}
 					}
 				}
@@ -11242,5 +11539,6 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 	],
 	name: ''
 }
+
 "
 `;

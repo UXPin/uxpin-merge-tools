@@ -209,7 +209,7 @@ describe('serializeJSComponentProps', () => {
         },
       ];
       const expectedWarning:WarningDetails = {
-        message: 'Cannot compute default value for property `value`.',
+        message: 'Cannot compute default value for property `value`',
         sourcePath: componentPath,
       };
 

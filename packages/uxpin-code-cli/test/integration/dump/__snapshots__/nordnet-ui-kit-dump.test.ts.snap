@@ -1703,8 +1703,8 @@ Error: Multiple exported component definitions found.
 warning Cannot serialize component properties in:
 src/components/icon/icon.jsx
 TypeError: Cannot read property 'name' of undefined
-    at Object.convertPropertyType (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/src/serialization/props/javascript/type/convertPropertyType.js:6:68)
-    at getDefaultValue_1.getDefaultValue.then (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/src/serialization/props/javascript/convertPropItemToPropertyDefinition.js:8:173)
+    at Object.convertPropertyType (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/src/serialization/props/javascript/type/convertPropertyType.js:1:1711)
+    at getDefaultValue_1.getDefaultValue.then (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/src/serialization/props/javascript/convertPropItemToPropertyDefinition.js:1:2214)
     at <anonymous>
 
 warning Cannot serialize component properties in:
