@@ -1,8 +1,12 @@
 import { WarningDetails } from './WarningDetails';
 
-export function joinWarningLists(warningLists:WarningDetails[][], componentPath:string):WarningDetails[] {
+export function joinWarningLists(warningLists:WarningDetails[][], componentPath?:string):WarningDetails[] {
   return warningLists.reduce((warningList, warnings) => {
-    [].push.apply(warningList, warnings.map(fillSourcePath(componentPath)));
+    let warningsToJoin:WarningDetails[] = warnings;
+    if (componentPath) {
+      warningsToJoin = warnings.map(fillSourcePath(componentPath));
+    }
+    [].push.apply(warningList, warningsToJoin);
     return warningList;
   }, [] as WarningDetails[]);
 }

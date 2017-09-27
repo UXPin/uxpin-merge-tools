@@ -13,7 +13,7 @@ export function getDefaultValue(propName:string, propItem:PropItem):Promise<Defa
           partialDefinition.defaultValue = { value };
         })
         .catch((originalError:Error) => {
-          warnings.push({ originalError, message: `Cannot compute default value for property \`${propName}\`.` });
+          warnings.push({ originalError, message: `Cannot compute default value for property \`${propName}\`` });
         })
         .then(() => resolve({ partialDefinition, warnings }));
     } else {
