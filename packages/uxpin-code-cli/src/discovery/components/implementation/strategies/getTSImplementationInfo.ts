@@ -10,5 +10,6 @@ export function getTSImplementationInfo(paths:ComponentPaths, name:string):Promi
     lang: 'typescript',
     path: relative(paths.projectRoot, absoluteComponentPath),
   };
-  return isFilePromise(absoluteComponentPath).then(() => info);
+  return isFilePromise(absoluteComponentPath)
+    .then(() => info);
 }
