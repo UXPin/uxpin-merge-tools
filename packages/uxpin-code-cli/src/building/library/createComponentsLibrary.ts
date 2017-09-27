@@ -1,8 +1,7 @@
 import { writeFile } from 'fs';
 import mkdirpPromise = require('mkdirp-promise');
-
-import { ComponentInfo } from '../../components/ComponentInfo';
 import { LIBRARY_INPUT_PATH, TEMP_DIR_PATH } from '../../config/webpack.config';
+import { ComponentInfo } from '../../discovery/components/ComponentInfo';
 import { getFileString } from './getFileString';
 
 export function createComponentsLibrary(componentInfos:ComponentInfo[], wrapperPath?:string):Promise<string> {
