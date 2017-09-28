@@ -1704,7 +1704,7 @@ warning Cannot serialize component properties in:
 src/components/icon/icon.jsx
 TypeError: Cannot read property 'name' of undefined
     at Object.convertPropertyType (../../src/serialization/props/javascript/type/convertPropertyType.js:6:68)
-    at getDefaultValue_1.getDefaultValue.then (../../src/serialization/props/javascript/convertPropItemToPropertyDefinition.js:8:173)
+    at getDefaultValue_1.getDefaultValue.then (../../src/serialization/props/javascript/convertPropItemToPropertyDefinition.js:1:2214)
     at <anonymous>
 
 warning Cannot serialize component properties in:

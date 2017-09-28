@@ -2,7 +2,8 @@
 
 const program = require('commander');
 
-const { buildDesignSystem, printDump, getDesignSystemSummary } = require('../src/index');
+const { buildDesignSystem, printDump, getDesignSystemSummary, getDesignSystemComponentInfos } = require('../src/index');
+const { tapPromise } = require('../src/utils/promise/tapPromise');
 
 const MODE_AMD = 'amd';
 
@@ -18,7 +19,8 @@ program
 const { babelPlugins, summary, target, wrapper, dump } = program;
 
 if (summary) {
-  return getDesignSystemSummary()
+  return getDesignSystemComponentInfos()
+    .then(getDesignSystemSummary)
     .then(console.log)
     .catch(logError);
 }
@@ -26,9 +28,9 @@ if (dump) {
   return printDump().catch(logError);
 }
 
-buildDesignSystem(babelPlugins, wrapper, target)
-  .then(getDesignSystemSummary)
-  .then(console.log)
+getDesignSystemComponentInfos()
+  .then(tapPromise((infos) => buildDesignSystem(infos, { babelPlugins, wrapper, target })))
+  .then((infos) => console.log(getDesignSystemSummary(infos)))
   .catch(logError);
 
 function parseParams(params) {
