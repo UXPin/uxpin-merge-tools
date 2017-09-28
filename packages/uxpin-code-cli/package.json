@@ -60,6 +60,8 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "clean-stacktrace": "^1.1.0",
+    "clean-stacktrace-relative-paths": "^1.0.4",
     "colors": "^1.1.2",
     "fs-readdir-promise": "^1.0.1",
     "fs-readfile-promise": "^3.0.0",
