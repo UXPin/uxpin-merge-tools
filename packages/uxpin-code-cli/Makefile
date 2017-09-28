@@ -37,7 +37,7 @@ test-remap-coverage:
 test-resources: test/resources/repos/nordnet-ui-kit test/resources/repos/arui-feather test/resources/repos/polaris
 
 test-rename-snapshots:
-	./utils/test-rename-snapshots.sh
+	./shell_scripts/test-rename-snapshots.sh
 
 test/resources/repos/nordnet-ui-kit:
 	ln -s $(shell npm root)/nordnet-ui-kit test/resources/repos/nordnet-ui-kit
