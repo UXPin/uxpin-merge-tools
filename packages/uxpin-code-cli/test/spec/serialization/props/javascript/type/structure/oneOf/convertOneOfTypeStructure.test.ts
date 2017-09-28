@@ -7,9 +7,9 @@ describe('convertOneOfTypeStructure', () => {
     it('correctly converts literal enum type with single quotes', () => {
       // given
       const inputTypeStructure:any = [
-        { value: '\'secondary\'' },
-        { value: '\'primary\'' },
-        { value: '\'link\'' },
+        { computed:false, value: '\'secondary\'' },
+        { computed:false, value: '\'primary\'' },
+        { computed:false, value: '\'link\'' },
       ];
       const expectedOutputStructure:UnionTypeStructure = {
         elements: [
@@ -29,9 +29,9 @@ describe('convertOneOfTypeStructure', () => {
     it('correctly converts literal enum type with double quotes', () => {
       // given
       const inputTypeStructure:any = [
-        { value: '"secondary"' },
-        { value: '"primary"' },
-        { value: '"link"' },
+        { computed:false, value: '"secondary"' },
+        { computed:false, value: '"primary"' },
+        { computed:false, value: '"link"' },
       ];
       const expectedOutputStructure:UnionTypeStructure = {
         elements: [
@@ -48,12 +48,41 @@ describe('convertOneOfTypeStructure', () => {
       expect(result).toEqual(expectedOutputStructure);
     });
 
+    it('correctly converts complex enum type structures', () => {
+      // given
+      const inputTypeStructure:any = [
+        {
+          name: 'shape',
+          value: {
+            property1: {
+              name: 'node',
+            },
+          },
+        },
+        {
+          name: 'node',
+        },
+      ];
+      const expectedOutputStructure:UnionTypeStructure = {
+        elements: [
+          { name: 'shape', structure: { property1: { name: 'node', structure: {} } } },
+          { name: 'node', structure: {} },
+        ],
+      };
+
+      // when
+      const result:UnionTypeStructure = convertOneOfTypeStructure(inputTypeStructure);
+
+      // then
+      expect(result).toEqual(expectedOutputStructure);
+    });
+
     it('ignores literal values which are not strings', () => {
       // given
       const inputTypeStructure:any = [
-        { value: '{"secondary": true}' },
-        { value: '122' },
-        { value: '"link"' },
+        { computed: false, value: '{"secondary": true}' },
+        { computed: false, value: '122' },
+        { computed: false, value: '"link"' },
       ];
       const expectedOutputStructure:UnionTypeStructure = {
         elements: [

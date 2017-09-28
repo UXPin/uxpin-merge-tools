@@ -38,7 +38,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -48,10 +48,19 @@ describe('serializeJSComponentProps', () => {
       const componentPath:string = getJavaScriptComponentPath('ClassEnumTypes');
       const expectedProps:ComponentPropertyDefinition[] = [
         {
-          description: '',
+          description: 'oneOfType property type',
           isRequired: false,
           name: 'children',
-          type: { name: 'node', structure: {} },
+          type: {
+            name: 'union',
+            structure: {
+              elements: [
+                { name: 'string', structure: {} },
+                { name: 'number', structure: {} },
+                { name: 'typedArray', structure: { memberType: { name: 'node', structure: {} } } },
+              ],
+            },
+          },
         },
         {
           description: '',
@@ -73,7 +82,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -110,7 +119,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -142,7 +151,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -180,7 +189,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -207,7 +216,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.props).toEqual(expectedProps);
+        expect(serializedProps.properties).toEqual(expectedProps);
         expect(serializedProps.warnings[0].message).toEqual(expectedWarning.message);
         expect(serializedProps.warnings[0].sourcePath).toEqual(expectedWarning.sourcePath);
         expect(serializedProps.warnings[0].originalError).toBeInstanceOf(Error);

@@ -1,7 +1,7 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 
-.PHONY: build check test test-ci clean test-remap-coverage test-resources
+.PHONY: build check test test-ci clean test-remap-coverage test-resources test-rename-snapshots
 
 build:
 	tsc
@@ -14,6 +14,7 @@ test:
 	jest
 
 test-ci:
+	make test-rename-snapshots
 	TEST_REPORT_PATH=./reports jest --config="jest-ci.json"
 	make test-remap-coverage
 
@@ -34,6 +35,9 @@ test-remap-coverage:
 	remap-istanbul -i coverage/coverage-final.json -o coverage/clover.xml -t clover
 
 test-resources: test/resources/repos/nordnet-ui-kit test/resources/repos/arui-feather test/resources/repos/polaris
+
+test-rename-snapshots:
+	./shell_scripts/test-rename-snapshots.sh
 
 test/resources/repos/nordnet-ui-kit:
 	ln -s $(shell npm root)/nordnet-ui-kit test/resources/repos/nordnet-ui-kit

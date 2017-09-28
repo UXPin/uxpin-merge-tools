@@ -7,9 +7,9 @@ import { convertTypeName } from './type/convertTypeName';
 
 export function serializeTSComponentProps(componentFileLocation:string):Promise<PropsSerializationResult> {
   return new Promise((resolve) => {
-    const props:ComponentPropertyDefinition[] = toPairs(getDefaultComponentFrom(componentFileLocation).props)
+    const properties:ComponentPropertyDefinition[] = toPairs(getDefaultComponentFrom(componentFileLocation).props)
       .map(([propName, propType]) => propItemToPropDefinition(propName, propType));
-    resolve({ props, warnings: [] });
+    resolve({ properties, warnings: [] });
   });
 }
 

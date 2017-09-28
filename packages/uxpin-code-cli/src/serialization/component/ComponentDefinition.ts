@@ -1,12 +1,6 @@
+import { ComponentInfo } from '../../discovery/components/ComponentInfo';
 import { ComponentPropertyDefinition } from '../props/ComponentPropertyDefinition';
 
-export interface ComponentDefinition {
-  name:string;
-  dirPath:string;
-  implementation:ComponentImplementation;
+export interface ComponentDefinition extends ComponentInfo {
   properties:ComponentPropertyDefinition[];
-}
-
-export interface ComponentImplementation {
-  path:string;
 }

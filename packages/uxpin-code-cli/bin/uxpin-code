@@ -2,7 +2,7 @@
 
 const program = require('commander');
 
-const { buildDesignSystem, getDesignSystemMetadata, getDesignSystemSummary } = require('../src/index');
+const { buildDesignSystem, printDump, getDesignSystemSummary } = require('../src/index');
 
 const MODE_AMD = 'amd';
 
@@ -15,17 +15,15 @@ program
   .option('--wrapper <path>', 'Use custom wrapper', (path) => path || '')
   .parse(process.argv);
 
-const { babelPlugins, summary, target, wrapper } = program;
+const { babelPlugins, summary, target, wrapper, dump } = program;
 
 if (summary) {
   return getDesignSystemSummary()
     .then(console.log)
     .catch(logError);
 }
-if (program.dump) {
-  return getDesignSystemMetadata()
-    .then(console.log)
-    .catch(logError);
+if (dump) {
+  return printDump().catch(logError);
 }
 
 buildDesignSystem(babelPlugins, wrapper, target)
