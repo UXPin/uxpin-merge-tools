@@ -7,7 +7,7 @@ import { serializeComponentProps } from './props/serializeComponentProps';
 export function getDesignSystemMetadata():Promise<DesignSystemDefinition> {
   return getDesignSystemComponentInfos()
     .then((componentInfos) => Promise.all(componentInfos.map(componentInfoToDefinition)))
-    .then((components:ComponentDefinition[]) => ({ components, name: '' }));
+    .then((components) => ({ components, name: '' }));
 }
 
 function componentInfoToDefinition(info:ComponentInfo):Promise<ComponentDefinition> {
