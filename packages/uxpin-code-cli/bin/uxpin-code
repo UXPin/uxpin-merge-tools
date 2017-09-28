@@ -38,7 +38,7 @@ if (dump) {
 }
 
 getDesignSystemComponentInfos()
-  .then(tapPromise((infos) => buildDesignSystem(infos, { babelPlugins, wrapper, target })))
+  .then(tapPromise((infos) => buildDesignSystem(infos, { babelPlugins, wrapperPath: wrapper, target })))
   .then(tapPromise((infos) => console.log(getDesignSystemSummary(infos))))
   .then(tapPromise(printSerializationWarnings))
   .catch(logError);
