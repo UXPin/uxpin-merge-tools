@@ -3,7 +3,7 @@ export interface ComponentPropertyDefinition {
   isRequired:boolean;
   defaultValue?:PropertyDefaultValue;
   description:string;
-  type:PropertyType;
+  type?:PropertyType;
 }
 
 export interface PropertyDefaultValue {
