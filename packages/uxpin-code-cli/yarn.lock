@@ -4070,8 +4070,8 @@ tslib@^1.0.0, tslib@^1.7.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
 
 tslint-config-airbnb@^5.2.1:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/tslint-config-airbnb/-/tslint-config-airbnb-5.3.0.tgz#78c3e6fcc452eb2a460266004f85a201a0a5b7a3"
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/tslint-config-airbnb/-/tslint-config-airbnb-5.2.1.tgz#dec25ce496ad223d970506ce1cd1ded9f9b3af93"
   dependencies:
     tslint-consistent-codestyle "^1.4.0"
     tslint-eslint-rules "^4.1.1"
