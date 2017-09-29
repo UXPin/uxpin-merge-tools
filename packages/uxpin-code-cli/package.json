@@ -24,6 +24,9 @@
     "testMatch": [
       "**/test/**/*.test.ts"
     ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/test/resources/"
+    ],
     "testEnvironment": "node"
   },
   "devDependencies": {
