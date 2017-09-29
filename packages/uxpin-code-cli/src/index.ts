@@ -1,3 +1,3 @@
 export { buildDesignSystem } from './buildDesignSystem';
-export { getDesignSystemMetadata } from './getDesignSystemMetadata';
+export { printDump } from './printDump';
 export { getDesignSystemSummary } from './getDesignSystemSummary';

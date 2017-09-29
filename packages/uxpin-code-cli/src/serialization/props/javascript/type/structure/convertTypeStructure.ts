@@ -1,4 +1,5 @@
 import { PropertyTypeName, PropertyTypeStructureMap } from '../../../ComponentPropertyDefinition';
+import { convertArrayOfTypeStructure } from './arrayOf/convertArrayOfTypeStructure';
 import { convertOneOfTypeStructure } from './oneOf/convertOneOfTypeStructure';
 import { convertShapeTypeStructure } from './shape/convertShapeTypeStructure';
 
@@ -7,6 +8,7 @@ export type TypeStructureConversionStrategy =
 
 const TYPE_STRUCTURE_CONVERTERS:Partial<{ [P in PropertyTypeName]:TypeStructureConversionStrategy }> = {
   shape: convertShapeTypeStructure,
+  typedArray: convertArrayOfTypeStructure,
   union: convertOneOfTypeStructure,
 };
 

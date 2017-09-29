@@ -19,7 +19,7 @@ function serializeProperties(component:ComponentDoc):Promise<PropDefinitionSeria
 
 function getSummaryResult(path:string):(propResults:PropDefinitionSerializationResult[]) => PropsSerializationResult {
   return (propResults) => ({
-    props: propResults.map((p) => p.definition),
+    properties: propResults.map((p) => p.definition),
     warnings: joinWarningLists(propResults.map((p) => p.warnings), path),
   });
 }

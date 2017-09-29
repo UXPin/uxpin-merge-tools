@@ -1,7 +1,7 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 
-.PHONY: build check test test-ci clean test-remap-coverage test-resources
+.PHONY: build check test test-ci clean test-remap-coverage test-resources test-rename-snapshots
 
 build:
 	tsc
@@ -14,6 +14,7 @@ test:
 	jest
 
 test-ci:
+	make test-rename-snapshots
 	TEST_REPORT_PATH=./reports jest --config="jest-ci.json"
 	make test-remap-coverage
 
@@ -37,6 +38,9 @@ test-resources: yarn-link test/resources/repos/nordnet-ui-kit test/resources/rep
 
 yarn-link:
 	yarn link
+
+test-rename-snapshots:
+	./shell_scripts/test-rename-snapshots.sh
 
 test/resources/repos/nordnet-ui-kit:
 	cd test/resources/repos \
