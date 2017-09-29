@@ -21,9 +21,8 @@ export function convertPropItemToPropertyDefinition(propName:string,
     warnings: [],
   };
   return pReduce(partialProviders, (result, partial) => {
-    return {
-      result: { ...result.result, ...partial.result },
-      warnings: [...result.warnings, ...partial.warnings],
-    };
+    Object.assign(result.result, partial.result);
+    Object.assign(result.warnings, partial.warnings);
+    return result;
   }, aggregator);
 }
