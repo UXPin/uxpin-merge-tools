@@ -12,6 +12,7 @@ describe('Building repos/polaris design system', () => {
   it('contains Button component', () => {
     const options:string = [
       '--target "commonjs"',
+      '--webpack-config "../../configs/polaris-webpack.config.js"',
     ].join(' ');
 
     // when

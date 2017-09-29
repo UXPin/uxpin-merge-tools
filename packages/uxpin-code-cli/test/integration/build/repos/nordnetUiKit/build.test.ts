@@ -9,12 +9,13 @@ const CURRENT_TIMEOUT:number = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Building repos/nordnet-ui-kit design system', () => {
-  describe('with required babel plugins', () => {
+  describe('with required user webpack config', () => {
     let components:any;
 
     beforeAll(() => {
       const options:string = [
         '--target "commonjs"',
+        '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',
         '--wrapper "../documentation/wrapper.jsx"',
       ].join(' ');
 
@@ -37,6 +38,16 @@ describe('Building repos/nordnet-ui-kit design system', () => {
       const { Wrapper } = components;
       // then
       expect(Wrapper).toBeInstanceOf(Function);
+    });
+  });
+
+  describe('without required user webpack config', () => {
+    it('throws an error', () => {
+      return runUXPinCodeCommand('resources/repos/nordnet-ui-kit')
+        .then((output) => {
+          expect(output).toContain('ERROR:');
+          expect(output).toContain('Module parse failed');
+        });
     });
   });
 });

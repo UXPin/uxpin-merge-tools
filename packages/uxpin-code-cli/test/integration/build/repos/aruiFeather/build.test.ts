@@ -9,16 +9,13 @@ const CURRENT_TIMEOUT:number = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Building repos/arui-feather design system', () => {
-  // @todo fix running this test on ci
-  // right now it ignores unsetting babel-loader 'babelrc' flag
-  // see https://github.com/babel/babel-loader/issues/418
-  describe.skip('with required babel plugins', () => {
+  describe('with required user webpack config', () => {
     let components:any;
 
     beforeAll(() => {
       const options:string = [
-        '--babel-plugins "transform-decorators-legacy,transform-runtime?polyfill=false&helpers=false"',
         '--target "commonjs"',
+        '--webpack-config "./webpack.gemini.config.js"',
       ].join(' ');
 
       return runUXPinCodeCommand('resources/repos/arui-feather', options)
@@ -36,12 +33,12 @@ describe('Building repos/arui-feather design system', () => {
     });
   });
 
-  describe('without required babel plugins', () => {
+  describe('without required user webpack config', () => {
     it('throws an error', () => {
       return runUXPinCodeCommand('resources/repos/arui-feather')
         .then((output) => {
           expect(output).toContain('ERROR:');
-          expect(output).toContain('Module build failed');
+          expect(output).toContain('Module parse failed');
         });
     });
   });

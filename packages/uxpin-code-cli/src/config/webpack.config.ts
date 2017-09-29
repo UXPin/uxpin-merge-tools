@@ -1,38 +1,17 @@
+import { isEmpty } from 'lodash';
+import { join, relative } from 'path';
 import { Configuration } from 'webpack';
+import { smart } from 'webpack-merge';
 
-import { BabelPlugin } from '../building/plugins/BabelPlugin';
 import { LibraryTarget } from './LibraryTarget';
 
 export const TEMP_DIR_PATH:string = './.uxpin-temp';
 export const LIBRARY_INPUT_PATH:string = `${TEMP_DIR_PATH}/components.js`;
 export const LIBRARY_OUTPUT_PATH:string = `${TEMP_DIR_PATH}/designsystemlibrary.js`;
 
-export function getConfig(babelPlugins:BabelPlugin[] = [], target:LibraryTarget = 'amd'):Configuration {
-  return {
+export function getConfig(webpackConfigPath:string = '', target:LibraryTarget = 'amd'):Configuration {
+  const config:Configuration = {
     entry: LIBRARY_INPUT_PATH,
-    module: {
-      rules: [
-        {
-          test: /\.jsx?$/,
-          use: [{
-            loader: 'babel-loader',
-            options: {
-              babelrc: false,
-              plugins: babelPlugins,
-              presets: [
-                'react',
-                ['env', {
-                  targets: {
-                    browsers: ['last 2 versions'],
-                  },
-                }],
-                'stage-0',
-              ],
-            },
-          }],
-        },
-      ],
-    },
     output: {
       filename: LIBRARY_OUTPUT_PATH,
       libraryTarget: target,
@@ -41,4 +20,12 @@ export function getConfig(babelPlugins:BabelPlugin[] = [], target:LibraryTarget 
       extensions: ['.js', '.jsx'],
     },
   };
+
+  if (isEmpty(webpackConfigPath)) {
+    return config;
+  }
+
+  const path:string = relative(__dirname, join(process.cwd(), webpackConfigPath));
+  const userWebpackConfig:Configuration = require(path);
+  return smart(userWebpackConfig, config);
 }
