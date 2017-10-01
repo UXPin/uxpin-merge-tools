@@ -33,6 +33,9 @@ jobs:
           name: check
           command: make check
       - run:
+          name: allow-cloning-git-dependencies
+          command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+      - run:
           name: test-resources
           command: make test-resources
       - run:
