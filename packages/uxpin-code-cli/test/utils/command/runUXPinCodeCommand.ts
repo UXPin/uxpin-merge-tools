@@ -27,6 +27,7 @@ function getNycOptions():string {
   return `--cwd="${packageRootDir}" \
 --report-dir="${coverageDir}" \
 --reporter=clover \
+--produce-source-map \
 --extension=".ts"`;
 }
 

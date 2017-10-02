@@ -1815,27 +1815,27 @@ Error: Multiple exported component definitions found.
 warning Cannot parse type of a property \`aria-hidden\` in:
 src/components/icon/icon.jsx
 TypeError: Cannot read property 'name' of undefined
-    at Object.convertPropertyType (../../src/serialization/props/javascript/type/convertPropertyType.js:1:1711)
-    at Promise (../../src/serialization/props/javascript/type/convertPropertyTypeWithWarnings.js:7:51)
+    at Object.convertPropertyType (../../src/serialization/props/javascript/type/convertPropertyType.js:1:1649)
+    at resolve (../../src/serialization/props/javascript/type/convertPropertyTypeWithWarnings.js:1:2028)
     at Promise (<anonymous>)
-    at Object.convertPropertyTypeWithWarnings (../../src/serialization/props/javascript/type/convertPropertyTypeWithWarnings.js:5:12)
-    at Object.convertPropItemToPropertyDefinition (../../src/serialization/props/javascript/convertPropItemToPropertyDefinition.js:1:2242)
-    at Promise.all.lodash_1.toPairs.map (../../src/serialization/props/javascript/serializeJSComponentProps.js:1:3725)
+    at Object.convertPropertyTypeWithWarnings (../../src/serialization/props/javascript/type/convertPropertyTypeWithWarnings.js:1:1920)
+    at Object.convertPropItemToPropertyDefinition (../../src/serialization/props/javascript/convertPropItemToPropertyDefinition.js:1:2304)
+    at Promise.all.lodash_1.toPairs.map (../../src/serialization/props/javascript/serializeJSComponentProps.js:1:3663)
     at Array.map (<anonymous>)
-    at serializeProperties (../../src/serialization/props/javascript/serializeJSComponentProps.js:1:3608)
+    at serializeProperties (../../src/serialization/props/javascript/serializeJSComponentProps.js:1:3546)
     at <anonymous>
 
 warning Cannot parse type of a property \`focusable\` in:
 src/components/icon/icon.jsx
 TypeError: Cannot read property 'name' of undefined
-    at Object.convertPropertyType (../../src/serialization/props/javascript/type/convertPropertyType.js:1:1711)
-    at Promise (../../src/serialization/props/javascript/type/convertPropertyTypeWithWarnings.js:7:51)
+    at Object.convertPropertyType (../../src/serialization/props/javascript/type/convertPropertyType.js:1:1649)
+    at resolve (../../src/serialization/props/javascript/type/convertPropertyTypeWithWarnings.js:1:2028)
     at Promise (<anonymous>)
-    at Object.convertPropertyTypeWithWarnings (../../src/serialization/props/javascript/type/convertPropertyTypeWithWarnings.js:5:12)
-    at Object.convertPropItemToPropertyDefinition (../../src/serialization/props/javascript/convertPropItemToPropertyDefinition.js:1:2242)
-    at Promise.all.lodash_1.toPairs.map (../../src/serialization/props/javascript/serializeJSComponentProps.js:1:3725)
+    at Object.convertPropertyTypeWithWarnings (../../src/serialization/props/javascript/type/convertPropertyTypeWithWarnings.js:1:1920)
+    at Object.convertPropItemToPropertyDefinition (../../src/serialization/props/javascript/convertPropItemToPropertyDefinition.js:1:2304)
+    at Promise.all.lodash_1.toPairs.map (../../src/serialization/props/javascript/serializeJSComponentProps.js:1:3663)
     at Array.map (<anonymous>)
-    at serializeProperties (../../src/serialization/props/javascript/serializeJSComponentProps.js:1:3608)
+    at serializeProperties (../../src/serialization/props/javascript/serializeJSComponentProps.js:1:3546)
     at <anonymous>
 
 warning Cannot serialize component properties in:

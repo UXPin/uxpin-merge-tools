@@ -1,3 +1,5 @@
+import 'source-map-support/register';
+
 export { buildDesignSystem } from './buildDesignSystem';
 export { getDesignSystemComponentInfos } from './discovery/components/getDesignSystemComponentInfos';
 export { getDesignSystemMetadata } from './serialization/getDesignSystemMetadata';
