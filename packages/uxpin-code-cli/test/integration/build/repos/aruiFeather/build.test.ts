@@ -4,7 +4,7 @@ import { LIBRARY_OUTPUT_PATH } from '../../../../../src/config/webpack.config';
 import { runUXPinCodeCommand } from '../../../../utils/command/runUXPinCodeCommand';
 import { setTimeoutBeforeAll } from '../../../../utils/command/setTimeoutBeforeAll';
 
-const CURRENT_TIMEOUT:number = 60000;
+const CURRENT_TIMEOUT:number = 75000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
