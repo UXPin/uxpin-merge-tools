@@ -10,10 +10,9 @@ export function convertPropertyTypeWithWarnings(propName:string, propType:PropIt
       result: { type: convertPropertyType(propType) },
       warnings: [],
     });
-  }).catch((originalError) => {
+  }).catch(() => {
     const warning:WarningDetails = {
-      message: `Cannot parse type of a property \`${propName}\``,
-      originalError,
+      message: `Cannot parse type of a property '${propName}'`,
     };
     return { result: {}, warnings: [warning] };
   });
