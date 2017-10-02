@@ -31,38 +31,6 @@ buildDesignSystem(webpackConfig, wrapper, target)
   .then(console.log)
   .catch(logError);
 
-function parseParams(params) {
-  if (!params) {
-    return null;
-  }
-
-  return params
-    .split('&')
-    .reduce((params, param) => {
-      const [paramName, paramValue] = param.split('=');
-      let parsedValue;
-
-      try {
-        parsedValue = JSON.parse(paramValue);
-      } catch (e) {
-        parsedValue = paramValue;
-      }
-
-      return Object.assign({}, params, { [paramName]: parsedValue });
-    }, {});
-}
-
-function parsePluginDefinition(pluginDefinition) {
-  const pluginDefinitionParts = pluginDefinition.split('?');
-  const params = parseParams(pluginDefinitionParts[1]);
-
-  if (pluginDefinitionParts.length === 1 || !params) {
-    return pluginDefinitionParts[0];
-  }
-
-  return [pluginDefinitionParts[0], params];
-}
-
 function logError(errorMessage) {
   console.log('ERROR:', errorMessage);
 }
