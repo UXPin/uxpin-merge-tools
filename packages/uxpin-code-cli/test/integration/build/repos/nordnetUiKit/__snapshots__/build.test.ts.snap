@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Building repos/nordnet-ui-kit design system with required user webpack config prints warnings without stack traces to the console 1`] = `
+"alert
+animate
+avatar
+badge
+button
+dropdown
+flag
+icon
+input
+labeled-value
+li
+logo
+pane
+radio-group
+segmented-control
+spinner
+table
+tbody
+td
+tfoot
+th
+thead
+tooltip
+tr
+ul
+warning Cannot serialize component properties in:
+src/components/alert/alert.jsx
+
+warning Cannot serialize component properties in:
+src/components/animate/animate.jsx
+
+warning Cannot serialize component properties in:
+src/components/avatar/avatar.jsx
+
+warning Cannot serialize component properties in:
+src/components/badge/badge.jsx
+
+warning Cannot serialize component properties in:
+src/components/button/button.jsx
+
+warning Cannot serialize component properties in:
+src/components/dropdown/dropdown.jsx
+
+warning Cannot parse type of a property 'aria-hidden' in:
+src/components/icon/icon.jsx
+
+warning Cannot parse type of a property 'focusable' in:
+src/components/icon/icon.jsx
+
+warning Cannot serialize component properties in:
+src/components/labeled-value/labeled-value.jsx
+
+warning Cannot serialize component properties in:
+src/components/li/li.jsx
+
+warning Cannot serialize component properties in:
+src/components/pane/pane.jsx
+
+warning Cannot serialize component properties in:
+src/components/spinner/spinner.jsx
+
+warning Cannot serialize component properties in:
+src/components/td/td.jsx
+
+warning Cannot serialize component properties in:
+src/components/th/th.jsx
+
+warning Cannot serialize component properties in:
+src/components/tooltip/tooltip.jsx
+
+"
+`;

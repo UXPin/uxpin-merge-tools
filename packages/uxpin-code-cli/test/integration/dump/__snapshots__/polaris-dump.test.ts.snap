@@ -1471,6 +1471,33 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'defaultChecked',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'defaultValue',
+					type: {
+						name: 'string | string[]',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'suppressContentEditableWarning',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'accept',
 					type: {
 						name: 'string',
@@ -1481,6 +1508,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'acceptCharset',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'accessKey',
 					type: {
 						name: 'string',
 						structure: {}
@@ -1624,6 +1660,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'cols',
 					type: {
 						name: 'number',
@@ -1643,6 +1688,24 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'content',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'contentEditable',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'contextMenu',
 					type: {
 						name: 'string',
 						structure: {}
@@ -1714,6 +1777,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'dir',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'disabled',
 					type: {
 						name: 'boolean',
@@ -1726,6 +1798,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					name: 'download',
 					type: {
 						name: 'any',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'draggable',
+					type: {
+						name: 'boolean',
 						structure: {}
 					}
 				},
@@ -1822,6 +1903,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'hidden',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'high',
 					type: {
 						name: 'number',
@@ -1867,7 +1957,34 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'id',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'inputMode',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'integrity',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'is',
 					type: {
 						name: 'string',
 						structure: {}
@@ -1904,6 +2021,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'label',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'lang',
 					type: {
 						name: 'string',
 						structure: {}
@@ -2137,6 +2263,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'radioGroup',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'readOnly',
 					type: {
 						name: 'boolean',
@@ -2167,6 +2302,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					name: 'reversed',
 					type: {
 						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'role',
+					type: {
+						name: 'string',
 						structure: {}
 					}
 				},
@@ -2272,9 +2416,27 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'slot',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'span',
 					type: {
 						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'spellCheck',
+					type: {
+						name: 'boolean',
 						structure: {}
 					}
 				},
@@ -2335,6 +2497,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'style',
+					type: {
+						name: 'CSSProperties',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'summary',
 					type: {
 						name: 'string',
@@ -2344,7 +2515,25 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'tabIndex',
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'target',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'title',
 					type: {
 						name: 'string',
 						structure: {}
@@ -2399,195 +2588,6 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'wrap',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'defaultChecked',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'defaultValue',
-					type: {
-						name: 'string | string[]',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'suppressContentEditableWarning',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'accessKey',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'className',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'contentEditable',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'contextMenu',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'dir',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'draggable',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'hidden',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'id',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'lang',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'slot',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'spellCheck',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'style',
-					type: {
-						name: 'CSSProperties',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'tabIndex',
-					type: {
-						name: 'number',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'title',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'inputMode',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'is',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'radioGroup',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'role',
 					type: {
 						name: 'string',
 						structure: {}
@@ -4404,7 +4404,7 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					isRequired: true,
 					name: 'bold',
 					type: {
-						name: '() => string',
+						name: 'string',
 						structure: {}
 					}
 				},
@@ -4486,6 +4486,303 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					name: 'sup',
 					type: {
 						name: '() => string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'strip',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'stripColors',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'black',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'red',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'green',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'yellow',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'blue',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'magenta',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'cyan',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'white',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'gray',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'grey',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgBlack',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgRed',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgGreen',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgYellow',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgBlue',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgMagenta',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgCyan',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'bgWhite',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'reset',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'dim',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'italic',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'underline',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'inverse',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'hidden',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'strikethrough',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'rainbow',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'zebra',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'america',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'trap',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'random',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
+					name: 'zalgo',
+					type: {
+						name: 'string',
 						structure: {}
 					}
 				}
@@ -5236,6 +5533,33 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'defaultChecked',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'defaultValue',
+					type: {
+						name: 'string | string[]',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'suppressContentEditableWarning',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'accept',
 					type: {
 						name: 'string',
@@ -5246,6 +5570,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'acceptCharset',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'accessKey',
 					type: {
 						name: 'string',
 						structure: {}
@@ -5398,6 +5731,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'cols',
 					type: {
 						name: 'number',
@@ -5417,6 +5759,24 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'content',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'contentEditable',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'contextMenu',
 					type: {
 						name: 'string',
 						structure: {}
@@ -5488,6 +5848,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'dir',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'disabled',
 					type: {
 						name: 'boolean',
@@ -5500,6 +5869,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					name: 'download',
 					type: {
 						name: 'any',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'draggable',
+					type: {
+						name: 'boolean',
 						structure: {}
 					}
 				},
@@ -5596,6 +5974,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'hidden',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'high',
 					type: {
 						name: 'number',
@@ -5641,7 +6028,34 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'id',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'inputMode',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'integrity',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'is',
 					type: {
 						name: 'string',
 						structure: {}
@@ -5678,6 +6092,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'label',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'lang',
 					type: {
 						name: 'string',
 						structure: {}
@@ -5911,6 +6334,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'radioGroup',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'readOnly',
 					type: {
 						name: 'boolean',
@@ -5941,6 +6373,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					name: 'reversed',
 					type: {
 						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'role',
+					type: {
+						name: 'string',
 						structure: {}
 					}
 				},
@@ -6046,9 +6487,27 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'slot',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'span',
 					type: {
 						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'spellCheck',
+					type: {
+						name: 'boolean',
 						structure: {}
 					}
 				},
@@ -6109,6 +6568,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'style',
+					type: {
+						name: 'CSSProperties',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'summary',
 					type: {
 						name: 'string',
@@ -6118,7 +6586,25 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'tabIndex',
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'target',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'title',
 					type: {
 						name: 'string',
 						structure: {}
@@ -6173,195 +6659,6 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'wrap',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'defaultChecked',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'defaultValue',
-					type: {
-						name: 'string | string[]',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'suppressContentEditableWarning',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'accessKey',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'className',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'contentEditable',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'contextMenu',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'dir',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'draggable',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'hidden',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'id',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'lang',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'slot',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'spellCheck',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'style',
-					type: {
-						name: 'CSSProperties',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'tabIndex',
-					type: {
-						name: 'number',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'title',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'inputMode',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'is',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'radioGroup',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'role',
 					type: {
 						name: 'string',
 						structure: {}
@@ -8655,6 +8952,33 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'defaultChecked',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'defaultValue',
+					type: {
+						name: 'string | string[]',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'suppressContentEditableWarning',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'accept',
 					type: {
 						name: 'string',
@@ -8665,6 +8989,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'acceptCharset',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'accessKey',
 					type: {
 						name: 'string',
 						structure: {}
@@ -8817,6 +9150,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'cols',
 					type: {
 						name: 'number',
@@ -8836,6 +9178,24 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'content',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'contentEditable',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'contextMenu',
 					type: {
 						name: 'string',
 						structure: {}
@@ -8907,6 +9267,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'dir',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'disabled',
 					type: {
 						name: 'boolean',
@@ -8919,6 +9288,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					name: 'download',
 					type: {
 						name: 'any',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'draggable',
+					type: {
+						name: 'boolean',
 						structure: {}
 					}
 				},
@@ -9015,6 +9393,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'hidden',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'high',
 					type: {
 						name: 'number',
@@ -9060,7 +9447,34 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'id',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'inputMode',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'integrity',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'is',
 					type: {
 						name: 'string',
 						structure: {}
@@ -9097,6 +9511,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'label',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'lang',
 					type: {
 						name: 'string',
 						structure: {}
@@ -9330,6 +9753,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'radioGroup',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'readOnly',
 					type: {
 						name: 'boolean',
@@ -9360,6 +9792,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					name: 'reversed',
 					type: {
 						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'role',
+					type: {
+						name: 'string',
 						structure: {}
 					}
 				},
@@ -9465,9 +9906,27 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'slot',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'span',
 					type: {
 						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'spellCheck',
+					type: {
+						name: 'boolean',
 						structure: {}
 					}
 				},
@@ -9528,6 +9987,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'style',
+					type: {
+						name: 'CSSProperties',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'summary',
 					type: {
 						name: 'string',
@@ -9537,7 +10005,25 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: false,
+					name: 'tabIndex',
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
 					name: 'target',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'title',
 					type: {
 						name: 'string',
 						structure: {}
@@ -9592,195 +10078,6 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'wrap',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'defaultChecked',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'defaultValue',
-					type: {
-						name: 'string | string[]',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'suppressContentEditableWarning',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'accessKey',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'className',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'contentEditable',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'contextMenu',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'dir',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'draggable',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'hidden',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'id',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'lang',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'slot',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'spellCheck',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'style',
-					type: {
-						name: 'CSSProperties',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'tabIndex',
-					type: {
-						name: 'number',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'title',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'inputMode',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'is',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'radioGroup',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'role',
 					type: {
 						name: 'string',
 						structure: {}
@@ -11242,5 +11539,6 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 	],
 	name: ''
 }
+
 "
 `;

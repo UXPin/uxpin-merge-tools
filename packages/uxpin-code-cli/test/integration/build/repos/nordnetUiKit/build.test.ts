@@ -11,6 +11,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('Building repos/nordnet-ui-kit design system', () => {
   describe('with required user webpack config', () => {
     let components:any;
+    let consoleOutput:string;
 
     beforeAll(() => {
       const options:string = [
@@ -20,9 +21,10 @@ describe('Building repos/nordnet-ui-kit design system', () => {
       ].join(' ');
 
       return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', options)
-        .then(() => {
+        .then((output) => {
           const path:string = relative(__dirname, resolve('test/resources/repos/nordnet-ui-kit', LIBRARY_OUTPUT_PATH));
           components = require(path);
+          consoleOutput = output;
         });
     });
 
@@ -38,6 +40,11 @@ describe('Building repos/nordnet-ui-kit design system', () => {
       const { Wrapper } = components;
       // then
       expect(Wrapper).toBeInstanceOf(Function);
+    });
+
+    it('prints warnings without stack traces to the console', () => {
+      // then
+      expect(consoleOutput).toMatchSnapshot();
     });
   });
 

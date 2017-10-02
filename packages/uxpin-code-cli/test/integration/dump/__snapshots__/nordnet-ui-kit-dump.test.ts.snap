@@ -82,12 +82,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: ''
-					},
 					description: 'A valid 2-character country code',
 					isRequired: false,
 					name: 'countryCode',
+					defaultValue: {
+						value: ''
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -421,12 +421,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: 32
-					},
 					description: 'Unitless pixel value',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 32
+					},
 					type: {
 						name: 'number',
 						structure: {}
@@ -442,12 +442,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: '',
 					isRequired: false,
 					name: 'round',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -463,7 +463,119 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				path: 'src/components/icon/icon.jsx'
 			},
 			name: 'icon',
-			properties: []
+			properties: [
+				{
+					description: '',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'style',
+					defaultValue: {
+						value: {
+							pointerEvents: 'none'
+						}
+					},
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: 'Unitless pixel value',
+					isRequired: false,
+					name: 'width',
+					defaultValue: {
+						value: 16
+					},
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: 'Unitless pixel value',
+					isRequired: false,
+					name: 'height',
+					defaultValue: {
+						value: 16
+					},
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'viewBox',
+					defaultValue: {
+						value: '0 0 16 16'
+					},
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'fill',
+					defaultValue: {
+						value: '#222'
+					},
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'stroke',
+					defaultValue: {
+						value: '#222'
+					},
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'strokeWidth',
+					defaultValue: {
+						value: 1
+					},
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: undefined,
+					isRequired: undefined,
+					name: 'aria-hidden',
+					defaultValue: {
+						value: 'true'
+					}
+				},
+				{
+					description: undefined,
+					isRequired: undefined,
+					name: 'focusable',
+					defaultValue: {
+						value: 'false'
+					}
+				}
+			]
 		},
 		{
 			dirPath: 'src/components/input',
@@ -493,24 +605,24 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: 'text'
-					},
 					description: 'Needs to be a valid input type',
 					isRequired: false,
 					name: 'type',
+					defaultValue: {
+						value: 'text'
+					},
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: 'primary'
-					},
 					description: '',
 					isRequired: false,
 					name: 'variant',
+					defaultValue: {
+						value: 'primary'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -730,12 +842,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: '',
 					isRequired: false,
 					name: 'onlyIcon',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -751,36 +863,36 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: '#00A9EC'
-					},
 					description: '',
 					isRequired: false,
 					name: 'iconColor',
+					defaultValue: {
+						value: '#00A9EC'
+					},
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: '#222222'
-					},
 					description: '',
 					isRequired: false,
 					name: 'textColor',
+					defaultValue: {
+						value: '#222222'
+					},
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: 27
-					},
 					description: '',
 					isRequired: false,
 					name: 'height',
+					defaultValue: {
+						value: 27
+					},
 					type: {
 						name: 'number',
 						structure: {}
@@ -942,12 +1054,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: 'primary'
-					},
 					description: '',
 					isRequired: false,
 					name: 'variant',
+					defaultValue: {
+						value: 'primary'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -1053,12 +1165,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: 700
-					},
 					description: '',
 					isRequired: false,
 					name: 'minWidth',
+					defaultValue: {
+						value: 700
+					},
 					type: {
 						name: 'number',
 						structure: {}
@@ -1157,12 +1269,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: true
-					},
 					description: '',
 					isRequired: false,
 					name: 'colorAlternateRows',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -1178,60 +1290,60 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: '',
 					isRequired: false,
 					name: 'border',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: '',
 					isRequired: false,
 					name: 'borderTop',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: '',
 					isRequired: false,
 					name: 'borderRight',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: '',
 					isRequired: false,
 					name: 'borderBottom',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: '',
 					isRequired: false,
 					name: 'borderLeft',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -1514,12 +1626,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: '',
 					isRequired: false,
 					name: 'border',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -1550,24 +1662,24 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: '',
 					isRequired: false,
 					name: 'sticky',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: 0
-					},
 					description: 'Unitless pixel value: if there are other sticky elements at the top of the page, use this to compensate',
 					isRequired: false,
 					name: 'stickyOffset',
+					defaultValue: {
+						value: 0
+					},
 					type: {
 						name: 'number',
 						structure: {}
@@ -1616,5 +1728,193 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 	],
 	name: ''
 }
+warning Cannot serialize component properties in:
+src/components/alert/alert.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot serialize component properties in:
+src/components/animate/animate.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot serialize component properties in:
+src/components/avatar/avatar.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot serialize component properties in:
+src/components/badge/badge.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot serialize component properties in:
+src/components/button/button.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot serialize component properties in:
+src/components/dropdown/dropdown.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot parse type of a property 'aria-hidden' in:
+src/components/icon/icon.jsx
+
+warning Cannot parse type of a property 'focusable' in:
+src/components/icon/icon.jsx
+
+warning Cannot serialize component properties in:
+src/components/labeled-value/labeled-value.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot serialize component properties in:
+src/components/li/li.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot serialize component properties in:
+src/components/pane/pane.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot serialize component properties in:
+src/components/spinner/spinner.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot serialize component properties in:
+src/components/td/td.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot serialize component properties in:
+src/components/th/th.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
+warning Cannot serialize component properties in:
+src/components/tooltip/tooltip.jsx
+Error: Multiple exported component definitions found.
+    at Context.exportDeclaration (../../../../node_modules/react-docgen/dist/resolver/findExportedComponentDefinition.js:116:13)
+    at Context.invokeVisitorMethod (../../../../node_modules/ast-types/lib/path-visitor.js:344:49)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:196:32)
+    at NodePath.each (../../../../node_modules/ast-types/lib/path.js:101:26)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:219:18)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at visitChildren (../../../../node_modules/ast-types/lib/path-visitor.js:246:25)
+    at Visitor.PVp.visitWithoutReset (../../../../node_modules/ast-types/lib/path-visitor.js:204:20)
+    at Visitor.PVp.visit (../../../../node_modules/ast-types/lib/path-visitor.js:133:29)
+    at Object.visit (../../../../node_modules/ast-types/lib/path-visitor.js:101:55)
+
 "
 `;
