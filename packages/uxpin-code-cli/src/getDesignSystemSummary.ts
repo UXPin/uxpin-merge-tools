@@ -1,6 +1,5 @@
-import { getDesignSystemComponentInfos } from './discovery/components/getDesignSystemComponentInfos';
+import { ComponentInfo } from './discovery/components/ComponentInfo';
 
-export function getDesignSystemSummary():Promise<string> {
-  return getDesignSystemComponentInfos()
-    .then((componentInfos) => componentInfos.map((componentInfo) => componentInfo.name).join('\n'));
+export function getDesignSystemSummary(componentInfos:ComponentInfo[]):string {
+  return componentInfos.map((componentInfo) => componentInfo.name).join('\n');
 }

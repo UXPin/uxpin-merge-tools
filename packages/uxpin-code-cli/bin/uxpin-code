@@ -2,7 +2,15 @@
 
 const program = require('commander');
 
-const { buildDesignSystem, printDump, getDesignSystemSummary } = require('../src/index');
+const {
+  buildDesignSystem,
+  getDesignSystemComponentInfos,
+  getDesignSystemMetadata,
+  getDesignSystemSummary,
+  printDump,
+  stringifyWarnings,
+} = require('../src/index');
+const { tapPromise } = require('../src/utils/promise/tapPromise');
 
 const MODE_AMD = 'amd';
 
@@ -18,18 +26,26 @@ program
 const { babelPlugins, summary, target, wrapper, dump } = program;
 
 if (summary) {
-  return getDesignSystemSummary()
+  return getDesignSystemComponentInfos()
+    .then(getDesignSystemSummary)
     .then(console.log)
     .catch(logError);
 }
 if (dump) {
-  return printDump().catch(logError);
+  return getDesignSystemComponentInfos()
+    .then(printDump)
+    .catch(logError);
 }
 
-buildDesignSystem(babelPlugins, wrapper, target)
-  .then(getDesignSystemSummary)
-  .then(console.log)
+getDesignSystemComponentInfos()
+  .then(tapPromise((infos) => buildDesignSystem(infos, { babelPlugins, wrapperPath: wrapper, target })))
+  .then(tapPromise((infos) => console.log(getDesignSystemSummary(infos))))
+  .then(tapPromise(printSerializationWarnings))
   .catch(logError);
+
+function printSerializationWarnings(infos) {
+  return getDesignSystemMetadata(infos).then(({ warnings }) => console.log(stringifyWarnings(warnings)));
+}
 
 function parseParams(params) {
   if (!params) {

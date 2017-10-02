@@ -40,24 +40,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: true
-					},
 					description: 'Отображение минорной части, если она нулевая',
 					isRequired: false,
 					name: 'showZeroMinorPart',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -91,12 +91,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Использовать компонент \`Heading\` для вывода числа',
 					isRequired: false,
 					name: 'isHeading',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -443,24 +443,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'Нет файла'
-					},
 					description: 'Текст для случая, когда файл не загружен',
 					isRequired: false,
 					name: 'noFileText',
+					defaultValue: {
+						value: 'Нет файла'
+					},
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: 'Выберите файл'
-					},
 					description: 'Содержимое кнопки для выбора файла',
 					isRequired: false,
 					name: 'buttonContent',
+					defaultValue: {
+						value: 'Выберите файл'
+					},
 					type: {
 						name: 'node',
 						structure: {}
@@ -740,36 +740,36 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление возможностью изменения значения компонента',
 					isRequired: false,
 					name: 'disabled',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
 					defaultValue: {
 						value: false
 					},
-					description: 'Управляет возможностью выбора нескольких файлов',
-					isRequired: false,
-					name: 'multiple',
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
+					description: 'Управляет возможностью выбора нескольких файлов',
+					isRequired: false,
+					name: 'multiple',
 					defaultValue: {
-						value: 'm'
+						value: false
 					},
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -984,12 +984,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'button'
-					},
 					description: 'Поведение кнопки',
 					isRequired: false,
 					name: 'type',
+					defaultValue: {
+						value: 'button'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -1017,12 +1017,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'button'
-					},
 					description: 'HTML элемент, которым будет компонент в DOM',
 					isRequired: false,
 					name: 'tag',
+					defaultValue: {
+						value: 'button'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -1068,12 +1068,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -1143,12 +1143,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Отключает валидацию полей формы, у которых есть атрибут pattern',
 					isRequired: false,
 					name: 'formNoValidate',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -1394,24 +1394,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: null
-					},
 					description: 'Левая граница диапазона дат, в формате unix timestamp',
 					isRequired: false,
 					name: 'selectedFrom',
+					defaultValue: {
+						value: null
+					},
 					type: {
 						name: 'number',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: null
-					},
 					description: 'Правая граница диапазона дат, в формате unix timestamp',
 					isRequired: false,
 					name: 'selectedTo',
+					defaultValue: {
+						value: null
+					},
 					type: {
 						name: 'number',
 						structure: {}
@@ -1463,18 +1463,21 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'DD.MM.YYYY'
-					},
 					description: 'Тип форматирования даты при выводе',
 					isRequired: false,
 					name: 'outputFormat',
+					defaultValue: {
+						value: 'DD.MM.YYYY'
+					},
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
+					description: 'Список названий месяцев',
+					isRequired: false,
+					name: 'months',
 					defaultValue: {
 						value: [
 							'Январь',
@@ -1491,9 +1494,6 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							'Декабрь'
 						]
 					},
-					description: 'Список названий месяцев',
-					isRequired: false,
-					name: 'months',
 					type: {
 						name: 'typedArray',
 						structure: {
@@ -1505,6 +1505,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
+					description: 'Список названий дней недели',
+					isRequired: false,
+					name: 'weekdays',
 					defaultValue: {
 						value: [
 							'Пн',
@@ -1516,9 +1519,6 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							'Вс'
 						]
 					},
-					description: 'Список названий дней недели',
-					isRequired: false,
-					name: 'weekdays',
 					type: {
 						name: 'typedArray',
 						structure: {
@@ -1530,12 +1530,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: []
-					},
 					description: 'Список выходных дней в виде unix timestamp, отсортированный по возрастанию',
 					isRequired: false,
 					name: 'offDays',
+					defaultValue: {
+						value: []
+					},
 					type: {
 						name: 'typedArray',
 						structure: {
@@ -1547,24 +1547,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: true
-					},
 					description: 'Отображение стрелок навигации по месяцам',
 					isRequired: false,
 					name: 'showArrows',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: true
-					},
 					description: 'Возможность управления календарём с клавиатуры',
 					isRequired: false,
 					name: 'isKeyboard',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -1848,6 +1848,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
+					description: 'Направления, в которые может открываться попап компонента',
+					isRequired: false,
+					name: 'directions',
 					defaultValue: {
 						value: [
 							'bottom-left',
@@ -1856,9 +1859,6 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							'top-right'
 						]
 					},
-					description: 'Направления, в которые может открываться попап компонента',
-					isRequired: false,
-					name: 'directions',
 					type: {
 						name: 'typedArray',
 						structure: {
@@ -2005,12 +2005,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: true
-					},
 					description: 'Показывать иконку календаря в инпуте',
 					isRequired: false,
 					name: 'withIcon',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -2026,12 +2026,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: '00.00.0000'
-					},
 					description: 'Подсказка в поле',
 					isRequired: false,
 					name: 'placeholder',
+					defaultValue: {
+						value: '00.00.0000'
+					},
 					type: {
 						name: 'string',
 						structure: {}
@@ -2056,12 +2056,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'native'
-					},
 					description: 'Управление нативным режимом на мобильных устройствах',
 					isRequired: false,
 					name: 'mobileMode',
+					defaultValue: {
+						value: 'native'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -2255,12 +2255,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'card-input',
 			properties: [
 				{
-					defaultValue: {
-						value: '0000 0000 0000 0000 00'
-					},
 					description: 'Подсказка в текстовом поле',
 					isRequired: false,
 					name: 'placeholder',
+					defaultValue: {
+						value: '0000 0000 0000 0000 00'
+					},
 					type: {
 						name: 'string',
 						structure: {}
@@ -2323,12 +2323,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -2386,12 +2386,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'normal'
-					},
 					description: 'Тип чекбокса',
 					isRequired: false,
 					name: 'type',
+					defaultValue: {
+						value: 'normal'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -2540,12 +2540,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'checkbox-group',
 			properties: [
 				{
-					defaultValue: {
-						value: 'normal'
-					},
 					description: 'Тип компонента',
 					isRequired: false,
 					name: 'type',
+					defaultValue: {
+						value: 'normal'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -2749,24 +2749,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'Expand'
-					},
 					description: 'Текст ссылки в \`expand\` состоянии',
 					isRequired: false,
 					name: 'collapsedLabel',
+					defaultValue: {
+						value: 'Expand'
+					},
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: 'Collapse'
-					},
 					description: 'Текст ссылки в \`collapse\` состоянии',
 					isRequired: false,
 					name: 'expandedLabel',
+					defaultValue: {
+						value: 'Collapse'
+					},
 					type: {
 						name: 'string',
 						structure: {}
@@ -2907,12 +2907,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Отображение годов',
 					isRequired: false,
 					name: 'showYears',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -2954,12 +2954,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'dropdown',
 			properties: [
 				{
-					defaultValue: {
-						value: 'link'
-					},
 					description: 'Тип компонента',
 					isRequired: false,
 					name: 'switcherType',
+					defaultValue: {
+						value: 'link'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -2981,12 +2981,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'Switcher'
-					},
 					description: 'Текст кнопки компонента',
 					isRequired: false,
 					name: 'switcherText',
+					defaultValue: {
+						value: 'Switcher'
+					},
 					type: {
 						name: 'node',
 						structure: {}
@@ -3302,12 +3302,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление возможностью открытия попапа',
 					isRequired: false,
 					name: 'disabled',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -3347,12 +3347,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -3530,24 +3530,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'error-page',
 			properties: [
 				{
-					defaultValue: {
-						value: 'Произошла ошибка'
-					},
 					description: 'Заголовок ошибки',
 					isRequired: false,
 					name: 'title',
+					defaultValue: {
+						value: 'Произошла ошибка'
+					},
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: 'Пожалуйста, повторите операцию через некоторое время.'
-					},
 					description: 'Сообщение ошибки',
 					isRequired: false,
 					name: 'text',
+					defaultValue: {
+						value: 'Пожалуйста, повторите операцию через некоторое время.'
+					},
 					type: {
 						name: 'string',
 						structure: {}
@@ -3572,12 +3572,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'Вернуться в интернет-банк'
-					},
 					description: 'Альтернативный текст для ссылки \\\\'Вернуться в интернет-банк\\\\'',
 					isRequired: false,
 					name: 'returnTitle',
+					defaultValue: {
+						value: 'Вернуться в интернет-банк'
+					},
 					type: {
 						name: 'string',
 						structure: {}
@@ -3604,36 +3604,36 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'Сделано в Альфа-Лаборатории'
-					},
 					description: 'Дополнительный текст',
 					isRequired: false,
 					name: 'additional',
+					defaultValue: {
+						value: 'Сделано в Альфа-Лаборатории'
+					},
 					type: {
 						name: 'node',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: null
-					},
 					description: 'Содержимое блока соц. сетей',
 					isRequired: false,
 					name: 'social',
+					defaultValue: {
+						value: null
+					},
 					type: {
 						name: 'node',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: true
-					},
 					description: 'Отображение блока соц. сетей',
 					isRequired: false,
 					name: 'showSocial',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -3649,12 +3649,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Отображение годов в копирайте',
 					isRequired: false,
 					name: 'showYears',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -3716,12 +3716,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'form',
 			properties: [
 				{
-					defaultValue: {
-						value: 'application/x-www-form-urlencoded'
-					},
 					description: 'Способ кодирования данных формы при их отправке',
 					isRequired: false,
 					name: 'enctype',
+					defaultValue: {
+						value: 'application/x-www-form-urlencoded'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -3749,24 +3749,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: '/'
-					},
 					description: 'Адрес отправки данных на сервер',
 					isRequired: false,
 					name: 'action',
+					defaultValue: {
+						value: '/'
+					},
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: 'post'
-					},
 					description: 'Метод запроса',
 					isRequired: false,
 					name: 'method',
+					defaultValue: {
+						value: 'post'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -3812,12 +3812,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -3860,24 +3860,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление встроенным в браузер механизмом валидации формы',
 					isRequired: false,
 					name: 'noValidate',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: true
-					},
 					description: 'Управление автозаполнением формы',
 					isRequired: false,
 					name: 'autocomplete',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -4025,12 +4025,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -4128,24 +4128,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'header',
 			properties: [
 				{
-					defaultValue: {
-						value: '/'
-					},
 					description: '',
 					isRequired: false,
 					name: 'root',
+					defaultValue: {
+						value: '/'
+					},
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: null
-					},
 					description: 'Содержимое кастомного логотипа в шапке',
 					isRequired: false,
 					name: 'logo',
+					defaultValue: {
+						value: null
+					},
 					type: {
 						name: 'node',
 						structure: {}
@@ -4188,12 +4188,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление возможностью фиксирования шапки к верхнему краю окна',
 					isRequired: false,
 					name: 'fixed',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -4298,12 +4298,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'xl'
-					},
 					description: 'Размер, определяющий какой тег заголовка будет использоваться',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'xl'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -4458,12 +4458,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -4598,12 +4598,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'input',
 			properties: [
 				{
-					defaultValue: {
-						value: 'text'
-					},
 					description: 'Тип поля.\\\\nВнимание, тип \\\\'number\\\\' не умеет работать с масками, в том числе с \\\\'selectionStart\\\\' и \\\\'selectionEnd\\\\'.\\\\nПодробнее: http://w3c.github.io/html/sec-forms.html#does-not-apply',
 					isRequired: false,
 					name: 'type',
+					defaultValue: {
+						value: 'text'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -4826,12 +4826,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление встроенной проверкой данных введённых пользователем в поле на корректность',
 					isRequired: false,
 					name: 'noValidate',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -4892,12 +4892,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -5112,12 +5112,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'input-autocomplete',
 			properties: [
 				{
-					defaultValue: {
-						value: []
-					},
 					description: 'Список вариантов выбора',
 					isRequired: false,
 					name: 'options',
+					defaultValue: {
+						value: []
+					},
 					type: {
 						name: 'typedArray',
 						structure: {
@@ -5165,12 +5165,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление возможностью изменения атрибута компонента, установка соответствующего класса-модификатора для оформления',
 					isRequired: false,
 					name: 'disabled',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -5186,12 +5186,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -5225,12 +5225,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'default'
-					},
 					description: 'Управление возможностью компонента занимать всю ширину родителя',
 					isRequired: false,
 					name: 'width',
+					defaultValue: {
+						value: 'default'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -5252,30 +5252,33 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Ширинa выпадающего списка равна ширине инпута',
 					isRequired: false,
 					name: 'equalPopupWidth',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: true
-					},
 					description: 'Определяет нужно или нет обновлять значение текстового поля при выборе варианта',
 					isRequired: false,
 					name: 'updateValueOnItemSelect',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
+					description: 'Направления, в которые может открываться попап компонента',
+					isRequired: false,
+					name: 'directions',
 					defaultValue: {
 						value: [
 							'bottom-left',
@@ -5284,9 +5287,6 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							'top-right'
 						]
 					},
-					description: 'Направления, в которые может открываться попап компонента',
-					isRequired: false,
-					name: 'directions',
 					type: {
 						name: 'typedArray',
 						structure: {
@@ -5507,12 +5507,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'label',
 			properties: [
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -5615,12 +5615,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление возможностью рендерить компонент в одну сроку',
 					isRequired: false,
 					name: 'isNoWrap',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -5656,12 +5656,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: '#'
-					},
 					description: 'href ссылки',
 					isRequired: false,
 					name: 'url',
+					defaultValue: {
+						value: '#'
+					},
 					type: {
 						name: 'string',
 						structure: {}
@@ -5704,60 +5704,60 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 0
-					},
 					description: 'Последовательность перехода между контролами при нажатии на Tab',
 					isRequired: false,
 					name: 'tabIndex',
+					defaultValue: {
+						value: 0
+					},
 					type: {
 						name: 'number',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление возможностью клика по ссылке',
 					isRequired: false,
 					name: 'disabled',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление состоянием ссылки выбран/не выбран',
 					isRequired: false,
 					name: 'checked',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
 					defaultValue: {
 						value: false
 					},
-					description: 'Псевдо-ссылка (border-bottom: dotted)',
-					isRequired: false,
-					name: 'pseudo',
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
+					description: 'Псевдо-ссылка (border-bottom: dotted)',
+					isRequired: false,
+					name: 'pseudo',
 					defaultValue: {
-						value: 'm'
+						value: false
 					},
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -6080,12 +6080,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'default'
-					},
 					description: 'Размещение заголовка групп: обычное или в одну строку с первым элементом группы',
 					isRequired: false,
 					name: 'groupView',
+					defaultValue: {
+						value: 'default'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -6107,12 +6107,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'basic'
-					},
 					description: 'Тип списка вариантов меню',
 					isRequired: false,
 					name: 'mode',
+					defaultValue: {
+						value: 'basic'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -6164,12 +6164,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление автоматическим фокусом на первом элементе при вызове публичного метода focus',
 					isRequired: false,
 					name: 'autoFocusFirstItem',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -6298,12 +6298,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -6482,12 +6482,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'menu-item',
 			properties: [
 				{
-					defaultValue: {
-						value: 'link'
-					},
 					description: 'Тип элемента меню',
 					isRequired: false,
 					name: 'type',
+					defaultValue: {
+						value: 'link'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -6515,12 +6515,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'plain'
-					},
 					description: 'Тип ссылки, для компонента с type=\\\\'link\\\\'',
 					isRequired: false,
 					name: 'view',
+					defaultValue: {
+						value: 'plain'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -6819,24 +6819,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'money-input',
 			properties: [
 				{
-					defaultValue: {
-						value: 9
-					},
 					description: 'Максимально допустимая длина значения до запятой',
 					isRequired: false,
 					name: 'integerLength',
+					defaultValue: {
+						value: 9
+					},
 					type: {
 						name: 'number',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: 2
-					},
 					description: 'Максимально допустимая длина значения после запятой',
 					isRequired: false,
 					name: 'fractionLength',
+					defaultValue: {
+						value: 2
+					},
 					type: {
 						name: 'number',
 						structure: {}
@@ -6956,24 +6956,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 0
-					},
 					description: 'Отступ от верхнего края',
 					isRequired: false,
 					name: 'offset',
+					defaultValue: {
+						value: 0
+					},
 					type: {
 						name: 'number',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: 'left'
-					},
 					description: 'К какому краю прижат попап',
 					isRequired: false,
 					name: 'stickTo',
+					defaultValue: {
+						value: 'left'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -6995,12 +6995,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: true
-					},
 					description: 'Управляет отображением кнопки закрытия уведомления',
 					isRequired: false,
 					name: 'hasCloser',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -7094,12 +7094,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 5000
-					},
 					description: 'Время до закрытия компонента',
 					isRequired: false,
 					name: 'autoCloseDelay',
+					defaultValue: {
+						value: 5000
+					},
 					type: {
 						name: 'number',
 						structure: {}
@@ -7391,12 +7391,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'phone-input',
 			properties: [
 				{
-					defaultValue: {
-						value: '+7 000 000 00 00'
-					},
 					description: 'Подсказка в текстовом поле',
 					isRequired: false,
 					name: 'placeholder',
+					defaultValue: {
+						value: '+7 000 000 00 00'
+					},
 					type: {
 						name: 'string',
 						structure: {}
@@ -7414,12 +7414,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'plate',
 			properties: [
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление наличием закрывающего крестика',
 					isRequired: false,
 					name: 'hasCloser',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -7727,12 +7727,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'anchor'
-					},
 					description: 'Привязка компонента к другому элементу на странице, или его расположение независимо от остальных: \\\\'anchor\\\\', \\\\'position\\\\', \\\\'screen\\\\'',
 					isRequired: false,
 					name: 'target',
+					defaultValue: {
+						value: 'anchor'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -7769,60 +7769,60 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 0
-					},
 					description: 'Только для target=\\\\'anchor\\\\'. Смещение в пикселях всплывающего окна относительно второстепенного направления',
 					isRequired: false,
 					name: 'secondaryOffset',
-					type: {
-						name: 'number',
-						structure: {}
-					}
-				},
-				{
 					defaultValue: {
 						value: 0
 					},
-					description: 'Только для target=\\\\'anchor\\\\'. Минимально допустимое смещение в пикселях всплывающего окна от края его контейнера',
-					isRequired: false,
-					name: 'fitContaiterOffset',
 					type: {
 						name: 'number',
 						structure: {}
 					}
 				},
 				{
+					description: 'Только для target=\\\\'anchor\\\\'. Минимально допустимое смещение в пикселях всплывающего окна от края его контейнера',
+					isRequired: false,
+					name: 'fitContaiterOffset',
 					defaultValue: {
-						value: false
+						value: 0
 					},
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				},
+				{
 					description: 'Управление видимостью компонента',
 					isRequired: false,
 					name: 'visible',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
 					defaultValue: {
 						value: false
 					},
-					description: 'Управление возможностью автозакрытия компонента',
-					isRequired: false,
-					name: 'autoclosable',
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
+					description: 'Управление возможностью автозакрытия компонента',
+					isRequired: false,
+					name: 'autoclosable',
 					defaultValue: {
-						value: true
+						value: false
 					},
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
 					description: 'Управление выставлением модификатора для добавления внутренних отступов в стилях',
 					isRequired: false,
 					name: 'padded',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -7838,12 +7838,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 's'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 's'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -8266,12 +8266,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -8314,12 +8314,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 0
-					},
 					description: 'Последовательность перехода между контролами при нажатии на Tab',
 					isRequired: false,
 					name: 'tabIndex',
+					defaultValue: {
+						value: 0
+					},
 					type: {
 						name: 'number',
 						structure: {}
@@ -8426,12 +8426,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'radio-group',
 			properties: [
 				{
-					defaultValue: {
-						value: 'normal'
-					},
 					description: 'Тип группы кнопок',
 					isRequired: false,
 					name: 'type',
+					defaultValue: {
+						value: 'normal'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -8758,12 +8758,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'check'
-					},
 					description: 'Тип выпадающего списка',
 					isRequired: false,
 					name: 'mode',
+					defaultValue: {
+						value: 'check'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -8791,12 +8791,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'default'
-					},
 					description: 'Размещение заголовка групп: обычное или в одну строку с первым элементом группы',
 					isRequired: false,
 					name: 'groupView',
+					defaultValue: {
+						value: 'default'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -8818,12 +8818,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'default'
-					},
 					description: 'Управление возможностью компонента занимать всю ширину родителя',
 					isRequired: false,
 					name: 'width',
+					defaultValue: {
+						value: 'default'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -8845,6 +8845,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
+					description: 'Направления, в которые может открываться попап компонента',
+					isRequired: false,
+					name: 'directions',
 					defaultValue: {
 						value: [
 							'bottom-left',
@@ -8853,9 +8856,6 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							'top-right'
 						]
 					},
-					description: 'Направления, в которые может открываться попап компонента',
-					isRequired: false,
-					name: 'directions',
 					type: {
 						name: 'typedArray',
 						structure: {
@@ -8942,12 +8942,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление возможностью редактирования значения',
 					isRequired: false,
 					name: 'disabled',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -8963,12 +8963,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Ширинa выпадающего списка равна ширине кнопки',
 					isRequired: false,
 					name: 'equalPopupWidth',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -9000,12 +9000,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: []
-					},
 					description: 'Список вариантов выбора',
 					isRequired: false,
 					name: 'options',
+					defaultValue: {
+						value: []
+					},
 					type: {
 						name: 'typedArray',
 						structure: {
@@ -9076,12 +9076,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -9142,12 +9142,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'Выберите:'
-					},
 					description: 'Подсказка в поле',
 					isRequired: false,
 					name: 'placeholder',
+					defaultValue: {
+						value: 'Выберите:'
+					},
 					type: {
 						name: 'string',
 						structure: {}
@@ -9172,12 +9172,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'native'
-					},
 					description: 'Управление нативным режимом на мобильных устройствах',
 					isRequired: false,
 					name: 'mobileMenuMode',
+					defaultValue: {
+						value: 'native'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -9411,12 +9411,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: true
-					},
 					description: 'Признак для отрисовки элемента закрытия',
 					isRequired: false,
 					name: 'hasCloser',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -9525,24 +9525,24 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			name: 'spin',
 			properties: [
 				{
-					defaultValue: {
-						value: false
-					},
 					description: 'Управление видимостью компонента',
 					isRequired: false,
 					name: 'visible',
+					defaultValue: {
+						value: false
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -9649,12 +9649,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -9781,12 +9781,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'default'
-					},
 					description: 'Управление возможностью компонента занимать всю ширину родителя',
 					isRequired: false,
 					name: 'width',
+					defaultValue: {
+						value: 'default'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -9808,36 +9808,36 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: true
-					},
 					description: 'Управление автозаполнением компонента',
 					isRequired: false,
 					name: 'autocomplete',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					defaultValue: {
-						value: false
-					},
-					description: 'Управление возможностью изменения значения компонента',
-					isRequired: false,
-					name: 'disabled',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
 					defaultValue: {
 						value: true
 					},
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Управление возможностью изменения значения компонента',
+					isRequired: false,
+					name: 'disabled',
+					defaultValue: {
+						value: false
+					},
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
 					description: 'Управление возможностью подстраивать высоту компонента под высоту текста',
 					isRequired: false,
 					name: 'autosize',
+					defaultValue: {
+						value: true
+					},
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -9934,12 +9934,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'm'
-					},
 					description: 'Размер компонента',
 					isRequired: false,
 					name: 'size',
+					defaultValue: {
+						value: 'm'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -9973,12 +9973,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: 'none'
-					},
 					description: 'Управление возможностью изменения размеров компонента',
 					isRequired: false,
 					name: 'resize',
+					defaultValue: {
+						value: 'none'
+					},
 					type: {
 						name: 'union',
 						structure: {
@@ -10224,12 +10224,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					}
 				},
 				{
-					defaultValue: {
-						value: '#'
-					},
 					description: 'href ссылки с именем пользователя',
 					isRequired: false,
 					name: 'url',
+					defaultValue: {
+						value: '#'
+					},
 					type: {
 						name: 'string',
 						structure: {}
@@ -10249,5 +10249,6 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 	],
 	name: ''
 }
+
 "
 `;

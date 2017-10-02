@@ -1,7 +1,4 @@
-import { WarningDetails } from '../../common/warning/WarningDetails';
+import { Warned } from '../../common/warning/Warned';
 import { ComponentPropertyDefinition } from './ComponentPropertyDefinition';
 
-export interface PropDefinitionSerializationResult {
-  definition:ComponentPropertyDefinition;
-  warnings:WarningDetails[];
-}
+export type PropDefinitionSerializationResult = Warned<ComponentPropertyDefinition>;

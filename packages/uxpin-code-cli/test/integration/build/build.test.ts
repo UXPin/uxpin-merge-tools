@@ -55,6 +55,7 @@ describe('Building design system', () => {
   describe('repos/nordnet-ui-kit', () => {
     describe('with required babel plugins', () => {
       let components:any;
+      let consoleOutput:string;
 
       beforeAll(() => {
         const options:string = [
@@ -62,10 +63,10 @@ describe('Building design system', () => {
           '--wrapper "../documentation/wrapper.jsx"',
         ].join(' ');
 
-        return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', options)
-          .then(() => {
-            components = require(getDesignSystemLibraryRelativePath('nordnet-ui-kit'));
-          });
+        return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', options).then((output) => {
+          consoleOutput = output;
+          components = require(getDesignSystemLibraryRelativePath('nordnet-ui-kit'));
+        });
       });
 
       it('contains Button component', () => {
@@ -80,6 +81,11 @@ describe('Building design system', () => {
         const { Wrapper } = components;
         // then
         expect(Wrapper).toBeInstanceOf(Function);
+      });
+
+      it('prints warnings without stack traces to the console', () => {
+        // then
+        expect(consoleOutput).toMatchSnapshot();
       });
     });
   });

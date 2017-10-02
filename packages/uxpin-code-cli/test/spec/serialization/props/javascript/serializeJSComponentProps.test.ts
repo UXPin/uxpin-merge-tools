@@ -38,7 +38,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.properties).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -82,7 +82,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.properties).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -119,7 +119,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.properties).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -151,7 +151,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.properties).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -189,7 +189,7 @@ describe('serializeJSComponentProps', () => {
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.properties).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -209,14 +209,14 @@ describe('serializeJSComponentProps', () => {
         },
       ];
       const expectedWarning:WarningDetails = {
-        message: 'Cannot compute default value for property `value`.',
+        message: 'Cannot compute default value for property `value`',
         sourcePath: componentPath,
       };
 
       // when
       return serializeJSComponentProps(componentPath).then((serializedProps) => {
         // then
-        expect(serializedProps.properties).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings[0].message).toEqual(expectedWarning.message);
         expect(serializedProps.warnings[0].sourcePath).toEqual(expectedWarning.sourcePath);
         expect(serializedProps.warnings[0].originalError).toBeInstanceOf(Error);

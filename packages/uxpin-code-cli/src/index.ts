@@ -1,3 +1,8 @@
+import 'source-map-support/register';
+
 export { buildDesignSystem } from './buildDesignSystem';
-export { printDump } from './printDump';
+export { getDesignSystemComponentInfos } from './discovery/components/getDesignSystemComponentInfos';
+export { getDesignSystemMetadata } from './serialization/getDesignSystemMetadata';
 export { getDesignSystemSummary } from './getDesignSystemSummary';
+export { printDump } from './printDump';
+export { stringifyWarnings } from './common/warning/stringifyWarnings';

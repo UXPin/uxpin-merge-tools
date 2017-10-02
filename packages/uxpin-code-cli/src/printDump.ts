@@ -1,8 +1,11 @@
 import * as stringifyObject from 'stringify-object';
+import { stringifyWarnings } from './common/warning/stringifyWarnings';
+import { ComponentInfo } from './discovery/components/ComponentInfo';
 import { getDesignSystemMetadata } from './serialization/getDesignSystemMetadata';
 
-export function printDump():Promise<void> {
-  return getDesignSystemMetadata()
-    .then(stringifyObject)
-    .then(console.log);
+export function printDump(componentInfos:ComponentInfo[]):Promise<void> {
+  return getDesignSystemMetadata(componentInfos).then(({ result, warnings }) => {
+    console.log(stringifyObject(result));
+    console.log(stringifyWarnings(warnings, true));
+  });
 }
