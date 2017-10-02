@@ -10,11 +10,7 @@ export function stringifyWarning(warning:WarningDetails, includeError:boolean = 
     result += safe.blue(sourcePath) + '\n';
   }
   if (includeError && originalError) {
-    if (originalError.stack) {
-      result += cleanStacktrace(originalError.stack, cleanStacktraceRelativePaths()) + '\n';
-    } else {
-      result += originalError + '\n';
-    }
+    result += cleanStacktrace(originalError.stack as string, cleanStacktraceRelativePaths()) + '\n';
   }
   return result;
 }
