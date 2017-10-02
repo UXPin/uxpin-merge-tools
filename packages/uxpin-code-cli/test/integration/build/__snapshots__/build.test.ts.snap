@@ -44,10 +44,10 @@ src/components/button/button.jsx
 warning Cannot serialize component properties in:
 src/components/dropdown/dropdown.jsx
 
-warning Cannot parse type of a property \`aria-hidden\` in:
+warning Cannot parse type of a property 'aria-hidden' in:
 src/components/icon/icon.jsx
 
-warning Cannot parse type of a property \`focusable\` in:
+warning Cannot parse type of a property 'focusable' in:
 src/components/icon/icon.jsx
 
 warning Cannot serialize component properties in:
