@@ -1,8 +1,8 @@
 import * as webpack from 'webpack';
 import { BuildOptions } from './building/BuildOptions';
-import { createComponentsLibrary } from './building/library/createComponentsLibrary';
-import { LibraryTarget } from './building/config/LibraryTarget';
 import { getConfig } from './building/config/getConfig';
+import { LibraryTarget } from './building/config/LibraryTarget';
+import { createComponentsLibrary } from './building/library/createComponentsLibrary';
 import { ComponentInfo } from './discovery/components/ComponentInfo';
 
 export function buildDesignSystem(componentInfos:ComponentInfo[], options:BuildOptions):Promise<webpack.Stats> {
