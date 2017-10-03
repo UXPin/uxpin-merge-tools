@@ -1,9 +1,10 @@
 import * as webpack from 'webpack';
-import { BuildOptions } from './building/BuildOptions';
-import { getConfig } from './building/config/getConfig';
-import { LibraryTarget } from './building/config/LibraryTarget';
-import { createComponentsLibrary } from './building/library/createComponentsLibrary';
-import { ComponentInfo } from './discovery/components/ComponentInfo';
+
+import { ComponentInfo } from '../discovery/components/ComponentInfo';
+import { BuildOptions } from './BuildOptions';
+import { getConfig } from './config/getConfig';
+import { LibraryTarget } from './config/LibraryTarget';
+import { createComponentsLibrary } from './library/createComponentsLibrary';
 
 export function buildDesignSystem(componentInfos:ComponentInfo[], options:BuildOptions):Promise<webpack.Stats> {
   const { target, webpackConfigPath, wrapperPath } = options;
