@@ -2,14 +2,7 @@
 
 const program = require('commander');
 
-const {
-  buildDesignSystem,
-  getDesignSystemComponentInfos,
-  getDesignSystemMetadata,
-  getDesignSystemSummary,
-  printDump,
-  stringifyWarnings,
-} = require('../src/index');
+const { performSteps } = require('../src/index');
 const { tapPromise } = require('../src/utils/promise/tapPromise');
 
 const MODE_AMD = 'amd';
@@ -23,32 +16,4 @@ program
   .option('--wrapper <path>', 'Use custom wrapper', (path) => path || '')
   .parse(process.argv);
 
-const { dump, summary, target, webpackConfig, wrapper } = program;
-
-if (summary) {
-  return getDesignSystemComponentInfos()
-    .then(getDesignSystemSummary)
-    .then(console.log)
-    .catch(logError);
-}
-if (dump) {
-  return getDesignSystemComponentInfos()
-    .then(printDump)
-    .catch(logError);
-}
-
-const buildOptions = { target, webpackConfigPath: webpackConfig, wrapperPath: wrapper };
-
-getDesignSystemComponentInfos()
-  .then(tapPromise((infos) => buildDesignSystem(infos, buildOptions)))
-  .then(tapPromise((infos) => console.log(getDesignSystemSummary(infos))))
-  .then(tapPromise(printSerializationWarnings))
-  .catch(logError);
-
-function printSerializationWarnings(infos) {
-  return getDesignSystemMetadata(infos).then(({ warnings }) => console.log(stringifyWarnings(warnings)));
-}
-
-function logError(errorMessage) {
-  console.log('ERROR:', errorMessage);
-}
+return performSteps(program);
