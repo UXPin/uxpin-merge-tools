@@ -1,8 +1,7 @@
-import { LibraryTarget } from '../config/LibraryTarget';
-import { BabelPlugin } from './plugins/BabelPlugin';
+import { LibraryTarget } from './config/LibraryTarget';
 
 export interface BuildOptions {
-  babelPlugins:BabelPlugin[];
-  wrapperPath?:string;
   target?:LibraryTarget;
+  webpackConfigPath?:string;
+  wrapperPath?:string;
 }

@@ -18,12 +18,19 @@ describe('--help option', () => {
     });
   });
 
-  it('it prints help for --babel-plugins <items> option', () => {
+  it('it prints help for --webpack-config <path> option', () => {
     // when
     return runUXPinCodeCommand('./', '--help').then((output) => {
       // then
-      expect(output).toContain('--babel-plugins <items>');
-      expect(output).toContain('Use custom babel plugins');
+      expect(output).toMatch(/--webpack-config <path>\s+Use custom webpack config/);
+    });
+  });
+
+  it('it prints help for --wrapper <path> option', () => {
+    // when
+    return runUXPinCodeCommand('./', '--help').then((output) => {
+      // then
+      expect(output).toMatch(/--wrapper <path>\s+Use custom wrapper/);
     });
   });
 });

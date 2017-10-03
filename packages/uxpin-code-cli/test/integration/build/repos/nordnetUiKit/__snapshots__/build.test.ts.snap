@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Building design system repos/nordnet-ui-kit with required babel plugins prints warnings without stack traces to the console 1`] = `
+exports[`Building repos/nordnet-ui-kit design system with required user webpack config prints warnings without stack traces to the console 1`] = `
 "alert
 animate
 avatar

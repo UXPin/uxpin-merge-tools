@@ -9,3 +9,5 @@
 /src/**/*.js.map
 /test/resources/repos/
 /reports/
+
+!/test/resources/configs/

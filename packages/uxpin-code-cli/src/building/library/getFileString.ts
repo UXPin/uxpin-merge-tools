@@ -1,6 +1,6 @@
 import { relative } from 'path';
-import { TEMP_DIR_PATH } from '../../config/webpack.config';
 import { ComponentInfo } from '../../discovery/components/ComponentInfo';
+import { TEMP_DIR_PATH } from '../config/getConfig';
 import { getComponentClassName } from './getComponentClassName';
 
 const CLASS_NAME_WRAPPER:string = 'Wrapper';

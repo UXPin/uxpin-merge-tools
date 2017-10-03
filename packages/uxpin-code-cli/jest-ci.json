@@ -9,6 +9,9 @@
   "testMatch": [
     "**/test/**/*.test.js"
   ],
+  "testPathIgnorePatterns": [
+    "<rootDir>/test/resources/"
+  ],
   "testEnvironment": "node",
   "testResultsProcessor": "jest-junit-reporter"
 }
