@@ -27,8 +27,8 @@ clean:
 	find ./src -name "*.js" -delete
 	find ./src -name "*.js.map" -delete
 	find ./src -type d -empty -delete
-	find ./test -name "*.js" ! -path "./test/resources/configs/**" -delete
-	find ./test -name "*.js.map" -delete
+	find ./test -name "*.js" ! -path "./test/resources/**" -delete
+	find ./test -name "*.js.map" ! -path "./test/resources/**" -delete
 	find ./test -type d -empty -delete
 
 test-remap-coverage:
