@@ -1,5 +1,5 @@
 import { relative } from 'path';
-import { TEMP_DIR_PATH } from '../../config/webpack.config';
+import { TEMP_DIR_PATH } from '../config/getConfig';
 import { ComponentInfo } from '../../discovery/components/ComponentInfo';
 import { getComponentClassName } from './getComponentClassName';
 

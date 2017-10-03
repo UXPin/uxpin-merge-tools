@@ -1,6 +1,6 @@
 import { writeFile } from 'fs';
 import mkdirpPromise = require('mkdirp-promise');
-import { LIBRARY_INPUT_PATH, TEMP_DIR_PATH } from '../../config/webpack.config';
+import { LIBRARY_INPUT_PATH, TEMP_DIR_PATH } from '../config/getConfig';
 import { ComponentInfo } from '../../discovery/components/ComponentInfo';
 import { getFileString } from './getFileString';
 

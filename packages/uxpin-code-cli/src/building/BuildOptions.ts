@@ -1,4 +1,4 @@
-import { LibraryTarget } from '../config/LibraryTarget';
+import { LibraryTarget } from './config/LibraryTarget';
 
 export interface BuildOptions {
   target?:LibraryTarget;
