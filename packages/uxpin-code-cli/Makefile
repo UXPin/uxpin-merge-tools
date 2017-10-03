@@ -1,7 +1,7 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 
-.PHONY: build check test test-ci clean test-remap-coverage test-resources test-rename-snapshots
+.PHONY: build check test test-ci clean clean-test-resources test-remap-coverage test-resources test-rename-snapshots
 
 build:
 	tsc
@@ -23,13 +23,15 @@ clean:
 	rm -rf ./coverage
 	rm -rf ./coverage-cli
 	rm -rf ./.nyc_output
-	rm -rf ./test/resources/repos/*
 	find ./src -name "*.js" -delete
 	find ./src -name "*.js.map" -delete
 	find ./src -type d -empty -delete
-	find ./test -name "*.js" -delete
-	find ./test -name "*.js.map" -delete
+	find ./test -name "*.js" ! -path "./test/resources/**" -delete
+	find ./test -name "*.js.map" ! -path "./test/resources/**" -delete
 	find ./test -type d -empty -delete
+
+clean-test-resources:
+	rm -rf ./test/resources/repos/*
 
 test-remap-coverage:
 	remap-istanbul -i coverage/coverage-final.json -o coverage/clover.xml -t clover
@@ -51,7 +53,7 @@ test/resources/repos/arui-feather:
 	&& git clone https://github.com/alfa-laboratory/arui-feather.git \
 	&& cd arui-feather \
 	&& git checkout 2299fcb73257d36291eed6d93dc05c2e64531bd2 \
-	&& yarn install
+	&& npm install
 
 test/resources/repos/polaris:
 	cd test/resources/repos \
