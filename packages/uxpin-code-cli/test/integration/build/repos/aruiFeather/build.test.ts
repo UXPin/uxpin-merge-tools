@@ -1,6 +1,6 @@
 import { relative, resolve } from 'path';
 
-import { LIBRARY_OUTPUT_PATH } from '../../../../../src/building/config/getConfig';
+import { LIBRARY_OUTPUT_PATH } from '../../../../../src/steps/building/config/getConfig';
 import { runUXPinCodeCommand } from '../../../../utils/command/runUXPinCodeCommand';
 import { setTimeoutBeforeAll } from '../../../../utils/command/setTimeoutBeforeAll';
 

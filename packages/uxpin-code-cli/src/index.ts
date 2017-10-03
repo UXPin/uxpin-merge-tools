@@ -1,8 +1,8 @@
 import 'source-map-support/register';
 
-export { buildDesignSystem } from './building/buildDesignSystem';
-export { getDesignSystemComponentInfos } from './discovery/components/getDesignSystemComponentInfos';
-export { getDesignSystemMetadata } from './serialization/getDesignSystemMetadata';
-export { getDesignSystemSummary } from './getDesignSystemSummary';
-export { printDump } from './printDump';
+export { buildDesignSystem } from './steps/building/buildDesignSystem';
+export { getDesignSystemComponentInfos } from './steps/discovery/components/getDesignSystemComponentInfos';
+export { getDesignSystemMetadata } from './steps/serialization/getDesignSystemMetadata';
+export { getDesignSystemSummary } from './steps/discovery/getDesignSystemSummary';
+export { printDump } from './steps/serialization/printDump';
 export { stringifyWarnings } from './common/warning/stringifyWarnings';
