@@ -1,2 +1,2 @@
 import 'source-map-support/register';
-export { performSteps } from './steps/performSteps';
+export { runProgram } from './program/runProgram';

@@ -1,16 +1,16 @@
 import pReduce = require('p-reduce');
 import { stringifyWarnings } from '../common/warning/stringifyWarnings';
+import { buildDesignSystem } from '../steps/building/buildDesignSystem';
+import { BuildOptions } from '../steps/building/BuildOptions';
+import { ComponentInfo } from '../steps/discovery/components/ComponentInfo';
+import { getDesignSystemComponentInfos } from '../steps/discovery/components/getDesignSystemComponentInfos';
+import { getDesignSystemSummary } from '../steps/discovery/getDesignSystemSummary';
+import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
+import { printDump } from '../steps/serialization/printDump';
 import { tapPromise } from '../utils/promise/tapPromise';
-import { buildDesignSystem } from './building/buildDesignSystem';
-import { BuildOptions } from './building/BuildOptions';
-import { ComponentInfo } from './discovery/components/ComponentInfo';
-import { getDesignSystemComponentInfos } from './discovery/components/getDesignSystemComponentInfos';
-import { getDesignSystemSummary } from './discovery/getDesignSystemSummary';
 import { ProgramArgs } from './ProgramArgs';
-import { getDesignSystemMetadata } from './serialization/getDesignSystemMetadata';
-import { printDump } from './serialization/printDump';
 
-export function performSteps(args:ProgramArgs):Promise<any> {
+export function runProgram(args:ProgramArgs):Promise<any> {
   const { dump, summary, target, webpackConfig, wrapper } = args;
   const buildOptions:BuildOptions = { target, webpackConfigPath: webpackConfig, wrapperPath: wrapper };
 

@@ -2,8 +2,7 @@
 
 const program = require('commander');
 
-const { performSteps } = require('../src/index');
-const { tapPromise } = require('../src/utils/promise/tapPromise');
+const { runProgram } = require('../src/index');
 
 const MODE_AMD = 'amd';
 
@@ -16,4 +15,4 @@ program
   .option('--wrapper <path>', 'Use custom wrapper', (path) => path || '')
   .parse(process.argv);
 
-return performSteps(program);
+return runProgram(program);

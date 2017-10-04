@@ -1,4 +1,4 @@
-import { LibraryTarget } from './building/config/LibraryTarget';
+import { LibraryTarget } from '../steps/building/config/LibraryTarget';
 
 export interface ProgramArgs {
   dump:boolean;
