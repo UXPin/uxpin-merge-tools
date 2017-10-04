@@ -1,6 +1,6 @@
 import { PropItemType } from 'react-docgen-typescript/lib';
-import { Warned } from '../../../../../common/warning/Warned';
-import { WarningDetails } from '../../../../../common/warning/WarningDetails';
+import { Warned } from '../../../../../../common/warning/Warned';
+import { WarningDetails } from '../../../../../../common/warning/WarningDetails';
 import { ComponentPropertyDefinition } from '../../ComponentPropertyDefinition';
 import { convertPropertyType } from './convertPropertyType';
 

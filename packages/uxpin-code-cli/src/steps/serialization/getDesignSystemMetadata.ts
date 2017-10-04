@@ -3,7 +3,7 @@ import { Warned } from '../../common/warning/Warned';
 import { ComponentInfo } from '../discovery/components/ComponentInfo';
 import { ComponentDefinition } from './component/ComponentDefinition';
 import { DesignSystemDefinition } from './DesignSystemDefinition';
-import { serializeComponentProps } from './props/serializeComponentProps';
+import { serializeComponentProps } from './component/properties/serializeComponentProps';
 
 export function getDesignSystemMetadata(componentInfos:ComponentInfo[]):Promise<Warned<DesignSystemDefinition>> {
   return Promise.all(componentInfos.map(componentInfoToDefinition))

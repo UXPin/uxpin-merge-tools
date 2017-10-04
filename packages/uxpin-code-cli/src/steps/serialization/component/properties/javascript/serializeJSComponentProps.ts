@@ -1,6 +1,6 @@
 import { toPairs } from 'lodash';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
-import { joinWarningLists } from '../../../../common/warning/joinWarningLists';
+import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { PropsSerializationResult } from '../PropsSerializationResult';
 import { convertPropItemToPropertyDefinition } from './convertPropItemToPropertyDefinition';

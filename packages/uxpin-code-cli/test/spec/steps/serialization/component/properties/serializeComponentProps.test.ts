@@ -1,9 +1,10 @@
-import { ComponentPropertyDefinition } from '../../../../../src/steps/serialization/props/ComponentPropertyDefinition';
-import { serializeComponentProps } from '../../../../../src/steps/serialization/props/serializeComponentProps';
+// tslint:disable-next-line:max-line-length
+import { ComponentPropertyDefinition } from '../../../../../../src/steps/serialization/component/properties/ComponentPropertyDefinition';
+import { serializeComponentProps } from '../../../../../../src/steps/serialization/component/properties/serializeComponentProps';
 import {
   getJavaScriptComponentPath,
   getTypeScriptComponentPath,
-} from '../../../../utils/resources/getExampleComponentPath';
+} from '../../../../../utils/resources/getExampleComponentPath';
 
 describe('serializeComponentProps – integration', () => {
   describe('providing array of objects describing all properties of the component', () => {
