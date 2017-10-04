@@ -11,8 +11,8 @@ import { tapPromise } from '../utils/promise/tapPromise';
 import { ProgramArgs } from './ProgramArgs';
 
 export function runProgram(args:ProgramArgs):Promise<any> {
-  const { dump, summary, target, webpackConfig, wrapper } = args;
-  const buildOptions:BuildOptions = { target, webpackConfigPath: webpackConfig, wrapperPath: wrapper };
+  const { dump, summary, webpackConfig, wrapper } = args;
+  const buildOptions:BuildOptions = { webpackConfigPath: webpackConfig, wrapperPath: wrapper };
 
   const steps:Step[] = [
     { exec: (infos) => buildDesignSystem(infos, buildOptions), shouldRun: !dump && !summary },
