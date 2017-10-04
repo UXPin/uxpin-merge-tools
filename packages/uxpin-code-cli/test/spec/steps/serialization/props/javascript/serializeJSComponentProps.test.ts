@@ -1,4 +1,5 @@
 import { WarningDetails } from '../../../../../../src/common/warning/WarningDetails';
+// tslint:disable-next-line:max-line-length
 import { ComponentPropertyDefinition } from '../../../../../../src/steps/serialization/props/ComponentPropertyDefinition';
 import { serializeJSComponentProps } from '../../../../../../src/steps/serialization/props/javascript/serializeJSComponentProps';
 import { getJavaScriptComponentPath } from '../../../../../utils/resources/getExampleComponentPath';

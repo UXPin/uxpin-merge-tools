@@ -1,3 +1,4 @@
+// tslint:disable-next-line:max-line-length
 import { ComponentPropertyDefinition } from '../../../../../../src/steps/serialization/props/ComponentPropertyDefinition';
 import { serializeTSComponentProps } from '../../../../../../src/steps/serialization/props/typescript/serializeTSComponentProps';
 import { getTypeScriptComponentPath } from '../../../../../utils/resources/getExampleComponentPath';

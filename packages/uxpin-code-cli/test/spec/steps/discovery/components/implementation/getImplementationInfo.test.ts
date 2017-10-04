@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 import { ComponentImplementationInfo } from '../../../../../../src/steps/discovery/components/ComponentInfo';
 import { ComponentPaths } from '../../../../../../src/steps/discovery/components/ComponentPaths';
+// tslint:disable-next-line:max-line-length
 import { getImplementationInfo } from '../../../../../../src/steps/discovery/components/implementation/getImplementationInfo';
 
 describe('getImplementationInfo', () => {

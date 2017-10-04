@@ -1,5 +1,8 @@
 import { getFileString } from '../../../../../src/steps/building/library/getFileString';
-import { ComponentImplementationInfo, ComponentInfo } from '../../../../../src/steps/discovery/components/ComponentInfo';
+import {
+  ComponentImplementationInfo,
+  ComponentInfo,
+} from '../../../../../src/steps/discovery/components/ComponentInfo';
 
 describe('getFileString', () => {
 
