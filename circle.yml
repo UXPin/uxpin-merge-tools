@@ -32,12 +32,18 @@ jobs:
       - run:
           name: check
           command: make check
+      - restore_cache:
+          key: uxpin-code-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
       - run:
           name: allow-cloning-git-dependencies
           command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
           name: test-resources
           command: make test-resources
+      - save_cache:
+          key: uxpin-code-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
+          paths:
+            - ./test/resources/repos
       - run:
           name: test
           command: make test-ci

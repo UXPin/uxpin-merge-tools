@@ -4,7 +4,7 @@ import { LIBRARY_OUTPUT_PATH } from '../../../../../src/steps/building/config/ge
 import { runUXPinCodeCommand } from '../../../../utils/command/runUXPinCodeCommand';
 import { setTimeoutBeforeAll } from '../../../../utils/command/setTimeoutBeforeAll';
 
-const CURRENT_TIMEOUT:number = 120000;
+const CURRENT_TIMEOUT:number = 180000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
