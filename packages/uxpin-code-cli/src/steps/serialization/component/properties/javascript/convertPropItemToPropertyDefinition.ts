@@ -1,6 +1,6 @@
 import pReduce = require('p-reduce');
 import { PropItem } from 'react-docgen-typescript/lib';
-import { Warned } from '../../../../common/warning/Warned';
+import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getDefaultValue } from './defaultValue/getDefaultValue';

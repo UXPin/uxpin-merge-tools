@@ -1,5 +1,5 @@
 import { relative } from 'path';
-import { ComponentInfo } from '../../discovery/components/ComponentInfo';
+import { ComponentInfo } from '../../discovery/component/ComponentInfo';
 import { TEMP_DIR_PATH } from '../config/getConfig';
 import { getComponentClassName } from './getComponentClassName';
 

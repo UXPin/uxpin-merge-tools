@@ -1,6 +1,6 @@
 // tslint:disable-next-line:max-line-length
-import { UnionTypeStructure } from '../../../../../../../../../src/steps/serialization/props/ComponentPropertyDefinition';
-import { convertOneOfTypeStructure } from '../../../../../../../../../src/steps/serialization/props/javascript/type/structure/oneOf/convertOneOfTypeStructure';
+import { UnionTypeStructure } from '../../../../../../../../../../src/steps/serialization/component/properties/ComponentPropertyDefinition';
+import { convertOneOfTypeStructure } from '../../../../../../../../../../src/steps/serialization/component/properties/javascript/type/structure/oneOf/convertOneOfTypeStructure';
 
 describe('convertOneOfTypeStructure', () => {
   describe('converting react-docgen enum type structure to common format', () => {

@@ -2,7 +2,7 @@ import { getFileString } from '../../../../../src/steps/building/library/getFile
 import {
   ComponentImplementationInfo,
   ComponentInfo,
-} from '../../../../../src/steps/discovery/components/ComponentInfo';
+} from '../../../../../src/steps/discovery/component/ComponentInfo';
 
 describe('getFileString', () => {
 

@@ -1,8 +1,8 @@
 import { resolve } from 'path';
-import { ComponentImplementationInfo } from '../../../../../../src/steps/discovery/components/ComponentInfo';
-import { ComponentPaths } from '../../../../../../src/steps/discovery/components/ComponentPaths';
+import { ComponentImplementationInfo } from '../../../../../../src/steps/discovery/component/ComponentInfo';
+import { ComponentPaths } from '../../../../../../src/steps/discovery/component/ComponentPaths';
 // tslint:disable-next-line:max-line-length
-import { getImplementationInfo } from '../../../../../../src/steps/discovery/components/implementation/getImplementationInfo';
+import { getImplementationInfo } from '../../../../../../src/steps/discovery/component/implementation/getImplementationInfo';
 
 describe('getImplementationInfo', () => {
   describe('obtaining information about the implementation of a component in the given directory', () => {

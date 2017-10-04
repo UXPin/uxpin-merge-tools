@@ -1,6 +1,6 @@
 import * as webpack from 'webpack';
 
-import { ComponentInfo } from '../discovery/components/ComponentInfo';
+import { ComponentInfo } from '../discovery/component/ComponentInfo';
 import { BuildOptions } from './BuildOptions';
 import { getConfig } from './config/getConfig';
 import { createComponentsLibrary } from './library/createComponentsLibrary';

@@ -1,7 +1,7 @@
 // tslint:disable-next-line:max-line-length
-import { ComponentPropertyDefinition } from '../../../../../../src/steps/serialization/props/ComponentPropertyDefinition';
-import { serializeTSComponentProps } from '../../../../../../src/steps/serialization/props/typescript/serializeTSComponentProps';
-import { getTypeScriptComponentPath } from '../../../../../utils/resources/getExampleComponentPath';
+import { ComponentPropertyDefinition } from '../../../../../../../src/steps/serialization/component/properties/ComponentPropertyDefinition';
+import { serializeTSComponentProps } from '../../../../../../../src/steps/serialization/component/properties/typescript/serializeTSComponentProps';
+import { getTypeScriptComponentPath } from '../../../../../../utils/resources/getExampleComponentPath';
 
 describe('serializeTSComponentProps', () => {
   describe('providing array of objects describing all properties of the TypeScript component', () => {

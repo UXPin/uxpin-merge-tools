@@ -1,4 +1,4 @@
-import { WarningDetails } from '../../../common/warning/WarningDetails';
+import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { PropsSerializationResult } from './PropsSerializationResult';
 
 export function getSummaryResultForInvalidComponent(sourcePath:string):(e:Error) => PropsSerializationResult {
