@@ -1,4 +1,4 @@
-import { ComponentInfo } from '../../discovery/components/ComponentInfo';
+import { ComponentInfo } from '../../discovery/component/ComponentInfo';
 import { ComponentPropertyDefinition } from './properties/ComponentPropertyDefinition';
 
 export interface ComponentDefinition extends ComponentInfo {

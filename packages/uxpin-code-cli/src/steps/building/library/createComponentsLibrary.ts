@@ -1,7 +1,7 @@
 import { writeFile } from 'fs';
 import mkdirpPromise = require('mkdirp-promise');
 
-import { ComponentInfo } from '../../discovery/components/ComponentInfo';
+import { ComponentInfo } from '../../discovery/component/ComponentInfo';
 import { LIBRARY_INPUT_PATH, TEMP_DIR_PATH } from '../config/getConfig';
 import { getFileString } from './getFileString';
 

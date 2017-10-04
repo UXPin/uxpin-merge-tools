@@ -1,6 +1,6 @@
 import { join } from 'path';
-import { ComponentInfo } from '../../../../../src/steps/discovery/components/ComponentInfo';
-import { getComponentInfo } from '../../../../../src/steps/discovery/components/getComponentInfo';
+import { ComponentInfo } from '../../../../../src/steps/discovery/component/ComponentInfo';
+import { getComponentInfo } from '../../../../../src/steps/discovery/component/getComponentInfo';
 import { ProjectPaths } from '../../../../../src/steps/discovery/paths/ProjectPaths';
 import { testDirPath } from '../../../../utils/resources/testDirPath';
 

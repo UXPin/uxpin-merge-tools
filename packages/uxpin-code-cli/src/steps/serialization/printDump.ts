@@ -1,6 +1,6 @@
 import * as stringifyObject from 'stringify-object';
 import { stringifyWarnings } from '../../common/warning/stringifyWarnings';
-import { ComponentInfo } from '../discovery/components/ComponentInfo';
+import { ComponentInfo } from '../discovery/component/ComponentInfo';
 import { getDesignSystemMetadata } from './getDesignSystemMetadata';
 
 export function printDump(componentInfos:ComponentInfo[]):Promise<void> {
