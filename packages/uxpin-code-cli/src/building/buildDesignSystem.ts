@@ -3,18 +3,17 @@ import * as webpack from 'webpack';
 import { ComponentInfo } from '../discovery/components/ComponentInfo';
 import { BuildOptions } from './BuildOptions';
 import { getConfig } from './config/getConfig';
-import { LibraryTarget } from './config/LibraryTarget';
 import { createComponentsLibrary } from './library/createComponentsLibrary';
 
 export function buildDesignSystem(componentInfos:ComponentInfo[], options:BuildOptions):Promise<webpack.Stats> {
-  const { target, webpackConfigPath, wrapperPath } = options;
+  const { webpackConfigPath, wrapperPath } = options;
   return createComponentsLibrary(componentInfos, wrapperPath)
-    .then(() => bundle(webpackConfigPath, target));
+    .then(() => bundle(webpackConfigPath));
 }
 
-function bundle(webpackConfigPath?:string, target?:LibraryTarget):Promise<webpack.Stats> {
+function bundle(webpackConfigPath?:string):Promise<webpack.Stats> {
   return new Promise((resolve, reject) => {
-    const compiler:webpack.Compiler = webpack(getConfig(webpackConfigPath, target));
+    const compiler:webpack.Compiler = webpack(getConfig(webpackConfigPath));
 
     compiler.run((err, stats) => {
       if (err) {
