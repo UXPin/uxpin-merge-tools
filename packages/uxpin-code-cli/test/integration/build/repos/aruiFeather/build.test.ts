@@ -14,7 +14,6 @@ describe('Building repos/arui-feather design system', () => {
 
     beforeAll(() => {
       const options:string = [
-        '--target "commonjs"',
         '--webpack-config "./webpack.gemini.config.js"',
       ].join(' ');
 

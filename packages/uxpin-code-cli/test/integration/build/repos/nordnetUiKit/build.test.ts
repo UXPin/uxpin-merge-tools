@@ -15,7 +15,6 @@ describe('Building repos/nordnet-ui-kit design system', () => {
 
     beforeAll(() => {
       const options:string = [
-        '--target "commonjs"',
         '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',
         '--wrapper "../documentation/wrapper.jsx"',
       ].join(' ');

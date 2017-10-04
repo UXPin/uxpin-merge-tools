@@ -4,13 +4,10 @@ const program = require('commander');
 
 const { runProgram } = require('../src/index');
 
-const MODE_AMD = 'amd';
-
 program
   .version(require('../package.json').version)
   .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
   .option('-s, --summary', 'Show only design system summary without building it')
-  .option('--target <mode>', 'Set webpack libraryTarget mode', (mode) => mode || MODE_AMD)
   .option('--webpack-config <path>', 'Use custom webpack config', (path) => path || '')
   .option('--wrapper <path>', 'Use custom wrapper', (path) => path || '')
   .parse(process.argv);
