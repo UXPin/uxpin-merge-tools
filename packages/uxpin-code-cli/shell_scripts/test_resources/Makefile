@@ -8,7 +8,8 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& git clone https://github.com/nordnet/nordnet-ui-kit.git \
 	&& cd nordnet-ui-kit \
 	&& git checkout d914edd5f97cadb284f7f47b783106c86fe430d9 \
-	&& yarn install
+	&& mkdir ./yarn-cache \
+    && yarn install --cache-folder ./yarn-cache
 
 ../../test/resources/repos/arui-feather:
 	cd ../../test/resources/repos \
@@ -22,4 +23,5 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& git clone https://github.com/Shopify/polaris.git \
 	&& cd polaris \
 	&& git checkout 78d5e5e0e4365ece3b6d8ddfed06027ec72159cd \
-	&& yarn install
+	&& mkdir ./yarn-cache \
+	&& yarn install --cache-folder ./yarn-cache
