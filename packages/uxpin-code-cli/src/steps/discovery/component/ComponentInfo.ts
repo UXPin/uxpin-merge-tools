@@ -12,3 +12,7 @@ export interface ComponentImplementationInfo {
 
 type ComponentImplementationLang = 'javascript' | 'typescript';
 type ComponentImplementationFramework = 'reactjs';
+
+export interface ComponentDocumenationInfo {
+  path:string;
+}
