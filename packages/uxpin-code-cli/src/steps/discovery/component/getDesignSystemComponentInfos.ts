@@ -1,4 +1,4 @@
-import fsReaddirPromise = require('fs-readdir-promise');
+import { readDir } from '../../../utils/fs/readDir';
 import { getProjectPaths } from '../paths/getProjectPaths';
 import { ProjectPaths } from '../paths/ProjectPaths';
 import { ComponentInfo } from './ComponentInfo';
@@ -11,7 +11,7 @@ export function getDesignSystemComponentInfos():Promise<ComponentInfo[]> {
       projectPaths = paths;
       return paths.componentsDirPath;
     })
-    .then(fsReaddirPromise)
+    .then(readDir)
     .then((content) => getComponentInfos(projectPaths, content));
 }
 
