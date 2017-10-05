@@ -11,6 +11,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/amount/amount.jsx'
 			},
 			name: 'amount',
+			documentation: {
+				path: 'src/amount/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -156,6 +159,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/app-content/app-content.jsx'
 			},
 			name: 'app-content',
+			documentation: {
+				path: 'src/app-content/README.md'
+			},
 			properties: [
 				{
 					description: 'Дочерние элементы \`AppContent\`',
@@ -236,6 +242,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/app-menu/app-menu.jsx'
 			},
 			name: 'app-menu',
+			documentation: {
+				path: 'src/app-menu/README.md'
+			},
 			properties: [
 				{
 					description: 'Дочерние элементы \`AppMenu\`',
@@ -316,6 +325,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/app-title/app-title.jsx'
 			},
 			name: 'app-title',
+			documentation: {
+				path: 'src/app-title/README.md'
+			},
 			properties: [
 				{
 					description: 'Дочерние элементы \`AppTitle\`',
@@ -396,6 +408,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/attach/attach.jsx'
 			},
 			name: 'attach',
+			documentation: {
+				path: 'src/attach/README.md'
+			},
 			properties: [
 				{
 					description: 'Содержимое поля ввода, указанное по умолчанию. Принимает массив объектов типа File или null.',
@@ -910,6 +925,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/button/button.jsx'
 			},
 			name: 'button',
+			documentation: {
+				path: 'src/button/README.md'
+			},
 			properties: [
 				{
 					description: 'Текст кнопки',
@@ -1383,6 +1401,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/calendar/calendar.jsx'
 			},
 			name: 'calendar',
+			documentation: {
+				path: 'src/calendar/README.md'
+			},
 			properties: [
 				{
 					description: 'Выбранная дата, в формате unix timestamp',
@@ -1660,6 +1681,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/calendar-input/calendar-input.jsx'
 			},
 			name: 'calendar-input',
+			documentation: {
+				path: 'src/calendar-input/README.md'
+			},
 			properties: [
 				{
 					description: 'Содержимое поля ввода',
@@ -2253,6 +2277,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/card-input/card-input.jsx'
 			},
 			name: 'card-input',
+			documentation: {
+				path: 'src/card-input/README.md'
+			},
 			properties: [
 				{
 					description: 'Подсказка в текстовом поле',
@@ -2276,6 +2303,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/checkbox/checkbox.jsx'
 			},
 			name: 'checkbox',
+			documentation: {
+				path: 'src/checkbox/README.md'
+			},
 			properties: [
 				{
 					description: 'Текст подписи к чекбоксу',
@@ -2538,6 +2568,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/checkbox-group/checkbox-group.jsx'
 			},
 			name: 'checkbox-group',
+			documentation: {
+				path: 'src/checkbox-group/README.md'
+			},
 			properties: [
 				{
 					description: 'Тип компонента',
@@ -2738,6 +2771,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/collapse/collapse.jsx'
 			},
 			name: 'collapse',
+			documentation: {
+				path: 'src/collapse/README.md'
+			},
 			properties: [
 				{
 					description: 'Управление состоянием \`expand\`/\`collapse\` компонента',
@@ -2860,6 +2896,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/copyright/copyright.jsx'
 			},
 			name: 'copyright',
+			documentation: {
+				path: 'src/copyright/README.md'
+			},
 			properties: [
 				{
 					description: 'Дочерние элементы \`Copyright\`, заменяют собой стандартный текст copyright\\\\'а',
@@ -2952,6 +2991,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/dropdown/dropdown.jsx'
 			},
 			name: 'dropdown',
+			documentation: {
+				path: 'src/dropdown/README.md'
+			},
 			properties: [
 				{
 					description: 'Тип компонента',
@@ -3518,6 +3560,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/email-input/email-input.jsx'
 			},
 			name: 'email-input',
+			documentation: {
+				path: 'src/email-input/README.md'
+			},
 			properties: []
 		},
 		{
@@ -3593,6 +3638,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/footer/footer.jsx'
 			},
 			name: 'footer',
+			documentation: {
+				path: 'src/footer/README.md'
+			},
 			properties: [
 				{
 					description: 'Меню в подвале',
@@ -3714,6 +3762,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/form/form.jsx'
 			},
 			name: 'form',
+			documentation: {
+				path: 'src/form/README.md'
+			},
 			properties: [
 				{
 					description: 'Способ кодирования данных формы при их отправке',
@@ -3989,6 +4040,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/form-field/form-field.jsx'
 			},
 			name: 'form-field',
+			documentation: {
+				path: 'src/form-field/README.md'
+			},
 			properties: [
 				{
 					description: 'Дочерние элементы \`FormField\`',
@@ -4126,6 +4180,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/header/header.jsx'
 			},
 			name: 'header',
+			documentation: {
+				path: 'src/header/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -4271,6 +4328,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/heading/heading.jsx'
 			},
 			name: 'heading',
+			documentation: {
+				path: 'src/heading/README.md'
+			},
 			properties: [
 				{
 					description: 'Дочерние элементы \`Heading\`',
@@ -4390,6 +4450,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/icon/icon.jsx'
 			},
 			name: 'icon',
+			documentation: {
+				path: 'src/icon/README.md'
+			},
 			properties: [
 				{
 					description: 'Тип иконки',
@@ -4596,6 +4659,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/input/input.jsx'
 			},
 			name: 'input',
+			documentation: {
+				path: 'src/input/README.md'
+			},
 			properties: [
 				{
 					description: 'Тип поля.\\\\nВнимание, тип \\\\'number\\\\' не умеет работать с масками, в том числе с \\\\'selectionStart\\\\' и \\\\'selectionEnd\\\\'.\\\\nПодробнее: http://w3c.github.io/html/sec-forms.html#does-not-apply',
@@ -5110,6 +5176,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/input-autocomplete/input-autocomplete.jsx'
 			},
 			name: 'input-autocomplete',
+			documentation: {
+				path: 'src/input-autocomplete/README.md'
+			},
 			properties: [
 				{
 					description: 'Список вариантов выбора',
@@ -5391,6 +5460,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/input-group/input-group.jsx'
 			},
 			name: 'input-group',
+			documentation: {
+				path: 'src/input-group/README.md'
+			},
 			properties: [
 				{
 					description: 'Управление возможностью компонента занимать всю ширину родителя',
@@ -5505,6 +5577,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/label/label.jsx'
 			},
 			name: 'label',
+			documentation: {
+				path: 'src/label/README.md'
+			},
 			properties: [
 				{
 					description: 'Размер компонента',
@@ -5636,6 +5711,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/link/link.jsx'
 			},
 			name: 'link',
+			documentation: {
+				path: 'src/link/README.md'
+			},
 			properties: [
 				{
 					description: 'Иконка ссылки',
@@ -5920,6 +5998,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/list/list.jsx'
 			},
 			name: 'list',
+			documentation: {
+				path: 'src/list/README.md'
+			},
 			properties: [
 				{
 					description: 'Список элементов',
@@ -6069,6 +6150,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/menu/menu.jsx'
 			},
 			name: 'menu',
+			documentation: {
+				path: 'src/menu/README.md'
+			},
 			properties: [
 				{
 					description: 'Тип расположения меню: \\\\'horizontal\\\\'',
@@ -6480,6 +6564,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/menu-item/menu-item.jsx'
 			},
 			name: 'menu-item',
+			documentation: {
+				path: 'src/menu-item/README.md'
+			},
 			properties: [
 				{
 					description: 'Тип элемента меню',
@@ -6817,6 +6904,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/money-input/money-input.jsx'
 			},
 			name: 'money-input',
+			documentation: {
+				path: 'src/money-input/README.md'
+			},
 			properties: [
 				{
 					description: 'Максимально допустимая длина значения до запятой',
@@ -6915,6 +7005,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/notification/notification.jsx'
 			},
 			name: 'notification',
+			documentation: {
+				path: 'src/notification/README.md'
+			},
 			properties: [
 				{
 					description: 'Тип компонента',
@@ -7178,6 +7271,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/page/page.jsx'
 			},
 			name: 'page',
+			documentation: {
+				path: 'src/page/README.md'
+			},
 			properties: [
 				{
 					description: 'Шапка страницы',
@@ -7276,6 +7372,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/paragraph/paragraph.jsx'
 			},
 			name: 'paragraph',
+			documentation: {
+				path: 'src/paragraph/README.md'
+			},
 			properties: [
 				{
 					description: 'Тип параграфа',
@@ -7389,6 +7488,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/phone-input/phone-input.jsx'
 			},
 			name: 'phone-input',
+			documentation: {
+				path: 'src/phone-input/README.md'
+			},
 			properties: [
 				{
 					description: 'Подсказка в текстовом поле',
@@ -7531,6 +7633,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/popup/popup.jsx'
 			},
 			name: 'popup',
+			documentation: {
+				path: 'src/popup/README.md'
+			},
 			properties: [
 				{
 					description: 'Дополнительный класс',
@@ -8053,6 +8158,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/popup-header/popup-header.jsx'
 			},
 			name: 'popup-header',
+			documentation: {
+				path: 'src/popup-header/README.md'
+			},
 			properties: [
 				{
 					description: 'Размер компонента',
@@ -8162,6 +8270,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/radio/radio.jsx'
 			},
 			name: 'radio',
+			documentation: {
+				path: 'src/radio/README.md'
+			},
 			properties: [
 				{
 					description: 'Тип',
@@ -8424,6 +8535,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/radio-group/radio-group.jsx'
 			},
 			name: 'radio-group',
+			documentation: {
+				path: 'src/radio-group/README.md'
+			},
 			properties: [
 				{
 					description: 'Тип группы кнопок',
@@ -8736,6 +8850,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/select/select.jsx'
 			},
 			name: 'select',
+			documentation: {
+				path: 'src/select/README.md'
+			},
 			properties: [
 				{
 					description: 'Дополнительный класс',
@@ -9340,6 +9457,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/sidebar/sidebar.jsx'
 			},
 			name: 'sidebar',
+			documentation: {
+				path: 'src/sidebar/README.md'
+			},
 			properties: [
 				{
 					description: 'Тема компонента',
@@ -9450,6 +9570,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/slide-down/slide-down.jsx'
 			},
 			name: 'slide-down',
+			documentation: {
+				path: 'src/slide-down/README.md'
+			},
 			properties: [
 				{
 					description: 'Управление состоянием expand/collapse компонента',
@@ -9523,6 +9646,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/spin/spin.jsx'
 			},
 			name: 'spin',
+			documentation: {
+				path: 'src/spin/README.md'
+			},
 			properties: [
 				{
 					description: 'Управление видимостью компонента',
@@ -9629,6 +9755,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/support/support.jsx'
 			},
 			name: 'support',
+			documentation: {
+				path: 'src/support/README.md'
+			},
 			properties: [
 				{
 					description: 'Название города',
@@ -9759,6 +9888,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/textarea/textarea.jsx'
 			},
 			name: 'textarea',
+			documentation: {
+				path: 'src/textarea/README.md'
+			},
 			properties: [
 				{
 					description: 'Дополнительный класс',
@@ -10160,6 +10292,9 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/user/user.jsx'
 			},
 			name: 'user',
+			documentation: {
+				path: 'src/user/README.md'
+			},
 			properties: [
 				{
 					description: 'Дополнительный класс',
