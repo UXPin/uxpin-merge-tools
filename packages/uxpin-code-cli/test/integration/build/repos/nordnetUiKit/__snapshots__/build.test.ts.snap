@@ -2,30 +2,80 @@
 
 exports[`Building repos/nordnet-ui-kit design system with required user webpack config prints warnings without stack traces to the console 1`] = `
 "alert
+    📜 documentation: ✔
+
 animate
+    📜 documentation: ✔
+
 avatar
+    📜 documentation: ✔
+
 badge
+    📜 documentation: ✔
+
 button
+    📜 documentation: ✔
+
 dropdown
+    📜 documentation: ✔
+
 flag
+    📜 documentation: ✔
+
 icon
+    📜 documentation: ✔
+
 input
+    📜 documentation: ✔
+
 labeled-value
+    📜 documentation: ✔
+
 li
+    📜 documentation: ✔
+
 logo
+    📜 documentation: ✔
+
 pane
+    📜 documentation: ✔
+
 radio-group
+    📜 documentation: ✔
+
 segmented-control
+    📜 documentation: ✔
+
 spinner
+    📜 documentation: ✔
+
 table
+    📜 documentation: ✔
+
 tbody
+    📜 documentation: ✘
+
 td
+    📜 documentation: ✘
+
 tfoot
+    📜 documentation: ✘
+
 th
+    📜 documentation: ✘
+
 thead
+    📜 documentation: ✘
+
 tooltip
+    📜 documentation: ✔
+
 tr
+    📜 documentation: ✘
+
 ul
+    📜 documentation: ✔
+
 warning Cannot serialize component properties in:
 src/components/alert/alert.jsx
 
