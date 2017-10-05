@@ -12,31 +12,81 @@ describe('--summary option integration', () => {
       return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', '--summary')
         .then((output) => {
           // then
-          expect(output).toContain(`alert
+          expect(output).toContain(
+            `alert
+    📜 documentation: ✔
+
 animate
+    📜 documentation: ✔
+
 avatar
+    📜 documentation: ✔
+
 badge
+    📜 documentation: ✔
+
 button
+    📜 documentation: ✔
+
 dropdown
+    📜 documentation: ✔
+
 flag
+    📜 documentation: ✔
+
 icon
+    📜 documentation: ✔
+
 input
+    📜 documentation: ✔
+
 labeled-value
+    📜 documentation: ✔
+
 li
+    📜 documentation: ✔
+
 logo
+    📜 documentation: ✔
+
 pane
+    📜 documentation: ✔
+
 radio-group
+    📜 documentation: ✔
+
 segmented-control
+    📜 documentation: ✔
+
 spinner
+    📜 documentation: ✔
+
 table
-tbody\n` + // no examples
-`td\n` + // no examples
-`tfoot\n` + // no examples
-`th\n` + // no examples
-`thead\n` + // no examples
-`tooltip
-tr\n` + // no examples
-`ul`);
+    📜 documentation: ✔
+
+tbody
+    📜 documentation: ✘
+
+td
+    📜 documentation: ✘
+
+tfoot
+    📜 documentation: ✘
+
+th
+    📜 documentation: ✘
+
+thead
+    📜 documentation: ✘
+
+tooltip
+    📜 documentation: ✔
+
+tr
+    📜 documentation: ✘
+
+ul
+    📜 documentation: ✔`);
         });
     });
   });
