@@ -1,5 +1,5 @@
-import isFilePromise = require('is-file-promise');
 import { join, relative } from 'path';
+import { isFile } from '../../../../../utils/fs/isFile';
 import { ComponentImplementationInfo } from '../../ComponentInfo';
 import { ComponentPaths } from '../../ComponentPaths';
 
@@ -10,6 +10,5 @@ export function getJSImplementationInfo(paths:ComponentPaths, name:string):Promi
     lang: 'javascript',
     path: relative(paths.projectRoot, absoluteComponentPath),
   };
-  return isFilePromise(absoluteComponentPath)
-    .then(() => info);
+  return isFile(absoluteComponentPath).then(() => info);
 }

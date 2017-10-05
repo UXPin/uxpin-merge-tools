@@ -1,13 +1,16 @@
 import isFilePromise = require('is-file-promise');
 import { isFileCaseSensitive } from './isFile/isFileCaseSensitive';
 
-// tslint:disable-next-line:typedef
-const defaults = {
+const defaults:IsFileOptions = {
   caseSensitive: false,
 };
 
-export function isFile(path:string, options:typeof defaults):Promise<void> {
-  const { caseSensitive }:typeof defaults = { ...defaults, ...options };
+interface IsFileOptions {
+  caseSensitive?:boolean;
+}
+
+export function isFile(path:string, options:IsFileOptions = {}):Promise<void> {
+  const { caseSensitive }:IsFileOptions = { ...defaults, ...options };
   if (caseSensitive) {
     return isFileCaseSensitive(path);
   }
