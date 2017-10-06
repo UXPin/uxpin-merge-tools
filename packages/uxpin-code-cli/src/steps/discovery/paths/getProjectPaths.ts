@@ -1,5 +1,5 @@
-import locatePath = require('locate-path');
 import { join, relative } from 'path';
+import { locatePath } from '../../../utils/fs/locatePath';
 import { PATHS } from './paths';
 import { ProjectPaths } from './ProjectPaths';
 
