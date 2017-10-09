@@ -6,6 +6,9 @@
   "bin": "bin/uxpin-code",
   "author": "UXPin Inc.",
   "license": "MIT",
+  "engines": {
+    "node": ">=6.5.0"
+  },
   "keywords": [
     "UXPin",
     "design system",
