@@ -8,9 +8,9 @@ program
   .version(require('../package.json').version)
   .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
   .option('-s, --summary', 'Show only design system summary without building it')
-  .option('--webpack-config <path>', 'path to a custom webpack config, relative to the project root', (path) => path || '')
-  .option('--wrapper <path>', 'path to a custom component wrapper implementation, relative to the project root', (path) => path || '')
-  .option('--cwd <path>', 'working directory: path to root of the DS repository', (path) => path || process.cwd())
+  .option('--webpack-config <path>', 'path to a custom webpack config, relative to the project root')
+  .option('--wrapper <path>', 'path to a custom component wrapper implementation, relative to the project root')
+  .option('--cwd <path>', 'working directory: path to root of the DS repository')
   .parse(process.argv);
 
 return runProgram(program);
