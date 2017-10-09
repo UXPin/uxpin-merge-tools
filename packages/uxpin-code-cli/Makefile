@@ -1,7 +1,7 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 
-.PHONY: build check test test-ci clean clean-test-resources test-remap-coverage test-resources test-rename-snapshots
+.PHONY: build check test test-unit test-integration test-ci clean clean-test-resources test-remap-coverage test-resources test-rename-snapshots
 
 build:
 	tsc
@@ -11,7 +11,14 @@ check:
 
 test:
 	make test-resources
-	jest
+	make test-unit
+	make test-integration
+
+test-unit:
+	jest --testMatch="**/test/spec/**/*.test.ts"
+
+test-integration:
+	jest --testMatch="**/test/integration/**/*.test.ts"
 
 test-ci:
 	make test-rename-snapshots
