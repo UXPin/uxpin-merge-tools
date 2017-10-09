@@ -6,10 +6,10 @@ import { ComponentDocumenationInfo } from '../ComponentInfo';
 import { ComponentPaths } from '../ComponentPaths';
 
 export function getDocumentationInfo(paths:ComponentPaths, name:string):Promise<ComponentDocumenationInfo> {
-  const possibleFileNames:string[] = ['Readme.md', 'README.md', `${name}.md`];
-  const possibleLocations:string[] = possibleFileNames.map((n) => join(paths.projectRoot, paths.componentDirPath, n));
+  const fileNames:string[] = ['Readme.md', 'README.md', `${name}.md`];
+  const possiblePaths:string[] = fileNames.map((fileName) => join(paths.projectRoot, paths.componentDirPath, fileName));
 
-  return pAny(possibleLocations.map(tapPromise(isExactFile))).then((foundPath) => ({
+  return pAny(possiblePaths.map(tapPromise(isExactFile))).then((foundPath) => ({
     path: relative(paths.projectRoot, foundPath),
   }));
 }
