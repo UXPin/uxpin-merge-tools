@@ -16,6 +16,9 @@ describe('getComponentInfo', () => {
         const componentName:string = 'button';
         const expectedInfo:ComponentInfo = {
           dirPath: 'src/components/button',
+          documentation: {
+            path: `src/components/button/button.md`,
+          },
           implementation: {
             framework: 'reactjs',
             lang: 'javascript',
