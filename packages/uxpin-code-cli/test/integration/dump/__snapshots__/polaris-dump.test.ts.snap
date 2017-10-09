@@ -11,6 +11,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/AccountConnection/AccountConnection.tsx'
 			},
 			name: 'AccountConnection',
+			documentation: {
+				path: 'src/components/AccountConnection/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -85,6 +88,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/ActionList/ActionList.tsx'
 			},
 			name: 'ActionList',
+			documentation: {
+				path: 'src/components/ActionList/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -114,6 +120,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Avatar/Avatar.tsx'
 			},
 			name: 'Avatar',
+			documentation: {
+				path: 'src/components/Avatar/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -179,6 +188,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Badge/Badge.tsx'
 			},
 			name: 'Badge',
+			documentation: {
+				path: 'src/components/Badge/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -217,6 +229,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Banner/Banner.tsx'
 			},
 			name: 'Banner',
+			documentation: {
+				path: 'src/components/Banner/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -320,6 +335,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Button/Button.tsx'
 			},
 			name: 'Button',
+			documentation: {
+				path: 'src/components/Button/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -493,6 +511,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/ButtonGroup/ButtonGroup.tsx'
 			},
 			name: 'ButtonGroup',
+			documentation: {
+				path: 'src/components/ButtonGroup/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -522,6 +543,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/CalloutCard/CalloutCard.tsx'
 			},
 			name: 'CalloutCard',
+			documentation: {
+				path: 'src/components/CalloutCard/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -578,6 +602,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Caption/Caption.tsx'
 			},
 			name: 'Caption',
+			documentation: {
+				path: 'src/components/Caption/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -598,6 +625,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Card/Card.tsx'
 			},
 			name: 'Card',
+			documentation: {
+				path: 'src/components/Card/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -672,6 +702,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Checkbox/Checkbox.tsx'
 			},
 			name: 'Checkbox',
+			documentation: {
+				path: 'src/components/Checkbox/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -791,6 +824,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Choice/Choice.tsx'
 			},
 			name: 'Choice',
+			documentation: {
+				path: 'src/components/Choice/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -856,6 +892,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/ChoiceList/ChoiceList.tsx'
 			},
 			name: 'ChoiceList',
+			documentation: {
+				path: 'src/components/ChoiceList/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -930,6 +969,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Collapsible/Collapsible.tsx'
 			},
 			name: 'Collapsible',
+			documentation: {
+				path: 'src/components/Collapsible/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -959,6 +1001,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/ColorPicker/ColorPicker.tsx'
 			},
 			name: 'ColorPicker',
+			documentation: {
+				path: 'src/components/ColorPicker/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -1044,6 +1089,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/DatePicker/DatePicker.tsx'
 			},
 			name: 'DatePicker',
+			documentation: {
+				path: 'src/components/DatePicker/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -1136,6 +1184,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/DescriptionList/DescriptionList.tsx'
 			},
 			name: 'DescriptionList',
+			documentation: {
+				path: 'src/components/DescriptionList/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -1156,6 +1207,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/DisplayText/DisplayText.tsx'
 			},
 			name: 'DisplayText',
+			documentation: {
+				path: 'src/components/DisplayText/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -1194,6 +1248,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/EmptyState/EmptyState.tsx'
 			},
 			name: 'EmptyState',
+			documentation: {
+				path: 'src/components/EmptyState/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -1324,6 +1381,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/FooterHelp/FooterHelp.tsx'
 			},
 			name: 'FooterHelp',
+			documentation: {
+				path: 'src/components/FooterHelp/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -1344,6 +1404,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/FormLayout/FormLayout.tsx'
 			},
 			name: 'FormLayout',
+			documentation: {
+				path: 'src/components/FormLayout/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -1364,6 +1427,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Heading/Heading.tsx'
 			},
 			name: 'Heading',
+			documentation: {
+				path: 'src/components/Heading/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -1393,6 +1459,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Icon/Icon.tsx'
 			},
 			name: 'Icon',
+			documentation: {
+				path: 'src/components/Icon/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -4043,6 +4112,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/KeyboardKey/KeyboardKey.tsx'
 			},
 			name: 'KeyboardKey',
+			documentation: {
+				path: 'src/components/KeyboardKey/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -4870,6 +4942,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Layout/Layout.tsx'
 			},
 			name: 'Layout',
+			documentation: {
+				path: 'src/components/Layout/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -4899,6 +4974,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Link/Link.tsx'
 			},
 			name: 'Link',
+			documentation: {
+				path: 'src/components/Link/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -4946,6 +5024,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/List/List.tsx'
 			},
 			name: 'List',
+			documentation: {
+				path: 'src/components/List/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -4975,6 +5056,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Page/Page.tsx'
 			},
 			name: 'Page',
+			documentation: {
+				path: 'src/components/Page/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -5076,6 +5160,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/PageActions/PageActions.tsx'
 			},
 			name: 'PageActions',
+			documentation: {
+				path: 'src/components/PageActions/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -5105,6 +5192,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Pagination/Pagination.tsx'
 			},
 			name: 'Pagination',
+			documentation: {
+				path: 'src/components/Pagination/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -5179,6 +5269,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Popover/Popover.tsx'
 			},
 			name: 'Popover',
+			documentation: {
+				path: 'src/components/Popover/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -5345,6 +5438,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/RadioButton/RadioButton.tsx'
 			},
 			name: 'RadioButton',
+			documentation: {
+				path: 'src/components/RadioButton/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -5455,6 +5551,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/ResourceList/ResourceList.tsx'
 			},
 			name: 'ResourceList',
+			documentation: {
+				path: 'src/components/ResourceList/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -5493,6 +5592,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Scrollable/Scrollable.tsx'
 			},
 			name: 'Scrollable',
+			documentation: {
+				path: 'src/components/Scrollable/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -8105,6 +8207,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Select/Select.tsx'
 			},
 			name: 'Select',
+			documentation: {
+				path: 'src/components/Select/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -8251,6 +8356,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/SettingAction/SettingAction.tsx'
 			},
 			name: 'SettingAction',
+			documentation: {
+				path: 'src/components/SettingAction/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -8280,6 +8388,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/SettingToggle/SettingToggle.tsx'
 			},
 			name: 'SettingToggle',
+			documentation: {
+				path: 'src/components/SettingToggle/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -8318,6 +8429,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Stack/Stack.tsx'
 			},
 			name: 'Stack',
+			documentation: {
+				path: 'src/components/Stack/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -8374,6 +8488,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Subheading/Subheading.tsx'
 			},
 			name: 'Subheading',
+			documentation: {
+				path: 'src/components/Subheading/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -8403,6 +8520,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Tabs/Tabs.tsx'
 			},
 			name: 'Tabs',
+			documentation: {
+				path: 'src/components/Tabs/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -8459,6 +8579,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Tag/Tag.tsx'
 			},
 			name: 'Tag',
+			documentation: {
+				path: 'src/components/Tag/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -8508,6 +8631,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/TextField/TextField.tsx'
 			},
 			name: 'TextField',
+			documentation: {
+				path: 'src/components/TextField/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -8789,6 +8915,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/TextStyle/TextStyle.tsx'
 			},
 			name: 'TextStyle',
+			documentation: {
+				path: 'src/components/TextStyle/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -8818,6 +8947,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Thumbnail/Thumbnail.tsx'
 			},
 			name: 'Thumbnail',
+			documentation: {
+				path: 'src/components/Thumbnail/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -8856,6 +8988,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/Tooltip/Tooltip.tsx'
 			},
 			name: 'Tooltip',
+			documentation: {
+				path: 'src/components/Tooltip/README.md'
+			},
 			properties: [
 				{
 					description: '',
@@ -11524,6 +11659,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				path: 'src/components/VisuallyHidden/VisuallyHidden.tsx'
 			},
 			name: 'VisuallyHidden',
+			documentation: {
+				path: 'src/components/VisuallyHidden/README.md'
+			},
 			properties: [
 				{
 					description: '',

@@ -13,61 +13,172 @@ describe('--summary option integration', () => {
         .then((output) => {
           // then
           expect(output).toContain(`AccountConnection
+    📜 documentation: ✔
+
 ActionList
+    📜 documentation: ✔
+
 Avatar
+    📜 documentation: ✔
+
 Badge
+    📜 documentation: ✔
+
 Banner
+    📜 documentation: ✔
+
 Breadcrumbs
+    📜 documentation: ✘
+
 Button
+    📜 documentation: ✔
+
 ButtonGroup
+    📜 documentation: ✔
+
 CalloutCard
+    📜 documentation: ✔
+
 Caption
+    📜 documentation: ✔
+
 Card
+    📜 documentation: ✔
+
 Checkbox
+    📜 documentation: ✔
+
 Choice
+    📜 documentation: ✔
+
 ChoiceList
+    📜 documentation: ✔
+
 Collapsible
+    📜 documentation: ✔
+
 ColorPicker
+    📜 documentation: ✔
+
 Connected
+    📜 documentation: ✘
+
 DatePicker
+    📜 documentation: ✔
+
 DescriptionList
+    📜 documentation: ✔
+
 DisplayText
+    📜 documentation: ✔
+
 EmptyState
+    📜 documentation: ✔
+
 EventListener
+    📜 documentation: ✘
+
 FooterHelp
+    📜 documentation: ✔
+
 FormLayout
+    📜 documentation: ✔
+
 Heading
+    📜 documentation: ✔
+
 Icon
+    📜 documentation: ✔
+
 Image
+    📜 documentation: ✘
+
 KeyboardKey
+    📜 documentation: ✔
+
 KeypressListener
+    📜 documentation: ✘
+
 Label
+    📜 documentation: ✘
+
 Labelled
+    📜 documentation: ✘
+
 Layout
+    📜 documentation: ✔
+
 Link
+    📜 documentation: ✔
+
 List
+    📜 documentation: ✔
+
 Page
+    📜 documentation: ✔
+
 PageActions
+    📜 documentation: ✔
+
 Pagination
+    📜 documentation: ✔
+
 Popover
+    📜 documentation: ✔
+
 PositionedOverlay
+    📜 documentation: ✘
+
 RadioButton
+    📜 documentation: ✔
+
 ResourceList
+    📜 documentation: ✔
+
 Scrollable
+    📜 documentation: ✔
+
 Select
+    📜 documentation: ✔
+
 SettingAction
+    📜 documentation: ✔
+
 SettingToggle
+    📜 documentation: ✔
+
 Stack
+    📜 documentation: ✔
+
 Subheading
+    📜 documentation: ✔
+
 Tabs
+    📜 documentation: ✔
+
 Tag
+    📜 documentation: ✔
+
 TextContainer
+    📜 documentation: ✘
+
 TextField
+    📜 documentation: ✔
+
 TextStyle
+    📜 documentation: ✔
+
 Thumbnail
+    📜 documentation: ✔
+
 Tooltip
+    📜 documentation: ✔
+
 UnstyledLink
-VisuallyHidden`);
+    📜 documentation: ✘
+
+VisuallyHidden
+    📜 documentation: ✔`);
         });
     });
   });

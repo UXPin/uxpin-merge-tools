@@ -1,5 +1,15 @@
+import safe = require('colors/safe');
 import { ComponentInfo } from './component/ComponentInfo';
 
 export function getDesignSystemSummary(componentInfos:ComponentInfo[]):string {
-  return componentInfos.map((componentInfo) => componentInfo.name).join('\n');
+  return componentInfos.map((info) => `${safe.bold(info.name)}
+    📜 documentation: ${getDocsChecker(info)}
+`).join('\n');
+}
+
+function getDocsChecker({ documentation }:ComponentInfo):string {
+  if (documentation) {
+    return safe.green('✔');
+  }
+  return safe.red('✘');
 }

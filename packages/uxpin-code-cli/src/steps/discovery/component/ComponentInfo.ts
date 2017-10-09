@@ -2,6 +2,7 @@ export interface ComponentInfo {
   dirPath:string;
   name:string;
   implementation:ComponentImplementationInfo;
+  documentation?:ComponentDocumenationInfo;
 }
 
 export interface ComponentImplementationInfo {
@@ -12,3 +13,7 @@ export interface ComponentImplementationInfo {
 
 type ComponentImplementationLang = 'javascript' | 'typescript';
 type ComponentImplementationFramework = 'reactjs';
+
+export interface ComponentDocumenationInfo {
+  path:string;
+}
