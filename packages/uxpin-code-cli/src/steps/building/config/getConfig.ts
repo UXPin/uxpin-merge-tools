@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash';
-import { join, relative } from 'path';
+import { join } from 'path';
 import { Configuration } from 'webpack';
 import { smart } from 'webpack-merge';
 
@@ -7,7 +7,7 @@ export const TEMP_DIR_PATH:string = './.uxpin-temp';
 export const LIBRARY_INPUT_PATH:string = `${TEMP_DIR_PATH}/components.js`;
 export const LIBRARY_OUTPUT_PATH:string = `${TEMP_DIR_PATH}/designsystemlibrary.js`;
 
-export function getConfig(webpackConfigPath:string = ''):Configuration {
+export function getConfig(projectRoot:string, webpackConfigPath:string = ''):Configuration {
   const config:Configuration = {
     entry: LIBRARY_INPUT_PATH,
     output: {
@@ -23,7 +23,6 @@ export function getConfig(webpackConfigPath:string = ''):Configuration {
     return config;
   }
 
-  const path:string = relative(__dirname, join(process.cwd(), webpackConfigPath));
-  const userWebpackConfig:Configuration = require(path);
+  const userWebpackConfig:Configuration = require(join(projectRoot, webpackConfigPath));
   return smart(userWebpackConfig, config);
 }

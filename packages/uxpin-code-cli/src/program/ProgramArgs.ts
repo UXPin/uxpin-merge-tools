@@ -3,4 +3,5 @@ export interface ProgramArgs {
   summary:boolean;
   webpackConfig:string;
   wrapper:string;
+  cwd:string;
 }

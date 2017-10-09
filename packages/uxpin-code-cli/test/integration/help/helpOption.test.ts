@@ -27,7 +27,7 @@ describe('--help option', () => {
     // when
     return runUXPinCodeCommand('./', '--help').then((output) => {
       // then
-      expect(output).toMatch(/--webpack-config <path>\s+Use custom webpack config/);
+      expect(output).toMatch(/--webpack-config <path>\s+path to a custom webpack config, relative to the project root/);
     });
   });
 
@@ -35,7 +35,17 @@ describe('--help option', () => {
     // when
     return runUXPinCodeCommand('./', '--help').then((output) => {
       // then
-      expect(output).toMatch(/--wrapper <path>\s+Use custom wrapper/);
+      expect(output)
+        .toMatch(/--wrapper <path>\s+path to a custom component wrapper implementation, relative to the project root/);
+    });
+  });
+
+  it('it prints help for --cwd <path> option', () => {
+    // when
+    return runUXPinCodeCommand('./', '--help').then((output) => {
+      // then
+      expect(output)
+        .toMatch(/--cwd <path>\s+working directory: path to root of the DS repository/);
     });
   });
 });
