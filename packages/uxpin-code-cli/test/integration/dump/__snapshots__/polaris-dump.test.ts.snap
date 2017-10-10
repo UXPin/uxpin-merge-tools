@@ -78,6 +78,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<AccountConnection\\\\n  title=\\"Example App\\"\\\\n  action={{\\\\n    content: \\\\'Connect\\\\'\\\\n  }}\\\\n  details=\\"No account connected\\"\\\\n  termsOfService={<p>By clicking Connect, you agree to accept Sample App’s <Link url=\\"Example App\\">Terms and conditions</Link>. You’ll pay a commission rate of 15% on sales made through Example App.</p>}\\\\n/>'
+				}
 			]
 		},
 		{
@@ -109,6 +114,17 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'Section[]',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<ActionList\\\\n  items={[\\\\n    {content: \\\\'Import file\\\\'},\\\\n    {content: \\\\'Export file\\\\'},\\\\n  ]}\\\\n/>'
+				},
+				{
+					code: '<ActionList\\\\n  items={[\\\\n    {content: \\\\'Import file\\\\', icon: \\\\'import\\\\'},\\\\n    {content: \\\\'Export file\\\\', icon: \\\\'export\\\\'},\\\\n  ]}\\\\n/>'
+				},
+				{
+					code: '<ActionList\\\\n  sections={[{\\\\n    title: \\"File options\\",\\\\n    items: [\\\\n      {content: \\\\'Import file\\\\', icon: \\\\'import\\\\'},\\\\n      {content: \\\\'Export file\\\\', icon: \\\\'export\\\\'},\\\\n    ]\\\\n  }]}\\\\n/>'
 				}
 			]
 		},
@@ -178,6 +194,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Avatar customer name=\\"Farrah\\" />'
+				}
 			]
 		},
 		{
@@ -218,6 +239,23 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'Progress',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Badge>Fulfilled</Badge>'
+				},
+				{
+					code: '<Badge status=\\"info\\">Published</Badge>'
+				},
+				{
+					code: '<Badge status=\\"success\\">Funds recovered</Badge>'
+				},
+				{
+					code: '<Badge status=\\"attention\\">Unfulfilled</Badge>'
+				},
+				{
+					code: '<Badge status=\\"warning\\">SSL unavailable</Badge>'
 				}
 			]
 		},
@@ -296,6 +334,29 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Banner title=\\"Order archived\\">\\\\n  <p>This order was archived on March 7, 2017 at 3:12pm EDT.</p>\\\\n</Banner>'
+				},
+				{
+					code: '<Banner onDismiss={() => {}}>\\\\n  <p>Use your finance report to get detailed information about your business. <Link url=\\"\\">Let us know what you think.</Link></p>\\\\n</Banner>'
+				},
+				{
+					code: '<Banner\\\\n  title=\\"Some of your product variants are missing weights\\"\\\\n  status=\\"warning\\"\\\\n  action={{content: \\\\'Edit variant weights\\\\'}}\\\\n>\\\\n  <p>Add weights to show accurate rates at checkout and when buying shipping labels in Shopify.</p>\\\\n</Banner>'
+				},
+				{
+					code: '<Banner\\\\n  title=\\"USPS has updated their rates\\"\\\\n  action={{content: \\\\'Learn more\\\\'}}\\\\n  status=\\"info\\"\\\\n>\\\\n  <p>Make sure you know how these changes affect your store.</p>\\\\n</Banner>'
+				},
+				{
+					code: '<Banner\\\\n  title=\\"Your shipping label is ready to print.\\"\\\\n  status=\\"success\\"\\\\n  action={{content: \\\\'Print label\\\\'}}\\\\n/>'
+				},
+				{
+					code: '<Banner\\\\n  title=\\"Before you can purchase a shipping label, this change needs to be made:\\"\\\\n  action={{content: \\\\'Edit address\\\\'}}\\\\n  status=\\"warning\\"\\\\n>\\\\n  <List>\\\\n    <List.Item>The name of the city you’re shipping to has characters that aren’t allowed. City name can only include spaces and hyphens.</List.Item>\\\\n  </List>\\\\n</Banner>'
+				},
+				{
+					code: '<Banner\\\\n  title=\\"High risk of fraud detected\\"\\\\n  action={{content: \\\\'Review risk analysis\\\\'}}\\\\n  status=\\"critical\\"\\\\n>\\\\n  <p>Before fulfilling this order or capturing payment, please <Link url=\\"\\">review the Risk Analysis</Link> and determine if this order is fraudulent.</p>\\\\n</Banner>'
+				}
 			]
 		},
 		{
@@ -325,7 +386,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/Button',
@@ -501,6 +563,38 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Button>Add product</Button>'
+				},
+				{
+					code: '<Button outline>Add product</Button>'
+				},
+				{
+					code: '<Button plain>View shipping settings</Button>'
+				},
+				{
+					code: '<Button primary>Save theme</Button>'
+				},
+				{
+					code: '<Button destructive>Delete theme</Button>'
+				},
+				{
+					code: '<Button size=\\"slim\\">Save variant</Button>'
+				},
+				{
+					code: '<Button size=\\"large\\">Create store</Button>'
+				},
+				{
+					code: '<Button fullWidth>Add customer</Button>'
+				},
+				{
+					code: '<Button disabled>Buy shipping label</Button>'
+				},
+				{
+					code: '<Button loading>Save product</Button>'
+				}
 			]
 		},
 		{
@@ -532,6 +626,14 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'node',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<ButtonGroup>\\\\n  <Button>Cancel</Button>\\\\n  <Button primary>Save</Button>\\\\n</ButtonGroup>'
+				},
+				{
+					code: '<ButtonGroup segmented>\\\\n  <Button>Bold</Button>\\\\n  <Button>Italic</Button>\\\\n  <Button>Underline</Button>\\\\n</ButtonGroup>'
 				}
 			]
 		},
@@ -592,6 +694,14 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<CalloutCard\\\\n  title=\\"Customize the style of your checkout\\"\\\\n  illustration=\\"https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg\\"\\\\n  primaryAction={{content: \\\\'Customize checkout\\\\', url: \\\\'https://www.shopify.com\\\\'}}\\\\n>\\\\n  <p>Upload your store’s logo, change colors and fonts, and more.</p>\\\\n</CalloutCard>'
+				},
+				{
+					code: '<CalloutCard\\\\n  title=\\"Customize the style of your checkout\\"\\\\n  illustration=\\"https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg\\"\\\\n  primaryAction={{content: \\\\'Customize checkout\\\\'}}\\\\n  secondaryAction={{content: \\\\'Learn more about customizing checkout\\\\'}}\\\\n>\\\\n  <p>Upload your store’s logo, change colors and fonts, and more.</p>\\\\n</CalloutCard>'
+				}
 			]
 		},
 		{
@@ -614,6 +724,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'node',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<List>\\\\n  <List.Item>Order #1001 <Caption>Received April 21, 2017</Caption></List.Item>\\\\n  <List.Item>Order #1002 <Caption>Received April 22, 2017</Caption></List.Item>\\\\n</List>'
 				}
 			]
 		},
@@ -691,6 +806,32 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'Action',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Card title=\\"Online store dashboard\\" sectioned>\\\\n  <p>View a summary of your online store’s performance.</p>\\\\n</Card>'
+				},
+				{
+					code: '<Card\\\\n  title=\\"Online store dashboard\\"\\\\n  primaryFooterAction={{content: \\\\'View dashboard\\\\'}}\\\\n>\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n</Card>'
+				},
+				{
+					code: '<Card title=\\"Online store dashboard\\" actions={[{content: \\\\'Edit\\\\'}]}>\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n</Card>'
+				},
+				{
+					code: '<Card title=\\"Online store dashboard\\" actions={[{content: \\\\'Edit\\\\'}]}>\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n</Card>'
+				},
+				{
+					code: '<Card title=\\"Online store dashboard\\">\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance, including sales, visitors, top products, and referrals.</p>\\\\n  </Card.Section>\\\\n</Card>'
+				},
+				{
+					code: '<Card title=\\"Online store dashboard\\">\\\\n  <Card.Section title=\\"Reports\\">\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n\\\\n  <Card.Section title=\\"Summary\\">\\\\n    <p>View a summary of your online store’s performance, including sales, visitors, top products, and referrals.</p>\\\\n  </Card.Section>\\\\n</Card>'
+				},
+				{
+					code: '<Card title=\\"Staff accounts\\">\\\\n  <Card.Section>\\\\n    <List>\\\\n      <List.Item>Felix Crafford</List.Item>\\\\n      <List.Item>Ezequiel Manno</List.Item>\\\\n    </List>\\\\n  </Card.Section>\\\\n\\\\n  <Card.Section subdued title=\\"Deactivated staff accounts\\">\\\\n    <List>\\\\n      <List.Item>Felix Crafford</List.Item>\\\\n      <List.Item>Ezequiel Manno</List.Item>\\\\n    </List>\\\\n  </Card.Section>\\\\n</Card>'
+				},
+				{
+					code: '<Card title=\\"Deactivated staff accounts\\" sectioned subdued>\\\\n  <List>\\\\n    <List.Item>Felix Crafford</List.Item>\\\\n    <List.Item>Ezequiel Manno</List.Item>\\\\n  </List>\\\\n</Card>'
 				}
 			]
 		},
@@ -814,6 +955,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Checkbox label=\\"Basic checkbox\\" />'
+				}
 			]
 		},
 		{
@@ -882,7 +1028,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/ChoiceList',
@@ -959,6 +1106,14 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<ChoiceList\\\\n  title=\\"Company name\\"\\\\n  choices={[\\\\n    {label: \\\\'Hidden\\\\', value: \\\\'hidden\\\\'},\\\\n    {label: \\\\'Optional\\\\', value: \\\\'optional\\\\'},\\\\n    {label: \\\\'Required\\\\', value: \\\\'required\\\\'},\\\\n  ]}\\\\n  selected={[\\\\'hidden\\\\']}\\\\n/>'
+				},
+				{
+					code: '<ChoiceList\\\\n  allowMultiple\\\\n  title=\\"While the customer is checking out\\"\\\\n  choices={[\\\\n    {\\\\n      label: \\\\'Use the shipping address as the billing address by default\\\\',\\\\n      value: \\\\'shipping\\\\',\\\\n      helpText: \\\\'Reduces the number of fields required to check out. The billing address can still be edited.\\\\',\\\\n    },\\\\n    {\\\\n      label: \\\\'Require a confirmation step\\\\',\\\\n      value: \\\\'confirmation\\\\',\\\\n      helpText: \\\\'Customers must review their order details before purchasing.\\\\',\\\\n    },\\\\n  ]}\\\\n  selected={[\\\\'shipping\\\\']}\\\\n/>'
+				}
 			]
 		},
 		{
@@ -990,6 +1145,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'boolean',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Collapsible open>\\\\n  <TextContainer>\\\\n    Your mailing list lets you contact customers or visitors who have shown an interest in your store. Reach out to them with exclusive offers or updates about your products.\\\\n  </TextContainer>\\\\n</Collapsible>'
 				}
 			]
 		},
@@ -1041,6 +1201,14 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<ColorPicker\\\\n  color={{\\\\n    hue: 120,\\\\n    brightness: 1,\\\\n    saturation: 1,\\\\n  }}\\\\n/>'
+				},
+				{
+					code: '<ColorPicker\\\\n  color={{\\\\n    hue: 300,\\\\n    brightness: 1,\\\\n    saturation: 0.7,\\\\n    alpha: 0.7\\\\n  }}\\\\n  allowAlpha\\\\n/>'
+				}
 			]
 		},
 		{
@@ -1079,7 +1247,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/DatePicker',
@@ -1174,6 +1343,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<DatePicker\\\\n  month={4}\\\\n  year={2017}\\\\n/>'
+				}
 			]
 		},
 		{
@@ -1196,6 +1370,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'Item[]',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<DescriptionList\\\\n  items={[\\\\n    {\\\\n      term: \\\\'Logistics\\\\',\\\\n      description: \\\\'The management of products or other resources as they travel between a point of origin and a destination.\\\\',\\\\n    },\\\\n    {\\\\n      term: \\\\'Sole proprietorship\\\\',\\\\n      description: \\\\'A business structure where a single individual both owns and runs the company.\\\\',\\\\n    },\\\\n    {\\\\n      term: \\\\'Discount code\\\\',\\\\n      description: \\\\'A series of numbers and/or letters that an online shopper may enter at checkout to get a discount or special offer.\\\\',\\\\n    },\\\\n  ]}\\\\n/>'
 				}
 			]
 		},
@@ -1237,6 +1416,17 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'Size',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<DisplayText size=\\"extraLarge\\">Good evening, Dominic.</DisplayText>'
+				},
+				{
+					code: '<DisplayText size=\\"medium\\">Good evening, Dominic.</DisplayText>'
+				},
+				{
+					code: '<DisplayText size=\\"small\\">Good evening, Dominic.</DisplayText>'
 				}
 			]
 		},
@@ -1315,6 +1505,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<EmptyState\\\\n  heading=\\"Manage your inventory transfers\\"\\\\n  action={{content: \\\\'Add transfer\\\\'}}\\\\n  secondaryAction={{content: \\\\'Learn more\\\\', url: \\\\'https://help.shopify.com\\\\'}}\\\\n  image=\\"https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg\\"\\\\n>\\\\n  <p>Track and receive your incoming inventory from suppliers.</p>\\\\n</EmptyState>'
+				}
 			]
 		},
 		{
@@ -1371,7 +1566,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/FooterHelp',
@@ -1393,6 +1589,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'node',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<FooterHelp>\\\\n  Learn more about <Link url=\\"https://help.shopify.com/manual/orders/fulfill-orders\\">fulfilling orders</Link>.\\\\n</FooterHelp>'
 				}
 			]
 		},
@@ -1416,6 +1617,17 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'node',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<FormLayout>\\\\n  <TextField\\\\n    label=\\"Store name\\"\\\\n  />\\\\n  <TextField\\\\n    type=\\"email\\"\\\\n    label=\\"Account email\\"\\\\n  />\\\\n</FormLayout>'
+				},
+				{
+					code: '<FormLayout>\\\\n  <FormLayout.Group>\\\\n    <TextField type=\\"number\\" label=\\"Minimum order\\" />\\\\n    <TextField type=\\"number\\" label=\\"Maximum order\\" />\\\\n  </FormLayout.Group>\\\\n</FormLayout>'
+				},
+				{
+					code: '<FormLayout>\\\\n  <FormLayout.Group condensed>\\\\n    <TextField label=\\"Length\\" />\\\\n    <TextField label=\\"Width\\" />\\\\n    <TextField label=\\"Height\\" />\\\\n    <TextField label=\\"Unit\\" />\\\\n  </FormLayout.Group>\\\\n</FormLayout>'
 				}
 			]
 		},
@@ -1448,6 +1660,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'node',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Heading>Online store dashboard</Heading>'
 				}
 			]
 		},
@@ -1498,6 +1715,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'string',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Icon source=\\"circlePlus\\" />'
 				}
 			]
 		},
@@ -4102,7 +4324,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/KeyboardKey',
@@ -4124,6 +4347,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'string',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<KeyboardKey>Ctrl</KeyboardKey>'
 				}
 			]
 		},
@@ -4163,7 +4391,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/Label',
@@ -4858,7 +5087,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/Labelled',
@@ -4932,7 +5162,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/Layout',
@@ -4963,6 +5194,17 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'boolean',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Layout>\\\\n  <Layout.Section>\\\\n    <Card title=\\"Online store dashboard\\" sectioned>\\\\n      <p>View a summary of your online store’s performance.</p>\\\\n    </Card>\\\\n  </Layout.Section>\\\\n</Layout>'
+				},
+				{
+					code: '<Layout>\\\\n  <Layout.Section>\\\\n    <Card title=\\"Order details\\" sectioned>\\\\n      <p>View a summary of your order.</p>\\\\n    </Card>\\\\n  </Layout.Section>\\\\n  <Layout.Section secondary>\\\\n    <Card title=\\"Tags\\" sectioned>\\\\n      <p>Add tags to your order.</p>\\\\n    </Card>\\\\n  </Layout.Section>\\\\n</Layout>'
+				},
+				{
+					code: '<Layout>\\\\n  <Layout.AnnotatedSection\\\\n    title=\\"Store details\\"\\\\n    description=\\"Shopify and your customers will use this information to contact you.\\">\\\\n    <Card sectioned>\\\\n      <FormLayout>\\\\n        <TextField\\\\n          label=\\"Store name\\"\\\\n        />\\\\n        <TextField\\\\n          type=\\"email\\"\\\\n          label=\\"Account email\\"\\\\n        />\\\\n      </FormLayout>\\\\n    </Card>\\\\n  </Layout.AnnotatedSection>\\\\n</Layout>'
 				}
 			]
 		},
@@ -5014,6 +5256,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Link url=\\"https://help.shopify.com/manual\\">fulfilling orders</Link>'
+				}
 			]
 		},
 		{
@@ -5045,6 +5292,14 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'Type',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<List type=\\"bullet\\">\\\\n  <List.Item>Yellow shirt</List.Item>\\\\n  <List.Item>Red shirt</List.Item>\\\\n  <List.Item>Green shirt</List.Item>\\\\n</List>'
+				},
+				{
+					code: '<List type=\\"number\\">\\\\n  <List.Item>First item</List.Item>\\\\n  <List.Item>Second item</List.Item>\\\\n  <List.Item>Third Item</List.Item>\\\\n</List>'
 				}
 			]
 		},
@@ -5150,6 +5405,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Page\\\\n  breadcrumbs={[\\\\n    {content: \\\\'Products\\\\'}\\\\n  ]}\\\\n  title=\\"Jar With Lock-Lid\\"\\\\n  primaryAction={{content: \\\\'Save\\\\', disabled: true}}\\\\n  secondaryActions={[\\\\n    {content: \\\\'Duplicate\\\\'},\\\\n    {content: \\\\'View on your store\\\\'},\\\\n  ]}\\\\n  pagination={{\\\\n    hasPrevious: true,\\\\n    hasNext: true,\\\\n  }}\\\\n>\\\\n  <p>Page content</p>\\\\n</Page>'
+				},
+				{
+					code: '<Page\\\\n  breadcrumbs={[\\\\n    {content: \\\\'Orders\\\\'}\\\\n  ]}\\\\n  title=\\"#1085\\"\\\\n  secondaryActions={[\\\\n    {content: \\\\'Print\\\\'},\\\\n    {content: \\\\'Unarchive\\\\'},\\\\n    {content: \\\\'Cancel order\\\\'},\\\\n  ]}\\\\n  pagination={{\\\\n    hasPrevious: true,\\\\n    hasNext: true,\\\\n  }}\\\\n>\\\\n  <Card sectioned title=\\"Fulfill order\\">\\\\n    <Stack alignment=\\"center\\">\\\\n      <Stack.Item fill><p>Buy postage and ship remaining 2 items</p></Stack.Item>\\\\n      <Button primary>Continue</Button>\\\\n    </Stack>\\\\n  </Card>\\\\n</Page>'
+				},
+				{
+					code: '<Page\\\\n  breadcrumbs={[\\\\n    {content: \\\\'Settings\\\\'}\\\\n  ]}\\\\n  title=\\"General\\"\\\\n  primaryAction={{content: \\\\'Save\\\\'}}\\\\n>\\\\n  <p>Page content</p>\\\\n</Page>'
+				},
+				{
+					code: '<Page\\\\n  fullWidth\\\\n  title=\\"Orders\\"\\\\n  primaryAction={{content: \\\\'Create order\\\\'}}\\\\n  secondaryActions={[\\\\n    {content: \\\\'Export\\\\'},\\\\n  ]}\\\\n  pagination={{\\\\n    hasNext: true,\\\\n  }}\\\\n>\\\\n  <p>Wide page content</p>\\\\n</Page>'
+				},
+				{
+					code: '<Page\\\\n  title=\\"Products\\"\\\\n  actionGroups={[\\\\n    {\\\\n      title: \\\\'Promote\\\\',\\\\n      actions: [\\\\n        {content: \\\\'Share on Facebook\\\\', onAction: this.performFacebookShare}\\\\n      ],\\\\n    },\\\\n  ]}\\\\n>\\\\n  <p>Page content</p>\\\\n</Page>'
+				},
+				{
+					code: '<Page\\\\n  title=\\"Settings\\"\\\\n  separator\\\\n>\\\\n  <Layout>\\\\n    <Layout.AnnotatedSection title=\\"Store details\\">\\\\n      <p>Annotated section content</p>\\\\n    </Layout.AnnotatedSection>\\\\n  </Layout>\\\\n</Page>'
+				}
 			]
 		},
 		{
@@ -5181,6 +5456,14 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'ComplexAction[]',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<PageActions\\\\n  primaryAction={{\\\\n    content: \\\\'Save\\\\',\\\\n  }}\\\\n  secondaryActions={[{\\\\n    content: \\\\'Delete\\\\',\\\\n  }]}\\\\n/>'
+				},
+				{
+					code: '<PageActions\\\\n  primaryAction={{\\\\n    content: \\\\'Save\\\\',\\\\n  }}\\\\n/>'
 				}
 			]
 		},
@@ -5258,6 +5541,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: '() => void',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Pagination\\\\n  hasPrevious\\\\n  onPrevious={() => {console.log(\\\\'Previous\\\\')}}\\\\n  hasNext\\\\n  onNext={() => {console.log(\\\\'Next\\\\')}} />'
 				}
 			]
 		},
@@ -5354,6 +5642,17 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Popover\\\\n  active\\\\n  activator={<Button>More actions</Button>}\\\\n>\\\\n  <ActionList\\\\n    items={[\\\\n      {content: \\\\'Import\\\\'},\\\\n      {content: \\\\'Export\\\\'},\\\\n    ]}\\\\n  />\\\\n</Popover>'
+				},
+				{
+					code: '<Popover\\\\n  active\\\\n  activator={<Button>Sales channels</Button>}\\\\n>\\\\n  <Popover.Pane fixed>\\\\n    <Popover.Section>\\\\n      <p>Available sales channels</p>\\\\n    </Popover.Section>\\\\n  </Popover.Pane>\\\\n  <Popover.Pane>\\\\n    <ActionList\\\\n      items={[\\\\n        {content: \\\\'Online store\\\\'},\\\\n        {content: \\\\'Facebook\\\\'},\\\\n        {content: \\\\'Shopify POS\\\\'},\\\\n      ]}\\\\n    />\\\\n  </Popover.Pane>\\\\n</Popover>'
+				},
+				{
+					code: '<Popover\\\\n  active\\\\n  activator={<Button>April 20–21, 2017</Button>}\\\\n  sectioned\\\\n>\\\\n  <FormLayout>\\\\n    <Select label=\\"Date range\\" options={[\\\\'Custom\\\\']} />\\\\n\\\\n    <FormLayout.Group condensed>\\\\n      <TextField label=\\"Starting\\" value=\\"2017-04-20\\" />\\\\n      <TextField label=\\"Ending\\" value=\\"2017-04-21\\" />\\\\n    </FormLayout.Group>\\\\n  </FormLayout>\\\\n</Popover>'
+				}
 			]
 		},
 		{
@@ -5428,7 +5727,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/RadioButton',
@@ -5541,6 +5841,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<RadioButton\\\\n  label=\\"Accounts are disabled\\"\\\\n  helpText=\\"Customers will only be able to check out as guests.\\"\\\\n/>'
+				}
 			]
 		},
 		{
@@ -5581,6 +5886,17 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: '(item: any, index: number) => ReactNode',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<ResourceList\\\\n  items={[\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      attributeOne: \\\\'How to Get Value from Wireframes\\\\',\\\\n      attributeTwo: \\\\'by Jonathan Mangrove\\\\',\\\\n      attributeThree: <TextStyle variation=\\"subdued\\">Today, 7:14pm</TextStyle>,\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      attributeOne: \\\\'Test blog post\\\\',\\\\n      attributeTwo: \\\\'by Jonathan Mangrove\\\\',\\\\n      attributeThree: <TextStyle variation=\\"subdued\\">Jan 14, 2016, 8:24am</TextStyle>,\\\\n      badges: [\\\\n        {content: \\\\'Hidden\\\\'},\\\\n      ],\\\\n    },\\\\n  ]}\\\\n  renderItem={(item, index) => {\\\\n    return <ResourceList.Item key={index} {...item} />;\\\\n  }}\\\\n/>'
+				},
+				{
+					code: '<ResourceList\\\\n  items={[\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'Accessory by Marcuse\\\\',\\\\n      attributeThree: \\\\'12 in stock\\\\',\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'Accessory by Marcuse\\\\',\\\\n      attributeThree: \\\\'11 in stock for 4 variants\\\\',\\\\n      exceptions: [\\\\n        {\\\\n          status: \\\\'warning\\\\',\\\\n          title: \\\\'Not published to 2 channels\\\\',\\\\n          description: \\\\'Content didn’t meet requirements for: Facebook, Amazon\\\\'\\\\n        },\\\\n        {\\\\n          status: \\\\'warning\\\\',\\\\n          title: \\\\'Missing weights on 1 variant\\\\',\\\\n          description: \\\\'Calculated shipping rates won’t be accurate\\\\'\\\\n        },\\\\n      ]\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'Accessory by Marcuse\\\\',\\\\n      attributeThree: \\\\'43 in stock for 3 variants\\\\',\\\\n    },\\\\n  ]}\\\\n  renderItem={(item, index) => {\\\\n    return <ResourceList.Item key={index} {...item} />;\\\\n  }}\\\\n/>'
+				},
+				{
+					code: '<ResourceList\\\\n  items={[\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: <TextStyle variation=\\"subdued\\">No variants</TextStyle>,\\\\n      actions: [{content: \\\\'View listing\\\\'}],\\\\n      persistActions: true,\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'4 variants\\\\',\\\\n      attributeThree: <TextStyle variation=\\"subdued\\">Not listed</TextStyle>,\\\\n      badges: [\\\\n        {\\\\n          status: \\\\'warning\\\\',\\\\n          content: \\\\'Needs review\\\\',\\\\n        }\\\\n      ],\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'3 variants\\\\',\\\\n      actions: [{content: \\\\'View listing\\\\'}],\\\\n      persistActions: true,\\\\n    },\\\\n  ]}\\\\n  renderItem={(item, index) => {\\\\n    return <ResourceList.Item key={index} {...item} />;\\\\n  }}\\\\n/>'
 				}
 			]
 		},
@@ -8197,6 +8513,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Card title=\\"Terms of service\\" sectioned>\\\\n  <Scrollable shadow style={{height: \\\\'100px\\\\'}}>\\\\n  	<p>By signing up for the Shopify service (“Service”) or any of the services of Shopify Inc. (“Shopify”) you are agreeing to be bound by the following terms and conditions (“Terms of Service”). The Services offered by Shopify under the Terms of Service include various products and services to help you create and manage a retail store, whether an online store (“Online Services”), a physical retail store (“POS Services”), or both. Any new features or tools which are added to the current Service shall be also subject to the Terms of Service. You can review the current version of the Terms of Service at any time at https://www.shopify.com/legal/terms. Shopify reserves the right to update and change the Terms of Service by posting updates and changes to the Shopify website. You are advised to check the Terms of Service from time to time for any updates or changes that may impact you.</p>\\\\n  </Scrollable>\\\\n</Card>'
+				}
 			]
 		},
 		{
@@ -8346,6 +8667,14 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Select\\\\n  label=\\"One\\"\\\\n  options={[\\\\'two\\\\', \\\\'three\\\\']}\\\\n  placeholder=\\"Select\\"\\\\n/>'
+				},
+				{
+					code: '<Select\\\\n  label=\\"One\\"\\\\n  disabled\\\\n  options={[\\\\'two\\\\', \\\\'three\\\\']}\\\\n  placeholder=\\"Select\\"\\\\n/>'
+				}
 			]
 		},
 		{
@@ -8378,7 +8707,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/SettingToggle',
@@ -8418,6 +8748,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'node',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<SettingToggle\\\\n  action={{\\\\n    content: \\\\'Enable\\\\',\\\\n  }}\\\\n>\\\\n  This setting is <TextStyle variation=\\"strong\\">disabled</TextStyle>.\\\\n</SettingToggle>'
 				}
 			]
 		},
@@ -8478,6 +8813,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Stack>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
+				},
+				{
+					code: '<Stack spacing=\\"loose\\">\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
+				},
+				{
+					code: '<Stack alignment=\\"center\\">\\\\n  <Heading>Order #1136</Heading>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
+				},
+				{
+					code: '<Stack distribution=\\"fill\\">\\\\n  <Heading>Order #1136</Heading>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
+				},
+				{
+					code: '<Stack distribution=\\"fillEvenly\\">\\\\n  <Heading>Order #1136</Heading>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
+				},
+				{
+					code: '<Stack>\\\\n  <Stack.Item fill>\\\\n    <Heading>Order #1136</Heading>\\\\n  </Stack.Item>\\\\n  <Stack.Item>\\\\n    <Badge>Paid</Badge>\\\\n  </Stack.Item>\\\\n  <Stack.Item>\\\\n    <Badge>Fulfilled</Badge>\\\\n  </Stack.Item>\\\\n</Stack>'
+				}
 			]
 		},
 		{
@@ -8509,6 +8864,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'node',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Subheading>Accounts</Subheading>'
 				}
 			]
 		},
@@ -8569,6 +8929,14 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Tabs\\\\n  selected={0}\\\\n  tabs={[\\\\n    {\\\\n      id: \\\\'all-customers\\\\',\\\\n      title: \\\\'All\\\\',\\\\n      accessibilityLabel: \\\\'All customers\\\\',\\\\n      panelID: \\\\'all-customers-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'accepts-marketing\\\\',\\\\n      title: \\\\'Accepts marketing\\\\',\\\\n      panelID: \\\\'accepts-marketing-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'repeat-customers\\\\',\\\\n      title: \\\\'Repeat customers\\\\',\\\\n      panelID: \\\\'repeat-customers-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'prospects\\\\',\\\\n      title: \\\\'Prospects\\\\',\\\\n      panelID: \\\\'prospects-content\\\\',\\\\n    }\\\\n  ]}\\\\n/>'
+				},
+				{
+					code: '<Tabs\\\\n  fitted\\\\n  selected={0}\\\\n  tabs={[\\\\n    {\\\\n      id: \\\\'all-customers\\\\',\\\\n      title: \\\\'All\\\\',\\\\n      accessibilityLabel: \\\\'All customers\\\\',\\\\n      panelID: \\\\'all-customers-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'accepts-marketing\\\\',\\\\n      title: \\\\'Accepts marketing\\\\',\\\\n      panelID: \\\\'accepts-marketing-content\\\\',\\\\n    }\\\\n  ]}\\\\n/>'
+				}
 			]
 		},
 		{
@@ -8601,6 +8969,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Tag>Wholesale</Tag>'
+				}
 			]
 		},
 		{
@@ -8621,7 +8994,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/TextField',
@@ -8905,6 +9279,44 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<TextField label=\\"Store name\\" />'
+				},
+				{
+					code: '<TextField label=\\"Quantity\\" type=\\"number\\" value=\\"1\\" />'
+				},
+				{
+					code: '<TextField label=\\"Email\\" type=\\"email\\" />'
+				},
+				{
+					code: '<TextField label=\\"Shipping address\\" multiline />'
+				},
+				{
+					code: '<FormLayout>\\\\n  <ChoiceList\\\\n    title=\\"Gift card auto-expiration\\"\\\\n    choices={[\\\\n      {label: \\\\'Gift cards never expire\\\\', value: \\\\'no\\\\'},\\\\n      {label: \\\\'Gift cards expire\\\\', value: \\\\'yes\\\\'},\\\\n    ]}\\\\n    selected={[\\\\'yes\\\\']}\\\\n  />\\\\n  <TextField\\\\n    label=\\"Gift cards expire after\\"\\\\n    labelHidden\\\\n    value=\\"12\\"\\\\n    connectedRight={\\\\n      <Select\\\\n        label=\\"Unit of time\\"\\\\n        labelHidden\\\\n        options={[\\\\'months after purchase\\\\']} />\\\\n    } />\\\\n</FormLayout>'
+				},
+				{
+					code: '<TextField label=\\"Tariff code\\" labelAction={{content: \\\\'Look up codes\\\\'}} />'
+				},
+				{
+					code: '<TextField label=\\"Zone name\\" placeholder=\\"e.g. North America, Europe\\" />'
+				},
+				{
+					code: '<TextField label=\\"Account email\\" type=\\"email\\" helpText=\\"We’ll use this address if we need to contact you about your account.\\" />'
+				},
+				{
+					code: '<TextField label=\\"Price\\" type=\\"number\\" prefix=\\"$\\" />'
+				},
+				{
+					code: '<TextField\\\\n  label=\\"Weight\\"\\\\n  type=\\"number\\"\\\\n  connectedRight={\\\\n    <Select label=\\"Weight unit\\" labelHidden options={[\\\\'kg\\\\', \\\\'lb\\\\']} />\\\\n  }\\\\n  />'
+				},
+				{
+					code: '<TextField label=\\"Store name\\" error=\\"Store name is required\\" />'
+				},
+				{
+					code: '<TextField label=\\"Store name\\" disabled />'
+				}
 			]
 		},
 		{
@@ -8937,7 +9349,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/Thumbnail',
@@ -8977,6 +9390,17 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'Size',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />'
+				},
+				{
+					code: '<Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" size=\\"small\\" alt=\\"Black choker necklace\\" />'
+				},
+				{
+					code: '<Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" size=\\"large\\" alt=\\"Black choker necklace\\" />'
 				}
 			]
 		},
@@ -9045,6 +9469,11 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'string',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Tooltip content=\\"This order has shipping labels.\\">\\\\n  <Link>Order #1001</Link>\\\\n</Tooltip>'
 				}
 			]
 		},
@@ -11649,7 +12078,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/components/VisuallyHidden',
@@ -11671,6 +12101,14 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						name: 'node',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Card sectioned>\\\\n  <VisuallyHidden>\\\\n    <Heading>Title and description</Heading>\\\\n  </VisuallyHidden>\\\\n  <FormLayout>\\\\n    <TextField label=\\"Title\\" value=\\"Artisanal Wooden Spoon\\" />\\\\n    <TextField label=\\"Description\\" multiline />\\\\n  </FormLayout>\\\\n</Card>'
+				},
+				{
+					code: '<table>\\\\n  <thead>\\\\n    <tr>\\\\n      <th scope=\\"col\\"><VisuallyHidden>Line item</VisuallyHidden></th>\\\\n      <th scope=\\"col\\"><VisuallyHidden>Value</VisuallyHidden></th>\\\\n    </tr>\\\\n  </thead>\\\\n  <tbody>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Subtotal</th>\\\\n      <td>$184.13</td>\\\\n    </tr>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Tax</th>\\\\n      <td>$0.00</td>\\\\n    </tr>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Total</th>\\\\n      <td>$184.13</td>\\\\n    </tr>\\\\n  </tbody>\\\\n</table>'
 				}
 			]
 		}

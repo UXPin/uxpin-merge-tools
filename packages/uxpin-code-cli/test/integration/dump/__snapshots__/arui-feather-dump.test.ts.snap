@@ -149,6 +149,14 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'const AMOUNT = {\\\\n    value: 123535,\\\\n    currency: {\\\\n        code: \\\\'RUR\\\\',\\\\n        minority: 100\\\\n    }\\\\n};\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div key={ size }>\\\\n            <Amount\\\\n                size={ size }\\\\n                amount={ AMOUNT }\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const AMOUNT = {\\\\n    value: 123343,\\\\n    currency: {\\\\n        code: \\\\'RUR\\\\',\\\\n        minority: 100\\\\n    }\\\\n};\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div key={ size }>\\\\n            <Amount\\\\n                size={ size }\\\\n                amount={ AMOUNT }\\\\n                isHeading={ true }\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -232,7 +240,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/app-menu',
@@ -315,7 +324,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/app-title',
@@ -398,7 +408,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/attach',
@@ -915,6 +926,17 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Attach size={ size } noFileText=\\\\'\\\\' />\\\\n            </div>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Attach size={ size } noFileText=\\\\'\\\\' disabled={ true } />\\\\n            </div>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'function handleChange(value) {\\\\n    setState({ value });\\\\n}\\\\n\\\\n<div>\\\\n    <div className=\\\\'row\\\\'>\\\\n        <Attach\\\\n            size=\\\\'s\\\\'\\\\n            noFileText=\\\\'\\\\'\\\\n            buttonContent={ state.value ? \\\\'Выберите другой файл\\\\' : \\\\'Выберите файл\\\\' }\\\\n            onChange={ handleChange }\\\\n            buttonProps={ { pseudo: true } }\\\\n            value={ state.value }\\\\n        />\\\\n    </div>\\\\n</div>'
+				},
+				{
+					code: 'function handleChange(value) {\\\\n    setState({ value });\\\\n}\\\\n\\\\n<div>\\\\n    <div className=\\\\'row\\\\'>\\\\n        <Attach\\\\n            accept=\\\\'text/plain,\\\\'\\\\n            noFileText=\\\\'.pdf, .xls\\\\'\\\\n            buttonContent={ \\\\'Выберите файл\\\\' }\\\\n            size=\\\\'s\\\\'\\\\n            onChange={ handleChange }\\\\n            value={ state.value }\\\\n        />\\\\n    </div>\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -1391,6 +1413,29 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'const buttons = [\\\\n    { size: \\\\'s\\\\', name: \\\\'Применить\\\\' },\\\\n    { size: \\\\'m\\\\', name: \\\\'Применить\\\\' },\\\\n    { size: \\\\'l\\\\', name: \\\\'Применить\\\\' },\\\\n    { size: \\\\'xl\\\\', name: \\\\'Применить\\\\' }\\\\n];\\\\n<div>\\\\n    {buttons.map(({ size, name }) => (\\\\n        <div className=\\\\'row\\\\'>\\\\n            <div className=\\\\'column\\\\' key={ size }>\\\\n                <Button size={ size }>{\`\${name}\`}</Button>\\\\n            </div>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Button size={ size } disabled={ true }>{\`\${name}\`}</Button>\\\\n            </div>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const buttons = [\\\\n    { size: \\\\'s\\\\', name: \\\\'Показать\\\\' },\\\\n    { size: \\\\'m\\\\', name: \\\\'Показать\\\\' },\\\\n    { size: \\\\'l\\\\', name: \\\\'Показать\\\\' },\\\\n    { size: \\\\'xl\\\\', name: \\\\'Показать\\\\' }\\\\n];\\\\n<div>\\\\n    {buttons.map(({ size, name }) => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <Button pseudo={ true } size={ size }>{\`\${name}\`}</Button>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const buttons = [\\\\n    { size: \\\\'s\\\\', name: \\\\'Продолжить\\\\' },\\\\n    { size: \\\\'m\\\\', name: \\\\'Продолжить\\\\' },\\\\n    { size: \\\\'l\\\\', name: \\\\'Продолжить\\\\' },\\\\n    { size: \\\\'xl\\\\', name: \\\\'Продолжить\\\\' }\\\\n];\\\\n<div>\\\\n    {buttons.map(({ size, name }) => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <Button view=\\\\'action\\\\' size={ size }>{\`\${name}\`}</Button>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const buttons = [\\\\n    { size: \\\\'s\\\\', name: \\\\'Оплатить\\\\' },\\\\n    { size: \\\\'m\\\\', name: \\\\'Оплатить\\\\' },\\\\n    { size: \\\\'l\\\\', name: \\\\'Оплатить\\\\' },\\\\n    { size: \\\\'xl\\\\', name: \\\\'Оплатить\\\\' }\\\\n];\\\\n<div>\\\\n    {buttons.map(({ size, name }) => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <Button view=\\\\'extra\\\\' size={ size }>{\`\${name}\`}</Button>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const buttons = [\\\\n    { size: \\\\'s\\\\', name: \\\\'Подтвердить\\\\' },\\\\n    { size: \\\\'m\\\\', name: \\\\'Подтвердить\\\\' },\\\\n    { size: \\\\'l\\\\', name: \\\\'Подтвердить\\\\' },\\\\n    { size: \\\\'xl\\\\', name: \\\\'Подтвердить\\\\' }\\\\n];\\\\n<div>\\\\n    {buttons.map(({ size, name }) => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <Button view=\\\\'other\\\\' size={ size }>{\`\${name}\`}</Button>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const buttons = [\\\\n    { size: \\\\'s\\\\', name: \\\\'Скачать\\\\' },\\\\n    { size: \\\\'m\\\\', name: \\\\'Скачать\\\\' },\\\\n    { size: \\\\'l\\\\', name: \\\\'Скачать\\\\' },\\\\n    { size: \\\\'xl\\\\', name: \\\\'Скачать\\\\' }\\\\n];\\\\n<div>\\\\n    {buttons.map(({ size, name }) => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <Button size={ size }>\\\\n                <div style={ { marginRight: \\\\'8px\\\\', display: \\\\'inline-block\\\\' } } >\\\\n                    <Icon size={ size } icon=\\\\'ok\\\\' />\\\\n                </div>\\\\n                {\`\${name}\`}\\\\n            </Button>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const buttons = [\\\\n    { size: \\\\'s\\\\', name: \\\\'Заказать карту\\\\' },\\\\n    { size: \\\\'m\\\\', name: \\\\'Заказать карту\\\\' },\\\\n    { size: \\\\'l\\\\', name: \\\\'Заказать карту\\\\' },\\\\n    { size: \\\\'xl\\\\', name: \\\\'Заказать карту\\\\' }\\\\n];\\\\n<div>\\\\n    {buttons.map(({ size, name }) => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <Button width=\\\\'available\\\\' size={ size }>{\`\${name}\`}</Button>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -1670,6 +1715,17 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						name: 'func',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: 'initialState = {\\\\n    date: Date.now()\\\\n};\\\\n<Calendar\\\\n    value={ state.date }\\\\n    onValueChange={ (newDate) => {\\\\n        setState({\\\\n            date: newDate\\\\n        });\\\\n    } }\\\\n/>'
+				},
+				{
+					code: 'const addDays = require(\\\\'date-fns/add_days\\\\');\\\\nconst subtractDays = require(\\\\'date-fns/sub_days\\\\');\\\\n\\\\ninitialState = {\\\\n    date: Date.now(),\\\\n    earlierLimit: subtractDays(new Date(), 3).valueOf(),\\\\n    laterLimit: addDays(new Date(), 1).valueOf()\\\\n};\\\\n\\\\n<Calendar\\\\n    value={ state.date }\\\\n    earlierLimit={ state.earlierLimit }\\\\n    laterLimit={ state.laterLimit }\\\\n    onValueChange={ (newDate) => {\\\\n        setState({\\\\n            date: newDate\\\\n        });\\\\n    } }\\\\n/>'
+				},
+				{
+					code: 'const addDays = require(\\\\'date-fns/add_days\\\\');\\\\nconst startOfDay = require(\\\\'date-fns/start_of_day\\\\');\\\\nconst subtractDays = require(\\\\'date-fns/sub_days\\\\');\\\\n\\\\ninitialState = {\\\\n    date: Date.now()\\\\n};\\\\nconst offDays = [subtractDays(new Date(), 2), addDays(new Date(), 2)]\\\\n    .map(date => startOfDay().valueOf(date));\\\\n\\\\n<Calendar\\\\n    value={ state.date }\\\\n    offDays={ offDays }\\\\n    onValueChange={ (newDate) => {\\\\n        setState({\\\\n            date: newDate\\\\n        });\\\\n    } }\\\\n/>'
 				}
 			]
 		},
@@ -2267,6 +2323,17 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <CalendarInput\\\\n                size={ size }\\\\n                defaultValue=\\\\'01.02.2016\\\\'\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: '<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <CalendarInput size={ size } defaultValue=\\\\'41.12.2031\\\\' error=\\\\'Такой даты не существует\\\\' />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const formatDate = require(\\\\'date-fns/format\\\\');\\\\n\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <CalendarInput size={ size } placeholder={ formatDate(new Date(), \\\\'DD.MM.YYYY\\\\') } width=\\\\'available\\\\' />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -2292,6 +2359,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						name: 'string',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: 'const sizes = [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'];\\\\n<div>\\\\n    {sizes.map(size => (\\\\n        <div className=\\\\'row\\\\' >\\\\n            <CardInput size={ size } placeholder=\\\\'Введите номер карты\\\\' />\\\\n        </div>\\\\n    ))}\\\\n</div>'
 				}
 			]
 		},
@@ -2558,6 +2630,14 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<div>\\\\n    <div>\\\\n        {[\\\\'m\\\\', \\\\'l\\\\'].map(size => (\\\\n            <div className=\\\\'row\\\\' key={ size }>\\\\n                <div className=\\\\'column\\\\'>\\\\n                    <CheckBox\\\\n                        text=\\\\'Согласен с условиями\\\\'\\\\n                        size={ size }\\\\n                    />\\\\n                </div>\\\\n                <div className=\\\\'column\\\\'>\\\\n                    <CheckBox\\\\n                        text=\\\\'Согласен с условиями\\\\'\\\\n                        size={ size }\\\\n                        disabled={ true }\\\\n                    />\\\\n                </div>\\\\n            </div>\\\\n        ))}\\\\n    </div>\\\\n</div>'
+				},
+				{
+					code: '<div>\\\\n    {[\\\\'m\\\\', \\\\'l\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <CheckBox\\\\n                    text=\\\\'Выбраны не все услуги\\\\'\\\\n                    size={ size }\\\\n                    indeterminate={ true }\\\\n                />\\\\n            </div>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <CheckBox\\\\n                    text=\\\\'Выбраны не все услуги\\\\'\\\\n                    size={ size }\\\\n                    disabled={ true }\\\\n                    indeterminate={ true }\\\\n                />\\\\n            </div>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -2761,6 +2841,17 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<CheckBoxGroup label={ <Label size=\\\\'m\\\\'>Выберите счёт</Label> }>\\\\n    <CheckBox\\\\n        text=\\\\'Текущий счет\\\\'\\\\n        value=\\\\'Текущий\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Основной счет\\\\'\\\\n        value=\\\\'Основной\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Семейный счет\\\\'\\\\n        value=\\\\'Семейный\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Зарплатный счет\\\\'\\\\n        value=\\\\'Зарплатный\\\\'\\\\n    />\\\\n</CheckBoxGroup>'
+				},
+				{
+					code: '<CheckBoxGroup type=\\\\'button\\\\'>\\\\n    <CheckBox\\\\n        disabled={ true }\\\\n        text=\\\\'Текущий\\\\'\\\\n        type=\\\\'button\\\\'\\\\n        value=\\\\'Текущий\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Основной\\\\'\\\\n        type=\\\\'button\\\\'\\\\n        value=\\\\'Основной\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Семейный\\\\'\\\\n        disabled={ true }\\\\n        type=\\\\'button\\\\'\\\\n        value=\\\\'Семейный\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Зарплатный\\\\'\\\\n        type=\\\\'button\\\\'\\\\n        value=\\\\'Зарплатный\\\\'\\\\n    />\\\\n</CheckBoxGroup>'
+				},
+				{
+					code: '<CheckBoxGroup type=\\\\'line\\\\'>\\\\n    <CheckBox\\\\n        text=\\\\'Текущий\\\\'\\\\n        value=\\\\'Текущий\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Основной\\\\'\\\\n        value=\\\\'Основной\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Семейный\\\\'\\\\n        value=\\\\'Семейный\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Зарплатный\\\\'\\\\n        value=\\\\'Зарплатный\\\\'\\\\n    />\\\\n</CheckBoxGroup>'
+				}
 			]
 		},
 		{
@@ -2886,6 +2977,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'function handleExpandedChange(isExpanded) {\\\\n    setState({ isExpanded });\\\\n}\\\\ninitialState = {\\\\n    isExpanded: true\\\\n};\\\\n<Collapse\\\\n    collapsedLabel=\\\\'Подробнее\\\\'\\\\n    expandedLabel=\\\\'Скрыть\\\\'\\\\n    isExpanded={ state.isExpanded }\\\\n    onExpandedChange={ handleExpandedChange }\\\\n>\\\\n    Альфа-Банк, основанный в&nbsp;1990 году, является универсальным банком,\\\\n    осуществляющим все основные виды банковских операций, представленных\\\\n    на&nbsp;рынке финансовых услуг, включая обслуживание частных и&nbsp;\\\\n    корпоративных клиентов, инвестиционный банковский бизнес, торговое финансирование и&nbsp;т.д.\\\\n</Collapse>'
+				}
 			]
 		},
 		{
@@ -2980,6 +3076,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							]
 						}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Copyright />'
 				}
 			]
 		},
@@ -3550,6 +3651,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Dropdown\\\\n            size=\\\\'s\\\\'\\\\n            popupContent=\\\\'Последние 3 цифры на обороте карты\\\\'\\\\n        >\\\\n            Подробнее\\\\n        </Dropdown>\\\\n    </div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Dropdown\\\\n            size=\\\\'m\\\\'\\\\n            popupContent=\\\\'Последние 3 цифры на обороте карты\\\\'\\\\n            popupProps={ {\\\\n                directions: [\\\\'right-center\\\\'],\\\\n                type: \\\\'tooltip\\\\'\\\\n            } }\\\\n        >\\\\n            Подробнее\\\\n        </Dropdown>\\\\n    </div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Dropdown\\\\n            size=\\\\'l\\\\'\\\\n            popupContent=\\\\'Последние 3 цифры на обороте карты\\\\'\\\\n            switcherText=\\\\'Подробнее\\\\'\\\\n            disabled={ true }\\\\n            popupProps={ {\\\\n                directions: [\\\\'right-center\\\\'],\\\\n                type: \\\\'tooltip\\\\'\\\\n            } }\\\\n        />\\\\n    </div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Dropdown\\\\n            size=\\\\'xl\\\\'\\\\n            popupContent=\\\\'Последние 3 цифры на обороте карты\\\\'\\\\n            popupProps={ {\\\\n                directions: [\\\\'bottom-center\\\\'],\\\\n                type: \\\\'tooltip\\\\'\\\\n            } }\\\\n        >\\\\n            Подробнее\\\\n        </Dropdown>\\\\n    </div>\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -3563,7 +3669,12 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			documentation: {
 				path: 'src/email-input/README.md'
 			},
-			properties: []
+			properties: [],
+			examples: [
+				{
+					code: '<EmailInput placeholder=\\\\'Введите e-mail\\\\' />'
+				}
+			]
 		},
 		{
 			dirPath: 'src/error-page',
@@ -3628,7 +3739,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/footer',
@@ -3752,7 +3864,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/form',
@@ -4030,6 +4143,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Form onSubmit={ function () { alert(\\\\'Мы перезвоним вам в течение 5 минут\\\\'); } }>\\\\n    <FormField label=\\\\'Телефон\\\\'>\\\\n        <Input placeholder=\\\\'Введите номер\\\\' />\\\\n    </FormField>\\\\n    <FormField>\\\\n        <Button view=\\\\'extra\\\\' type=\\\\'submit\\\\'>Отправить</Button>\\\\n    </FormField>\\\\n</Form>'
+				}
 			]
 		},
 		{
@@ -4169,6 +4287,14 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							]
 						}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div key={ size }>\\\\n            <FormField\\\\n                size={ size }\\\\n                label=\\\\'Комментарий\\\\'\\\\n            >\\\\n                <Input size={ size } placeholder=\\\\'Введите что-нибудь\\\\' />\\\\n            </FormField>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const layoutStyles = {\\\\n    marginLeft: \\\\'120px\\\\'\\\\n};\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div style={ layoutStyles } key={ size }>\\\\n            <FormField\\\\n                size={ size }\\\\n                view=\\\\'line\\\\'\\\\n                label={\\\\n                    <Label >Комментарий</Label>\\\\n                }\\\\n            >\\\\n                <Input size={ size } placeholder=\\\\'Введите что-нибудь\\\\' />\\\\n            </FormField>\\\\n        </div>\\\\n    ))}\\\\n</div>'
 				}
 			]
 		},
@@ -4318,7 +4444,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/heading',
@@ -4439,6 +4566,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							]
 						}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<div>\\\\n    <Heading size=\\\\'xl\\\\'>\\\\n        Услуга по накоплению «Копилка для сдачи»\\\\n    </Heading>\\\\n    <Heading size=\\\\'l\\\\'>\\\\n        Часто задаваемые вопросы\\\\n    </Heading>\\\\n    <Heading size=\\\\'m\\\\'>\\\\n        Какое максимальное количество денег может перечисляться с текущего счета на накопительный?\\\\n    </Heading>\\\\n    <Heading size=\\\\'s\\\\'>\\\\n        Максимальная сумма каждого перечисления\\\\n    </Heading>\\\\n</div>'
 				}
 			]
 		},
@@ -4648,6 +4780,14 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						name: 'func',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<div>\\\\n    {[\\\\'error\\\\', \\\\'fail\\\\', \\\\'ok\\\\', \\\\'ok_filled\\\\', \\\\'calendar\\\\', \\\\'search\\\\', \\\\'close\\\\', \\\\'user\\\\'].map(icon => (\\\\n        <div className=\\\\'row\\\\' >\\\\n            {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\', \\\\'xxl\\\\'].map(size => (\\\\n                <div className=\\\\'column l\\\\' >\\\\n                    <Icon\\\\n                        size={ size }\\\\n                        icon={ icon }\\\\n                    />\\\\n                </div>\\\\n            ))}\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: '<div>\\\\n    {[\\\\'error\\\\', \\\\'ok\\\\'].map(icon => (\\\\n        <div className=\\\\'row\\\\' >\\\\n            {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\', \\\\'xxl\\\\'].map(size => (\\\\n                <div className=\\\\'column l\\\\' >\\\\n                    <Icon\\\\n                        size={ size }\\\\n                        icon={ icon }\\\\n                        theme=\\\\'alfa-on-colored\\\\'\\\\n                    />\\\\n                </div>\\\\n            ))}\\\\n        </div>\\\\n    ))}\\\\n</div>'
 				}
 			]
 		},
@@ -5166,6 +5306,32 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'initialState = {\\\\n    money: \\\\'\\\\'\\\\n};\\\\nfunction handleMoneyChange(money) {\\\\n    setState({ money });\\\\n}\\\\nfunction renderAddons() {\\\\n    return (\\\\n        <RadioGroup type={ \\\\'button\\\\' }>\\\\n            {[\\\\'₽\\\\', \\\\'$\\\\', \\\\'€\\\\'].map(item => (\\\\n                <Radio\\\\n                    key={ item }\\\\n                    size=\\\\'s\\\\'\\\\n                    type=\\\\'button\\\\'\\\\n                    text={ item }\\\\n                    onChange={ handleMoneyChange }\\\\n                />\\\\n            ))}\\\\n        </RadioGroup>\\\\n    );\\\\n}\\\\n<div>\\\\n    <Input\\\\n        size=\\\\'m\\\\'\\\\n        placeholder=\\\\'Введите сумму\\\\'\\\\n        rightAddons={ renderAddons() }\\\\n        type=\\\\'number\\\\'\\\\n    />\\\\n</div>'
+				},
+				{
+					code: 'const sizes = [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'];\\\\n<div>\\\\n    {sizes.map(size => (\\\\n        <div className=\\\\'row\\\\'>\\\\n            <Input\\\\n                placeholder=\\\\'Введите что-нибудь\\\\'\\\\n                view=\\\\'line\\\\'\\\\n                size={ size }\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const sizes = [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'];\\\\n<div>\\\\n    {sizes.map(size => (\\\\n        <div className=\\\\'row\\\\'>\\\\n            <Input\\\\n                label=\\\\'Имя\\\\'\\\\n                placeholder=\\\\'Введите ваше имя\\\\'\\\\n                view=\\\\'line\\\\'\\\\n                size={ size }\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const sizes = [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'];\\\\n<div>\\\\n    {sizes.map(size => (\\\\n        <div className=\\\\'row\\\\'>\\\\n            <Input\\\\n                placeholder=\\\\'Введите что-нибудь\\\\'\\\\n                defaultValue=\\\\'Корм для кота\\\\'\\\\n                clear={ true }\\\\n                view=\\\\'line\\\\'\\\\n                size={ size }\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const sizes = [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'];\\\\n<div>\\\\n    {sizes.map(size => (\\\\n        <div className=\\\\'row\\\\'>\\\\n            <Input\\\\n                placeholder=\\\\'Введите что-нибудь длинное\\\\'\\\\n                width=\\\\'available\\\\'\\\\n                view=\\\\'line\\\\'\\\\n                size={ size }\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const sizes = [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'];\\\\ninitialState = {\\\\n    value: \\\\'Конsтантин\\\\',\\\\n    error: true\\\\n};\\\\n<div>\\\\n    {sizes.map(size => (\\\\n        <div className=\\\\'row\\\\'>\\\\n            <Input\\\\n                placeholder=\\\\'Введите что-нибудь\\\\'\\\\n                error={ state.error ? \\\\'Только кириллические символы\\\\' : null }\\\\n                view=\\\\'line\\\\'\\\\n                size={ size }\\\\n                value={ state.value }\\\\n                onChange={ value => setState({\\\\n                    value,\\\\n                    error: value.search(/[a-z]/i) !== -1\\\\n                }) }\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const sizes = [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'];\\\\n<div>\\\\n    {sizes.map(size => (\\\\n        <div className=\\\\'row\\\\'>\\\\n            <Input\\\\n                placeholder=\\\\'Введите ваше имя\\\\'\\\\n                view=\\\\'line\\\\'\\\\n                size={ size }\\\\n                icon={ <Icon size={ size } icon=\\\\'user\\\\' /> }\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const sizes = [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'];\\\\n<div>\\\\n    {sizes.map(size => (\\\\n        <div className=\\\\'row\\\\'>\\\\n            <Input\\\\n                placeholder=\\\\'Введите ваше имя\\\\'\\\\n                disabled={ true }\\\\n                view=\\\\'line\\\\'\\\\n                size={ size }\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -5450,6 +5616,14 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'const socialNetworks = [\\\\n    { value: \\\\'Facebook\\\\' },\\\\n    { value: \\\\'Twitter\\\\' },\\\\n    { value: \\\\'LinkedIn\\\\' },\\\\n    { value: \\\\'Sina Weibo\\\\' },\\\\n    { value: \\\\'Pinterest\\\\' },\\\\n    { value: \\\\'VKontakte\\\\' },\\\\n    { value: \\\\'Instagram\\\\' },\\\\n    { value: \\\\'Tumblr\\\\' },\\\\n    { value: \\\\'Flickr\\\\' },\\\\n    { value: \\\\'Odnoklassniki\\\\' },\\\\n    { value: \\\\'Renren\\\\' },\\\\n    { value: \\\\'douban\\\\' },\\\\n    { value: \\\\'LiveJournal\\\\' },\\\\n    { value: \\\\'DeviantArt\\\\' },\\\\n    { value: \\\\'StumbleUpon\\\\' },\\\\n    { value: \\\\'Myspace\\\\' },\\\\n    { value: \\\\'Yelp, Inc.\\\\' },\\\\n    { value: \\\\'Taringa!\\\\' },\\\\n    { value: \\\\'mixi\\\\' },\\\\n    { value: \\\\'XING\\\\' }\\\\n];\\\\nfunction getFilteredOptions(list, typedValue) {\\\\n    if (!typedValue) {\\\\n        return list;\\\\n    }\\\\n    return list.filter(({ value }) => value !== typedValue && value.indexOf(typedValue) !== -1);\\\\n}\\\\nfunction handleItemSelect(item) {\\\\n    setState({ value: item.text })\\\\n}\\\\nfunction handleChange(value) {\\\\n    setState({ value });\\\\n}\\\\n<div style={ { width: \\\\'300px\\\\' } }>\\\\n    <InputAutocomplete\\\\n        size=\\\\'m\\\\'\\\\n        width=\\\\'available\\\\'\\\\n        value={ state.value }\\\\n        onChange={ handleChange }\\\\n        onItemSelect={ handleItemSelect }\\\\n        placeholder=\\\\'Введите название социальной сети\\\\'\\\\n        options={ getFilteredOptions(socialNetworks, state.value) }\\\\n    />\\\\n</div>'
+				},
+				{
+					code: 'function Circle({ background }) {\\\\n    const circleStyles = {\\\\n        width: \\\\'14px\\\\',\\\\n        height: \\\\'14px\\\\',\\\\n        display: \\\\'block\\\\',\\\\n        userSelect: \\\\'none\\\\',\\\\n        background,\\\\n        borderRadius: \\\\'50%\\\\',\\\\n        transform: \\\\'translateY(-50%)\\\\',\\\\n        top: \\\\'10px\\\\',\\\\n        position: \\\\'relative\\\\',\\\\n        marginRight: \\\\'10px\\\\',\\\\n        marginLeft: \\\\'-20px\\\\'\\\\n    };\\\\n    return (\\\\n        <span style={ circleStyles } />\\\\n    )\\\\n}\\\\nconst socialNetworks = [\\\\n    {\\\\n        value: \\\\'Автотранспорт\\\\',\\\\n        description:\\\\n            <Label size=\\\\'l\\\\'>\\\\n                <div style={ { display: \\\\'flex\\\\' } }>\\\\n                    <Circle background=\\\\'green\\\\' />\\\\n                    Автотранспорт\\\\n                </div>\\\\n            </Label>\\\\n    },\\\\n    {\\\\n        value: \\\\'Facebook\\\\',\\\\n        description:\\\\n            <Label size=\\\\'l\\\\'>\\\\n                <div style={ { display: \\\\'flex\\\\' } }>\\\\n                    <Circle background=\\\\'blue\\\\' />\\\\n                    Гипермаркет\\\\n                </div>\\\\n            </Label>\\\\n    },\\\\n    {\\\\n        value: \\\\'Twitter\\\\',\\\\n        description:\\\\n            <Label size=\\\\'l\\\\'>\\\\n                <div style={ { display: \\\\'flex\\\\' } }>\\\\n                    <Circle background=\\\\'rgb(217, 50, 128)\\\\' />\\\\n                    Штрафы, налоги, комиссии\\\\n                </div>\\\\n            </Label>\\\\n    }\\\\n];\\\\nfunction getFilteredOptions(list, typedValue) {\\\\n    if (!typedValue) {\\\\n        return list;\\\\n    }\\\\n    return list.filter(({ value }) => value !== typedValue && value.indexOf(typedValue) !== -1);\\\\n}\\\\nfunction handleItemSelect(item) {\\\\n    setState({ value: item.text })\\\\n}\\\\nfunction handleChange(value) {\\\\n    setState({ value });\\\\n}\\\\n<InputAutocomplete\\\\n    size=\\\\'l\\\\'\\\\n    value={ state.value }\\\\n    width=\\\\'available\\\\'\\\\n    onChange={ handleChange }\\\\n    onItemSelect={ handleItemSelect }\\\\n    placeholder=\\\\'Выберите категорию\\\\'\\\\n    options={ getFilteredOptions(socialNetworks, state.value) }\\\\n/>'
+				}
 			]
 		},
 		{
@@ -5557,6 +5731,14 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'const inputs = [1, 2, 3, 4];\\\\n<InputGroup>\\\\n    { inputs.map(input => (\\\\n        <Input\\\\n            key={ input }\\\\n            placeholder=\\\\'Укажите получателя\\\\'\\\\n        />\\\\n    )) }\\\\n</InputGroup>'
+				},
+				{
+					code: 'const inputs = [1, 2, 3, 4];\\\\n<InputGroup width=\\\\'available\\\\' >\\\\n    { inputs.map(input => (\\\\n        <Input\\\\n            key={ input }\\\\n            placeholder=\\\\'Укажите получателя\\\\'\\\\n        />\\\\n    )) }\\\\n</InputGroup>'
+				}
 			]
 		},
 		{
@@ -5567,7 +5749,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				path: 'src/isolated-container/isolated-container.jsx'
 			},
 			name: 'isolated-container',
-			properties: []
+			properties: [],
+			examples: []
 		},
 		{
 			dirPath: 'src/label',
@@ -5700,6 +5883,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						name: 'boolean',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: 'const elipsisBoxStyles = {\\\\n    width: \\\\'200px\\\\',\\\\n    overflow: \\\\'hidden\\\\',\\\\n    textOverflow: \\\\'ellipsis\\\\'\\\\n};\\\\n\\\\n<div>\\\\n    {[\\\\'l\\\\'].map(size => (\\\\n        <div key={ size }>\\\\n            <div style={ elipsisBoxStyles }>\\\\n                <Label size={ size } isNoWrap={ true }>\\\\n                    Гипермаркет\\\\n                </Label>\\\\n            </div>\\\\n            <div style={ elipsisBoxStyles }>\\\\n                <Label size={ size } isNoWrap={ true }>\\\\n                    Путешествие\\\\n                </Label>\\\\n            </div>\\\\n            <div style={ elipsisBoxStyles }>\\\\n                <Label size={ size } isNoWrap={ true }>\\\\n                    Мобильная связь, интернет, ТВ, телефон\\\\n                </Label>\\\\n            </div>\\\\n            <div style={ elipsisBoxStyles }>\\\\n                <Label size={ size } isNoWrap={ true }>\\\\n                    Кафе и рестораны\\\\n                </Label>\\\\n            </div>\\\\n        </div>\\\\n    ))}\\\\n</div>'
 				}
 			]
 		},
@@ -5988,6 +6176,17 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <span className=\\\\'row\\\\'>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Link\\\\n                    text=\\\\'Вернуться в интернет-банк\\\\'\\\\n                    size={ size }\\\\n                />\\\\n            </div>\\\\n        </span>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: '<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <span className=\\\\'row\\\\'>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Link\\\\n                    text=\\\\'Показать больше\\\\'\\\\n                    size={ size }\\\\n                    pseudo={ true }\\\\n                />\\\\n            </div>\\\\n        </span>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const columnStyle = {\\\\n    justifyContent: \\\\'center\\\\',\\\\n    display: \\\\'flex\\\\',\\\\n    width: \\\\'50%\\\\'\\\\n};\\\\n<div style={ { width: \\\\'100%\\\\' } }>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <span className=\\\\'row\\\\'>\\\\n            <div className=\\\\'column\\\\' style={ columnStyle }>\\\\n                <Link size={ size } ><span role=\\\\'img\\\\' aria-label=\\\\'smile\\\\'>😊</span></Link>\\\\n            </div>\\\\n            <div className=\\\\'column\\\\' style={ columnStyle }>\\\\n\\\\n                <Link size={ size } >¯\\\\_(ツ)_/¯</Link>\\\\n            </div>\\\\n        </span>\\\\n    ))}\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -6093,6 +6292,14 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'const ITEMS_OL = [\\\\n    {\\\\n        key: \\\\'one\\\\',\\\\n        value: \\\\'Накопительные счета\\\\'\\\\n    },\\\\n    {\\\\n        key: \\\\'two\\\\',\\\\n        value: \\\\'Депозиты\\\\'\\\\n    },\\\\n    {\\\\n        key: \\\\'three\\\\',\\\\n        value: \\\\'Бесплатные сервисы для накоплений\\\\'\\\\n    }\\\\n];\\\\n\\\\n<List\\\\n    items={ ITEMS_OL }\\\\n/>'
+				},
+				{
+					code: 'const ITEMS_UL = [\\\\n    {\\\\n        key: \\\\'one\\\\',\\\\n        value: \\\\'Индивидуальное обслуживание в любом отделении в России\\\\'\\\\n    },\\\\n    {\\\\n        key: \\\\'two\\\\',\\\\n        value: \\\\'Повышенные % ставки по депозитам\\\\'\\\\n    },\\\\n    {\\\\n        key: \\\\'three\\\\',\\\\n        value: \\\\'Льготная конвертация валют.\\\\'\\\\n    }\\\\n];\\\\n<List\\\\n    items={ ITEMS_UL }\\\\n    type=\\\\'ordered\\\\'\\\\n/>'
+				}
 			]
 		},
 		{
@@ -6140,7 +6347,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/menu',
@@ -6554,6 +6762,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'const MENU_1 = [\\\\n    {\\\\n        type: \\\\'item\\\\',\\\\n        content: \\\\'Тарифы\\\\',\\\\n        value: \\\\'value1\\\\',\\\\n        props: {\\\\n            url: \\\\'#1\\\\',\\\\n            view: \\\\'underlined\\\\'\\\\n        }\\\\n    },\\\\n    {\\\\n        type: \\\\'item\\\\',\\\\n        content: \\\\'Депозиты\\\\',\\\\n        value: \\\\'value2\\\\',\\\\n        props: {\\\\n            url: \\\\'#2\\\\',\\\\n            view: \\\\'underlined\\\\'\\\\n        }\\\\n    },\\\\n    {\\\\n        type: \\\\'item\\\\',\\\\n        content: \\\\'Овердрафты\\\\',\\\\n        value: \\\\'value3\\\\',\\\\n        props: {\\\\n            url: \\\\'#3\\\\',\\\\n            disabled: true,\\\\n            view: \\\\'underlined\\\\'\\\\n        }\\\\n    }\\\\n];\\\\n\\\\nconst MENU_2 = [\\\\n    {\\\\n        type: \\\\'item\\\\',\\\\n        content: \\\\'Компании\\\\',\\\\n        value: \\\\'1\\\\',\\\\n        props: {\\\\n            url: \\\\'#1\\\\'\\\\n        }\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'Платежи и переводы\\\\',\\\\n        content: [\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Новый платёж\\\\',\\\\n                value: \\\\'2\\\\',\\\\n                props: {\\\\n                    url: \\\\'#2\\\\'\\\\n                }\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Платежи в работе\\\\',\\\\n                value: \\\\'3\\\\',\\\\n                props: {\\\\n                    url: \\\\'#3\\\\'\\\\n                }\\\\n            }\\\\n        ]\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'Текущая деятельность\\\\',\\\\n        content: [\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Счета и депозиты\\\\',\\\\n                value: \\\\'4\\\\',\\\\n                props: {\\\\n                    url: \\\\'#4\\\\'\\\\n                }\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Депозиты\\\\',\\\\n                value: \\\\'5\\\\',\\\\n                props: {\\\\n                    url: \\\\'#5\\\\',\\\\n                    type: \\\\'dropdown\\\\',\\\\n                    popup: \\\\'Popup Menu\\\\'\\\\n                }\\\\n            }\\\\n        ]\\\\n    }\\\\n];\\\\n\\\\nconst MENU_3 = [\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\' \\\\',\\\\n        content: [\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Москва\\\\',\\\\n                value: \\\\'moscow\\\\'\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Санкт-Петербург\\\\',\\\\n                value: \\\\'peterburg\\\\'\\\\n            }\\\\n        ]\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'А\\\\',\\\\n        content: [\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Абакан\\\\',\\\\n                value: \\\\'abakan\\\\'\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Альметьевск\\\\',\\\\n                value: \\\\'almetyevsk\\\\'\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Ангарск\\\\',\\\\n                value: \\\\'angarsk\\\\'\\\\n            }\\\\n        ]\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'Б\\\\',\\\\n        content: [\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Балашиха\\\\',\\\\n                value: \\\\'balashiha\\\\'\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Барнаул\\\\',\\\\n                value: \\\\'barnaul\\\\'\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Белгород\\\\',\\\\n                value: \\\\'belgorod\\\\'\\\\n            }\\\\n        ]\\\\n    }\\\\n];\\\\n\\\\n<div>\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Базовое горизонтальное меню\\\\n            </Heading>\\\\n            <Menu\\\\n                view=\\\\'horizontal\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Базовое вертикальное меню\\\\n            </Heading>\\\\n            <Menu\\\\n                content={ MENU_2 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Вертикальное меню с короткими заголовками групп\\\\n            </Heading>\\\\n            <Menu\\\\n                groupView=\\\\'line\\\\'\\\\n                content={ MENU_3 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Горизонтальное меню с множественным выбором mode check\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'check\\\\'\\\\n                view=\\\\'horizontal\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Вертикальное меню с множественным выбором mode check\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'check\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Горизонтальное меню с одиночным обязательным выбором mode radio\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'radio\\\\'\\\\n                view=\\\\'horizontal\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Вертикальное меню с одиночным обязательным выбором mode radio\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'radio\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Горизонтальное меню с одиночным необязательным выбором mode radio-check\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'radio-check\\\\'\\\\n                view=\\\\'horizontal\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Вертикальное меню с одиночным необязательным выбором mode radio-check\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'radio-check\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Неактивное меню\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'check\\\\'\\\\n                view=\\\\'horizontal\\\\'\\\\n                disabled={ true }\\\\n                checkedItems={ [\\\\'value1\\\\', \\\\'value3\\\\'] }\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -6894,6 +7107,17 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'const layoutStyle = {\\\\n    paddingRight: \\\\'10px\\\\'\\\\n};\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <span style={ layoutStyle }>\\\\n            <MenuItem\\\\n                size={ size }\\\\n                type={ \\\\'dropdown\\\\' }\\\\n                popup=\\\\'Информация о тарифах\\\\'\\\\n            >\\\\n                Тарифы\\\\n            </MenuItem>\\\\n        </span>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const layoutStyle = {\\\\n    paddingRight: \\\\'10px\\\\'\\\\n};\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <span style={ layoutStyle }>\\\\n            <MenuItem\\\\n                size={ size }\\\\n                type={ \\\\'block\\\\' }\\\\n            >\\\\n                Депозиты\\\\n            </MenuItem>\\\\n        </span>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const layoutStyle = {\\\\n    paddingRight: \\\\'10px\\\\'\\\\n};\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <span style={ layoutStyle }>\\\\n            <MenuItem\\\\n                size={ size }\\\\n                type={ \\\\'link\\\\' }\\\\n            >\\\\n                Овердрафты\\\\n            </MenuItem>\\\\n        </span>\\\\n    ))}\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -6931,6 +7155,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						name: 'number',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: 'initialState = {\\\\n    money: \\\\'\\\\'\\\\n};\\\\nfunction handleMoneyChange(money) {\\\\n    setState({ money });\\\\n}\\\\n<MoneyInput value={ state.money } onChange={ handleMoneyChange } />'
 				}
 			]
 		},
@@ -6995,7 +7224,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/notification',
@@ -7261,6 +7491,20 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'initialState = {\\\\n    visible: false\\\\n};\\\\n<div>\\\\n    <Button onClick={ () => setState({ visible: !state.visible }) }>\\\\n        Отправить платёж\\\\n    </Button>\\\\n    <Notification\\\\n        visible={ state.visible }\\\\n        status=\\\\'ok\\\\'\\\\n        offset={ 10 }\\\\n        title={ \\\\'Платёж отправлен\\\\' }\\\\n        onCloseTimeout={ () => { setState({ visible: false }); } }\\\\n        onCloserClick={ () => { setState({ visible: false }); } }\\\\n    >\\\\n        Платёж на сумму 150 000 ₽ для ИП Фридман М.М. отправлен\\\\n    </Notification>\\\\n</div>'
+				},
+				{
+					code: 'initialState = {\\\\n    visible: false\\\\n};\\\\n<div>\\\\n    <Button onClick={ () => setState({ visible: !state.visible }) }>\\\\n        Отправить платёж\\\\n    </Button>\\\\n    <Notification\\\\n        visible={ state.visible }\\\\n        status=\\\\'fail\\\\'\\\\n        offset={ 100 }\\\\n        stickTo=\\\\'right\\\\'\\\\n        title={ \\\\'Платёж отправлен\\\\' }\\\\n        onCloseTimeout={ () => { setState({ visible: false }); } }\\\\n        onCloserClick={ () => { setState({ visible: false }); } }\\\\n    >\\\\n        Платёж на сумму 150 000 ₽ для ИП Фридман М.М. отправлен\\\\n    </Notification>\\\\n</div>'
+				},
+				{
+					code: 'initialState = {\\\\n    visible: false\\\\n};\\\\n<div>\\\\n    <Button onClick={ () => setState({ visible: !state.visible }) }>\\\\n        Повторить платёж\\\\n    </Button>\\\\n    <Notification\\\\n        visible={ state.visible }\\\\n        status=\\\\'error\\\\'\\\\n        offset={ 190 }\\\\n        stickTo=\\\\'right\\\\'\\\\n        title={ \\\\'Недостаточно средств\\\\' }\\\\n        onCloseTimeout={ () => { setState({ visible: false }); } }\\\\n        onCloserClick={ () => { setState({ visible: false }); } }\\\\n    >\\\\n        Не хватает 9 ₽, чтобы отправить платёж на сумму 150 000 ₽ для ИП Фридман М.М.\\\\n    </Notification>\\\\n</div>'
+				},
+				{
+					code: 'initialState = {\\\\n    visible: false\\\\n};\\\\n<div>\\\\n    <Button onClick={ () => setState({ visible: !state.visible }) }>\\\\n        Отправить позже\\\\n    </Button>\\\\n    <Notification\\\\n        visible={ state.visible }\\\\n        status=\\\\'ok\\\\'\\\\n        offset={ 30 }\\\\n        title={ \\\\'Платёж запланирован\\\\' }\\\\n        icon={ <Icon icon=\\\\'calendar\\\\' size=\\\\'m\\\\' /> }\\\\n        onCloseTimeout={ () => { setState({ visible: false }); } }\\\\n        onCloserClick={ () => { setState({ visible: false }); } }\\\\n    >\\\\n        Платёж будет отправлен 31 февраля 2018 года\\\\n    </Notification>\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -7361,6 +7605,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							]
 						}
 					}
+				}
+			],
+			examples: [
+				{
+					code: 'const PreviewFrame = require(\\\\'../../demo/components/preview-frame\\\\').default;\\\\n\\\\n<PreviewFrame>\\\\n    <Page\\\\n        header={\\\\n            <Header\\\\n                user={\\\\n                    <User\\\\n                        url=\\\\'#\\\\'\\\\n                        text=\\\\'Иванов Пётр Евгеньевич\\\\'\\\\n                    />\\\\n                }\\\\n                support={\\\\n                    <Support\\\\n                        city=\\\\'Москва\\\\'\\\\n                        phone=\\\\'+7 495 78-888-78\\\\'\\\\n                    />\\\\n                }\\\\n                menu={\\\\n                    <Menu\\\\n                        view=\\\\'horizontal\\\\'\\\\n                        content={ [\\\\n                            { content: \\\\'Банковские карты и переводы\\\\', value: \\\\'section1\\\\' },\\\\n                            { content: \\\\'Вклады и инвестиции\\\\', value: \\\\'section2\\\\' }\\\\n                        ] }\\\\n                    />\\\\n                }\\\\n            />\\\\n        }\\\\n        footer={\\\\n            <Footer />\\\\n        }\\\\n    >\\\\n        <AppTitle>\\\\n            <Heading>Кредитные карты и кредиты</Heading>\\\\n        </AppTitle>\\\\n        <AppMenu>\\\\n            <Menu\\\\n                view=\\\\'horizontal\\\\'\\\\n                content={ [\\\\n                    { content: \\\\'Кредитные карты\\\\', value: \\\\'section1\\\\' },\\\\n                    { content: \\\\'Кредиты наличными\\\\', value: \\\\'section2\\\\' }\\\\n                ] }\\\\n            />\\\\n        </AppMenu>\\\\n        <AppContent>\\\\n            <Paragraph>\\\\n                Кредитная карта Альфа Банка - это карта систем MasterCard и VISA, золотая, платиновая или самая обычная, с чипом и с бесконтактной системой оплаты, в индивидуальном дизайне или в строгой классике. А также и Метрокарта, которая позволяет оплачивать бесконтактно поездки в московском метрополитене.\\\\n            </Paragraph>\\\\n        </AppContent>\\\\n    </Page>\\\\n</PreviewFrame>'
 				}
 			]
 		},
@@ -7478,6 +7727,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Paragraph view=\\\\'normal\\\\'>\\\\n            Компания Google проанализировала поисковые запросы и выяснила, какие банковские услуги и\\\\n            продукты наиболее востребованы среди пользователей Рунета,\\\\n            а также как менялись маркетинговые стратегии банков за последние 2 года.\\\\n            Исследование отражает сравнительные данные за 2014 – 2015 год, а также тенденции начала 2016 года.\\\\n        </Paragraph>\\\\n    </div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Paragraph view=\\\\'lead\\\\'>\\\\n            Компания Google проанализировала поисковые запросы и выяснила, какие банковские услуги и\\\\n            продукты наиболее востребованы среди пользователей Рунета,\\\\n            а также как менялись маркетинговые стратегии банков за последние 2 года.\\\\n            Исследование отражает сравнительные данные за 2014 – 2015 год, а также тенденции начала 2016 года.\\\\n        </Paragraph>\\\\n    </div>\\\\n    <div className=\\\\'lead\\\\' >\\\\n        <Paragraph view=\\\\'normal\\\\' mark=\\\\'+\\\\'>\\\\n            Компания Google проанализировала поисковые запросы и выяснила, какие банковские услуги и\\\\n            продукты наиболее востребованы среди пользователей Рунета,\\\\n            а также как менялись маркетинговые стратегии банков за последние 2 года.\\\\n            Исследование отражает сравнительные данные за 2014 – 2015 год, а также тенденции начала 2016 года.\\\\n        </Paragraph>\\\\n    </div>\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -7503,6 +7757,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						name: 'string',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<PhoneInput placeholder=\\\\'+7 000 000 00 00\\\\' />'
 				}
 			]
 		},
@@ -7623,7 +7882,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/popup',
@@ -8059,6 +8319,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'class PopupDemo extends React.Component {\\\\n    constructor() {\\\\n        super();\\\\n        this.state = {\\\\n            popup1: false,\\\\n            popup2: false,\\\\n            popup3: false,\\\\n            popup4: false,\\\\n            popup5: false,\\\\n            popup6: false,\\\\n            popup7: false\\\\n        };\\\\n\\\\n        this.popup1;\\\\n        this.popup2;\\\\n        this.popup3;\\\\n        this.popup4;\\\\n        this.popup5;\\\\n        this.popup6;\\\\n        this.popup7;\\\\n\\\\n        this.target1;\\\\n        this.target2;\\\\n        this.target3;\\\\n        this.target4;\\\\n        this.target5;\\\\n        this.target6;\\\\n        this.target7;\\\\n    }\\\\n\\\\n    componentDidMount() {\\\\n        this.popup1.setTarget(this.target1.control);\\\\n        this.popup2.setTarget(this.target2.control);\\\\n        this.popup3.setTarget(this.target3.control);\\\\n        this.popup4.setTarget(this.target4.control);\\\\n        this.popup5.setTarget(this.target5.control);\\\\n        this.popup7.setTarget(this.target7.control);\\\\n    }\\\\n\\\\n    render() {\\\\n        return (\\\\n            <div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target1 = target; } }\\\\n                        size=\\\\'s\\\\'\\\\n                        onClick={ () => { this.setState({ popup1: !this.state.popup1 }); } }\\\\n                    >\\\\n                        Перейти на тариф\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup1 = popup; } }\\\\n                        directions={ [\\\\'top-center\\\\', \\\\'bottom-center\\\\'] }\\\\n                        size=\\\\'s\\\\'\\\\n                        type=\\\\'tooltip\\\\'\\\\n                        visible={ this.state.popup1 }\\\\n                    >\\\\n                        Переход на этот тариф бесплатен\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target2 = target; } }\\\\n                        size=\\\\'l\\\\'\\\\n                        onMouseEnter={ () => { this.setState({ popup2: true }); } }\\\\n                        onMouseLeave={ () => { this.setState({ popup2: false }); } }\\\\n                    >\\\\n                        Сколько стоит?\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup2 = popup; } }\\\\n                        directions={ [\\\\'right-center\\\\', \\\\'right-top\\\\', \\\\'right-bottom\\\\'] }\\\\n                        size=\\\\'l\\\\'\\\\n                        mainOffset={ 0 }\\\\n                        type=\\\\'tooltip\\\\'\\\\n                        visible={ this.state.popup2 }\\\\n                        onMouseLeave={ () => { this.setState({ popup2: false }); } }\\\\n                        onMouseEnter={ () => { this.setState({ popup2: true }); } }\\\\n                    >\\\\n                        2 400 ₽ в месяц при оплате за год\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target3 = target; } }\\\\n                        size=\\\\'m\\\\'\\\\n                        onMouseEnter={ () => { this.setState({ popup3: true }); } }\\\\n                        onMouseLeave={ () => { this.setState({ popup3: false }); } }\\\\n                    >\\\\n                        Облачные бухгалтерии\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup3 = popup; } }\\\\n                        height=\\\\'available\\\\'\\\\n                        visible={ this.state.popup3 }\\\\n                        onMouseLeave={ () => { this.setState({ popup3: false }); } }\\\\n                        onMouseEnter={ () => { this.setState({ popup3: true }); } }\\\\n                    >\\\\n                        <Paragraph view=\\\\'normal\\\\'>\\\\n                            В настоящий момент в системе «Альфа-Бизнес Онлайн» реализована интеграция с облачными бухгалтериями <Link url=\\\\'http://www.moedelo.org\\\\' text=\\\\'«Мое дело»\\\\' />, <Link url=\\\\'http://www.e-kontur.ru\\\\' text=\\\\' «Бухгалтерия.Контур»\\\\' /> и <Link url=\\\\'http://www.b2b-center.ru/\\\\' text=\\\\'«B2B-Center»\\\\' />. При подключении интеграции в Альфа-Бизнес Онлайн у сервисов «Мое дело», «Бухгалтерия.Контур», «B2B-Center» появится возможность автоматически создавать в Альфа-Бизнес Онлайн неподписанные платежные поручения и подгружать из «Альфа-Бизнес Онлайн» информацию о движениях по счетам. Уполномоченное лицо может подключить один аккаунт сервиса «Бухгалтерия.Контур» и (или) один аккаунт сервиса «Мое дело» только к одному Клиенту.\\\\n                        </Paragraph>\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target4 = target; } }\\\\n                        size=\\\\'m\\\\'\\\\n                        onMouseEnter={ () => { this.setState({ popup4: true }); } }\\\\n                        onMouseLeave={ () => { this.setState({ popup4: false }); } }\\\\n                    >\\\\n                        Облачные бухгалтерии\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (ref) => { this.popup4 = ref; } }\\\\n                        height=\\\\'available\\\\'\\\\n                        directions={ [\\\\'right-center\\\\', \\\\'right-top\\\\', \\\\'right-bottom\\\\'] }\\\\n                        visible={ this.state.popup4 }\\\\n                        onMouseLeave={ () => { this.setState({ popup4: false }); } }\\\\n                        onMouseEnter={ () => { this.setState({ popup4: true }); } }\\\\n                    >\\\\n                        <Paragraph view=\\\\'normal\\\\'>\\\\n                            В настоящий момент в системе «Альфа-Бизнес Онлайн» реализована интеграция с облачными бухгалтериями <Link url=\\\\'http://www.moedelo.org\\\\' text=\\\\'«Мое дело»\\\\' />, <Link url=\\\\'http://www.e-kontur.ru\\\\' text=\\\\'«Бухгалтерия.Контур»\\\\' /> и <Link url=\\\\'http://www.b2b-center.ru/\\\\' text=\\\\'«B2B-Center»\\\\' />. При подключении интеграции в Альфа-Бизнес Онлайн у сервисов «Мое дело», «Бухгалтерия.Контур», «B2B-Center» появится возможность автоматически создавать в Альфа-Бизнес Онлайн неподписанные платежные поручения и подгружать из «Альфа-Бизнес Онлайн» информацию о движениях по счетам. Уполномоченное лицо может подключить один аккаунт сервиса «Бухгалтерия.Контур» и (или) один аккаунт сервиса «Мое дело» только к одному Клиенту.\\\\n                        </Paragraph>\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target5 = target; } }\\\\n                        size=\\\\'m\\\\'\\\\n                        onClick={ () => { this.setState({ popup5: !this.state.popup5 }); } }\\\\n                    >\\\\n                        Сколько стоит?\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup5 = popup; } }\\\\n                        autoclosable={ true }\\\\n                        visible={ this.state.popup5 }\\\\n                        onClickOutside={ () => { this.setState({ popup5: false }); } }\\\\n                    >\\\\n                        { \\\\'2 400 ₽ в месяц при оплате за год\\\\' }\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target6 = target; } }\\\\n                        size=\\\\'m\\\\'\\\\n                        onClick={ () => { this.setState({ popup6: !this.state.popup6 }); } }\\\\n                    >\\\\n                        Облачные бухгалтерии\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup6 = popup; } }\\\\n                        target=\\\\'screen\\\\'\\\\n                        visible={ this.state.popup6 }\\\\n                    >\\\\n                        <Paragraph view=\\\\'normal\\\\'>\\\\n                            В настоящий момент в системе «Альфа-Бизнес Онлайн» реализована интеграция с облачными бухгалтериями <Link url=\\\\'http://www.moedelo.org\\\\' text=\\\\'«Мое дело»\\\\' />, <Link url=\\\\'http://www.e-kontur.ru\\\\' text=\\\\'«Бухгалтерия.Контур»\\\\' /> и <Link url=\\\\'http://www.b2b-center.ru/\\\\' text=\\\\'«B2B-Center»\\\\' />. При подключении интеграции в Альфа-Бизнес Онлайн у сервисов «Мое дело», «Бухгалтерия.Контур», «B2B-Center» появится возможность автоматически создавать в Альфа-Бизнес Онлайн неподписанные платежные поручения и подгружать из «Альфа-Бизнес Онлайн» информацию о движениях по счетам. Уполномоченное лицо может подключить один аккаунт сервиса «Бухгалтерия.Контур» и (или) один аккаунт сервиса «Мое дело» только к одному Клиенту.\\\\n                        </Paragraph>\\\\n                        <Button\\\\n                            size=\\\\'m\\\\'\\\\n                            onClick={ () => { this.setState({ popup6: false }); } }\\\\n                        >\\\\n                            Ясно\\\\n                        </Button>\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target7 = target; } }\\\\n                        size=\\\\'m\\\\'\\\\n                        onClick={ () => { this.setState({ popup7: !this.state.popup7 }); } }\\\\n                    >\\\\n                        Сколько стоит\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup7 = popup; } }\\\\n                        autoclosable={ true }\\\\n                        padded={ true }\\\\n                        visible={ this.state.popup7 }\\\\n                        header={\\\\n                            <Heading size=\\\\'xs\\\\'>При оплате за год</Heading>\\\\n                        }\\\\n                        onClickOutside={ () => { this.setState({ popup7: false }); } }\\\\n                    >\\\\n                        { \\\\'2 400 ₽ в месяц\\\\' }\\\\n                    </Popup>\\\\n                </div>\\\\n            </div>\\\\n        );\\\\n    }\\\\n}\\\\n\\\\n<PopupDemo />'
+				}
 			]
 		},
 		{
@@ -8148,7 +8413,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/popup-header',
@@ -8260,7 +8526,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/radio',
@@ -8525,6 +8792,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'const radioStyle = {\\\\n    margin: \\\\'10px\\\\'\\\\n};\\\\n<div>\\\\n    <div>\\\\n        {[\\\\'m\\\\', \\\\'l\\\\'].map(size => (\\\\n            <span style={ radioStyle } >\\\\n                <Radio\\\\n                    text=\\\\'Текущий счёт\\\\'\\\\n                    size={ size }\\\\n                />\\\\n            </span>\\\\n        ))}\\\\n    </div>\\\\n    <div>\\\\n        {[\\\\'m\\\\', \\\\'l\\\\'].map(size => (\\\\n            <span style={ radioStyle } >\\\\n                <Radio\\\\n                    text=\\\\'Основной счёт\\\\'\\\\n                    size={ size }\\\\n                    error={ true }\\\\n                />\\\\n            </span>\\\\n        ))}\\\\n    </div>\\\\n    <div>\\\\n        {[\\\\'m\\\\', \\\\'l\\\\'].map(size => (\\\\n            <span style={ radioStyle } >\\\\n                <Radio\\\\n                    text=\\\\'Семейный счёт\\\\'\\\\n                    size={ size }\\\\n                    disabled={ true }\\\\n                />\\\\n            </span>\\\\n        ))}\\\\n    </div>\\\\n    <div>\\\\n        {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n            <span style={ radioStyle } >\\\\n                <Radio\\\\n                    text=\\\\'Текущий счёт\\\\'\\\\n                    size={ size }\\\\n                    type=\\\\'button\\\\'\\\\n                />\\\\n            </span>\\\\n        ))}\\\\n    </div>\\\\n    <div className=\\\\'row\\\\'>\\\\n        {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n            <span style={ radioStyle } >\\\\n                <Radio\\\\n                    text=\\\\'Семейный счёт\\\\'\\\\n                    size={ size }\\\\n                    type=\\\\'button\\\\'\\\\n                    disabled={ true }\\\\n                />\\\\n            </span>\\\\n        ))}\\\\n    </div>\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -8746,6 +9018,26 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<RadioGroup>\\\\n    {[\\\\'Один\\\\', \\\\'Два\\\\', \\\\'Три\\\\', \\\\'Четыре\\\\'].map(text => (\\\\n        <Radio\\\\n            text={ text }\\\\n            key={ text }\\\\n            value={ text }\\\\n        />\\\\n    ))}\\\\n</RadioGroup>'
+				},
+				{
+					code: '<RadioGroup error=\\\\'Обязательно\\\\' label={ <Label size=\\\\'m\\\\'>Сколько?</Label> }>\\\\n    {[\\\\'Один\\\\', \\\\'Два\\\\', \\\\'Три\\\\', \\\\'Четыре\\\\'].map(text => (\\\\n        <Radio\\\\n            text={ text }\\\\n            key={ text }\\\\n            value={ text }\\\\n        />\\\\n    ))}\\\\n</RadioGroup>'
+				},
+				{
+					code: '<RadioGroup type=\\\\'button\\\\' error=\\\\'Обязательно\\\\'>\\\\n    {[\\\\'Один\\\\', \\\\'Два\\\\', \\\\'Три\\\\', \\\\'Четыре\\\\'].map(text => (\\\\n        <Radio\\\\n            text={ text }\\\\n            key={ text }\\\\n            value={ text }\\\\n            type=\\\\'button\\\\'\\\\n        />\\\\n    ))}\\\\n</RadioGroup>'
+				},
+				{
+					code: '<RadioGroup type=\\\\'button\\\\' hint=\\\\'Уточняющий текст\\\\'>\\\\n    {[\\\\'Один\\\\', \\\\'Два\\\\', \\\\'Три\\\\', \\\\'Четыре\\\\'].map(text => (\\\\n        <Radio\\\\n            text={ text }\\\\n            key={ text }\\\\n            value={ text }\\\\n            type=\\\\'button\\\\'\\\\n        />\\\\n    ))}\\\\n</RadioGroup>'
+				},
+				{
+					code: '<RadioGroup width=\\\\'available\\\\' type=\\\\'button\\\\'>\\\\n    {[\\\\'Один\\\\', \\\\'Два\\\\', \\\\'Три\\\\', \\\\'Четыре\\\\'].map(text => (\\\\n        <Radio\\\\n            text={ text }\\\\n            key={ text }\\\\n            value={ text }\\\\n            type=\\\\'button\\\\'\\\\n        />\\\\n    ))}\\\\n</RadioGroup>'
+				},
+				{
+					code: '<RadioGroup type=\\\\'line\\\\'>\\\\n    {[\\\\'Один\\\\', \\\\'Два\\\\', \\\\'Три\\\\', \\\\'Четыре\\\\'].map(text => (\\\\n        <Radio\\\\n            text={ text }\\\\n            key={ text }\\\\n            value={ text }\\\\n        />\\\\n    ))}\\\\n</RadioGroup>'
+				}
 			]
 		},
 		{
@@ -8820,7 +9112,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/resize-sensor',
@@ -8840,7 +9133,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/select',
@@ -9447,6 +9741,23 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'const options = [\\\\n    { value: \\\\'01\\\\', text: \\\\'ИП Фридман М.М.\\\\' },\\\\n    { value: \\\\'02\\\\', text: \\\\'ООО «Виктори»\\\\' },\\\\n    { value: \\\\'03\\\\', text: \\\\'ФГУП НПП ВНИИЭМ\\\\' }\\\\n];\\\\n<div>\\\\n    {[\\\\'s\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' >\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Select\\\\n                    size={ size }\\\\n                    mode=\\\\'radio\\\\'\\\\n                    options={ options }\\\\n                />\\\\n            </div>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Select\\\\n                    size={ size }\\\\n                    mode=\\\\'radio\\\\'\\\\n                    options={ options }\\\\n                    disabled={ true }\\\\n                />\\\\n            </div>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const options = [\\\\n    { value: \\\\'01\\\\', text: \\\\'ИП Фридман М.М.\\\\' },\\\\n    { value: \\\\'02\\\\', text: \\\\'ООО «Виктори»\\\\' },\\\\n    { value: \\\\'03\\\\', text: \\\\'ФГУП НПП ВНИИЭМ\\\\' }\\\\n];\\\\n<div>\\\\n    {[\\\\'m\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' >\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Select\\\\n                    size={ size }\\\\n                    mode=\\\\'check\\\\'\\\\n                    options={ options }\\\\n                />\\\\n            </div>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Select\\\\n                    size={ size }\\\\n                    mode=\\\\'check\\\\'\\\\n                    options={ options }\\\\n                    disabled={ true }\\\\n                />\\\\n            </div>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const options = [\\\\n    { value: \\\\'01\\\\', text: \\\\'ИП Фридман М.М.\\\\' },\\\\n    { value: \\\\'02\\\\', text: \\\\'ООО «Виктори»\\\\' },\\\\n    { value: \\\\'03\\\\', text: \\\\'ФГУП НПП ВНИИЭМ\\\\' }\\\\n];\\\\n<div>\\\\n    {[\\\\'xl\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' >\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Select\\\\n                    size={ size }\\\\n                    mode=\\\\'radio-check\\\\'\\\\n                    options={ options }\\\\n                />\\\\n            </div>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Select\\\\n                    size={ size }\\\\n                    mode=\\\\'radio-check\\\\'\\\\n                    options={ options }\\\\n                    disabled={ true }\\\\n                />\\\\n            </div>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const options = [\\\\n    { value: \\\\'1\\\\', text: \\\\'ФГУП НПП ВНИИЭМ им. Андроника Гевондовича Иосифьяна\\\\' },\\\\n    { value: \\\\'2\\\\', text: \\\\'Муниципальное образовательное учреждение дополнительного образования детей специализированная детско-юношеская спортивная школа олимпийского резерва по боксу\\\\' },\\\\n    { value: \\\\'3\\\\', text: \\\\'Федеральное государственное учреждение Ивановский научно-исследовательский институт материнства и детства имени Виктора Николаевича Городкова\\\\' },\\\\n    { value: \\\\'4\\\\', text: \\\\'ООО «Брянсеметаллстройтехкомплект»\\\\' },\\\\n    { value: \\\\'5\\\\', text: \\\\'ГОУ ДПО БелРИПКППС\\\\' },\\\\n    { value: \\\\'6\\\\', text: \\\\'ООО «Абсолютная власть»\\\\' }\\\\n];\\\\n<div>\\\\n    {[\\\\'l\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' >\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Select\\\\n                    width=\\\\'available\\\\'\\\\n                    size={ size }\\\\n                    mode=\\\\'check\\\\'\\\\n                    options={ options }\\\\n                />\\\\n            </div>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Select\\\\n                    width=\\\\'available\\\\'\\\\n                    size={ size }\\\\n                    mode=\\\\'check\\\\'\\\\n                    options={ options }\\\\n                    disabled={ true }\\\\n                />\\\\n            </div>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				},
+				{
+					code: 'const options = [\\\\n    { value: \\\\'00\\\\', text: \\\\'ИП Фридман М.М.\\\\' },\\\\n    { value: \\\\'01\\\\', text: \\\\'ООО «Виктори»\\\\' },\\\\n    { value: \\\\'02\\\\', text: \\\\'ФГУП НПП ВНИИЭМ\\\\' },\\\\n    { value: \\\\'03\\\\', text: \\\\'ООО «Абсолютная власть»\\\\' },\\\\n    { value: \\\\'04\\\\', text: \\\\'ГОУ ДПО БелРИПКППС\\\\' },\\\\n    { value: \\\\'05\\\\', text: \\\\'ООО «Здравый смысл»\\\\' },\\\\n    { value: \\\\'06\\\\', text: \\\\'ООО «Владимирский Централ»\\\\' },\\\\n    { value: \\\\'07\\\\', text: \\\\'ЗАО «Вам и не снилось»\\\\' },\\\\n    { value: \\\\'08\\\\', text: \\\\'ООО «Лучше наличными»\\\\' },\\\\n    { value: \\\\'09\\\\', text: \\\\'ООО «Какие Люди»\\\\' },\\\\n    { value: \\\\'10\\\\', text: \\\\'ООО «Ы»\\\\' },\\\\n    { value: \\\\'11\\\\', text: \\\\'ООО «Ооо»\\\\' },\\\\n    { value: \\\\'12\\\\', text: \\\\'ООО Банк «Прохладный»\\\\' },\\\\n    { value: \\\\'13\\\\', text: \\\\'ООО «Хомячки»\\\\' },\\\\n    { value: \\\\'14\\\\', text: \\\\'ИП Фридман М.М.\\\\' },\\\\n    { value: \\\\'16\\\\', text: \\\\'ООО «Виктори»\\\\' },\\\\n    { value: \\\\'17\\\\', text: \\\\'ФГУП НПП ВНИИЭМ\\\\' },\\\\n    { value: \\\\'18\\\\', text: \\\\'ООО «Паньки»\\\\' },\\\\n    { value: \\\\'19\\\\', text: \\\\'ЗАО «Хотя нет»\\\\' },\\\\n    { value: \\\\'20\\\\', text: \\\\'ООО «Какой большой!»\\\\' },\\\\n    { value: \\\\'21\\\\', text: \\\\'ООО «ДАА»\\\\' },\\\\n    { value: \\\\'22\\\\', text: \\\\'ИП Фридман М.М.\\\\' },\\\\n    { value: \\\\'23\\\\', text: \\\\'ООО «Какие Люди»\\\\' },\\\\n    { value: \\\\'24\\\\', text: \\\\'ООО «Лучше наличными»\\\\' },\\\\n    { value: \\\\'25\\\\', text: \\\\'ГОУ ДПО БелРИПКППС\\\\' },\\\\n    { value: \\\\'26\\\\', text: \\\\'ООО Банк «Прохладный»\\\\' },\\\\n    { value: \\\\'27\\\\', text: \\\\'ГОУ ДПО БелРИПКППС\\\\' },\\\\n    { value: \\\\'28\\\\', text: \\\\'ЗАО «Вам и не снилось»\\\\' },\\\\n    { value: \\\\'29\\\\', text: \\\\'ООО «Виктори»\\\\' },\\\\n    { value: \\\\'30\\\\', text: \\\\'ФГУП НПП ВНИИЭМ\\\\' },\\\\n    { value: \\\\'31\\\\', text: \\\\'ООО «Хомячки»\\\\' },\\\\n    { value: \\\\'32\\\\', text: \\\\'ООО «Владимирский Централ»\\\\' },\\\\n    { value: \\\\'33\\\\', text: \\\\'ООО «Какие Люди»\\\\' },\\\\n    { value: \\\\'34\\\\', text: \\\\'ООО «Здравый смысл»\\\\' },\\\\n    { value: \\\\'35\\\\', text: \\\\'ООО «Ооо»\\\\' }\\\\n];\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' >\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Select\\\\n                    size={ size }\\\\n                    mode=\\\\'radio\\\\'\\\\n                    options={ options }\\\\n                    mobileMenuMode=\\\\'popup\\\\'\\\\n                    mobileTitle=\\\\'Очень длинный заголовок на мобильном устройстве\\\\'\\\\n                />\\\\n            </div>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <Select\\\\n                    size={ size }\\\\n                    mode=\\\\'radio\\\\'\\\\n                    options={ options }\\\\n                    mobileMenuMode=\\\\'popup\\\\'\\\\n                    disabled={ true }\\\\n                />\\\\n            </div>\\\\n        </div>\\\\n    ))}\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -9560,6 +9871,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: 'function toggleSidebar() {\\\\n    setState({ isOpen: !state.isOpen });\\\\n}\\\\ninitialState = {\\\\n    isOpen: false\\\\n};\\\\n<div>\\\\n    <Button onClick={ toggleSidebar }>Выписка по счёту</Button>\\\\n    <Sidebar\\\\n        visible={ state.isOpen }\\\\n        onCloserClick={ toggleSidebar }\\\\n    >\\\\n        <Heading size=\\\\'m\\\\'>\\\\n            Выписка по счёту\\\\n        </Heading>\\\\n        <Label>\\\\n            Куда отправить выписку?\\\\n        </Label>\\\\n        <div style={ { marginBottom: 20 } }>\\\\n            <Input\\\\n                size=\\\\'m\\\\'\\\\n                placeholder=\\\\'Адрес электронной почты\\\\'\\\\n            />\\\\n        </div>\\\\n        <Button size=\\\\'m\\\\' view=\\\\'extra\\\\'>Отправить</Button>\\\\n    </Sidebar>\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -9635,6 +9951,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							]
 						}
 					}
+				}
+			],
+			examples: [
+				{
+					code: 'function handleSlideDownToggle() {\\\\n    setState({ isExpanded: !state.isExpanded });\\\\n}\\\\ninitialState = {\\\\n    isExpanded: false\\\\n};\\\\n<div>\\\\n    <Button\\\\n        onClick={ handleSlideDownToggle }\\\\n    >\\\\n        Как узнать дату и сумму платежа\\\\n    </Button>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <SlideDown isExpanded={ state.isExpanded }>\\\\n            <Paragraph>\\\\n                Узнать сумму платежа по кредиту с ежемесячным погашением равными частями вы\\\\n                можете из графика погашения, предоставленного при оформлении кредита.\\\\n            </Paragraph>\\\\n        </SlideDown>\\\\n    </div>\\\\n</div>'
 				}
 			]
 		},
@@ -9744,6 +10065,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 							]
 						}
 					}
+				}
+			],
+			examples: [
+				{
+					code: 'const layoutStyle = {\\\\n    paddingRight: \\\\'10px\\\\'\\\\n};\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <span key={ size } style={ layoutStyle } >\\\\n            <Button\\\\n                icon={\\\\n                    <Spin\\\\n                        size={ size }\\\\n                        visible={ true }\\\\n                    />\\\\n                }\\\\n                size={ size }\\\\n            >\\\\n                Документы загружаются...\\\\n            </Button>\\\\n        </span>\\\\n    ))}\\\\n</div>'
 				}
 			]
 		},
@@ -9877,6 +10203,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						name: 'func',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<Support\\\\n    city=\\\\'Москва\\\\'\\\\n    phone=\\\\'+7 495 78-888-78\\\\'\\\\n/>'
 				}
 			]
 		},
@@ -10212,6 +10543,23 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						structure: {}
 					}
 				}
+			],
+			examples: [
+				{
+					code: '<Textarea placeholder=\\\\'Введите назначение платежа\\\\' />'
+				},
+				{
+					code: '<Textarea\\\\n    placeholder=\\\\'Введите назначение платежа\\\\'\\\\n    error=\\\\'Нужно указать назначение платежа\\\\'\\\\n/>'
+				},
+				{
+					code: '<Textarea\\\\n    placeholder=\\\\'Введите назначение платежа\\\\'\\\\n    autosize={ true }\\\\n/>'
+				},
+				{
+					code: 'initialState = {\\\\n    value: \\\\'Благотворительный взнос в фонд «Бедные дизайнеры»\\\\'\\\\n};\\\\nfunction handleChangeAsync(value) {\\\\n    setTimeout(() => {\\\\n        setState({ value });\\\\n    }, 200);\\\\n}\\\\n<div>\\\\n    <Textarea\\\\n        hint={ \`Текущее значение в поле: \${state.value}\` }\\\\n        placeholder=\\\\'Введите назначение платежа\\\\'\\\\n        value={ state.value }\\\\n        onChange={ handleChangeAsync }\\\\n    />\\\\n</div>'
+				},
+				{
+					code: 'initialState = {\\\\n    value: \\\\'Благотворительный взнос в фонд «Бедные дизайнеры»\\\\'\\\\n};\\\\nfunction handleChangeAsync(value) {\\\\n    setTimeout(() => {\\\\n        setState({ value });\\\\n    }, 200);\\\\n}\\\\n<div>\\\\n    <Textarea\\\\n        defaultValue={ state.value }\\\\n        hint={ \`Текущее значение в поле: \${state.value}\` }\\\\n        placeholder=\\\\'Введите назначение платежа\\\\'\\\\n        onChange={ handleChangeAsync }\\\\n    />\\\\n</div>'
+				}
 			]
 		},
 		{
@@ -10282,7 +10630,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						}
 					}
 				}
-			]
+			],
+			examples: []
 		},
 		{
 			dirPath: 'src/user',
@@ -10378,6 +10727,11 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						name: 'func',
 						structure: {}
 					}
+				}
+			],
+			examples: [
+				{
+					code: '<User\\\\n    url=\\\\'#\\\\'\\\\n    text=\\\\'Иванов Пётр\\\\'\\\\n/>'
 				}
 			]
 		}
