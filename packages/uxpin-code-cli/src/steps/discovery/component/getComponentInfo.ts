@@ -5,24 +5,23 @@ import { ComponentPaths } from './ComponentPaths';
 import { getDocumentationInfo } from './documentation/getDocumentationInfo';
 import { getImplementationInfo } from './implementation/getImplementationInfo';
 
-export function getComponentInfo(paths:ProjectPaths, componentName:string):Promise<ComponentInfo | null> {
-  const componentDirPath:string = join(paths.componentsDirPath, componentName);
-  const componentPaths:ComponentPaths = { ...paths, componentDirPath };
-  return getBasics(componentPaths, componentName)
-    .then(fillDocumentation(componentPaths, componentName))
+export function getComponentInfo(paths:ProjectPaths, componentDirName:string):Promise<ComponentInfo | null> {
+  const componentDirPath:string = join(paths.componentsDirPath, componentDirName);
+  const componentPaths:ComponentPaths = { ...paths, componentDirPath, componentDirName };
+  return getBasics(componentPaths)
+    .then(fillDocumentation(componentPaths))
     .catch(() => null);
 }
 
-function getBasics(componentPaths:ComponentPaths, componentName:string):Promise<ComponentInfo> {
-  return getImplementationInfo(componentPaths, componentName).then((implementation) => ({
+function getBasics(componentPaths:ComponentPaths):Promise<ComponentInfo> {
+  return getImplementationInfo(componentPaths).then((implementation) => ({
     dirPath: componentPaths.componentDirPath,
     implementation,
-    name: componentName,
   }));
 }
 
-function fillDocumentation(paths:ComponentPaths, componentName:string):(info:ComponentInfo) => Promise<ComponentInfo> {
-  return (info:ComponentInfo) => getDocumentationInfo(paths, componentName)
+function fillDocumentation(paths:ComponentPaths):(info:ComponentInfo) => Promise<ComponentInfo> {
+  return (info:ComponentInfo) => getDocumentationInfo(paths)
     .then((documentation) => ({ ...info, documentation }))
     .catch(() => info);
 }

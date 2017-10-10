@@ -1,6 +1,5 @@
 export interface ComponentInfo {
   dirPath:string;
-  name:string;
   implementation:ComponentImplementationInfo;
   documentation?:ComponentDocumenationInfo;
 }
