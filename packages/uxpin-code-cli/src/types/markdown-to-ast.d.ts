@@ -7,9 +7,9 @@ interface Token {
   children:Token[];
   lang?:string;
   value?:string;
-};
+}
 
 // tslint:disable variable-name
-export const Syntax:Partial<{ [P in TokenType]:TokenType }> = ASTNodeTypes;
+export const Syntax:typeof ASTNodeTypes = ASTNodeTypes;
 
 export declare function parse(text:string):Token;

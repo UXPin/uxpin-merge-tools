@@ -1,13 +1,17 @@
-import { parse, Syntax } from 'markdown-to-ast';
+import { parse, Syntax, Token } from 'markdown-to-ast';
 
 import { readFile } from '../../../../utils/fs/readFile';
 import { ComponentExample } from './ComponentExample';
 
-export function getExamples(filePath:string):Promise<ComponentExample[]> {
+interface TokenWithValue extends Token {
+  value:string;
+}
+
+export function serializeExamples(filePath:string):Promise<ComponentExample[]> {
   return readFile(filePath, { encoding: 'utf8' })
     .then((content) => parse(content).children
       .filter((node) => node.type === Syntax.CodeBlock && isSupportedLang(node.lang) && node.value)
-      .map((codeBlock) => ({ code: codeBlock.value || '' })));
+      .map((codeBlock:TokenWithValue) => ({ code: codeBlock.value })));
 }
 
 function isSupportedLang(lang?:string):boolean {
@@ -16,5 +20,5 @@ function isSupportedLang(lang?:string):boolean {
     'jsx',
     'typescript',
     'tsx',
-  ].indexOf(lang) > -1;
+  ].includes(lang);
 }

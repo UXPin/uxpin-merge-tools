@@ -2,6 +2,8 @@ import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
 import { ComponentInfo } from '../discovery/component/ComponentInfo';
 import { ComponentDefinition } from './component/ComponentDefinition';
+import { ComponentExample } from './component/examples/ComponentExample';
+import { serializeExamples } from './component/examples/serializeExamples';
 import { serializeComponentProps } from './component/properties/serializeComponentProps';
 import { DesignSystemDefinition } from './DesignSystemDefinition';
 
@@ -17,8 +19,21 @@ export function getDesignSystemMetadata(componentInfos:ComponentInfo[]):Promise<
 }
 
 function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentDefinition>> {
-  return serializeComponentProps(info.implementation.path).then(({ result, warnings }) => ({
-    result: { ...info, properties: result },
+  return Promise.all([
+    serializeComponentProps(info.implementation.path),
+    serializeOptionalExamples(info),
+  ]).then(([{ result, warnings }, examples]) => ({
+    result: { ...info, properties: result, examples },
     warnings,
   }));
+}
+
+function serializeOptionalExamples(info:ComponentInfo):Promise<ComponentExample[]> {
+  return new Promise((resolve) => {
+    if (!info.documentation) {
+      return resolve([]);
+    }
+
+    serializeExamples(info.documentation.path).then(resolve);
+  });
 }
