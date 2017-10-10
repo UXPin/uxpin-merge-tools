@@ -17,8 +17,10 @@ export function serializeExamples(filePath:string):Promise<ComponentExample[]> {
 function isSupportedLang(lang?:string):boolean {
   return !!lang && [
     'javascript',
+    'js',
     'jsx',
     'typescript',
+    'ts',
     'tsx',
   ].includes(lang);
 }
