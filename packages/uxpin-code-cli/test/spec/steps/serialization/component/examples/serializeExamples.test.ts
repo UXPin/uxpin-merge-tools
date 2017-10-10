@@ -47,6 +47,16 @@ describe('getExamples', () => {
         .then((examples) => expect(examples).toEqual(expectedExamples));
     });
 
+    it('should return empty list for markdown file with examples defined with tab char', () => {
+      const path:string = resolve('./test/resources/documentation/examples/DocumentationWithTabCharacterExamples.md');
+      const expectedExamples:ComponentExample[] = [];
+
+      // when
+      return serializeExamples(path)
+      // then
+        .then((examples) => expect(examples).toEqual(expectedExamples));
+    });
+
     it('should return list of supported examples for markdown file with both supported & unsupported examples', () => {
       const path:string = resolve('./test/resources/documentation/examples/DocumentationWithNotSupportedExamples.md');
       const expectedExamples:ComponentExample[] = [
