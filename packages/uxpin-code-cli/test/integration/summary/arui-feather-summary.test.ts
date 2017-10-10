@@ -12,166 +12,166 @@ describe('--summary option integration', () => {
       return runUXPinCodeCommand('resources/repos/arui-feather', '--summary').then((output) => {
         // then
         expect(output).toContain(
-          `amount
+          `Amount
     📜 documentation: ✔
 
-app-content
+AppContent
     📜 documentation: ✔
 
-app-menu
+AppMenu
     📜 documentation: ✔
 
-app-title
+AppTitle
     📜 documentation: ✔
 
-attach
+Attach
     📜 documentation: ✔
 
-button
+Button
     📜 documentation: ✔
 
-calendar
+Calendar
     📜 documentation: ✔
 
-calendar-input
+CalendarInput
     📜 documentation: ✔
 
-card-input
+CardInput
     📜 documentation: ✔
 
-checkbox
+Checkbox
     📜 documentation: ✔
 
-checkbox-group
+CheckboxGroup
     📜 documentation: ✔
 
-collapse
+Collapse
     📜 documentation: ✔
 
-copyright
+Copyright
     📜 documentation: ✔
 
-dropdown
+Dropdown
     📜 documentation: ✔
 
-email-input
+EmailInput
     📜 documentation: ✔
 
-error-page
+ErrorPage
     📜 documentation: ✘
 
-footer
+Footer
     📜 documentation: ✔
 
-form
+Form
     📜 documentation: ✔
 
-form-field
+FormField
     📜 documentation: ✔
 
-header
+Header
     📜 documentation: ✔
 
-heading
+Heading
     📜 documentation: ✔
 
-icon
+Icon
     📜 documentation: ✔
 
-input
+Input
     📜 documentation: ✔
 
-input-autocomplete
+InputAutocomplete
     📜 documentation: ✔
 
-input-group
+InputGroup
     📜 documentation: ✔
 
-isolated-container
+IsolatedContainer
     📜 documentation: ✘
 
-label
+Label
     📜 documentation: ✔
 
-link
+Link
     📜 documentation: ✔
 
-list
+List
     📜 documentation: ✔
 
-masked-input
+MaskedInput
     📜 documentation: ✘
 
-menu
+Menu
     📜 documentation: ✔
 
-menu-item
+MenuItem
     📜 documentation: ✔
 
-money-input
+MoneyInput
     📜 documentation: ✔
 
-mq
+Mq
     📜 documentation: ✘
 
-notification
+Notification
     📜 documentation: ✔
 
-page
+Page
     📜 documentation: ✔
 
-paragraph
+Paragraph
     📜 documentation: ✔
 
-phone-input
+PhoneInput
     📜 documentation: ✔
 
-plate
+Plate
     📜 documentation: ✘
 
-popup
+Popup
     📜 documentation: ✔
 
-popup-container-provider
+PopupContainerProvider
     📜 documentation: ✘
 
-popup-header
+PopupHeader
     📜 documentation: ✔
 
-radio
+Radio
     📜 documentation: ✔
 
-radio-group
+RadioGroup
     📜 documentation: ✔
 
-render-in-container
+RenderInContainer
     📜 documentation: ✘
 
-resize-sensor
+ResizeSensor
     📜 documentation: ✘
 
-select
+Select
     📜 documentation: ✔
 
-sidebar
+Sidebar
     📜 documentation: ✔
 
-slide-down
+SlideDown
     📜 documentation: ✔
 
-spin
+Spin
     📜 documentation: ✔
 
-support
+Support
     📜 documentation: ✔
 
-textarea
+Textarea
     📜 documentation: ✔
 
-theme-provider
+ThemeProvider
     📜 documentation: ✘
 
-user
+User
     📜 documentation: ✔`);
       });
     });

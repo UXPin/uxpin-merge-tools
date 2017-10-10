@@ -13,79 +13,79 @@ describe('--summary option integration', () => {
         .then((output) => {
           // then
           expect(output).toContain(
-            `alert
+            `Alert
     📜 documentation: ✔
 
-animate
+Animate
     📜 documentation: ✔
 
-avatar
+Avatar
     📜 documentation: ✔
 
-badge
+Badge
     📜 documentation: ✔
 
-button
+Button
     📜 documentation: ✔
 
-dropdown
+Dropdown
     📜 documentation: ✔
 
-flag
+Flag
     📜 documentation: ✔
 
-icon
+Icon
     📜 documentation: ✔
 
-input
+Input
     📜 documentation: ✔
 
-labeled-value
+LabeledValue
     📜 documentation: ✔
 
-li
+Li
     📜 documentation: ✔
 
-logo
+Logo
     📜 documentation: ✔
 
-pane
+Pane
     📜 documentation: ✔
 
-radio-group
+RadioGroup
     📜 documentation: ✔
 
-segmented-control
+SegmentedControl
     📜 documentation: ✔
 
-spinner
+Spinner
     📜 documentation: ✔
 
-table
+Table
     📜 documentation: ✔
 
-tbody
+Tbody
     📜 documentation: ✘
 
-td
+Td
     📜 documentation: ✘
 
-tfoot
+Tfoot
     📜 documentation: ✘
 
-th
+Th
     📜 documentation: ✘
 
-thead
+Thead
     📜 documentation: ✘
 
-tooltip
+Tooltip
     📜 documentation: ✔
 
-tr
+Tr
     📜 documentation: ✘
 
-ul
+Ul
     📜 documentation: ✔`);
         });
     });
