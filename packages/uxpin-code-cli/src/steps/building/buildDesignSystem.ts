@@ -6,14 +6,14 @@ import { getConfig } from './config/getConfig';
 import { createComponentsLibrary } from './library/createComponentsLibrary';
 
 export function buildDesignSystem(componentInfos:ComponentInfo[], options:BuildOptions):Promise<webpack.Stats> {
-  const { webpackConfigPath, wrapperPath } = options;
+  const { webpackConfigPath, wrapperPath, projectRoot } = options;
   return createComponentsLibrary(componentInfos, wrapperPath)
-    .then(() => bundle(webpackConfigPath));
+    .then(() => bundle(projectRoot, webpackConfigPath));
 }
 
-function bundle(webpackConfigPath?:string):Promise<webpack.Stats> {
+function bundle(projectRoot:string, webpackConfigPath?:string):Promise<webpack.Stats> {
   return new Promise((resolve, reject) => {
-    const compiler:webpack.Compiler = webpack(getConfig(webpackConfigPath));
+    const compiler:webpack.Compiler = webpack(getConfig(projectRoot, webpackConfigPath));
 
     compiler.run((err, stats) => {
       if (err) {

@@ -4,9 +4,9 @@ import { ProjectPaths } from '../paths/ProjectPaths';
 import { ComponentInfo } from './ComponentInfo';
 import { getComponentInfo } from './getComponentInfo';
 
-export function getDesignSystemComponentInfos():Promise<ComponentInfo[]> {
+export function getDesignSystemComponentInfos(cwd:string):Promise<ComponentInfo[]> {
   let projectPaths:ProjectPaths;
-  return getProjectPaths()
+  return getProjectPaths(cwd)
     .then((paths) => {
       projectPaths = paths;
       return paths.componentsDirPath;

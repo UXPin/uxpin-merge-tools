@@ -3,11 +3,10 @@ import { locatePath } from '../../../utils/fs/locatePath';
 import { PATHS } from './paths';
 import { ProjectPaths } from './ProjectPaths';
 
-export function getProjectPaths():Promise<ProjectPaths> {
-  const cwd:string = process.cwd();
-  return locatePath(PATHS.map((directories) => join(cwd, ...directories))).then((foundPath) => {
+export function getProjectPaths(projectRoot:string):Promise<ProjectPaths> {
+  return locatePath(PATHS.map((directories) => join(projectRoot, ...directories))).then((foundPath) => {
     if (foundPath) {
-      return ({ componentsDirPath: relative(cwd, foundPath), projectRoot: cwd });
+      return ({ componentsDirPath: relative(projectRoot, foundPath), projectRoot });
     }
     throw new Error('Unable to locate components source directory');
   });

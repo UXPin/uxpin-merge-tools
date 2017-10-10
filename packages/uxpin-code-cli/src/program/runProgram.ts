@@ -8,11 +8,16 @@ import { getDesignSystemSummary } from '../steps/discovery/getDesignSystemSummar
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { printDump } from '../steps/serialization/printDump';
 import { tapPromise } from '../utils/promise/tapPromise';
+import { getProgramArgs } from './getProgramArgs';
 import { ProgramArgs } from './ProgramArgs';
 
-export function runProgram(args:ProgramArgs):Promise<any> {
-  const { dump, summary, webpackConfig, wrapper } = args;
-  const buildOptions:BuildOptions = { webpackConfigPath: webpackConfig, wrapperPath: wrapper };
+export function runProgram(program:ProgramArgs):Promise<any> {
+  const { dump, summary, webpackConfig, wrapper, cwd } = getProgramArgs(program);
+  const buildOptions:BuildOptions = {
+    projectRoot: cwd,
+    webpackConfigPath: webpackConfig,
+    wrapperPath: wrapper,
+  };
 
   const steps:Step[] = [
     { exec: (infos) => buildDesignSystem(infos, buildOptions), shouldRun: !dump && !summary },
@@ -23,7 +28,7 @@ export function runProgram(args:ProgramArgs):Promise<any> {
 
   const stepFunctions:StepExecutor[] = steps.filter((step) => step.shouldRun).map((step) => tapPromise(step.exec));
 
-  return getDesignSystemComponentInfos().then((infos:ComponentInfo[]) => {
+  return getDesignSystemComponentInfos(cwd).then((infos:ComponentInfo[]) => {
     return pReduce(stepFunctions, (reduceInfos, step) => step(reduceInfos), infos);
   }).catch(logError);
 

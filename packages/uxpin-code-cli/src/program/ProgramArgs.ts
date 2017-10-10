@@ -1,6 +1,7 @@
 export interface ProgramArgs {
   dump:boolean;
   summary:boolean;
-  webpackConfig:string;
-  wrapper:string;
+  webpackConfig?:string;
+  wrapper?:string;
+  cwd:string;
 }
