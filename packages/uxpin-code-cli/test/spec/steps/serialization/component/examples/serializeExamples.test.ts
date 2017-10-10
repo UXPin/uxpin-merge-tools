@@ -69,5 +69,31 @@ describe('getExamples', () => {
       // then
         .then((examples) => expect(examples).toEqual(expectedExamples));
     });
+
+    it('should return list of multiline examples for markdown file with examples', () => {
+      const path:string = resolve('./test/resources/documentation/examples/DocumentationWithMultilineExamples.md');
+      const expectedExamples:ComponentExample[] = [
+        {
+          code: `<DocumentationWithMultilineExamples>
+    <Line />
+    <Line />
+    <Line />
+</DocumentationWithMultilineExamples>`,
+        },
+        {
+          code: `// See first example
+<DocumentationWithMultilineExamples>
+    <Line />
+    <Line />
+    <Line />
+</DocumentationWithMultilineExamples>`,
+        },
+      ];
+
+      // when
+      return serializeExamples(path)
+      // then
+        .then((examples) => expect(examples).toEqual(expectedExamples));
+    });
   });
 });
