@@ -15,7 +15,7 @@ describe('getImplementationInfo', () => {
       };
 
       // when
-      return getImplementationInfo(paths, 'directoryWithComponent')
+      return getImplementationInfo(paths)
       // then
         .then((implInfo) => expect(implInfo).toEqual(expectedImplInfo));
     });
@@ -29,7 +29,7 @@ describe('getImplementationInfo', () => {
       };
 
       // when
-      return getImplementationInfo(paths, 'directoryWithTypeScriptComponent')
+      return getImplementationInfo(paths)
       // then
         .then((implInfo) => expect(implInfo).toEqual(expectedImplInfo));
     });
@@ -38,7 +38,7 @@ describe('getImplementationInfo', () => {
       const paths:ComponentPaths = getComponentsPath('directoryWithoutComponent');
 
       // when
-      return getImplementationInfo(paths, 'directoryWithoutComponent')
+      return getImplementationInfo(paths)
       // then
         .catch(() => done());
     });
@@ -47,7 +47,7 @@ describe('getImplementationInfo', () => {
       const paths:ComponentPaths = getComponentsPath('iDontExist');
 
       // when
-      return getImplementationInfo(paths, 'iDontExist')
+      return getImplementationInfo(paths)
       // then
         .catch(() => done());
     });
@@ -57,16 +57,17 @@ describe('getImplementationInfo', () => {
         const paths:ComponentPaths = getComponentsPath('notDirectory.ts');
 
         // when
-        return getImplementationInfo(paths, 'notDirectory.ts')
+        return getImplementationInfo(paths)
         // then
           .catch(() => done());
       });
     });
   });
 
-  function getComponentsPath(componentName:string):ComponentPaths {
+  function getComponentsPath(componentDirName:string):ComponentPaths {
     return {
-      componentDirPath: `directories/${componentName}`,
+      componentDirName,
+      componentDirPath: `directories/${componentDirName}`,
       componentsDirPath: 'directories/',
       projectRoot: resolve('./test/resources/'),
     };
