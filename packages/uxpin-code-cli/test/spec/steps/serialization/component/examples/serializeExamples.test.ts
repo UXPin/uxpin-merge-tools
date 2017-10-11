@@ -29,7 +29,7 @@ describe('getExamples', () => {
       // when
       return serializeExamples(path)
       // then
-        .then((examples) => expect(examples).toEqual(expectedResult));
+        .then((result) => expect(result).toEqual(expectedResult));
     });
 
     it('should return one example for markdown file with one example', () => {
@@ -45,7 +45,7 @@ describe('getExamples', () => {
       // when
       return serializeExamples(path)
       // then
-        .then((examples) => expect(examples).toEqual(expectedResult));
+        .then((result) => expect(result).toEqual(expectedResult));
     });
 
     it('should return empty list for markdown file with no example', () => {
@@ -59,7 +59,7 @@ describe('getExamples', () => {
       // when
       return serializeExamples(path)
       // then
-        .then((examples) => expect(examples).toEqual(expectedResult));
+        .then((result) => expect(result).toEqual(expectedResult));
     });
 
     it('should return empty list for markdown file with examples defined with tab char', () => {
@@ -73,7 +73,7 @@ describe('getExamples', () => {
       // when
       return serializeExamples(path)
       // then
-        .then((examples) => expect(examples).toEqual(expectedResult));
+        .then((result) => expect(result).toEqual(expectedResult));
     });
 
     it('should return list of supported examples for markdown file with both supported & unsupported examples', () => {
@@ -100,7 +100,7 @@ describe('getExamples', () => {
       // when
       return serializeExamples(path)
       // then
-        .then((examples) => expect(examples).toEqual(expectedResult));
+        .then((result) => expect(result).toEqual(expectedResult));
     });
 
     it('should return list of multiline examples for markdown file with examples', () => {
@@ -130,7 +130,7 @@ describe('getExamples', () => {
       // when
       return serializeExamples(path)
       // then
-        .then((examples) => expect(examples).toEqual(expectedResult));
+        .then((result) => expect(result).toEqual(expectedResult));
     });
   });
 
@@ -143,10 +143,10 @@ describe('getExamples', () => {
       // when
       return serializeExamples(path)
       // then
-        .then((examples) => {
-          expect(examples.warnings).toHaveLength(1);
-          expect(examples.warnings[0].message).toEqual(expectedErrorMessage);
-          expect((examples.warnings[0].originalError as Error).message).toMatch(expectedOriginalErrorMessage);
+        .then((result) => {
+          expect(result.warnings).toHaveLength(1);
+          expect(result.warnings[0].message).toEqual(expectedErrorMessage);
+          expect((result.warnings[0].originalError as Error).message).toMatch(expectedOriginalErrorMessage);
         });
     });
   });
