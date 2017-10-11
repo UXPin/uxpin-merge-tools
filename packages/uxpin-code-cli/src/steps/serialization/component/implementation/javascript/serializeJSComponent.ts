@@ -1,6 +1,8 @@
 import { toPairs } from 'lodash';
+import { parse } from 'path';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
+import { getComponentClassName } from '../../../../building/library/getComponentClassName';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
@@ -9,14 +11,14 @@ import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 
 export function serializeJSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   return getDefaultComponentFrom(component.path)
-    .then(getMetadata)
+    .then(getMetadata(component))
     .then(getSummaryResult(component.path));
 }
 
-function getMetadata(component:ComponentDoc):Promise<PartialResult> {
-  return Promise.all(toPairs(component.props)
+function getMetadata(implInfo:ComponentImplementationInfo):(parsed:ComponentDoc) => Promise<PartialResult> {
+  return (parsed) => Promise.all(toPairs(parsed.props)
     .map(([propName, propType]) => convertPropItemToPropertyDefinition(propName, propType)))
-    .then((properties) => ({ name: component.displayName, properties }));
+    .then((properties) => ({ name: getComponentName(implInfo), properties }));
 }
 
 function getSummaryResult(path:string):(propResults:PartialResult) => ImplSerializationResult {
@@ -24,6 +26,10 @@ function getSummaryResult(path:string):(propResults:PartialResult) => ImplSerial
     result: { name, properties: properties.map((p) => p.result) },
     warnings: joinWarningLists(properties.map((p) => p.warnings), path),
   });
+}
+
+function getComponentName({ path }:ComponentImplementationInfo):string {
+  return getComponentClassName(parse(path).name);
 }
 
 interface PartialResult {
