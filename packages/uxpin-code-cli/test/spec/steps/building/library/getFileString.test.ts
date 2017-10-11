@@ -6,18 +6,24 @@ describe('getFileString', () => {
 
   const implementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
 
-  it('returns content of library file for list of ComponentInfo', () => {
+  it('returns content of library file for list of components', () => {
     const components:ComponentDefinition[] = [
       {
         dirPath: 'src/components/button',
-        implementation,
-        name: 'button',
+        implementation: {
+          ...implementation,
+          path: 'src/components/button/button.jsx',
+        },
+        name: 'Button',
         properties: [],
       },
       {
         dirPath: 'src/components/button-list',
-        implementation,
-        name: 'button-list',
+        implementation: {
+          ...implementation,
+          path: 'src/components/button-list/button-list.jsx',
+        },
+        name: 'ButtonList',
         properties: [],
       },
     ];
@@ -36,18 +42,24 @@ export {
     expect(result).toEqual(expectedFileString);
   });
 
-  it('returns content of library file for list of ComponentInfo and path of custom wrapper', () => {
+  it('returns content of library file for list of components and path of custom wrapper', () => {
     const components:ComponentDefinition[] = [
       {
         dirPath: 'src/components/button',
-        implementation,
-        name: 'button',
+        implementation: {
+          ...implementation,
+          path: 'src/components/button/button.jsx',
+        },
+        name: 'Button',
         properties: [],
       },
       {
         dirPath: 'src/components/button-list',
-        implementation,
-        name: 'button-list',
+        implementation: {
+          ...implementation,
+          path: 'src/components/button-list/button-list.jsx',
+        },
+        name: 'ButtonList',
         properties: [],
       },
     ];
