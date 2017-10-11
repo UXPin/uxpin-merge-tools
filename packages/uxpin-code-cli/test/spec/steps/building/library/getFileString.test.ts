@@ -10,6 +10,7 @@ describe('getFileString', () => {
     const components:ComponentDefinition[] = [
       {
         dirPath: 'src/components/button',
+        examples: [],
         implementation: {
           ...implementation,
           path: 'src/components/button/button.jsx',
@@ -19,6 +20,7 @@ describe('getFileString', () => {
       },
       {
         dirPath: 'src/components/button-list',
+        examples: [],
         implementation: {
           ...implementation,
           path: 'src/components/button-list/button-list.jsx',
@@ -46,6 +48,7 @@ export {
     const components:ComponentDefinition[] = [
       {
         dirPath: 'src/components/button',
+        examples: [],
         implementation: {
           ...implementation,
           path: 'src/components/button/button.jsx',
@@ -55,6 +58,7 @@ export {
       },
       {
         dirPath: 'src/components/button-list',
+        examples: [],
         implementation: {
           ...implementation,
           path: 'src/components/button-list/button-list.jsx',
