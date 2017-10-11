@@ -23,7 +23,7 @@ function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentD
     serializeComponentProps(info.implementation.path),
     serializeOptionalExamples(info),
   ]).then(([{ result: properties, warnings: warningsProps }, { result: examples, warnings: warningsExamples }]) => ({
-    result: { ...info, examples, properties },
+    result: { ...info, properties, examples },
     warnings: joinWarningLists([warningsProps, warningsExamples]),
   }));
 }
