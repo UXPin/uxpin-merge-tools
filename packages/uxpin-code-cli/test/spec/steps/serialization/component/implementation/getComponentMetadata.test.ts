@@ -1,3 +1,4 @@
+import { ComponentImplementationInfo } from '../../../../../../src/steps/discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../../../../src/steps/serialization/component/ComponentDefinition';
 // tslint:disable-next-line:max-line-length
 import { getComponentMetadata } from '../../../../../../src/steps/serialization/component/implementation/getComponentMetadata';
@@ -10,7 +11,11 @@ describe('getComponentMetadata – integration', () => {
   describe('providing array of objects describing all properties of the component', () => {
     it('serializes component implemented in TypeScript', () => {
       // given
-      const componentPath:string = getTypeScriptComponentPath('IntegrationCombo');
+      const component:ComponentImplementationInfo = {
+        framework: 'reactjs',
+        lang: 'typescript',
+        path: getTypeScriptComponentPath('IntegrationCombo'),
+      };
       const expectedProps:ComponentMetadata = {
         name: 'IntegrationCombo',
         properties: [
@@ -36,7 +41,7 @@ describe('getComponentMetadata – integration', () => {
       };
 
       // when
-      return getComponentMetadata(componentPath).then((serializedProps) => {
+      return getComponentMetadata(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -45,7 +50,11 @@ describe('getComponentMetadata – integration', () => {
 
     it('serializes component implemented in JavaScript', () => {
       // given
-      const componentPath:string = getJavaScriptComponentPath('IntegrationCombo');
+      const component:ComponentImplementationInfo = {
+        framework: 'reactjs',
+        lang: 'javascript',
+        path: getJavaScriptComponentPath('IntegrationCombo'),
+      };
       const expectedProps:ComponentMetadata = {
         name: 'IntegrationCombo',
         properties: [
@@ -76,7 +85,7 @@ describe('getComponentMetadata – integration', () => {
       };
 
       // when
-      return getComponentMetadata(componentPath).then((serializedProps) => {
+      return getComponentMetadata(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);

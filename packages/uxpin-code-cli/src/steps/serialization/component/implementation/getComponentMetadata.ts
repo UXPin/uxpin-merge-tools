@@ -11,5 +11,5 @@ export function getComponentMetadata(component:ComponentImplementationInfo):Prom
   } else {
     promise = serializeJSComponent(component);
   }
-  return promise.catch(getSummaryResultForInvalidComponent(component));
+  return promise.catch(getSummaryResultForInvalidComponent(component.path));
 }

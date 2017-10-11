@@ -1,4 +1,5 @@
 import { WarningDetails } from '../../../../../../../src/common/warning/WarningDetails';
+import { ComponentImplementationInfo } from '../../../../../../../src/steps/discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../../../../../src/steps/serialization/component/ComponentDefinition';
 // tslint:disable-next-line:max-line-length
 import { serializeJSComponent } from '../../../../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent';
@@ -8,7 +9,7 @@ describe('serializeJSComponentProps', () => {
   describe('providing array of objects describing all properties of the JavaScript component', () => {
     it('serializes functional component with primitive property types', () => {
       // given
-      const componentPath:string = getJavaScriptComponentPath('FunctionPrimitivesOnly');
+      const component:ComponentImplementationInfo = getImplementation('FunctionPrimitivesOnly');
       const expectedProps:ComponentMetadata = {
         name: 'FunctionPrimitivesOnly',
         properties: [
@@ -40,7 +41,7 @@ describe('serializeJSComponentProps', () => {
       };
 
       // when
-      return serializeJSComponent(componentPath).then((serializedProps) => {
+      return serializeJSComponent(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -49,7 +50,7 @@ describe('serializeJSComponentProps', () => {
 
     it('serializes class component with enum property types', () => {
       // given
-      const componentPath:string = getJavaScriptComponentPath('ClassEnumTypes');
+      const component:ComponentImplementationInfo = getImplementation('ClassEnumTypes');
       const expectedProps:ComponentMetadata = {
         name: 'ClassEnumTypes',
         properties: [
@@ -87,7 +88,7 @@ describe('serializeJSComponentProps', () => {
       };
 
       // when
-      return serializeJSComponent(componentPath).then((serializedProps) => {
+      return serializeJSComponent(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -96,7 +97,7 @@ describe('serializeJSComponentProps', () => {
 
     it('serializes class component with default property values', () => {
       // given
-      const componentPath:string = getJavaScriptComponentPath('ClassWithDefaults');
+      const component:ComponentImplementationInfo = getImplementation('ClassWithDefaults');
       const expectedProps:ComponentMetadata = {
         name: 'ClassWithDefaults',
         properties: [
@@ -127,7 +128,7 @@ describe('serializeJSComponentProps', () => {
       };
 
       // when
-      return serializeJSComponent(componentPath).then((serializedProps) => {
+      return serializeJSComponent(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -136,7 +137,7 @@ describe('serializeJSComponentProps', () => {
 
     it('serializes component with shape property type', () => {
       // given
-      const componentPath:string = getJavaScriptComponentPath('ClassPropShapeType');
+      const component:ComponentImplementationInfo = getImplementation('ClassPropShapeType');
       const expectedProps:ComponentMetadata = {
         name: 'ClassPropShapeType',
         properties: [
@@ -162,7 +163,7 @@ describe('serializeJSComponentProps', () => {
       };
 
       // when
-      return serializeJSComponent(componentPath).then((serializedProps) => {
+      return serializeJSComponent(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -171,7 +172,7 @@ describe('serializeJSComponentProps', () => {
 
     it('serializes component with shape property type and a default value for it', () => {
       // given
-      const componentPath:string = getJavaScriptComponentPath('PropShapeTypeWithDefault');
+      const component:ComponentImplementationInfo = getImplementation('PropShapeTypeWithDefault');
       const expectedMetadata:ComponentMetadata = {
         name: 'PropShapeTypeWithDefault',
         properties: [
@@ -203,7 +204,7 @@ describe('serializeJSComponentProps', () => {
       };
 
       // when
-      return serializeJSComponent(componentPath).then((serializedProps) => {
+      return serializeJSComponent(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedMetadata);
         expect(serializedProps.warnings).toEqual([]);
@@ -212,7 +213,7 @@ describe('serializeJSComponentProps', () => {
 
     it('provides warning details for corrupted default property values', () => {
       // given
-      const componentPath:string = getJavaScriptComponentPath('CorruptedDefaultPropertyValue');
+      const component:ComponentImplementationInfo = getImplementation('CorruptedDefaultPropertyValue');
       const expectedMetadata:ComponentMetadata = {
         name: 'CorruptedDefaultPropertyValue',
         properties: [
@@ -229,11 +230,11 @@ describe('serializeJSComponentProps', () => {
       };
       const expectedWarning:WarningDetails = {
         message: 'Cannot compute default value for property `value`',
-        sourcePath: componentPath,
+        sourcePath: component.path,
       };
 
       // when
-      return serializeJSComponent(componentPath).then((serialized) => {
+      return serializeJSComponent(component).then((serialized) => {
         // then
         expect(serialized.result).toEqual(expectedMetadata);
         expect(serialized.warnings[0].message).toEqual(expectedWarning.message);
@@ -244,10 +245,10 @@ describe('serializeJSComponentProps', () => {
 
     it('rejects returned promise when there is no React component in the given file', (done) => {
       // given
-      const filePath:string = getJavaScriptComponentPath('FileWithoutComponent');
+      const component:ComponentImplementationInfo = getImplementation('FileWithoutComponent');
 
       // when
-      serializeJSComponent(filePath).catch((error) => {
+      serializeJSComponent(component).catch((error) => {
         // then
         expect(error.message).toMatch(/No .*component .*found/i);
         done();
@@ -256,14 +257,22 @@ describe('serializeJSComponentProps', () => {
 
     it('rejects returned promise when there is no file at the given path', (done) => {
       // given
-      const filePath:string = getJavaScriptComponentPath('NonexistentFile');
+      const component:ComponentImplementationInfo = getImplementation('NonexistentFile');
 
       // when
-      serializeJSComponent(filePath).catch((error) => {
+      serializeJSComponent(component).catch((error) => {
         // then
         expect(error.message).toMatch(/No .*such .*file/i);
         done();
       });
     });
   });
+
+  function getImplementation(componentName:string):ComponentImplementationInfo {
+    return {
+      framework: 'reactjs',
+      lang: 'javascript',
+      path: getJavaScriptComponentPath(componentName),
+    };
+  }
 });
