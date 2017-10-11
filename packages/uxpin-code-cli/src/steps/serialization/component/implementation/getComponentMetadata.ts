@@ -1,17 +1,15 @@
-import { extname } from 'path';
+import { ComponentImplementationInfo } from '../../../discovery/component/ComponentInfo';
 import { getSummaryResultForInvalidComponent } from './getSummaryResultForInvalidComponent';
 import { ImplSerializationResult } from './ImplSerializationResult';
 import { serializeJSComponent } from './javascript/serializeJSComponent';
-import { serializeTSComponent } from './typescript/serializeTSComponentProps';
+import { serializeTSComponent } from './typescript/serializeTSComponent';
 
-export function getComponentMetadata(componentFileLocation:string):Promise<ImplSerializationResult> {
-  const TYPESCRIPT_COMPONENT_EXTENSION:string = '.tsx';
-  const extension:string = extname(componentFileLocation);
+export function getComponentMetadata(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   let promise:Promise<ImplSerializationResult>;
-  if (extension === TYPESCRIPT_COMPONENT_EXTENSION) {
-    promise = serializeTSComponent(componentFileLocation);
+  if (component.lang === 'typescript') {
+    promise = serializeTSComponent(component);
   } else {
-    promise = serializeJSComponent(componentFileLocation);
+    promise = serializeJSComponent(component);
   }
-  return promise.catch(getSummaryResultForInvalidComponent(componentFileLocation));
+  return promise.catch(getSummaryResultForInvalidComponent(component));
 }

@@ -17,7 +17,7 @@ export function getDesignSystemMetadata(componentInfos:ComponentInfo[]):Promise<
 }
 
 function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentDefinition>> {
-  return getComponentMetadata(info.implementation.path).then(({ result, warnings }) => ({
+  return getComponentMetadata(info.implementation).then(({ result, warnings }) => ({
     result: { ...info, ...result },
     warnings,
   }));

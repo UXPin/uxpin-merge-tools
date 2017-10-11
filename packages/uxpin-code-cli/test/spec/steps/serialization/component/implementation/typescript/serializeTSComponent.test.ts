@@ -1,13 +1,14 @@
+import { ComponentImplementationInfo } from '../../../../../../../src/steps/discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../../../../../src/steps/serialization/component/ComponentDefinition';
 // tslint:disable-next-line:max-line-length
-import { serializeTSComponent } from '../../../../../../../src/steps/serialization/component/implementation/typescript/serializeTSComponentProps';
+import { serializeTSComponent } from '../../../../../../../src/steps/serialization/component/implementation/typescript/serializeTSComponent';
 import { getTypeScriptComponentPath } from '../../../../../../utils/resources/getExampleComponentPath';
 
 describe('serializeTSComponent', () => {
   describe('providing array of objects describing all properties of the TypeScript component', () => {
     it('serializes functional component with primitive property types', () => {
       // given
-      const componentPath:string = getTypeScriptComponentPath('FunctionPrimitivesOnly');
+      const component:ComponentImplementationInfo = getImplementation('FunctionPrimitivesOnly');
       const expectedProps:ComponentMetadata = {
         name: 'FunctionPrimitivesOnly',
         properties: [
@@ -39,7 +40,7 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(componentPath).then((serializedProps) => {
+      return serializeTSComponent(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -49,7 +50,7 @@ describe('serializeTSComponent', () => {
     // @todo Implement support for union types in TypeScript
     xit('serializes class component with enum property types', () => {
       // given
-      const componentPath:string = getTypeScriptComponentPath('ClassEnumTypes');
+      const component:ComponentImplementationInfo = getImplementation('ClassEnumTypes');
       const expectedProps:ComponentMetadata = {
         name: 'ClassEnumTypes',
         properties: [
@@ -78,7 +79,7 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(componentPath).then((serializedProps) => {
+      return serializeTSComponent(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -88,7 +89,7 @@ describe('serializeTSComponent', () => {
     // @todo Implement support for default property values in TypeScript
     xit('serializes class component with default property values', () => {
       // given
-      const componentPath:string = getTypeScriptComponentPath('ClassWithDefaults');
+      const component:ComponentImplementationInfo = getImplementation('ClassWithDefaults');
       const expectedProps:ComponentMetadata = {
         name: 'ClassWithDefaults',
         properties: [
@@ -119,7 +120,7 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(componentPath).then((serializedProps) => {
+      return serializeTSComponent(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -129,7 +130,7 @@ describe('serializeTSComponent', () => {
     // @todo Implement support for shape property values in TypeScript
     xit('component with interface property type', () => {
       // given
-      const componentPath:string = getTypeScriptComponentPath('ClassInterfaceTypes');
+      const component:ComponentImplementationInfo = getImplementation('ClassInterfaceTypes');
       const expectedProps:ComponentMetadata = {
         name: 'ClassInterfaceTypes',
         properties: [
@@ -155,7 +156,7 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(componentPath).then((serializedProps) => {
+      return serializeTSComponent(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -164,10 +165,10 @@ describe('serializeTSComponent', () => {
 
     it('rejects returned promise when there is no React component in the given file', (done) => {
       // given
-      const filePath:string = getTypeScriptComponentPath('FileWithoutComponent');
+      const component:ComponentImplementationInfo = getImplementation('FileWithoutComponent');
 
       // when
-      serializeTSComponent(filePath).catch((error) => {
+      serializeTSComponent(component).catch((error) => {
         // then
         expect(error.message).toMatch(/No .*component .*found/i);
         done();
@@ -176,13 +177,21 @@ describe('serializeTSComponent', () => {
 
     it('rejects returned promise when there is no file at the given path', (done) => {
       // given
-      const filePath:string = getTypeScriptComponentPath('NonexistentFile');
+      const component:ComponentImplementationInfo = getImplementation('NonexistentFile');
 
       // when
-      serializeTSComponent(filePath).catch(() => {
+      serializeTSComponent(component).catch(() => {
         // then
         done();
       });
     });
   });
+
+  function getImplementation(componentName:string):ComponentImplementationInfo {
+    return {
+      framework: 'reactjs',
+      lang: 'typescript',
+      path: getTypeScriptComponentPath(componentName),
+    };
+  }
 });
