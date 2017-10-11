@@ -5,11 +5,18 @@ import { ComponentPropertyDefinition, PropertyTypeName } from '../ComponentPrope
 import { ImplSerializationResult } from '../ImplSerializationResult';
 import { convertTypeName } from './type/convertTypeName';
 
-export function serializeTSComponentProps(componentFileLocation:string):Promise<ImplSerializationResult> {
+export function serializeTSComponent(componentFileLocation:string):Promise<ImplSerializationResult> {
   return new Promise((resolve) => {
-    const result:ComponentPropertyDefinition[] = toPairs(getDefaultComponentFrom(componentFileLocation).props)
+    const componentDoc:ComponentDoc = getDefaultComponentFrom(componentFileLocation);
+    const result:ComponentPropertyDefinition[] = toPairs(componentDoc.props)
       .map(([propName, propType]) => propItemToPropDefinition(propName, propType));
-    resolve({ result, warnings: [] });
+    resolve({
+      result: {
+        name: componentDoc.displayName,
+        properties: result,
+      },
+      warnings: [],
+    });
   });
 }
 
