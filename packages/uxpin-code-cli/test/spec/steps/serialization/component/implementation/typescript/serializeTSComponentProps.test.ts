@@ -1,6 +1,6 @@
 // tslint:disable-next-line:max-line-length
-import { ComponentPropertyDefinition } from '../../../../../../../src/steps/serialization/component/properties/ComponentPropertyDefinition';
-import { serializeTSComponentProps } from '../../../../../../../src/steps/serialization/component/properties/typescript/serializeTSComponentProps';
+import { ComponentPropertyDefinition } from '../../../../../../../src/steps/serialization/component/implementation/ComponentPropertyDefinition';
+import { serializeTSComponentProps } from '../../../../../../../src/steps/serialization/component/implementation/typescript/serializeTSComponentProps';
 import { getTypeScriptComponentPath } from '../../../../../../utils/resources/getExampleComponentPath';
 
 describe('serializeTSComponentProps', () => {

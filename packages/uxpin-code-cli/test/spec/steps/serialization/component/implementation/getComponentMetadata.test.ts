@@ -1,6 +1,6 @@
 // tslint:disable-next-line:max-line-length
-import { ComponentPropertyDefinition } from '../../../../../../src/steps/serialization/component/properties/ComponentPropertyDefinition';
-import { serializeComponentProps } from '../../../../../../src/steps/serialization/component/properties/serializeComponentProps';
+import { ComponentPropertyDefinition } from '../../../../../../src/steps/serialization/component/implementation/ComponentPropertyDefinition';
+import { getComponentMetadata } from '../../../../../../src/steps/serialization/component/implementation/getComponentMetadata';
 import {
   getJavaScriptComponentPath,
   getTypeScriptComponentPath,
@@ -33,7 +33,7 @@ describe('serializeComponentProps – integration', () => {
       ];
 
       // when
-      return serializeComponentProps(componentPath).then((serializedProps) => {
+      return getComponentMetadata(componentPath).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -70,7 +70,7 @@ describe('serializeComponentProps – integration', () => {
       ];
 
       // when
-      return serializeComponentProps(componentPath).then((serializedProps) => {
+      return getComponentMetadata(componentPath).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);

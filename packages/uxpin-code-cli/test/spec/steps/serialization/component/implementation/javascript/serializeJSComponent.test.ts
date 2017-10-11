@@ -1,7 +1,7 @@
 import { WarningDetails } from '../../../../../../../src/common/warning/WarningDetails';
 // tslint:disable-next-line:max-line-length
-import { ComponentPropertyDefinition } from '../../../../../../../src/steps/serialization/component/properties/ComponentPropertyDefinition';
-import { serializeJSComponentProps } from '../../../../../../../src/steps/serialization/component/properties/javascript/serializeJSComponentProps';
+import { ComponentPropertyDefinition } from '../../../../../../../src/steps/serialization/component/implementation/ComponentPropertyDefinition';
+import { serializeJSComponent } from '../../../../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent';
 import { getJavaScriptComponentPath } from '../../../../../../utils/resources/getExampleComponentPath';
 
 describe('serializeJSComponentProps', () => {
@@ -37,7 +37,7 @@ describe('serializeJSComponentProps', () => {
       ];
 
       // when
-      return serializeJSComponentProps(componentPath).then((serializedProps) => {
+      return serializeJSComponent(componentPath).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -81,7 +81,7 @@ describe('serializeJSComponentProps', () => {
       ];
 
       // when
-      return serializeJSComponentProps(componentPath).then((serializedProps) => {
+      return serializeJSComponent(componentPath).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -118,7 +118,7 @@ describe('serializeJSComponentProps', () => {
       ];
 
       // when
-      return serializeJSComponentProps(componentPath).then((serializedProps) => {
+      return serializeJSComponent(componentPath).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -150,7 +150,7 @@ describe('serializeJSComponentProps', () => {
       ];
 
       // when
-      return serializeJSComponentProps(componentPath).then((serializedProps) => {
+      return serializeJSComponent(componentPath).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -188,7 +188,7 @@ describe('serializeJSComponentProps', () => {
       ];
 
       // when
-      return serializeJSComponentProps(componentPath).then((serializedProps) => {
+      return serializeJSComponent(componentPath).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
@@ -215,7 +215,7 @@ describe('serializeJSComponentProps', () => {
       };
 
       // when
-      return serializeJSComponentProps(componentPath).then((serializedProps) => {
+      return serializeJSComponent(componentPath).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings[0].message).toEqual(expectedWarning.message);
@@ -229,7 +229,7 @@ describe('serializeJSComponentProps', () => {
       const filePath:string = getJavaScriptComponentPath('FileWithoutComponent');
 
       // when
-      serializeJSComponentProps(filePath).catch((error) => {
+      serializeJSComponent(filePath).catch((error) => {
         // then
         expect(error.message).toMatch(/No .*component .*found/i);
         done();
@@ -241,7 +241,7 @@ describe('serializeJSComponentProps', () => {
       const filePath:string = getJavaScriptComponentPath('NonexistentFile');
 
       // when
-      serializeJSComponentProps(filePath).catch((error) => {
+      serializeJSComponent(filePath).catch((error) => {
         // then
         expect(error.message).toMatch(/No .*such .*file/i);
         done();

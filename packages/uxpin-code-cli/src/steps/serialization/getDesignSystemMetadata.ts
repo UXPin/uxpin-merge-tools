@@ -2,7 +2,7 @@ import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
 import { ComponentInfo } from '../discovery/component/ComponentInfo';
 import { ComponentDefinition } from './component/ComponentDefinition';
-import { serializeComponentProps } from './component/properties/serializeComponentProps';
+import { getComponentMetadata } from './component/implementation/getComponentMetadata';
 import { DesignSystemDefinition } from './DesignSystemDefinition';
 
 export function getDesignSystemMetadata(componentInfos:ComponentInfo[]):Promise<Warned<DesignSystemDefinition>> {
@@ -17,8 +17,8 @@ export function getDesignSystemMetadata(componentInfos:ComponentInfo[]):Promise<
 }
 
 function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentDefinition>> {
-  return serializeComponentProps(info.implementation.path).then(({ result, warnings }) => ({
-    result: { ...info, properties: result, name: '' },
+  return getComponentMetadata(info.implementation.path).then(({ result, warnings }) => ({
+    result: { ...info, ...result },
     warnings,
   }));
 }
