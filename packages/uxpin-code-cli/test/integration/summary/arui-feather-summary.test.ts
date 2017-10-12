@@ -94,7 +94,7 @@ Header
 
 Heading
     📜 documentation: ✔
-    💡 examples: ✘
+    💡 examples: ✔
 
 Icon
     📜 documentation: ✔
