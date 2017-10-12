@@ -1,4 +1,5 @@
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
+import { getComponentNameFromPath } from '../name/getComponentNameFromPath';
 import { ImplSerializationResult } from './ImplSerializationResult';
 
 export function getSummaryResultForInvalidComponent(sourcePath:string):(e:Error) => ImplSerializationResult {
@@ -8,6 +9,6 @@ export function getSummaryResultForInvalidComponent(sourcePath:string):(e:Error)
       originalError,
       sourcePath,
     };
-    return { result: { name: '', properties: [] }, warnings: [warning] };
+    return { result: { name: getComponentNameFromPath(sourcePath), properties: [] }, warnings: [warning] };
   };
 }
