@@ -9,7 +9,7 @@ export function getComponentInfo(paths:ProjectPaths, componentDirName:string):Pr
   const componentDirPath:string = join(paths.componentsDirPath, componentDirName);
   const componentPaths:ComponentPaths = { ...paths, componentDirPath, componentDirName };
   return getBasics(componentPaths)
-    .then(fillDocumentation(componentPaths))
+    .then(thunkFillDocumentation(componentPaths))
     .catch(() => null);
 }
 
@@ -20,7 +20,7 @@ function getBasics(componentPaths:ComponentPaths):Promise<ComponentInfo> {
   }));
 }
 
-function fillDocumentation(paths:ComponentPaths):(info:ComponentInfo) => Promise<ComponentInfo> {
+function thunkFillDocumentation(paths:ComponentPaths):(info:ComponentInfo) => Promise<ComponentInfo> {
   return (info:ComponentInfo) => getDocumentationInfo(paths)
     .then((documentation) => ({ ...info, documentation }))
     .catch(() => info);

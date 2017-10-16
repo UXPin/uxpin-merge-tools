@@ -21,7 +21,7 @@ export function runProgram(program:ProgramArgs):Promise<any> {
   };
 
   const steps:Step[] = [
-    { exec: buildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
+    { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
     { exec: printDump, shouldRun: dump },
     { exec: printSummary, shouldRun: !dump },
     { exec: printSerializationWarnings, shouldRun: !dump },
@@ -31,12 +31,12 @@ export function runProgram(program:ProgramArgs):Promise<any> {
 
   return getDesignSystemComponentInfos(cwd)
     .then(getDesignSystemMetadata)
-    .then((designSystem:DSMetadata) => pReduce(stepFunctions, (d, step) => step(designSystem), designSystem))
+    .then((designSystem:DSMetadata) => pReduce(stepFunctions, (ds, step) => step(designSystem), designSystem))
     .catch(logError);
 
 }
 
-function buildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
+function thunkBuildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
   return ({ result: { components } }) => buildDesignSystem(components, buildOptions);
 }
 
