@@ -1,3 +1,4 @@
+import safe = require('colors/safe');
 import { writeFile } from 'fs';
 import * as http from 'http';
 import { createServer, Options } from 'http-server';
@@ -21,6 +22,7 @@ export function startServer():Promise<void> {
   return writeStaticTemplateFile()
     .then(() => {
       const options:Options = {
+        logFn: (req, res, err) => console.log(getLogString(req, res, err)),
         root: TEMP_DIR_PATH,
       };
       const server:http.Server|https.Server = createServer(options);
@@ -40,4 +42,14 @@ function writeStaticTemplateFile():Promise<string> {
       resolve(indexPath);
     });
   });
+}
+
+function getLogString(req:http.IncomingMessage, res:http.ServerResponse, err:Error):string {
+  const reqString:string = `${req.method} ${req.url} ${res.statusCode}`;
+
+  if (err) {
+    return safe.red(`${reqString} ${err.message}`);
+  }
+
+  return safe.green(reqString);
 }
