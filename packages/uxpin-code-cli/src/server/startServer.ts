@@ -3,6 +3,7 @@ import { writeFile } from 'fs';
 import * as http from 'http';
 import { createServer, Options } from 'http-server';
 import * as https from 'https';
+import * as opn from 'opn';
 
 import { TEMP_DIR_PATH } from '../steps/building/config/getConfig';
 
@@ -16,6 +17,7 @@ const INDEX_HTML_TEMPLATE:string = `<!DOCTYPE html>
     It works!
 </body>
 </html>`;
+
 const PORT:number = 8080;
 
 export function startServer():Promise<void> {
@@ -26,9 +28,11 @@ export function startServer():Promise<void> {
         root: TEMP_DIR_PATH,
       };
       const server:http.Server|https.Server = createServer(options);
-      server.listen(PORT);
+      server.listen(PORT, () => console.log('started!'));
     })
-    .then(() => console.log('started!'));
+    .then(() => {
+      opn(`http://127.0.0.1:${PORT}/`);
+    });
 }
 
 function writeStaticTemplateFile():Promise<string> {
