@@ -10,7 +10,16 @@ program
   .option('-s, --summary', 'Show only design system summary without building it')
   .option('--webpack-config <path>', 'path to a custom webpack config, relative to the project root')
   .option('--wrapper <path>', 'path to a custom component wrapper implementation, relative to the project root')
+  .option('--cwd <path>', 'working directory: path to root of the DS repository');
+
+program
+  .command('server')
+  .description('Start local web server and display the list of design system components')
+  .option('--webpack-config <path>', 'path to a custom webpack config, relative to the project root')
+  .option('--wrapper <path>', 'path to a custom component wrapper implementation, relative to the project root')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
-  .parse(process.argv);
+  .action(() => console.log('starting server...'));
+
+program.parse(process.argv);
 
 return runProgram(program);

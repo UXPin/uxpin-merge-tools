@@ -1,5 +1,7 @@
 import pReduce = require('p-reduce');
+
 import { stringifyWarnings } from '../common/warning/stringifyWarnings';
+import { startServer } from '../server/startServer';
 import { buildDesignSystem } from '../steps/building/buildDesignSystem';
 import { BuildOptions } from '../steps/building/BuildOptions';
 import { ComponentInfo } from '../steps/discovery/component/ComponentInfo';
@@ -12,7 +14,9 @@ import { getProgramArgs } from './getProgramArgs';
 import { ProgramArgs } from './ProgramArgs';
 
 export function runProgram(program:ProgramArgs):Promise<any> {
-  const { dump, summary, webpackConfig, wrapper, cwd } = getProgramArgs(program);
+  const { args, dump, summary, webpackConfig, wrapper, cwd } = getProgramArgs(program);
+  const isServer:boolean = !!(args && args.find((arg) => typeof arg !== 'string' && arg.name() === 'server'));
+
   const buildOptions:BuildOptions = {
     projectRoot: cwd,
     webpackConfigPath: webpackConfig,
@@ -21,9 +25,10 @@ export function runProgram(program:ProgramArgs):Promise<any> {
 
   const steps:Step[] = [
     { exec: (infos) => buildDesignSystem(infos, buildOptions), shouldRun: !dump && !summary },
-    { exec: printDump, shouldRun: dump },
-    { exec: printSummary, shouldRun: !dump },
-    { exec: printSerializationWarnings, shouldRun: !dump },
+    { exec: printDump, shouldRun: dump && !isServer },
+    { exec: printSummary, shouldRun: !dump && !isServer },
+    { exec: printSerializationWarnings, shouldRun: !dump && !isServer },
+    { exec: startServer, shouldRun: isServer },
   ];
 
   const stepFunctions:StepExecutor[] = steps.filter((step) => step.shouldRun).map((step) => tapPromise(step.exec));
