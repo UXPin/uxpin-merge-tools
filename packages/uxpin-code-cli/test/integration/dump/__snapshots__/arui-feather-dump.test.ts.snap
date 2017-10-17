@@ -10,10 +10,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/amount/amount.jsx'
 			},
-			name: 'amount',
 			documentation: {
 				path: 'src/amount/README.md'
 			},
+			name: 'Amount',
 			properties: [
 				{
 					description: '',
@@ -166,10 +166,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/app-content/app-content.jsx'
 			},
-			name: 'app-content',
 			documentation: {
 				path: 'src/app-content/README.md'
 			},
+			name: 'AppContent',
 			properties: [
 				{
 					description: 'Дочерние элементы \`AppContent\`',
@@ -250,10 +250,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/app-menu/app-menu.jsx'
 			},
-			name: 'app-menu',
 			documentation: {
 				path: 'src/app-menu/README.md'
 			},
+			name: 'AppMenu',
 			properties: [
 				{
 					description: 'Дочерние элементы \`AppMenu\`',
@@ -334,10 +334,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/app-title/app-title.jsx'
 			},
-			name: 'app-title',
 			documentation: {
 				path: 'src/app-title/README.md'
 			},
+			name: 'AppTitle',
 			properties: [
 				{
 					description: 'Дочерние элементы \`AppTitle\`',
@@ -418,10 +418,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/attach/attach.jsx'
 			},
-			name: 'attach',
 			documentation: {
 				path: 'src/attach/README.md'
 			},
+			name: 'Attach',
 			properties: [
 				{
 					description: 'Содержимое поля ввода, указанное по умолчанию. Принимает массив объектов типа File или null.',
@@ -946,10 +946,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/button/button.jsx'
 			},
-			name: 'button',
 			documentation: {
 				path: 'src/button/README.md'
 			},
+			name: 'Button',
 			properties: [
 				{
 					description: 'Текст кнопки',
@@ -1445,10 +1445,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/calendar/calendar.jsx'
 			},
-			name: 'calendar',
 			documentation: {
 				path: 'src/calendar/README.md'
 			},
+			name: 'Calendar',
 			properties: [
 				{
 					description: 'Выбранная дата, в формате unix timestamp',
@@ -1736,10 +1736,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/calendar-input/calendar-input.jsx'
 			},
-			name: 'calendar-input',
 			documentation: {
 				path: 'src/calendar-input/README.md'
 			},
+			name: 'CalendarInput',
 			properties: [
 				{
 					description: 'Содержимое поля ввода',
@@ -2343,10 +2343,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/card-input/card-input.jsx'
 			},
-			name: 'card-input',
 			documentation: {
 				path: 'src/card-input/README.md'
 			},
+			name: 'CardInput',
 			properties: [
 				{
 					description: 'Подсказка в текстовом поле',
@@ -2374,10 +2374,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/checkbox/checkbox.jsx'
 			},
-			name: 'checkbox',
 			documentation: {
 				path: 'src/checkbox/README.md'
 			},
+			name: 'Checkbox',
 			properties: [
 				{
 					description: 'Текст подписи к чекбоксу',
@@ -2647,10 +2647,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/checkbox-group/checkbox-group.jsx'
 			},
-			name: 'checkbox-group',
 			documentation: {
 				path: 'src/checkbox-group/README.md'
 			},
+			name: 'CheckboxGroup',
 			properties: [
 				{
 					description: 'Тип компонента',
@@ -2861,10 +2861,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/collapse/collapse.jsx'
 			},
-			name: 'collapse',
 			documentation: {
 				path: 'src/collapse/README.md'
 			},
+			name: 'Collapse',
 			properties: [
 				{
 					description: 'Управление состоянием \`expand\`/\`collapse\` компонента',
@@ -2991,10 +2991,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/copyright/copyright.jsx'
 			},
-			name: 'copyright',
 			documentation: {
 				path: 'src/copyright/README.md'
 			},
+			name: 'Copyright',
 			properties: [
 				{
 					description: 'Дочерние элементы \`Copyright\`, заменяют собой стандартный текст copyright\\\\'а',
@@ -3091,10 +3091,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/dropdown/dropdown.jsx'
 			},
-			name: 'dropdown',
 			documentation: {
 				path: 'src/dropdown/README.md'
 			},
+			name: 'Dropdown',
 			properties: [
 				{
 					description: 'Тип компонента',
@@ -3665,10 +3665,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/email-input/email-input.jsx'
 			},
-			name: 'email-input',
 			documentation: {
 				path: 'src/email-input/README.md'
 			},
+			name: 'EmailInput',
 			properties: [],
 			examples: [
 				{
@@ -3683,7 +3683,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/error-page/error-page.jsx'
 			},
-			name: 'error-page',
+			name: 'ErrorPage',
 			properties: [
 				{
 					description: 'Заголовок ошибки',
@@ -3749,10 +3749,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/footer/footer.jsx'
 			},
-			name: 'footer',
 			documentation: {
 				path: 'src/footer/README.md'
 			},
+			name: 'Footer',
 			properties: [
 				{
 					description: 'Меню в подвале',
@@ -3874,10 +3874,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/form/form.jsx'
 			},
-			name: 'form',
 			documentation: {
 				path: 'src/form/README.md'
 			},
+			name: 'Form',
 			properties: [
 				{
 					description: 'Способ кодирования данных формы при их отправке',
@@ -4157,10 +4157,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/form-field/form-field.jsx'
 			},
-			name: 'form-field',
 			documentation: {
 				path: 'src/form-field/README.md'
 			},
+			name: 'FormField',
 			properties: [
 				{
 					description: 'Дочерние элементы \`FormField\`',
@@ -4305,10 +4305,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/header/header.jsx'
 			},
-			name: 'header',
 			documentation: {
 				path: 'src/header/README.md'
 			},
+			name: 'Header',
 			properties: [
 				{
 					description: '',
@@ -4454,10 +4454,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/heading/heading.jsx'
 			},
-			name: 'heading',
 			documentation: {
 				path: 'src/heading/README.md'
 			},
+			name: 'Heading',
 			properties: [
 				{
 					description: 'Дочерние элементы \`Heading\`',
@@ -4581,10 +4581,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/icon/icon.jsx'
 			},
-			name: 'icon',
 			documentation: {
 				path: 'src/icon/README.md'
 			},
+			name: 'Icon',
 			properties: [
 				{
 					description: 'Тип иконки',
@@ -4798,10 +4798,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/input/input.jsx'
 			},
-			name: 'input',
 			documentation: {
 				path: 'src/input/README.md'
 			},
+			name: 'Input',
 			properties: [
 				{
 					description: 'Тип поля.\\\\nВнимание, тип \\\\'number\\\\' не умеет работать с масками, в том числе с \\\\'selectionStart\\\\' и \\\\'selectionEnd\\\\'.\\\\nПодробнее: http://w3c.github.io/html/sec-forms.html#does-not-apply',
@@ -5341,10 +5341,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/input-autocomplete/input-autocomplete.jsx'
 			},
-			name: 'input-autocomplete',
 			documentation: {
 				path: 'src/input-autocomplete/README.md'
 			},
+			name: 'InputAutocomplete',
 			properties: [
 				{
 					description: 'Список вариантов выбора',
@@ -5633,10 +5633,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/input-group/input-group.jsx'
 			},
-			name: 'input-group',
 			documentation: {
 				path: 'src/input-group/README.md'
 			},
+			name: 'InputGroup',
 			properties: [
 				{
 					description: 'Управление возможностью компонента занимать всю ширину родителя',
@@ -5748,7 +5748,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/isolated-container/isolated-container.jsx'
 			},
-			name: 'isolated-container',
+			name: 'IsolatedContainer',
 			properties: [],
 			examples: []
 		},
@@ -5759,10 +5759,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/label/label.jsx'
 			},
-			name: 'label',
 			documentation: {
 				path: 'src/label/README.md'
 			},
+			name: 'Label',
 			properties: [
 				{
 					description: 'Размер компонента',
@@ -5898,10 +5898,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/link/link.jsx'
 			},
-			name: 'link',
 			documentation: {
 				path: 'src/link/README.md'
 			},
+			name: 'Link',
 			properties: [
 				{
 					description: 'Иконка ссылки',
@@ -6196,10 +6196,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/list/list.jsx'
 			},
-			name: 'list',
 			documentation: {
 				path: 'src/list/README.md'
 			},
+			name: 'List',
 			properties: [
 				{
 					description: 'Список элементов',
@@ -6309,7 +6309,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/masked-input/masked-input.jsx'
 			},
-			name: 'masked-input',
+			name: 'MaskedInput',
 			properties: [
 				{
 					description: 'Маска для поля ввода, использует формат https://github.com/insin/inputmask-core',
@@ -6357,10 +6357,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/menu/menu.jsx'
 			},
-			name: 'menu',
 			documentation: {
 				path: 'src/menu/README.md'
 			},
+			name: 'Menu',
 			properties: [
 				{
 					description: 'Тип расположения меню: \\\\'horizontal\\\\'',
@@ -6776,10 +6776,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/menu-item/menu-item.jsx'
 			},
-			name: 'menu-item',
 			documentation: {
 				path: 'src/menu-item/README.md'
 			},
+			name: 'MenuItem',
 			properties: [
 				{
 					description: 'Тип элемента меню',
@@ -7127,10 +7127,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/money-input/money-input.jsx'
 			},
-			name: 'money-input',
 			documentation: {
 				path: 'src/money-input/README.md'
 			},
+			name: 'MoneyInput',
 			properties: [
 				{
 					description: 'Максимально допустимая длина значения до запятой',
@@ -7170,7 +7170,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/mq/mq.jsx'
 			},
-			name: 'mq',
+			name: 'Mq',
 			properties: [
 				{
 					description: 'Медиа запрос',
@@ -7234,10 +7234,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/notification/notification.jsx'
 			},
-			name: 'notification',
 			documentation: {
 				path: 'src/notification/README.md'
 			},
+			name: 'Notification',
 			properties: [
 				{
 					description: 'Тип компонента',
@@ -7514,10 +7514,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/page/page.jsx'
 			},
-			name: 'page',
 			documentation: {
 				path: 'src/page/README.md'
 			},
+			name: 'Page',
 			properties: [
 				{
 					description: 'Шапка страницы',
@@ -7620,10 +7620,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/paragraph/paragraph.jsx'
 			},
-			name: 'paragraph',
 			documentation: {
 				path: 'src/paragraph/README.md'
 			},
+			name: 'Paragraph',
 			properties: [
 				{
 					description: 'Тип параграфа',
@@ -7741,10 +7741,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/phone-input/phone-input.jsx'
 			},
-			name: 'phone-input',
 			documentation: {
 				path: 'src/phone-input/README.md'
 			},
+			name: 'PhoneInput',
 			properties: [
 				{
 					description: 'Подсказка в текстовом поле',
@@ -7772,7 +7772,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/plate/plate.jsx'
 			},
-			name: 'plate',
+			name: 'Plate',
 			properties: [
 				{
 					description: 'Управление наличием закрывающего крестика',
@@ -7892,10 +7892,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/popup/popup.jsx'
 			},
-			name: 'popup',
 			documentation: {
 				path: 'src/popup/README.md'
 			},
+			name: 'Popup',
 			properties: [
 				{
 					description: 'Дополнительный класс',
@@ -8333,7 +8333,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/popup-container-provider/popup-container-provider.jsx'
 			},
-			name: 'popup-container-provider',
+			name: 'PopupContainerProvider',
 			properties: [
 				{
 					description: 'Дочерние элементы контейнера',
@@ -8423,10 +8423,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/popup-header/popup-header.jsx'
 			},
-			name: 'popup-header',
 			documentation: {
 				path: 'src/popup-header/README.md'
 			},
+			name: 'PopupHeader',
 			properties: [
 				{
 					description: 'Размер компонента',
@@ -8536,10 +8536,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/radio/radio.jsx'
 			},
-			name: 'radio',
 			documentation: {
 				path: 'src/radio/README.md'
 			},
+			name: 'Radio',
 			properties: [
 				{
 					description: 'Тип',
@@ -8806,10 +8806,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/radio-group/radio-group.jsx'
 			},
-			name: 'radio-group',
 			documentation: {
 				path: 'src/radio-group/README.md'
 			},
+			name: 'RadioGroup',
 			properties: [
 				{
 					description: 'Тип группы кнопок',
@@ -9047,7 +9047,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/render-in-container/render-in-container.jsx'
 			},
-			name: 'render-in-container',
+			name: 'RenderInContainer',
 			properties: [
 				{
 					description: 'Дочерние элементы контейнера',
@@ -9122,7 +9122,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/resize-sensor/resize-sensor.jsx'
 			},
-			name: 'resize-sensor',
+			name: 'ResizeSensor',
 			properties: [
 				{
 					description: 'Callback на изменение размера родителя',
@@ -9143,10 +9143,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/select/select.jsx'
 			},
-			name: 'select',
 			documentation: {
 				path: 'src/select/README.md'
 			},
+			name: 'Select',
 			properties: [
 				{
 					description: 'Дополнительный класс',
@@ -9767,10 +9767,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/sidebar/sidebar.jsx'
 			},
-			name: 'sidebar',
 			documentation: {
 				path: 'src/sidebar/README.md'
 			},
+			name: 'Sidebar',
 			properties: [
 				{
 					description: 'Тема компонента',
@@ -9885,10 +9885,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/slide-down/slide-down.jsx'
 			},
-			name: 'slide-down',
 			documentation: {
 				path: 'src/slide-down/README.md'
 			},
+			name: 'SlideDown',
 			properties: [
 				{
 					description: 'Управление состоянием expand/collapse компонента',
@@ -9966,10 +9966,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/spin/spin.jsx'
 			},
-			name: 'spin',
 			documentation: {
 				path: 'src/spin/README.md'
 			},
+			name: 'Spin',
 			properties: [
 				{
 					description: 'Управление видимостью компонента',
@@ -10080,10 +10080,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/support/support.jsx'
 			},
-			name: 'support',
 			documentation: {
 				path: 'src/support/README.md'
 			},
+			name: 'Support',
 			properties: [
 				{
 					description: 'Название города',
@@ -10218,10 +10218,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/textarea/textarea.jsx'
 			},
-			name: 'textarea',
 			documentation: {
 				path: 'src/textarea/README.md'
 			},
+			name: 'Textarea',
 			properties: [
 				{
 					description: 'Дополнительный класс',
@@ -10569,7 +10569,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/theme-provider/theme-provider.jsx'
 			},
-			name: 'theme-provider',
+			name: 'ThemeProvider',
 			properties: [
 				{
 					description: 'Дочерний элемент \`ThemeProvider\`',
@@ -10640,10 +10640,10 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				lang: 'javascript',
 				path: 'src/user/user.jsx'
 			},
-			name: 'user',
 			documentation: {
 				path: 'src/user/README.md'
 			},
+			name: 'User',
 			properties: [
 				{
 					description: 'Дополнительный класс',

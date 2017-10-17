@@ -10,10 +10,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/AccountConnection/AccountConnection.tsx'
 			},
-			name: 'AccountConnection',
 			documentation: {
 				path: 'src/components/AccountConnection/README.md'
 			},
+			name: 'AccountConnection',
 			properties: [
 				{
 					description: '',
@@ -92,10 +92,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/ActionList/ActionList.tsx'
 			},
-			name: 'ActionList',
 			documentation: {
 				path: 'src/components/ActionList/README.md'
 			},
+			name: 'ActionList',
 			properties: [
 				{
 					description: '',
@@ -135,10 +135,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Avatar/Avatar.tsx'
 			},
-			name: 'Avatar',
 			documentation: {
 				path: 'src/components/Avatar/README.md'
 			},
+			name: 'Avatar',
 			properties: [
 				{
 					description: '',
@@ -208,10 +208,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Badge/Badge.tsx'
 			},
-			name: 'Badge',
 			documentation: {
 				path: 'src/components/Badge/README.md'
 			},
+			name: 'Badge',
 			properties: [
 				{
 					description: '',
@@ -266,10 +266,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Banner/Banner.tsx'
 			},
-			name: 'Banner',
 			documentation: {
 				path: 'src/components/Banner/README.md'
 			},
+			name: 'Banner',
 			properties: [
 				{
 					description: '',
@@ -396,10 +396,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Button/Button.tsx'
 			},
-			name: 'Button',
 			documentation: {
 				path: 'src/components/Button/README.md'
 			},
+			name: 'Button',
 			properties: [
 				{
 					description: '',
@@ -604,10 +604,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/ButtonGroup/ButtonGroup.tsx'
 			},
-			name: 'ButtonGroup',
 			documentation: {
 				path: 'src/components/ButtonGroup/README.md'
 			},
+			name: 'ButtonGroup',
 			properties: [
 				{
 					description: '',
@@ -644,10 +644,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/CalloutCard/CalloutCard.tsx'
 			},
-			name: 'CalloutCard',
 			documentation: {
 				path: 'src/components/CalloutCard/README.md'
 			},
+			name: 'CalloutCard',
 			properties: [
 				{
 					description: '',
@@ -711,10 +711,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Caption/Caption.tsx'
 			},
-			name: 'Caption',
 			documentation: {
 				path: 'src/components/Caption/README.md'
 			},
+			name: 'Caption',
 			properties: [
 				{
 					description: '',
@@ -739,10 +739,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Card/Card.tsx'
 			},
-			name: 'Card',
 			documentation: {
 				path: 'src/components/Card/README.md'
 			},
+			name: 'Card',
 			properties: [
 				{
 					description: '',
@@ -842,10 +842,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Checkbox/Checkbox.tsx'
 			},
-			name: 'Checkbox',
 			documentation: {
 				path: 'src/components/Checkbox/README.md'
 			},
+			name: 'Checkbox',
 			properties: [
 				{
 					description: '',
@@ -969,10 +969,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Choice/Choice.tsx'
 			},
-			name: 'Choice',
 			documentation: {
 				path: 'src/components/Choice/README.md'
 			},
+			name: 'Choice',
 			properties: [
 				{
 					description: '',
@@ -1038,10 +1038,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/ChoiceList/ChoiceList.tsx'
 			},
-			name: 'ChoiceList',
 			documentation: {
 				path: 'src/components/ChoiceList/README.md'
 			},
+			name: 'ChoiceList',
 			properties: [
 				{
 					description: '',
@@ -1123,10 +1123,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Collapsible/Collapsible.tsx'
 			},
-			name: 'Collapsible',
 			documentation: {
 				path: 'src/components/Collapsible/README.md'
 			},
+			name: 'Collapsible',
 			properties: [
 				{
 					description: '',
@@ -1160,10 +1160,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/ColorPicker/ColorPicker.tsx'
 			},
-			name: 'ColorPicker',
 			documentation: {
 				path: 'src/components/ColorPicker/README.md'
 			},
+			name: 'ColorPicker',
 			properties: [
 				{
 					description: '',
@@ -1257,10 +1257,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/DatePicker/DatePicker.tsx'
 			},
-			name: 'DatePicker',
 			documentation: {
 				path: 'src/components/DatePicker/README.md'
 			},
+			name: 'DatePicker',
 			properties: [
 				{
 					description: '',
@@ -1357,10 +1357,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/DescriptionList/DescriptionList.tsx'
 			},
-			name: 'DescriptionList',
 			documentation: {
 				path: 'src/components/DescriptionList/README.md'
 			},
+			name: 'DescriptionList',
 			properties: [
 				{
 					description: '',
@@ -1385,10 +1385,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/DisplayText/DisplayText.tsx'
 			},
-			name: 'DisplayText',
 			documentation: {
 				path: 'src/components/DisplayText/README.md'
 			},
+			name: 'DisplayText',
 			properties: [
 				{
 					description: '',
@@ -1437,10 +1437,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/EmptyState/EmptyState.tsx'
 			},
-			name: 'EmptyState',
 			documentation: {
 				path: 'src/components/EmptyState/README.md'
 			},
+			name: 'EmptyState',
 			properties: [
 				{
 					description: '',
@@ -1576,10 +1576,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/FooterHelp/FooterHelp.tsx'
 			},
-			name: 'FooterHelp',
 			documentation: {
 				path: 'src/components/FooterHelp/README.md'
 			},
+			name: 'FooterHelp',
 			properties: [
 				{
 					description: '',
@@ -1604,10 +1604,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/FormLayout/FormLayout.tsx'
 			},
-			name: 'FormLayout',
 			documentation: {
 				path: 'src/components/FormLayout/README.md'
 			},
+			name: 'FormLayout',
 			properties: [
 				{
 					description: '',
@@ -1638,10 +1638,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Heading/Heading.tsx'
 			},
-			name: 'Heading',
 			documentation: {
 				path: 'src/components/Heading/README.md'
 			},
+			name: 'Heading',
 			properties: [
 				{
 					description: '',
@@ -1675,10 +1675,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Icon/Icon.tsx'
 			},
-			name: 'Icon',
 			documentation: {
 				path: 'src/components/Icon/README.md'
 			},
+			name: 'Icon',
 			properties: [
 				{
 					description: '',
@@ -4334,10 +4334,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/KeyboardKey/KeyboardKey.tsx'
 			},
-			name: 'KeyboardKey',
 			documentation: {
 				path: 'src/components/KeyboardKey/README.md'
 			},
+			name: 'KeyboardKey',
 			properties: [
 				{
 					description: '',
@@ -4401,7 +4401,7 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Label/Label.tsx'
 			},
-			name: 'Label',
+			name: 'labelID',
 			properties: [
 				{
 					description: 'Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length.\\\\nThe padding is applied from the start (left) of the current string.',
@@ -5172,10 +5172,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Layout/Layout.tsx'
 			},
-			name: 'Layout',
 			documentation: {
 				path: 'src/components/Layout/README.md'
 			},
+			name: 'Layout',
 			properties: [
 				{
 					description: '',
@@ -5215,10 +5215,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Link/Link.tsx'
 			},
-			name: 'Link',
 			documentation: {
 				path: 'src/components/Link/README.md'
 			},
+			name: 'Link',
 			properties: [
 				{
 					description: '',
@@ -5270,10 +5270,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/List/List.tsx'
 			},
-			name: 'List',
 			documentation: {
 				path: 'src/components/List/README.md'
 			},
+			name: 'List',
 			properties: [
 				{
 					description: '',
@@ -5310,10 +5310,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Page/Page.tsx'
 			},
-			name: 'Page',
 			documentation: {
 				path: 'src/components/Page/README.md'
 			},
+			name: 'Page',
 			properties: [
 				{
 					description: '',
@@ -5434,10 +5434,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/PageActions/PageActions.tsx'
 			},
-			name: 'PageActions',
 			documentation: {
 				path: 'src/components/PageActions/README.md'
 			},
+			name: 'PageActions',
 			properties: [
 				{
 					description: '',
@@ -5474,10 +5474,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Pagination/Pagination.tsx'
 			},
-			name: 'Pagination',
 			documentation: {
 				path: 'src/components/Pagination/README.md'
 			},
+			name: 'Pagination',
 			properties: [
 				{
 					description: '',
@@ -5556,10 +5556,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Popover/Popover.tsx'
 			},
-			name: 'Popover',
 			documentation: {
 				path: 'src/components/Popover/README.md'
 			},
+			name: 'Popover',
 			properties: [
 				{
 					description: '',
@@ -5737,10 +5737,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/RadioButton/RadioButton.tsx'
 			},
-			name: 'RadioButton',
 			documentation: {
 				path: 'src/components/RadioButton/README.md'
 			},
+			name: 'RadioButton',
 			properties: [
 				{
 					description: '',
@@ -5855,10 +5855,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/ResourceList/ResourceList.tsx'
 			},
-			name: 'ResourceList',
 			documentation: {
 				path: 'src/components/ResourceList/README.md'
 			},
+			name: 'ResourceList',
 			properties: [
 				{
 					description: '',
@@ -5907,10 +5907,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Scrollable/Scrollable.tsx'
 			},
-			name: 'Scrollable',
 			documentation: {
 				path: 'src/components/Scrollable/README.md'
 			},
+			name: 'Scrollable',
 			properties: [
 				{
 					description: '',
@@ -8527,10 +8527,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Select/Select.tsx'
 			},
-			name: 'Select',
 			documentation: {
 				path: 'src/components/Select/README.md'
 			},
+			name: 'Select',
 			properties: [
 				{
 					description: '',
@@ -8684,10 +8684,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/SettingAction/SettingAction.tsx'
 			},
-			name: 'SettingAction',
 			documentation: {
 				path: 'src/components/SettingAction/README.md'
 			},
+			name: 'SettingAction',
 			properties: [
 				{
 					description: '',
@@ -8717,10 +8717,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/SettingToggle/SettingToggle.tsx'
 			},
-			name: 'SettingToggle',
 			documentation: {
 				path: 'src/components/SettingToggle/README.md'
 			},
+			name: 'SettingToggle',
 			properties: [
 				{
 					description: '',
@@ -8763,10 +8763,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Stack/Stack.tsx'
 			},
-			name: 'Stack',
 			documentation: {
 				path: 'src/components/Stack/README.md'
 			},
+			name: 'Stack',
 			properties: [
 				{
 					description: '',
@@ -8842,10 +8842,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Subheading/Subheading.tsx'
 			},
-			name: 'Subheading',
 			documentation: {
 				path: 'src/components/Subheading/README.md'
 			},
+			name: 'Subheading',
 			properties: [
 				{
 					description: '',
@@ -8879,10 +8879,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Tabs/Tabs.tsx'
 			},
-			name: 'Tabs',
 			documentation: {
 				path: 'src/components/Tabs/README.md'
 			},
+			name: 'Tabs',
 			properties: [
 				{
 					description: '',
@@ -8946,10 +8946,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Tag/Tag.tsx'
 			},
-			name: 'Tag',
 			documentation: {
 				path: 'src/components/Tag/README.md'
 			},
+			name: 'Tag',
 			properties: [
 				{
 					description: '',
@@ -9004,10 +9004,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/TextField/TextField.tsx'
 			},
-			name: 'TextField',
 			documentation: {
 				path: 'src/components/TextField/README.md'
 			},
+			name: 'TextField',
 			properties: [
 				{
 					description: '',
@@ -9326,10 +9326,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/TextStyle/TextStyle.tsx'
 			},
-			name: 'TextStyle',
 			documentation: {
 				path: 'src/components/TextStyle/README.md'
 			},
+			name: 'TextStyle',
 			properties: [
 				{
 					description: '',
@@ -9359,10 +9359,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Thumbnail/Thumbnail.tsx'
 			},
-			name: 'Thumbnail',
 			documentation: {
 				path: 'src/components/Thumbnail/README.md'
 			},
+			name: 'Thumbnail',
 			properties: [
 				{
 					description: '',
@@ -9411,10 +9411,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/Tooltip/Tooltip.tsx'
 			},
-			name: 'Tooltip',
 			documentation: {
 				path: 'src/components/Tooltip/README.md'
 			},
+			name: 'Tooltip',
 			properties: [
 				{
 					description: '',
@@ -12088,10 +12088,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				lang: 'typescript',
 				path: 'src/components/VisuallyHidden/VisuallyHidden.tsx'
 			},
-			name: 'VisuallyHidden',
 			documentation: {
 				path: 'src/components/VisuallyHidden/README.md'
 			},
+			name: 'VisuallyHidden',
 			properties: [
 				{
 					description: '',

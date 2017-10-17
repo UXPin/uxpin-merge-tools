@@ -1,5 +1,4 @@
 import { parse, Syntax, Token } from 'markdown-to-ast';
-
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { readFile } from '../../../../utils/fs/readFile';
 import { ExamplesSerializationResult } from './ExamplesSerializationResult';
@@ -14,7 +13,7 @@ export function serializeExamples(filePath:string):Promise<ExamplesSerialization
       .filter((node) => node.type === Syntax.CodeBlock && isSupportedLang(node.lang) && node.value)
       .map((codeBlock:TokenWithValue) => ({ code: codeBlock.value })))
     .then((examples) => ({ result: examples, warnings: [] }))
-    .catch(getResultForInvalidExamples(filePath));
+    .catch(thunkGetResultForInvalidExamples(filePath));
 }
 
 function isSupportedLang(lang?:string):boolean {
@@ -28,7 +27,7 @@ function isSupportedLang(lang?:string):boolean {
   ].includes(lang);
 }
 
-function getResultForInvalidExamples(sourcePath:string):(e:Error) => ExamplesSerializationResult {
+function thunkGetResultForInvalidExamples(sourcePath:string):(e:Error) => ExamplesSerializationResult {
   return (originalError) => {
     const warning:WarningDetails = {
       message: 'Cannot serialize component examples',
