@@ -1,15 +1,23 @@
 import { toPairs } from 'lodash';
 import { parse as parsePath } from 'path';
 import { ComponentDoc, parse, PropItem } from 'react-docgen-typescript/lib';
+import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { ComponentPropertyDefinition, PropertyTypeName } from '../ComponentPropertyDefinition';
-import { PropsSerializationResult } from '../PropsSerializationResult';
+import { ImplSerializationResult } from '../ImplSerializationResult';
 import { convertTypeName } from './type/convertTypeName';
 
-export function serializeTSComponentProps(componentFileLocation:string):Promise<PropsSerializationResult> {
+export function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   return new Promise((resolve) => {
-    const result:ComponentPropertyDefinition[] = toPairs(getDefaultComponentFrom(componentFileLocation).props)
+    const componentDoc:ComponentDoc = getDefaultComponentFrom(component.path);
+    const result:ComponentPropertyDefinition[] = toPairs(componentDoc.props)
       .map(([propName, propType]) => propItemToPropDefinition(propName, propType));
-    resolve({ result, warnings: [] });
+    resolve({
+      result: {
+        name: componentDoc.displayName,
+        properties: result,
+      },
+      warnings: [],
+    });
   });
 }
 

@@ -5,12 +5,13 @@ import { tapPromise } from '../../../../utils/promise/tapPromise';
 import { ComponentDocumenationInfo } from '../ComponentInfo';
 import { ComponentPaths } from '../ComponentPaths';
 
-export function getDocumentationInfo(paths:ComponentPaths, name:string):Promise<ComponentDocumenationInfo> {
-  const fileNames:string[] = ['Readme.md', 'README.md', `${name}.md`];
-  const possiblePaths:string[] = fileNames.map((fileName) => join(paths.projectRoot, paths.componentDirPath, fileName));
+export function getDocumentationInfo(paths:ComponentPaths):Promise<ComponentDocumenationInfo> {
+  const { projectRoot, componentDirPath, componentDirName } = paths;
+  const fileNames:string[] = ['Readme.md', 'README.md', `${componentDirName}.md`];
+  const possiblePaths:string[] = fileNames.map((fileName) => join(projectRoot, componentDirPath, fileName));
 
   return pAny(possiblePaths.map(tapPromise(isExactFile))).then((foundPath) => ({
-    path: relative(paths.projectRoot, foundPath),
+    path: relative(projectRoot, foundPath),
   }));
 }
 

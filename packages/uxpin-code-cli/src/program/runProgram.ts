@@ -1,12 +1,13 @@
-import pReduce = require('p-reduce');
+import pMapSeries = require('p-map-series');
+import * as stringifyObject from 'stringify-object';
 import { stringifyWarnings } from '../common/warning/stringifyWarnings';
+import { Warned } from '../common/warning/Warned';
 import { buildDesignSystem } from '../steps/building/buildDesignSystem';
 import { BuildOptions } from '../steps/building/BuildOptions';
-import { ComponentInfo } from '../steps/discovery/component/ComponentInfo';
 import { getDesignSystemComponentInfos } from '../steps/discovery/component/getDesignSystemComponentInfos';
 import { getDesignSystemSummary } from '../steps/discovery/getDesignSystemSummary';
+import { DesignSystemDefinition } from '../steps/serialization/DesignSystemDefinition';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
-import { printDump } from '../steps/serialization/printDump';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './getProgramArgs';
 import { ProgramArgs } from './ProgramArgs';
@@ -20,7 +21,7 @@ export function runProgram(program:ProgramArgs):Promise<any> {
   };
 
   const steps:Step[] = [
-    { exec: (infos) => buildDesignSystem(infos, buildOptions), shouldRun: !dump && !summary },
+    { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
     { exec: printDump, shouldRun: dump },
     { exec: printSummary, shouldRun: !dump },
     { exec: printSerializationWarnings, shouldRun: !dump },
@@ -28,27 +29,39 @@ export function runProgram(program:ProgramArgs):Promise<any> {
 
   const stepFunctions:StepExecutor[] = steps.filter((step) => step.shouldRun).map((step) => tapPromise(step.exec));
 
-  return getDesignSystemComponentInfos(cwd).then((infos:ComponentInfo[]) => {
-    return pReduce(stepFunctions, (reduceInfos, step) => step(reduceInfos), infos);
-  }).catch(logError);
+  return getDesignSystemComponentInfos(cwd)
+    .then(getDesignSystemMetadata)
+    .then((designSystem:DSMetadata) => pMapSeries(stepFunctions, (step) => step(designSystem)))
+    .catch(logError);
 
 }
 
-function printSerializationWarnings(infos:ComponentInfo[]):Promise<any> {
-  return getDesignSystemMetadata(infos).then(({ warnings }) => console.log(stringifyWarnings(warnings)));
+function thunkBuildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
+  return ({ result: { components } }) => buildDesignSystem(components, buildOptions);
 }
 
-function printSummary(infos:ComponentInfo[]):void {
-  console.log(getDesignSystemSummary(infos));
+function printDump({ warnings, result }:DSMetadata):void {
+  console.log(stringifyObject(result));
+  console.log(stringifyWarnings(warnings, true));
+}
+
+function printSummary({ result: { components } }:DSMetadata):void {
+  console.log(getDesignSystemSummary(components));
+}
+
+function printSerializationWarnings({ warnings }:DSMetadata):void {
+  console.log(stringifyWarnings(warnings));
 }
 
 function logError(errorMessage:string):void {
   console.log('ERROR:', errorMessage);
 }
 
-type StepExecutor = (infos:ComponentInfo[]) => Promise<ComponentInfo[]>;
+type StepExecutor = (designSystem:DSMetadata) => Promise<DSMetadata>;
 
 interface Step {
   shouldRun:boolean;
-  exec:(infos:ComponentInfo[]) => any;
+  exec:(infos:DSMetadata) => any;
 }
+
+type DSMetadata = Warned<DesignSystemDefinition>;

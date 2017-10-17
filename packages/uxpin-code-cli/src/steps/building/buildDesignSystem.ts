@@ -1,13 +1,12 @@
 import * as webpack from 'webpack';
-
-import { ComponentInfo } from '../discovery/component/ComponentInfo';
+import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
 import { BuildOptions } from './BuildOptions';
 import { getConfig } from './config/getConfig';
 import { createComponentsLibrary } from './library/createComponentsLibrary';
 
-export function buildDesignSystem(componentInfos:ComponentInfo[], options:BuildOptions):Promise<webpack.Stats> {
+export function buildDesignSystem(components:ComponentDefinition[], options:BuildOptions):Promise<webpack.Stats> {
   const { webpackConfigPath, wrapperPath, projectRoot } = options;
-  return createComponentsLibrary(componentInfos, wrapperPath)
+  return createComponentsLibrary(components, wrapperPath)
     .then(() => bundle(projectRoot, webpackConfigPath));
 }
 

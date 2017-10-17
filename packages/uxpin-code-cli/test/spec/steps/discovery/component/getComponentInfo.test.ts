@@ -24,7 +24,6 @@ describe('getComponentInfo', () => {
             lang: 'javascript',
             path: 'src/components/button/button.jsx',
           },
-          name: 'button',
         };
 
         // when
