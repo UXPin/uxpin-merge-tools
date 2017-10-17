@@ -1,4 +1,4 @@
-import pReduce = require('p-reduce');
+import pMapSeries = require('p-map-series');
 import * as stringifyObject from 'stringify-object';
 import { stringifyWarnings } from '../common/warning/stringifyWarnings';
 import { Warned } from '../common/warning/Warned';
@@ -21,7 +21,7 @@ export function runProgram(program:ProgramArgs):Promise<any> {
   };
 
   const steps:Step[] = [
-    { exec: buildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
+    { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
     { exec: printDump, shouldRun: dump },
     { exec: printSummary, shouldRun: !dump },
     { exec: printSerializationWarnings, shouldRun: !dump },
@@ -31,12 +31,12 @@ export function runProgram(program:ProgramArgs):Promise<any> {
 
   return getDesignSystemComponentInfos(cwd)
     .then(getDesignSystemMetadata)
-    .then((designSystem:DSMetadata) => pReduce(stepFunctions, (d, step) => step(designSystem), designSystem))
+    .then((designSystem:DSMetadata) => pMapSeries(stepFunctions, (step) => step(designSystem)))
     .catch(logError);
 
 }
 
-function buildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
+function thunkBuildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
   return ({ result: { components } }) => buildDesignSystem(components, buildOptions);
 }
 

@@ -1,5 +1,5 @@
 import { ComponentImplementationInfo } from '../../../discovery/component/ComponentInfo';
-import { getSummaryResultForInvalidComponent } from './getSummaryResultForInvalidComponent';
+import { thunkGetSummaryResultForInvalidComponent } from './getSummaryResultForInvalidComponent';
 import { ImplSerializationResult } from './ImplSerializationResult';
 import { serializeJSComponent } from './javascript/serializeJSComponent';
 import { serializeTSComponent } from './typescript/serializeTSComponent';
@@ -11,5 +11,5 @@ export function getComponentMetadata(component:ComponentImplementationInfo):Prom
   } else {
     promise = serializeJSComponent(component);
   }
-  return promise.catch(getSummaryResultForInvalidComponent(component.path));
+  return promise.catch(thunkGetSummaryResultForInvalidComponent(component.path));
 }
