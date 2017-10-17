@@ -9,9 +9,9 @@ export interface RawProgramArgs {
   wrapper?:string;
 }
 
-export type ProgramArgs = DefaultProgramArgs | ServerProgramArgs;
+export type ProgramArgs = UploadProgramArgs | ServerProgramArgs;
 
-export interface DefaultProgramArgs {
+interface UploadProgramArgs {
   command:'upload';
   cwd:string;
   dump:boolean;
