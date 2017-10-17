@@ -1,4 +1,4 @@
-import pReduce = require('p-reduce');
+import pMapSeries = require('p-map-series');
 import * as stringifyObject from 'stringify-object';
 import { stringifyWarnings } from '../common/warning/stringifyWarnings';
 import { Warned } from '../common/warning/Warned';
@@ -31,7 +31,7 @@ export function runProgram(program:ProgramArgs):Promise<any> {
 
   return getDesignSystemComponentInfos(cwd)
     .then(getDesignSystemMetadata)
-    .then((designSystem:DSMetadata) => pReduce(stepFunctions, (ds, step) => step(designSystem), designSystem))
+    .then((designSystem:DSMetadata) => pMapSeries(stepFunctions, (step) => step(designSystem)))
     .catch(logError);
 
 }
