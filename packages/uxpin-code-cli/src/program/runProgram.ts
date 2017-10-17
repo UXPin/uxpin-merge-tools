@@ -11,26 +11,13 @@ import { DesignSystemDefinition } from '../steps/serialization/DesignSystemDefin
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './getProgramArgs';
-import { ProgramArgs } from './ProgramArgs';
+import { ProgramArgs, RawProgramArgs } from './ProgramArgs';
 
-export function runProgram(program:ProgramArgs):Promise<any> {
-  const { args, dump, summary, webpackConfig, wrapper, cwd } = getProgramArgs(program);
-  const isServer:boolean = !!(args && args.find((arg) => typeof arg !== 'string' && arg.name() === 'server'));
+export function runProgram(program:RawProgramArgs):Promise<any> {
+  const programArgs:ProgramArgs = getProgramArgs(program);
+  const { cwd } = programArgs;
 
-  const buildOptions:BuildOptions = {
-    projectRoot: cwd,
-    webpackConfigPath: webpackConfig,
-    wrapperPath: wrapper,
-  };
-
-  const steps:Step[] = [
-    { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
-    { exec: printDump, shouldRun: dump && !isServer },
-    { exec: printSummary, shouldRun: !dump && !isServer },
-    { exec: printSerializationWarnings, shouldRun: !dump && !isServer },
-    { exec: startServer, shouldRun: isServer },
-  ];
-
+  const steps:Step[] = getSteps(programArgs);
   const stepFunctions:StepExecutor[] = steps.filter((step) => step.shouldRun).map((step) => tapPromise(step.exec));
 
   return getDesignSystemComponentInfos(cwd)
@@ -38,6 +25,34 @@ export function runProgram(program:ProgramArgs):Promise<any> {
     .then((designSystem:DSMetadata) => pMapSeries(stepFunctions, (step) => step(designSystem)))
     .catch(logError);
 
+}
+
+function getSteps(args:ProgramArgs):Step[] {
+  const { cwd, webpackConfig, wrapper } = args;
+  const buildOptions:BuildOptions = {
+    projectRoot: cwd,
+    webpackConfigPath: webpackConfig,
+    wrapperPath: wrapper,
+  };
+
+  if (args.command === 'upload') {
+    const { dump, summary } = args;
+    return [
+      { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
+      { exec: printDump, shouldRun: dump },
+      { exec: printSummary, shouldRun: !dump },
+      { exec: printSerializationWarnings, shouldRun: !dump },
+    ];
+  }
+
+  if (args.command === 'server') {
+    return [
+      { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
+      { exec: startServer, shouldRun: true },
+    ];
+  }
+
+  return [];
 }
 
 function thunkBuildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
