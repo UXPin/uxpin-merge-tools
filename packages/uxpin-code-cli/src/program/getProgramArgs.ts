@@ -21,8 +21,7 @@ export function getProgramArgs(program:RawProgramArgs):ProgramArgs {
 }
 
 function getCommand(program:RawProgramArgs):Command {
-  const { args } = program;
-  return (args || [])
+  return (program.args || [])
     .filter((arg) => typeof arg !== 'string' && Object.keys(defaultArgs).includes(arg.name()))
     .reduce((command, arg) => (arg as CommanderStatic).name(), 'upload') as Command;
 }
