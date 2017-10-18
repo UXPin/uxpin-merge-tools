@@ -256,6 +256,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				{
 					code: '<Badge status=\\"warning\\">SSL unavailable</Badge>'
+				},
+				{
+					code: '<Badge progress=\\"incomplete\\">Unfulfilled</Badge>'
+				},
+				{
+					code: '<Badge progress=\\"partiallyComplete\\">Partially fulfilled</Badge>'
+				},
+				{
+					code: '<Badge progress=\\"complete\\">Fulfilled</Badge>'
 				}
 			]
 		},
@@ -5414,6 +5423,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					code: '<Page\\\\n  breadcrumbs={[\\\\n    {content: \\\\'Orders\\\\'}\\\\n  ]}\\\\n  title=\\"#1085\\"\\\\n  secondaryActions={[\\\\n    {content: \\\\'Print\\\\'},\\\\n    {content: \\\\'Unarchive\\\\'},\\\\n    {content: \\\\'Cancel order\\\\'},\\\\n  ]}\\\\n  pagination={{\\\\n    hasPrevious: true,\\\\n    hasNext: true,\\\\n  }}\\\\n>\\\\n  <Card sectioned title=\\"Fulfill order\\">\\\\n    <Stack alignment=\\"center\\">\\\\n      <Stack.Item fill><p>Buy postage and ship remaining 2 items</p></Stack.Item>\\\\n      <Button primary>Continue</Button>\\\\n    </Stack>\\\\n  </Card>\\\\n</Page>'
 				},
 				{
+					code: '<Page\\\\n  title=\\\\'Jar With Lock-Lid\\\\'\\\\n  primaryAction={{content: \\\\'Save\\\\', disabled: true,}}\\\\n  secondaryActions={[\\\\n    {\\\\n      content: \\\\'Promote\\\\',\\\\n      external: true,\\\\n      icon: \\\\'external\\\\',\\\\n      url: \\\\'https://www.facebook.com/business/learn/facebook-page-build-audience\\\\',\\\\n    },\\\\n  ]}\\\\n>\\\\n  <p>Page Content</p>\\\\n</Page>'
+				},
+				{
 					code: '<Page\\\\n  breadcrumbs={[\\\\n    {content: \\\\'Settings\\\\'}\\\\n  ]}\\\\n  title=\\"General\\"\\\\n  primaryAction={{content: \\\\'Save\\\\'}}\\\\n>\\\\n  <p>Page content</p>\\\\n</Page>'
 				},
 				{
@@ -5444,7 +5456,7 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					isRequired: false,
 					name: 'primaryAction',
 					type: {
-						name: 'DisableableAction',
+						name: 'DisableableAction & LoadableAction',
 						structure: {}
 					}
 				},
@@ -5519,6 +5531,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'previousURL',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'accessibilityLabel',
 					type: {
 						name: 'string',
 						structure: {}
@@ -5943,6 +5964,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					description: '',
 					isRequired: false,
 					name: 'shadow',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'hint',
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -8670,10 +8700,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			examples: [
 				{
-					code: '<Select\\\\n  label=\\"One\\"\\\\n  options={[\\\\'two\\\\', \\\\'three\\\\']}\\\\n  placeholder=\\"Select\\"\\\\n/>'
+					code: '<Select\\\\n  label=\\"One\\"\\\\n  options={[\\\\'two\\\\', \\\\'three\\\\', {label: \\\\'four\\\\', value: \\\\'4\\\\'}]}\\\\n  placeholder=\\"Select\\"\\\\n/>'
 				},
 				{
-					code: '<Select\\\\n  label=\\"One\\"\\\\n  disabled\\\\n  options={[\\\\'two\\\\', \\\\'three\\\\']}\\\\n  placeholder=\\"Select\\"\\\\n/>'
+					code: '<Select\\\\n  label=\\"One\\"\\\\n  disabled\\\\n  options={[\\\\'two\\\\', \\\\'three\\\\', {label: \\\\'four\\\\', value: \\\\'4\\\\'}]}\\\\n  placeholder=\\"Select\\"\\\\n/>'
 				}
 			]
 		},
@@ -8757,6 +8787,175 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			]
 		},
 		{
+			dirPath: 'src/components/SkeletonBodyText',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'typescript',
+				path: 'src/components/SkeletonBodyText/SkeletonBodyText.tsx'
+			},
+			documentation: {
+				path: 'src/components/SkeletonBodyText/README.md'
+			},
+			name: 'SkeletonBodyText',
+			properties: [
+				{
+					description: '',
+					isRequired: false,
+					name: 'lines',
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				}
+			],
+			examples: [
+				{
+					code: '<SkeletonBodyText />'
+				},
+				{
+					code: '<SkeletonBodyText lines={1} />'
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/SkeletonDisplayText',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'typescript',
+				path: 'src/components/SkeletonDisplayText/SkeletonDisplayText.tsx'
+			},
+			documentation: {
+				path: 'src/components/SkeletonDisplayText/README.md'
+			},
+			name: 'SkeletonDisplayText',
+			properties: [
+				{
+					description: '',
+					isRequired: false,
+					name: 'size',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				}
+			],
+			examples: [
+				{
+					code: '<SkeletonDisplayText size=\\"medium\\" />'
+				},
+				{
+					code: '<SkeletonDisplayText size=\\"extraLarge\\" />'
+				},
+				{
+					code: '<SkeletonDisplayText size=\\"small\\" />'
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/SkeletonPage',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'typescript',
+				path: 'src/components/SkeletonPage/SkeletonPage.tsx'
+			},
+			documentation: {
+				path: 'src/components/SkeletonPage/README.md'
+			},
+			name: 'SkeletonPage',
+			properties: [
+				{
+					description: '',
+					isRequired: false,
+					name: 'children',
+					type: {
+						name: 'node',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'fullWidth',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'secondaryActions',
+					type: {
+						name: 'number',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'title',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				}
+			],
+			examples: [
+				{
+					code: '<SkeletonPage secondaryActions={2}>\\\\n  <Layout>\\\\n    <Layout.Section>\\\\n      <Card sectioned>\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n      <Card sectioned>\\\\n        <TextContainer>\\\\n          <SkeletonDisplayText size=\\"small\\" />\\\\n          <SkeletonBodyText />\\\\n        </TextContainer>\\\\n      </Card>\\\\n      <Card sectioned>\\\\n        <TextContainer>\\\\n          <SkeletonDisplayText size=\\"small\\" />\\\\n          <SkeletonBodyText />\\\\n        </TextContainer>\\\\n      </Card>\\\\n    </Layout.Section>\\\\n    <Layout.Section secondary>\\\\n      <Card>\\\\n        <Card.Section>\\\\n          <TextContainer>\\\\n            <SkeletonDisplayText size=\\"small\\" />\\\\n            <SkeletonBodyText lines={2} />\\\\n          </TextContainer>\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={1} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n      <Card subdued>\\\\n        <Card.Section>\\\\n          <TextContainer>\\\\n            <SkeletonDisplayText size=\\"small\\" />\\\\n            <SkeletonBodyText lines={2} />\\\\n          </TextContainer>\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n    </Layout.Section>\\\\n  </Layout>\\\\n</SkeletonPage>'
+				},
+				{
+					code: '<SkeletonPage\\\\n  title=\\"Products\\"\\\\n  secondaryActions={2}\\\\n>\\\\n  <Layout>\\\\n    <Layout.Section>\\\\n      <Card sectioned>\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n      <Card\\\\n        sectioned\\\\n        title=\\"Images\\"\\\\n      >\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n      <Card\\\\n        sectioned\\\\n        title=\\"Variants\\"\\\\n      >\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n    </Layout.Section>\\\\n    <Layout.Section secondary>\\\\n      <Card\\\\n        title=\\"Sales channels\\"\\\\n      >\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={1} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n      <Card\\\\n        title=\\"Organization\\"\\\\n        subdued\\\\n      >\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n    </Layout.Section>\\\\n  </Layout>\\\\n</SkeletonPage>'
+				}
+			]
+		},
+		{
+			dirPath: 'src/components/Spinner',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'typescript',
+				path: 'src/components/Spinner/Spinner.tsx'
+			},
+			documentation: {
+				path: 'src/components/Spinner/README.md'
+			},
+			name: 'Spinner',
+			properties: [
+				{
+					description: '',
+					isRequired: false,
+					name: 'size',
+					type: {
+						name: 'Size',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'color',
+					type: {
+						name: 'Color',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'accessibilityLabel',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				}
+			],
+			examples: [
+				{
+					code: '<Spinner size=\\"large\\" color=\\"teal\\" />'
+				}
+			]
+		},
+		{
 			dirPath: 'src/components/Stack',
 			implementation: {
 				framework: 'reactjs',
@@ -8774,6 +8973,15 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					name: 'children',
 					type: {
 						name: 'any',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'wrap',
+					type: {
+						name: 'boolean',
 						structure: {}
 					}
 				},
@@ -8816,7 +9024,10 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			examples: [
 				{
-					code: '<Stack>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
+					code: '<Stack>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Processing</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n  <Badge>Completed</Badge>\\\\n</Stack>'
+				},
+				{
+					code: '<Stack wrap={false}>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Processing</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n  <Badge>Completed</Badge>\\\\n</Stack>'
 				},
 				{
 					code: '<Stack spacing=\\"loose\\">\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
@@ -9350,7 +9561,20 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			examples: [
+				{
+					code: '<TextStyle variation=\\"subdued\\">No supplier listed</TextStyle>'
+				},
+				{
+					code: '<TextStyle variation=\\"strong\\">Total</TextStyle>'
+				},
+				{
+					code: '<TextStyle variation=\\"positive\\">Orders increased</TextStyle>'
+				},
+				{
+					code: '<TextStyle variation=\\"negative\\">Orders decreased</TextStyle>'
+				}
+			]
 		},
 		{
 			dirPath: 'src/components/Thumbnail',

@@ -1,15 +1,15 @@
 import safe = require('colors/safe');
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
-import { ComponentInfo } from './component/ComponentInfo';
 
 export function getDesignSystemSummary(components:ComponentDefinition[]):string {
   return components.map((component) => `${safe.bold(component.name)}
-    📜 documentation: ${getDocsChecker(component)}
+    📜 documentation: ${booleanToCheckmark(!!component.documentation)}
+    💡 examples: ${booleanToCheckmark(component.examples.length > 0)}
 `).join('\n');
 }
 
-function getDocsChecker({ documentation }:ComponentInfo):string {
-  if (documentation) {
+function booleanToCheckmark(value:boolean):string {
+  if (value) {
     return safe.green('✔');
   }
   return safe.red('✘');
