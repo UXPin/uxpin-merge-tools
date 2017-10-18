@@ -9,6 +9,7 @@ import { getDesignSystemComponentInfos } from '../steps/discovery/component/getD
 import { getDesignSystemSummary } from '../steps/discovery/getDesignSystemSummary';
 import { DesignSystemDefinition } from '../steps/serialization/DesignSystemDefinition';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
+import { saveMetadata } from '../steps/serialization/saveMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './getProgramArgs';
 import { ProgramArgs, RawProgramArgs } from './ProgramArgs';
@@ -44,6 +45,7 @@ function getSteps(args:ProgramArgs):Step[] {
 
   const { dump, summary } = args;
   return [
+    { exec: saveMetadata, shouldRun: !dump && !summary },
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
     { exec: printDump, shouldRun: dump },
     { exec: printSummary, shouldRun: !dump },
