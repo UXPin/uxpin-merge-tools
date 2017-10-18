@@ -12,7 +12,7 @@ describe('--summary option integration', () => {
       return runUXPinCodeCommand('resources/repos/polaris', '--summary')
         .then((output) => {
           // then
-          expect(output).toEqual(`AccountConnection
+          expect(output).toContain(`AccountConnection
     📜 documentation: ✔
     💡 examples: ✔
 
