@@ -4802,6 +4802,33 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				{
 					description: '',
 					isRequired: true,
+					name: 'at',
+					type: {
+						name: '(index: number) => string',
+						structure: {}
+					}
+				},
+				{
+					description: 'Non-standard.',
+					isRequired: true,
+					name: 'escapeHTML',
+					type: {
+						name: '() => string',
+						structure: {}
+					}
+				},
+				{
+					description: 'Non-standard.',
+					isRequired: true,
+					name: 'unescapeHTML',
+					type: {
+						name: '() => string',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: true,
 					name: 'strip',
 					type: {
 						name: 'string',
