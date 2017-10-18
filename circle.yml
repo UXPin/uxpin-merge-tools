@@ -12,7 +12,7 @@ jobs:
             - ./
   uxpin-code-cli:
     docker:
-      - image: circleci/node:8.1.2
+      - image: selenium/standalone-chrome:3.6.0
     working_directory: ~/project/packages/uxpin-code-cli
     steps:
       - attach_workspace:
@@ -40,22 +40,6 @@ jobs:
           key: uxpin-code-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
           paths:
             - ./test/resources/repos
-      # Install Google Chrome with cache
-      - run:
-          name: Create file with month number to force Chrome version refresh every month
-          command: date "+%m/%Y" > month.txt
-#      - restore_cache:
-#          key: google-chrome-{{ checksum "month.txt" }}
-      - run:
-          name: Install latest version of Google Chrome
-          command: |
-            sudo apt-get install libxss1 libappindicator1 libindicator7
-            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            sudo dpkg -i google-chrome-stable_current_amd64.deb; sudo apt-get -fy install
-#      - save_cache:
-#          key: google-chrome-{{ checksum "month.txt" }}
-#          paths:
-#            - ./google-chrome-stable_current_amd64.deb
       # Build and test
       - run:
           name: build
