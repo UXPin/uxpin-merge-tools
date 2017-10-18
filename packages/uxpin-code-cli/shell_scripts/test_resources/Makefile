@@ -23,7 +23,7 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	cd ../../test/resources/repos \
 	&& git clone https://github.com/Shopify/polaris.git \
 	&& cd polaris \
-	&& git checkout 78d5e5e0e4365ece3b6d8ddfed06027ec72159cd \
+	&& git checkout v1.7.0 \
 	&& mkdir ./yarn-cache \
 	&& yarn install --cache-folder ./yarn-cache \
 	&& rm -rf ./yarn-cache
