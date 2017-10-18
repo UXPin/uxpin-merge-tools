@@ -2,7 +2,6 @@ import pMapSeries = require('p-map-series');
 import * as stringifyObject from 'stringify-object';
 import { stringifyWarnings } from '../common/warning/stringifyWarnings';
 import { Warned } from '../common/warning/Warned';
-import { startServer } from '../server/startServer';
 import { buildDesignSystem } from '../steps/building/buildDesignSystem';
 import { BuildOptions } from '../steps/building/BuildOptions';
 import { getDesignSystemComponentInfos } from '../steps/discovery/component/getDesignSystemComponentInfos';
@@ -10,6 +9,7 @@ import { getDesignSystemSummary } from '../steps/discovery/getDesignSystemSummar
 import { DesignSystemDefinition } from '../steps/serialization/DesignSystemDefinition';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { saveMetadata } from '../steps/serialization/saveMetadata';
+import { startServer } from '../steps/styleGuide/startServer';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './getProgramArgs';
 import { ProgramArgs, RawProgramArgs } from './ProgramArgs';
