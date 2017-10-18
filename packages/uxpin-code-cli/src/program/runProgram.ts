@@ -35,16 +35,6 @@ function getSteps(args:ProgramArgs):Step[] {
     wrapperPath: wrapper,
   };
 
-  if (args.command === 'upload') {
-    const { dump, summary } = args;
-    return [
-      { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
-      { exec: printDump, shouldRun: dump },
-      { exec: printSummary, shouldRun: !dump },
-      { exec: printSerializationWarnings, shouldRun: !dump },
-    ];
-  }
-
   if (args.command === 'server') {
     return [
       { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
@@ -52,7 +42,13 @@ function getSteps(args:ProgramArgs):Step[] {
     ];
   }
 
-  return [];
+  const { dump, summary } = args;
+  return [
+    { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
+    { exec: printDump, shouldRun: dump },
+    { exec: printSummary, shouldRun: !dump },
+    { exec: printSerializationWarnings, shouldRun: !dump },
+  ];
 }
 
 function thunkBuildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
