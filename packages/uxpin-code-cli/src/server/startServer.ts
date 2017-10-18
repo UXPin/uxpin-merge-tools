@@ -3,7 +3,6 @@ import { writeFile } from 'fs';
 import * as http from 'http';
 import { createServer, Options } from 'http-server';
 import * as https from 'https';
-import * as opn from 'opn';
 
 import { TEMP_DIR_PATH } from '../steps/building/config/getConfig';
 import { SERVER_PORT, SERVER_SUCCESS_MESSAGE, SERVER_URL } from './serverConfig';
@@ -29,10 +28,7 @@ export function startServer():Promise<void> {
       const server:http.Server | https.Server = createServer(options);
       server.listen(SERVER_PORT, () => console.log(`server ready on ${SERVER_URL}!`));
     })
-    .then(() => {
-      console.log(SERVER_SUCCESS_MESSAGE);
-      opn(SERVER_URL);
-    });
+    .then(() => console.log(SERVER_SUCCESS_MESSAGE));
 }
 
 function writeStaticTemplateFile():Promise<string> {
