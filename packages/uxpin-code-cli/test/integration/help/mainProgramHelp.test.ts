@@ -48,4 +48,14 @@ describe('--help option', () => {
         .toMatch(/--cwd <path>\s+working directory: path to root of the DS repository/);
     });
   });
+
+  it('it prints `server` command in command list', () => {
+// when
+    return runUXPinCodeCommand('./', '--help').then((output) => {
+      // then
+      expect(output)
+        .toMatch(/server \[options\]\s+Start local web server and display the list of design system components/);
+    });
+  });
+
 });
