@@ -1,5 +1,6 @@
-import { ExecOptions } from 'child_process';
+import { ChildProcess, exec, ExecOptions } from 'child_process';
 import { join } from 'path';
+import { SERVER_SUCCESS_MESSAGE } from '../../../src/server/serverConfig';
 import { getRandomString } from './getRandomString';
 import { runCommand } from './runCommand';
 
@@ -11,6 +12,29 @@ export function runUXPinCodeCommand(workingDir:string, options?:string):Promise<
   const absoluteWorkingDir:string = getAbsoluteWorkingDir(workingDir);
   const coverageCommand:string = `${nycPath} ${getNycOptions()}`;
   return runCommand(`cd ${absoluteWorkingDir} && ${coverageCommand} ${uxPinPath} ${options}`, getExecOptions());
+}
+
+export function startUXPinCodeServer(workingDir:string, options?:string):Promise<() => void> {
+  return new Promise((resolve, reject) => {
+    const absoluteWorkingDir:string = getAbsoluteWorkingDir(workingDir);
+    const coverageCommand:string = `${nycPath} ${getNycOptions()}`;
+    let uxpinCommandOptions:string = 'server';
+    if (options) {
+      uxpinCommandOptions += ` ${options}`;
+    }
+    const command:string = `cd ${absoluteWorkingDir} && ${coverageCommand} ${uxPinPath} ${uxpinCommandOptions}`;
+    const subprocess:ChildProcess = exec(command, getExecOptions());
+    const serverStarted:RegExp = new RegExp(SERVER_SUCCESS_MESSAGE);
+    subprocess.stdout.on('data', (data) => {
+      if (data.toString().match(serverStarted)) {
+        resolve(() => subprocess.kill());
+      }
+    });
+    let errorOut:string = '';
+    subprocess.stderr.on('data', (data) => errorOut += data);
+    subprocess.on('close', () => reject(errorOut));
+    subprocess.on('error', (data) => reject(data));
+  });
 }
 
 function getAbsoluteWorkingDir(pathRelativeToTestDir:string):string {
