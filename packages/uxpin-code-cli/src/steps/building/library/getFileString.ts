@@ -1,19 +1,17 @@
-import { relative } from 'path';
-import { ComponentInfo } from '../../discovery/component/ComponentInfo';
+import { parse, relative } from 'path';
+import { ComponentDefinition } from '../../serialization/component/ComponentDefinition';
 import { TEMP_DIR_PATH } from '../config/getConfig';
-import { getComponentClassName } from './getComponentClassName';
 
 const CLASS_NAME_WRAPPER:string = 'Wrapper';
 
-export function getFileString(componentInfos:ComponentInfo[], wrapperPath?:string):string {
-  const imports:string[] = componentInfos.map((info) =>
-    `import ${getComponentClassName(info.name)} from '${getImportPath(info)}';`);
+export function getFileString(components:ComponentDefinition[], wrapperPath?:string):string {
+  const imports:string[] = components.map((comp) => `import ${comp.name} from '${getImportPath(comp)}';`);
 
   const wrapperImport:string[] = wrapperPath ? [`import ${CLASS_NAME_WRAPPER} from '${wrapperPath}';`] : [];
 
   const exports:string[] = [
     `export {`,
-    ...componentInfos.map((info) => `  ${getComponentClassName(info.name)},`),
+    ...components.map((component) => `  ${component.name},`),
     ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER},`] : []),
     `};`,
   ];
@@ -21,7 +19,8 @@ export function getFileString(componentInfos:ComponentInfo[], wrapperPath?:strin
   return [...imports, ...wrapperImport, ...exports].join('\n');
 }
 
-function getImportPath(info:ComponentInfo):string {
-  const path:string = relative(TEMP_DIR_PATH, `./${info.dirPath}`);
-  return `${path}/${info.name}`;
+function getImportPath(component:ComponentDefinition):string {
+  const path:string = relative(TEMP_DIR_PATH, `./${component.dirPath}`);
+  const fileName:string = parse(component.implementation.path).name;
+  return `${path}/${fileName}`;
 }

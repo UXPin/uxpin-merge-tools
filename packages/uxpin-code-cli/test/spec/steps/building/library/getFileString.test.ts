@@ -1,24 +1,32 @@
 import { getFileString } from '../../../../../src/steps/building/library/getFileString';
-import {
-  ComponentImplementationInfo,
-  ComponentInfo,
-} from '../../../../../src/steps/discovery/component/ComponentInfo';
+import { ComponentImplementationInfo } from '../../../../../src/steps/discovery/component/ComponentInfo';
+import { ComponentDefinition } from '../../../../../src/steps/serialization/component/ComponentDefinition';
 
 describe('getFileString', () => {
 
   const implementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
 
-  it('returns content of library file for list of ComponentInfo', () => {
-    const componentInfos:ComponentInfo[] = [
+  it('returns content of library file for list of components', () => {
+    const components:ComponentDefinition[] = [
       {
         dirPath: 'src/components/button',
-        implementation,
-        name: 'button',
+        examples: [],
+        implementation: {
+          ...implementation,
+          path: 'src/components/button/button.jsx',
+        },
+        name: 'Button',
+        properties: [],
       },
       {
         dirPath: 'src/components/button-list',
-        implementation,
-        name: 'button-list',
+        examples: [],
+        implementation: {
+          ...implementation,
+          path: 'src/components/button-list/button-list.jsx',
+        },
+        name: 'ButtonList',
+        properties: [],
       },
     ];
 
@@ -30,23 +38,33 @@ export {
 };`;
 
     // when
-    const result:string = getFileString(componentInfos);
+    const result:string = getFileString(components);
 
     // then
     expect(result).toEqual(expectedFileString);
   });
 
-  it('returns content of library file for list of ComponentInfo and path of custom wrapper', () => {
-    const componentInfos:ComponentInfo[] = [
+  it('returns content of library file for list of components and path of custom wrapper', () => {
+    const components:ComponentDefinition[] = [
       {
         dirPath: 'src/components/button',
-        implementation,
-        name: 'button',
+        examples: [],
+        implementation: {
+          ...implementation,
+          path: 'src/components/button/button.jsx',
+        },
+        name: 'Button',
+        properties: [],
       },
       {
         dirPath: 'src/components/button-list',
-        implementation,
-        name: 'button-list',
+        examples: [],
+        implementation: {
+          ...implementation,
+          path: 'src/components/button-list/button-list.jsx',
+        },
+        name: 'ButtonList',
+        properties: [],
       },
     ];
 
@@ -62,7 +80,7 @@ export {
 };`;
 
     // when
-    const result:string = getFileString(componentInfos, wrapperPath);
+    const result:string = getFileString(components, wrapperPath);
 
     // then
     expect(result).toEqual(expectedFileString);

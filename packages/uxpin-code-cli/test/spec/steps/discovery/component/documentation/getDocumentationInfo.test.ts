@@ -13,7 +13,7 @@ describe('getDocumentationInfo', () => {
       };
 
       // when
-      return getDocumentationInfo(paths, 'directoryWithReadmeMarkdown')
+      return getDocumentationInfo(paths)
       // then
         .then((info) => expect(info).toEqual(expectedInfo));
     });
@@ -25,7 +25,7 @@ describe('getDocumentationInfo', () => {
       };
 
       // when
-      return getDocumentationInfo(paths, 'directoryWithCapitalReadmeMarkdown')
+      return getDocumentationInfo(paths)
       // then
         .then((info) => expect(info).toEqual(expectedInfo));
     });
@@ -37,7 +37,7 @@ describe('getDocumentationInfo', () => {
       };
 
       // when
-      return getDocumentationInfo(paths, 'directoryWithMarkdown')
+      return getDocumentationInfo(paths)
       // then
         .then((info) => expect(info).toEqual(expectedInfo));
     });
@@ -46,7 +46,7 @@ describe('getDocumentationInfo', () => {
       const paths:ComponentPaths = getComponentsPath('directoryWithoutComponent');
 
       // when
-      return getDocumentationInfo(paths, 'directoryWithoutComponent')
+      return getDocumentationInfo(paths)
       // then
         .catch(() => done());
     });
@@ -55,7 +55,7 @@ describe('getDocumentationInfo', () => {
       const paths:ComponentPaths = getComponentsPath('iDontExist');
 
       // when
-      getDocumentationInfo(paths, 'iDontExist')
+      getDocumentationInfo(paths)
       // then
         .catch(() => done());
     });
@@ -65,16 +65,17 @@ describe('getDocumentationInfo', () => {
         const paths:ComponentPaths = getComponentsPath('notDirectory.ts');
 
         // when
-        getDocumentationInfo(paths, 'notDirectory.ts')
+        getDocumentationInfo(paths)
         // then
           .catch(() => done());
       });
     });
   });
 
-  function getComponentsPath(componentName:string):ComponentPaths {
+  function getComponentsPath(componentDirName:string):ComponentPaths {
     return {
-      componentDirPath: `directories/${componentName}`,
+      componentDirName,
+      componentDirPath: `directories/${componentDirName}`,
       componentsDirPath: 'directories/',
       projectRoot: resolve('./test/resources/'),
     };

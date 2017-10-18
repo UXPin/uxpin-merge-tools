@@ -1,8 +1,6 @@
 import { CommanderStatic } from 'commander';
 
-type Arg = string|CommanderStatic;
-
-export interface ProgramArgs {
+export interface RawProgramArgs {
   args?:Arg[];
   cwd:string;
   dump:boolean;
@@ -10,3 +8,23 @@ export interface ProgramArgs {
   webpackConfig?:string;
   wrapper?:string;
 }
+
+export type ProgramArgs = UploadProgramArgs | ServerProgramArgs;
+
+interface UploadProgramArgs {
+  command:'upload';
+  cwd:string;
+  dump:boolean;
+  summary:boolean;
+  webpackConfig?:string;
+  wrapper?:string;
+}
+
+interface ServerProgramArgs {
+  command:'server';
+  cwd:string;
+  webpackConfig?:string;
+  wrapper?:string;
+}
+
+type Arg = string|CommanderStatic;

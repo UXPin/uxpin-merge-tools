@@ -10,10 +10,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/alert/alert.jsx'
 			},
-			name: 'alert',
 			documentation: {
 				path: 'src/components/alert/alert.md'
 			},
+			name: 'Alert',
 			properties: [],
 			examples: []
 		},
@@ -24,10 +24,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/animate/animate.jsx'
 			},
-			name: 'animate',
 			documentation: {
 				path: 'src/components/animate/animate.md'
 			},
+			name: 'Animate',
 			properties: [],
 			examples: []
 		},
@@ -38,10 +38,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/avatar/avatar.jsx'
 			},
-			name: 'avatar',
 			documentation: {
 				path: 'src/components/avatar/avatar.md'
 			},
+			name: 'Avatar',
 			properties: [],
 			examples: []
 		},
@@ -52,10 +52,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/badge/badge.jsx'
 			},
-			name: 'badge',
 			documentation: {
 				path: 'src/components/badge/badge.md'
 			},
+			name: 'Badge',
 			properties: [],
 			examples: []
 		},
@@ -66,10 +66,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/button/button.jsx'
 			},
-			name: 'button',
 			documentation: {
 				path: 'src/components/button/button.md'
 			},
+			name: 'Button',
 			properties: [],
 			examples: []
 		},
@@ -80,10 +80,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/dropdown/dropdown.jsx'
 			},
-			name: 'dropdown',
 			documentation: {
 				path: 'src/components/dropdown/dropdown.md'
 			},
+			name: 'Dropdown',
 			properties: [],
 			examples: []
 		},
@@ -94,10 +94,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/flag/flag.jsx'
 			},
-			name: 'flag',
 			documentation: {
 				path: 'src/components/flag/flag.md'
 			},
+			name: 'Flag',
 			properties: [
 				{
 					description: '',
@@ -490,10 +490,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/icon/icon.jsx'
 			},
-			name: 'icon',
 			documentation: {
 				path: 'src/components/icon/icon.md'
 			},
+			name: 'Icon',
 			properties: [
 				{
 					description: '',
@@ -616,10 +616,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/input/input.jsx'
 			},
-			name: 'input',
 			documentation: {
 				path: 'src/components/input/input.md'
 			},
+			name: 'Input',
 			properties: [
 				{
 					description: '',
@@ -846,10 +846,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/labeled-value/labeled-value.jsx'
 			},
-			name: 'labeled-value',
 			documentation: {
 				path: 'src/components/labeled-value/labeled-value.md'
 			},
+			name: 'LabeledValue',
 			properties: [],
 			examples: []
 		},
@@ -860,10 +860,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/li/li.jsx'
 			},
-			name: 'li',
 			documentation: {
 				path: 'src/components/li/li.md'
 			},
+			name: 'Li',
 			properties: [],
 			examples: []
 		},
@@ -874,10 +874,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/logo/logo.jsx'
 			},
-			name: 'logo',
 			documentation: {
 				path: 'src/components/logo/logo.md'
 			},
+			name: 'Logo',
 			properties: [
 				{
 					description: '',
@@ -955,10 +955,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/pane/pane.jsx'
 			},
-			name: 'pane',
 			documentation: {
 				path: 'src/components/pane/pane.md'
 			},
+			name: 'Pane',
 			properties: [],
 			examples: []
 		},
@@ -969,10 +969,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/radio-group/radio-group.jsx'
 			},
-			name: 'radio-group',
 			documentation: {
 				path: 'src/components/radio-group/radio-group.md'
 			},
+			name: 'RadioGroup',
 			properties: [
 				{
 					description: 'The value to be selected',
@@ -1020,10 +1020,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/segmented-control/segmented-control.jsx'
 			},
-			name: 'segmented-control',
 			documentation: {
 				path: 'src/components/segmented-control/segmented-control.md'
 			},
+			name: 'SegmentedControl',
 			properties: [
 				{
 					description: '@ignore',
@@ -1149,10 +1149,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/spinner/spinner.jsx'
 			},
-			name: 'spinner',
 			documentation: {
 				path: 'src/components/spinner/spinner.md'
 			},
+			name: 'Spinner',
 			properties: [],
 			examples: []
 		},
@@ -1163,10 +1163,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/table/table.jsx'
 			},
-			name: 'table',
 			documentation: {
 				path: 'src/components/table/table.md'
 			},
+			name: 'Table',
 			properties: [
 				{
 					description: '@ignore',
@@ -1262,7 +1262,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/tbody/tbody.jsx'
 			},
-			name: 'tbody',
+			name: 'Tbody',
 			properties: [
 				{
 					description: '@ignore',
@@ -1427,7 +1427,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/td/td.jsx'
 			},
-			name: 'td',
+			name: 'Td',
 			properties: [],
 			examples: []
 		},
@@ -1438,7 +1438,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/tfoot/tfoot.jsx'
 			},
-			name: 'tfoot',
+			name: 'Tfoot',
 			properties: [
 				{
 					description: '@ignore',
@@ -1513,7 +1513,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/th/th.jsx'
 			},
-			name: 'th',
+			name: 'Th',
 			properties: [],
 			examples: []
 		},
@@ -1524,7 +1524,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/thead/thead.jsx'
 			},
-			name: 'thead',
+			name: 'Thead',
 			properties: [
 				{
 					description: '@ignore',
@@ -1623,10 +1623,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/tooltip/tooltip.jsx'
 			},
-			name: 'tooltip',
 			documentation: {
 				path: 'src/components/tooltip/tooltip.md'
 			},
+			name: 'Tooltip',
 			properties: [],
 			examples: []
 		},
@@ -1637,7 +1637,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/tr/tr.jsx'
 			},
-			name: 'tr',
+			name: 'Tr',
 			properties: [
 				{
 					description: '@ignore',
@@ -1772,10 +1772,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				lang: 'javascript',
 				path: 'src/components/ul/ul.jsx'
 			},
-			name: 'ul',
 			documentation: {
 				path: 'src/components/ul/ul.md'
 			},
+			name: 'Ul',
 			properties: [
 				{
 					description: '',
