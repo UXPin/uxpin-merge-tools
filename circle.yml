@@ -50,7 +50,7 @@ jobs:
           name: Install latest version of Google Chrome
           command: |
             wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
+            sudo dpkg -i google-chrome-stable_current_amd64.deb; sudo apt-get -fy install
 #      - save_cache:
 #          key: google-chrome-{{ checksum "month.txt" }}
 #          paths:
