@@ -11,7 +11,7 @@ export const ComponentProps:React.SFC<Props> = ({
 }:Props) => {
 
   return (
-    <div style={{ fontSize: 'x-small'; }}>
+    <div style={{ fontSize: 'x-small' }}>
       <h4>Component properties</h4>
       <ul>
         {
