@@ -1,4 +1,4 @@
-import { startUXPinCodeServer } from '../command/runUXPinCodeCommand';
+import { startUXPinCodeServer } from '../command/startUXPinCodeServer';
 
 export function keepServerWhileTestsRunning(projectPath:string, options:string):void {
   let closeServer:() => void;
