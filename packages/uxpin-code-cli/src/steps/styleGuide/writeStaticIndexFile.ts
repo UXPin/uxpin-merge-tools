@@ -26,7 +26,7 @@ function getIndexFileContent(content:string, title:string = ''):string {
     <meta charset="UTF-8">
     <title>${title}</title>
   </head>
-  <body>
+  <body style="font-family: sans-serif">
     <div id="root">${content}</div>
   </body>
 </html>`;
