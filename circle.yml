@@ -17,6 +17,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project
+      # Yarn install with cache
       - restore_cache:
           key: uxpin-code-cli-dependencies-cache-{{ checksum "package.json" }}
       - run:
@@ -26,12 +27,7 @@ jobs:
           key: uxpin-code-cli-dependencies-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run:
-          name: build
-          command: make build
-      - run:
-          name: check
-          command: make check
+      # Download test repositories with cache
       - restore_cache:
           key: uxpin-code-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
       - run:
@@ -44,9 +40,18 @@ jobs:
           key: uxpin-code-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
           paths:
             - ./test/resources/repos
+      # Build and test
+      - run:
+          name: build
+          command: make build
+      - run:
+          name: check
+          command: make check
       - run:
           name: test
           command: make test-ci
+          environment:
+            CHROME_PATH: /usr/bin/google-chrome
       - store_test_results:
           path: ./reports
       - run:

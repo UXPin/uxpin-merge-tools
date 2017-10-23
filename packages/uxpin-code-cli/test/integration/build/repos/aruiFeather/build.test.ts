@@ -13,9 +13,7 @@ describe('Building repos/arui-feather design system', () => {
     let components:any;
 
     beforeAll(() => {
-      const options:string = [
-        '--webpack-config "./webpack.gemini.config.js"',
-      ].join(' ');
+      const options:string = '--webpack-config "./webpack.gemini.config.js"';
 
       return runUXPinCodeCommand('resources/repos/arui-feather', options)
         .then(() => {
