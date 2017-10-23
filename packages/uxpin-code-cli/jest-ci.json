@@ -10,7 +10,8 @@
     "**/test/**/*.test.js"
   ],
   "testPathIgnorePatterns": [
-    "<rootDir>/test/resources/"
+    "<rootDir>/test/resources/",
+    "<rootDir>/test/integration/server/"
   ],
   "testEnvironment": "node",
   "testResultsProcessor": "jest-junit-reporter"

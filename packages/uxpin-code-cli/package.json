@@ -18,9 +18,12 @@
   ],
   "jest": {
     "moduleFileExtensions": [
-      "ts",
       "js",
+      "ts",
       "json"
+    ],
+    "modulePathIgnorePatterns": [
+      "/node_modules/"
     ],
     "transform": {
       "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
@@ -41,7 +44,6 @@
     "@types/locate-path": "^2.0.0",
     "@types/lodash": "^4.14.74",
     "@types/node": "^8.0.26",
-    "@types/opn": "^3.0.28",
     "@types/p-any": "^1.1.1",
     "@types/p-map-series": "^1.0.1",
     "@types/p-reduce": "^1.0.0",
@@ -50,6 +52,7 @@
     "@types/webpack": "^3.0.10",
     "@types/webpack-merge": "^0.0.5",
     "child-process-promise": "^2.2.1",
+    "chromeless": "^1.3.0",
     "codecov": "^2.3.0",
     "jest": "^21.0.1",
     "jest-junit-reporter": "^1.1.0",
@@ -72,7 +75,6 @@
     "lodash": "^4.17.4",
     "markdown-to-ast": "^4.0.0",
     "mkdirp-promise": "^5.0.1",
-    "opn": "^5.1.0",
     "p-any": "^1.1.0",
     "p-map-series": "^1.0.0",
     "p-reduce": "^1.0.0",

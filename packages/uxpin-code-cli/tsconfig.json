@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": ["es2015", "es2016.array.include"],
+    "lib": ["es2015", "es2016.array.include", "dom"],
     "module": "commonjs",
     "sourceMap": true,
     "strict": true,

@@ -3,9 +3,9 @@ import { writeFile } from 'fs';
 import * as http from 'http';
 import { createServer, Options } from 'http-server';
 import * as https from 'https';
-import * as opn from 'opn';
 
 import { TEMP_DIR_PATH } from '../steps/building/config/getConfig';
+import { SERVER_PORT, SERVER_SUCCESS_MESSAGE, SERVER_URL } from './serverConfig';
 
 const INDEX_HTML_TEMPLATE:string = `<!DOCTYPE html>
 <html lang="en">
@@ -18,8 +18,6 @@ const INDEX_HTML_TEMPLATE:string = `<!DOCTYPE html>
 </body>
 </html>`;
 
-const PORT:number = 8080;
-
 export function startServer():Promise<void> {
   return writeStaticTemplateFile()
     .then(() => {
@@ -27,12 +25,10 @@ export function startServer():Promise<void> {
         logFn: (req, res, err) => console.log(getLogString(req, res, err)),
         root: TEMP_DIR_PATH,
       };
-      const server:http.Server|https.Server = createServer(options);
-      server.listen(PORT, () => console.log('started!'));
+      const server:http.Server | https.Server = createServer(options);
+      server.listen(SERVER_PORT, () => console.log(`server ready on ${SERVER_URL}!`));
     })
-    .then(() => {
-      opn(`http://127.0.0.1:${PORT}/`);
-    });
+    .then(() => console.log(SERVER_SUCCESS_MESSAGE));
 }
 
 function writeStaticTemplateFile():Promise<string> {

@@ -28,6 +28,7 @@ test-ci:
 clean:
 	rm -rf ./dist/
 	rm -rf ./coverage
+	rm -rf ./reports
 	rm -rf ./coverage-cli
 	rm -rf ./.nyc_output
 	find ./src -name "*.js" -delete
