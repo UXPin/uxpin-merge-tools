@@ -2,7 +2,7 @@ import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { evalInBrowser } from '../../utils/server/evalInBrowser';
 import { keepServerWhileTestsRunning } from '../../utils/server/keepServerWhileTestsRunning';
 
-const CURRENT_TIMEOUT:number = 180000;
+const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 const options:string = [
