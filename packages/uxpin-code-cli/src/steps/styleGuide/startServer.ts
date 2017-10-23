@@ -4,9 +4,9 @@ import { createServer, Options } from 'http-server';
 import * as https from 'https';
 
 import { Warned } from '../../common/warning/Warned';
+import { SERVER_PORT, SERVER_SUCCESS_MESSAGE, SERVER_URL } from '../../server/serverConfig';
 import { TEMP_DIR_PATH } from '../building/config/getConfig';
 import { DesignSystemDefinition } from '../serialization/DesignSystemDefinition';
-import { SERVER_PORT, SERVER_SUCCESS_MESSAGE, SERVER_URL } from './serverConfig';
 import { writeStaticIndexFile } from './writeStaticIndexFile';
 
 export function startServer({ result: { components } }:Warned<DesignSystemDefinition>):Promise<void> {
