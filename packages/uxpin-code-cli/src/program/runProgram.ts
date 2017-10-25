@@ -39,7 +39,7 @@ function getSteps(args:ProgramArgs):Step[] {
   if (args.command === 'server') {
     return [
       { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
-      { exec: startServer, shouldRun: true },
+      { exec: thunkStartServer(buildOptions), shouldRun: true },
     ];
   }
 
@@ -55,6 +55,10 @@ function getSteps(args:ProgramArgs):Step[] {
 
 function thunkBuildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
   return ({ result: { components } }) => buildDesignSystem(components, buildOptions);
+}
+
+function thunkStartServer(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
+  return ({ result: { components } }) => startServer(components, buildOptions);
 }
 
 function printDump({ warnings, result }:DSMetadata):void {

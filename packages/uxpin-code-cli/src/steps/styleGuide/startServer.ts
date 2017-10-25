@@ -3,14 +3,16 @@ import * as http from 'http';
 import { createServer, Options } from 'http-server';
 import * as https from 'https';
 
-import { Warned } from '../../common/warning/Warned';
 import { SERVER_PORT, SERVER_SUCCESS_MESSAGE, SERVER_URL } from '../../server/serverConfig';
+import { BuildOptions } from '../building/BuildOptions';
 import { TEMP_DIR_PATH } from '../building/config/getConfig';
-import { DesignSystemDefinition } from '../serialization/DesignSystemDefinition';
+import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
+import { copyRequiredFiles } from './copyRequiredFiles';
 import { writeStaticIndexFile } from './writeStaticIndexFile';
 
-export function startServer({ result: { components } }:Warned<DesignSystemDefinition>):Promise<void> {
-  return writeStaticIndexFile(components)
+export function startServer(components:ComponentDefinition[], buildOptions:BuildOptions):Promise<void> {
+  return copyRequiredFiles(buildOptions.projectRoot)
+    .then((bundlePath) => writeStaticIndexFile(bundlePath, components))
     .then(() => {
       const options:Options = {
         logFn: (req, res, err) => console.log(getLogString(req, res, err)),
