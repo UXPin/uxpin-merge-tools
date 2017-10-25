@@ -2,6 +2,8 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { StyleGuide } from './StyleGuide';
 
+// tslint:disable:no-var-requires
+require('require1k');
 declare var R:any;
 
 const { __PRELOADED_STATE__: { components } } = window as any;

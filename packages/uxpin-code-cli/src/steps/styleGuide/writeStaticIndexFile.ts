@@ -23,7 +23,6 @@ function getIndexFileContent(bundlePath:string, preloadedState:{}, title:string 
   <head>
     <meta charset="UTF-8">
     <title>${title}</title>
-    <script src="require1k.min.js"></script>
   </head>
   <body style="font-family: sans-serif">
     <div id="root"></div>

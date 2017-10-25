@@ -87,6 +87,7 @@
     "react-docgen": "^2.18.0",
     "react-docgen-typescript": "^1.0.2",
     "react-dom": "^16.0.0",
+    "require1k": "^1.0.1",
     "source-map-support": "^0.4.18",
     "stringify-object": "^3.2.1",
     "webpack": "^3.5.6",
