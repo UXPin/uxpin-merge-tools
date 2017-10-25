@@ -5,6 +5,11 @@ import { TEMP_DIR_PATH } from '../config/getConfig';
 const CLASS_NAME_WRAPPER:string = 'Wrapper';
 
 export function getFileString(components:ComponentDefinition[], wrapperPath?:string):string {
+  const libImports:string[] = [
+    'import * as React from \'react\';',
+    'import { render } from \'react-dom\';',
+  ];
+
   const imports:string[] = components.map((comp) => `import ${comp.name} from '${getImportPath(comp)}';`);
 
   const wrapperImport:string[] = wrapperPath ? [`import ${CLASS_NAME_WRAPPER} from '${wrapperPath}';`] : [];
@@ -13,10 +18,12 @@ export function getFileString(components:ComponentDefinition[], wrapperPath?:str
     `export {`,
     ...components.map((component) => `  ${component.name},`),
     ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER},`] : []),
+    '  React,',
+    '  render,',
     `};`,
   ];
 
-  return [...imports, ...wrapperImport, ...exports].join('\n');
+  return [...libImports, ...imports, ...wrapperImport, ...exports].join('\n');
 }
 
 function getImportPath(component:ComponentDefinition):string {
