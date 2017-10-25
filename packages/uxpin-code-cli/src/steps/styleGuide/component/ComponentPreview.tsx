@@ -1,46 +1,80 @@
-import { transform } from 'babel-core';
+import { transform } from 'babel-standalone';
 import * as React from 'react';
 import { ComponentExample } from '../../serialization/component/examples/ComponentExample';
 
 interface Props {
+  componentNames:string[];
   examples:ComponentExample[];
-  imports:string[];
+  library:{string:() => any};
 }
 
-// tslint:disable:variable-name
-export const ComponentPreview:React.SFC<Props> = ({
-  examples,
-  imports,
-}:Props) => {
+interface State {
+  error:string;
+}
 
-  if (!examples.length) {
+export class ComponentPreview extends React.Component<Props, State> {
+  private container:HTMLElement | null;
+
+  constructor(props:Props) {
+    super(props);
+
+    this.state = {
+      error: '',
+    };
+  }
+
+  public componentDidMount():void {
+    if (!this.shouldRenderExample()) {
+      return;
+    }
+
+    const { componentNames, examples, library } = this.props;
+    const { render } = library as any;
+    const html:string = getHtml(examples, componentNames, library);
+
+    try {
+      // tslint:disable:no-eval
+      const example:JSX.Element = eval(transform(html, {
+        presets: [
+          'es2015',
+          'react',
+        ],
+      }).code || '');
+      render(example,  this.container);
+    } catch (e) {
+      console.warn(e);
+      this.setState({ error: e.message });
+    }
+  }
+
+  public render():JSX.Element {
+    const { error } = this.state;
+    const { examples } = this.props;
+
+    if (!examples.length) {
+      return (
+        <span style={{ color: 'grey' }}>⚠️ Warning: no code examples</span>
+      );
+    }
+
+    if (error) {
+      return (
+        <span style={{ color: 'red' }}>⛔ Error: {error}</span>
+      );
+    }
+
     return (
-      <span style={{ color: 'grey' }}>⚠️ Warning: no code examples</span>
+      <div ref={(ref) => { this.container = ref; }}></div>
     );
   }
 
-  const __html:string = getHtml(examples, imports);
-
-  try {
-    // tslint:disable:no-eval
-    return eval(transform(__html, {
-      babelrc: false,
-      presets: [
-        '../../../../node_modules/babel-preset-es2015',
-        '../../../../node_modules/babel-preset-react',
-      ],
-    }).code || '');
-  } catch (e) {
-    console.log(e);
-    return (
-      <span style={{ color: 'red' }}>⛔ Error: {e.message}</span>
-    );
+  protected shouldRenderExample():boolean {
+    return !!this.container && !this.state.error && this.props.examples.length > 0;
   }
-};
+}
 
-function getHtml(examples:ComponentExample[], imports:string[]):string {
-  return `const React = require('react');
-${imports.join('\n')}
+function getHtml(examples:ComponentExample[], componentNames:string[], library:any):string {
+  return `const { ${componentNames.join(', ')} } = library;
 
 ${examples[0].code}`;
 }

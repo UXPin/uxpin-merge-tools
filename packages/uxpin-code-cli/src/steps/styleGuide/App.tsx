@@ -1,25 +1,14 @@
-import { join } from 'path';
 import * as React from 'react';
-import { LIBRARY_OUTPUT_PATH } from '../building/config/getConfig';
-import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
-import { ComponentContainer } from './component/ComponentContainer';
+import { render } from 'react-dom';
+import { StyleGuide } from './StyleGuide';
 
-interface Props {
-  components:ComponentDefinition[];
-}
-// tslint:disable:variable-name
-export const App:React.SFC<Props> = ({ components }:Props) => {
-  const imports:string[] = components.map((component) => getImport(component.name));
+declare var R:any;
 
-  return (
-    <div>
-      {components.map((component) => (
-        <ComponentContainer imports={imports} {...component} />
-      ))}
-    </div>
-  );
-};
+const { __PRELOADED_STATE__: { components } } = window as any;
 
-function getImport(componentName:string):string {
-  return `const { ${componentName} } = require('${join(process.cwd(), LIBRARY_OUTPUT_PATH)}');`;
-}
+R('./designsystemlibrary', (err:Error, library:{string:() => any}) => {
+  render((
+    <StyleGuide components={components} library={library} />
+  ),  document.getElementById('root'));
+
+});

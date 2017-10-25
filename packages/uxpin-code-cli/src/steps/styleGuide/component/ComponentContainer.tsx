@@ -5,16 +5,18 @@ import { ComponentPreview } from './ComponentPreview';
 import { ComponentProps } from './ComponentProps';
 
 interface Props {
+  componentNames:string[];
   examples:ComponentExample[];
-  imports:string[];
+  library:{string:() => any};
   name:string;
   properties:ComponentPropertyDefinition[];
 }
 
 // tslint:disable:variable-name
 export const ComponentContainer:React.SFC<Props> = ({
+  componentNames,
   examples,
-  imports,
+  library,
   name = '',
   properties,
 }:Props) => {
@@ -22,7 +24,7 @@ export const ComponentContainer:React.SFC<Props> = ({
   return (
     <div>
       <h3>{name}</h3>
-      <ComponentPreview examples={examples} imports={imports} />
+      <ComponentPreview componentNames={componentNames} examples={examples} library={library} />
       <ComponentProps properties={properties}/>
     </div>
   );
