@@ -10,7 +10,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 keepServerWhileTestsRunning('resources/repos/arui-feather', '--webpack-config "./webpack.gemini.config.js"');
 
 describe('server run in arui-feather', () => {
-  const TIMEOUT:number = 200;
+  const TIMEOUT:number = 1000;
   let chromeless:Chromeless<any>;
 
   beforeAll((done) => {
