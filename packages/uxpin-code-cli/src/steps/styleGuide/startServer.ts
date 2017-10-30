@@ -15,6 +15,7 @@ export function startServer(components:ComponentDefinition[], buildOptions:Build
     .then((bundlePath) => writeStaticIndexFile(bundlePath, components))
     .then(() => {
       const options:Options = {
+        headers: { 'Cache-Control': 'no-cache' },
         logFn: (req, res, err) => console.log(getLogString(req, res, err)),
         root: TEMP_DIR_PATH,
       };
