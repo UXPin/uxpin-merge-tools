@@ -5,9 +5,9 @@ SHELL := /bin/bash -o pipefail
 
 build:
 	tsc
+	make build-server-app
 
 build-server-app:
-	make build
 	webpack --config "./config/webpack.config.js"
 
 check:
