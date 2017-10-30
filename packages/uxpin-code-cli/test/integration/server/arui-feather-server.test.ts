@@ -27,7 +27,9 @@ describe('server run in arui-feather', () => {
     const componentName:string = 'Button';
 
     const expectedHeader:string = '<h3>Button</h3>';
-    const expectedExample:string = '<button role="button" type="button" class="button button_size_s button_theme_alfa-on-color"><span class="button__text">Применить</span></button>';
+    const expectedExample:string = `<button \
+role="button" type="button" class="button button_size_s button_theme_alfa-on-color">\
+<span class="button__text">Применить</span></button>`;
 
     // when
     return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
