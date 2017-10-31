@@ -20,7 +20,7 @@ export function startServer(components:ComponentDefinition[], buildOptions:Build
         root: TEMP_DIR_PATH,
       };
       const server:http.Server | https.Server = createServer(options);
-      server.listen(port, () => console.log(`server ready on ${SERVER_URL}:${port}/!`));
+      server.listen(port, () => console.log(`server ready on ${SERVER_URL}:${port}/`));
     })
     .then(() => console.log(SERVER_SUCCESS_MESSAGE));
 }
