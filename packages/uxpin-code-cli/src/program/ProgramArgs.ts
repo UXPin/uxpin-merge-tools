@@ -4,6 +4,7 @@ export interface RawProgramArgs {
   args?:Arg[];
   cwd:string;
   dump:boolean;
+  port?:number;
   summary:boolean;
   webpackConfig?:string;
   wrapper?:string;
@@ -23,6 +24,7 @@ interface UploadProgramArgs {
 interface ServerProgramArgs {
   command:'server';
   cwd:string;
+  port:number;
   webpackConfig?:string;
   wrapper?:string;
 }
