@@ -1,5 +1,5 @@
 import Chromeless from 'chromeless';
-import { SERVER_URL } from '../../../src/server/serverConfig';
+import { SERVER_URL } from '../../../src/debug/server/serverConfig';
 import { tapPromise } from '../../../src/utils/promise/tapPromise';
 
 export function evalInBrowser<T, K extends any>(logic:(...args:K[]) => T, ...args:K[]):Promise<T> {

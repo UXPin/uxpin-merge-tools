@@ -3,7 +3,7 @@ import * as http from 'http';
 import { createServer, Options } from 'http-server';
 import * as https from 'https';
 
-import { SERVER_SUCCESS_MESSAGE, SERVER_URL } from '../../server/serverConfig';
+import { SERVER_SUCCESS_MESSAGE, SERVER_URL } from '../../debug/server/serverConfig';
 import { BuildOptions } from '../building/BuildOptions';
 import { TEMP_DIR_PATH } from '../building/config/getConfig';
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';

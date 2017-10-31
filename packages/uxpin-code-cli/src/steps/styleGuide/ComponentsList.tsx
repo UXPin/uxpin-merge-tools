@@ -7,7 +7,7 @@ interface Props {
   library:{string:() => any};
 }
 // tslint:disable:variable-name
-export const StyleGuide:React.SFC<Props> = ({ components, library }:Props) => {
+export const ComponentsList:React.SFC<Props> = ({ components, library }:Props) => {
   const componentNames:string[] = components.map((component) => component.name);
 
   return (

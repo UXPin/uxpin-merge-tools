@@ -1,7 +1,7 @@
 import Chromeless from 'chromeless';
 
-import { getRandomPortNumber } from '../../../src/server/getRandomPortNumber';
-import { SERVER_URL } from '../../../src/server/serverConfig';
+import { getRandomPortNumber } from '../../../src/debug/server/getRandomPortNumber';
+import { SERVER_URL } from '../../../src/debug/server/serverConfig';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
 import { keepServerWhileTestsRunning } from '../../utils/server/keepServerWhileTestsRunning';
