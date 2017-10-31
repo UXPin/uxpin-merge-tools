@@ -17,7 +17,7 @@ const options:string = [
 keepServerWhileTestsRunning('resources/repos/arui-feather', options);
 
 describe('server run in arui-feather', () => {
-  const TIMEOUT:number = 1000;
+  const TIMEOUT:number = 200;
   let chromeless:Chromeless<any>;
 
   beforeAll((done) => {

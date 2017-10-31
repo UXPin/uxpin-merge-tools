@@ -18,7 +18,7 @@ const options:string = [
 keepServerWhileTestsRunning('resources/repos/nordnet-ui-kit', options);
 
 describe('server run in nordnet-ui-kit', () => {
-  const TIMEOUT:number = 1000;
+  const TIMEOUT:number = 200;
   let chromeless:Chromeless<any>;
 
   beforeAll((done) => {
