@@ -30,7 +30,7 @@ export class ComponentPreview extends React.Component<Props, State> {
 
     const { componentNames, examples, library } = this.props;
     const { render } = library as any;
-    const html:string = getHtml(examples, componentNames, library);
+    const html:string = getHtml(examples, componentNames);
 
     try {
       // tslint:disable:no-eval
@@ -73,7 +73,7 @@ export class ComponentPreview extends React.Component<Props, State> {
   }
 }
 
-function getHtml(examples:ComponentExample[], componentNames:string[], library:any):string {
+function getHtml(examples:ComponentExample[], componentNames:string[]):string {
   return `const { ${componentNames.join(', ')} } = library;
 
 ${examples[0].code}`;
