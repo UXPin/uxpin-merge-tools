@@ -1,5 +1,5 @@
 import Chromeless from 'chromeless';
-import { getRandomPortNumber } from '../../../../src/debug/server/getRandomPortNumber';
+import { getRandomPortNumber } from '../server/getRandomPortNumber';
 import { SERVER_URL } from '../../../../src/debug/server/serverConfig';
 import { tapPromise } from '../../../../src/utils/promise/tapPromise';
 import { createChromeless } from './createChromeless';

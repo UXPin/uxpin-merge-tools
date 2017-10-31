@@ -59,6 +59,7 @@
     "codecov": "^2.3.0",
     "jest": "^21.0.1",
     "jest-junit-reporter": "^1.1.0",
+    "ngrok": "^2.2.23",
     "nyc": "^11.2.1",
     "remap-istanbul": "^0.9.5",
     "ts-jest": "^21.0.0",

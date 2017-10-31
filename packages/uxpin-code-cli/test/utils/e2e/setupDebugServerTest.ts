@@ -1,5 +1,5 @@
 import Chromeless from 'chromeless';
-import { getRandomPortNumber } from '../../../src/debug/server/getRandomPortNumber';
+import { getRandomPortNumber } from './server/getRandomPortNumber';
 import { keepChromelessWhileTestsRunning } from './chromeless/keepChromelessWhileTestsRunning';
 import { keepServerWhileTestsRunning } from './server/keepServerWhileTestsRunning';
 
