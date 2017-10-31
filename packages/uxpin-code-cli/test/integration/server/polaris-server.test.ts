@@ -1,6 +1,6 @@
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
-import { evalInBrowser } from '../../utils/server/evalInBrowser';
-import { keepServerWhileTestsRunning } from '../../utils/server/keepServerWhileTestsRunning';
+import { evalInBrowser } from '../../utils/e2e/chromeless/evalInBrowser';
+import { keepServerWhileTestsRunning } from '../../utils/e2e/server/keepServerWhileTestsRunning';
 
 const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);

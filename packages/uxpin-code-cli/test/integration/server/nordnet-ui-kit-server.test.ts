@@ -1,35 +1,23 @@
 import Chromeless from 'chromeless';
-
-import { getRandomPortNumber } from '../../../src/debug/server/getRandomPortNumber';
-import { SERVER_URL } from '../../../src/debug/server/serverConfig';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
-import { keepServerWhileTestsRunning } from '../../utils/server/keepServerWhileTestsRunning';
+import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 
 const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-const port:number = getRandomPortNumber();
-const options:string = [
-  `--port ${port}`,
+const serverCmdArgs:string = [
   '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',
   '--wrapper "../documentation/wrapper.jsx"',
 ].join(' ');
-keepServerWhileTestsRunning('resources/repos/nordnet-ui-kit', options);
 
 describe('server run in nordnet-ui-kit', () => {
-  const TIMEOUT:number = 1000;
   let chromeless:Chromeless<any>;
 
-  beforeAll((done) => {
-    chromeless = new Chromeless();
-    return chromeless
-      .goto(`${SERVER_URL}:${port}/`)
-      .wait(TIMEOUT)
-      .then(done);
-  });
-
-  afterAll(() => chromeless.end());
+  setupDebugServerTest({
+    projectPath: 'resources/repos/nordnet-ui-kit',
+    serverCmdArgs,
+  }, (c) => chromeless = c);
 
   it('renders `Button` component with `no code examples` warning', () => {
     const componentName:string = 'Button';
