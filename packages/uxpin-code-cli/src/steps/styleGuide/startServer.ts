@@ -4,15 +4,20 @@ import { createServer, Options } from 'http-server';
 import * as https from 'https';
 
 import { SERVER_SUCCESS_MESSAGE, SERVER_URL } from '../../debug/server/serverConfig';
-import { BuildOptions } from '../building/BuildOptions';
 import { TEMP_DIR_PATH } from '../building/config/getConfig';
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
 import { copyRequiredFiles } from './copyRequiredFiles';
 import { writeStaticIndexFile } from './writeStaticIndexFile';
 
-export function startServer(components:ComponentDefinition[], buildOptions:BuildOptions, port:number):Promise<void> {
-  return copyRequiredFiles(buildOptions.projectRoot)
-    .then((bundlePath) => writeStaticIndexFile(bundlePath, components))
+interface ServerOptions {
+  port:number;
+  root:string;
+}
+
+export function startServer(components:ComponentDefinition[], serverOptions:ServerOptions):Promise<void> {
+  const { port, root } = serverOptions;
+  return copyRequiredFiles(root)
+    .then((bundlePath) => writeStaticIndexFile(root, bundlePath, components))
     .then(() => {
       const options:Options = {
         headers: { 'Cache-Control': 'no-cache' },

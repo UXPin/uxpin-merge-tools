@@ -1,11 +1,13 @@
 import { writeFile } from 'fs';
-import { TEMP_DIR_PATH } from '../building/config/getConfig';
+import { join, relative } from 'path';
+
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
 
-export function writeStaticIndexFile(bundlePath:string, components:ComponentDefinition[]):Promise<string> {
+export function writeStaticIndexFile(root:string, bundlePath:string, components:ComponentDefinition[]):Promise<string> {
   return new Promise((resolve, reject) => {
-    const indexPath:string = `${TEMP_DIR_PATH}/index.html`;
-    const fileContent:string = getIndexFileContent(bundlePath,{ components }, 'Design System styleguide');
+    const indexPath:string = join(root, 'index.html');
+    const relativeBundlePath:string = relative(root, bundlePath);
+    const fileContent:string = getIndexFileContent(relativeBundlePath, { components }, 'Design System styleguide');
 
     writeFile(indexPath, fileContent, 'utf8', (error) => {
       if (error) {
