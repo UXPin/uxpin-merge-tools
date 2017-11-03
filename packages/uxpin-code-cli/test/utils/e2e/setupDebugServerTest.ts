@@ -1,6 +1,6 @@
 import Chromeless from 'chromeless';
-import { getRandomPortNumber } from './server/getRandomPortNumber';
 import { keepChromelessWhileTestsRunning } from './chromeless/keepChromelessWhileTestsRunning';
+import { getRandomPortNumber } from './server/getRandomPortNumber';
 import { keepServerWhileTestsRunning } from './server/keepServerWhileTestsRunning';
 
 export interface DebugServerTestSetupOptions {
