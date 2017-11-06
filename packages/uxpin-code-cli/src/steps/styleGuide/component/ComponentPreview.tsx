@@ -1,11 +1,11 @@
 import { transform } from 'babel-standalone';
 import * as React from 'react';
 import { ComponentExample } from '../../serialization/component/examples/ComponentExample';
+import { ExampleRenderer } from '../ExampleRenderer';
 
 interface Props {
-  componentNames:string[];
   examples:ComponentExample[];
-  library:{string:() => any};
+  renderExample:ExampleRenderer;
 }
 
 interface State {
@@ -28,23 +28,9 @@ export class ComponentPreview extends React.Component<Props, State> {
       return;
     }
 
-    const { componentNames, examples, library } = this.props;
-    const { render } = library as any;
-    const html:string = getHtml(examples, componentNames);
-
-    try {
-      // tslint:disable:no-eval
-      const example:JSX.Element = eval(transform(html, {
-        presets: [
-          'es2015',
-          'react',
-        ],
-      }).code || '');
-      render(example,  this.container);
-    } catch (e) {
-      console.warn(e);
-      this.setState({ error: e.message });
-    }
+    const { examples, renderExample } = this.props;
+    renderExample(examples[0], this.container as HTMLElement)
+      .catch((error:Error) => this.setState({ error: error.message }));
   }
 
   public render():JSX.Element {
@@ -71,10 +57,4 @@ export class ComponentPreview extends React.Component<Props, State> {
   protected shouldRenderExample():boolean {
     return !!this.container && !this.state.error && this.props.examples.length > 0;
   }
-}
-
-function getHtml(examples:ComponentExample[], componentNames:string[]):string {
-  return `const { ${componentNames.join(', ')} } = library;
-
-${examples[0].code}`;
 }
