@@ -14,6 +14,5 @@
     "<rootDir>/test/integration/server/"
   ],
   "testEnvironment": "node",
-  "testResultsProcessor": "jest-junit-reporter",
-  "maxWorkers": 1
+  "testResultsProcessor": "jest-junit-reporter"
 }
