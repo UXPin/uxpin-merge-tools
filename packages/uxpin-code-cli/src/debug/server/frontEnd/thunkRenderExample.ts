@@ -20,7 +20,8 @@ export function thunkRenderExample(library:{string:() => any}, componentNames:st
 }
 
 function getHtml(example:ComponentExample, componentNames:string[]):string {
-  return `const { ${componentNames.join(', ')} } = library;
+  return `const { React } = library;
+const { ${componentNames.join(', ')} } = library;
 
 ${example.code}`;
 }
