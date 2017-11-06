@@ -47,7 +47,8 @@ function getSteps(args:ProgramArgs):Step[] {
 
   const { dump, summary } = args;
   return [
-    { exec: saveMetadata, shouldRun: !dump && !summary },
+    // @todo use saveMetadata when uploading
+    // { exec: saveMetadata, shouldRun: !dump && !summary },
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
     { exec: printDump, shouldRun: dump },
     { exec: printSummary, shouldRun: !dump },
