@@ -3,10 +3,10 @@ import * as http from 'http';
 import { createServer, Options } from 'http-server';
 import * as https from 'https';
 
-import { SERVER_SUCCESS_MESSAGE, SERVER_URL } from '../../debug/server/serverConfig';
-import { TEMP_DIR_PATH } from '../building/config/getConfig';
-import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
+import { TEMP_DIR_PATH } from '../../steps/building/config/getConfig';
+import { ComponentDefinition } from '../../steps/serialization/component/ComponentDefinition';
 import { copyRequiredFiles } from './copyRequiredFiles';
+import { SERVER_SUCCESS_MESSAGE, SERVER_URL } from './serverConfig';
 import { writeStaticIndexFile } from './writeStaticIndexFile';
 
 interface ServerOptions {

@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { ComponentPropertyDefinition } from '../../serialization/component/implementation/ComponentPropertyDefinition';
+import {
+  ComponentPropertyDefinition,
+} from '../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
 
 interface Props {
   properties:ComponentPropertyDefinition[];

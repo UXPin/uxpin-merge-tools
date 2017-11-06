@@ -8,7 +8,7 @@ build:
 	make build-server-app
 
 build-server-app:
-	webpack --config "./config/webpack.config.js"
+	webpack --config "./src/debug/server/frontEnd/config/webpack.config.js"
 
 check:
 	tslint --project tsconfig.json --type-check

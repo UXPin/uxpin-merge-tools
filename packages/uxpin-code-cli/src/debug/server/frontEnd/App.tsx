@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
+import { ComponentDefinition } from '../../../steps/serialization/component/ComponentDefinition';
 import { ComponentsList } from './ComponentsList';
 import { thunkRenderExample } from './thunkRenderExample';
 

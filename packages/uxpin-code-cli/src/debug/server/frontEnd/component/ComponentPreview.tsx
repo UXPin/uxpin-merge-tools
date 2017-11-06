@@ -1,6 +1,6 @@
 import { transform } from 'babel-standalone';
 import * as React from 'react';
-import { ComponentExample } from '../../serialization/component/examples/ComponentExample';
+import { ComponentExample } from '../../../../steps/serialization/component/examples/ComponentExample';
 import { ExampleRenderer } from '../ExampleRenderer';
 
 interface Props {

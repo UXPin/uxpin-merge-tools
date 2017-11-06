@@ -1,5 +1,5 @@
 import { transform } from 'babel-standalone';
-import { ComponentExample } from '../serialization/component/examples/ComponentExample';
+import { ComponentExample } from '../../../steps/serialization/component/examples/ComponentExample';
 import { ExampleRenderer } from './ExampleRenderer';
 
 export function thunkRenderExample(library:{string:() => any}, componentNames:string[]):ExampleRenderer {

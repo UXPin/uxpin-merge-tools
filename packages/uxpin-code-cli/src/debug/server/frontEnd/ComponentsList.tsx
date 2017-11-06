@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
+import { ComponentDefinition } from '../../../steps/serialization/component/ComponentDefinition';
 import { ComponentContainer } from './component/ComponentContainer';
 import { ExampleRenderer } from './ExampleRenderer';
 

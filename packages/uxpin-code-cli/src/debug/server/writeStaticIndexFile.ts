@@ -1,7 +1,7 @@
 import { writeFile } from 'fs';
 import { join, relative } from 'path';
 
-import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
+import { ComponentDefinition } from '../../steps/serialization/component/ComponentDefinition';
 
 export function writeStaticIndexFile(root:string, bundlePath:string, components:ComponentDefinition[]):Promise<string> {
   return new Promise((resolve, reject) => {

@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { ComponentExample } from '../../serialization/component/examples/ComponentExample';
-import { ComponentPropertyDefinition } from '../../serialization/component/implementation/ComponentPropertyDefinition';
+import { ComponentExample } from '../../../../steps/serialization/component/examples/ComponentExample';
+import {
+  ComponentPropertyDefinition,
+} from '../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
 import { ExampleRenderer } from '../ExampleRenderer';
 import { ComponentPreview } from './ComponentPreview';
 import { ComponentProps } from './ComponentProps';
