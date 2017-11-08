@@ -3,16 +3,21 @@ import * as http from 'http';
 import { createServer, Options } from 'http-server';
 import * as https from 'https';
 
-import { SERVER_SUCCESS_MESSAGE, SERVER_URL } from '../../debug/server/serverConfig';
-import { BuildOptions } from '../building/BuildOptions';
-import { TEMP_DIR_PATH } from '../building/config/getConfig';
-import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
+import { TEMP_DIR_PATH } from '../../steps/building/config/getConfig';
+import { ComponentDefinition } from '../../steps/serialization/component/ComponentDefinition';
 import { copyRequiredFiles } from './copyRequiredFiles';
+import { SERVER_SUCCESS_MESSAGE, SERVER_URL } from './serverConfig';
 import { writeStaticIndexFile } from './writeStaticIndexFile';
 
-export function startServer(components:ComponentDefinition[], buildOptions:BuildOptions, port:number):Promise<void> {
-  return copyRequiredFiles(buildOptions.projectRoot)
-    .then((bundlePath) => writeStaticIndexFile(bundlePath, components))
+interface ServerOptions {
+  port:number;
+  root:string;
+}
+
+export function startServer(components:ComponentDefinition[], serverOptions:ServerOptions):Promise<void> {
+  const { port, root } = serverOptions;
+  return copyRequiredFiles(root)
+    .then((bundlePath) => writeStaticIndexFile(root, bundlePath, components))
     .then(() => {
       const options:Options = {
         headers: { 'Cache-Control': 'no-cache' },
@@ -20,7 +25,7 @@ export function startServer(components:ComponentDefinition[], buildOptions:Build
         root: TEMP_DIR_PATH,
       };
       const server:http.Server | https.Server = createServer(options);
-      server.listen(port, () => console.log(`server ready on ${SERVER_URL}:${port}/!`));
+      server.listen(port, () => console.log(`server ready on ${SERVER_URL}:${port}/`));
     })
     .then(() => console.log(SERVER_SUCCESS_MESSAGE));
 }

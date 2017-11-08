@@ -1,30 +1,31 @@
 import * as React from 'react';
-import { ComponentExample } from '../../serialization/component/examples/ComponentExample';
-import { ComponentPropertyDefinition } from '../../serialization/component/implementation/ComponentPropertyDefinition';
+import { ComponentExample } from '../../../../steps/serialization/component/examples/ComponentExample';
+import {
+  ComponentPropertyDefinition,
+} from '../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
+import { ExampleRenderer } from '../ExampleRenderer';
 import { ComponentPreview } from './ComponentPreview';
 import { ComponentProps } from './ComponentProps';
 
 interface Props {
-  componentNames:string[];
   examples:ComponentExample[];
-  library:{string:() => any};
   name:string;
   properties:ComponentPropertyDefinition[];
+  renderExample:ExampleRenderer;
 }
 
 // tslint:disable:variable-name
 export const ComponentContainer:React.SFC<Props> = ({
-  componentNames,
   examples,
-  library,
   name = '',
   properties,
+  renderExample,
 }:Props) => {
 
   return (
     <div>
       <h3>{name}</h3>
-      <ComponentPreview componentNames={componentNames} examples={examples} library={library} />
+      <ComponentPreview examples={examples} renderExample={renderExample} />
       <ComponentProps properties={properties}/>
     </div>
   );

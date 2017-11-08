@@ -1,7 +1,7 @@
 module.exports = {
-  entry: './src/steps/styleGuide/App.js',
+  entry: './src/debug/server/frontEnd/App.js',
   output: {
-    filename: './dist/styleguide.js',
+    filename: './dist/debug/server/index.js',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
