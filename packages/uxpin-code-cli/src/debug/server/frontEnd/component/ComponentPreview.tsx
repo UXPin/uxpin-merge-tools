@@ -54,7 +54,7 @@ export class ComponentPreview extends React.Component<Props, State> {
     );
   }
 
-  protected shouldRenderExample():boolean {
+  private shouldRenderExample():boolean {
     return !!this.container && !this.state.error && this.props.examples.length > 0;
   }
 }
