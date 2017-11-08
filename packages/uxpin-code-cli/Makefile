@@ -5,6 +5,10 @@ SHELL := /bin/bash -o pipefail
 
 build:
 	tsc
+	make build-server-app
+
+build-server-app:
+	webpack --config "./config/webpack.config.js"
 
 check:
 	tslint --project tsconfig.json --type-check

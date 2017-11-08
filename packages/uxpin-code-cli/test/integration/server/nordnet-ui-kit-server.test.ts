@@ -1,20 +1,57 @@
+import Chromeless from 'chromeless';
+
+import { getRandomPortNumber } from '../../../src/debug/server/getRandomPortNumber';
+import { SERVER_URL } from '../../../src/debug/server/serverConfig';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
-import { evalInBrowser } from '../../utils/server/evalInBrowser';
+import { getComponentByName } from '../../utils/dom/getComponentByName';
 import { keepServerWhileTestsRunning } from '../../utils/server/keepServerWhileTestsRunning';
 
-const CURRENT_TIMEOUT:number = 180000;
+const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
+const port:number = getRandomPortNumber();
 const options:string = [
+  `--port ${port}`,
   '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',
   '--wrapper "../documentation/wrapper.jsx"',
 ].join(' ');
 keepServerWhileTestsRunning('resources/repos/nordnet-ui-kit', options);
 
 describe('server run in nordnet-ui-kit', () => {
-  it('runs gets up successfully', () => {
-    return evalInBrowser(() => document.body.innerText).then((contents) => {
-      expect(contents).toEqual('It works!');
+  const TIMEOUT:number = 200;
+  let chromeless:Chromeless<any>;
+
+  beforeAll((done) => {
+    chromeless = new Chromeless();
+    return chromeless
+      .goto(`${SERVER_URL}:${port}/`)
+      .wait(TIMEOUT)
+      .then(done);
+  });
+
+  afterAll(() => chromeless.end());
+
+  it('renders `Button` component with `no code examples` warning', () => {
+    const componentName:string = 'Button';
+
+    const expectedHeader:string = '<h3>Button</h3>';
+    const expectedExample:string = '⚠️ Warning: no code examples';
+
+    // when
+    return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
+      // then
+      expect(contents).toContain(expectedHeader);
+      expect(contents).toContain(expectedExample);
+    });
+  });
+
+  it('does not render non-existent component', () => {
+    const componentName:string = 'NotExist';
+
+    // when
+    return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
+      // then
+      expect(contents).toBeFalsy();
     });
   });
 });

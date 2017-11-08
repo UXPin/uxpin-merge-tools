@@ -48,4 +48,12 @@ describe('--help option for `server` command', () => {
     });
   });
 
+  it('it prints help for --port <number> option', () => {
+    // when
+    return runUXPinCodeCommand('./', 'server --help').then((output) => {
+      // then
+      expect(output)
+        .toMatch(/--port <number>\s+port number/);
+    });
+  });
 });

@@ -1,5 +1,5 @@
 import { ChildProcess, exec } from 'child_process';
-import { SERVER_SUCCESS_MESSAGE } from '../../../src/server/serverConfig';
+import { SERVER_SUCCESS_MESSAGE } from '../../../src/debug/server/serverConfig';
 import { buildCommand } from './buildCommand';
 import { getExecOptions } from './getExecOptions';
 

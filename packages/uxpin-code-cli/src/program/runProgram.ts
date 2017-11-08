@@ -1,10 +1,12 @@
 import pMapSeries = require('p-map-series');
+import { join } from 'path';
 import * as stringifyObject from 'stringify-object';
 import { stringifyWarnings } from '../common/warning/stringifyWarnings';
 import { Warned } from '../common/warning/Warned';
-import { startServer } from '../server/startServer';
+import { startServer } from '../debug/server/startServer';
 import { buildDesignSystem } from '../steps/building/buildDesignSystem';
 import { BuildOptions } from '../steps/building/BuildOptions';
+import { TEMP_DIR_PATH } from '../steps/building/config/getConfig';
 import { getDesignSystemComponentInfos } from '../steps/discovery/component/getDesignSystemComponentInfos';
 import { getDesignSystemSummary } from '../steps/discovery/getDesignSystemSummary';
 import { DesignSystemDefinition } from '../steps/serialization/DesignSystemDefinition';
@@ -38,7 +40,7 @@ function getSteps(args:ProgramArgs):Step[] {
   if (args.command === 'server') {
     return [
       { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
-      { exec: startServer, shouldRun: true },
+      { exec: thunkStartServer(buildOptions, args.port), shouldRun: true },
     ];
   }
 
@@ -53,6 +55,13 @@ function getSteps(args:ProgramArgs):Step[] {
 
 function thunkBuildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
   return ({ result: { components } }) => buildDesignSystem(components, buildOptions);
+}
+
+function thunkStartServer(buildOptions:BuildOptions, port:number):(ds:DSMetadata) => Promise<any> {
+  return ({ result: { components } }) => startServer(components, {
+    port,
+    root: join(buildOptions.projectRoot, TEMP_DIR_PATH),
+  });
 }
 
 function printDump({ warnings, result }:DSMetadata):void {
