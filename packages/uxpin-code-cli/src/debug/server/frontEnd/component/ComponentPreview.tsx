@@ -24,13 +24,11 @@ export class ComponentPreview extends React.Component<Props, State> {
   }
 
   public componentDidMount():void {
-    if (!this.shouldRenderExample()) {
-      return;
+    if (this.shouldRenderExample()) {
+      const { examples, renderExample } = this.props;
+      renderExample(examples[0], this.container as HTMLElement)
+        .catch((error:Error) => this.setState({ error: error.message }));
     }
-
-    const { examples, renderExample } = this.props;
-    renderExample(examples[0], this.container as HTMLElement)
-      .catch((error:Error) => this.setState({ error: error.message }));
   }
 
   public render():JSX.Element {
