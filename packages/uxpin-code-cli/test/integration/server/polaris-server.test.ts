@@ -1,34 +1,18 @@
 import Chromeless from 'chromeless';
-
-import { getRandomPortNumber } from '../../../src/debug/server/getRandomPortNumber';
-import { SERVER_URL } from '../../../src/debug/server/serverConfig';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
-import { keepServerWhileTestsRunning } from '../../utils/server/keepServerWhileTestsRunning';
+import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 
 const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-const port:number = getRandomPortNumber();
-const options:string = [
-  `--port ${port}`,
-  '--webpack-config "../../configs/polaris-webpack.config.js"',
-].join(' ');
-keepServerWhileTestsRunning('resources/repos/polaris', options);
-
 describe('server run in polaris', () => {
-  const TIMEOUT:number = 200;
   let chromeless:Chromeless<any>;
 
-  beforeAll((done) => {
-    chromeless = new Chromeless();
-    return chromeless
-      .goto(`${SERVER_URL}:${port}/`)
-      .wait(TIMEOUT)
-      .then(done);
-  });
-
-  afterAll(() => chromeless.end());
+  setupDebugServerTest({
+    projectPath: 'resources/repos/polaris',
+    serverCmdArgs: '--webpack-config "../../configs/polaris-webpack.config.js"',
+  }, (c) => chromeless = c);
 
   it('renders `Banner` component with preview', () => {
     const componentName:string = 'Banner';
