@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The --dump option run for the mineral-ui repository prints the JSON describing the full repository 1`] = `
+"{
+	components: [
+		{
+			dirPath: 'src/Button',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/Button/Button.js'
+			},
+			name: 'Button',
+			properties: [],
+			examples: []
+		},
+		{
+			dirPath: 'src/Card',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/Card/Card.js'
+			},
+			name: 'Card',
+			properties: [
+				{
+					description: 'Content of the Card. Can be anything, but see [CardBlock](../card-block), [CardImage](../card-image), and [CardTitle](../card-title).',
+					isRequired: true,
+					name: 'children'
+				},
+				{
+					description: 'Called with the click event',
+					isRequired: false,
+					name: 'onClick'
+				}
+			],
+			examples: []
+		},
+		{
+			dirPath: 'src/Dropdown',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/Dropdown/Dropdown.js'
+			},
+			name: 'Dropdown',
+			properties: [],
+			examples: []
+		},
+		{
+			dirPath: 'src/EventListener',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/EventListener/EventListener.js'
+			},
+			name: 'EventListener',
+			properties: [
+				{
+					description: '',
+					isRequired: true,
+					name: 'listeners'
+				}
+			],
+			examples: []
+		},
+		{
+			dirPath: 'src/Icon',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/Icon/Icon.js'
+			},
+			name: 'Icon',
+			properties: [
+				{
+					description: 'Available sizes, including custom - e.g. \\\\'5em\\\\' or \\\\'20px\\\\'',
+					isRequired: false,
+					name: 'size',
+					defaultValue: {
+						value: 'medium'
+					}
+				},
+				{
+					description: 'SVG content, required for the generic Icon component',
+					isRequired: false,
+					name: 'children'
+				},
+				{
+					description: 'Fill color, defaults to theme.color_gray_60',
+					isRequired: false,
+					name: 'color'
+				},
+				{
+					description: 'Flip the Icon horizontally when used with RTL languages',
+					isRequired: false,
+					name: 'rtl'
+				},
+				{
+					description: 'Alternative text',
+					isRequired: false,
+					name: 'title'
+				}
+			],
+			examples: []
+		},
+		{
+			dirPath: 'src/Link',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/Link/Link.js'
+			},
+			name: 'Link',
+			properties: [
+				{
+					description: 'Content of the Link',
+					isRequired: false,
+					name: 'children'
+				},
+				{
+					description: 'A URL or URL fragment to which the Link points',
+					isRequired: false,
+					name: 'href'
+				},
+				{
+					description: 'Element to be used as the root node - e.g. \`a\` or \`ReactRouterLink\`',
+					isRequired: false,
+					name: 'element',
+					defaultValue: {
+						value: 'a'
+					}
+				},
+				{
+					description: 'Available variants',
+					isRequired: false,
+					name: 'variant',
+					defaultValue: {
+						value: 'regular'
+					}
+				}
+			],
+			examples: []
+		},
+		{
+			dirPath: 'src/Menu',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/Menu/Menu.js'
+			},
+			name: 'Menu',
+			properties: [],
+			examples: []
+		},
+		{
+			dirPath: 'src/Popover',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/Popover/Popover.js'
+			},
+			name: 'Popover',
+			properties: [],
+			examples: []
+		},
+		{
+			dirPath: 'src/Portal',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/Portal/Portal.js'
+			},
+			name: 'Portal',
+			properties: [],
+			examples: []
+		},
+		{
+			dirPath: 'src/TextInput',
+			implementation: {
+				framework: 'reactjs',
+				lang: 'javascript',
+				path: 'src/TextInput/TextInput.js'
+			},
+			name: 'TextInput',
+			properties: [],
+			examples: []
+		}
+	],
+	name: ''
+}
+warning Cannot serialize component properties in:
+src/Button/Button.js
+SyntaxError: Unexpected token (34:26)
+    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
+    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
+    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
+    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
+    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
+    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
+    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
+    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
+    at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
+    at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
+
+warning Cannot parse type of a property 'children' in:
+src/Card/Card.js
+
+warning Cannot parse type of a property 'onClick' in:
+src/Card/Card.js
+
+warning Cannot serialize component properties in:
+src/Dropdown/Dropdown.js
+SyntaxError: Unexpected token (25:26)
+    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
+    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
+    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
+    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
+    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
+    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
+    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
+    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
+    at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
+    at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
+
+warning Cannot parse type of a property 'listeners' in:
+src/EventListener/EventListener.js
+
+warning Cannot parse type of a property 'size' in:
+src/Icon/Icon.js
+
+warning Cannot parse type of a property 'children' in:
+src/Icon/Icon.js
+
+warning Cannot parse type of a property 'color' in:
+src/Icon/Icon.js
+
+warning Cannot parse type of a property 'rtl' in:
+src/Icon/Icon.js
+
+warning Cannot parse type of a property 'title' in:
+src/Icon/Icon.js
+
+warning Cannot parse type of a property 'children' in:
+src/Link/Link.js
+
+warning Cannot parse type of a property 'href' in:
+src/Link/Link.js
+
+warning Cannot parse type of a property 'element' in:
+src/Link/Link.js
+
+warning Cannot parse type of a property 'variant' in:
+src/Link/Link.js
+
+warning Cannot serialize component properties in:
+src/Menu/Menu.js
+SyntaxError: Unexpected token (32:26)
+    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
+    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
+    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
+    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
+    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
+    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
+    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
+    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
+    at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
+    at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
+
+warning Cannot serialize component properties in:
+src/Popover/Popover.js
+SyntaxError: Unexpected token (51:4)
+    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
+    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
+    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
+    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
+    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
+    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
+    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
+    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
+    at Parser.pp.flowParseTypeInitialiser (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:20:19)
+    at Parser.pp.flowParseObjectType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:330:27)
+
+warning Cannot serialize component properties in:
+src/Portal/Portal.js
+SyntaxError: Unexpected token (33:25)
+    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
+    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
+    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
+    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
+    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
+    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
+    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
+    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
+    at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
+    at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
+
+warning Cannot serialize component properties in:
+src/TextInput/TextInput.js
+SyntaxError: Unexpected token (33:28)
+    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
+    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
+    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
+    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
+    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
+    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
+    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
+    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
+    at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
+    at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
+
+"
+`;
