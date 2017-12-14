@@ -1,4 +1,4 @@
-import { PropertyTypeName, PropertyTypeStructureMap } from '../../../ComponentPropertyDefinition';
+import { PropertyTypeName, PropertyTypeStructureMap } from '../../../../ComponentPropertyDefinition';
 import { convertArrayOfTypeStructure } from './arrayOf/convertArrayOfTypeStructure';
 import { convertOneOfTypeStructure } from './oneOf/convertOneOfTypeStructure';
 import { convertShapeTypeStructure } from './shape/convertShapeTypeStructure';

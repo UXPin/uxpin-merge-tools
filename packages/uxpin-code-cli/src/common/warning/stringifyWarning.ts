@@ -9,8 +9,8 @@ export function stringifyWarning(warning:WarningDetails, includeError:boolean = 
   if (sourcePath) {
     result += safe.blue(sourcePath) + '\n';
   }
-  if (includeError && originalError) {
-    result += cleanStacktrace(originalError.stack as string, cleanStacktraceRelativePaths()) + '\n';
+  if (includeError && originalError && originalError.stack) {
+    result += cleanStacktrace(originalError.stack, cleanStacktraceRelativePaths()) + '\n';
   }
   return result;
 }

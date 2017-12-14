@@ -1,5 +1,5 @@
 import { PropItemType } from 'react-docgen-typescript/lib';
-import { PropertyType, UnionTypeStructure } from '../../../../ComponentPropertyDefinition';
+import { PropertyType, UnionTypeStructure } from '../../../../../ComponentPropertyDefinition';
 import { convertPropertyType } from '../../convertPropertyType';
 
 const LITERAL_TYPE_REGEX:RegExp = /^['"]([^"']+)['"]$/;
