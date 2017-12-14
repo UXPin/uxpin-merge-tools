@@ -1,4 +1,4 @@
-import { PropertyTypeName } from '../../ComponentPropertyDefinition';
+import { PropertyTypeName } from '../../../ComponentPropertyDefinition';
 
 const TYPE_MAP:{ [key:string]:PropertyTypeName } = {
   arrayOf: 'typedArray',

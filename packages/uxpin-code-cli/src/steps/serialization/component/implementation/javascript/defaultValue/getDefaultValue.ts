@@ -1,10 +1,10 @@
-import { PropItem } from 'react-docgen-typescript/lib';
 import { Warned } from '../../../../../../common/warning/Warned';
 import { WarningDetails } from '../../../../../../common/warning/WarningDetails';
 import { ComponentPropertyDefinition } from '../../ComponentPropertyDefinition';
+import { GeneralPropItem } from '../FlowPropItem';
 import { parseValue } from './parseValue';
 
-export function getDefaultValue(propName:string, propItem:PropItem):Promise<DefaultValueParsingResult> {
+export function getDefaultValue(propName:string, propItem:GeneralPropItem):Promise<DefaultValueParsingResult> {
   const result:Pick<ComponentPropertyDefinition, 'defaultValue'> = {};
   const warnings:WarningDetails[] = [];
   return new Promise((resolve) => {
