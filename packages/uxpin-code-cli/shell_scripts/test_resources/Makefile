@@ -30,7 +30,6 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 
 ../../test/resources/repos/mineral-ui:
 	cd ../../test/resources/repos \
-	&& git clone https://github.com/mineral-ui/mineral-ui.git \
+	&& git clone git@github.com:UXPin/mineral-ui.git \
 	&& cd mineral-ui \
-	&& git checkout v0.13.0 \
 	&& npm install
