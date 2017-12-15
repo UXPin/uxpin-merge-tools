@@ -8,6 +8,7 @@
 /src/**/*.js
 /src/**/*.js.map
 /test/resources/repos/
+/reports/
 !/reports/.gitkeep
 
 !/test/resources/configs/
