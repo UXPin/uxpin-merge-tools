@@ -12,7 +12,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 const port:number = getRandomPortNumber();
 const options:string = [
   `--port ${port}`,
-  '--webpack-config "../../configs/polaris-webpack.config.js"',
+  '--webpack-config "./playground/webpack.config"',
 ].join(' ');
 keepServerWhileTestsRunning('resources/repos/polaris', options);
 
