@@ -32,7 +32,7 @@ test-ci:
 clean:
 	rm -rf ./dist/
 	rm -rf ./coverage
-	rm -rf ./reports
+	find ./reports -name "*.*" ! -path "./reports/.gitkeep" -delete
 	rm -rf ./coverage-cli
 	rm -rf ./.nyc_output
 	find ./src -name "*.js" -delete
