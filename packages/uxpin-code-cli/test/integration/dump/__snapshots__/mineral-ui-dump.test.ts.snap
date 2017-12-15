@@ -203,10 +203,10 @@ SyntaxError: Unexpected token (34:26)
     at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
     at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
 
-warning Cannot parse type of a property 'children' in:
+warning Unsupported Flow type of a property 'children' in:
 src/Card/Card.js
 
-warning Cannot parse type of a property 'onClick' in:
+warning Unsupported Flow type of a property 'onClick' in:
 src/Card/Card.js
 
 warning Cannot serialize component properties in:
@@ -223,34 +223,34 @@ SyntaxError: Unexpected token (25:26)
     at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
     at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
 
-warning Cannot parse type of a property 'listeners' in:
+warning Unsupported Flow type of a property 'listeners' in:
 src/EventListener/EventListener.js
 
-warning Cannot parse type of a property 'size' in:
+warning Unsupported Flow type of a property 'size' in:
 src/Icon/Icon.js
 
-warning Cannot parse type of a property 'children' in:
+warning Unsupported Flow type of a property 'children' in:
 src/Icon/Icon.js
 
-warning Cannot parse type of a property 'color' in:
+warning Unsupported Flow type of a property 'color' in:
 src/Icon/Icon.js
 
-warning Cannot parse type of a property 'rtl' in:
+warning Unsupported Flow type of a property 'rtl' in:
 src/Icon/Icon.js
 
-warning Cannot parse type of a property 'title' in:
+warning Unsupported Flow type of a property 'title' in:
 src/Icon/Icon.js
 
-warning Cannot parse type of a property 'children' in:
+warning Unsupported Flow type of a property 'children' in:
 src/Link/Link.js
 
-warning Cannot parse type of a property 'href' in:
+warning Unsupported Flow type of a property 'href' in:
 src/Link/Link.js
 
-warning Cannot parse type of a property 'element' in:
+warning Unsupported Flow type of a property 'element' in:
 src/Link/Link.js
 
-warning Cannot parse type of a property 'variant' in:
+warning Unsupported Flow type of a property 'variant' in:
 src/Link/Link.js
 
 warning Cannot serialize component properties in:
