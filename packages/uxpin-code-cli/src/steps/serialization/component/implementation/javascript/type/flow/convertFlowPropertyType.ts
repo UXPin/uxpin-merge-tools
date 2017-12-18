@@ -8,10 +8,11 @@ import { convertSignatureFlowType } from './strategy/convertSignatureFlowType';
 import { convertUnionFlowType } from './strategy/convertUnionFlowType';
 import { tupleCreatePrimitivePropertyType } from './strategy/tupleCreatePrimitivePropertyType';
 
-const STRATEGIES:Partial<{ [typeName in NamesToBeConverted]:(type:FlowType) => PropertyType }> = {
+const STRATEGIES:{ [typeName in NamesToBeConverted]:(type:FlowType) => PropertyType } = {
   Array: convertArrayFlowType,
   Function: tupleCreatePrimitivePropertyType('func'),
   Object: tupleCreatePrimitivePropertyType('object'),
+  React$Node: tupleCreatePrimitivePropertyType('element'),
   any: tupleCreatePrimitivePropertyType('any'),
   bool: tupleCreatePrimitivePropertyType('boolean'),
   boolean: tupleCreatePrimitivePropertyType('boolean'),
