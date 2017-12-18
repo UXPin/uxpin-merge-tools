@@ -1,4 +1,3 @@
-
 export type FlowType = KnownFlowType | FlowUnknownType;
 
 export type KnownFlowType = FlowArray
@@ -76,6 +75,7 @@ type FlowPrimitiveTypeName = 'any'
   | 'bool'
   | 'boolean'
   | 'Function'
+  | 'Object'
   | 'null'
   | 'number'
   | 'string'

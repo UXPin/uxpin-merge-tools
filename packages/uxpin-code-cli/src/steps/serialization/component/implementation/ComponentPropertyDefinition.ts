@@ -35,7 +35,7 @@ export interface PropertyTypeStructureMap {
   dictionary:{ valueType:PropertyType };
   union:UnionTypeStructure;
   unsupported:{ raw:string; };
-  void:{};
+  empty:{};
 }
 
 export interface UnionTypeStructure {
