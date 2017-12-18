@@ -28,10 +28,8 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					isRequired: true,
 					name: 'children',
 					type: {
-						name: 'unsupported',
-						structure: {
-							raw: 'React$Node'
-						}
+						name: 'element',
+						structure: {}
 					}
 				},
 				{
@@ -53,7 +51,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 								}
 							],
 							returnType: {
-								name: 'void',
+								name: 'empty',
 								structure: {}
 							}
 						}
@@ -105,9 +103,18 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 										structure: {}
 									},
 									options: {
-										name: 'unsupported',
+										name: 'union',
 										structure: {
-											raw: 'union'
+											elements: [
+												{
+													name: 'boolean',
+													structure: {}
+												},
+												{
+													name: 'object',
+													structure: {}
+												}
+											]
 										}
 									}
 								}
@@ -135,9 +142,32 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						value: 'medium'
 					},
 					type: {
-						name: 'unsupported',
+						name: 'union',
 						structure: {
-							raw: 'union'
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'small'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'medium'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'large'
+									}
+								},
+								{
+									name: 'string',
+									structure: {}
+								}
+							]
 						}
 					}
 				},
@@ -146,10 +176,8 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					isRequired: false,
 					name: 'children',
 					type: {
-						name: 'unsupported',
-						structure: {
-							raw: 'React$Node'
-						}
+						name: 'element',
+						structure: {}
 					}
 				},
 				{
@@ -196,10 +224,8 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					isRequired: false,
 					name: 'children',
 					type: {
-						name: 'unsupported',
-						structure: {
-							raw: 'React$Node'
-						}
+						name: 'element',
+						structure: {}
 					}
 				},
 				{
@@ -233,9 +259,34 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						value: 'regular'
 					},
 					type: {
-						name: 'unsupported',
+						name: 'union',
 						structure: {
-							raw: 'union'
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'regular'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'danger'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'success'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'warning'
+									}
+								}
+							]
 						}
 					}
 				}
