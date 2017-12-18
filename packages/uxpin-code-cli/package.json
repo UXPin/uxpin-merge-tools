@@ -86,7 +86,7 @@
     "p-any": "^1.1.0",
     "p-map-series": "^1.0.0",
     "p-reduce": "^1.0.0",
-    "react-docgen": "^2.18.0",
+    "react-docgen": "^3.0.0-beta9",
     "react-docgen-typescript": "^1.0.2",
     "require1k": "^1.0.1",
     "source-map-support": "^0.4.18",
