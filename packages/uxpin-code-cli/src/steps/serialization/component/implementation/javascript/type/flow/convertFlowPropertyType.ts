@@ -2,21 +2,25 @@ import { FlowType, KnownFlowTypeName } from '../../../../../../../types/babylon-
 import { PropertyType } from '../../../ComponentPropertyDefinition';
 import { KnownReactFlowTypeName } from './KnownReactFlowTypeName';
 import { convertArrayFlowType } from './strategy/convertArrayFlowType';
+import { convertSignatureFlowType } from './strategy/convertSignatureFlowType';
 import { tupleCreatePrimitivePropertyType } from './strategy/tupleCreatePrimitivePropertyType';
 
-// const STRATEGIES:{ [typeName in NamesToBeConverted]:(ropType:FlowType) => PropertyType } = {
-const STRATEGIES:any = {
+const STRATEGIES:Partial<{ [typeName in NamesToBeConverted]:(type:FlowType) => PropertyType }> = {
   Array: convertArrayFlowType,
+  Function: tupleCreatePrimitivePropertyType('func'),
   any: tupleCreatePrimitivePropertyType('any'),
   bool: tupleCreatePrimitivePropertyType('boolean'),
   boolean: tupleCreatePrimitivePropertyType('boolean'),
   number: tupleCreatePrimitivePropertyType('number'),
+  signature: convertSignatureFlowType,
   string: tupleCreatePrimitivePropertyType('string'),
+  void: tupleCreatePrimitivePropertyType('void'),
 };
 
 export function convertFlowPropertyType(propType:FlowType):PropertyType {
   if (STRATEGIES.hasOwnProperty(propType.name)) {
-    return STRATEGIES[propType.name](propType);
+    const strategies:{ [typeName:string]:(flowType:FlowType) => PropertyType } = STRATEGIES as any;
+    return strategies[propType.name](propType);
   }
   throw new Error(`Unsupported type '${propType.name}'`);
 }

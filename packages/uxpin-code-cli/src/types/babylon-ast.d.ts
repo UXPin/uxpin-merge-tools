@@ -75,5 +75,8 @@ export interface FlowPrimitiveType {
 type FlowPrimitiveTypeName = 'any'
   | 'bool'
   | 'boolean'
+  | 'Function'
+  | 'null'
   | 'number'
-  | 'string';
+  | 'string'
+  | 'void';
