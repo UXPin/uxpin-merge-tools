@@ -6,23 +6,23 @@ import { convertArrayFlowType } from './strategy/convertArrayFlowType';
 import { convertLiteralFlowType } from './strategy/convertLiteralFlowType';
 import { convertSignatureFlowType } from './strategy/convertSignatureFlowType';
 import { convertUnionFlowType } from './strategy/convertUnionFlowType';
-import { tupleCreatePrimitivePropertyType } from './strategy/tupleCreatePrimitivePropertyType';
+import { thunkCreatePrimitivePropertyType } from './strategy/thunkCreatePrimitivePropertyType';
 
 const STRATEGIES:{ [typeName in NamesToBeConverted]:(type:FlowType) => PropertyType } = {
   Array: convertArrayFlowType,
-  Function: tupleCreatePrimitivePropertyType('func'),
-  Object: tupleCreatePrimitivePropertyType('object'),
-  React$Node: tupleCreatePrimitivePropertyType('element'),
-  any: tupleCreatePrimitivePropertyType('any'),
-  bool: tupleCreatePrimitivePropertyType('boolean'),
-  boolean: tupleCreatePrimitivePropertyType('boolean'),
+  Function: thunkCreatePrimitivePropertyType('func'),
+  Object: thunkCreatePrimitivePropertyType('object'),
+  React$Node: thunkCreatePrimitivePropertyType('element'),
+  any: thunkCreatePrimitivePropertyType('any'),
+  bool: thunkCreatePrimitivePropertyType('boolean'),
+  boolean: thunkCreatePrimitivePropertyType('boolean'),
   literal: convertLiteralFlowType,
-  null: tupleCreatePrimitivePropertyType('empty'),
-  number: tupleCreatePrimitivePropertyType('number'),
+  null: thunkCreatePrimitivePropertyType('empty'),
+  number: thunkCreatePrimitivePropertyType('number'),
   signature: convertSignatureFlowType,
-  string: tupleCreatePrimitivePropertyType('string'),
+  string: thunkCreatePrimitivePropertyType('string'),
   union: convertUnionFlowType,
-  void: tupleCreatePrimitivePropertyType('empty'),
+  void: thunkCreatePrimitivePropertyType('empty'),
 };
 
 export function convertFlowPropertyType(propType:FlowType):PropertyType {
