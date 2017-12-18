@@ -11,7 +11,213 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				path: 'src/Button/Button.js'
 			},
 			name: 'Button',
-			properties: [],
+			properties: [
+				{
+					description: 'Rendered content of the component',
+					isRequired: false,
+					name: 'children',
+					type: {
+						name: 'element',
+						structure: {}
+					}
+				},
+				{
+					description: 'Displays a circular Button',
+					isRequired: false,
+					name: 'circular',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Disables the Button',
+					isRequired: false,
+					name: 'disabled',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Element to be used as the root node - e.g. \`a\` can be used to create a link that is styled like a Button',
+					isRequired: false,
+					name: 'element',
+					defaultValue: {
+						value: 'button'
+					},
+					type: {
+						name: 'unsupported',
+						structure: {
+							raw: '$FlowFixMe'
+						}
+					}
+				},
+				{
+					description: 'Stretch Button to fill its container',
+					isRequired: false,
+					name: 'fullWidth',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Icon that goes after the children',
+					isRequired: false,
+					name: 'iconEnd',
+					type: {
+						name: 'unsupported',
+						structure: {
+							raw: 'React$Element'
+						}
+					}
+				},
+				{
+					description: 'Icon that goes before the children',
+					isRequired: false,
+					name: 'iconStart',
+					type: {
+						name: 'unsupported',
+						structure: {
+							raw: 'React$Element'
+						}
+					}
+				},
+				{
+					description: 'Display a minimal Button',
+					isRequired: false,
+					name: 'minimal',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Called with the click event',
+					isRequired: false,
+					name: 'onClick',
+					type: {
+						name: 'func',
+						structure: {
+							arguments: [
+								{
+									name: 'event',
+									type: {
+										name: 'unsupported',
+										structure: {
+											raw: 'SyntheticEvent'
+										}
+									}
+								}
+							],
+							returnType: {
+								name: 'empty',
+								structure: {}
+							}
+						}
+					}
+				},
+				{
+					description: 'Display a primary Button',
+					isRequired: false,
+					name: 'primary',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Available sizes',
+					isRequired: false,
+					name: 'size',
+					defaultValue: {
+						value: 'large'
+					},
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'small'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'medium'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'large'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'jumbo'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: 'Available types',
+					isRequired: false,
+					name: 'type',
+					defaultValue: {
+						value: 'button'
+					},
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: 'Available variants',
+					isRequired: false,
+					name: 'variant',
+					defaultValue: {
+						value: 'regular'
+					},
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'regular'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'danger'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'success'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'warning'
+									}
+								}
+							]
+						}
+					}
+				}
+			],
 			examples: []
 		},
 		{
@@ -68,7 +274,326 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				path: 'src/Dropdown/Dropdown.js'
 			},
 			name: 'Dropdown',
-			properties: [],
+			properties: [
+				{
+					description: 'Trigger for the Dropdown',
+					isRequired: true,
+					name: 'children',
+					type: {
+						name: 'element',
+						structure: {}
+					}
+				},
+				{
+					description: 'Open the Dropdown immediately upon initialization',
+					isRequired: false,
+					name: 'defaultIsOpen',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Disable the Dropdown',
+					isRequired: false,
+					name: 'disabled',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Data from which the [Menu](../menu#data) will be constructed (see [example](#data))',
+					isRequired: true,
+					name: 'data',
+					type: {
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'shape',
+								structure: {
+									items: {
+										name: 'typedArray',
+										structure: {
+											memberType: {
+												name: 'shape',
+												structure: {
+													iconEnd: {
+														name: 'unsupported',
+														structure: {
+															raw: 'React$Element'
+														}
+													},
+													iconStart: {
+														name: 'unsupported',
+														structure: {
+															raw: 'React$Element'
+														}
+													},
+													disabled: {
+														name: 'boolean',
+														structure: {}
+													},
+													divider: {
+														name: 'boolean',
+														structure: {}
+													},
+													onClick: {
+														name: 'func',
+														structure: {
+															arguments: [
+																{
+																	name: 'event',
+																	type: {
+																		name: 'unsupported',
+																		structure: {
+																			raw: 'SyntheticEvent'
+																		}
+																	}
+																}
+															],
+															returnType: {
+																name: 'empty',
+																structure: {}
+															}
+														}
+													},
+													render: {
+														name: 'func',
+														structure: {
+															arguments: [
+																{
+																	name: 'item',
+																	type: {
+																		name: 'object',
+																		structure: {}
+																	}
+																},
+																{
+																	name: 'props',
+																	type: {
+																		name: 'object',
+																		structure: {}
+																	}
+																},
+																{
+																	name: 'theme',
+																	type: {
+																		name: 'object',
+																		structure: {}
+																	}
+																}
+															],
+															returnType: {
+																name: 'unsupported',
+																structure: {
+																	raw: 'React$Element'
+																}
+															}
+														}
+													},
+													secondaryText: {
+														name: 'element',
+														structure: {}
+													},
+													text: {
+														name: 'element',
+														structure: {}
+													},
+													variant: {
+														name: 'union',
+														structure: {
+															elements: [
+																{
+																	name: 'literal',
+																	structure: {
+																		value: 'regular'
+																	}
+																},
+																{
+																	name: 'literal',
+																	structure: {
+																		value: 'danger'
+																	}
+																},
+																{
+																	name: 'literal',
+																	structure: {
+																		value: 'success'
+																	}
+																},
+																{
+																	name: 'literal',
+																	structure: {
+																		value: 'warning'
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									},
+									title: {
+										name: 'element',
+										structure: {}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					description: 'For use with controlled components, in which the app manages Dropdown state',
+					isRequired: false,
+					name: 'isOpen',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Plugins that are used to alter behavior. See [PopperJS docs](https://popper.js.org/popper-documentation.html#modifiers) for options.',
+					isRequired: false,
+					name: 'modifiers',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: 'Called when Dropdown is closed',
+					isRequired: false,
+					name: 'onClose',
+					type: {
+						name: 'func',
+						structure: {
+							arguments: [
+								{
+									name: 'event',
+									type: {
+										name: 'unsupported',
+										structure: {
+											raw: 'SyntheticEvent'
+										}
+									}
+								}
+							],
+							returnType: {
+								name: 'empty',
+								structure: {}
+							}
+						}
+					}
+				},
+				{
+					description: 'Called when Dropdown is opened',
+					isRequired: false,
+					name: 'onOpen',
+					type: {
+						name: 'func',
+						structure: {
+							arguments: [
+								{
+									name: 'event',
+									type: {
+										name: 'unsupported',
+										structure: {
+											raw: 'SyntheticEvent'
+										}
+									}
+								}
+							],
+							returnType: {
+								name: 'empty',
+								structure: {}
+							}
+						}
+					}
+				},
+				{
+					description: 'Placement of the Dropdown menu',
+					isRequired: false,
+					name: 'placement',
+					defaultValue: {
+						value: 'bottom-start'
+					},
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'bottom-end'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'bottom-start'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'left-end'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'left-start'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'right-end'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'right-start'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'top-end'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'top-start'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: 'Use a Portal to render the Dropdown menu to the body rather than as a sibling to the trigger',
+					isRequired: false,
+					name: 'usePortal',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Display a wider Dropdown menu',
+					isRequired: false,
+					name: 'wide',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				}
+			],
 			examples: []
 		},
 		{
@@ -301,7 +826,189 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				path: 'src/Menu/Menu.js'
 			},
 			name: 'Menu',
-			properties: [],
+			properties: [
+				{
+					description: '[MenuDivider](../menu-divider), [MenuGroup](../menu-group), or [MenuItem](../menu-item)',
+					isRequired: false,
+					name: 'children',
+					type: {
+						name: 'element',
+						structure: {}
+					}
+				},
+				{
+					description: 'Data used to contruct Menu. See [example](#data)',
+					isRequired: false,
+					name: 'data',
+					type: {
+						name: 'typedArray',
+						structure: {
+							memberType: {
+								name: 'shape',
+								structure: {
+									items: {
+										name: 'typedArray',
+										structure: {
+											memberType: {
+												name: 'shape',
+												structure: {
+													iconEnd: {
+														name: 'unsupported',
+														structure: {
+															raw: 'React$Element'
+														}
+													},
+													iconStart: {
+														name: 'unsupported',
+														structure: {
+															raw: 'React$Element'
+														}
+													},
+													disabled: {
+														name: 'boolean',
+														structure: {}
+													},
+													divider: {
+														name: 'boolean',
+														structure: {}
+													},
+													onClick: {
+														name: 'func',
+														structure: {
+															arguments: [
+																{
+																	name: 'event',
+																	type: {
+																		name: 'unsupported',
+																		structure: {
+																			raw: 'SyntheticEvent'
+																		}
+																	}
+																}
+															],
+															returnType: {
+																name: 'empty',
+																structure: {}
+															}
+														}
+													},
+													render: {
+														name: 'func',
+														structure: {
+															arguments: [
+																{
+																	name: 'item',
+																	type: {
+																		name: 'object',
+																		structure: {}
+																	}
+																},
+																{
+																	name: 'props',
+																	type: {
+																		name: 'object',
+																		structure: {}
+																	}
+																},
+																{
+																	name: 'theme',
+																	type: {
+																		name: 'object',
+																		structure: {}
+																	}
+																}
+															],
+															returnType: {
+																name: 'unsupported',
+																structure: {
+																	raw: 'React$Element'
+																}
+															}
+														}
+													},
+													secondaryText: {
+														name: 'element',
+														structure: {}
+													},
+													text: {
+														name: 'element',
+														structure: {}
+													},
+													variant: {
+														name: 'union',
+														structure: {
+															elements: [
+																{
+																	name: 'literal',
+																	structure: {
+																		value: 'regular'
+																	}
+																},
+																{
+																	name: 'literal',
+																	structure: {
+																		value: 'danger'
+																	}
+																},
+																{
+																	name: 'literal',
+																	structure: {
+																		value: 'success'
+																	}
+																},
+																{
+																	name: 'literal',
+																	structure: {
+																		value: 'warning'
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									},
+									title: {
+										name: 'element',
+										structure: {}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					description: '@Private Function that returns props to be applied to each item',
+					isRequired: false,
+					name: 'getItemProps',
+					type: {
+						name: 'func',
+						structure: {
+							arguments: [
+								{
+									name: 'props',
+									type: {
+										name: 'object',
+										structure: {}
+									}
+								},
+								{
+									name: 'scope',
+									type: {
+										name: 'object',
+										structure: {}
+									}
+								}
+							],
+							returnType: {
+								name: 'object',
+								structure: {}
+							}
+						}
+					}
+				}
+			],
 			examples: []
 		},
 		{
@@ -312,7 +1019,325 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				path: 'src/Popover/Popover.js'
 			},
 			name: 'Popover',
-			properties: [],
+			properties: [
+				{
+					description: 'Trigger for the Popover',
+					isRequired: true,
+					name: 'children',
+					type: {
+						name: 'element',
+						structure: {}
+					}
+				},
+				{
+					description: 'Content of the Popover',
+					isRequired: true,
+					name: 'content',
+					type: {
+						name: 'unsupported',
+						structure: {
+							raw: '$FlowFixMe'
+						}
+					}
+				},
+				{
+					description: 'Disables the Popover',
+					isRequired: false,
+					name: 'disabled',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Include an arrow on the Popover content pointing to the trigger',
+					isRequired: false,
+					name: 'hasArrow',
+					defaultValue: {
+						value: true
+					},
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'For use with controlled components, in which the app manages Popover state',
+					isRequired: false,
+					name: 'isOpen',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Plugins that are used to alter behavior. See [PopperJS docs](https://popper.js.org/popper-documentation.html#modifiers) for options.',
+					isRequired: false,
+					name: 'modifiers',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: 'Called when Popover is closed',
+					isRequired: false,
+					name: 'onClose',
+					type: {
+						name: 'func',
+						structure: {
+							arguments: [
+								{
+									name: 'event',
+									type: {
+										name: 'unsupported',
+										structure: {
+											raw: 'SyntheticEvent'
+										}
+									}
+								}
+							],
+							returnType: {
+								name: 'empty',
+								structure: {}
+							}
+						}
+					}
+				},
+				{
+					description: 'Called when Popover is opened',
+					isRequired: false,
+					name: 'onOpen',
+					type: {
+						name: 'func',
+						structure: {
+							arguments: [
+								{
+									name: 'event',
+									type: {
+										name: 'unsupported',
+										structure: {
+											raw: 'SyntheticEvent'
+										}
+									}
+								}
+							],
+							returnType: {
+								name: 'empty',
+								structure: {}
+							}
+						}
+					}
+				},
+				{
+					description: 'Open the Popover immediately upon initialization',
+					isRequired: false,
+					name: 'defaultIsOpen',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Function that returns props to be applied to the trigger',
+					isRequired: false,
+					name: 'getTriggerProps',
+					type: {
+						name: 'func',
+						structure: {
+							arguments: [
+								{
+									name: 'props',
+									type: {
+										name: 'object',
+										structure: {}
+									}
+								},
+								{
+									name: 'scope',
+									type: {
+										name: 'object',
+										structure: {}
+									}
+								}
+							],
+							returnType: {
+								name: 'object',
+								structure: {}
+							}
+						}
+					}
+				},
+				{
+					description: 'Placement of the Popover',
+					isRequired: false,
+					name: 'placement',
+					defaultValue: {
+						value: 'bottom'
+					},
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'auto'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'auto-end'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'auto-start'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'bottom'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'bottom-end'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'bottom-start'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'left'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'left-end'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'left-start'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'right'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'right-end'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'right-start'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'top'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'top-end'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'top-start'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: 'Subtitle displayed under the title',
+					isRequired: false,
+					name: 'subtitle',
+					type: {
+						name: 'element',
+						structure: {}
+					}
+				},
+				{
+					description: 'Title of the Popover',
+					isRequired: false,
+					name: 'title',
+					type: {
+						name: 'element',
+						structure: {}
+					}
+				},
+				{
+					description: '@Private ref for the Popover trigger',
+					isRequired: false,
+					name: 'triggerRef',
+					type: {
+						name: 'func',
+						structure: {
+							arguments: [
+								{
+									name: 'node',
+									type: {
+										name: 'unsupported',
+										structure: {
+											raw: 'React$Component'
+										}
+									}
+								}
+							],
+							returnType: {
+								name: 'empty',
+								structure: {}
+							}
+						}
+					}
+				},
+				{
+					description: 'Use a Portal to render the Popover to the body rather than as a sibling to the trigger',
+					isRequired: false,
+					name: 'usePortal',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Display the content with default styles',
+					isRequired: false,
+					name: 'wrapContent',
+					defaultValue: {
+						value: true
+					},
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				}
+			],
 			examples: []
 		},
 		{
@@ -323,7 +1348,32 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				path: 'src/Portal/Portal.js'
 			},
 			name: 'Portal',
-			properties: [],
+			properties: [
+				{
+					description: '',
+					isRequired: true,
+					name: 'children',
+					type: {
+						name: 'element',
+						structure: {}
+					}
+				},
+				{
+					description: '',
+					isRequired: false,
+					name: 'callback',
+					type: {
+						name: 'func',
+						structure: {
+							arguments: [],
+							returnType: {
+								name: 'empty',
+								structure: {}
+							}
+						}
+					}
+				}
+			],
 			examples: []
 		},
 		{
@@ -334,95 +1384,351 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				path: 'src/TextInput/TextInput.js'
 			},
 			name: 'TextInput',
-			properties: [],
+			properties: [
+				{
+					description: '@Private CSS className',
+					isRequired: false,
+					name: 'className',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: 'Initial value of the input. Primarily for use with uncontrolled components',
+					isRequired: false,
+					name: 'defaultValue',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: 'Disables the input',
+					isRequired: false,
+					name: 'disabled',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Icon located at the start of the input',
+					isRequired: false,
+					name: 'iconStart',
+					type: {
+						name: 'unsupported',
+						structure: {
+							raw: 'React$Element'
+						}
+					}
+				},
+				{
+					description: 'Icon located at the end of the input',
+					isRequired: false,
+					name: 'iconEnd',
+					type: {
+						name: 'unsupported',
+						structure: {
+							raw: 'React$Element'
+						}
+					}
+				},
+				{
+					description: 'ref for the input',
+					isRequired: false,
+					name: 'inputRef',
+					type: {
+						name: 'func',
+						structure: {
+							arguments: [
+								{
+									name: 'node',
+									type: {
+										name: 'unsupported',
+										structure: {
+											raw: 'React$Component'
+										}
+									}
+								}
+							],
+							returnType: {
+								name: 'empty',
+								structure: {}
+							}
+						}
+					}
+				},
+				{
+					description: 'Props to be applied directly to the root element, rather than the input',
+					isRequired: false,
+					name: 'rootProps',
+					type: {
+						name: 'object',
+						structure: {}
+					}
+				},
+				{
+					description: 'Indicates that the value of the element is invalid',
+					isRequired: false,
+					name: 'invalid',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Function called when input value changes',
+					isRequired: false,
+					name: 'onChange',
+					type: {
+						name: 'func',
+						structure: {
+							arguments: [
+								{
+									name: 'event',
+									type: {
+										name: 'unsupported',
+										structure: {
+											raw: 'SyntheticEvent'
+										}
+									}
+								}
+							],
+							returnType: {
+								name: 'empty',
+								structure: {}
+							}
+						}
+					}
+				},
+				{
+					description: 'Text to display before input value',
+					isRequired: false,
+					name: 'prefix',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'string',
+									structure: {}
+								},
+								{
+									name: 'unsupported',
+									structure: {
+										raw: 'React$Element'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: 'Indicates that the user cannot modify the value of the input',
+					isRequired: false,
+					name: 'readOnly',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Indicates that the user must fill in a value before submitting a form',
+					isRequired: false,
+					name: 'required',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
+				},
+				{
+					description: 'Available sizes',
+					isRequired: false,
+					name: 'size',
+					defaultValue: {
+						value: 'large'
+					},
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'small'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'medium'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'large'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'jumbo'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: 'Text to display after input value',
+					isRequired: false,
+					name: 'suffix',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'string',
+									structure: {}
+								},
+								{
+									name: 'unsupported',
+									structure: {
+										raw: 'React$Element'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: 'Type of input. Not all types are equally supported across browsers.',
+					isRequired: false,
+					name: 'type',
+					defaultValue: {
+						value: 'text'
+					},
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'date'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'datetime-local'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'email'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'month'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'number'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'password'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'tel'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'text'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'time'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'url'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'week'
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					description: 'The initial value of the input. Primarily for use with controlled components.  If this prop is specified, an onChange handler must also be specified.  Also see \`defaultValue\`.',
+					isRequired: false,
+					name: 'value',
+					type: {
+						name: 'string',
+						structure: {}
+					}
+				},
+				{
+					description: 'Available variants',
+					isRequired: false,
+					name: 'variant',
+					type: {
+						name: 'union',
+						structure: {
+							elements: [
+								{
+									name: 'literal',
+									structure: {
+										value: 'success'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'warning'
+									}
+								},
+								{
+									name: 'literal',
+									structure: {
+										value: 'danger'
+									}
+								}
+							]
+						}
+					}
+				}
+			],
 			examples: []
 		}
 	],
 	name: ''
 }
-warning Cannot serialize component properties in:
-src/Button/Button.js
-SyntaxError: Unexpected token (34:26)
-    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
-    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
-    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
-    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
-    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
-    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
-    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
-    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
-    at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
-    at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
-
-warning Cannot serialize component properties in:
-src/Dropdown/Dropdown.js
-SyntaxError: Unexpected token (25:26)
-    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
-    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
-    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
-    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
-    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
-    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
-    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
-    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
-    at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
-    at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
-
-warning Cannot serialize component properties in:
-src/Menu/Menu.js
-SyntaxError: Unexpected token (32:26)
-    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
-    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
-    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
-    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
-    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
-    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
-    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
-    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
-    at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
-    at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
-
-warning Cannot serialize component properties in:
-src/Popover/Popover.js
-SyntaxError: Unexpected token (51:4)
-    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
-    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
-    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
-    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
-    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
-    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
-    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
-    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
-    at Parser.pp.flowParseTypeInitialiser (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:20:19)
-    at Parser.pp.flowParseObjectType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:330:27)
-
-warning Cannot serialize component properties in:
-src/Portal/Portal.js
-SyntaxError: Unexpected token (33:25)
-    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
-    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
-    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
-    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
-    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
-    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
-    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
-    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
-    at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
-    at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
-
-warning Cannot serialize component properties in:
-src/TextInput/TextInput.js
-SyntaxError: Unexpected token (33:28)
-    at Parser.pp.raise (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/location.js:24:13)
-    at Parser.pp.unexpected (../../../../node_modules/react-docgen/node_modules/babylon/lib/parser/util.js:82:8)
-    at Parser.pp.flowParsePrimaryType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:552:8)
-    at Parser.pp.flowParsePostfixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:557:38)
-    at Parser.pp.flowParsePrefixType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:573:17)
-    at Parser.pp.flowParseIntersectionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:579:19)
-    at Parser.pp.flowParseUnionType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:589:19)
-    at Parser.pp.flowParseType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:600:19)
-    at Parser.pp.flowParseTypeParameterInstantiation (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:217:27)
-    at Parser.pp.flowParseGenericType (../../../../node_modules/react-docgen/node_modules/babylon/lib/plugins/flow.js:364:32)
 
 "
 `;
