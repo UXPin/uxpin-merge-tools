@@ -1,5 +1,6 @@
 import { FlowSignatureTypeName, FlowTypeSignature } from '../../../../../../../../types/babylon-ast';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
+import { createUnsupportedTypeDefinition } from '../../../../createUnsupportedTypeDefinition';
 import { convertFunctionSignatureFlowType } from './signature/convertFunctionSignatureFlowType';
 import { convertObjectSignatureFlowType } from './signature/convertObjectSignatureFlowType';
 
@@ -12,5 +13,5 @@ export function convertSignatureFlowType(flowType:FlowTypeSignature<FlowSignatur
   if (SIGNATURE_STRATEGIES.hasOwnProperty(flowType.type)) {
     return SIGNATURE_STRATEGIES[flowType.type](flowType);
   }
-  throw new Error(`Unsupported signature type: ${flowType.raw}`);
+  return createUnsupportedTypeDefinition(flowType.raw);
 }
