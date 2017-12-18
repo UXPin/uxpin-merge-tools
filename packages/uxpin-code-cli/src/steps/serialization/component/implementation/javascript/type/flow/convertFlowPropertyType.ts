@@ -3,19 +3,25 @@ import { PropertyType } from '../../../ComponentPropertyDefinition';
 import { createUnsupportedTypeDefinition } from '../../../createUnsupportedTypeDefinition';
 import { KnownReactFlowTypeName } from './KnownReactFlowTypeName';
 import { convertArrayFlowType } from './strategy/convertArrayFlowType';
+import { convertLiteralFlowType } from './strategy/convertLiteralFlowType';
 import { convertSignatureFlowType } from './strategy/convertSignatureFlowType';
+import { convertUnionFlowType } from './strategy/convertUnionFlowType';
 import { tupleCreatePrimitivePropertyType } from './strategy/tupleCreatePrimitivePropertyType';
 
 const STRATEGIES:Partial<{ [typeName in NamesToBeConverted]:(type:FlowType) => PropertyType }> = {
   Array: convertArrayFlowType,
   Function: tupleCreatePrimitivePropertyType('func'),
+  Object: tupleCreatePrimitivePropertyType('object'),
   any: tupleCreatePrimitivePropertyType('any'),
   bool: tupleCreatePrimitivePropertyType('boolean'),
   boolean: tupleCreatePrimitivePropertyType('boolean'),
+  literal: convertLiteralFlowType,
+  null: tupleCreatePrimitivePropertyType('empty'),
   number: tupleCreatePrimitivePropertyType('number'),
   signature: convertSignatureFlowType,
   string: tupleCreatePrimitivePropertyType('string'),
-  void: tupleCreatePrimitivePropertyType('void'),
+  union: convertUnionFlowType,
+  void: tupleCreatePrimitivePropertyType('empty'),
 };
 
 export function convertFlowPropertyType(propType:FlowType):PropertyType {
