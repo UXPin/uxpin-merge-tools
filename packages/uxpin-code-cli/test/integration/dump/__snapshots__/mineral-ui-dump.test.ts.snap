@@ -89,17 +89,29 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				{
 					description: 'Fill color, defaults to theme.color_gray_60',
 					isRequired: false,
-					name: 'color'
+					name: 'color',
+					type: {
+						name: 'string',
+						structure: {}
+					}
 				},
 				{
 					description: 'Flip the Icon horizontally when used with RTL languages',
 					isRequired: false,
-					name: 'rtl'
+					name: 'rtl',
+					type: {
+						name: 'boolean',
+						structure: {}
+					}
 				},
 				{
 					description: 'Alternative text',
 					isRequired: false,
-					name: 'title'
+					name: 'title',
+					type: {
+						name: 'string',
+						structure: {}
+					}
 				}
 			],
 			examples: []
@@ -121,7 +133,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				{
 					description: 'A URL or URL fragment to which the Link points',
 					isRequired: false,
-					name: 'href'
+					name: 'href',
+					type: {
+						name: 'string',
+						structure: {}
+					}
 				},
 				{
 					description: 'Element to be used as the root node - e.g. \`a\` or \`ReactRouterLink\`',
@@ -205,9 +221,31 @@ SyntaxError: Unexpected token (34:26)
 
 warning Unsupported Flow type of a property 'children' in:
 src/Card/Card.js
+Error: Unsupported type 'React$Node'
+    at Object.convertFlowPropertyType (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyType.js:2:779)
+    at resolve (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2123)
+    at new Promise (<anonymous>)
+    at Object.convertFlowPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2009)
+    at Object.getPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/getPropertyTypeWithWarnings.js:1:2276)
+    at Object.convertPropItemToPropertyDefinition (../../../../src/steps/serialization/component/implementation/javascript/convertPropItemToPropertyDefinition.js:1:2349)
+    at Promise.all.lodash_1.toPairs.map (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4322)
+    at Array.map (<anonymous>)
+    at parsed (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4206)
+    at <anonymous>
 
 warning Unsupported Flow type of a property 'onClick' in:
 src/Card/Card.js
+Error: Unsupported type 'signature'
+    at Object.convertFlowPropertyType (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyType.js:2:779)
+    at resolve (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2123)
+    at new Promise (<anonymous>)
+    at Object.convertFlowPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2009)
+    at Object.getPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/getPropertyTypeWithWarnings.js:1:2276)
+    at Object.convertPropItemToPropertyDefinition (../../../../src/steps/serialization/component/implementation/javascript/convertPropItemToPropertyDefinition.js:1:2349)
+    at Promise.all.lodash_1.toPairs.map (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4322)
+    at Array.map (<anonymous>)
+    at parsed (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4206)
+    at <anonymous>
 
 warning Cannot serialize component properties in:
 src/Dropdown/Dropdown.js
@@ -225,33 +263,87 @@ SyntaxError: Unexpected token (25:26)
 
 warning Unsupported Flow type of a property 'listeners' in:
 src/EventListener/EventListener.js
+Error: Unsupported type 'signature'
+    at Object.convertFlowPropertyType (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyType.js:2:779)
+    at Object.convertArrayFlowType [as Array] (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/src/steps/serialization/component/implementation/javascript/type/flow/strategy/convertArrayFlowType.js:2:74)
+    at Object.convertFlowPropertyType (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyType.js:2:710)
+    at resolve (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2123)
+    at new Promise (<anonymous>)
+    at Object.convertFlowPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2009)
+    at Object.getPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/getPropertyTypeWithWarnings.js:1:2276)
+    at Object.convertPropItemToPropertyDefinition (../../../../src/steps/serialization/component/implementation/javascript/convertPropItemToPropertyDefinition.js:1:2349)
+    at Promise.all.lodash_1.toPairs.map (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4322)
+    at Array.map (<anonymous>)
 
 warning Unsupported Flow type of a property 'size' in:
 src/Icon/Icon.js
+Error: Unsupported type 'union'
+    at Object.convertFlowPropertyType (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyType.js:2:779)
+    at resolve (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2123)
+    at new Promise (<anonymous>)
+    at Object.convertFlowPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2009)
+    at Object.getPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/getPropertyTypeWithWarnings.js:1:2276)
+    at Object.convertPropItemToPropertyDefinition (../../../../src/steps/serialization/component/implementation/javascript/convertPropItemToPropertyDefinition.js:1:2349)
+    at Promise.all.lodash_1.toPairs.map (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4322)
+    at Array.map (<anonymous>)
+    at parsed (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4206)
+    at <anonymous>
 
 warning Unsupported Flow type of a property 'children' in:
 src/Icon/Icon.js
-
-warning Unsupported Flow type of a property 'color' in:
-src/Icon/Icon.js
-
-warning Unsupported Flow type of a property 'rtl' in:
-src/Icon/Icon.js
-
-warning Unsupported Flow type of a property 'title' in:
-src/Icon/Icon.js
+Error: Unsupported type 'React$Node'
+    at Object.convertFlowPropertyType (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyType.js:2:779)
+    at resolve (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2123)
+    at new Promise (<anonymous>)
+    at Object.convertFlowPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2009)
+    at Object.getPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/getPropertyTypeWithWarnings.js:1:2276)
+    at Object.convertPropItemToPropertyDefinition (../../../../src/steps/serialization/component/implementation/javascript/convertPropItemToPropertyDefinition.js:1:2349)
+    at Promise.all.lodash_1.toPairs.map (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4322)
+    at Array.map (<anonymous>)
+    at parsed (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4206)
+    at <anonymous>
 
 warning Unsupported Flow type of a property 'children' in:
 src/Link/Link.js
-
-warning Unsupported Flow type of a property 'href' in:
-src/Link/Link.js
+Error: Unsupported type 'React$Node'
+    at Object.convertFlowPropertyType (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyType.js:2:779)
+    at resolve (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2123)
+    at new Promise (<anonymous>)
+    at Object.convertFlowPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2009)
+    at Object.getPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/getPropertyTypeWithWarnings.js:1:2276)
+    at Object.convertPropItemToPropertyDefinition (../../../../src/steps/serialization/component/implementation/javascript/convertPropItemToPropertyDefinition.js:1:2349)
+    at Promise.all.lodash_1.toPairs.map (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4322)
+    at Array.map (<anonymous>)
+    at parsed (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4206)
+    at <anonymous>
 
 warning Unsupported Flow type of a property 'element' in:
 src/Link/Link.js
+Error: Unsupported type '$FlowFixMe'
+    at Object.convertFlowPropertyType (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyType.js:2:779)
+    at resolve (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2123)
+    at new Promise (<anonymous>)
+    at Object.convertFlowPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2009)
+    at Object.getPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/getPropertyTypeWithWarnings.js:1:2276)
+    at Object.convertPropItemToPropertyDefinition (../../../../src/steps/serialization/component/implementation/javascript/convertPropItemToPropertyDefinition.js:1:2349)
+    at Promise.all.lodash_1.toPairs.map (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4322)
+    at Array.map (<anonymous>)
+    at parsed (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4206)
+    at <anonymous>
 
 warning Unsupported Flow type of a property 'variant' in:
 src/Link/Link.js
+Error: Unsupported type 'union'
+    at Object.convertFlowPropertyType (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyType.js:2:779)
+    at resolve (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2123)
+    at new Promise (<anonymous>)
+    at Object.convertFlowPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/flow/convertFlowPropertyTypeWithWarnings.js:1:2009)
+    at Object.getPropertyTypeWithWarnings (../../../../src/steps/serialization/component/implementation/javascript/type/getPropertyTypeWithWarnings.js:1:2276)
+    at Object.convertPropItemToPropertyDefinition (../../../../src/steps/serialization/component/implementation/javascript/convertPropItemToPropertyDefinition.js:1:2349)
+    at Promise.all.lodash_1.toPairs.map (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4322)
+    at Array.map (<anonymous>)
+    at parsed (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4206)
+    at <anonymous>
 
 warning Cannot serialize component properties in:
 src/Menu/Menu.js
