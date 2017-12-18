@@ -1,10 +1,14 @@
-export type FlowType = FlowArray
+
+export type FlowType = KnownFlowType | FlowUnknownType;
+
+export type KnownFlowType = FlowArray
   | FlowTypeSignature<'function'>
   | FlowTypeSignature<'object'>
   | FlowPrimitiveType
   | FlowUnionType
-  | FlowLiteralType
-  | FlowUnknownType;
+  | FlowLiteralType;
+
+export type KnownFlowTypeName = KnownFlowType['name'];
 
 export interface FlowArray {
   name:'Array';
@@ -23,6 +27,8 @@ export interface FlowTypeSignaturesMap {
   function:FlowFunctionSignature;
   object:FlowObjectSignature;
 }
+
+export type FlowSignatureTypeName = keyof FlowTypeSignaturesMap;
 
 export interface FlowFunctionSignature {
   arguments:FlowFunctionSignatureArgumentType[];
@@ -69,13 +75,5 @@ export interface FlowPrimitiveType {
 type FlowPrimitiveTypeName = 'any'
   | 'bool'
   | 'boolean'
-  | 'empty'
-  | 'false'
-  | 'mixed'
-  | 'null'
   | 'number'
-  | 'static'
-  | 'string'
-  | 'true'
-  | 'typeof'
-  | 'void';
+  | 'string';
