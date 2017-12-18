@@ -1,7 +1,7 @@
 import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT:number = 300000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
