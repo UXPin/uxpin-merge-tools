@@ -1,5 +1,6 @@
 import { FlowType, KnownFlowTypeName } from '../../../../../../../types/babylon-ast';
 import { PropertyType } from '../../../ComponentPropertyDefinition';
+import { createUnsupportedTypeDefinition } from '../../../createUnsupportedTypeDefinition';
 import { KnownReactFlowTypeName } from './KnownReactFlowTypeName';
 import { convertArrayFlowType } from './strategy/convertArrayFlowType';
 import { convertSignatureFlowType } from './strategy/convertSignatureFlowType';
@@ -22,7 +23,7 @@ export function convertFlowPropertyType(propType:FlowType):PropertyType {
     const strategies:{ [typeName:string]:(flowType:FlowType) => PropertyType } = STRATEGIES as any;
     return strategies[propType.name](propType);
   }
-  throw new Error(`Unsupported type '${propType.name}'`);
+  return createUnsupportedTypeDefinition(propType.name);
 }
 
 type NamesToBeConverted = KnownFlowTypeName | KnownReactFlowTypeName;

@@ -34,6 +34,7 @@ export interface PropertyTypeStructureMap {
   typedArray:TypedArrayStructure;
   dictionary:{ valueType:PropertyType };
   union:UnionTypeStructure;
+  unsupported:{ raw:string; };
   void:{};
 }
 
