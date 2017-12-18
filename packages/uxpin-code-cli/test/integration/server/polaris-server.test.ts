@@ -11,42 +11,33 @@ describe('server run in polaris', () => {
 
   setupDebugServerTest({
     projectPath: 'resources/repos/polaris',
-    serverCmdArgs: '--webpack-config "../../configs/polaris-webpack.config.js"',
+    serverCmdArgs: '--webpack-config "./playground/webpack.config"',
   }, (c) => chromeless = c);
 
   it('renders `Banner` component with preview', () => {
-    const componentName:string = 'Banner';
+    // given
+    const expectedDetails = { // tslint:disable-line
+      backgroundColor: 'rgb(244, 246, 248)',
+      bannerHeaderText: 'Order archived',
+      borderRadius: '0px 0px 3px 3px',
+    };
 
-    const expectedHeader:string = '<h3>Banner</h3>';
-    const expectedExample:string = `<div>\
-<div id="Banner1Heading">\
-<p>Order archived</p>\
-</div>\
-<div id="Banner1Content">\
-<p>This order was archived on March 7, 2017 at 3:12pm EDT.</p>\
-</div>\
-</div>`;
-
-    // when
-    return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
-      // then
-      expect(contents).toContain(expectedHeader);
-      expect(contents).toContain(expectedExample);
-    });
-  });
-
-  it('renders `Icon` component with preview', () => {
-    const componentName:string = 'Icon';
-
-    const expectedHeader:string = '<h3>Icon</h3>';
-    const expectedExample:string = `<svg viewBox="0 0 20 20">\
-<path d="M15 11h-4v4H9v-4H5V9h4V5h2v4h4v2zm-5-9a8 8 0 1 0 0 16 8 8 0 0 0 0-16z" fill-rule="evenodd"></path></svg>`;
+    const getComponentDetails:() => typeof expectedDetails = () => {
+      const banner:Element = document.querySelector('[class*="Banner-Banner"]') as HTMLElement;
+      const bannerStyles:CSSStyleDeclaration = getComputedStyle(banner);
+      const bannerHeader:HTMLElement = (banner.querySelector('[class*="Banner-Heading"]') as HTMLElement);
+      const bannerHeaderText:string = (bannerHeader.innerText as string).replace(/(\r\n|\n|\r)/gm, '');
+      return {
+        backgroundColor: bannerStyles.backgroundColor as string,
+        bannerHeaderText,
+        borderRadius: bannerStyles.borderRadius as string,
+      };
+    };
 
     // when
-    return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
+    return chromeless.evaluate(getComponentDetails).then((scratchedDetails) => {
       // then
-      expect(contents).toContain(expectedHeader);
-      expect(contents).toContain(expectedExample);
+      expect(scratchedDetails).toEqual(expectedDetails);
     });
   });
 
