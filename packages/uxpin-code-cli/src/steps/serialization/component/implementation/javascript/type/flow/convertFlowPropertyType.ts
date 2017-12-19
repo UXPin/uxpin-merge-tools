@@ -12,6 +12,7 @@ const STRATEGIES:{ [typeName in NamesToBeConverted]:(type:FlowType) => PropertyT
   Array: convertArrayFlowType,
   Function: thunkCreatePrimitivePropertyType('func'),
   Object: thunkCreatePrimitivePropertyType('object'),
+  React$Component: thunkCreatePrimitivePropertyType('element'),
   React$Element: thunkCreatePrimitivePropertyType('element'),
   React$Node: thunkCreatePrimitivePropertyType('node'),
   any: thunkCreatePrimitivePropertyType('any'),

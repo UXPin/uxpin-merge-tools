@@ -1286,10 +1286,8 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 								{
 									name: 'node',
 									type: {
-										name: 'unsupported',
-										structure: {
-											raw: 'React$Component'
-										}
+										name: 'element',
+										structure: {}
 									}
 								}
 							],
@@ -1425,10 +1423,8 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 								{
 									name: 'node',
 									type: {
-										name: 'unsupported',
-										structure: {
-											raw: 'React$Component'
-										}
+										name: 'element',
+										structure: {}
 									}
 								}
 							],
