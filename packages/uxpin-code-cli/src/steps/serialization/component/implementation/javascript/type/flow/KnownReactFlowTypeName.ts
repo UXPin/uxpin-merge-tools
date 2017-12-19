@@ -1,1 +1,3 @@
-export type KnownReactFlowTypeName = 'React$Node';
+export type KnownReactFlowTypeName = 'React$Node'
+  | 'React$Element'
+  | 'React$Component';
