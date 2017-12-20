@@ -4,7 +4,9 @@ import { createUnsupportedTypeDefinition } from '../../../../createUnsupportedTy
 import { convertFunctionSignatureFlowType } from './signature/convertFunctionSignatureFlowType';
 import { convertObjectSignatureFlowType } from './signature/convertObjectSignatureFlowType';
 
-const SIGNATURE_STRATEGIES:{ [name:string]:(flowType:FlowTypeSignature<FlowSignatureTypeName>) => PropertyType } = {
+type FlowTypeSignatureConvertingStrategy = (flowType:FlowTypeSignature<FlowSignatureTypeName>) => PropertyType;
+
+const SIGNATURE_STRATEGIES:{ [name in FlowSignatureTypeName]:FlowTypeSignatureConvertingStrategy} = {
   function: convertFunctionSignatureFlowType,
   object: convertObjectSignatureFlowType,
 };
