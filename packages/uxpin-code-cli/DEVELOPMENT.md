@@ -1,4 +1,29 @@
 
+## How to run debug server for the example repo
+
+Debug server is run for every example repository withing e2e tests located in `test/integration/server`, however sometimes it's useful to be able to run such server manually for debugging or tests authoring.
+
+First of all go the the CLI package, and install dependencies: 
+```bash
+cd packages/uxpin-code-cli/
+yarn
+make test-resources
+```
+then, build the project:
+```bash
+make build
+```
+and finally run the server in a directory of the example design system (Polaris in this case), providing all required config flags:
+```bash
+cd test/resources/repos/polaris/
+../../../../bin/uxpin-code server --webpack-config "./playground/webpack.config"
+```
+Now wait for the console log claiming the server is ready, and open the given address in the browser:
+```text
+server started successfully!
+server ready on http://127.0.0.1:8080/
+```
+
 ## Jest Test setup for JetBrains IDE
 
 ### Run a particular test from code

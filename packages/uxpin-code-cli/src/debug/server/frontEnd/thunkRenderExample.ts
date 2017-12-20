@@ -1,10 +1,10 @@
 import { transform } from 'babel-standalone';
 import { ComponentExample } from '../../../steps/serialization/component/examples/ComponentExample';
+import { BuiltLibrary } from './BuiltLibrary';
 import { ExampleRenderer } from './ExampleRenderer';
 
-export function thunkRenderExample(library:{string:() => any}, componentNames:string[]):ExampleRenderer {
+export function thunkRenderExample(library:BuiltLibrary, componentNames:string[]):ExampleRenderer {
   return (example, container) => new Promise((resolve) => {
-    const { render } = library as any;
     const html:string = getHtml(example, componentNames);
 
     // tslint:disable:no-eval
@@ -14,7 +14,7 @@ export function thunkRenderExample(library:{string:() => any}, componentNames:st
         'react',
       ],
     }).code || '');
-    render(preview,  container);
+    library.render(preview,  container);
     resolve();
   });
 }
