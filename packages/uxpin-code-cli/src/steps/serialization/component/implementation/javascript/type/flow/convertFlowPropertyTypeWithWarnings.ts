@@ -4,7 +4,7 @@ import { TypeConversionResult } from '../TypeConversionResult';
 
 export function convertFlowPropertyTypeWithWarnings(propName:string, propType:FlowType):Promise<TypeConversionResult> {
   const warning:WarningDetails = {
-    message: `Cannot parse Flow type of a property '${propName}' with type: ${propType}`,
+    message: `Unsupported Flow type of a property '${propName}'`,
   };
-  return Promise.reject({ result: {}, warnings: [warning] });
+  return Promise.resolve({ result: {}, warnings: [warning] });
 }
