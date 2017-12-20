@@ -12,7 +12,7 @@ export function convertReactPropertyTypeWithWarnings(propName:string, propType:P
     });
   }).catch(() => {
     const warning:WarningDetails = {
-      message: `Cannot parse React type of a property '${propName}'`,
+      message: `Cannot parse type of a property '${propName}'`,
     };
     return { result: {}, warnings: [warning] };
   });
