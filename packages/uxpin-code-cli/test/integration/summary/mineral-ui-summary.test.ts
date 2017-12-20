@@ -14,44 +14,44 @@ describe('--summary option integration', () => {
           // then
           expect(output).toContain(
             `Button
-    📜 documentation: ✘
-    💡 examples: ✘
+    📜 documentation: ✔
+    💡 examples: ✔
 
 Card
     📜 documentation: ✘
     💡 examples: ✘
 
 Dropdown
-    📜 documentation: ✘
-    💡 examples: ✘
+    📜 documentation: ✔
+    💡 examples: ✔
 
 EventListener
     📜 documentation: ✘
     💡 examples: ✘
 
 Icon
-    📜 documentation: ✘
-    💡 examples: ✘
+    📜 documentation: ✔
+    💡 examples: ✔
 
 Link
-    📜 documentation: ✘
-    💡 examples: ✘
+    📜 documentation: ✔
+    💡 examples: ✔
 
 Menu
-    📜 documentation: ✘
-    💡 examples: ✘
+    📜 documentation: ✔
+    💡 examples: ✔
 
 Popover
-    📜 documentation: ✘
-    💡 examples: ✘
+    📜 documentation: ✔
+    💡 examples: ✔
 
 Portal
     📜 documentation: ✘
     💡 examples: ✘
 
 TextInput
-    📜 documentation: ✘
-    💡 examples: ✘`);
+    📜 documentation: ✔
+    💡 examples: ✔`);
         });
     });
   });
