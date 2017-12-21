@@ -1,5 +1,5 @@
 import { PropItemType } from 'react-docgen-typescript/lib';
-import { PropertyType, PropertyTypeName } from '../../ComponentPropertyDefinition';
+import { PropertyType, PropertyTypeName } from '../../../ComponentPropertyDefinition';
 import { convertTypeName } from './convertTypeName';
 import { convertTypeStructure } from './structure/convertTypeStructure';
 

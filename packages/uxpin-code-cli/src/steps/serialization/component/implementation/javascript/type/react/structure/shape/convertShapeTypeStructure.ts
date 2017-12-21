@@ -1,5 +1,5 @@
 import { reduce } from 'lodash';
-import { ShapeTypeStructure } from '../../../../ComponentPropertyDefinition';
+import { ShapeTypeStructure } from '../../../../../ComponentPropertyDefinition';
 import { convertPropertyType } from '../../convertPropertyType';
 
 export function convertShapeTypeStructure(reactDocgenShape:any):ShapeTypeStructure {

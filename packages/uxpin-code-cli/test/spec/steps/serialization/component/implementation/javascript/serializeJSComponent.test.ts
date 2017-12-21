@@ -211,6 +211,207 @@ describe('serializeJSComponentProps', () => {
       });
     });
 
+    it('serializes component with Flow property types', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('IntegrationComboFlow');
+      const expectedMetadata:ComponentMetadata = {
+        name: 'IntegrationComboFlow',
+        properties: [
+          {
+            description: 'Rendered content of the component',
+            isRequired: true,
+            name: 'children',
+            type: {
+              name: 'node',
+              structure: {},
+            },
+          },
+          {
+            description: 'Disables the Button',
+            isRequired: false,
+            name: 'disabled',
+            type: {
+              name: 'boolean',
+              structure: {},
+            },
+          },
+          {
+            description: 'Stretch button to it\'s parent',
+            isRequired: false,
+            name: 'fullWidth',
+            type: {
+              name: 'boolean',
+              structure: {},
+            },
+          },
+          {
+            defaultValue: {
+              value: 'button',
+            },
+            description: 'Element to be used as the root node - e.g. `a` can be used to create a link that is styled ' +
+            'like a Button',
+            isRequired: false,
+            name: 'element',
+            type: {
+              name: 'unsupported',
+              structure: {
+                raw: '$FlowFixMe',
+              },
+            },
+          },
+          {
+            description: 'Icon that goes after the children',
+            isRequired: false,
+            name: 'iconEnd',
+            type: {
+              name: 'element',
+              structure: {},
+            },
+          },
+          {
+            description: 'Icon that goes before the children',
+            isRequired: false,
+            name: 'iconStart',
+            type: {
+              name: 'element',
+              structure: {},
+            },
+          },
+          {
+            description: 'Called with the click event',
+            isRequired: false,
+            name: 'onClick',
+            type: {
+              name: 'func',
+              structure: {
+                arguments: [
+                  {
+                    name: 'event',
+                    type: {
+                      name: 'unsupported',
+                      structure: {
+                        raw: 'SyntheticEvent',
+                      },
+                    },
+                  },
+                ],
+                returnType: {
+                  name: 'empty',
+                  structure: {},
+                },
+              },
+            },
+          },
+          {
+            defaultValue: {
+              value: 'large',
+            },
+            description: 'Available sizes',
+            isRequired: false,
+            name: 'size',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  {
+                    name: 'literal',
+                    structure: {
+                      value: 'small',
+                    },
+                  },
+                  {
+                    name: 'literal',
+                    structure: {
+                      value: 'medium',
+                    },
+                  },
+                  {
+                    name: 'literal',
+                    structure: {
+                      value: 'large',
+                    },
+                  },
+                  {
+                    name: 'literal',
+                    structure: {
+                      value: 'jumbo',
+                    },
+                  },
+                ],
+              },
+            },
+          },
+          {
+            defaultValue: {
+              value: 'button',
+            },
+            description: 'Available types',
+            isRequired: false,
+            name: 'type',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  {
+                    name: 'string',
+                    structure: {},
+                  },
+                  {
+                    name: 'object',
+                    structure: {},
+                  },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'data',
+            type: {
+              name: 'shape',
+              structure: {
+                firstProp: {
+                  name: 'func',
+                  structure: {},
+                },
+                otherProp: {
+                  name: 'shape',
+                  structure: {
+                    propOfNested: {
+                      name: 'shape',
+                      structure: {
+                        prop: {
+                          name: 'any',
+                          structure: {},
+                        },
+                      },
+                    },
+                  },
+                },
+                secondProp: {
+                  name: 'typedArray',
+                  structure: {
+                    memberType: {
+                      name: 'number',
+                      structure: {},
+                    },
+                  },
+                },
+              },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeJSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('provides warning details for corrupted default property values', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('CorruptedDefaultPropertyValue');

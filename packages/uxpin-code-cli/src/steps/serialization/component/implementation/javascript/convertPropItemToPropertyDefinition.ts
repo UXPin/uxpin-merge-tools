@@ -1,16 +1,16 @@
 import pReduce = require('p-reduce');
-import { PropItem } from 'react-docgen-typescript/lib';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getDefaultValue } from './defaultValue/getDefaultValue';
-import { convertPropertyTypeWithWarnings } from './type/convertPropertyTypeWithWarnings';
+import { GeneralPropItem } from './FlowPropItem';
+import { getPropertyTypeWithWarnings } from './type/getPropertyTypeWithWarnings';
 
 export function convertPropItemToPropertyDefinition(propName:string,
-  propItem:PropItem):Promise<PropDefinitionSerializationResult> {
+  propItem:GeneralPropItem):Promise<PropDefinitionSerializationResult> {
   const partialProviders:Array<Promise<Warned<Partial<ComponentPropertyDefinition>>>> = [
     getDefaultValue(propName, propItem),
-    convertPropertyTypeWithWarnings(propName, propItem.type),
+    getPropertyTypeWithWarnings(propName, propItem),
   ];
   const aggregator:Warned<ComponentPropertyDefinition> = {
     result: {

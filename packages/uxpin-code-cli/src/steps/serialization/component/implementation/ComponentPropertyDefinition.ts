@@ -23,7 +23,7 @@ export interface PropertyTypeStructureMap {
   boolean:{};
   custom:{};
   element:{};
-  func:{};
+  func:FunctionStructure;
   literal:{ value:string };
   node:{};
   number:{};
@@ -34,6 +34,8 @@ export interface PropertyTypeStructureMap {
   typedArray:TypedArrayStructure;
   dictionary:{ valueType:PropertyType };
   union:UnionTypeStructure;
+  unsupported:{ raw:string; };
+  empty:{};
 }
 
 export interface UnionTypeStructure {
@@ -46,4 +48,14 @@ export interface ShapeTypeStructure {
 
 export interface TypedArrayStructure {
   memberType:PropertyType;
+}
+
+export interface FunctionStructure {
+  arguments?:FunctionArgumentStructure[];
+  returnType?:PropertyType;
+}
+
+export interface FunctionArgumentStructure {
+  name:string;
+  type:PropertyType;
 }
