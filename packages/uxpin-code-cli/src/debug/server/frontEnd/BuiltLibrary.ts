@@ -1,5 +1,8 @@
-import { Renderer } from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
 export interface BuiltLibrary {
-  render:Renderer;
+  ReactDOM:typeof ReactDOM;
+  React:typeof React;
+  Wrapper?:React.ComponentClass;
 }

@@ -7,7 +7,7 @@ const CLASS_NAME_WRAPPER:string = 'Wrapper';
 export function getFileString(components:ComponentDefinition[], wrapperPath?:string):string {
   const libImports:string[] = [
     'import * as React from \'react\';',
-    'import { render } from \'react-dom\';',
+    'import * as ReactDOM from \'react-dom\';',
   ];
 
   const imports:string[] = components.map((comp) => `import ${comp.name} from '${getImportPath(comp)}';`);
@@ -19,7 +19,7 @@ export function getFileString(components:ComponentDefinition[], wrapperPath?:str
     ...components.map((component) => `  ${component.name},`),
     ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER},`] : []),
     '  React,',
-    '  render,',
+    '  ReactDOM,',
     `};`,
   ];
 
