@@ -6,10 +6,10 @@ import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-const serverCmdArgs:string = [
+const serverCmdArgs:string[] = [
   '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',
   '--wrapper "../documentation/wrapper.jsx"',
-].join(' ');
+];
 
 describe('server run in nordnet-ui-kit', () => {
   let chromeless:Chromeless<any>;
