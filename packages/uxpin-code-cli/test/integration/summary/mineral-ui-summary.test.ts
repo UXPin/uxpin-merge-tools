@@ -9,7 +9,7 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in mineral-ui example', () => {
       // when
-      return runUXPinCodeCommand('resources/repos/mineral-ui', '--summary')
+      return runUXPinCodeCommand({ cwd: 'resources/repos/mineral-ui', params: ['--summary'] })
         .then((output) => {
           // then
           expect(output).toContain(

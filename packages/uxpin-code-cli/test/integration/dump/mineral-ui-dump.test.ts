@@ -8,7 +8,7 @@ describe('The --dump option', () => {
   describe('run for the mineral-ui repository', () => {
     it('prints the JSON describing the full repository', () => {
       // when
-      return runUXPinCodeCommand('resources/repos/mineral-ui', '--dump').then((consoleOutput) => {
+      return runUXPinCodeCommand({ cwd: 'resources/repos/mineral-ui', params: ['--dump'] }).then((consoleOutput) => {
         // then
         expect(consoleOutput).toMatchSnapshot();
       });

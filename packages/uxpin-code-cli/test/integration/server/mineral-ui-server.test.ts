@@ -14,7 +14,7 @@ describe('server run in mineral-ui', () => {
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
       '--wrapper "../src/themes/UXPinWrapper.js"',
-    ].join(' '),
+    ],
   }, (c) => chromeless = c);
 
   it('opens `Dropdown` with correct styling on click', () => {
