@@ -10,6 +10,7 @@ describe('server run in mineral-ui', () => {
   let chromeless:Chromeless<any>;
 
   setupDebugServerTest({
+    env: { UXPIN_BUILD: 'true' },
     projectPath: 'resources/repos/mineral-ui',
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
