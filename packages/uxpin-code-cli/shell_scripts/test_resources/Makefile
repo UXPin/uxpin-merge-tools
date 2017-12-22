@@ -17,7 +17,9 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& git clone https://github.com/alfa-laboratory/arui-feather.git \
 	&& cd arui-feather \
 	&& git checkout 2299fcb73257d36291eed6d93dc05c2e64531bd2 \
-	&& npm install
+	&& mkdir ./npm-cache \
+	&& npm install --cache=./npm-cache \
+	&& rm -rf ./npm-cache
 
 ../../test/resources/repos/polaris:
 	cd ../../test/resources/repos \
@@ -33,4 +35,6 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& git clone git@github.com:UXPin/mineral-ui.git \
 	&& cd mineral-ui \
 	&& git remote add official https://github.com/mineral-ui/mineral-ui.git \
-	&& npm install
+	&& mkdir ./npm-cache \
+	&& npm install --cache=./npm-cache \
+	&& rm -rf ./npm-cache
