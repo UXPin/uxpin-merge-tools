@@ -9,7 +9,7 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in polaris example', () => {
       // when
-      return runUXPinCodeCommand('resources/repos/polaris', '--summary')
+      return runUXPinCodeCommand({ cwd: 'resources/repos/polaris', params: ['--summary'] })
         .then((output) => {
           // then
           expect(output).toContain(`AccountConnection

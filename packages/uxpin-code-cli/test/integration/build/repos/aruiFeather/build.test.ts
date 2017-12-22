@@ -13,9 +13,9 @@ describe('Building repos/arui-feather design system', () => {
     let components:any;
 
     beforeAll(() => {
-      const options:string = '--webpack-config "./webpack.gemini.config.js"';
+      const params:string[] = ['--webpack-config "./webpack.gemini.config.js"'];
 
-      return runUXPinCodeCommand('resources/repos/arui-feather', options)
+      return runUXPinCodeCommand({ cwd: 'resources/repos/arui-feather', params })
         .then(() => {
           const path:string = relative(__dirname, resolve('test/resources/repos/arui-feather', LIBRARY_OUTPUT_PATH));
           components = require(path);
@@ -32,7 +32,7 @@ describe('Building repos/arui-feather design system', () => {
 
   describe('without required user webpack config', () => {
     it('throws an error', () => {
-      return runUXPinCodeCommand('resources/repos/arui-feather')
+      return runUXPinCodeCommand({ cwd: 'resources/repos/arui-feather' })
         .then((output) => {
           expect(output).toContain('ERROR:');
           expect(output).toContain('Module parse failed');
