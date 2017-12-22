@@ -16,18 +16,6 @@ describe('--summary option integration', () => {
     📜 documentation: ✔
     💡 examples: ✔
 
-AppContent
-    📜 documentation: ✔
-    💡 examples: ✘
-
-AppMenu
-    📜 documentation: ✔
-    💡 examples: ✘
-
-AppTitle
-    📜 documentation: ✔
-    💡 examples: ✘
-
 Attach
     📜 documentation: ✔
     💡 examples: ✔
@@ -60,10 +48,6 @@ Collapse
     📜 documentation: ✔
     💡 examples: ✔
 
-Copyright
-    📜 documentation: ✔
-    💡 examples: ✔
-
 Dropdown
     📜 documentation: ✔
     💡 examples: ✔
@@ -72,13 +56,9 @@ EmailInput
     📜 documentation: ✔
     💡 examples: ✔
 
-ErrorPage
-    📜 documentation: ✘
-    💡 examples: ✘
-
-Footer
+FlagIcon
     📜 documentation: ✔
-    💡 examples: ✘
+    💡 examples: ✔
 
 Form
     📜 documentation: ✔
@@ -88,15 +68,15 @@ FormField
     📜 documentation: ✔
     💡 examples: ✔
 
-Header
-    📜 documentation: ✔
-    💡 examples: ✘
-
 Heading
     📜 documentation: ✔
     💡 examples: ✔
 
 Icon
+    📜 documentation: ✔
+    💡 examples: ✔
+
+IconButton
     📜 documentation: ✔
     💡 examples: ✔
 
@@ -109,6 +89,10 @@ InputAutocomplete
     💡 examples: ✔
 
 InputGroup
+    📜 documentation: ✔
+    💡 examples: ✔
+
+IntlPhoneInput
     📜 documentation: ✔
     💡 examples: ✔
 
@@ -152,10 +136,6 @@ Notification
     📜 documentation: ✔
     💡 examples: ✔
 
-Page
-    📜 documentation: ✔
-    💡 examples: ✔
-
 Paragraph
     📜 documentation: ✔
     💡 examples: ✔
@@ -165,8 +145,8 @@ PhoneInput
     💡 examples: ✔
 
 Plate
-    📜 documentation: ✘
-    💡 examples: ✘
+    📜 documentation: ✔
+    💡 examples: ✔
 
 Popup
     📜 documentation: ✔
@@ -179,6 +159,10 @@ PopupContainerProvider
 PopupHeader
     📜 documentation: ✔
     💡 examples: ✘
+
+ProgressBar
+    📜 documentation: ✔
+    💡 examples: ✔
 
 Radio
     📜 documentation: ✔
@@ -212,7 +196,19 @@ Spin
     📜 documentation: ✔
     💡 examples: ✔
 
-Support
+Swipeable
+    📜 documentation: ✘
+    💡 examples: ✘
+
+TabItem
+    📜 documentation: ✔
+    💡 examples: ✔
+
+Tabs
+    📜 documentation: ✔
+    💡 examples: ✔
+
+TagButton
     📜 documentation: ✔
     💡 examples: ✔
 
@@ -221,12 +217,8 @@ Textarea
     💡 examples: ✔
 
 ThemeProvider
-    📜 documentation: ✘
-    💡 examples: ✘
-
-User
     📜 documentation: ✔
-    💡 examples: ✔`);
+    💡 examples: ✘`);
       });
     });
   });

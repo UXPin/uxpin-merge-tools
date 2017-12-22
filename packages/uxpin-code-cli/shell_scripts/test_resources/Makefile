@@ -16,7 +16,7 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	cd ../../test/resources/repos \
 	&& git clone https://github.com/alfa-laboratory/arui-feather.git \
 	&& cd arui-feather \
-	&& git checkout 2299fcb73257d36291eed6d93dc05c2e64531bd2 \
+	&& git checkout v11.3.1 \
 	&& npm install
 
 ../../test/resources/repos/polaris:
