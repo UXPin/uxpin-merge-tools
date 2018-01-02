@@ -27,13 +27,13 @@ describe('server run in nordnet-ui-kit', () => {
     const expectedExample:string = '⚠️ Warning: no code examples';
 
     // when
-    await waitForComponent(chromeless, componentName);
+    await waitForComponent(chromeless, componentName, CURRENT_TIMEOUT);
     const contents:any = await chromeless.evaluate(getComponentByName, componentName);
 
     // then
     expect(contents).toContain(expectedHeader);
     expect(contents).toContain(expectedExample);
-  });
+  }, CURRENT_TIMEOUT);
 
   it('does not render non-existent component', async () => {
     const componentName:string = 'NotExist';

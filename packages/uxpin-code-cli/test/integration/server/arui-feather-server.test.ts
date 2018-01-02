@@ -24,13 +24,13 @@ role="button" type="button" class="button button_size_s button_theme_alfa-on-col
 <span class="button__text">Применить</span></button>`;
 
     // when
-    await chromeless.wait('button.button.button_size_s.button_theme_alfa-on-color');
+    await chromeless.wait('button.button.button_size_s', CURRENT_TIMEOUT);
     const contents:any = await chromeless.evaluate(getComponentByName, componentName);
 
     // then
     expect(contents).toContain(expectedHeader);
     expect(contents).toContain(expectedExample);
-  });
+  }, CURRENT_TIMEOUT);
 
   it('renders `Calendar` component with `initialState is not defined` Error', async () => {
     const componentName:string = 'Calendar';
