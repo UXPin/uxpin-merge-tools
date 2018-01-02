@@ -1,7 +1,6 @@
 import Chromeless from 'chromeless';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
-import { waitForComponent } from '../../utils/e2e/chromeless/waitForComponent';
 import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 
 const CURRENT_TIMEOUT:number = 300000;
@@ -27,7 +26,7 @@ describe('server run in nordnet-ui-kit', () => {
     const expectedExample:string = '⚠️ Warning: no code examples';
 
     // when
-    await waitForComponent(chromeless, componentName, CURRENT_TIMEOUT);
+    await chromeless.wait(`h3:value(${componentName}) > span:value(Warning)`, CURRENT_TIMEOUT);
     const contents:any = await chromeless.evaluate(getComponentByName, componentName);
 
     // then
