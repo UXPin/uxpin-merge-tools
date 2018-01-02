@@ -14,12 +14,12 @@ describe('Building repos/nordnet-ui-kit design system', () => {
     let consoleOutput:string;
 
     beforeAll(() => {
-      const options:string = [
+      const params:string[] = [
         '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',
         '--wrapper "../documentation/wrapper.jsx"',
-      ].join(' ');
+      ];
 
-      return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', options)
+      return runUXPinCodeCommand({ cwd: 'resources/repos/nordnet-ui-kit', params })
         .then((output) => {
           const path:string = relative(__dirname, resolve('test/resources/repos/nordnet-ui-kit', LIBRARY_OUTPUT_PATH));
           components = require(path);
@@ -49,7 +49,7 @@ describe('Building repos/nordnet-ui-kit design system', () => {
 
   describe('without required user webpack config', () => {
     it('throws an error', () => {
-      return runUXPinCodeCommand('resources/repos/nordnet-ui-kit')
+      return runUXPinCodeCommand({ cwd: 'resources/repos/nordnet-ui-kit' })
         .then((output) => {
           expect(output).toContain('ERROR:');
           expect(output).toContain('Module parse failed');

@@ -11,7 +11,7 @@ describe('--summary option integration', () => {
       // given
 
       // when
-      return runUXPinCodeCommand('resources/designSystems/noSrcDir', '--summary').then((output) => {
+      return runUXPinCodeCommand({ cwd: 'resources/designSystems/noSrcDir', params: ['--summary'] }).then((output) => {
         // then
         expect(output).toContain('Unable to locate components source directory');
       });
