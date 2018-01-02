@@ -1,6 +1,7 @@
 import Chromeless from 'chromeless';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
+import { waitForComponent } from '../../utils/e2e/chromeless/waitForComponent';
 import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 
 const CURRENT_TIMEOUT:number = 300000;
@@ -14,7 +15,7 @@ describe('server run in arui-feather', () => {
     serverCmdArgs: '--webpack-config "./webpack.gemini.config.js"',
   }, (c) => chromeless = c);
 
-  it('renders `Button` component with preview', () => {
+  it('renders `Button` component with preview', async () => {
     const componentName:string = 'Button';
 
     const expectedHeader:string = '<h3>Button</h3>';
@@ -23,48 +24,51 @@ role="button" type="button" class="button button_size_s button_theme_alfa-on-col
 <span class="button__text">Применить</span></button>`;
 
     // when
-    return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
-      // then
-      expect(contents).toContain(expectedHeader);
-      expect(contents).toContain(expectedExample);
-    });
+    await chromeless.wait('button.button.button_size_s.button_theme_alfa-on-color');
+    const contents:any = await chromeless.evaluate(getComponentByName, componentName);
+
+    // then
+    expect(contents).toContain(expectedHeader);
+    expect(contents).toContain(expectedExample);
   });
 
-  it('renders `Calendar` component with `initialState is not defined` Error', () => {
+  it('renders `Calendar` component with `initialState is not defined` Error', async () => {
     const componentName:string = 'Calendar';
 
     const expectedHeader:string = '<h3>Calendar</h3>';
     const expectedExample:string = '⛔ Error: initialState is not defined';
 
     // when
-    return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
-      // then
-      expect(contents).toContain(expectedHeader);
-      expect(contents).toContain(expectedExample);
-    });
+    await waitForComponent(chromeless, componentName);
+    const contents:any = await chromeless.evaluate(getComponentByName, componentName);
+
+    // then
+    expect(contents).toContain(expectedHeader);
+    expect(contents).toContain(expectedExample);
   });
 
-  it('renders `Header` component with `no code examples` warning', () => {
+  it('renders `Header` component with `no code examples` warning', async () => {
     const componentName:string = 'Header';
 
     const expectedHeader:string = '<h3>Header</h3>';
     const expectedExample:string = '⚠️ Warning: no code examples';
 
     // when
-    return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
-      // then
-      expect(contents).toContain(expectedHeader);
-      expect(contents).toContain(expectedExample);
-    });
+    await waitForComponent(chromeless, componentName);
+    const contents:any = await chromeless.evaluate(getComponentByName, componentName);
+
+    // then
+    expect(contents).toContain(expectedHeader);
+    expect(contents).toContain(expectedExample);
   });
 
-  it('does not render non-existent component', () => {
+  it('does not render non-existent component', async () => {
     const componentName:string = 'NotExist';
 
     // when
-    return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
-      // then
-      expect(contents).toBeFalsy();
-    });
+    const contents:any = await chromeless.evaluate(getComponentByName, componentName);
+
+    // then
+    expect(contents).toBeFalsy();
   });
 });

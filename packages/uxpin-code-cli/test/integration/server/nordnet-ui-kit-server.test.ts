@@ -1,6 +1,7 @@
 import Chromeless from 'chromeless';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
+import { waitForComponent } from '../../utils/e2e/chromeless/waitForComponent';
 import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 
 const CURRENT_TIMEOUT:number = 300000;
@@ -19,27 +20,28 @@ describe('server run in nordnet-ui-kit', () => {
     serverCmdArgs,
   }, (c) => chromeless = c);
 
-  it('renders `Button` component with `no code examples` warning', () => {
+  it('renders `Button` component with `no code examples` warning', async () => {
     const componentName:string = 'Button';
 
     const expectedHeader:string = '<h3>Button</h3>';
     const expectedExample:string = '⚠️ Warning: no code examples';
 
     // when
-    return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
-      // then
-      expect(contents).toContain(expectedHeader);
-      expect(contents).toContain(expectedExample);
-    });
+    await waitForComponent(chromeless, componentName);
+    const contents:any = await chromeless.evaluate(getComponentByName, componentName);
+
+    // then
+    expect(contents).toContain(expectedHeader);
+    expect(contents).toContain(expectedExample);
   });
 
-  it('does not render non-existent component', () => {
+  it('does not render non-existent component', async () => {
     const componentName:string = 'NotExist';
 
     // when
-    return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
-      // then
-      expect(contents).toBeFalsy();
-    });
+    const contents:any = await chromeless.evaluate(getComponentByName, componentName);
+
+    // then
+    expect(contents).toBeFalsy();
   });
 });
