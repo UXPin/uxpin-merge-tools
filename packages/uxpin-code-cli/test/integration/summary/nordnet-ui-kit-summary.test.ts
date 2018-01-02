@@ -9,7 +9,7 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in nordnet-ui-kit example', () => {
       // when
-      return runUXPinCodeCommand('resources/repos/nordnet-ui-kit', '--summary')
+      return runUXPinCodeCommand({ cwd: 'resources/repos/nordnet-ui-kit', params: ['--summary'] })
         .then((output) => {
           // then
           expect(output).toContain(
