@@ -18,7 +18,7 @@ describe('server run in arui-feather', () => {
   it('renders `Button` component with preview', async () => {
     const componentName:string = 'Button';
 
-    const expectedHeader:string = '<h3>Button</h3>';
+    const expectedHeader:string = '<h3 id="header-button">Button</h3>';
     const expectedExample:string = `<button \
 role="button" type="button" class="button button_size_s button_theme_alfa-on-color">\
 <span class="button__text">Применить</span></button>`;
@@ -35,7 +35,7 @@ role="button" type="button" class="button button_size_s button_theme_alfa-on-col
   it('renders `Calendar` component with `initialState is not defined` Error', async () => {
     const componentName:string = 'Calendar';
 
-    const expectedHeader:string = '<h3>Calendar</h3>';
+    const expectedHeader:string = '<h3 id="header-calendar">Calendar</h3>';
     const expectedExample:string = '⛔ Error: initialState is not defined';
 
     // when
@@ -50,7 +50,7 @@ role="button" type="button" class="button button_size_s button_theme_alfa-on-col
   it('renders `Header` component with `no code examples` warning', async () => {
     const componentName:string = 'Header';
 
-    const expectedHeader:string = '<h3>Header</h3>';
+    const expectedHeader:string = '<h3 id="header-header">Header</h3>';
     const expectedExample:string = '⚠️ Warning: no code examples';
 
     // when

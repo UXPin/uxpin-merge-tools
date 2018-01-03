@@ -23,11 +23,11 @@ describe('server run in nordnet-ui-kit', () => {
   it('renders `Button` component with `no code examples` warning', async () => {
     const componentName:string = 'Button';
 
-    const expectedHeader:string = '<h3>Button</h3>';
+    const expectedHeader:string = '<h3 id="header-button">Button</h3>';
     const expectedExample:string = '⚠️ Warning: no code examples';
 
     // when
-    await waitForComponent(chromeless, componentName, CURRENT_TIMEOUT);
+    chromeless.wait('#header-button + span', CURRENT_TIMEOUT);
     const contents:any = await chromeless.evaluate(getComponentByName, componentName);
 
     // then

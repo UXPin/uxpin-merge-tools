@@ -46,7 +46,7 @@ describe('server run in polaris', () => {
   it('renders `Popover` component with `this.props.onClose is not a function` error', async () => {
     const componentName:string = 'Popover';
 
-    const expectedHeader:string = '<h3>Popover</h3>';
+    const expectedHeader:string = '<h3 id="header-popover">Popover</h3>';
     const expectedExample:string = '⛔ Error: this.props.onClose is not a function';
 
     // when
@@ -61,7 +61,7 @@ describe('server run in polaris', () => {
   it('renders `Breadcrumbs` component with `no code examples` warning', async () => {
     const componentName:string = 'Breadcrumbs';
 
-    const expectedHeader:string = '<h3>Breadcrumbs</h3>';
+    const expectedHeader:string = '<h3 id="header-breadcrumbs">Breadcrumbs</h3>';
     const expectedExample:string = '⚠️ Warning: no code examples';
 
     // when
