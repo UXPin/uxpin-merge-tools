@@ -12,7 +12,7 @@ describe('server run in arui-feather', () => {
 
   setupDebugServerTest({
     projectPath: 'resources/repos/arui-feather',
-    serverCmdArgs: '--webpack-config "./webpack.gemini.config.js"',
+    serverCmdArgs: ['--webpack-config "./webpack.gemini.config.js"'],
   }, (c) => chromeless = c);
 
   it('renders `Button` component with preview', async () => {
@@ -20,7 +20,7 @@ describe('server run in arui-feather', () => {
 
     const expectedHeader:string = '<h3 id="header-button">Button</h3>';
     const expectedExample:string = `<button \
-role="button" type="button" class="button button_size_s button_theme_alfa-on-color">\
+role="button" type="button" class="button button_size_s button_theme_alfa-on-white">\
 <span class="button__text">Применить</span></button>`;
 
     // when
@@ -47,10 +47,10 @@ role="button" type="button" class="button button_size_s button_theme_alfa-on-col
     expect(contents).toContain(expectedExample);
   });
 
-  it('renders `Header` component with `no code examples` warning', async () => {
-    const componentName:string = 'Header';
+  it('renders `MaskedInput` component with `no code examples` warning', async () => {
+    const componentName:string = 'MaskedInput';
 
-    const expectedHeader:string = '<h3 id="header-header">Header</h3>';
+    const expectedHeader:string = '<h3 id="header-masked-input">MaskedInput</h3>';
     const expectedExample:string = '⚠️ Warning: no code examples';
 
     // when
