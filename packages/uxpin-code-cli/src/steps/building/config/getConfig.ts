@@ -6,14 +6,16 @@ export const DEBUG_APP_BUNDLED_FILE:string = 'index.js';
 export const TEMP_DIR_PATH:string = './.uxpin-temp';
 export const LIBRARY_INPUT_PATH:string = `${TEMP_DIR_PATH}/components.js`;
 export const LIBRARY_METADATA_PATH:string = `${TEMP_DIR_PATH}/designsystem.json`;
-export const LIBRARY_OUTPUT_PATH:string = `${TEMP_DIR_PATH}/designsystemlibrary.js`;
+export const LIBRARY_OUTPUT_FILENAME:string = 'designsystemlibrary.js';
+export const LIBRARY_OUTPUT_PATH:string = `${TEMP_DIR_PATH}/${LIBRARY_OUTPUT_FILENAME}`;
 
 export function getConfig(projectRoot:string, webpackConfigPath?:string):Configuration {
   const config:Configuration = {
     entry: LIBRARY_INPUT_PATH,
     output: {
-      filename: LIBRARY_OUTPUT_PATH,
+      filename: LIBRARY_OUTPUT_FILENAME,
       libraryTarget: 'commonjs',
+      path: join(projectRoot, TEMP_DIR_PATH),
     },
     resolve: {
       extensions: ['.js', '.jsx'],

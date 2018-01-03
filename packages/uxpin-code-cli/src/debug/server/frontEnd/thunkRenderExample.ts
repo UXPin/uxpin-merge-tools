@@ -5,16 +5,23 @@ import { ExampleRenderer } from './ExampleRenderer';
 
 export function thunkRenderExample(library:BuiltLibrary, componentNames:string[]):ExampleRenderer {
   return (example, container) => new Promise((resolve) => {
+    const { React, ReactDOM, Wrapper } = library;
     const html:string = getHtml(example, componentNames);
 
-    // tslint:disable:no-eval
-    const preview:JSX.Element = eval(transform(html, {
+    // tslint:disable:no-eval variable-name
+    const Preview:JSX.Element = eval(transform(html, {
       presets: [
         'es2015',
         'react',
       ],
     }).code || '');
-    library.render(preview,  container);
+
+    if (Wrapper) {
+      ReactDOM.render(React.createElement(Wrapper, undefined, Preview), container);
+    } else {
+      ReactDOM.render(Preview, container);
+    }
+
     resolve();
   });
 }
