@@ -1,3 +1,4 @@
+import { kebabCase } from 'lodash';
 import * as React from 'react';
 import { ComponentExample } from '../../../../steps/serialization/component/examples/ComponentExample';
 import {
@@ -21,10 +22,11 @@ export const ComponentContainer:React.SFC<Props> = ({
   properties,
   renderExample,
 }:Props) => {
+  const headerId:string = `header-${kebabCase(name)}`;
 
   return (
     <div>
-      <h3>{name}</h3>
+      <h3 id={headerId}>{name}</h3>
       <ComponentPreview examples={examples} renderExample={renderExample} />
       <ComponentProps properties={properties}/>
     </div>

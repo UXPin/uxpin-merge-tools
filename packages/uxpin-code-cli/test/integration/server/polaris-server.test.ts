@@ -36,12 +36,12 @@ describe('server run in polaris', () => {
     };
 
     // when
-    await chromeless.wait('[class*="Banner-Banner"]');
+    await chromeless.wait('[class*="Banner-Banner"]', CURRENT_TIMEOUT);
     const scratchedDetails:any = await chromeless.evaluate(getComponentDetails);
 
     // then
     expect(scratchedDetails).toEqual(expectedDetails);
-  });
+  }, CURRENT_TIMEOUT);
 
   it('renders `Popover` component with `this.props.onClose is not a function` error', async () => {
     const componentName:string = 'Popover';
@@ -50,13 +50,13 @@ describe('server run in polaris', () => {
     const expectedExample:string = '⛔ Error: this.props.onClose is not a function';
 
     // when
-    await waitForComponent(chromeless, componentName);
+    await waitForComponent(chromeless, componentName, CURRENT_TIMEOUT);
     const contents:any = await chromeless.evaluate(getComponentByName, componentName);
 
     // then
     expect(contents).toContain(expectedHeader);
     expect(contents).toContain(expectedExample);
-  });
+  }, CURRENT_TIMEOUT);
 
   it('renders `Breadcrumbs` component with `no code examples` warning', async () => {
     const componentName:string = 'Breadcrumbs';
