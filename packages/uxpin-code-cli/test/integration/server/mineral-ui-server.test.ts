@@ -1,6 +1,7 @@
 import Chromeless from 'chromeless';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
+import { waitForComponent } from '../../utils/e2e/chromeless/waitForComponent';
 import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 
 const CURRENT_TIMEOUT:number = 300000;
@@ -18,7 +19,7 @@ describe('server run in mineral-ui', () => {
     ],
   }, (c) => chromeless = c);
 
-  it('opens `Dropdown` with correct styling on click', () => {
+  it('opens `Dropdown` with correct styling on click', async () => {
     // given
     const expectedDetails = { // tslint:disable-line
       itemContents: 'Danger variant',
@@ -37,25 +38,26 @@ describe('server run in mineral-ui', () => {
     };
 
     // when
-    return chromeless
-      .click('#dropdown-1 button')
-      .evaluate(getComponentDetails).then((scratchedDetails) => {
-        // then
-        expect(scratchedDetails).toEqual(expectedDetails);
-      });
-  });
+    await chromeless.wait('#dropdown-1 button', CURRENT_TIMEOUT);
+    await chromeless.click('#dropdown-1 button');
+    const scratchedDetails:any = await chromeless.evaluate(getComponentDetails);
 
-  it('renders `Card` component with `no code examples` warning', () => {
+    // then
+    expect(scratchedDetails).toEqual(expectedDetails);
+  }, CURRENT_TIMEOUT);
+
+  it('renders `Card` component with `no code examples` warning', async () => {
     const componentName:string = 'Card';
 
-    const expectedHeader:string = '<h3>Card</h3>';
+    const expectedHeader:string = '<h3 id="header-card">Card</h3>';
     const expectedExample:string = '⚠️ Warning: no code examples';
 
     // when
-    return chromeless.evaluate(getComponentByName, componentName).then((contents) => {
-      // then
-      expect(contents).toContain(expectedHeader);
-      expect(contents).toContain(expectedExample);
-    });
-  });
+    await waitForComponent(chromeless, componentName, CURRENT_TIMEOUT);
+    const contents:any = await chromeless.evaluate(getComponentByName, componentName);
+
+    // then
+    expect(contents).toContain(expectedHeader);
+    expect(contents).toContain(expectedExample);
+  }, CURRENT_TIMEOUT);
 });
