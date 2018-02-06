@@ -1,7 +1,6 @@
 import { WarningDetails } from '../../../../../../../src/common/warning/WarningDetails';
 import { ComponentImplementationInfo } from '../../../../../../../src/steps/discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../../../../../src/steps/serialization/component/ComponentDefinition';
-// tslint:disable-next-line:max-line-length
 import { serializeJSComponent } from '../../../../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent';
 import { getJavaScriptComponentPath } from '../../../../../../utils/resources/getExampleComponentPath';
 
