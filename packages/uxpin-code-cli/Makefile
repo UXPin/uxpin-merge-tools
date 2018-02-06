@@ -11,7 +11,7 @@ build-server-app:
 	webpack --config "./config/webpack.config.js"
 
 check:
-	tslint --project tsconfig.json --type-check
+	tslint --project tsconfig.json
 
 test:
 	make test-resources
