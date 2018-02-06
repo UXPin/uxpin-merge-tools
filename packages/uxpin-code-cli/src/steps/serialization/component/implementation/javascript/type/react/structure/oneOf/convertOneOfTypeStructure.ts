@@ -17,7 +17,6 @@ export function convertOneOfTypeStructure(typeStructure:ReactDocgenUnionTypeStru
 function convertUnionSegment(typeStructure:ReactDocgenUnionTypeStructure):PropertyType | null {
   if (typeStructure.hasOwnProperty('computed') && !(typeStructure as LiteralType).computed) {
     return convertLiteralUnionSegment((typeStructure as LiteralType).value);
-  } else {
-    return convertPropertyType(typeStructure as PropItemType);
   }
+  return convertPropertyType(typeStructure as PropItemType);
 }

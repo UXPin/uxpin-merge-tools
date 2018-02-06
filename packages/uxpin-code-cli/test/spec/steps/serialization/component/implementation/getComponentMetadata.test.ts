@@ -1,6 +1,5 @@
 import { ComponentImplementationInfo } from '../../../../../../src/steps/discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../../../../src/steps/serialization/component/ComponentDefinition';
-// tslint:disable-next-line:max-line-length
 import { getComponentMetadata } from '../../../../../../src/steps/serialization/component/implementation/getComponentMetadata';
 import {
   getJavaScriptComponentPath,

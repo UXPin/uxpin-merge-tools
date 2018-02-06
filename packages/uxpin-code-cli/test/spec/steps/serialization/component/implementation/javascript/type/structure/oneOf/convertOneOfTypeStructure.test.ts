@@ -1,4 +1,3 @@
-// tslint:disable-next-line:max-line-length
 import { UnionTypeStructure } from '../../../../../../../../../../src/steps/serialization/component/implementation/ComponentPropertyDefinition';
 import { convertOneOfTypeStructure } from '../../../../../../../../../../src/steps/serialization/component/implementation/javascript/type/react/structure/oneOf/convertOneOfTypeStructure';
 

@@ -7,9 +7,8 @@ import { convertReactPropertyTypeWithWarnings } from './react/convertReactProper
 export function getPropertyTypeWithWarnings(propName:string, propItem:GeneralPropItem):Promise<ConversionResult> {
   if (isFlowPropItem(propItem)) {
     return convertFlowPropertyTypeWithWarnings(propName, propItem.flowType);
-  } else {
-    return convertReactPropertyTypeWithWarnings(propName, propItem.type);
   }
+  return convertReactPropertyTypeWithWarnings(propName, propItem.type);
 }
 
 type ConversionResult = Warned<Pick<ComponentPropertyDefinition, 'type'>>;

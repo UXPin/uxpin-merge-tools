@@ -9,7 +9,7 @@ export function getDefaultValue(propName:string, propItem:GeneralPropItem):Promi
   const warnings:WarningDetails[] = [];
   return new Promise((resolve) => {
     if (propItem.defaultValue) {
-      return parseValue(propItem.defaultValue.value)
+      parseValue(propItem.defaultValue.value)
         .then((value:any) => {
           result.defaultValue = { value };
         })
