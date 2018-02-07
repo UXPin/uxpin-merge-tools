@@ -7,6 +7,7 @@
 /test/**/*.js.map
 /src/**/*.js
 /src/**/*.js.map
+/src/types.d.ts
 /test/resources/repos/
 /reports/
 !/reports/.gitkeep

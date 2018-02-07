@@ -292,7 +292,7 @@ are-we-there-yet@~1.1.2:
     delegates "^1.0.0"
     readable-stream "^2.0.6"
 
-argparse@^1.0.7:
+argparse@1.0.9, argparse@^1.0.7:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.9.tgz#73d83bc263f86e97f8cc4f6bae1b0e90a7d22c86"
   dependencies:
@@ -1322,6 +1322,14 @@ doctrine@^2.0.0:
 domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
+
+dts-bundle-generator@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.npmjs.org/dts-bundle-generator/-/dts-bundle-generator-0.6.1.tgz#59cc88f291c9c5056c95e771cdbf29d89951d8e7"
+  dependencies:
+    argparse "1.0.9"
+    tslib "1.7.1"
+    typescript "^2.2.1"
 
 duplexer2@0.0.2:
   version "0.0.2"
@@ -4634,6 +4642,10 @@ ts-jest@^21.0.0:
     source-map-support "^0.4.4"
     yargs "^8.0.1"
 
+tslib@1.7.1:
+  version "1.7.1"
+  resolved "https://registry.npmjs.org/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
+
 tslib@^1.0.0, tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1:
   version "1.9.0"
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
@@ -4723,6 +4735,10 @@ type-check@~0.3.2:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+
+typescript@^2.2.1:
+  version "2.7.1"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-2.7.1.tgz#bb3682c2c791ac90e7c6210b26478a8da085c359"
 
 typescript@^2.5.2:
   version "2.5.3"

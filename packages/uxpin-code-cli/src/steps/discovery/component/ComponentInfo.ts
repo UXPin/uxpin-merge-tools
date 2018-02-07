@@ -10,8 +10,8 @@ export interface ComponentImplementationInfo {
   framework:ComponentImplementationFramework;
 }
 
-type ComponentImplementationLang = 'javascript' | 'typescript';
-type ComponentImplementationFramework = 'reactjs';
+export type ComponentImplementationLang = 'javascript' | 'typescript';
+export type ComponentImplementationFramework = 'reactjs';
 
 export interface ComponentDocumenationInfo {
   path:string;
