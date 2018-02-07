@@ -3,6 +3,7 @@ import { ComponentDefinition } from './component/ComponentDefinition';
 export interface DesignSystemSnapshot {
   name:string;
   components:ComponentDefinition[];
+  // @todo: make `vcs` property required after implementation of files tracking
   vcs?:VCSDetails;
 }
 
