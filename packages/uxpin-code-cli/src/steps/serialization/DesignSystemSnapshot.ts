@@ -1,6 +1,6 @@
 import { ComponentDefinition } from './component/ComponentDefinition';
 
-export interface DesignSystemDefinition {
+export interface DesignSystemSnapshot {
   name:string;
   components:ComponentDefinition[];
 }
