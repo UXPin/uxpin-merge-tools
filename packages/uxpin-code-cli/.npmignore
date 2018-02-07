@@ -1,2 +1,12 @@
+/.nyc_output
+/config
+/coverage-cli
+/reports
+/shell_scripts
 /src/**/*.ts
+!/src/types.d.ts
 /test
+jest-ci.json
+tsconfig.json
+tslint.json
+*.log

@@ -54,3 +54,7 @@ test-resources:
 
 test-rename-snapshots:
 	./shell_scripts/test-rename-snapshots.sh
+
+publish:
+	make build
+	npm publish
