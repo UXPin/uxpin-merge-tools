@@ -1,12 +1,16 @@
 /.nyc_output
 /config
 /coverage-cli
+/docs/development
 /reports
 /shell_scripts
 /src/**/*.ts
 !/src/types.d.ts
 /test
+CI.md
 jest-ci.json
+Makefile
 tsconfig.json
 tslint.json
 *.log
+yarn.lock
