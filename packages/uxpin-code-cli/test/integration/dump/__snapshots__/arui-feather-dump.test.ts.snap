@@ -159,7 +159,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const AMOUNT = {\\\\n    value: 123343,\\\\n    currency: {\\\\n        code: \\\\'RUR\\\\',\\\\n        minority: 100\\\\n    }\\\\n};\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div key={ size }>\\\\n            <Amount\\\\n                size={ size }\\\\n                amount={ AMOUNT }\\\\n                isHeading={ true }\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -669,7 +670,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'function handleChange(value) {\\\\n    setState({ value });\\\\n}\\\\n\\\\n<div>\\\\n    <div className=\\\\'row\\\\'>\\\\n        <Attach\\\\n            accept=\\\\'text/plain,\\\\'\\\\n            noFileText=\\\\'.pdf, .xls\\\\'\\\\n            buttonContent={ \\\\'Выберите файл\\\\' }\\\\n            size=\\\\'s\\\\'\\\\n            onChange={ handleChange }\\\\n            value={ state.value }\\\\n        />\\\\n    </div>\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1161,7 +1163,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const buttons = [\\\\n    { size: \\\\'s\\\\', name: \\\\'Заказать карту\\\\' },\\\\n    { size: \\\\'m\\\\', name: \\\\'Заказать карту\\\\' },\\\\n    { size: \\\\'l\\\\', name: \\\\'Заказать карту\\\\' },\\\\n    { size: \\\\'xl\\\\', name: \\\\'Заказать карту\\\\' }\\\\n];\\\\n<div>\\\\n    {buttons.map(({ size, name }) => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <Button width=\\\\'available\\\\' size={ size }>{\`\${name}\`}</Button>\\\\n        </div>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1454,7 +1457,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const addDays = require(\\\\'date-fns/add_days\\\\');\\\\nconst startOfDay = require(\\\\'date-fns/start_of_day\\\\');\\\\nconst subtractDays = require(\\\\'date-fns/sub_days\\\\');\\\\n\\\\ninitialState = {\\\\n    date: Date.now()\\\\n};\\\\nconst offDays = [subtractDays(new Date(), 2), addDays(new Date(), 2)]\\\\n    .map(date => startOfDay().valueOf(date));\\\\n\\\\n<Calendar\\\\n    value={ state.date }\\\\n    offDays={ offDays }\\\\n    onValueChange={ (newDate) => {\\\\n        setState({\\\\n            date: newDate\\\\n        });\\\\n    } }\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -2043,7 +2047,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const formatDate = require(\\\\'date-fns/format\\\\');\\\\n\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <CalendarInput size={ size } placeholder={ formatDate(new Date(), \\\\'DD.MM.YYYY\\\\') } width=\\\\'available\\\\' />\\\\n        </div>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -2078,7 +2083,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const sizes = [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'];\\\\n<div>\\\\n    {sizes.map(size => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <CardInput size={ size } placeholder=\\\\'Введите номер карты\\\\' />\\\\n        </div>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -2347,7 +2353,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<div>\\\\n    {[\\\\'m\\\\', \\\\'l\\\\'].map(size => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <CheckBox\\\\n                    text=\\\\'Выбраны не все услуги\\\\'\\\\n                    size={ size }\\\\n                    indeterminate={ true }\\\\n                />\\\\n            </div>\\\\n            <div className=\\\\'column\\\\'>\\\\n                <CheckBox\\\\n                    text=\\\\'Выбраны не все услуги\\\\'\\\\n                    size={ size }\\\\n                    disabled={ true }\\\\n                    indeterminate={ true }\\\\n                />\\\\n            </div>\\\\n        </div>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -2563,7 +2570,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<CheckBoxGroup type=\\\\'line\\\\'>\\\\n    <CheckBox\\\\n        text=\\\\'Текущий\\\\'\\\\n        value=\\\\'Текущий\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Основной\\\\'\\\\n        value=\\\\'Основной\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Семейный\\\\'\\\\n        value=\\\\'Семейный\\\\'\\\\n    />\\\\n    <CheckBox\\\\n        text=\\\\'Зарплатный\\\\'\\\\n        value=\\\\'Зарплатный\\\\'\\\\n    />\\\\n</CheckBoxGroup>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -2695,7 +2703,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'function handleExpandedChange(isExpanded) {\\\\n    setState({ isExpanded });\\\\n}\\\\ninitialState = {\\\\n    isExpanded: true\\\\n};\\\\n<Collapse\\\\n    collapsedLabel=\\\\'Подробнее\\\\'\\\\n    expandedLabel=\\\\'Скрыть\\\\'\\\\n    isExpanded={ state.isExpanded }\\\\n    onExpandedChange={ handleExpandedChange }\\\\n>\\\\n    <Paragraph>\\\\n        Альфа-Банк, основанный в&nbsp;1990 году, является универсальным банком,\\\\n        осуществляющим все основные виды банковских операций, представленных\\\\n        на&nbsp;рынке финансовых услуг, включая обслуживание частных и&nbsp;\\\\n        корпоративных клиентов, инвестиционный банковский бизнес, торговое финансирование и&nbsp;т.д.\\\\n    </Paragraph>\\\\n</Collapse>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -3267,7 +3276,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Dropdown\\\\n            size=\\\\'s\\\\'\\\\n            popupContent=\\\\'Последние 3 цифры на обороте карты\\\\'\\\\n        >\\\\n            Подробнее\\\\n        </Dropdown>\\\\n    </div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Dropdown\\\\n            size=\\\\'m\\\\'\\\\n            popupContent=\\\\'Последние 3 цифры на обороте карты\\\\'\\\\n            popupProps={ {\\\\n                directions: [\\\\'right-center\\\\'],\\\\n                type: \\\\'tooltip\\\\'\\\\n            } }\\\\n        >\\\\n            Подробнее\\\\n        </Dropdown>\\\\n    </div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Dropdown\\\\n            size=\\\\'l\\\\'\\\\n            popupContent=\\\\'Последние 3 цифры на обороте карты\\\\'\\\\n            switcherText=\\\\'Подробнее\\\\'\\\\n            disabled={ true }\\\\n            popupProps={ {\\\\n                directions: [\\\\'right-center\\\\'],\\\\n                type: \\\\'tooltip\\\\'\\\\n            } }\\\\n        />\\\\n    </div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Dropdown\\\\n            size=\\\\'xl\\\\'\\\\n            popupContent=\\\\'Последние 3 цифры на обороте карты\\\\'\\\\n            popupProps={ {\\\\n                directions: [\\\\'bottom-center\\\\'],\\\\n                type: \\\\'tooltip\\\\'\\\\n            } }\\\\n        >\\\\n            Подробнее\\\\n        </Dropdown>\\\\n    </div>\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -3289,7 +3299,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<EmailInput placeholder=\\\\'Введите e-mail\\\\' />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -3455,7 +3466,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const countries = require(\\\\'../lib/countries\\\\').default;\\\\n\\\\nconst countriesList = countries.getCountries();\\\\n\\\\n<div>\\\\n    {\\\\n        [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n            <div className=\\\\'row\\\\' style={ { alignItems: \\\\'flex-start\\\\', flexWrap: \\\\'wrap\\\\' } }>\\\\n                {countriesList.map(item => (\\\\n                    <FlagIcon\\\\n                        country={ item.iso2 }\\\\n                        mode=\\\\'sprite\\\\'\\\\n                        size={ size }\\\\n                    />\\\\n                ))}\\\\n            </div>\\\\n        ))\\\\n    }\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -3731,7 +3743,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<Form onSubmit={ () => { alert(\\\\'Мы перезвоним вам в течение 5 минут\\\\'); } }>\\\\n    <FormField>\\\\n        <Input placeholder=\\\\'Введите номер\\\\' />\\\\n    </FormField>\\\\n    <FormField>\\\\n        <Button view=\\\\'extra\\\\' type=\\\\'submit\\\\'>Отправить</Button>\\\\n    </FormField>\\\\n</Form>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -3860,7 +3873,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div key={ size }>\\\\n            <FormField size={ size }>\\\\n                <Input size={ size } placeholder=\\\\'Введите что-нибудь\\\\' />\\\\n            </FormField>\\\\n        </div>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -3989,7 +4003,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<div>\\\\n    <Heading size=\\\\'xl\\\\'>\\\\n        Услуга по накоплению «Копилка для сдачи»\\\\n    </Heading>\\\\n    <Heading size=\\\\'l\\\\'>\\\\n        Часто задаваемые вопросы\\\\n    </Heading>\\\\n    <Heading size=\\\\'m\\\\'>\\\\n        Какое максимальное количество денег может перечисляться с текущего счета на накопительный?\\\\n    </Heading>\\\\n    <Heading size=\\\\'s\\\\'>\\\\n        Максимальная сумма каждого перечисления\\\\n    </Heading>\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -4126,7 +4141,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<div>\\\\n    {[\\\\'action-error\\\\', \\\\'action-ok\\\\'].map(icon => (\\\\n        <div className=\\\\'row\\\\' key={ icon }>\\\\n            {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n                <div className=\\\\'column l\\\\' key={ size }>\\\\n                    <Icon\\\\n                        name={ icon }\\\\n                        size={ size }\\\\n                        colored={ true }\\\\n                    />\\\\n                </div>\\\\n            ))}\\\\n        </div>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -4148,7 +4164,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<div className=\\\\'row\\\\'>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <span\\\\n            key={ size }\\\\n            className=\\\\'column l\\\\'\\\\n        >\\\\n            <IconButton size={ size } onClick={ () => { confirm(\\\\'Подтвердите удаление\\\\') } }>\\\\n                <Icon size={ size } name=\\\\'tool-close\\\\' />\\\\n            </IconButton>\\\\n        </span>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -4684,7 +4701,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const sizes = [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'];\\\\n<div>\\\\n    {sizes.map(size => (\\\\n        <div className=\\\\'row\\\\' key={ size }>\\\\n            <Input\\\\n                placeholder=\\\\'Введите ваше имя\\\\'\\\\n                disabled={ true }\\\\n                view=\\\\'line\\\\'\\\\n                size={ size }\\\\n            />\\\\n        </div>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -4995,7 +5013,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const socialNetworks = [\\\\n    { value: \\\\'Facebook\\\\' },\\\\n    { value: \\\\'Twitter\\\\' },\\\\n    { value: \\\\'LinkedIn\\\\' },\\\\n    { value: \\\\'Sina Weibo\\\\' },\\\\n    { value: \\\\'Pinterest\\\\' },\\\\n    { value: \\\\'VKontakte\\\\' },\\\\n    { value: \\\\'Instagram\\\\' },\\\\n    { value: \\\\'Tumblr\\\\' },\\\\n    { value: \\\\'Flickr\\\\' },\\\\n    { value: \\\\'Odnoklassniki\\\\' },\\\\n    { value: \\\\'Renren\\\\' },\\\\n    { value: \\\\'douban\\\\' },\\\\n    { value: \\\\'LiveJournal\\\\' },\\\\n    { value: \\\\'DeviantArt\\\\' },\\\\n    { value: \\\\'StumbleUpon\\\\' },\\\\n    { value: \\\\'Myspace\\\\' },\\\\n    { value: \\\\'Yelp, Inc.\\\\' },\\\\n    { value: \\\\'Taringa!\\\\' },\\\\n    { value: \\\\'mixi\\\\' },\\\\n    { value: \\\\'XING\\\\' }\\\\n];\\\\nfunction getFilteredOptions(list, typedValue) {\\\\n    if (!typedValue) {\\\\n        return list;\\\\n    }\\\\n    return list.filter(({ value }) => value !== typedValue && value.indexOf(typedValue) !== -1);\\\\n}\\\\n\\\\nfunction handleItemSelect(item) {\\\\n    let values = state.values || [];\\\\n    if (!values.includes(item.value)) {\\\\n        setState({ values: values.concat([item.value]) });\\\\n    }\\\\n}\\\\n\\\\nfunction handleChange(value) {\\\\n    setState({ value });\\\\n}\\\\n\\\\n<div>\\\\n    <InputAutocomplete\\\\n        size=\\\\'l\\\\'\\\\n        value={ state.value }\\\\n        width=\\\\'available\\\\'\\\\n        closeOnSelect={ true }\\\\n        onChange={ handleChange }\\\\n        onItemSelect={ handleItemSelect }\\\\n        updateValueOnItemSelect={ false }\\\\n        placeholder=\\\\'Выберите категорию\\\\'\\\\n        options={ getFilteredOptions(socialNetworks, state.value) }\\\\n    />\\\\n\\\\n    <div style={ { marginTop: \\\\'5px\\\\' } }>\\\\n        { state.values && state.values.map(value => <TagButton size=\\\\'s\\\\'>{ value }</TagButton>) }\\\\n    </div>\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5112,7 +5131,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const inputs = [1, 2, 3, 4];\\\\n<InputGroup width=\\\\'available\\\\' >\\\\n    { inputs.map(input => (\\\\n        <Input\\\\n            key={ input }\\\\n            placeholder=\\\\'Укажите получателя\\\\'\\\\n        />\\\\n    )) }\\\\n</InputGroup>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5151,7 +5171,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const SIZES = [\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'];\\\\n\\\\n<div>\\\\n    {SIZES.map(size => (\\\\n        <div className=\\\\'row\\\\'>\\\\n            <IntlPhoneInput size={ size } />\\\\n        </div>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5166,7 +5187,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5307,7 +5329,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const elipsisBoxStyles = {\\\\n    width: \\\\'200px\\\\',\\\\n    overflow: \\\\'hidden\\\\',\\\\n    textOverflow: \\\\'ellipsis\\\\'\\\\n};\\\\n\\\\n<div>\\\\n    {[\\\\'l\\\\'].map(size => (\\\\n        <div key={ size }>\\\\n            <div style={ elipsisBoxStyles }>\\\\n                <Label size={ size } isNoWrap={ true }>\\\\n                    Гипермаркет\\\\n                </Label>\\\\n            </div>\\\\n            <div style={ elipsisBoxStyles }>\\\\n                <Label size={ size } isNoWrap={ true }>\\\\n                    Путешествие\\\\n                </Label>\\\\n            </div>\\\\n            <div style={ elipsisBoxStyles }>\\\\n                <Label size={ size } isNoWrap={ true }>\\\\n                    Мобильная связь, интернет, ТВ, телефон\\\\n                </Label>\\\\n            </div>\\\\n            <div style={ elipsisBoxStyles }>\\\\n                <Label size={ size } isNoWrap={ true }>\\\\n                    Кафе и рестораны\\\\n                </Label>\\\\n            </div>\\\\n        </div>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5634,7 +5657,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const columnStyle = {\\\\n    justifyContent: \\\\'center\\\\',\\\\n    display: \\\\'flex\\\\',\\\\n    width: \\\\'50%\\\\'\\\\n};\\\\n<div style={ { width: \\\\'100%\\\\' } }>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <span className=\\\\'row\\\\' key={ size }>\\\\n            <div className=\\\\'column\\\\' style={ columnStyle }>\\\\n                <Link size={ size } ><span role=\\\\'img\\\\' aria-label=\\\\'smile\\\\'>😊</span></Link>\\\\n            </div>\\\\n            <div className=\\\\'column\\\\' style={ columnStyle }>\\\\n\\\\n                <Link size={ size } >¯\\\\_(ツ)_/¯</Link>\\\\n            </div>\\\\n        </span>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5749,7 +5773,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const ITEMS_UL = [\\\\n    {\\\\n        key: \\\\'one\\\\',\\\\n        value: \\\\'Индивидуальное обслуживание в любом отделении в России\\\\'\\\\n    },\\\\n    {\\\\n        key: \\\\'two\\\\',\\\\n        value: \\\\'Повышенные % ставки по депозитам\\\\'\\\\n    },\\\\n    {\\\\n        key: \\\\'three\\\\',\\\\n        value: \\\\'Льготная конвертация валют.\\\\'\\\\n    }\\\\n];\\\\n<List\\\\n    items={ ITEMS_UL }\\\\n    type=\\\\'ordered\\\\'\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5801,7 +5826,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -6222,7 +6248,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const MENU_1 = [\\\\n    {\\\\n        type: \\\\'item\\\\',\\\\n        content: \\\\'Тарифы\\\\',\\\\n        value: \\\\'value1\\\\',\\\\n        props: {\\\\n            url: \\\\'#1\\\\',\\\\n            view: \\\\'underlined\\\\'\\\\n        }\\\\n    },\\\\n    {\\\\n        type: \\\\'item\\\\',\\\\n        content: \\\\'Депозиты\\\\',\\\\n        value: \\\\'value2\\\\',\\\\n        props: {\\\\n            url: \\\\'#2\\\\',\\\\n            view: \\\\'underlined\\\\'\\\\n        }\\\\n    },\\\\n    {\\\\n        type: \\\\'item\\\\',\\\\n        content: \\\\'Овердрафты\\\\',\\\\n        value: \\\\'value3\\\\',\\\\n        props: {\\\\n            url: \\\\'#3\\\\',\\\\n            disabled: true,\\\\n            view: \\\\'underlined\\\\'\\\\n        }\\\\n    }\\\\n];\\\\n\\\\nconst MENU_2 = [\\\\n    {\\\\n        type: \\\\'item\\\\',\\\\n        content: \\\\'Компании\\\\',\\\\n        value: \\\\'1\\\\',\\\\n        props: {\\\\n            url: \\\\'#1\\\\'\\\\n        }\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'Платежи и переводы\\\\',\\\\n        content: [\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Новый платёж\\\\',\\\\n                value: \\\\'2\\\\',\\\\n                props: {\\\\n                    url: \\\\'#2\\\\'\\\\n                }\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Платежи в работе\\\\',\\\\n                value: \\\\'3\\\\',\\\\n                props: {\\\\n                    url: \\\\'#3\\\\'\\\\n                }\\\\n            }\\\\n        ]\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'Текущая деятельность\\\\',\\\\n        content: [\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Счета и депозиты\\\\',\\\\n                value: \\\\'4\\\\',\\\\n                props: {\\\\n                    url: \\\\'#4\\\\'\\\\n                }\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Депозиты\\\\',\\\\n                value: \\\\'5\\\\',\\\\n                props: {\\\\n                    url: \\\\'#5\\\\',\\\\n                    type: \\\\'dropdown\\\\',\\\\n                    popup: \\\\'Popup Menu\\\\'\\\\n                }\\\\n            }\\\\n        ]\\\\n    }\\\\n];\\\\n\\\\nconst MENU_3 = [\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\' \\\\',\\\\n        content: [\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Москва\\\\',\\\\n                value: \\\\'moscow\\\\'\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Санкт-Петербург\\\\',\\\\n                value: \\\\'peterburg\\\\'\\\\n            }\\\\n        ]\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'А\\\\',\\\\n        content: [\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Абакан\\\\',\\\\n                value: \\\\'abakan\\\\'\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Альметьевск\\\\',\\\\n                value: \\\\'almetyevsk\\\\'\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Ангарск\\\\',\\\\n                value: \\\\'angarsk\\\\'\\\\n            }\\\\n        ]\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'Б\\\\',\\\\n        content: [\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Балашиха\\\\',\\\\n                value: \\\\'balashiha\\\\'\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Барнаул\\\\',\\\\n                value: \\\\'barnaul\\\\'\\\\n            },\\\\n            {\\\\n                type: \\\\'item\\\\',\\\\n                content: \\\\'Белгород\\\\',\\\\n                value: \\\\'belgorod\\\\'\\\\n            }\\\\n        ]\\\\n    }\\\\n];\\\\n\\\\n<div>\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Базовое горизонтальное меню\\\\n            </Heading>\\\\n            <Menu\\\\n                view=\\\\'horizontal\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Базовое вертикальное меню\\\\n            </Heading>\\\\n            <Menu\\\\n                content={ MENU_2 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Вертикальное меню с короткими заголовками групп\\\\n            </Heading>\\\\n            <Menu\\\\n                groupView=\\\\'line\\\\'\\\\n                content={ MENU_3 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Горизонтальное меню с множественным выбором mode check\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'check\\\\'\\\\n                view=\\\\'horizontal\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Вертикальное меню с множественным выбором mode check\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'check\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Горизонтальное меню с одиночным обязательным выбором mode radio\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'radio\\\\'\\\\n                view=\\\\'horizontal\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Вертикальное меню с одиночным обязательным выбором mode radio\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'radio\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Горизонтальное меню с одиночным необязательным выбором mode radio-check\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'radio-check\\\\'\\\\n                view=\\\\'horizontal\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Вертикальное меню с одиночным необязательным выбором mode radio-check\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'radio-check\\\\'\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n\\\\n    <div className=\\\\'row\\\\'>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Неактивное меню\\\\n            </Heading>\\\\n            <Menu\\\\n                mode=\\\\'check\\\\'\\\\n                view=\\\\'horizontal\\\\'\\\\n                disabled={ true }\\\\n                checkedItems={ [\\\\'value1\\\\', \\\\'value3\\\\'] }\\\\n                content={ MENU_1 }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -6566,7 +6593,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const layoutStyle = {\\\\n    paddingRight: \\\\'10px\\\\'\\\\n};\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <span style={ layoutStyle } key={ size }>\\\\n            <MenuItem\\\\n                size={ size }\\\\n                type={ \\\\'link\\\\' }\\\\n            >\\\\n                Овердрафты\\\\n            </MenuItem>\\\\n        </span>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -6613,7 +6641,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'initialState = {\\\\n    money: \\\\'\\\\'\\\\n};\\\\nfunction handleMoneyChange(money) {\\\\n    setState({ money });\\\\n}\\\\n<MoneyInput value={ state.money } onChange={ handleMoneyChange } />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -6665,7 +6694,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -6941,7 +6971,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'initialState = {\\\\n    visible: false\\\\n};\\\\n<div>\\\\n    <Button onClick={ () => setState({ visible: !state.visible }) }>\\\\n        Сохранить как черновик\\\\n    </Button>\\\\n    <Notification\\\\n        visible={ state.visible }\\\\n        status=\\\\'ok\\\\'\\\\n        offset={ 190 }\\\\n        title={ \\\\'Черновик сохранен\\\\' }\\\\n        onClickOutside={ () => { setState({ visible: false }); } }\\\\n    >\\\\n        Можно вернуться к редактированию черновика позже\\\\n    </Notification>\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -7064,7 +7095,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Paragraph view=\\\\'normal\\\\'>\\\\n            Компания Google проанализировала поисковые запросы и выяснила, какие банковские услуги и\\\\n            продукты наиболее востребованы среди пользователей Рунета,\\\\n            а также как менялись маркетинговые стратегии банков за последние 2 года.\\\\n            Исследование отражает сравнительные данные за 2014 – 2015 год, а также тенденции начала 2016 года.\\\\n        </Paragraph>\\\\n    </div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <Paragraph view=\\\\'lead\\\\'>\\\\n            Компания Google проанализировала поисковые запросы и выяснила, какие банковские услуги и\\\\n            продукты наиболее востребованы среди пользователей Рунета,\\\\n            а также как менялись маркетинговые стратегии банков за последние 2 года.\\\\n            Исследование отражает сравнительные данные за 2014 – 2015 год, а также тенденции начала 2016 года.\\\\n        </Paragraph>\\\\n    </div>\\\\n    <div className=\\\\'lead\\\\' >\\\\n        <Paragraph view=\\\\'normal\\\\' mark=\\\\'+\\\\'>\\\\n            Компания Google проанализировала поисковые запросы и выяснила, какие банковские услуги и\\\\n            продукты наиболее востребованы среди пользователей Рунета,\\\\n            а также как менялись маркетинговые стратегии банков за последние 2 года.\\\\n            Исследование отражает сравнительные данные за 2014 – 2015 год, а также тенденции начала 2016 года.\\\\n        </Paragraph>\\\\n    </div>\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -7111,7 +7143,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<PhoneInput placeholder=\\\\'+7 000 000 00 00\\\\' />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -7240,7 +7273,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<Plate\\\\n    hasCloser={ true }\\\\n>\\\\n    <Heading size=\\\\'s\\\\'>\\\\n        Альфа-Мобайл 9.0\\\\n    </Heading>\\\\n    <Paragraph>\\\\n        Новый, превосходный, невероятный, беспрецедентный, большой, внушительный, четкий, безотказный, волшебный, понятный. +40 новых возможностей твоего мобайла!\\\\n    </Paragraph>\\\\n</Plate>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -7671,7 +7705,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'class PopupDemo extends React.Component {\\\\n    constructor() {\\\\n        super();\\\\n        this.state = {\\\\n            popup1: false,\\\\n            popup2: false,\\\\n            popup3: false,\\\\n            popup4: false,\\\\n            popup5: false,\\\\n            popup6: false,\\\\n            popup7: false\\\\n        };\\\\n\\\\n        this.popup1;\\\\n        this.popup2;\\\\n        this.popup3;\\\\n        this.popup4;\\\\n        this.popup5;\\\\n        this.popup6;\\\\n        this.popup7;\\\\n\\\\n        this.target1;\\\\n        this.target2;\\\\n        this.target3;\\\\n        this.target4;\\\\n        this.target5;\\\\n        this.target6;\\\\n        this.target7;\\\\n    }\\\\n\\\\n    componentDidMount() {\\\\n        this.popup1.setTarget(this.target1.control);\\\\n        this.popup2.setTarget(this.target2.control);\\\\n        this.popup3.setTarget(this.target3.control);\\\\n        this.popup4.setTarget(this.target4.control);\\\\n        this.popup5.setTarget(this.target5.control);\\\\n        this.popup7.setTarget(this.target7.control);\\\\n    }\\\\n\\\\n    render() {\\\\n        return (\\\\n            <div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target1 = target; } }\\\\n                        size=\\\\'s\\\\'\\\\n                        onClick={ () => { this.setState({ popup1: !this.state.popup1 }); } }\\\\n                    >\\\\n                        Перейти на тариф\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup1 = popup; } }\\\\n                        directions={ [\\\\'top-center\\\\', \\\\'bottom-center\\\\'] }\\\\n                        size=\\\\'s\\\\'\\\\n                        type=\\\\'tooltip\\\\'\\\\n                        visible={ this.state.popup1 }\\\\n                    >\\\\n                        Переход на этот тариф бесплатен\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target2 = target; } }\\\\n                        size=\\\\'l\\\\'\\\\n                        onMouseEnter={ () => { this.setState({ popup2: true }); } }\\\\n                        onMouseLeave={ () => { this.setState({ popup2: false }); } }\\\\n                    >\\\\n                        Сколько стоит?\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup2 = popup; } }\\\\n                        directions={ [\\\\'right-center\\\\', \\\\'right-top\\\\', \\\\'right-bottom\\\\'] }\\\\n                        size=\\\\'l\\\\'\\\\n                        mainOffset={ 0 }\\\\n                        type=\\\\'tooltip\\\\'\\\\n                        visible={ this.state.popup2 }\\\\n                        onMouseLeave={ () => { this.setState({ popup2: false }); } }\\\\n                        onMouseEnter={ () => { this.setState({ popup2: true }); } }\\\\n                    >\\\\n                        2 400 ₽ в месяц при оплате за год\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target3 = target; } }\\\\n                        size=\\\\'m\\\\'\\\\n                        onMouseEnter={ () => { this.setState({ popup3: true }); } }\\\\n                        onMouseLeave={ () => { this.setState({ popup3: false }); } }\\\\n                    >\\\\n                        Облачные бухгалтерии\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup3 = popup; } }\\\\n                        height=\\\\'available\\\\'\\\\n                        visible={ this.state.popup3 }\\\\n                        onMouseLeave={ () => { this.setState({ popup3: false }); } }\\\\n                        onMouseEnter={ () => { this.setState({ popup3: true }); } }\\\\n                    >\\\\n                        <Paragraph view=\\\\'normal\\\\'>\\\\n                            В настоящий момент в системе «Альфа-Бизнес Онлайн» реализована интеграция с облачными бухгалтериями <Link url=\\\\'http://www.moedelo.org\\\\' text=\\\\'«Мое дело»\\\\' />, <Link url=\\\\'http://www.e-kontur.ru\\\\' text=\\\\' «Бухгалтерия.Контур»\\\\' /> и <Link url=\\\\'http://www.b2b-center.ru/\\\\' text=\\\\'«B2B-Center»\\\\' />. При подключении интеграции в Альфа-Бизнес Онлайн у сервисов «Мое дело», «Бухгалтерия.Контур», «B2B-Center» появится возможность автоматически создавать в Альфа-Бизнес Онлайн неподписанные платежные поручения и подгружать из «Альфа-Бизнес Онлайн» информацию о движениях по счетам. Уполномоченное лицо может подключить один аккаунт сервиса «Бухгалтерия.Контур» и (или) один аккаунт сервиса «Мое дело» только к одному Клиенту.\\\\n                        </Paragraph>\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target4 = target; } }\\\\n                        size=\\\\'m\\\\'\\\\n                        onMouseEnter={ () => { this.setState({ popup4: true }); } }\\\\n                        onMouseLeave={ () => { this.setState({ popup4: false }); } }\\\\n                    >\\\\n                        Облачные бухгалтерии\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (ref) => { this.popup4 = ref; } }\\\\n                        height=\\\\'available\\\\'\\\\n                        directions={ [\\\\'right-center\\\\', \\\\'right-top\\\\', \\\\'right-bottom\\\\'] }\\\\n                        visible={ this.state.popup4 }\\\\n                        onMouseLeave={ () => { this.setState({ popup4: false }); } }\\\\n                        onMouseEnter={ () => { this.setState({ popup4: true }); } }\\\\n                    >\\\\n                        <Paragraph view=\\\\'normal\\\\'>\\\\n                            В настоящий момент в системе «Альфа-Бизнес Онлайн» реализована интеграция с облачными бухгалтериями <Link url=\\\\'http://www.moedelo.org\\\\' text=\\\\'«Мое дело»\\\\' />, <Link url=\\\\'http://www.e-kontur.ru\\\\' text=\\\\'«Бухгалтерия.Контур»\\\\' /> и <Link url=\\\\'http://www.b2b-center.ru/\\\\' text=\\\\'«B2B-Center»\\\\' />. При подключении интеграции в Альфа-Бизнес Онлайн у сервисов «Мое дело», «Бухгалтерия.Контур», «B2B-Center» появится возможность автоматически создавать в Альфа-Бизнес Онлайн неподписанные платежные поручения и подгружать из «Альфа-Бизнес Онлайн» информацию о движениях по счетам. Уполномоченное лицо может подключить один аккаунт сервиса «Бухгалтерия.Контур» и (или) один аккаунт сервиса «Мое дело» только к одному Клиенту.\\\\n                        </Paragraph>\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target5 = target; } }\\\\n                        size=\\\\'m\\\\'\\\\n                        onClick={ () => { this.setState({ popup5: !this.state.popup5 }); } }\\\\n                    >\\\\n                        Сколько стоит?\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup5 = popup; } }\\\\n                        visible={ this.state.popup5 }\\\\n                        onClickOutside={ () => { this.setState({ popup5: false }); } }\\\\n                    >\\\\n                        { \\\\'2 400 ₽ в месяц при оплате за год\\\\' }\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target6 = target; } }\\\\n                        size=\\\\'m\\\\'\\\\n                        onClick={ () => { this.setState({ popup6: !this.state.popup6 }); } }\\\\n                    >\\\\n                        Облачные бухгалтерии\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup6 = popup; } }\\\\n                        target=\\\\'screen\\\\'\\\\n                        visible={ this.state.popup6 }\\\\n                    >\\\\n                        <Paragraph view=\\\\'normal\\\\'>\\\\n                            В настоящий момент в системе «Альфа-Бизнес Онлайн» реализована интеграция с облачными бухгалтериями <Link url=\\\\'http://www.moedelo.org\\\\' text=\\\\'«Мое дело»\\\\' />, <Link url=\\\\'http://www.e-kontur.ru\\\\' text=\\\\'«Бухгалтерия.Контур»\\\\' /> и <Link url=\\\\'http://www.b2b-center.ru/\\\\' text=\\\\'«B2B-Center»\\\\' />. При подключении интеграции в Альфа-Бизнес Онлайн у сервисов «Мое дело», «Бухгалтерия.Контур», «B2B-Center» появится возможность автоматически создавать в Альфа-Бизнес Онлайн неподписанные платежные поручения и подгружать из «Альфа-Бизнес Онлайн» информацию о движениях по счетам. Уполномоченное лицо может подключить один аккаунт сервиса «Бухгалтерия.Контур» и (или) один аккаунт сервиса «Мое дело» только к одному Клиенту.\\\\n                        </Paragraph>\\\\n                        <Button\\\\n                            size=\\\\'m\\\\'\\\\n                            onClick={ () => { this.setState({ popup6: false }); } }\\\\n                        >\\\\n                            Ясно\\\\n                        </Button>\\\\n                    </Popup>\\\\n                </div>\\\\n                <div className=\\\\'row\\\\'>\\\\n                    <Button\\\\n                        ref={ (target) => { this.target7 = target; } }\\\\n                        size=\\\\'m\\\\'\\\\n                        onClick={ () => { this.setState({ popup7: !this.state.popup7 }); } }\\\\n                    >\\\\n                        Сколько стоит\\\\n                    </Button>\\\\n                    <Popup\\\\n                        ref={ (popup) => { this.popup7 = popup; } }\\\\n                        padded={ true }\\\\n                        visible={ this.state.popup7 }\\\\n                        header={\\\\n                            <Heading size=\\\\'s\\\\'>При оплате за год</Heading>\\\\n                        }\\\\n                        onClickOutside={ () => { this.setState({ popup7: false }); } }\\\\n                    >\\\\n                        { \\\\'2 400 ₽ в месяц\\\\' }\\\\n                    </Popup>\\\\n                </div>\\\\n            </div>\\\\n        );\\\\n    }\\\\n}\\\\n\\\\n<PopupDemo />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -7763,7 +7798,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -7878,7 +7914,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -7943,7 +7980,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const progress = 50;\\\\n\\\\n<div>\\\\n    <ProgressBar percent={ progress } />\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -8206,7 +8244,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const radioStyle = {\\\\n    margin: \\\\'10px\\\\'\\\\n};\\\\n<div>\\\\n    <div>\\\\n        {[\\\\'m\\\\', \\\\'l\\\\'].map(size => (\\\\n            <span style={ radioStyle } key={ size }>\\\\n                <Radio\\\\n                    text=\\\\'Текущий счёт\\\\'\\\\n                    size={ size }\\\\n                />\\\\n            </span>\\\\n        ))}\\\\n    </div>\\\\n    <div>\\\\n        {[\\\\'m\\\\', \\\\'l\\\\'].map(size => (\\\\n            <span style={ radioStyle } key={ size }>\\\\n                <Radio\\\\n                    text=\\\\'Основной счёт\\\\'\\\\n                    size={ size }\\\\n                    error={ true }\\\\n                />\\\\n            </span>\\\\n        ))}\\\\n    </div>\\\\n    <div>\\\\n        {[\\\\'m\\\\', \\\\'l\\\\'].map(size => (\\\\n            <span style={ radioStyle } key={ size }>\\\\n                <Radio\\\\n                    text=\\\\'Семейный счёт\\\\'\\\\n                    size={ size }\\\\n                    disabled={ true }\\\\n                />\\\\n            </span>\\\\n        ))}\\\\n    </div>\\\\n    <div>\\\\n        {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n            <span style={ radioStyle } key={ size }>\\\\n                <Radio\\\\n                    text=\\\\'Текущий счёт\\\\'\\\\n                    size={ size }\\\\n                    type=\\\\'button\\\\'\\\\n                />\\\\n            </span>\\\\n        ))}\\\\n    </div>\\\\n    <div className=\\\\'row\\\\'>\\\\n        {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n            <span style={ radioStyle } key={ size }>\\\\n                <Radio\\\\n                    text=\\\\'Семейный счёт\\\\'\\\\n                    size={ size }\\\\n                    type=\\\\'button\\\\'\\\\n                    disabled={ true }\\\\n                />\\\\n            </span>\\\\n        ))}\\\\n    </div>\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -8488,7 +8527,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<RadioGroup label=\\\\'Число\\\\' type=\\\\'button\\\\' error=\\\\'Обязательно\\\\' width=\\\\'available\\\\'>\\\\n    {[\\\\'Один\\\\', \\\\'Два\\\\', \\\\'Три\\\\', \\\\'Четыре\\\\'].map(text => (\\\\n        <Radio\\\\n            text={ text }\\\\n            key={ text }\\\\n            value={ text }\\\\n            type=\\\\'button\\\\'\\\\n        />\\\\n    ))}\\\\n</RadioGroup>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -8556,7 +8596,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -8581,7 +8622,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9219,7 +9261,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const options = [\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'ИП УСН 6%\\\\',\\\\n        content: [\\\\n            { value: \\\\'1\\\\', text: \\\\'ИП Иванов\\\\' },\\\\n            { value: \\\\'2\\\\', text: \\\\'ИП Баринов\\\\' }\\\\n        ]\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'ИП УСН 15%\\\\',\\\\n        content: [\\\\n            { value: \\\\'3\\\\', text: \\\\'ИП Семёнов\\\\' },\\\\n            { value: \\\\'4\\\\', text: \\\\'ИП Лягушкин\\\\' }\\\\n        ]\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'\\\\',\\\\n        content: [\\\\n            { value: \\\\'5\\\\', text: \\\\'ИП Лукина\\\\' }\\\\n        ]\\\\n    }\\\\n];\\\\nconst options2 = [\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'а)\\\\',\\\\n        content: [\\\\n            { value: \\\\'1\\\\', text: \\\\'ИП Иванов\\\\' },\\\\n            { value: \\\\'2\\\\', text: \\\\'ИП Баринов\\\\' }\\\\n        ]\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'б)\\\\',\\\\n        content: [\\\\n            { value: \\\\'3\\\\', text: \\\\'ИП Семёнов\\\\' },\\\\n            { value: \\\\'4\\\\', text: \\\\'ИП Лягушкин\\\\' }\\\\n        ]\\\\n    },\\\\n    {\\\\n        type: \\\\'group\\\\',\\\\n        title: \\\\'\\\\',\\\\n        content: [\\\\n            { value: \\\\'5\\\\', text: \\\\'ИП Лукина\\\\' }\\\\n        ]\\\\n    }\\\\n];\\\\n<div>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Select\\\\n                groupView=\\\\'default\\\\'\\\\n                options={ options }\\\\n                mode=\\\\'radio\\\\'\\\\n            />\\\\n        </div>\\\\n        <div className=\\\\'column\\\\'>\\\\n            <Select\\\\n                groupView=\\\\'line\\\\'\\\\n                options={ options2 }\\\\n                mode=\\\\'radio\\\\'\\\\n                value={ [\\\\'4\\\\'] }\\\\n            />\\\\n        </div>\\\\n    </div>\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9375,7 +9418,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'function toggleSidebar() {\\\\n    setState({ isOpen: !state.isOpen });\\\\n}\\\\ninitialState = {\\\\n    isOpen: false\\\\n};\\\\n<div>\\\\n    <Button onClick={ toggleSidebar }>Фильтр</Button>\\\\n    <Sidebar\\\\n        headerContent={\\\\n            <button\\\\n                style={ {\\\\n                    margin: 0,\\\\n                    padding: 0,\\\\n                    border: 0,\\\\n                    background: \\\\'none\\\\',\\\\n                    outline: \\\\'none\\\\',\\\\n                    font: \\\\'inherit\\\\',\\\\n                    cursor: \\\\'pointer\\\\'\\\\n                } }\\\\n                onClick={ toggleSidebar }\\\\n            >\\\\n                Применить\\\\n            </button>\\\\n        }\\\\n        visible={ state.isOpen }\\\\n        onCloserClick={ toggleSidebar }\\\\n    >\\\\n        <div style={ { marginBottom: 40 } }>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Тип операции\\\\n            </Heading>\\\\n            <RadioGroup type=\\\\'button\\\\'>\\\\n                {[\\\\'Пополнение\\\\', \\\\'Списание\\\\'].map(text => (\\\\n                    <Radio\\\\n                        text={ text }\\\\n                        key={ text }\\\\n                        value={ text }\\\\n                        type=\\\\'button\\\\'\\\\n                    />\\\\n                ))}\\\\n            </RadioGroup>\\\\n        </div>\\\\n        <div style={ { marginBottom: 40 } }>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Счета\\\\n            </Heading>\\\\n            <CheckBoxGroup type=\\\\'button\\\\'>\\\\n                {[\\\\'Счёт ₽ ··2331\\\\', \\\\'Счёт $ ··2331\\\\'].map(text => (\\\\n                    <CheckBox\\\\n                        text={ text }\\\\n                        key={ text }\\\\n                        value={ text }\\\\n                        type=\\\\'button\\\\'\\\\n                    />\\\\n                ))}\\\\n            </CheckBoxGroup>\\\\n        </div>\\\\n        <div style={ { marginBottom: 40 } }>\\\\n            <Heading size=\\\\'s\\\\'>\\\\n                Дата операции\\\\n            </Heading>\\\\n            <RadioGroup type=\\\\'button\\\\'>\\\\n                {[\\\\'День\\\\', \\\\'Месяц\\\\', \\\\'Год\\\\'].map(text => (\\\\n                    <Radio\\\\n                        text={ text }\\\\n                        key={ text }\\\\n                        value={ text }\\\\n                        type=\\\\'button\\\\'\\\\n                    />\\\\n                ))}\\\\n            </RadioGroup>\\\\n        </div>\\\\n    </Sidebar>\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9458,7 +9502,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'function handleSlideDownToggle() {\\\\n    setState({ isExpanded: !state.isExpanded });\\\\n}\\\\ninitialState = {\\\\n    isExpanded: false\\\\n};\\\\n<div>\\\\n    <Button\\\\n        onClick={ handleSlideDownToggle }\\\\n    >\\\\n        Как узнать дату и сумму платежа\\\\n    </Button>\\\\n    <div className=\\\\'row\\\\' >\\\\n        <SlideDown isExpanded={ state.isExpanded }>\\\\n            <Paragraph>\\\\n                Узнать сумму платежа по кредиту с ежемесячным погашением равными частями вы\\\\n                можете из графика погашения, предоставленного при оформлении кредита.\\\\n            </Paragraph>\\\\n        </SlideDown>\\\\n    </div>\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9574,7 +9619,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'const layoutStyle = {\\\\n    paddingRight: \\\\'10px\\\\'\\\\n};\\\\n<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <span key={ size } style={ layoutStyle } >\\\\n            <Button\\\\n                icon={\\\\n                    <Spin\\\\n                        size={ size }\\\\n                        visible={ true }\\\\n                    />\\\\n                }\\\\n                size={ size }\\\\n            >\\\\n                Документы загружаются...\\\\n            </Button>\\\\n        </span>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9634,7 +9680,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9656,7 +9703,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<TabItem checked={ true } url=\\\\'google.com\\\\'>\\\\n    Пункт меню\\\\n</TabItem>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9742,7 +9790,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'initialState = {\\\\n    page: \\\\'/about\\\\'\\\\n};\\\\nfunction handleClick(event) {\\\\n    event.preventDefault();\\\\n    setState({ page: event.target.getAttribute(\\\\'href\\\\') });\\\\n}\\\\n<Tabs>\\\\n    <TabItem url=\\\\'/about\\\\' onClick={ handleClick } checked={ state.page === \\\\'/about\\\\' }>\\\\n        О кредите\\\\n    </TabItem>\\\\n    <TabItem url=\\\\'/graph\\\\' onClick={ handleClick } checked={ state.page === \\\\'/graph\\\\' }>\\\\n        График платежей\\\\n    </TabItem>\\\\n    <TabItem url=\\\\'/details\\\\' onClick={ handleClick } checked={ state.page === \\\\'/details\\\\' }>\\\\n        Реквизиты\\\\n    </TabItem>\\\\n</Tabs>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9764,7 +9813,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: '<div>\\\\n    {[\\\\'s\\\\', \\\\'m\\\\', \\\\'l\\\\', \\\\'xl\\\\'].map(size => (\\\\n        <div\\\\n            key={ size }\\\\n            style={ { marginBottom: 10 } }\\\\n        >\\\\n            <TagButton size={ size }>{\`Tag \${size}\`}</TagButton>\\\\n        </div>\\\\n    ))}\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -10108,7 +10158,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 						code: 'initialState = {\\\\n    value: \\\\'Благотворительный взнос в фонд «Бедные дизайнеры»\\\\'\\\\n};\\\\nfunction handleChangeAsync(value) {\\\\n    setTimeout(() => {\\\\n        setState({ value });\\\\n    }, 200);\\\\n}\\\\n<div>\\\\n    <Textarea\\\\n        defaultValue={ state.value }\\\\n        hint={ \`Текущее значение в поле: \${state.value}\` }\\\\n        placeholder=\\\\'Введите назначение платежа\\\\'\\\\n        onChange={ handleChangeAsync }\\\\n    />\\\\n</div>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -10169,7 +10220,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		}
 	],
 	name: ''

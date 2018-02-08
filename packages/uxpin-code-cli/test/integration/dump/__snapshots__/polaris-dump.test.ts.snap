@@ -87,7 +87,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<AccountConnection\\\\n  title=\\"Example App\\"\\\\n  action={{\\\\n    content: \\\\'Connect\\\\'\\\\n  }}\\\\n  details=\\"No account connected\\"\\\\n  termsOfService={<p>By clicking Connect, you agree to accept Sample App’s <Link url=\\"Example App\\">Terms and conditions</Link>. You’ll pay a commission rate of 15% on sales made through Example App.</p>}\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -134,7 +135,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<ActionList\\\\n  sections={[{\\\\n    title: \\"File options\\",\\\\n    items: [\\\\n      {content: \\\\'Import file\\\\', icon: \\\\'import\\\\'},\\\\n      {content: \\\\'Export file\\\\', icon: \\\\'export\\\\'},\\\\n    ]\\\\n  }]}\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -211,7 +213,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Avatar customer name=\\"Farrah\\" />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -282,7 +285,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Badge progress=\\"complete\\">Fulfilled</Badge>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -386,7 +390,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Banner\\\\n  title=\\"High risk of fraud detected\\"\\\\n  action={{content: \\\\'Review risk analysis\\\\'}}\\\\n  status=\\"critical\\"\\\\n>\\\\n  <p>Before fulfilling this order or capturing payment, please <Link url=\\"\\">review the Risk Analysis</Link> and determine if this order is fraudulent.</p>\\\\n</Banner>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -420,7 +425,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -632,7 +638,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Button loading>Save product</Button>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -676,7 +683,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<ButtonGroup segmented>\\\\n  <Button>Bold</Button>\\\\n  <Button>Italic</Button>\\\\n  <Button>Underline</Button>\\\\n</ButtonGroup>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -747,7 +755,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<CalloutCard\\\\n  title=\\"Customize the style of your checkout\\"\\\\n  illustration=\\"https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg\\"\\\\n  primaryAction={{content: \\\\'Customize checkout\\\\'}}\\\\n  secondaryAction={{content: \\\\'Learn more about customizing checkout\\\\'}}\\\\n>\\\\n  <p>Upload your store’s logo, change colors and fonts, and more.</p>\\\\n</CalloutCard>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -779,7 +788,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<List>\\\\n  <List.Item>Order #1001 <Caption>Received April 21, 2017</Caption></List.Item>\\\\n  <List.Item>Order #1002 <Caption>Received April 22, 2017</Caption></List.Item>\\\\n</List>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -886,7 +896,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Card title=\\"Deactivated staff accounts\\" sectioned subdued>\\\\n  <List>\\\\n    <List.Item>Felix Crafford</List.Item>\\\\n    <List.Item>Ezequiel Manno</List.Item>\\\\n  </List>\\\\n</Card>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1017,7 +1028,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Checkbox label=\\"Basic checkbox\\" />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1090,7 +1102,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1179,7 +1192,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<ChoiceList\\\\n  allowMultiple\\\\n  title=\\"While the customer is checking out\\"\\\\n  choices={[\\\\n    {\\\\n      label: \\\\'Use the shipping address as the billing address by default\\\\',\\\\n      value: \\\\'shipping\\\\',\\\\n      helpText: \\\\'Reduces the number of fields required to check out. The billing address can still be edited.\\\\',\\\\n    },\\\\n    {\\\\n      label: \\\\'Require a confirmation step\\\\',\\\\n      value: \\\\'confirmation\\\\',\\\\n      helpText: \\\\'Customers must review their order details before purchasing.\\\\',\\\\n    },\\\\n  ]}\\\\n  selected={[\\\\'shipping\\\\']}\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1220,7 +1234,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Collapsible open>\\\\n  <TextContainer>\\\\n    Your mailing list lets you contact customers or visitors who have shown an interest in your store. Reach out to them with exclusive offers or updates about your products.\\\\n  </TextContainer>\\\\n</Collapsible>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1282,7 +1297,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<ColorPicker\\\\n  color={{\\\\n    hue: 300,\\\\n    brightness: 1,\\\\n    saturation: 0.7,\\\\n    alpha: 0.7\\\\n  }}\\\\n  allowAlpha\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1325,7 +1341,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1429,7 +1446,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<DatePicker\\\\n  month={4}\\\\n  year={2017}\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1461,7 +1479,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<DescriptionList\\\\n  items={[\\\\n    {\\\\n      term: \\\\'Logistics\\\\',\\\\n      description: \\\\'The management of products or other resources as they travel between a point of origin and a destination.\\\\',\\\\n    },\\\\n    {\\\\n      term: \\\\'Sole proprietorship\\\\',\\\\n      description: \\\\'A business structure where a single individual both owns and runs the company.\\\\',\\\\n    },\\\\n    {\\\\n      term: \\\\'Discount code\\\\',\\\\n      description: \\\\'A series of numbers and/or letters that an online shopper may enter at checkout to get a discount or special offer.\\\\',\\\\n    },\\\\n  ]}\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1517,7 +1536,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<DisplayText size=\\"small\\">Good evening, Dominic.</DisplayText>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1603,7 +1623,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<EmptyState\\\\n  heading=\\"Manage your inventory transfers\\"\\\\n  action={{content: \\\\'Add transfer\\\\'}}\\\\n  secondaryAction={{content: \\\\'Learn more\\\\', url: \\\\'https://help.shopify.com\\\\'}}\\\\n  image=\\"https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg\\"\\\\n>\\\\n  <p>Track and receive your incoming inventory from suppliers.</p>\\\\n</EmptyState>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1664,7 +1685,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1696,7 +1718,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<FooterHelp>\\\\n  Learn more about <Link url=\\"https://help.shopify.com/manual/orders/fulfill-orders\\">fulfilling orders</Link>.\\\\n</FooterHelp>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1734,7 +1757,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<FormLayout>\\\\n  <FormLayout.Group condensed>\\\\n    <TextField label=\\"Length\\" />\\\\n    <TextField label=\\"Width\\" />\\\\n    <TextField label=\\"Height\\" />\\\\n    <TextField label=\\"Unit\\" />\\\\n  </FormLayout.Group>\\\\n</FormLayout>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1775,7 +1799,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Heading>Online store dashboard</Heading>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1834,7 +1859,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Icon source=\\"circlePlus\\" />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -4442,7 +4468,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -4474,7 +4501,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<KeyboardKey>Ctrl</KeyboardKey>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -4517,7 +4545,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5244,7 +5273,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5323,7 +5353,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5370,7 +5401,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Layout>\\\\n  <Layout.AnnotatedSection\\\\n    title=\\"Store details\\"\\\\n    description=\\"Shopify and your customers will use this information to contact you.\\">\\\\n    <Card sectioned>\\\\n      <FormLayout>\\\\n        <TextField\\\\n          label=\\"Store name\\"\\\\n        />\\\\n        <TextField\\\\n          type=\\"email\\"\\\\n          label=\\"Account email\\"\\\\n        />\\\\n      </FormLayout>\\\\n    </Card>\\\\n  </Layout.AnnotatedSection>\\\\n</Layout>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5429,7 +5461,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Link url=\\"https://help.shopify.com/manual\\">fulfilling orders</Link>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5473,7 +5506,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<List type=\\"number\\">\\\\n  <List.Item>First item</List.Item>\\\\n  <List.Item>Second item</List.Item>\\\\n  <List.Item>Third Item</List.Item>\\\\n</List>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5604,7 +5638,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Page\\\\n  title=\\"Settings\\"\\\\n  separator\\\\n>\\\\n  <Layout>\\\\n    <Layout.AnnotatedSection title=\\"Store details\\">\\\\n      <p>Annotated section content</p>\\\\n    </Layout.AnnotatedSection>\\\\n  </Layout>\\\\n</Page>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5648,7 +5683,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<PageActions\\\\n  primaryAction={{\\\\n    content: \\\\'Save\\\\',\\\\n  }}\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5743,7 +5779,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Pagination\\\\n  hasPrevious\\\\n  onPrevious={() => {console.log(\\\\'Previous\\\\')}}\\\\n  hasNext\\\\n  onNext={() => {console.log(\\\\'Next\\\\')}} />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5853,7 +5890,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Popover\\\\n  active\\\\n  activator={<Button>April 20–21, 2017</Button>}\\\\n  sectioned\\\\n>\\\\n  <FormLayout>\\\\n    <Select label=\\"Date range\\" options={[\\\\'Custom\\\\']} />\\\\n\\\\n    <FormLayout.Group condensed>\\\\n      <TextField label=\\"Starting\\" value=\\"2017-04-20\\" />\\\\n      <TextField label=\\"Ending\\" value=\\"2017-04-21\\" />\\\\n    </FormLayout.Group>\\\\n  </FormLayout>\\\\n</Popover>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -5932,7 +5970,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -6054,7 +6093,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<RadioButton\\\\n  label=\\"Accounts are disabled\\"\\\\n  helpText=\\"Customers will only be able to check out as guests.\\"\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -6110,7 +6150,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<ResourceList\\\\n  items={[\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: <TextStyle variation=\\"subdued\\">No variants</TextStyle>,\\\\n      actions: [{content: \\\\'View listing\\\\'}],\\\\n      persistActions: true,\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'4 variants\\\\',\\\\n      attributeThree: <TextStyle variation=\\"subdued\\">Not listed</TextStyle>,\\\\n      badges: [\\\\n        {\\\\n          status: \\\\'warning\\\\',\\\\n          content: \\\\'Needs review\\\\',\\\\n        }\\\\n      ],\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'3 variants\\\\',\\\\n      actions: [{content: \\\\'View listing\\\\'}],\\\\n      persistActions: true,\\\\n    },\\\\n  ]}\\\\n  renderItem={(item, index) => {\\\\n    return <ResourceList.Item key={index} {...item} />;\\\\n  }}\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -8743,7 +8784,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Card title=\\"Terms of service\\" sectioned>\\\\n  <Scrollable shadow style={{height: \\\\'100px\\\\'}}>\\\\n  	<p>By signing up for the Shopify service (“Service”) or any of the services of Shopify Inc. (“Shopify”) you are agreeing to be bound by the following terms and conditions (“Terms of Service”). The Services offered by Shopify under the Terms of Service include various products and services to help you create and manage a retail store, whether an online store (“Online Services”), a physical retail store (“POS Services”), or both. Any new features or tools which are added to the current Service shall be also subject to the Terms of Service. You can review the current version of the Terms of Service at any time at https://www.shopify.com/legal/terms. Shopify reserves the right to update and change the Terms of Service by posting updates and changes to the Shopify website. You are advised to check the Terms of Service from time to time for any updates or changes that may impact you.</p>\\\\n  </Scrollable>\\\\n</Card>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -8904,7 +8946,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Select\\\\n  label=\\"One\\"\\\\n  disabled\\\\n  options={[\\\\'two\\\\', \\\\'three\\\\', {label: \\\\'four\\\\', value: \\\\'4\\\\'}]}\\\\n  placeholder=\\"Select\\"\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -8941,7 +8984,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -8991,7 +9035,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<SettingToggle\\\\n  action={{\\\\n    content: \\\\'Enable\\\\',\\\\n  }}\\\\n>\\\\n  This setting is <TextStyle variation=\\"strong\\">disabled</TextStyle>.\\\\n</SettingToggle>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9026,7 +9071,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<SkeletonBodyText lines={1} />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9064,7 +9110,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<SkeletonDisplayText size=\\"small\\" />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9126,7 +9173,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<SkeletonPage\\\\n  title=\\"Products\\"\\\\n  secondaryActions={2}\\\\n>\\\\n  <Layout>\\\\n    <Layout.Section>\\\\n      <Card sectioned>\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n      <Card\\\\n        sectioned\\\\n        title=\\"Images\\"\\\\n      >\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n      <Card\\\\n        sectioned\\\\n        title=\\"Variants\\"\\\\n      >\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n    </Layout.Section>\\\\n    <Layout.Section secondary>\\\\n      <Card\\\\n        title=\\"Sales channels\\"\\\\n      >\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={1} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n      <Card\\\\n        title=\\"Organization\\"\\\\n        subdued\\\\n      >\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n    </Layout.Section>\\\\n  </Layout>\\\\n</SkeletonPage>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9176,7 +9224,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Spinner size=\\"large\\" color=\\"teal\\" />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9271,7 +9320,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Stack>\\\\n  <Stack.Item fill>\\\\n    <Heading>Order #1136</Heading>\\\\n  </Stack.Item>\\\\n  <Stack.Item>\\\\n    <Badge>Paid</Badge>\\\\n  </Stack.Item>\\\\n  <Stack.Item>\\\\n    <Badge>Fulfilled</Badge>\\\\n  </Stack.Item>\\\\n</Stack>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9312,7 +9362,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Subheading>Accounts</Subheading>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9383,7 +9434,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Tabs\\\\n  fitted\\\\n  selected={0}\\\\n  tabs={[\\\\n    {\\\\n      id: \\\\'all-customers\\\\',\\\\n      title: \\\\'All\\\\',\\\\n      accessibilityLabel: \\\\'All customers\\\\',\\\\n      panelID: \\\\'all-customers-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'accepts-marketing\\\\',\\\\n      title: \\\\'Accepts marketing\\\\',\\\\n      panelID: \\\\'accepts-marketing-content\\\\',\\\\n    }\\\\n  ]}\\\\n/>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9424,7 +9476,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Tag>Wholesale</Tag>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9449,7 +9502,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9775,7 +9829,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<TextField label=\\"Store name\\" disabled />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9825,7 +9880,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<TextStyle variation=\\"negative\\">Orders decreased</TextStyle>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9881,7 +9937,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" size=\\"large\\" alt=\\"Black choker necklace\\" />'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -9958,7 +10015,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<Tooltip content=\\"This order has shipping labels.\\">\\\\n  <Link>Order #1001</Link>\\\\n</Tooltip>'
 					}
 				]
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -12566,7 +12624,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -12601,7 +12660,8 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 						code: '<table>\\\\n  <thead>\\\\n    <tr>\\\\n      <th scope=\\"col\\"><VisuallyHidden>Line item</VisuallyHidden></th>\\\\n      <th scope=\\"col\\"><VisuallyHidden>Value</VisuallyHidden></th>\\\\n    </tr>\\\\n  </thead>\\\\n  <tbody>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Subtotal</th>\\\\n      <td>$184.13</td>\\\\n    </tr>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Tax</th>\\\\n      <td>$0.00</td>\\\\n    </tr>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Total</th>\\\\n      <td>$184.13</td>\\\\n    </tr>\\\\n  </tbody>\\\\n</table>'
 					}
 				]
-			}
+			},
+			presets: []
 		}
 	],
 	name: ''

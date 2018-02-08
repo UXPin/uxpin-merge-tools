@@ -19,7 +19,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -37,7 +38,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -55,7 +57,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -73,7 +76,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -91,7 +95,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -109,7 +114,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -509,7 +515,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -639,7 +646,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -873,7 +881,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -891,7 +900,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -909,7 +919,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -994,7 +1005,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1012,7 +1024,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1067,7 +1080,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1200,7 +1214,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1218,7 +1233,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1321,7 +1337,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1490,7 +1507,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1505,7 +1523,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1584,7 +1603,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1599,7 +1619,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1702,7 +1723,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1720,7 +1742,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			properties: [],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1859,7 +1882,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		},
 		{
 			info: {
@@ -1905,7 +1929,8 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 			],
 			documentation: {
 				examples: []
-			}
+			},
+			presets: []
 		}
 	],
 	name: ''
