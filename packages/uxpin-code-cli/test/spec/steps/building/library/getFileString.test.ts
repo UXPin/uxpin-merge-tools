@@ -5,8 +5,9 @@ import { ComponentDefinition } from '../../../../../src/steps/serialization/comp
 describe('getFileString', () => {
 
   const commonImplementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
-  const commonProps:Pick<ComponentDefinition, 'properties'|'documentation'> = {
+  const commonProps:Pick<ComponentDefinition, 'properties'|'documentation'|'presets'> = {
     documentation: { examples: [] },
+    presets: [],
     properties: [],
   };
 
