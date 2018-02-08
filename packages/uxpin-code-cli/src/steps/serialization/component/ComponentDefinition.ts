@@ -7,6 +7,8 @@ export interface ComponentMetadata {
   properties:ComponentPropertyDefinition[];
 }
 
-export interface ComponentDefinition extends ComponentInfo, ComponentMetadata {
-  examples:ComponentExample[];
+export interface ComponentDefinition extends ComponentMetadata {
+  // @todo: documentation should in form of Markdown converted to draft.js format
+  documentation:{ examples:ComponentExample[] };
+  info:ComponentInfo;
 }

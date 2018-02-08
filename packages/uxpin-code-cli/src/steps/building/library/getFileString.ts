@@ -26,8 +26,8 @@ export function getFileString(components:ComponentDefinition[], wrapperPath?:str
   return [...libImports, ...imports, ...wrapperImport, ...exports].join('\n');
 }
 
-function getImportPath(component:ComponentDefinition):string {
-  const path:string = relative(TEMP_DIR_PATH, `./${component.dirPath}`);
-  const fileName:string = parse(component.implementation.path).name;
+function getImportPath({ info }:ComponentDefinition):string {
+  const path:string = relative(TEMP_DIR_PATH, `./${info.dirPath}`);
+  const fileName:string = parse(info.implementation.path).name;
   return `${path}/${fileName}`;
 }

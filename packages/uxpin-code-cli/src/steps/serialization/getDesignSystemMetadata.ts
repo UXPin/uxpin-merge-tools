@@ -23,7 +23,7 @@ function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentD
     getComponentMetadata(info.implementation),
     serializeOptionalExamples(info),
   ]).then(([{ result: metadata, warnings: metadataWarnings }, { result: examples, warnings: exampleWarnings }]) => ({
-    result: { ...info, ...metadata, examples },
+    result: { info, ...metadata, documentation: { examples } },
     warnings: joinWarningLists([metadataWarnings, exampleWarnings]),
   }));
 }
