@@ -3,7 +3,7 @@ import { ComponentDefinition } from '../serialization/component/ComponentDefinit
 
 export function getDesignSystemSummary(components:ComponentDefinition[]):string {
   return components.map((component) => `${safe.bold(component.name)}
-    📜 documentation: ${booleanToCheckmark(!!component.documentation)}
+    📜 documentation: ${booleanToCheckmark(!!component.info.documentation)}
     💡 examples: ${booleanToCheckmark(component.documentation.examples.length > 0)}
 `).join('\n');
 }
