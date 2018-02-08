@@ -1,6 +1,6 @@
 {
   "name": "@uxpin/code-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Command-line tool integrating Design System repository with http://code.uxpin.com",
   "main": "src/index.js",
   "bin": "bin/uxpin-code",
