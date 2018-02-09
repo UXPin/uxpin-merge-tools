@@ -4,29 +4,36 @@ import { ComponentDefinition } from '../../../../../src/steps/serialization/comp
 
 describe('getFileString', () => {
 
-  const implementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
+  const commonImplementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
+  const commonProps:Pick<ComponentDefinition, 'properties'|'documentation'|'presets'> = {
+    documentation: { examples: [] },
+    presets: [],
+    properties: [],
+  };
 
   it('returns content of library file for list of components', () => {
     const components:ComponentDefinition[] = [
       {
-        dirPath: 'src/components/button',
-        examples: [],
-        implementation: {
-          ...implementation,
-          path: 'src/components/button/button.jsx',
+        info: {
+          dirPath: 'src/components/button',
+          implementation: {
+            ...commonImplementation,
+            path: 'src/components/button/button.jsx',
+          },
         },
         name: 'Button',
-        properties: [],
+        ...commonProps,
       },
       {
-        dirPath: 'src/components/button-list',
-        examples: [],
-        implementation: {
-          ...implementation,
-          path: 'src/components/button-list/button-list.jsx',
+        info: {
+          dirPath: 'src/components/button-list',
+          implementation: {
+            ...commonImplementation,
+            path: 'src/components/button-list/button-list.jsx',
+          },
         },
         name: 'ButtonList',
-        properties: [],
+        ...commonProps,
       },
     ];
 
@@ -51,24 +58,26 @@ export {
   it('returns content of library file for list of components and path of custom wrapper', () => {
     const components:ComponentDefinition[] = [
       {
-        dirPath: 'src/components/button',
-        examples: [],
-        implementation: {
-          ...implementation,
-          path: 'src/components/button/button.jsx',
+        info: {
+          dirPath: 'src/components/button',
+          implementation: {
+            ...commonImplementation,
+            path: 'src/components/button/button.jsx',
+          },
         },
         name: 'Button',
-        properties: [],
+        ...commonProps,
       },
       {
-        dirPath: 'src/components/button-list',
-        examples: [],
-        implementation: {
-          ...implementation,
-          path: 'src/components/button-list/button-list.jsx',
+        info: {
+          dirPath: 'src/components/button-list',
+          implementation: {
+            ...commonImplementation,
+            path: 'src/components/button-list/button-list.jsx',
+          },
         },
         name: 'ButtonList',
-        properties: [],
+        ...commonProps,
       },
     ];
 

@@ -5,9 +5,9 @@ import { ComponentDefinition } from './component/ComponentDefinition';
 import { ExamplesSerializationResult } from './component/examples/ExamplesSerializationResult';
 import { serializeExamples } from './component/examples/serializeExamples';
 import { getComponentMetadata } from './component/implementation/getComponentMetadata';
-import { DesignSystemDefinition } from './DesignSystemDefinition';
+import { DesignSystemSnapshot } from './DesignSystemSnapshot';
 
-export function getDesignSystemMetadata(componentInfos:ComponentInfo[]):Promise<Warned<DesignSystemDefinition>> {
+export function getDesignSystemMetadata(componentInfos:ComponentInfo[]):Promise<Warned<DesignSystemSnapshot>> {
   return Promise.all(componentInfos.map(componentInfoToDefinition))
     .then((components) => ({
       result: {
@@ -23,7 +23,7 @@ function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentD
     getComponentMetadata(info.implementation),
     serializeOptionalExamples(info),
   ]).then(([{ result: metadata, warnings: metadataWarnings }, { result: examples, warnings: exampleWarnings }]) => ({
-    result: { ...info, ...metadata, examples },
+    result: { info, ...metadata, documentation: { examples }, presets: [] },
     warnings: joinWarningLists([metadataWarnings, exampleWarnings]),
   }));
 }

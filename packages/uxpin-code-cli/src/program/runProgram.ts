@@ -9,7 +9,7 @@ import { BuildOptions } from '../steps/building/BuildOptions';
 import { TEMP_DIR_PATH } from '../steps/building/config/getConfig';
 import { getDesignSystemComponentInfos } from '../steps/discovery/component/getDesignSystemComponentInfos';
 import { getDesignSystemSummary } from '../steps/discovery/getDesignSystemSummary';
-import { DesignSystemDefinition } from '../steps/serialization/DesignSystemDefinition';
+import { DesignSystemSnapshot } from '../steps/serialization/DesignSystemSnapshot';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './getProgramArgs';
@@ -88,4 +88,4 @@ interface Step {
   exec:(infos:DSMetadata) => any;
 }
 
-type DSMetadata = Warned<DesignSystemDefinition>;
+type DSMetadata = Warned<DesignSystemSnapshot>;

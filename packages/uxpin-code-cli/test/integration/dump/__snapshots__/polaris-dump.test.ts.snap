@@ -4,14 +4,16 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 "{
 	components: [
 		{
-			dirPath: 'src/components/AccountConnection',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/AccountConnection/AccountConnection.tsx'
-			},
-			documentation: {
-				path: 'src/components/AccountConnection/README.md'
+			info: {
+				dirPath: 'src/components/AccountConnection',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/AccountConnection/AccountConnection.tsx'
+				},
+				documentation: {
+					path: 'src/components/AccountConnection/README.md'
+				}
 			},
 			name: 'AccountConnection',
 			properties: [
@@ -79,21 +81,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<AccountConnection\\\\n  title=\\"Example App\\"\\\\n  action={{\\\\n    content: \\\\'Connect\\\\'\\\\n  }}\\\\n  details=\\"No account connected\\"\\\\n  termsOfService={<p>By clicking Connect, you agree to accept Sample App’s <Link url=\\"Example App\\">Terms and conditions</Link>. You’ll pay a commission rate of 15% on sales made through Example App.</p>}\\\\n/>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<AccountConnection\\\\n  title=\\"Example App\\"\\\\n  action={{\\\\n    content: \\\\'Connect\\\\'\\\\n  }}\\\\n  details=\\"No account connected\\"\\\\n  termsOfService={<p>By clicking Connect, you agree to accept Sample App’s <Link url=\\"Example App\\">Terms and conditions</Link>. You’ll pay a commission rate of 15% on sales made through Example App.</p>}\\\\n/>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/ActionList',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/ActionList/ActionList.tsx'
-			},
-			documentation: {
-				path: 'src/components/ActionList/README.md'
+			info: {
+				dirPath: 'src/components/ActionList',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/ActionList/ActionList.tsx'
+				},
+				documentation: {
+					path: 'src/components/ActionList/README.md'
+				}
 			},
 			name: 'ActionList',
 			properties: [
@@ -116,27 +123,32 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<ActionList\\\\n  items={[\\\\n    {content: \\\\'Import file\\\\'},\\\\n    {content: \\\\'Export file\\\\'},\\\\n  ]}\\\\n/>'
-				},
-				{
-					code: '<ActionList\\\\n  items={[\\\\n    {content: \\\\'Import file\\\\', icon: \\\\'import\\\\'},\\\\n    {content: \\\\'Export file\\\\', icon: \\\\'export\\\\'},\\\\n  ]}\\\\n/>'
-				},
-				{
-					code: '<ActionList\\\\n  sections={[{\\\\n    title: \\"File options\\",\\\\n    items: [\\\\n      {content: \\\\'Import file\\\\', icon: \\\\'import\\\\'},\\\\n      {content: \\\\'Export file\\\\', icon: \\\\'export\\\\'},\\\\n    ]\\\\n  }]}\\\\n/>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<ActionList\\\\n  items={[\\\\n    {content: \\\\'Import file\\\\'},\\\\n    {content: \\\\'Export file\\\\'},\\\\n  ]}\\\\n/>'
+					},
+					{
+						code: '<ActionList\\\\n  items={[\\\\n    {content: \\\\'Import file\\\\', icon: \\\\'import\\\\'},\\\\n    {content: \\\\'Export file\\\\', icon: \\\\'export\\\\'},\\\\n  ]}\\\\n/>'
+					},
+					{
+						code: '<ActionList\\\\n  sections={[{\\\\n    title: \\"File options\\",\\\\n    items: [\\\\n      {content: \\\\'Import file\\\\', icon: \\\\'import\\\\'},\\\\n      {content: \\\\'Export file\\\\', icon: \\\\'export\\\\'},\\\\n    ]\\\\n  }]}\\\\n/>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Avatar',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Avatar/Avatar.tsx'
-			},
-			documentation: {
-				path: 'src/components/Avatar/README.md'
+			info: {
+				dirPath: 'src/components/Avatar',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Avatar/Avatar.tsx'
+				},
+				documentation: {
+					path: 'src/components/Avatar/README.md'
+				}
 			},
 			name: 'Avatar',
 			properties: [
@@ -195,21 +207,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Avatar customer name=\\"Farrah\\" />'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Avatar customer name=\\"Farrah\\" />'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Badge',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Badge/Badge.tsx'
-			},
-			documentation: {
-				path: 'src/components/Badge/README.md'
+			info: {
+				dirPath: 'src/components/Badge',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Badge/Badge.tsx'
+				},
+				documentation: {
+					path: 'src/components/Badge/README.md'
+				}
 			},
 			name: 'Badge',
 			properties: [
@@ -241,42 +258,47 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Badge>Fulfilled</Badge>'
-				},
-				{
-					code: '<Badge status=\\"info\\">Published</Badge>'
-				},
-				{
-					code: '<Badge status=\\"success\\">Funds recovered</Badge>'
-				},
-				{
-					code: '<Badge status=\\"attention\\">Unfulfilled</Badge>'
-				},
-				{
-					code: '<Badge status=\\"warning\\">SSL unavailable</Badge>'
-				},
-				{
-					code: '<Badge progress=\\"incomplete\\">Unfulfilled</Badge>'
-				},
-				{
-					code: '<Badge progress=\\"partiallyComplete\\">Partially fulfilled</Badge>'
-				},
-				{
-					code: '<Badge progress=\\"complete\\">Fulfilled</Badge>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Badge>Fulfilled</Badge>'
+					},
+					{
+						code: '<Badge status=\\"info\\">Published</Badge>'
+					},
+					{
+						code: '<Badge status=\\"success\\">Funds recovered</Badge>'
+					},
+					{
+						code: '<Badge status=\\"attention\\">Unfulfilled</Badge>'
+					},
+					{
+						code: '<Badge status=\\"warning\\">SSL unavailable</Badge>'
+					},
+					{
+						code: '<Badge progress=\\"incomplete\\">Unfulfilled</Badge>'
+					},
+					{
+						code: '<Badge progress=\\"partiallyComplete\\">Partially fulfilled</Badge>'
+					},
+					{
+						code: '<Badge progress=\\"complete\\">Fulfilled</Badge>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Banner',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Banner/Banner.tsx'
-			},
-			documentation: {
-				path: 'src/components/Banner/README.md'
+			info: {
+				dirPath: 'src/components/Banner',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Banner/Banner.tsx'
+				},
+				documentation: {
+					path: 'src/components/Banner/README.md'
+				}
 			},
 			name: 'Banner',
 			properties: [
@@ -344,36 +366,41 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Banner title=\\"Order archived\\">\\\\n  <p>This order was archived on March 7, 2017 at 3:12pm EDT.</p>\\\\n</Banner>'
-				},
-				{
-					code: '<Banner onDismiss={() => {}}>\\\\n  <p>Use your finance report to get detailed information about your business. <Link url=\\"\\">Let us know what you think.</Link></p>\\\\n</Banner>'
-				},
-				{
-					code: '<Banner\\\\n  title=\\"Some of your product variants are missing weights\\"\\\\n  status=\\"warning\\"\\\\n  action={{content: \\\\'Edit variant weights\\\\'}}\\\\n>\\\\n  <p>Add weights to show accurate rates at checkout and when buying shipping labels in Shopify.</p>\\\\n</Banner>'
-				},
-				{
-					code: '<Banner\\\\n  title=\\"USPS has updated their rates\\"\\\\n  action={{content: \\\\'Learn more\\\\'}}\\\\n  status=\\"info\\"\\\\n>\\\\n  <p>Make sure you know how these changes affect your store.</p>\\\\n</Banner>'
-				},
-				{
-					code: '<Banner\\\\n  title=\\"Your shipping label is ready to print.\\"\\\\n  status=\\"success\\"\\\\n  action={{content: \\\\'Print label\\\\'}}\\\\n/>'
-				},
-				{
-					code: '<Banner\\\\n  title=\\"Before you can purchase a shipping label, this change needs to be made:\\"\\\\n  action={{content: \\\\'Edit address\\\\'}}\\\\n  status=\\"warning\\"\\\\n>\\\\n  <List>\\\\n    <List.Item>The name of the city you’re shipping to has characters that aren’t allowed. City name can only include spaces and hyphens.</List.Item>\\\\n  </List>\\\\n</Banner>'
-				},
-				{
-					code: '<Banner\\\\n  title=\\"High risk of fraud detected\\"\\\\n  action={{content: \\\\'Review risk analysis\\\\'}}\\\\n  status=\\"critical\\"\\\\n>\\\\n  <p>Before fulfilling this order or capturing payment, please <Link url=\\"\\">review the Risk Analysis</Link> and determine if this order is fraudulent.</p>\\\\n</Banner>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Banner title=\\"Order archived\\">\\\\n  <p>This order was archived on March 7, 2017 at 3:12pm EDT.</p>\\\\n</Banner>'
+					},
+					{
+						code: '<Banner onDismiss={() => {}}>\\\\n  <p>Use your finance report to get detailed information about your business. <Link url=\\"\\">Let us know what you think.</Link></p>\\\\n</Banner>'
+					},
+					{
+						code: '<Banner\\\\n  title=\\"Some of your product variants are missing weights\\"\\\\n  status=\\"warning\\"\\\\n  action={{content: \\\\'Edit variant weights\\\\'}}\\\\n>\\\\n  <p>Add weights to show accurate rates at checkout and when buying shipping labels in Shopify.</p>\\\\n</Banner>'
+					},
+					{
+						code: '<Banner\\\\n  title=\\"USPS has updated their rates\\"\\\\n  action={{content: \\\\'Learn more\\\\'}}\\\\n  status=\\"info\\"\\\\n>\\\\n  <p>Make sure you know how these changes affect your store.</p>\\\\n</Banner>'
+					},
+					{
+						code: '<Banner\\\\n  title=\\"Your shipping label is ready to print.\\"\\\\n  status=\\"success\\"\\\\n  action={{content: \\\\'Print label\\\\'}}\\\\n/>'
+					},
+					{
+						code: '<Banner\\\\n  title=\\"Before you can purchase a shipping label, this change needs to be made:\\"\\\\n  action={{content: \\\\'Edit address\\\\'}}\\\\n  status=\\"warning\\"\\\\n>\\\\n  <List>\\\\n    <List.Item>The name of the city you’re shipping to has characters that aren’t allowed. City name can only include spaces and hyphens.</List.Item>\\\\n  </List>\\\\n</Banner>'
+					},
+					{
+						code: '<Banner\\\\n  title=\\"High risk of fraud detected\\"\\\\n  action={{content: \\\\'Review risk analysis\\\\'}}\\\\n  status=\\"critical\\"\\\\n>\\\\n  <p>Before fulfilling this order or capturing payment, please <Link url=\\"\\">review the Risk Analysis</Link> and determine if this order is fraudulent.</p>\\\\n</Banner>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Breadcrumbs',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Breadcrumbs/Breadcrumbs.tsx'
+			info: {
+				dirPath: 'src/components/Breadcrumbs',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Breadcrumbs/Breadcrumbs.tsx'
+				}
 			},
 			name: 'Breadcrumbs',
 			properties: [
@@ -396,17 +423,22 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Button',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Button/Button.tsx'
-			},
-			documentation: {
-				path: 'src/components/Button/README.md'
+			info: {
+				dirPath: 'src/components/Button',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Button/Button.tsx'
+				},
+				documentation: {
+					path: 'src/components/Button/README.md'
+				}
 			},
 			name: 'Button',
 			properties: [
@@ -573,48 +605,53 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Button>Add product</Button>'
-				},
-				{
-					code: '<Button outline>Add product</Button>'
-				},
-				{
-					code: '<Button plain>View shipping settings</Button>'
-				},
-				{
-					code: '<Button primary>Save theme</Button>'
-				},
-				{
-					code: '<Button destructive>Delete theme</Button>'
-				},
-				{
-					code: '<Button size=\\"slim\\">Save variant</Button>'
-				},
-				{
-					code: '<Button size=\\"large\\">Create store</Button>'
-				},
-				{
-					code: '<Button fullWidth>Add customer</Button>'
-				},
-				{
-					code: '<Button disabled>Buy shipping label</Button>'
-				},
-				{
-					code: '<Button loading>Save product</Button>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Button>Add product</Button>'
+					},
+					{
+						code: '<Button outline>Add product</Button>'
+					},
+					{
+						code: '<Button plain>View shipping settings</Button>'
+					},
+					{
+						code: '<Button primary>Save theme</Button>'
+					},
+					{
+						code: '<Button destructive>Delete theme</Button>'
+					},
+					{
+						code: '<Button size=\\"slim\\">Save variant</Button>'
+					},
+					{
+						code: '<Button size=\\"large\\">Create store</Button>'
+					},
+					{
+						code: '<Button fullWidth>Add customer</Button>'
+					},
+					{
+						code: '<Button disabled>Buy shipping label</Button>'
+					},
+					{
+						code: '<Button loading>Save product</Button>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/ButtonGroup',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/ButtonGroup/ButtonGroup.tsx'
-			},
-			documentation: {
-				path: 'src/components/ButtonGroup/README.md'
+			info: {
+				dirPath: 'src/components/ButtonGroup',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/ButtonGroup/ButtonGroup.tsx'
+				},
+				documentation: {
+					path: 'src/components/ButtonGroup/README.md'
+				}
 			},
 			name: 'ButtonGroup',
 			properties: [
@@ -637,24 +674,29 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<ButtonGroup>\\\\n  <Button>Cancel</Button>\\\\n  <Button primary>Save</Button>\\\\n</ButtonGroup>'
-				},
-				{
-					code: '<ButtonGroup segmented>\\\\n  <Button>Bold</Button>\\\\n  <Button>Italic</Button>\\\\n  <Button>Underline</Button>\\\\n</ButtonGroup>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<ButtonGroup>\\\\n  <Button>Cancel</Button>\\\\n  <Button primary>Save</Button>\\\\n</ButtonGroup>'
+					},
+					{
+						code: '<ButtonGroup segmented>\\\\n  <Button>Bold</Button>\\\\n  <Button>Italic</Button>\\\\n  <Button>Underline</Button>\\\\n</ButtonGroup>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/CalloutCard',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/CalloutCard/CalloutCard.tsx'
-			},
-			documentation: {
-				path: 'src/components/CalloutCard/README.md'
+			info: {
+				dirPath: 'src/components/CalloutCard',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/CalloutCard/CalloutCard.tsx'
+				},
+				documentation: {
+					path: 'src/components/CalloutCard/README.md'
+				}
 			},
 			name: 'CalloutCard',
 			properties: [
@@ -704,24 +746,29 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<CalloutCard\\\\n  title=\\"Customize the style of your checkout\\"\\\\n  illustration=\\"https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg\\"\\\\n  primaryAction={{content: \\\\'Customize checkout\\\\', url: \\\\'https://www.shopify.com\\\\'}}\\\\n>\\\\n  <p>Upload your store’s logo, change colors and fonts, and more.</p>\\\\n</CalloutCard>'
-				},
-				{
-					code: '<CalloutCard\\\\n  title=\\"Customize the style of your checkout\\"\\\\n  illustration=\\"https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg\\"\\\\n  primaryAction={{content: \\\\'Customize checkout\\\\'}}\\\\n  secondaryAction={{content: \\\\'Learn more about customizing checkout\\\\'}}\\\\n>\\\\n  <p>Upload your store’s logo, change colors and fonts, and more.</p>\\\\n</CalloutCard>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<CalloutCard\\\\n  title=\\"Customize the style of your checkout\\"\\\\n  illustration=\\"https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg\\"\\\\n  primaryAction={{content: \\\\'Customize checkout\\\\', url: \\\\'https://www.shopify.com\\\\'}}\\\\n>\\\\n  <p>Upload your store’s logo, change colors and fonts, and more.</p>\\\\n</CalloutCard>'
+					},
+					{
+						code: '<CalloutCard\\\\n  title=\\"Customize the style of your checkout\\"\\\\n  illustration=\\"https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg\\"\\\\n  primaryAction={{content: \\\\'Customize checkout\\\\'}}\\\\n  secondaryAction={{content: \\\\'Learn more about customizing checkout\\\\'}}\\\\n>\\\\n  <p>Upload your store’s logo, change colors and fonts, and more.</p>\\\\n</CalloutCard>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Caption',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Caption/Caption.tsx'
-			},
-			documentation: {
-				path: 'src/components/Caption/README.md'
+			info: {
+				dirPath: 'src/components/Caption',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Caption/Caption.tsx'
+				},
+				documentation: {
+					path: 'src/components/Caption/README.md'
+				}
 			},
 			name: 'Caption',
 			properties: [
@@ -735,21 +782,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<List>\\\\n  <List.Item>Order #1001 <Caption>Received April 21, 2017</Caption></List.Item>\\\\n  <List.Item>Order #1002 <Caption>Received April 22, 2017</Caption></List.Item>\\\\n</List>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<List>\\\\n  <List.Item>Order #1001 <Caption>Received April 21, 2017</Caption></List.Item>\\\\n  <List.Item>Order #1002 <Caption>Received April 22, 2017</Caption></List.Item>\\\\n</List>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Card',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Card/Card.tsx'
-			},
-			documentation: {
-				path: 'src/components/Card/README.md'
+			info: {
+				dirPath: 'src/components/Card',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Card/Card.tsx'
+				},
+				documentation: {
+					path: 'src/components/Card/README.md'
+				}
 			},
 			name: 'Card',
 			properties: [
@@ -817,42 +869,47 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Card title=\\"Online store dashboard\\" sectioned>\\\\n  <p>View a summary of your online store’s performance.</p>\\\\n</Card>'
-				},
-				{
-					code: '<Card\\\\n  title=\\"Online store dashboard\\"\\\\n  primaryFooterAction={{content: \\\\'View dashboard\\\\'}}\\\\n>\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n</Card>'
-				},
-				{
-					code: '<Card title=\\"Online store dashboard\\" actions={[{content: \\\\'Edit\\\\'}]}>\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n</Card>'
-				},
-				{
-					code: '<Card title=\\"Online store dashboard\\" actions={[{content: \\\\'Edit\\\\'}]}>\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n</Card>'
-				},
-				{
-					code: '<Card title=\\"Online store dashboard\\">\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance, including sales, visitors, top products, and referrals.</p>\\\\n  </Card.Section>\\\\n</Card>'
-				},
-				{
-					code: '<Card title=\\"Online store dashboard\\">\\\\n  <Card.Section title=\\"Reports\\">\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n\\\\n  <Card.Section title=\\"Summary\\">\\\\n    <p>View a summary of your online store’s performance, including sales, visitors, top products, and referrals.</p>\\\\n  </Card.Section>\\\\n</Card>'
-				},
-				{
-					code: '<Card title=\\"Staff accounts\\">\\\\n  <Card.Section>\\\\n    <List>\\\\n      <List.Item>Felix Crafford</List.Item>\\\\n      <List.Item>Ezequiel Manno</List.Item>\\\\n    </List>\\\\n  </Card.Section>\\\\n\\\\n  <Card.Section subdued title=\\"Deactivated staff accounts\\">\\\\n    <List>\\\\n      <List.Item>Felix Crafford</List.Item>\\\\n      <List.Item>Ezequiel Manno</List.Item>\\\\n    </List>\\\\n  </Card.Section>\\\\n</Card>'
-				},
-				{
-					code: '<Card title=\\"Deactivated staff accounts\\" sectioned subdued>\\\\n  <List>\\\\n    <List.Item>Felix Crafford</List.Item>\\\\n    <List.Item>Ezequiel Manno</List.Item>\\\\n  </List>\\\\n</Card>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Card title=\\"Online store dashboard\\" sectioned>\\\\n  <p>View a summary of your online store’s performance.</p>\\\\n</Card>'
+					},
+					{
+						code: '<Card\\\\n  title=\\"Online store dashboard\\"\\\\n  primaryFooterAction={{content: \\\\'View dashboard\\\\'}}\\\\n>\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n</Card>'
+					},
+					{
+						code: '<Card title=\\"Online store dashboard\\" actions={[{content: \\\\'Edit\\\\'}]}>\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n</Card>'
+					},
+					{
+						code: '<Card title=\\"Online store dashboard\\" actions={[{content: \\\\'Edit\\\\'}]}>\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n</Card>'
+					},
+					{
+						code: '<Card title=\\"Online store dashboard\\">\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n\\\\n  <Card.Section>\\\\n    <p>View a summary of your online store’s performance, including sales, visitors, top products, and referrals.</p>\\\\n  </Card.Section>\\\\n</Card>'
+					},
+					{
+						code: '<Card title=\\"Online store dashboard\\">\\\\n  <Card.Section title=\\"Reports\\">\\\\n    <p>View a summary of your online store’s performance.</p>\\\\n  </Card.Section>\\\\n\\\\n  <Card.Section title=\\"Summary\\">\\\\n    <p>View a summary of your online store’s performance, including sales, visitors, top products, and referrals.</p>\\\\n  </Card.Section>\\\\n</Card>'
+					},
+					{
+						code: '<Card title=\\"Staff accounts\\">\\\\n  <Card.Section>\\\\n    <List>\\\\n      <List.Item>Felix Crafford</List.Item>\\\\n      <List.Item>Ezequiel Manno</List.Item>\\\\n    </List>\\\\n  </Card.Section>\\\\n\\\\n  <Card.Section subdued title=\\"Deactivated staff accounts\\">\\\\n    <List>\\\\n      <List.Item>Felix Crafford</List.Item>\\\\n      <List.Item>Ezequiel Manno</List.Item>\\\\n    </List>\\\\n  </Card.Section>\\\\n</Card>'
+					},
+					{
+						code: '<Card title=\\"Deactivated staff accounts\\" sectioned subdued>\\\\n  <List>\\\\n    <List.Item>Felix Crafford</List.Item>\\\\n    <List.Item>Ezequiel Manno</List.Item>\\\\n  </List>\\\\n</Card>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Checkbox',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Checkbox/Checkbox.tsx'
-			},
-			documentation: {
-				path: 'src/components/Checkbox/README.md'
+			info: {
+				dirPath: 'src/components/Checkbox',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Checkbox/Checkbox.tsx'
+				},
+				documentation: {
+					path: 'src/components/Checkbox/README.md'
+				}
 			},
 			name: 'Checkbox',
 			properties: [
@@ -965,21 +1022,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Checkbox label=\\"Basic checkbox\\" />'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Checkbox label=\\"Basic checkbox\\" />'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Choice',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Choice/Choice.tsx'
-			},
-			documentation: {
-				path: 'src/components/Choice/README.md'
+			info: {
+				dirPath: 'src/components/Choice',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Choice/Choice.tsx'
+				},
+				documentation: {
+					path: 'src/components/Choice/README.md'
+				}
 			},
 			name: 'Choice',
 			properties: [
@@ -1038,17 +1100,22 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/ChoiceList',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/ChoiceList/ChoiceList.tsx'
-			},
-			documentation: {
-				path: 'src/components/ChoiceList/README.md'
+			info: {
+				dirPath: 'src/components/ChoiceList',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/ChoiceList/ChoiceList.tsx'
+				},
+				documentation: {
+					path: 'src/components/ChoiceList/README.md'
+				}
 			},
 			name: 'ChoiceList',
 			properties: [
@@ -1116,24 +1183,29 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<ChoiceList\\\\n  title=\\"Company name\\"\\\\n  choices={[\\\\n    {label: \\\\'Hidden\\\\', value: \\\\'hidden\\\\'},\\\\n    {label: \\\\'Optional\\\\', value: \\\\'optional\\\\'},\\\\n    {label: \\\\'Required\\\\', value: \\\\'required\\\\'},\\\\n  ]}\\\\n  selected={[\\\\'hidden\\\\']}\\\\n/>'
-				},
-				{
-					code: '<ChoiceList\\\\n  allowMultiple\\\\n  title=\\"While the customer is checking out\\"\\\\n  choices={[\\\\n    {\\\\n      label: \\\\'Use the shipping address as the billing address by default\\\\',\\\\n      value: \\\\'shipping\\\\',\\\\n      helpText: \\\\'Reduces the number of fields required to check out. The billing address can still be edited.\\\\',\\\\n    },\\\\n    {\\\\n      label: \\\\'Require a confirmation step\\\\',\\\\n      value: \\\\'confirmation\\\\',\\\\n      helpText: \\\\'Customers must review their order details before purchasing.\\\\',\\\\n    },\\\\n  ]}\\\\n  selected={[\\\\'shipping\\\\']}\\\\n/>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<ChoiceList\\\\n  title=\\"Company name\\"\\\\n  choices={[\\\\n    {label: \\\\'Hidden\\\\', value: \\\\'hidden\\\\'},\\\\n    {label: \\\\'Optional\\\\', value: \\\\'optional\\\\'},\\\\n    {label: \\\\'Required\\\\', value: \\\\'required\\\\'},\\\\n  ]}\\\\n  selected={[\\\\'hidden\\\\']}\\\\n/>'
+					},
+					{
+						code: '<ChoiceList\\\\n  allowMultiple\\\\n  title=\\"While the customer is checking out\\"\\\\n  choices={[\\\\n    {\\\\n      label: \\\\'Use the shipping address as the billing address by default\\\\',\\\\n      value: \\\\'shipping\\\\',\\\\n      helpText: \\\\'Reduces the number of fields required to check out. The billing address can still be edited.\\\\',\\\\n    },\\\\n    {\\\\n      label: \\\\'Require a confirmation step\\\\',\\\\n      value: \\\\'confirmation\\\\',\\\\n      helpText: \\\\'Customers must review their order details before purchasing.\\\\',\\\\n    },\\\\n  ]}\\\\n  selected={[\\\\'shipping\\\\']}\\\\n/>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Collapsible',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Collapsible/Collapsible.tsx'
-			},
-			documentation: {
-				path: 'src/components/Collapsible/README.md'
+			info: {
+				dirPath: 'src/components/Collapsible',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Collapsible/Collapsible.tsx'
+				},
+				documentation: {
+					path: 'src/components/Collapsible/README.md'
+				}
 			},
 			name: 'Collapsible',
 			properties: [
@@ -1156,21 +1228,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Collapsible open>\\\\n  <TextContainer>\\\\n    Your mailing list lets you contact customers or visitors who have shown an interest in your store. Reach out to them with exclusive offers or updates about your products.\\\\n  </TextContainer>\\\\n</Collapsible>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Collapsible open>\\\\n  <TextContainer>\\\\n    Your mailing list lets you contact customers or visitors who have shown an interest in your store. Reach out to them with exclusive offers or updates about your products.\\\\n  </TextContainer>\\\\n</Collapsible>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/ColorPicker',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/ColorPicker/ColorPicker.tsx'
-			},
-			documentation: {
-				path: 'src/components/ColorPicker/README.md'
+			info: {
+				dirPath: 'src/components/ColorPicker',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/ColorPicker/ColorPicker.tsx'
+				},
+				documentation: {
+					path: 'src/components/ColorPicker/README.md'
+				}
 			},
 			name: 'ColorPicker',
 			properties: [
@@ -1211,21 +1288,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<ColorPicker\\\\n  color={{\\\\n    hue: 120,\\\\n    brightness: 1,\\\\n    saturation: 1,\\\\n  }}\\\\n/>'
-				},
-				{
-					code: '<ColorPicker\\\\n  color={{\\\\n    hue: 300,\\\\n    brightness: 1,\\\\n    saturation: 0.7,\\\\n    alpha: 0.7\\\\n  }}\\\\n  allowAlpha\\\\n/>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<ColorPicker\\\\n  color={{\\\\n    hue: 120,\\\\n    brightness: 1,\\\\n    saturation: 1,\\\\n  }}\\\\n/>'
+					},
+					{
+						code: '<ColorPicker\\\\n  color={{\\\\n    hue: 300,\\\\n    brightness: 1,\\\\n    saturation: 0.7,\\\\n    alpha: 0.7\\\\n  }}\\\\n  allowAlpha\\\\n/>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Connected',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Connected/Connected.tsx'
+			info: {
+				dirPath: 'src/components/Connected',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Connected/Connected.tsx'
+				}
 			},
 			name: 'Connected',
 			properties: [
@@ -1257,17 +1339,22 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/DatePicker',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/DatePicker/DatePicker.tsx'
-			},
-			documentation: {
-				path: 'src/components/DatePicker/README.md'
+			info: {
+				dirPath: 'src/components/DatePicker',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/DatePicker/DatePicker.tsx'
+				},
+				documentation: {
+					path: 'src/components/DatePicker/README.md'
+				}
 			},
 			name: 'DatePicker',
 			properties: [
@@ -1353,21 +1440,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<DatePicker\\\\n  month={4}\\\\n  year={2017}\\\\n/>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<DatePicker\\\\n  month={4}\\\\n  year={2017}\\\\n/>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/DescriptionList',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/DescriptionList/DescriptionList.tsx'
-			},
-			documentation: {
-				path: 'src/components/DescriptionList/README.md'
+			info: {
+				dirPath: 'src/components/DescriptionList',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/DescriptionList/DescriptionList.tsx'
+				},
+				documentation: {
+					path: 'src/components/DescriptionList/README.md'
+				}
 			},
 			name: 'DescriptionList',
 			properties: [
@@ -1381,21 +1473,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<DescriptionList\\\\n  items={[\\\\n    {\\\\n      term: \\\\'Logistics\\\\',\\\\n      description: \\\\'The management of products or other resources as they travel between a point of origin and a destination.\\\\',\\\\n    },\\\\n    {\\\\n      term: \\\\'Sole proprietorship\\\\',\\\\n      description: \\\\'A business structure where a single individual both owns and runs the company.\\\\',\\\\n    },\\\\n    {\\\\n      term: \\\\'Discount code\\\\',\\\\n      description: \\\\'A series of numbers and/or letters that an online shopper may enter at checkout to get a discount or special offer.\\\\',\\\\n    },\\\\n  ]}\\\\n/>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<DescriptionList\\\\n  items={[\\\\n    {\\\\n      term: \\\\'Logistics\\\\',\\\\n      description: \\\\'The management of products or other resources as they travel between a point of origin and a destination.\\\\',\\\\n    },\\\\n    {\\\\n      term: \\\\'Sole proprietorship\\\\',\\\\n      description: \\\\'A business structure where a single individual both owns and runs the company.\\\\',\\\\n    },\\\\n    {\\\\n      term: \\\\'Discount code\\\\',\\\\n      description: \\\\'A series of numbers and/or letters that an online shopper may enter at checkout to get a discount or special offer.\\\\',\\\\n    },\\\\n  ]}\\\\n/>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/DisplayText',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/DisplayText/DisplayText.tsx'
-			},
-			documentation: {
-				path: 'src/components/DisplayText/README.md'
+			info: {
+				dirPath: 'src/components/DisplayText',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/DisplayText/DisplayText.tsx'
+				},
+				documentation: {
+					path: 'src/components/DisplayText/README.md'
+				}
 			},
 			name: 'DisplayText',
 			properties: [
@@ -1427,27 +1524,32 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<DisplayText size=\\"extraLarge\\">Good evening, Dominic.</DisplayText>'
-				},
-				{
-					code: '<DisplayText size=\\"medium\\">Good evening, Dominic.</DisplayText>'
-				},
-				{
-					code: '<DisplayText size=\\"small\\">Good evening, Dominic.</DisplayText>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<DisplayText size=\\"extraLarge\\">Good evening, Dominic.</DisplayText>'
+					},
+					{
+						code: '<DisplayText size=\\"medium\\">Good evening, Dominic.</DisplayText>'
+					},
+					{
+						code: '<DisplayText size=\\"small\\">Good evening, Dominic.</DisplayText>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/EmptyState',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/EmptyState/EmptyState.tsx'
-			},
-			documentation: {
-				path: 'src/components/EmptyState/README.md'
+			info: {
+				dirPath: 'src/components/EmptyState',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/EmptyState/EmptyState.tsx'
+				},
+				documentation: {
+					path: 'src/components/EmptyState/README.md'
+				}
 			},
 			name: 'EmptyState',
 			properties: [
@@ -1515,18 +1617,23 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<EmptyState\\\\n  heading=\\"Manage your inventory transfers\\"\\\\n  action={{content: \\\\'Add transfer\\\\'}}\\\\n  secondaryAction={{content: \\\\'Learn more\\\\', url: \\\\'https://help.shopify.com\\\\'}}\\\\n  image=\\"https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg\\"\\\\n>\\\\n  <p>Track and receive your incoming inventory from suppliers.</p>\\\\n</EmptyState>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<EmptyState\\\\n  heading=\\"Manage your inventory transfers\\"\\\\n  action={{content: \\\\'Add transfer\\\\'}}\\\\n  secondaryAction={{content: \\\\'Learn more\\\\', url: \\\\'https://help.shopify.com\\\\'}}\\\\n  image=\\"https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg\\"\\\\n>\\\\n  <p>Track and receive your incoming inventory from suppliers.</p>\\\\n</EmptyState>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/EventListener',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/EventListener/EventListener.tsx'
+			info: {
+				dirPath: 'src/components/EventListener',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/EventListener/EventListener.tsx'
+				}
 			},
 			name: 'EventListener',
 			properties: [
@@ -1576,17 +1683,22 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/FooterHelp',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/FooterHelp/FooterHelp.tsx'
-			},
-			documentation: {
-				path: 'src/components/FooterHelp/README.md'
+			info: {
+				dirPath: 'src/components/FooterHelp',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/FooterHelp/FooterHelp.tsx'
+				},
+				documentation: {
+					path: 'src/components/FooterHelp/README.md'
+				}
 			},
 			name: 'FooterHelp',
 			properties: [
@@ -1600,21 +1712,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<FooterHelp>\\\\n  Learn more about <Link url=\\"https://help.shopify.com/manual/orders/fulfill-orders\\">fulfilling orders</Link>.\\\\n</FooterHelp>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<FooterHelp>\\\\n  Learn more about <Link url=\\"https://help.shopify.com/manual/orders/fulfill-orders\\">fulfilling orders</Link>.\\\\n</FooterHelp>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/FormLayout',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/FormLayout/FormLayout.tsx'
-			},
-			documentation: {
-				path: 'src/components/FormLayout/README.md'
+			info: {
+				dirPath: 'src/components/FormLayout',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/FormLayout/FormLayout.tsx'
+				},
+				documentation: {
+					path: 'src/components/FormLayout/README.md'
+				}
 			},
 			name: 'FormLayout',
 			properties: [
@@ -1628,27 +1745,32 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<FormLayout>\\\\n  <TextField\\\\n    label=\\"Store name\\"\\\\n  />\\\\n  <TextField\\\\n    type=\\"email\\"\\\\n    label=\\"Account email\\"\\\\n  />\\\\n</FormLayout>'
-				},
-				{
-					code: '<FormLayout>\\\\n  <FormLayout.Group>\\\\n    <TextField type=\\"number\\" label=\\"Minimum order\\" />\\\\n    <TextField type=\\"number\\" label=\\"Maximum order\\" />\\\\n  </FormLayout.Group>\\\\n</FormLayout>'
-				},
-				{
-					code: '<FormLayout>\\\\n  <FormLayout.Group condensed>\\\\n    <TextField label=\\"Length\\" />\\\\n    <TextField label=\\"Width\\" />\\\\n    <TextField label=\\"Height\\" />\\\\n    <TextField label=\\"Unit\\" />\\\\n  </FormLayout.Group>\\\\n</FormLayout>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<FormLayout>\\\\n  <TextField\\\\n    label=\\"Store name\\"\\\\n  />\\\\n  <TextField\\\\n    type=\\"email\\"\\\\n    label=\\"Account email\\"\\\\n  />\\\\n</FormLayout>'
+					},
+					{
+						code: '<FormLayout>\\\\n  <FormLayout.Group>\\\\n    <TextField type=\\"number\\" label=\\"Minimum order\\" />\\\\n    <TextField type=\\"number\\" label=\\"Maximum order\\" />\\\\n  </FormLayout.Group>\\\\n</FormLayout>'
+					},
+					{
+						code: '<FormLayout>\\\\n  <FormLayout.Group condensed>\\\\n    <TextField label=\\"Length\\" />\\\\n    <TextField label=\\"Width\\" />\\\\n    <TextField label=\\"Height\\" />\\\\n    <TextField label=\\"Unit\\" />\\\\n  </FormLayout.Group>\\\\n</FormLayout>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Heading',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Heading/Heading.tsx'
-			},
-			documentation: {
-				path: 'src/components/Heading/README.md'
+			info: {
+				dirPath: 'src/components/Heading',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Heading/Heading.tsx'
+				},
+				documentation: {
+					path: 'src/components/Heading/README.md'
+				}
 			},
 			name: 'Heading',
 			properties: [
@@ -1671,21 +1793,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Heading>Online store dashboard</Heading>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Heading>Online store dashboard</Heading>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Icon',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Icon/Icon.tsx'
-			},
-			documentation: {
-				path: 'src/components/Icon/README.md'
+			info: {
+				dirPath: 'src/components/Icon',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Icon/Icon.tsx'
+				},
+				documentation: {
+					path: 'src/components/Icon/README.md'
+				}
 			},
 			name: 'Icon',
 			properties: [
@@ -1726,18 +1853,23 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Icon source=\\"circlePlus\\" />'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Icon source=\\"circlePlus\\" />'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Image',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Image/Image.tsx'
+			info: {
+				dirPath: 'src/components/Image',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Image/Image.tsx'
+				}
 			},
 			name: 'Image',
 			properties: [
@@ -4334,17 +4466,22 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/KeyboardKey',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/KeyboardKey/KeyboardKey.tsx'
-			},
-			documentation: {
-				path: 'src/components/KeyboardKey/README.md'
+			info: {
+				dirPath: 'src/components/KeyboardKey',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/KeyboardKey/KeyboardKey.tsx'
+				},
+				documentation: {
+					path: 'src/components/KeyboardKey/README.md'
+				}
 			},
 			name: 'KeyboardKey',
 			properties: [
@@ -4358,18 +4495,23 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<KeyboardKey>Ctrl</KeyboardKey>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<KeyboardKey>Ctrl</KeyboardKey>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/KeypressListener',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/KeypressListener/KeypressListener.tsx'
+			info: {
+				dirPath: 'src/components/KeypressListener',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/KeypressListener/KeypressListener.tsx'
+				}
 			},
 			name: 'KeypressListener',
 			properties: [
@@ -4401,14 +4543,19 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Label',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Label/Label.tsx'
+			info: {
+				dirPath: 'src/components/Label',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Label/Label.tsx'
+				}
 			},
 			name: 'labelID',
 			properties: [
@@ -5124,14 +5271,19 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Labelled',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Labelled/Labelled.tsx'
+			info: {
+				dirPath: 'src/components/Labelled',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Labelled/Labelled.tsx'
+				}
 			},
 			name: 'Labelled',
 			properties: [
@@ -5199,17 +5351,22 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Layout',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Layout/Layout.tsx'
-			},
-			documentation: {
-				path: 'src/components/Layout/README.md'
+			info: {
+				dirPath: 'src/components/Layout',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Layout/Layout.tsx'
+				},
+				documentation: {
+					path: 'src/components/Layout/README.md'
+				}
 			},
 			name: 'Layout',
 			properties: [
@@ -5232,27 +5389,32 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Layout>\\\\n  <Layout.Section>\\\\n    <Card title=\\"Online store dashboard\\" sectioned>\\\\n      <p>View a summary of your online store’s performance.</p>\\\\n    </Card>\\\\n  </Layout.Section>\\\\n</Layout>'
-				},
-				{
-					code: '<Layout>\\\\n  <Layout.Section>\\\\n    <Card title=\\"Order details\\" sectioned>\\\\n      <p>View a summary of your order.</p>\\\\n    </Card>\\\\n  </Layout.Section>\\\\n  <Layout.Section secondary>\\\\n    <Card title=\\"Tags\\" sectioned>\\\\n      <p>Add tags to your order.</p>\\\\n    </Card>\\\\n  </Layout.Section>\\\\n</Layout>'
-				},
-				{
-					code: '<Layout>\\\\n  <Layout.AnnotatedSection\\\\n    title=\\"Store details\\"\\\\n    description=\\"Shopify and your customers will use this information to contact you.\\">\\\\n    <Card sectioned>\\\\n      <FormLayout>\\\\n        <TextField\\\\n          label=\\"Store name\\"\\\\n        />\\\\n        <TextField\\\\n          type=\\"email\\"\\\\n          label=\\"Account email\\"\\\\n        />\\\\n      </FormLayout>\\\\n    </Card>\\\\n  </Layout.AnnotatedSection>\\\\n</Layout>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Layout>\\\\n  <Layout.Section>\\\\n    <Card title=\\"Online store dashboard\\" sectioned>\\\\n      <p>View a summary of your online store’s performance.</p>\\\\n    </Card>\\\\n  </Layout.Section>\\\\n</Layout>'
+					},
+					{
+						code: '<Layout>\\\\n  <Layout.Section>\\\\n    <Card title=\\"Order details\\" sectioned>\\\\n      <p>View a summary of your order.</p>\\\\n    </Card>\\\\n  </Layout.Section>\\\\n  <Layout.Section secondary>\\\\n    <Card title=\\"Tags\\" sectioned>\\\\n      <p>Add tags to your order.</p>\\\\n    </Card>\\\\n  </Layout.Section>\\\\n</Layout>'
+					},
+					{
+						code: '<Layout>\\\\n  <Layout.AnnotatedSection\\\\n    title=\\"Store details\\"\\\\n    description=\\"Shopify and your customers will use this information to contact you.\\">\\\\n    <Card sectioned>\\\\n      <FormLayout>\\\\n        <TextField\\\\n          label=\\"Store name\\"\\\\n        />\\\\n        <TextField\\\\n          type=\\"email\\"\\\\n          label=\\"Account email\\"\\\\n        />\\\\n      </FormLayout>\\\\n    </Card>\\\\n  </Layout.AnnotatedSection>\\\\n</Layout>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Link',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Link/Link.tsx'
-			},
-			documentation: {
-				path: 'src/components/Link/README.md'
+			info: {
+				dirPath: 'src/components/Link',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Link/Link.tsx'
+				},
+				documentation: {
+					path: 'src/components/Link/README.md'
+				}
 			},
 			name: 'Link',
 			properties: [
@@ -5293,21 +5455,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Link url=\\"https://help.shopify.com/manual\\">fulfilling orders</Link>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Link url=\\"https://help.shopify.com/manual\\">fulfilling orders</Link>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/List',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/List/List.tsx'
-			},
-			documentation: {
-				path: 'src/components/List/README.md'
+			info: {
+				dirPath: 'src/components/List',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/List/List.tsx'
+				},
+				documentation: {
+					path: 'src/components/List/README.md'
+				}
 			},
 			name: 'List',
 			properties: [
@@ -5330,24 +5497,29 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<List type=\\"bullet\\">\\\\n  <List.Item>Yellow shirt</List.Item>\\\\n  <List.Item>Red shirt</List.Item>\\\\n  <List.Item>Green shirt</List.Item>\\\\n</List>'
-				},
-				{
-					code: '<List type=\\"number\\">\\\\n  <List.Item>First item</List.Item>\\\\n  <List.Item>Second item</List.Item>\\\\n  <List.Item>Third Item</List.Item>\\\\n</List>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<List type=\\"bullet\\">\\\\n  <List.Item>Yellow shirt</List.Item>\\\\n  <List.Item>Red shirt</List.Item>\\\\n  <List.Item>Green shirt</List.Item>\\\\n</List>'
+					},
+					{
+						code: '<List type=\\"number\\">\\\\n  <List.Item>First item</List.Item>\\\\n  <List.Item>Second item</List.Item>\\\\n  <List.Item>Third Item</List.Item>\\\\n</List>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Page',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Page/Page.tsx'
-			},
-			documentation: {
-				path: 'src/components/Page/README.md'
+			info: {
+				dirPath: 'src/components/Page',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Page/Page.tsx'
+				},
+				documentation: {
+					path: 'src/components/Page/README.md'
+				}
 			},
 			name: 'Page',
 			properties: [
@@ -5442,39 +5614,44 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Page\\\\n  breadcrumbs={[\\\\n    {content: \\\\'Products\\\\'}\\\\n  ]}\\\\n  title=\\"Jar With Lock-Lid\\"\\\\n  primaryAction={{content: \\\\'Save\\\\', disabled: true}}\\\\n  secondaryActions={[\\\\n    {content: \\\\'Duplicate\\\\'},\\\\n    {content: \\\\'View on your store\\\\'},\\\\n  ]}\\\\n  pagination={{\\\\n    hasPrevious: true,\\\\n    hasNext: true,\\\\n  }}\\\\n>\\\\n  <p>Page content</p>\\\\n</Page>'
-				},
-				{
-					code: '<Page\\\\n  breadcrumbs={[\\\\n    {content: \\\\'Orders\\\\'}\\\\n  ]}\\\\n  title=\\"#1085\\"\\\\n  secondaryActions={[\\\\n    {content: \\\\'Print\\\\'},\\\\n    {content: \\\\'Unarchive\\\\'},\\\\n    {content: \\\\'Cancel order\\\\'},\\\\n  ]}\\\\n  pagination={{\\\\n    hasPrevious: true,\\\\n    hasNext: true,\\\\n  }}\\\\n>\\\\n  <Card sectioned title=\\"Fulfill order\\">\\\\n    <Stack alignment=\\"center\\">\\\\n      <Stack.Item fill><p>Buy postage and ship remaining 2 items</p></Stack.Item>\\\\n      <Button primary>Continue</Button>\\\\n    </Stack>\\\\n  </Card>\\\\n</Page>'
-				},
-				{
-					code: '<Page\\\\n  title=\\\\'Jar With Lock-Lid\\\\'\\\\n  primaryAction={{content: \\\\'Save\\\\', disabled: true,}}\\\\n  secondaryActions={[\\\\n    {\\\\n      content: \\\\'Promote\\\\',\\\\n      external: true,\\\\n      icon: \\\\'external\\\\',\\\\n      url: \\\\'https://www.facebook.com/business/learn/facebook-page-build-audience\\\\',\\\\n    },\\\\n  ]}\\\\n>\\\\n  <p>Page Content</p>\\\\n</Page>'
-				},
-				{
-					code: '<Page\\\\n  breadcrumbs={[\\\\n    {content: \\\\'Settings\\\\'}\\\\n  ]}\\\\n  title=\\"General\\"\\\\n  primaryAction={{content: \\\\'Save\\\\'}}\\\\n>\\\\n  <p>Page content</p>\\\\n</Page>'
-				},
-				{
-					code: '<Page\\\\n  fullWidth\\\\n  title=\\"Orders\\"\\\\n  primaryAction={{content: \\\\'Create order\\\\'}}\\\\n  secondaryActions={[\\\\n    {content: \\\\'Export\\\\'},\\\\n  ]}\\\\n  pagination={{\\\\n    hasNext: true,\\\\n  }}\\\\n>\\\\n  <p>Wide page content</p>\\\\n</Page>'
-				},
-				{
-					code: '<Page\\\\n  title=\\"Products\\"\\\\n  actionGroups={[\\\\n    {\\\\n      title: \\\\'Promote\\\\',\\\\n      actions: [\\\\n        {content: \\\\'Share on Facebook\\\\', onAction: this.performFacebookShare}\\\\n      ],\\\\n    },\\\\n  ]}\\\\n>\\\\n  <p>Page content</p>\\\\n</Page>'
-				},
-				{
-					code: '<Page\\\\n  title=\\"Settings\\"\\\\n  separator\\\\n>\\\\n  <Layout>\\\\n    <Layout.AnnotatedSection title=\\"Store details\\">\\\\n      <p>Annotated section content</p>\\\\n    </Layout.AnnotatedSection>\\\\n  </Layout>\\\\n</Page>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Page\\\\n  breadcrumbs={[\\\\n    {content: \\\\'Products\\\\'}\\\\n  ]}\\\\n  title=\\"Jar With Lock-Lid\\"\\\\n  primaryAction={{content: \\\\'Save\\\\', disabled: true}}\\\\n  secondaryActions={[\\\\n    {content: \\\\'Duplicate\\\\'},\\\\n    {content: \\\\'View on your store\\\\'},\\\\n  ]}\\\\n  pagination={{\\\\n    hasPrevious: true,\\\\n    hasNext: true,\\\\n  }}\\\\n>\\\\n  <p>Page content</p>\\\\n</Page>'
+					},
+					{
+						code: '<Page\\\\n  breadcrumbs={[\\\\n    {content: \\\\'Orders\\\\'}\\\\n  ]}\\\\n  title=\\"#1085\\"\\\\n  secondaryActions={[\\\\n    {content: \\\\'Print\\\\'},\\\\n    {content: \\\\'Unarchive\\\\'},\\\\n    {content: \\\\'Cancel order\\\\'},\\\\n  ]}\\\\n  pagination={{\\\\n    hasPrevious: true,\\\\n    hasNext: true,\\\\n  }}\\\\n>\\\\n  <Card sectioned title=\\"Fulfill order\\">\\\\n    <Stack alignment=\\"center\\">\\\\n      <Stack.Item fill><p>Buy postage and ship remaining 2 items</p></Stack.Item>\\\\n      <Button primary>Continue</Button>\\\\n    </Stack>\\\\n  </Card>\\\\n</Page>'
+					},
+					{
+						code: '<Page\\\\n  title=\\\\'Jar With Lock-Lid\\\\'\\\\n  primaryAction={{content: \\\\'Save\\\\', disabled: true,}}\\\\n  secondaryActions={[\\\\n    {\\\\n      content: \\\\'Promote\\\\',\\\\n      external: true,\\\\n      icon: \\\\'external\\\\',\\\\n      url: \\\\'https://www.facebook.com/business/learn/facebook-page-build-audience\\\\',\\\\n    },\\\\n  ]}\\\\n>\\\\n  <p>Page Content</p>\\\\n</Page>'
+					},
+					{
+						code: '<Page\\\\n  breadcrumbs={[\\\\n    {content: \\\\'Settings\\\\'}\\\\n  ]}\\\\n  title=\\"General\\"\\\\n  primaryAction={{content: \\\\'Save\\\\'}}\\\\n>\\\\n  <p>Page content</p>\\\\n</Page>'
+					},
+					{
+						code: '<Page\\\\n  fullWidth\\\\n  title=\\"Orders\\"\\\\n  primaryAction={{content: \\\\'Create order\\\\'}}\\\\n  secondaryActions={[\\\\n    {content: \\\\'Export\\\\'},\\\\n  ]}\\\\n  pagination={{\\\\n    hasNext: true,\\\\n  }}\\\\n>\\\\n  <p>Wide page content</p>\\\\n</Page>'
+					},
+					{
+						code: '<Page\\\\n  title=\\"Products\\"\\\\n  actionGroups={[\\\\n    {\\\\n      title: \\\\'Promote\\\\',\\\\n      actions: [\\\\n        {content: \\\\'Share on Facebook\\\\', onAction: this.performFacebookShare}\\\\n      ],\\\\n    },\\\\n  ]}\\\\n>\\\\n  <p>Page content</p>\\\\n</Page>'
+					},
+					{
+						code: '<Page\\\\n  title=\\"Settings\\"\\\\n  separator\\\\n>\\\\n  <Layout>\\\\n    <Layout.AnnotatedSection title=\\"Store details\\">\\\\n      <p>Annotated section content</p>\\\\n    </Layout.AnnotatedSection>\\\\n  </Layout>\\\\n</Page>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/PageActions',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/PageActions/PageActions.tsx'
-			},
-			documentation: {
-				path: 'src/components/PageActions/README.md'
+			info: {
+				dirPath: 'src/components/PageActions',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/PageActions/PageActions.tsx'
+				},
+				documentation: {
+					path: 'src/components/PageActions/README.md'
+				}
 			},
 			name: 'PageActions',
 			properties: [
@@ -5497,24 +5674,29 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<PageActions\\\\n  primaryAction={{\\\\n    content: \\\\'Save\\\\',\\\\n  }}\\\\n  secondaryActions={[{\\\\n    content: \\\\'Delete\\\\',\\\\n  }]}\\\\n/>'
-				},
-				{
-					code: '<PageActions\\\\n  primaryAction={{\\\\n    content: \\\\'Save\\\\',\\\\n  }}\\\\n/>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<PageActions\\\\n  primaryAction={{\\\\n    content: \\\\'Save\\\\',\\\\n  }}\\\\n  secondaryActions={[{\\\\n    content: \\\\'Delete\\\\',\\\\n  }]}\\\\n/>'
+					},
+					{
+						code: '<PageActions\\\\n  primaryAction={{\\\\n    content: \\\\'Save\\\\',\\\\n  }}\\\\n/>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Pagination',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Pagination/Pagination.tsx'
-			},
-			documentation: {
-				path: 'src/components/Pagination/README.md'
+			info: {
+				dirPath: 'src/components/Pagination',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Pagination/Pagination.tsx'
+				},
+				documentation: {
+					path: 'src/components/Pagination/README.md'
+				}
 			},
 			name: 'Pagination',
 			properties: [
@@ -5591,21 +5773,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Pagination\\\\n  hasPrevious\\\\n  onPrevious={() => {console.log(\\\\'Previous\\\\')}}\\\\n  hasNext\\\\n  onNext={() => {console.log(\\\\'Next\\\\')}} />'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Pagination\\\\n  hasPrevious\\\\n  onPrevious={() => {console.log(\\\\'Previous\\\\')}}\\\\n  hasNext\\\\n  onNext={() => {console.log(\\\\'Next\\\\')}} />'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Popover',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Popover/Popover.tsx'
-			},
-			documentation: {
-				path: 'src/components/Popover/README.md'
+			info: {
+				dirPath: 'src/components/Popover',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Popover/Popover.tsx'
+				},
+				documentation: {
+					path: 'src/components/Popover/README.md'
+				}
 			},
 			name: 'Popover',
 			properties: [
@@ -5691,24 +5878,29 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Popover\\\\n  active\\\\n  activator={<Button>More actions</Button>}\\\\n>\\\\n  <ActionList\\\\n    items={[\\\\n      {content: \\\\'Import\\\\'},\\\\n      {content: \\\\'Export\\\\'},\\\\n    ]}\\\\n  />\\\\n</Popover>'
-				},
-				{
-					code: '<Popover\\\\n  active\\\\n  activator={<Button>Sales channels</Button>}\\\\n>\\\\n  <Popover.Pane fixed>\\\\n    <Popover.Section>\\\\n      <p>Available sales channels</p>\\\\n    </Popover.Section>\\\\n  </Popover.Pane>\\\\n  <Popover.Pane>\\\\n    <ActionList\\\\n      items={[\\\\n        {content: \\\\'Online store\\\\'},\\\\n        {content: \\\\'Facebook\\\\'},\\\\n        {content: \\\\'Shopify POS\\\\'},\\\\n      ]}\\\\n    />\\\\n  </Popover.Pane>\\\\n</Popover>'
-				},
-				{
-					code: '<Popover\\\\n  active\\\\n  activator={<Button>April 20–21, 2017</Button>}\\\\n  sectioned\\\\n>\\\\n  <FormLayout>\\\\n    <Select label=\\"Date range\\" options={[\\\\'Custom\\\\']} />\\\\n\\\\n    <FormLayout.Group condensed>\\\\n      <TextField label=\\"Starting\\" value=\\"2017-04-20\\" />\\\\n      <TextField label=\\"Ending\\" value=\\"2017-04-21\\" />\\\\n    </FormLayout.Group>\\\\n  </FormLayout>\\\\n</Popover>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Popover\\\\n  active\\\\n  activator={<Button>More actions</Button>}\\\\n>\\\\n  <ActionList\\\\n    items={[\\\\n      {content: \\\\'Import\\\\'},\\\\n      {content: \\\\'Export\\\\'},\\\\n    ]}\\\\n  />\\\\n</Popover>'
+					},
+					{
+						code: '<Popover\\\\n  active\\\\n  activator={<Button>Sales channels</Button>}\\\\n>\\\\n  <Popover.Pane fixed>\\\\n    <Popover.Section>\\\\n      <p>Available sales channels</p>\\\\n    </Popover.Section>\\\\n  </Popover.Pane>\\\\n  <Popover.Pane>\\\\n    <ActionList\\\\n      items={[\\\\n        {content: \\\\'Online store\\\\'},\\\\n        {content: \\\\'Facebook\\\\'},\\\\n        {content: \\\\'Shopify POS\\\\'},\\\\n      ]}\\\\n    />\\\\n  </Popover.Pane>\\\\n</Popover>'
+					},
+					{
+						code: '<Popover\\\\n  active\\\\n  activator={<Button>April 20–21, 2017</Button>}\\\\n  sectioned\\\\n>\\\\n  <FormLayout>\\\\n    <Select label=\\"Date range\\" options={[\\\\'Custom\\\\']} />\\\\n\\\\n    <FormLayout.Group condensed>\\\\n      <TextField label=\\"Starting\\" value=\\"2017-04-20\\" />\\\\n      <TextField label=\\"Ending\\" value=\\"2017-04-21\\" />\\\\n    </FormLayout.Group>\\\\n  </FormLayout>\\\\n</Popover>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/PositionedOverlay',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/PositionedOverlay/PositionedOverlay.tsx'
+			info: {
+				dirPath: 'src/components/PositionedOverlay',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/PositionedOverlay/PositionedOverlay.tsx'
+				}
 			},
 			name: 'PositionedOverlay',
 			properties: [
@@ -5776,17 +5968,22 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/RadioButton',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/RadioButton/RadioButton.tsx'
-			},
-			documentation: {
-				path: 'src/components/RadioButton/README.md'
+			info: {
+				dirPath: 'src/components/RadioButton',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/RadioButton/RadioButton.tsx'
+				},
+				documentation: {
+					path: 'src/components/RadioButton/README.md'
+				}
 			},
 			name: 'RadioButton',
 			properties: [
@@ -5890,21 +6087,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<RadioButton\\\\n  label=\\"Accounts are disabled\\"\\\\n  helpText=\\"Customers will only be able to check out as guests.\\"\\\\n/>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<RadioButton\\\\n  label=\\"Accounts are disabled\\"\\\\n  helpText=\\"Customers will only be able to check out as guests.\\"\\\\n/>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/ResourceList',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/ResourceList/ResourceList.tsx'
-			},
-			documentation: {
-				path: 'src/components/ResourceList/README.md'
+			info: {
+				dirPath: 'src/components/ResourceList',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/ResourceList/ResourceList.tsx'
+				},
+				documentation: {
+					path: 'src/components/ResourceList/README.md'
+				}
 			},
 			name: 'ResourceList',
 			properties: [
@@ -5936,27 +6138,32 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<ResourceList\\\\n  items={[\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      attributeOne: \\\\'How to Get Value from Wireframes\\\\',\\\\n      attributeTwo: \\\\'by Jonathan Mangrove\\\\',\\\\n      attributeThree: <TextStyle variation=\\"subdued\\">Today, 7:14pm</TextStyle>,\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      attributeOne: \\\\'Test blog post\\\\',\\\\n      attributeTwo: \\\\'by Jonathan Mangrove\\\\',\\\\n      attributeThree: <TextStyle variation=\\"subdued\\">Jan 14, 2016, 8:24am</TextStyle>,\\\\n      badges: [\\\\n        {content: \\\\'Hidden\\\\'},\\\\n      ],\\\\n    },\\\\n  ]}\\\\n  renderItem={(item, index) => {\\\\n    return <ResourceList.Item key={index} {...item} />;\\\\n  }}\\\\n/>'
-				},
-				{
-					code: '<ResourceList\\\\n  items={[\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'Accessory by Marcuse\\\\',\\\\n      attributeThree: \\\\'12 in stock\\\\',\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'Accessory by Marcuse\\\\',\\\\n      attributeThree: \\\\'11 in stock for 4 variants\\\\',\\\\n      exceptions: [\\\\n        {\\\\n          status: \\\\'warning\\\\',\\\\n          title: \\\\'Not published to 2 channels\\\\',\\\\n          description: \\\\'Content didn’t meet requirements for: Facebook, Amazon\\\\'\\\\n        },\\\\n        {\\\\n          status: \\\\'warning\\\\',\\\\n          title: \\\\'Missing weights on 1 variant\\\\',\\\\n          description: \\\\'Calculated shipping rates won’t be accurate\\\\'\\\\n        },\\\\n      ]\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'Accessory by Marcuse\\\\',\\\\n      attributeThree: \\\\'43 in stock for 3 variants\\\\',\\\\n    },\\\\n  ]}\\\\n  renderItem={(item, index) => {\\\\n    return <ResourceList.Item key={index} {...item} />;\\\\n  }}\\\\n/>'
-				},
-				{
-					code: '<ResourceList\\\\n  items={[\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: <TextStyle variation=\\"subdued\\">No variants</TextStyle>,\\\\n      actions: [{content: \\\\'View listing\\\\'}],\\\\n      persistActions: true,\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'4 variants\\\\',\\\\n      attributeThree: <TextStyle variation=\\"subdued\\">Not listed</TextStyle>,\\\\n      badges: [\\\\n        {\\\\n          status: \\\\'warning\\\\',\\\\n          content: \\\\'Needs review\\\\',\\\\n        }\\\\n      ],\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'3 variants\\\\',\\\\n      actions: [{content: \\\\'View listing\\\\'}],\\\\n      persistActions: true,\\\\n    },\\\\n  ]}\\\\n  renderItem={(item, index) => {\\\\n    return <ResourceList.Item key={index} {...item} />;\\\\n  }}\\\\n/>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<ResourceList\\\\n  items={[\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      attributeOne: \\\\'How to Get Value from Wireframes\\\\',\\\\n      attributeTwo: \\\\'by Jonathan Mangrove\\\\',\\\\n      attributeThree: <TextStyle variation=\\"subdued\\">Today, 7:14pm</TextStyle>,\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      attributeOne: \\\\'Test blog post\\\\',\\\\n      attributeTwo: \\\\'by Jonathan Mangrove\\\\',\\\\n      attributeThree: <TextStyle variation=\\"subdued\\">Jan 14, 2016, 8:24am</TextStyle>,\\\\n      badges: [\\\\n        {content: \\\\'Hidden\\\\'},\\\\n      ],\\\\n    },\\\\n  ]}\\\\n  renderItem={(item, index) => {\\\\n    return <ResourceList.Item key={index} {...item} />;\\\\n  }}\\\\n/>'
+					},
+					{
+						code: '<ResourceList\\\\n  items={[\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'Accessory by Marcuse\\\\',\\\\n      attributeThree: \\\\'12 in stock\\\\',\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'Accessory by Marcuse\\\\',\\\\n      attributeThree: \\\\'11 in stock for 4 variants\\\\',\\\\n      exceptions: [\\\\n        {\\\\n          status: \\\\'warning\\\\',\\\\n          title: \\\\'Not published to 2 channels\\\\',\\\\n          description: \\\\'Content didn’t meet requirements for: Facebook, Amazon\\\\'\\\\n        },\\\\n        {\\\\n          status: \\\\'warning\\\\',\\\\n          title: \\\\'Missing weights on 1 variant\\\\',\\\\n          description: \\\\'Calculated shipping rates won’t be accurate\\\\'\\\\n        },\\\\n      ]\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'Accessory by Marcuse\\\\',\\\\n      attributeThree: \\\\'43 in stock for 3 variants\\\\',\\\\n    },\\\\n  ]}\\\\n  renderItem={(item, index) => {\\\\n    return <ResourceList.Item key={index} {...item} />;\\\\n  }}\\\\n/>'
+					},
+					{
+						code: '<ResourceList\\\\n  items={[\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: <TextStyle variation=\\"subdued\\">No variants</TextStyle>,\\\\n      actions: [{content: \\\\'View listing\\\\'}],\\\\n      persistActions: true,\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'4 variants\\\\',\\\\n      attributeThree: <TextStyle variation=\\"subdued\\">Not listed</TextStyle>,\\\\n      badges: [\\\\n        {\\\\n          status: \\\\'warning\\\\',\\\\n          content: \\\\'Needs review\\\\',\\\\n        }\\\\n      ],\\\\n    },\\\\n    {\\\\n      url: \\\\'#\\\\',\\\\n      media: <Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />,\\\\n      attributeOne: \\\\'Elegant necklace\\\\',\\\\n      attributeTwo: \\\\'3 variants\\\\',\\\\n      actions: [{content: \\\\'View listing\\\\'}],\\\\n      persistActions: true,\\\\n    },\\\\n  ]}\\\\n  renderItem={(item, index) => {\\\\n    return <ResourceList.Item key={index} {...item} />;\\\\n  }}\\\\n/>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Scrollable',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Scrollable/Scrollable.tsx'
-			},
-			documentation: {
-				path: 'src/components/Scrollable/README.md'
+			info: {
+				dirPath: 'src/components/Scrollable',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Scrollable/Scrollable.tsx'
+				},
+				documentation: {
+					path: 'src/components/Scrollable/README.md'
+				}
 			},
 			name: 'Scrollable',
 			properties: [
@@ -8571,21 +8778,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Card title=\\"Terms of service\\" sectioned>\\\\n  <Scrollable shadow style={{height: \\\\'100px\\\\'}}>\\\\n  	<p>By signing up for the Shopify service (“Service”) or any of the services of Shopify Inc. (“Shopify”) you are agreeing to be bound by the following terms and conditions (“Terms of Service”). The Services offered by Shopify under the Terms of Service include various products and services to help you create and manage a retail store, whether an online store (“Online Services”), a physical retail store (“POS Services”), or both. Any new features or tools which are added to the current Service shall be also subject to the Terms of Service. You can review the current version of the Terms of Service at any time at https://www.shopify.com/legal/terms. Shopify reserves the right to update and change the Terms of Service by posting updates and changes to the Shopify website. You are advised to check the Terms of Service from time to time for any updates or changes that may impact you.</p>\\\\n  </Scrollable>\\\\n</Card>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Card title=\\"Terms of service\\" sectioned>\\\\n  <Scrollable shadow style={{height: \\\\'100px\\\\'}}>\\\\n  	<p>By signing up for the Shopify service (“Service”) or any of the services of Shopify Inc. (“Shopify”) you are agreeing to be bound by the following terms and conditions (“Terms of Service”). The Services offered by Shopify under the Terms of Service include various products and services to help you create and manage a retail store, whether an online store (“Online Services”), a physical retail store (“POS Services”), or both. Any new features or tools which are added to the current Service shall be also subject to the Terms of Service. You can review the current version of the Terms of Service at any time at https://www.shopify.com/legal/terms. Shopify reserves the right to update and change the Terms of Service by posting updates and changes to the Shopify website. You are advised to check the Terms of Service from time to time for any updates or changes that may impact you.</p>\\\\n  </Scrollable>\\\\n</Card>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Select',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Select/Select.tsx'
-			},
-			documentation: {
-				path: 'src/components/Select/README.md'
+			info: {
+				dirPath: 'src/components/Select',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Select/Select.tsx'
+				},
+				documentation: {
+					path: 'src/components/Select/README.md'
+				}
 			},
 			name: 'Select',
 			properties: [
@@ -8725,24 +8937,29 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Select\\\\n  label=\\"One\\"\\\\n  options={[\\\\'two\\\\', \\\\'three\\\\', {label: \\\\'four\\\\', value: \\\\'4\\\\'}]}\\\\n  placeholder=\\"Select\\"\\\\n/>'
-				},
-				{
-					code: '<Select\\\\n  label=\\"One\\"\\\\n  disabled\\\\n  options={[\\\\'two\\\\', \\\\'three\\\\', {label: \\\\'four\\\\', value: \\\\'4\\\\'}]}\\\\n  placeholder=\\"Select\\"\\\\n/>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Select\\\\n  label=\\"One\\"\\\\n  options={[\\\\'two\\\\', \\\\'three\\\\', {label: \\\\'four\\\\', value: \\\\'4\\\\'}]}\\\\n  placeholder=\\"Select\\"\\\\n/>'
+					},
+					{
+						code: '<Select\\\\n  label=\\"One\\"\\\\n  disabled\\\\n  options={[\\\\'two\\\\', \\\\'three\\\\', {label: \\\\'four\\\\', value: \\\\'4\\\\'}]}\\\\n  placeholder=\\"Select\\"\\\\n/>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/SettingAction',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/SettingAction/SettingAction.tsx'
-			},
-			documentation: {
-				path: 'src/components/SettingAction/README.md'
+			info: {
+				dirPath: 'src/components/SettingAction',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/SettingAction/SettingAction.tsx'
+				},
+				documentation: {
+					path: 'src/components/SettingAction/README.md'
+				}
 			},
 			name: 'SettingAction',
 			properties: [
@@ -8765,17 +8982,22 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/SettingToggle',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/SettingToggle/SettingToggle.tsx'
-			},
-			documentation: {
-				path: 'src/components/SettingToggle/README.md'
+			info: {
+				dirPath: 'src/components/SettingToggle',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/SettingToggle/SettingToggle.tsx'
+				},
+				documentation: {
+					path: 'src/components/SettingToggle/README.md'
+				}
 			},
 			name: 'SettingToggle',
 			properties: [
@@ -8807,21 +9029,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<SettingToggle\\\\n  action={{\\\\n    content: \\\\'Enable\\\\',\\\\n  }}\\\\n>\\\\n  This setting is <TextStyle variation=\\"strong\\">disabled</TextStyle>.\\\\n</SettingToggle>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<SettingToggle\\\\n  action={{\\\\n    content: \\\\'Enable\\\\',\\\\n  }}\\\\n>\\\\n  This setting is <TextStyle variation=\\"strong\\">disabled</TextStyle>.\\\\n</SettingToggle>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/SkeletonBodyText',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/SkeletonBodyText/SkeletonBodyText.tsx'
-			},
-			documentation: {
-				path: 'src/components/SkeletonBodyText/README.md'
+			info: {
+				dirPath: 'src/components/SkeletonBodyText',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/SkeletonBodyText/SkeletonBodyText.tsx'
+				},
+				documentation: {
+					path: 'src/components/SkeletonBodyText/README.md'
+				}
 			},
 			name: 'SkeletonBodyText',
 			properties: [
@@ -8835,24 +9062,29 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<SkeletonBodyText />'
-				},
-				{
-					code: '<SkeletonBodyText lines={1} />'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<SkeletonBodyText />'
+					},
+					{
+						code: '<SkeletonBodyText lines={1} />'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/SkeletonDisplayText',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/SkeletonDisplayText/SkeletonDisplayText.tsx'
-			},
-			documentation: {
-				path: 'src/components/SkeletonDisplayText/README.md'
+			info: {
+				dirPath: 'src/components/SkeletonDisplayText',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/SkeletonDisplayText/SkeletonDisplayText.tsx'
+				},
+				documentation: {
+					path: 'src/components/SkeletonDisplayText/README.md'
+				}
 			},
 			name: 'SkeletonDisplayText',
 			properties: [
@@ -8866,27 +9098,32 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<SkeletonDisplayText size=\\"medium\\" />'
-				},
-				{
-					code: '<SkeletonDisplayText size=\\"extraLarge\\" />'
-				},
-				{
-					code: '<SkeletonDisplayText size=\\"small\\" />'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<SkeletonDisplayText size=\\"medium\\" />'
+					},
+					{
+						code: '<SkeletonDisplayText size=\\"extraLarge\\" />'
+					},
+					{
+						code: '<SkeletonDisplayText size=\\"small\\" />'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/SkeletonPage',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/SkeletonPage/SkeletonPage.tsx'
-			},
-			documentation: {
-				path: 'src/components/SkeletonPage/README.md'
+			info: {
+				dirPath: 'src/components/SkeletonPage',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/SkeletonPage/SkeletonPage.tsx'
+				},
+				documentation: {
+					path: 'src/components/SkeletonPage/README.md'
+				}
 			},
 			name: 'SkeletonPage',
 			properties: [
@@ -8927,24 +9164,29 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<SkeletonPage secondaryActions={2}>\\\\n  <Layout>\\\\n    <Layout.Section>\\\\n      <Card sectioned>\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n      <Card sectioned>\\\\n        <TextContainer>\\\\n          <SkeletonDisplayText size=\\"small\\" />\\\\n          <SkeletonBodyText />\\\\n        </TextContainer>\\\\n      </Card>\\\\n      <Card sectioned>\\\\n        <TextContainer>\\\\n          <SkeletonDisplayText size=\\"small\\" />\\\\n          <SkeletonBodyText />\\\\n        </TextContainer>\\\\n      </Card>\\\\n    </Layout.Section>\\\\n    <Layout.Section secondary>\\\\n      <Card>\\\\n        <Card.Section>\\\\n          <TextContainer>\\\\n            <SkeletonDisplayText size=\\"small\\" />\\\\n            <SkeletonBodyText lines={2} />\\\\n          </TextContainer>\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={1} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n      <Card subdued>\\\\n        <Card.Section>\\\\n          <TextContainer>\\\\n            <SkeletonDisplayText size=\\"small\\" />\\\\n            <SkeletonBodyText lines={2} />\\\\n          </TextContainer>\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n    </Layout.Section>\\\\n  </Layout>\\\\n</SkeletonPage>'
-				},
-				{
-					code: '<SkeletonPage\\\\n  title=\\"Products\\"\\\\n  secondaryActions={2}\\\\n>\\\\n  <Layout>\\\\n    <Layout.Section>\\\\n      <Card sectioned>\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n      <Card\\\\n        sectioned\\\\n        title=\\"Images\\"\\\\n      >\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n      <Card\\\\n        sectioned\\\\n        title=\\"Variants\\"\\\\n      >\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n    </Layout.Section>\\\\n    <Layout.Section secondary>\\\\n      <Card\\\\n        title=\\"Sales channels\\"\\\\n      >\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={1} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n      <Card\\\\n        title=\\"Organization\\"\\\\n        subdued\\\\n      >\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n    </Layout.Section>\\\\n  </Layout>\\\\n</SkeletonPage>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<SkeletonPage secondaryActions={2}>\\\\n  <Layout>\\\\n    <Layout.Section>\\\\n      <Card sectioned>\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n      <Card sectioned>\\\\n        <TextContainer>\\\\n          <SkeletonDisplayText size=\\"small\\" />\\\\n          <SkeletonBodyText />\\\\n        </TextContainer>\\\\n      </Card>\\\\n      <Card sectioned>\\\\n        <TextContainer>\\\\n          <SkeletonDisplayText size=\\"small\\" />\\\\n          <SkeletonBodyText />\\\\n        </TextContainer>\\\\n      </Card>\\\\n    </Layout.Section>\\\\n    <Layout.Section secondary>\\\\n      <Card>\\\\n        <Card.Section>\\\\n          <TextContainer>\\\\n            <SkeletonDisplayText size=\\"small\\" />\\\\n            <SkeletonBodyText lines={2} />\\\\n          </TextContainer>\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={1} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n      <Card subdued>\\\\n        <Card.Section>\\\\n          <TextContainer>\\\\n            <SkeletonDisplayText size=\\"small\\" />\\\\n            <SkeletonBodyText lines={2} />\\\\n          </TextContainer>\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n    </Layout.Section>\\\\n  </Layout>\\\\n</SkeletonPage>'
+					},
+					{
+						code: '<SkeletonPage\\\\n  title=\\"Products\\"\\\\n  secondaryActions={2}\\\\n>\\\\n  <Layout>\\\\n    <Layout.Section>\\\\n      <Card sectioned>\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n      <Card\\\\n        sectioned\\\\n        title=\\"Images\\"\\\\n      >\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n      <Card\\\\n        sectioned\\\\n        title=\\"Variants\\"\\\\n      >\\\\n        <SkeletonBodyText />\\\\n      </Card>\\\\n    </Layout.Section>\\\\n    <Layout.Section secondary>\\\\n      <Card\\\\n        title=\\"Sales channels\\"\\\\n      >\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={1} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n      <Card\\\\n        title=\\"Organization\\"\\\\n        subdued\\\\n      >\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n        <Card.Section>\\\\n          <SkeletonBodyText lines={2} />\\\\n        </Card.Section>\\\\n      </Card>\\\\n    </Layout.Section>\\\\n  </Layout>\\\\n</SkeletonPage>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Spinner',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Spinner/Spinner.tsx'
-			},
-			documentation: {
-				path: 'src/components/Spinner/README.md'
+			info: {
+				dirPath: 'src/components/Spinner',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Spinner/Spinner.tsx'
+				},
+				documentation: {
+					path: 'src/components/Spinner/README.md'
+				}
 			},
 			name: 'Spinner',
 			properties: [
@@ -8976,21 +9218,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Spinner size=\\"large\\" color=\\"teal\\" />'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Spinner size=\\"large\\" color=\\"teal\\" />'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Stack',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Stack/Stack.tsx'
-			},
-			documentation: {
-				path: 'src/components/Stack/README.md'
+			info: {
+				dirPath: 'src/components/Stack',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Stack/Stack.tsx'
+				},
+				documentation: {
+					path: 'src/components/Stack/README.md'
+				}
 			},
 			name: 'Stack',
 			properties: [
@@ -9049,39 +9296,44 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Stack>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Processing</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n  <Badge>Completed</Badge>\\\\n</Stack>'
-				},
-				{
-					code: '<Stack wrap={false}>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Processing</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n  <Badge>Completed</Badge>\\\\n</Stack>'
-				},
-				{
-					code: '<Stack spacing=\\"loose\\">\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
-				},
-				{
-					code: '<Stack alignment=\\"center\\">\\\\n  <Heading>Order #1136</Heading>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
-				},
-				{
-					code: '<Stack distribution=\\"fill\\">\\\\n  <Heading>Order #1136</Heading>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
-				},
-				{
-					code: '<Stack distribution=\\"fillEvenly\\">\\\\n  <Heading>Order #1136</Heading>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
-				},
-				{
-					code: '<Stack>\\\\n  <Stack.Item fill>\\\\n    <Heading>Order #1136</Heading>\\\\n  </Stack.Item>\\\\n  <Stack.Item>\\\\n    <Badge>Paid</Badge>\\\\n  </Stack.Item>\\\\n  <Stack.Item>\\\\n    <Badge>Fulfilled</Badge>\\\\n  </Stack.Item>\\\\n</Stack>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Stack>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Processing</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n  <Badge>Completed</Badge>\\\\n</Stack>'
+					},
+					{
+						code: '<Stack wrap={false}>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Processing</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n  <Badge>Completed</Badge>\\\\n</Stack>'
+					},
+					{
+						code: '<Stack spacing=\\"loose\\">\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
+					},
+					{
+						code: '<Stack alignment=\\"center\\">\\\\n  <Heading>Order #1136</Heading>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
+					},
+					{
+						code: '<Stack distribution=\\"fill\\">\\\\n  <Heading>Order #1136</Heading>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
+					},
+					{
+						code: '<Stack distribution=\\"fillEvenly\\">\\\\n  <Heading>Order #1136</Heading>\\\\n  <Badge>Paid</Badge>\\\\n  <Badge>Fulfilled</Badge>\\\\n</Stack>'
+					},
+					{
+						code: '<Stack>\\\\n  <Stack.Item fill>\\\\n    <Heading>Order #1136</Heading>\\\\n  </Stack.Item>\\\\n  <Stack.Item>\\\\n    <Badge>Paid</Badge>\\\\n  </Stack.Item>\\\\n  <Stack.Item>\\\\n    <Badge>Fulfilled</Badge>\\\\n  </Stack.Item>\\\\n</Stack>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Subheading',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Subheading/Subheading.tsx'
-			},
-			documentation: {
-				path: 'src/components/Subheading/README.md'
+			info: {
+				dirPath: 'src/components/Subheading',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Subheading/Subheading.tsx'
+				},
+				documentation: {
+					path: 'src/components/Subheading/README.md'
+				}
 			},
 			name: 'Subheading',
 			properties: [
@@ -9104,21 +9356,26 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Subheading>Accounts</Subheading>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Subheading>Accounts</Subheading>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Tabs',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Tabs/Tabs.tsx'
-			},
-			documentation: {
-				path: 'src/components/Tabs/README.md'
+			info: {
+				dirPath: 'src/components/Tabs',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Tabs/Tabs.tsx'
+				},
+				documentation: {
+					path: 'src/components/Tabs/README.md'
+				}
 			},
 			name: 'Tabs',
 			properties: [
@@ -9168,24 +9425,29 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Tabs\\\\n  selected={0}\\\\n  tabs={[\\\\n    {\\\\n      id: \\\\'all-customers\\\\',\\\\n      title: \\\\'All\\\\',\\\\n      accessibilityLabel: \\\\'All customers\\\\',\\\\n      panelID: \\\\'all-customers-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'accepts-marketing\\\\',\\\\n      title: \\\\'Accepts marketing\\\\',\\\\n      panelID: \\\\'accepts-marketing-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'repeat-customers\\\\',\\\\n      title: \\\\'Repeat customers\\\\',\\\\n      panelID: \\\\'repeat-customers-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'prospects\\\\',\\\\n      title: \\\\'Prospects\\\\',\\\\n      panelID: \\\\'prospects-content\\\\',\\\\n    }\\\\n  ]}\\\\n/>'
-				},
-				{
-					code: '<Tabs\\\\n  fitted\\\\n  selected={0}\\\\n  tabs={[\\\\n    {\\\\n      id: \\\\'all-customers\\\\',\\\\n      title: \\\\'All\\\\',\\\\n      accessibilityLabel: \\\\'All customers\\\\',\\\\n      panelID: \\\\'all-customers-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'accepts-marketing\\\\',\\\\n      title: \\\\'Accepts marketing\\\\',\\\\n      panelID: \\\\'accepts-marketing-content\\\\',\\\\n    }\\\\n  ]}\\\\n/>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Tabs\\\\n  selected={0}\\\\n  tabs={[\\\\n    {\\\\n      id: \\\\'all-customers\\\\',\\\\n      title: \\\\'All\\\\',\\\\n      accessibilityLabel: \\\\'All customers\\\\',\\\\n      panelID: \\\\'all-customers-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'accepts-marketing\\\\',\\\\n      title: \\\\'Accepts marketing\\\\',\\\\n      panelID: \\\\'accepts-marketing-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'repeat-customers\\\\',\\\\n      title: \\\\'Repeat customers\\\\',\\\\n      panelID: \\\\'repeat-customers-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'prospects\\\\',\\\\n      title: \\\\'Prospects\\\\',\\\\n      panelID: \\\\'prospects-content\\\\',\\\\n    }\\\\n  ]}\\\\n/>'
+					},
+					{
+						code: '<Tabs\\\\n  fitted\\\\n  selected={0}\\\\n  tabs={[\\\\n    {\\\\n      id: \\\\'all-customers\\\\',\\\\n      title: \\\\'All\\\\',\\\\n      accessibilityLabel: \\\\'All customers\\\\',\\\\n      panelID: \\\\'all-customers-content\\\\',\\\\n    },\\\\n    {\\\\n      id: \\\\'accepts-marketing\\\\',\\\\n      title: \\\\'Accepts marketing\\\\',\\\\n      panelID: \\\\'accepts-marketing-content\\\\',\\\\n    }\\\\n  ]}\\\\n/>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Tag',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Tag/Tag.tsx'
-			},
-			documentation: {
-				path: 'src/components/Tag/README.md'
+			info: {
+				dirPath: 'src/components/Tag',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Tag/Tag.tsx'
+				},
+				documentation: {
+					path: 'src/components/Tag/README.md'
+				}
 			},
 			name: 'Tag',
 			properties: [
@@ -9208,18 +9470,23 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Tag>Wholesale</Tag>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Tag>Wholesale</Tag>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/TextContainer',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/TextContainer/TextContainer.tsx'
+			info: {
+				dirPath: 'src/components/TextContainer',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/TextContainer/TextContainer.tsx'
+				}
 			},
 			name: 'TextContainer',
 			properties: [
@@ -9233,17 +9500,22 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/TextField',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/TextField/TextField.tsx'
-			},
-			documentation: {
-				path: 'src/components/TextField/README.md'
+			info: {
+				dirPath: 'src/components/TextField',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/TextField/TextField.tsx'
+				},
+				documentation: {
+					path: 'src/components/TextField/README.md'
+				}
 			},
 			name: 'TextField',
 			properties: [
@@ -9518,54 +9790,59 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<TextField label=\\"Store name\\" />'
-				},
-				{
-					code: '<TextField label=\\"Quantity\\" type=\\"number\\" value=\\"1\\" />'
-				},
-				{
-					code: '<TextField label=\\"Email\\" type=\\"email\\" />'
-				},
-				{
-					code: '<TextField label=\\"Shipping address\\" multiline />'
-				},
-				{
-					code: '<FormLayout>\\\\n  <ChoiceList\\\\n    title=\\"Gift card auto-expiration\\"\\\\n    choices={[\\\\n      {label: \\\\'Gift cards never expire\\\\', value: \\\\'no\\\\'},\\\\n      {label: \\\\'Gift cards expire\\\\', value: \\\\'yes\\\\'},\\\\n    ]}\\\\n    selected={[\\\\'yes\\\\']}\\\\n  />\\\\n  <TextField\\\\n    label=\\"Gift cards expire after\\"\\\\n    labelHidden\\\\n    value=\\"12\\"\\\\n    connectedRight={\\\\n      <Select\\\\n        label=\\"Unit of time\\"\\\\n        labelHidden\\\\n        options={[\\\\'months after purchase\\\\']} />\\\\n    } />\\\\n</FormLayout>'
-				},
-				{
-					code: '<TextField label=\\"Tariff code\\" labelAction={{content: \\\\'Look up codes\\\\'}} />'
-				},
-				{
-					code: '<TextField label=\\"Zone name\\" placeholder=\\"e.g. North America, Europe\\" />'
-				},
-				{
-					code: '<TextField label=\\"Account email\\" type=\\"email\\" helpText=\\"We’ll use this address if we need to contact you about your account.\\" />'
-				},
-				{
-					code: '<TextField label=\\"Price\\" type=\\"number\\" prefix=\\"$\\" />'
-				},
-				{
-					code: '<TextField\\\\n  label=\\"Weight\\"\\\\n  type=\\"number\\"\\\\n  connectedRight={\\\\n    <Select label=\\"Weight unit\\" labelHidden options={[\\\\'kg\\\\', \\\\'lb\\\\']} />\\\\n  }\\\\n  />'
-				},
-				{
-					code: '<TextField label=\\"Store name\\" error=\\"Store name is required\\" />'
-				},
-				{
-					code: '<TextField label=\\"Store name\\" disabled />'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<TextField label=\\"Store name\\" />'
+					},
+					{
+						code: '<TextField label=\\"Quantity\\" type=\\"number\\" value=\\"1\\" />'
+					},
+					{
+						code: '<TextField label=\\"Email\\" type=\\"email\\" />'
+					},
+					{
+						code: '<TextField label=\\"Shipping address\\" multiline />'
+					},
+					{
+						code: '<FormLayout>\\\\n  <ChoiceList\\\\n    title=\\"Gift card auto-expiration\\"\\\\n    choices={[\\\\n      {label: \\\\'Gift cards never expire\\\\', value: \\\\'no\\\\'},\\\\n      {label: \\\\'Gift cards expire\\\\', value: \\\\'yes\\\\'},\\\\n    ]}\\\\n    selected={[\\\\'yes\\\\']}\\\\n  />\\\\n  <TextField\\\\n    label=\\"Gift cards expire after\\"\\\\n    labelHidden\\\\n    value=\\"12\\"\\\\n    connectedRight={\\\\n      <Select\\\\n        label=\\"Unit of time\\"\\\\n        labelHidden\\\\n        options={[\\\\'months after purchase\\\\']} />\\\\n    } />\\\\n</FormLayout>'
+					},
+					{
+						code: '<TextField label=\\"Tariff code\\" labelAction={{content: \\\\'Look up codes\\\\'}} />'
+					},
+					{
+						code: '<TextField label=\\"Zone name\\" placeholder=\\"e.g. North America, Europe\\" />'
+					},
+					{
+						code: '<TextField label=\\"Account email\\" type=\\"email\\" helpText=\\"We’ll use this address if we need to contact you about your account.\\" />'
+					},
+					{
+						code: '<TextField label=\\"Price\\" type=\\"number\\" prefix=\\"$\\" />'
+					},
+					{
+						code: '<TextField\\\\n  label=\\"Weight\\"\\\\n  type=\\"number\\"\\\\n  connectedRight={\\\\n    <Select label=\\"Weight unit\\" labelHidden options={[\\\\'kg\\\\', \\\\'lb\\\\']} />\\\\n  }\\\\n  />'
+					},
+					{
+						code: '<TextField label=\\"Store name\\" error=\\"Store name is required\\" />'
+					},
+					{
+						code: '<TextField label=\\"Store name\\" disabled />'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/TextStyle',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/TextStyle/TextStyle.tsx'
-			},
-			documentation: {
-				path: 'src/components/TextStyle/README.md'
+			info: {
+				dirPath: 'src/components/TextStyle',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/TextStyle/TextStyle.tsx'
+				},
+				documentation: {
+					path: 'src/components/TextStyle/README.md'
+				}
 			},
 			name: 'TextStyle',
 			properties: [
@@ -9588,30 +9865,35 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<TextStyle variation=\\"subdued\\">No supplier listed</TextStyle>'
-				},
-				{
-					code: '<TextStyle variation=\\"strong\\">Total</TextStyle>'
-				},
-				{
-					code: '<TextStyle variation=\\"positive\\">Orders increased</TextStyle>'
-				},
-				{
-					code: '<TextStyle variation=\\"negative\\">Orders decreased</TextStyle>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<TextStyle variation=\\"subdued\\">No supplier listed</TextStyle>'
+					},
+					{
+						code: '<TextStyle variation=\\"strong\\">Total</TextStyle>'
+					},
+					{
+						code: '<TextStyle variation=\\"positive\\">Orders increased</TextStyle>'
+					},
+					{
+						code: '<TextStyle variation=\\"negative\\">Orders decreased</TextStyle>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Thumbnail',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Thumbnail/Thumbnail.tsx'
-			},
-			documentation: {
-				path: 'src/components/Thumbnail/README.md'
+			info: {
+				dirPath: 'src/components/Thumbnail',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Thumbnail/Thumbnail.tsx'
+				},
+				documentation: {
+					path: 'src/components/Thumbnail/README.md'
+				}
 			},
 			name: 'Thumbnail',
 			properties: [
@@ -9643,27 +9925,32 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />'
-				},
-				{
-					code: '<Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" size=\\"small\\" alt=\\"Black choker necklace\\" />'
-				},
-				{
-					code: '<Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" size=\\"large\\" alt=\\"Black choker necklace\\" />'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" alt=\\"Black choker necklace\\" />'
+					},
+					{
+						code: '<Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" size=\\"small\\" alt=\\"Black choker necklace\\" />'
+					},
+					{
+						code: '<Thumbnail source=\\"https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg\\" size=\\"large\\" alt=\\"Black choker necklace\\" />'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/Tooltip',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/Tooltip/Tooltip.tsx'
-			},
-			documentation: {
-				path: 'src/components/Tooltip/README.md'
+			info: {
+				dirPath: 'src/components/Tooltip',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/Tooltip/Tooltip.tsx'
+				},
+				documentation: {
+					path: 'src/components/Tooltip/README.md'
+				}
 			},
 			name: 'Tooltip',
 			properties: [
@@ -9722,18 +10009,23 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Tooltip content=\\"This order has shipping labels.\\">\\\\n  <Link>Order #1001</Link>\\\\n</Tooltip>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Tooltip content=\\"This order has shipping labels.\\">\\\\n  <Link>Order #1001</Link>\\\\n</Tooltip>'
+					}
+				]
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/UnstyledLink',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/UnstyledLink/UnstyledLink.tsx'
+			info: {
+				dirPath: 'src/components/UnstyledLink',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/UnstyledLink/UnstyledLink.tsx'
+				}
 			},
 			name: 'UnstyledLink',
 			properties: [
@@ -12330,17 +12622,22 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/VisuallyHidden',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'typescript',
-				path: 'src/components/VisuallyHidden/VisuallyHidden.tsx'
-			},
-			documentation: {
-				path: 'src/components/VisuallyHidden/README.md'
+			info: {
+				dirPath: 'src/components/VisuallyHidden',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'typescript',
+					path: 'src/components/VisuallyHidden/VisuallyHidden.tsx'
+				},
+				documentation: {
+					path: 'src/components/VisuallyHidden/README.md'
+				}
 			},
 			name: 'VisuallyHidden',
 			properties: [
@@ -12354,14 +12651,17 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					}
 				}
 			],
-			examples: [
-				{
-					code: '<Card sectioned>\\\\n  <VisuallyHidden>\\\\n    <Heading>Title and description</Heading>\\\\n  </VisuallyHidden>\\\\n  <FormLayout>\\\\n    <TextField label=\\"Title\\" value=\\"Artisanal Wooden Spoon\\" />\\\\n    <TextField label=\\"Description\\" multiline />\\\\n  </FormLayout>\\\\n</Card>'
-				},
-				{
-					code: '<table>\\\\n  <thead>\\\\n    <tr>\\\\n      <th scope=\\"col\\"><VisuallyHidden>Line item</VisuallyHidden></th>\\\\n      <th scope=\\"col\\"><VisuallyHidden>Value</VisuallyHidden></th>\\\\n    </tr>\\\\n  </thead>\\\\n  <tbody>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Subtotal</th>\\\\n      <td>$184.13</td>\\\\n    </tr>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Tax</th>\\\\n      <td>$0.00</td>\\\\n    </tr>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Total</th>\\\\n      <td>$184.13</td>\\\\n    </tr>\\\\n  </tbody>\\\\n</table>'
-				}
-			]
+			documentation: {
+				examples: [
+					{
+						code: '<Card sectioned>\\\\n  <VisuallyHidden>\\\\n    <Heading>Title and description</Heading>\\\\n  </VisuallyHidden>\\\\n  <FormLayout>\\\\n    <TextField label=\\"Title\\" value=\\"Artisanal Wooden Spoon\\" />\\\\n    <TextField label=\\"Description\\" multiline />\\\\n  </FormLayout>\\\\n</Card>'
+					},
+					{
+						code: '<table>\\\\n  <thead>\\\\n    <tr>\\\\n      <th scope=\\"col\\"><VisuallyHidden>Line item</VisuallyHidden></th>\\\\n      <th scope=\\"col\\"><VisuallyHidden>Value</VisuallyHidden></th>\\\\n    </tr>\\\\n  </thead>\\\\n  <tbody>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Subtotal</th>\\\\n      <td>$184.13</td>\\\\n    </tr>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Tax</th>\\\\n      <td>$0.00</td>\\\\n    </tr>\\\\n    <tr>\\\\n      <th scope=\\"row\\">Total</th>\\\\n      <td>$184.13</td>\\\\n    </tr>\\\\n  </tbody>\\\\n</table>'
+					}
+				]
+			},
+			presets: []
 		}
 	],
 	name: ''

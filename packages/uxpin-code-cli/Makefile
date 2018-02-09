@@ -6,6 +6,7 @@ SHELL := /bin/bash -o pipefail
 build:
 	tsc
 	make build-server-app
+	dts-bundle-generator -o src/types.d.ts src/types.ts
 
 build-server-app:
 	webpack --config "./config/webpack.config.js"
@@ -53,3 +54,7 @@ test-resources:
 
 test-rename-snapshots:
 	./shell_scripts/test-rename-snapshots.sh
+
+publish:
+	make build
+	npm publish

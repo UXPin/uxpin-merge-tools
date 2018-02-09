@@ -4,98 +4,130 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 "{
 	components: [
 		{
-			dirPath: 'src/components/alert',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/alert/alert.jsx'
-			},
-			documentation: {
-				path: 'src/components/alert/alert.md'
+			info: {
+				dirPath: 'src/components/alert',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/alert/alert.jsx'
+				},
+				documentation: {
+					path: 'src/components/alert/alert.md'
+				}
 			},
 			name: 'Alert',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/animate',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/animate/animate.jsx'
-			},
-			documentation: {
-				path: 'src/components/animate/animate.md'
+			info: {
+				dirPath: 'src/components/animate',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/animate/animate.jsx'
+				},
+				documentation: {
+					path: 'src/components/animate/animate.md'
+				}
 			},
 			name: 'Animate',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/avatar',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/avatar/avatar.jsx'
-			},
-			documentation: {
-				path: 'src/components/avatar/avatar.md'
+			info: {
+				dirPath: 'src/components/avatar',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/avatar/avatar.jsx'
+				},
+				documentation: {
+					path: 'src/components/avatar/avatar.md'
+				}
 			},
 			name: 'Avatar',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/badge',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/badge/badge.jsx'
-			},
-			documentation: {
-				path: 'src/components/badge/badge.md'
+			info: {
+				dirPath: 'src/components/badge',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/badge/badge.jsx'
+				},
+				documentation: {
+					path: 'src/components/badge/badge.md'
+				}
 			},
 			name: 'Badge',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/button',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/button/button.jsx'
-			},
-			documentation: {
-				path: 'src/components/button/button.md'
+			info: {
+				dirPath: 'src/components/button',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/button/button.jsx'
+				},
+				documentation: {
+					path: 'src/components/button/button.md'
+				}
 			},
 			name: 'Button',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/dropdown',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/dropdown/dropdown.jsx'
-			},
-			documentation: {
-				path: 'src/components/dropdown/dropdown.md'
+			info: {
+				dirPath: 'src/components/dropdown',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/dropdown/dropdown.jsx'
+				},
+				documentation: {
+					path: 'src/components/dropdown/dropdown.md'
+				}
 			},
 			name: 'Dropdown',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/flag',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/flag/flag.jsx'
-			},
-			documentation: {
-				path: 'src/components/flag/flag.md'
+			info: {
+				dirPath: 'src/components/flag',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/flag/flag.jsx'
+				},
+				documentation: {
+					path: 'src/components/flag/flag.md'
+				}
 			},
 			name: 'Flag',
 			properties: [
@@ -481,17 +513,22 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/icon',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/icon/icon.jsx'
-			},
-			documentation: {
-				path: 'src/components/icon/icon.md'
+			info: {
+				dirPath: 'src/components/icon',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/icon/icon.jsx'
+				},
+				documentation: {
+					path: 'src/components/icon/icon.md'
+				}
 			},
 			name: 'Icon',
 			properties: [
@@ -607,17 +644,22 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/input',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/input/input.jsx'
-			},
-			documentation: {
-				path: 'src/components/input/input.md'
+			info: {
+				dirPath: 'src/components/input',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/input/input.jsx'
+				},
+				documentation: {
+					path: 'src/components/input/input.md'
+				}
 			},
 			name: 'Input',
 			properties: [
@@ -837,45 +879,60 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/labeled-value',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/labeled-value/labeled-value.jsx'
-			},
-			documentation: {
-				path: 'src/components/labeled-value/labeled-value.md'
+			info: {
+				dirPath: 'src/components/labeled-value',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/labeled-value/labeled-value.jsx'
+				},
+				documentation: {
+					path: 'src/components/labeled-value/labeled-value.md'
+				}
 			},
 			name: 'LabeledValue',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/li',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/li/li.jsx'
-			},
-			documentation: {
-				path: 'src/components/li/li.md'
+			info: {
+				dirPath: 'src/components/li',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/li/li.jsx'
+				},
+				documentation: {
+					path: 'src/components/li/li.md'
+				}
 			},
 			name: 'Li',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/logo',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/logo/logo.jsx'
-			},
-			documentation: {
-				path: 'src/components/logo/logo.md'
+			info: {
+				dirPath: 'src/components/logo',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/logo/logo.jsx'
+				},
+				documentation: {
+					path: 'src/components/logo/logo.md'
+				}
 			},
 			name: 'Logo',
 			properties: [
@@ -946,31 +1003,41 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/pane',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/pane/pane.jsx'
-			},
-			documentation: {
-				path: 'src/components/pane/pane.md'
+			info: {
+				dirPath: 'src/components/pane',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/pane/pane.jsx'
+				},
+				documentation: {
+					path: 'src/components/pane/pane.md'
+				}
 			},
 			name: 'Pane',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/radio-group',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/radio-group/radio-group.jsx'
-			},
-			documentation: {
-				path: 'src/components/radio-group/radio-group.md'
+			info: {
+				dirPath: 'src/components/radio-group',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/radio-group/radio-group.jsx'
+				},
+				documentation: {
+					path: 'src/components/radio-group/radio-group.md'
+				}
 			},
 			name: 'RadioGroup',
 			properties: [
@@ -1011,17 +1078,22 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/segmented-control',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/segmented-control/segmented-control.jsx'
-			},
-			documentation: {
-				path: 'src/components/segmented-control/segmented-control.md'
+			info: {
+				dirPath: 'src/components/segmented-control',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/segmented-control/segmented-control.jsx'
+				},
+				documentation: {
+					path: 'src/components/segmented-control/segmented-control.md'
+				}
 			},
 			name: 'SegmentedControl',
 			properties: [
@@ -1140,31 +1212,41 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/spinner',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/spinner/spinner.jsx'
-			},
-			documentation: {
-				path: 'src/components/spinner/spinner.md'
+			info: {
+				dirPath: 'src/components/spinner',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/spinner/spinner.jsx'
+				},
+				documentation: {
+					path: 'src/components/spinner/spinner.md'
+				}
 			},
 			name: 'Spinner',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/table',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/table/table.jsx'
-			},
-			documentation: {
-				path: 'src/components/table/table.md'
+			info: {
+				dirPath: 'src/components/table',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/table/table.jsx'
+				},
+				documentation: {
+					path: 'src/components/table/table.md'
+				}
 			},
 			name: 'Table',
 			properties: [
@@ -1253,14 +1335,19 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/tbody',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/tbody/tbody.jsx'
+			info: {
+				dirPath: 'src/components/tbody',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/tbody/tbody.jsx'
+				}
 			},
 			name: 'Tbody',
 			properties: [
@@ -1418,25 +1505,35 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/td',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/td/td.jsx'
+			info: {
+				dirPath: 'src/components/td',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/td/td.jsx'
+				}
 			},
 			name: 'Td',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/tfoot',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/tfoot/tfoot.jsx'
+			info: {
+				dirPath: 'src/components/tfoot',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/tfoot/tfoot.jsx'
+				}
 			},
 			name: 'Tfoot',
 			properties: [
@@ -1504,25 +1601,35 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/th',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/th/th.jsx'
+			info: {
+				dirPath: 'src/components/th',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/th/th.jsx'
+				}
 			},
 			name: 'Th',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/thead',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/thead/thead.jsx'
+			info: {
+				dirPath: 'src/components/thead',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/thead/thead.jsx'
+				}
 			},
 			name: 'Thead',
 			properties: [
@@ -1614,28 +1721,38 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/tooltip',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/tooltip/tooltip.jsx'
-			},
-			documentation: {
-				path: 'src/components/tooltip/tooltip.md'
+			info: {
+				dirPath: 'src/components/tooltip',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/tooltip/tooltip.jsx'
+				},
+				documentation: {
+					path: 'src/components/tooltip/tooltip.md'
+				}
 			},
 			name: 'Tooltip',
 			properties: [],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/tr',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/tr/tr.jsx'
+			info: {
+				dirPath: 'src/components/tr',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/tr/tr.jsx'
+				}
 			},
 			name: 'Tr',
 			properties: [
@@ -1763,17 +1880,22 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		},
 		{
-			dirPath: 'src/components/ul',
-			implementation: {
-				framework: 'reactjs',
-				lang: 'javascript',
-				path: 'src/components/ul/ul.jsx'
-			},
-			documentation: {
-				path: 'src/components/ul/ul.md'
+			info: {
+				dirPath: 'src/components/ul',
+				implementation: {
+					framework: 'reactjs',
+					lang: 'javascript',
+					path: 'src/components/ul/ul.jsx'
+				},
+				documentation: {
+					path: 'src/components/ul/ul.md'
+				}
 			},
 			name: 'Ul',
 			properties: [
@@ -1805,7 +1927,10 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				}
 			],
-			examples: []
+			documentation: {
+				examples: []
+			},
+			presets: []
 		}
 	],
 	name: ''

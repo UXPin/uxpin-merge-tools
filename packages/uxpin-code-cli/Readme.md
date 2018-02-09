@@ -1,15 +1,15 @@
 # UXPin code
 
-Command-line tool integrating Design System repository with http://code.uxpin.com
+Command-line tool integrating Design System repository with https://www.uxpin.com/design-from-code
 
 ## Installation
 Add `uxpin-code` to your package.json:
 ```
-npm install uxpin-code --save-dev
+npm install @uxpin/code-cli --save-dev
 ```
 or
 ```
-yarn add uxpin-code --dev
+yarn add @uxpin/code-cli --dev
 ```
 
 ## Usage
