@@ -1,6 +1,6 @@
 import { basename } from 'path';
 
-const GET_INDEX_REGEX:RegExp = /(^\d+)-/g;
+const GET_INDEX_REGEX:RegExp = /^(\d+)-/;
 
 export function sortPresets(paths:string[]):string[] {
   return paths.sort(comparator);
