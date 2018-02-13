@@ -2,6 +2,7 @@ export interface ComponentInfo {
   dirPath:string;
   implementation:ComponentImplementationInfo;
   documentation?:ComponentDocumenationInfo;
+  presets?:ComponentPresetsInfo;
 }
 
 export interface ComponentImplementationInfo {
@@ -15,4 +16,8 @@ export type ComponentImplementationFramework = 'reactjs';
 
 export interface ComponentDocumenationInfo {
   path:string;
+}
+
+export interface ComponentPresetsInfo {
+  paths:string[];
 }
