@@ -5,6 +5,8 @@ import { ComponentDefinition } from './component/ComponentDefinition';
 import { ExamplesSerializationResult } from './component/examples/ExamplesSerializationResult';
 import { serializeExamples } from './component/examples/serializeExamples';
 import { getComponentMetadata } from './component/implementation/getComponentMetadata';
+import { PresetsSerializationResult } from './component/presets/PresetsSerializationResult';
+import { serializePresets } from './component/presets/serializePresets';
 import { DesignSystemSnapshot } from './DesignSystemSnapshot';
 
 export function getDesignSystemMetadata(componentInfos:ComponentInfo[]):Promise<Warned<DesignSystemSnapshot>> {
@@ -22,10 +24,14 @@ function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentD
   return Promise.all([
     getComponentMetadata(info.implementation),
     serializeOptionalExamples(info),
-  ]).then(([{ result: metadata, warnings: metadataWarnings }, { result: examples, warnings: exampleWarnings }]) => ({
-    result: { info, ...metadata, documentation: { examples }, presets: [] },
-    warnings: joinWarningLists([metadataWarnings, exampleWarnings]),
-  }));
+    serializeOptionalPresets(info),
+  ]).then(([
+    { result: metadata, warnings: metadataWarnings },
+    { result: examples, warnings: exampleWarnings },
+    { result: presets, warnings: presetWarnings }]) => ({
+      result: { info, ...metadata, documentation: { examples }, presets },
+      warnings: joinWarningLists([metadataWarnings, exampleWarnings, presetWarnings]),
+    }));
 }
 
 function serializeOptionalExamples(info:ComponentInfo):Promise<ExamplesSerializationResult> {
@@ -35,5 +41,15 @@ function serializeOptionalExamples(info:ComponentInfo):Promise<ExamplesSerializa
     }
 
     serializeExamples(info.documentation.path).then(resolve);
+  });
+}
+
+function serializeOptionalPresets(info:ComponentInfo):Promise<PresetsSerializationResult> {
+  return new Promise((resolve) => {
+    if (!info.presets || !info.presets.paths.length) {
+      return resolve({ result: [], warnings: [] });
+    }
+
+    serializePresets(info.presets.paths).then(resolve);
   });
 }
