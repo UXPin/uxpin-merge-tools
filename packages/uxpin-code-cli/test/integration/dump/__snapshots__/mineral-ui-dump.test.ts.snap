@@ -13,6 +13,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Button/Button.md'
+				},
+				presets: {
+					paths: [
+						'src/Button/presets/0-default.json'
+					]
 				}
 			},
 			name: 'Button',
@@ -241,7 +246,16 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					}
 				]
 			},
-			presets: []
+			presets: [
+				{
+					name: 'default',
+					properties: {
+						children: 'Default',
+						fullWidth: true,
+						primary: true
+					}
+				}
+			]
 		},
 		{
 			info: {
@@ -250,6 +264,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/Card/Card.js'
+				},
+				presets: {
+					paths: [
+						'src/Card/presets/0-default.json'
+					]
 				}
 			},
 			name: 'Card',
@@ -292,7 +311,14 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 			documentation: {
 				examples: []
 			},
-			presets: []
+			presets: [
+				{
+					name: 'default',
+					properties: {
+						children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
+					}
+				}
+			]
 		},
 		{
 			info: {
@@ -304,6 +330,9 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Dropdown/Dropdown.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Dropdown',
@@ -637,6 +666,9 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/EventListener/EventListener.js'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'EventListener',
@@ -699,6 +731,9 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Icon/Icon.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Icon',
@@ -796,6 +831,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Link/Link.md'
+				},
+				presets: {
+					paths: [
+						'src/Link/presets/0-default.json'
+					]
 				}
 			},
 			name: 'Link',
@@ -879,7 +919,15 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					}
 				]
 			},
-			presets: []
+			presets: [
+				{
+					name: 'default',
+					properties: {
+						children: 'Click me',
+						href: 'https://www.google.com/'
+					}
+				}
+			]
 		},
 		{
 			info: {
@@ -891,6 +939,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Menu/Menu.md'
+				},
+				presets: {
+					paths: [
+						'src/Menu/presets/0-default.json'
+					]
 				}
 			},
 			name: 'Menu',
@@ -1078,7 +1131,39 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					}
 				]
 			},
-			presets: []
+			presets: [
+				{
+					name: 'default',
+					properties: {
+						data: [
+							{
+								items: [
+									{
+										text: 'Menu item 1',
+										secondaryText: 'Secondary text'
+									},
+									{
+										text: 'Menu item 2',
+										secondaryText: 'Secondary text'
+									}
+								]
+							},
+							{
+								items: [
+									{
+										text: 'Menu item 1',
+										secondaryText: 'Secondary text'
+									},
+									{
+										text: 'Menu item 2',
+										secondaryText: 'Secondary text'
+									}
+								]
+							}
+						]
+					}
+				}
+			]
 		},
 		{
 			info: {
@@ -1090,6 +1175,9 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Popover/Popover.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Popover',
@@ -1426,6 +1514,9 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/Portal/Portal.js'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Portal',
@@ -1470,6 +1561,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/TextInput/TextInput.md'
+				},
+				presets: {
+					paths: [
+						'src/TextInput/presets/0-default.json'
+					]
 				}
 			},
 			name: 'TextInput',
@@ -1810,7 +1906,14 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					}
 				]
 			},
-			presets: []
+			presets: [
+				{
+					name: 'default',
+					properties: {
+						defaultValue: 'Hello World'
+					}
+				}
+			]
 		}
 	],
 	name: ''

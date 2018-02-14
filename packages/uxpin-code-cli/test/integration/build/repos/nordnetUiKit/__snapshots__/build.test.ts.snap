@@ -4,102 +4,127 @@ exports[`Building repos/nordnet-ui-kit design system with required user webpack 
 "Alert
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Animate
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Avatar
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Badge
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Button
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Dropdown
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Flag
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Icon
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Input
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 LabeledValue
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Li
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Logo
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Pane
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 RadioGroup
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 SegmentedControl
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Spinner
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Table
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Tbody
     📜 documentation: ✘
     💡 examples: ✘
+    🎛  presets: ✘
 
 Td
     📜 documentation: ✘
     💡 examples: ✘
+    🎛  presets: ✘
 
 Tfoot
     📜 documentation: ✘
     💡 examples: ✘
+    🎛  presets: ✘
 
 Th
     📜 documentation: ✘
     💡 examples: ✘
+    🎛  presets: ✘
 
 Thead
     📜 documentation: ✘
     💡 examples: ✘
+    🎛  presets: ✘
 
 Tooltip
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 Tr
     📜 documentation: ✘
     💡 examples: ✘
+    🎛  presets: ✘
 
 Ul
     📜 documentation: ✔
     💡 examples: ✘
+    🎛  presets: ✘
 
 warning Cannot serialize component properties in:
 src/components/alert/alert.jsx

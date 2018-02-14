@@ -13,6 +13,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/AccountConnection/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'AccountConnection',
@@ -100,6 +103,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/ActionList/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'ActionList',
@@ -148,6 +154,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Avatar/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Avatar',
@@ -226,6 +235,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Badge/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Badge',
@@ -298,6 +310,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Banner/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Banner',
@@ -400,6 +415,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					framework: 'reactjs',
 					lang: 'typescript',
 					path: 'src/components/Breadcrumbs/Breadcrumbs.tsx'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Breadcrumbs',
@@ -438,6 +456,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Button/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Button',
@@ -651,6 +672,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/ButtonGroup/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'ButtonGroup',
@@ -696,6 +720,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/CalloutCard/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'CalloutCard',
@@ -768,6 +795,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Caption/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Caption',
@@ -801,6 +831,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Card/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Card',
@@ -909,6 +942,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Checkbox/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Checkbox',
@@ -1041,6 +1077,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Choice/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Choice',
@@ -1115,6 +1154,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/ChoiceList/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'ChoiceList',
@@ -1205,6 +1247,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Collapsible/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Collapsible',
@@ -1247,6 +1292,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/ColorPicker/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'ColorPicker',
@@ -1307,6 +1355,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					framework: 'reactjs',
 					lang: 'typescript',
 					path: 'src/components/Connected/Connected.tsx'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Connected',
@@ -1354,6 +1405,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/DatePicker/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'DatePicker',
@@ -1459,6 +1513,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/DescriptionList/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'DescriptionList',
@@ -1492,6 +1549,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/DisplayText/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'DisplayText',
@@ -1549,6 +1609,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/EmptyState/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'EmptyState',
@@ -1633,6 +1696,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					framework: 'reactjs',
 					lang: 'typescript',
 					path: 'src/components/EventListener/EventListener.tsx'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'EventListener',
@@ -1698,6 +1764,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/FooterHelp/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'FooterHelp',
@@ -1731,6 +1800,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/FormLayout/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'FormLayout',
@@ -1770,6 +1842,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Heading/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Heading',
@@ -1812,6 +1887,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Icon/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Icon',
@@ -1869,6 +1947,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					framework: 'reactjs',
 					lang: 'typescript',
 					path: 'src/components/Image/Image.tsx'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Image',
@@ -4481,6 +4562,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/KeyboardKey/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'KeyboardKey',
@@ -4511,6 +4595,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					framework: 'reactjs',
 					lang: 'typescript',
 					path: 'src/components/KeypressListener/KeypressListener.tsx'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'KeypressListener',
@@ -4555,6 +4642,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					framework: 'reactjs',
 					lang: 'typescript',
 					path: 'src/components/Label/Label.tsx'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'labelID',
@@ -5283,6 +5373,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					framework: 'reactjs',
 					lang: 'typescript',
 					path: 'src/components/Labelled/Labelled.tsx'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Labelled',
@@ -5366,6 +5459,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Layout/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Layout',
@@ -5414,6 +5510,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Link/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Link',
@@ -5474,6 +5573,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/List/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'List',
@@ -5519,6 +5621,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Page/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Page',
@@ -5651,6 +5756,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/PageActions/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'PageActions',
@@ -5696,6 +5804,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Pagination/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Pagination',
@@ -5792,6 +5903,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Popover/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Popover',
@@ -5900,6 +6014,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					framework: 'reactjs',
 					lang: 'typescript',
 					path: 'src/components/PositionedOverlay/PositionedOverlay.tsx'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'PositionedOverlay',
@@ -5983,6 +6100,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/RadioButton/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'RadioButton',
@@ -6106,6 +6226,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/ResourceList/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'ResourceList',
@@ -6163,6 +6286,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Scrollable/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Scrollable',
@@ -8797,6 +8923,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Select/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Select',
@@ -8959,6 +9088,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/SettingAction/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'SettingAction',
@@ -8997,6 +9129,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/SettingToggle/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'SettingToggle',
@@ -9048,6 +9183,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/SkeletonBodyText/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'SkeletonBodyText',
@@ -9084,6 +9222,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/SkeletonDisplayText/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'SkeletonDisplayText',
@@ -9123,6 +9264,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/SkeletonPage/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'SkeletonPage',
@@ -9186,6 +9330,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Spinner/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Spinner',
@@ -9237,6 +9384,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Stack/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Stack',
@@ -9333,6 +9483,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Subheading/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Subheading',
@@ -9375,6 +9528,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Tabs/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Tabs',
@@ -9447,6 +9603,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Tag/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Tag',
@@ -9486,6 +9645,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					framework: 'reactjs',
 					lang: 'typescript',
 					path: 'src/components/TextContainer/TextContainer.tsx'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'TextContainer',
@@ -9515,6 +9677,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/TextField/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'TextField',
@@ -9842,6 +10007,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/TextStyle/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'TextStyle',
@@ -9893,6 +10061,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Thumbnail/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Thumbnail',
@@ -9950,6 +10121,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/Tooltip/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'Tooltip',
@@ -10025,6 +10199,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					framework: 'reactjs',
 					lang: 'typescript',
 					path: 'src/components/UnstyledLink/UnstyledLink.tsx'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'UnstyledLink',
@@ -12637,6 +12814,9 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				documentation: {
 					path: 'src/components/VisuallyHidden/README.md'
+				},
+				presets: {
+					paths: []
 				}
 			},
 			name: 'VisuallyHidden',
