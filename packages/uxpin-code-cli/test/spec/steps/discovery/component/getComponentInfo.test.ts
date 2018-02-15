@@ -24,9 +24,7 @@ describe('getComponentInfo', () => {
             lang: 'javascript',
             path: 'src/components/button/button.jsx',
           },
-          presets: {
-            paths: [],
-          },
+          presets: [],
         };
 
         // when

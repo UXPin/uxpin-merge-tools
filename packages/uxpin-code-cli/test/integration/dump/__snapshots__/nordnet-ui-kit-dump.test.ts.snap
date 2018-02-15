@@ -14,9 +14,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/alert/alert.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Alert',
 			properties: [],
@@ -36,9 +34,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/animate/animate.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Animate',
 			properties: [],
@@ -58,9 +54,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/avatar/avatar.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Avatar',
 			properties: [],
@@ -80,9 +74,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/badge/badge.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Badge',
 			properties: [],
@@ -102,9 +94,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/button/button.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Button',
 			properties: [],
@@ -124,9 +114,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/dropdown/dropdown.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Dropdown',
 			properties: [],
@@ -146,9 +134,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/flag/flag.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Flag',
 			properties: [
@@ -550,9 +536,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/icon/icon.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Icon',
 			properties: [
@@ -684,9 +668,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/input/input.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Input',
 			properties: [
@@ -922,9 +904,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/labeled-value/labeled-value.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'LabeledValue',
 			properties: [],
@@ -944,9 +924,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/li/li.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Li',
 			properties: [],
@@ -966,9 +944,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/logo/logo.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Logo',
 			properties: [
@@ -1055,9 +1031,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/pane/pane.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Pane',
 			properties: [],
@@ -1077,9 +1051,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/radio-group/radio-group.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'RadioGroup',
 			properties: [
@@ -1136,9 +1108,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/segmented-control/segmented-control.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'SegmentedControl',
 			properties: [
@@ -1273,9 +1243,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/spinner/spinner.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Spinner',
 			properties: [],
@@ -1295,9 +1263,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/table/table.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Table',
 			properties: [
@@ -1399,9 +1365,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					lang: 'javascript',
 					path: 'src/components/tbody/tbody.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Tbody',
 			properties: [
@@ -1572,9 +1536,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					lang: 'javascript',
 					path: 'src/components/td/td.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Td',
 			properties: [],
@@ -1591,9 +1553,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					lang: 'javascript',
 					path: 'src/components/tfoot/tfoot.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Tfoot',
 			properties: [
@@ -1674,9 +1634,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					lang: 'javascript',
 					path: 'src/components/th/th.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Th',
 			properties: [],
@@ -1693,9 +1651,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					lang: 'javascript',
 					path: 'src/components/thead/thead.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Thead',
 			properties: [
@@ -1803,9 +1759,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/tooltip/tooltip.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Tooltip',
 			properties: [],
@@ -1822,9 +1776,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					lang: 'javascript',
 					path: 'src/components/tr/tr.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Tr',
 			properties: [
@@ -1968,9 +1920,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				documentation: {
 					path: 'src/components/ul/ul.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Ul',
 			properties: [

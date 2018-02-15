@@ -2,7 +2,7 @@ export interface ComponentInfo {
   dirPath:string;
   implementation:ComponentImplementationInfo;
   documentation?:ComponentDocumenationInfo;
-  presets?:ComponentPresetsInfo;
+  presets?:ComponentPresetInfo[];
 }
 
 export interface ComponentImplementationInfo {
@@ -18,6 +18,6 @@ export interface ComponentDocumenationInfo {
   path:string;
 }
 
-export interface ComponentPresetsInfo {
-  paths:string[];
+export interface ComponentPresetInfo {
+  path:string;
 }

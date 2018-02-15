@@ -2,19 +2,19 @@ import pReduce = require('p-reduce');
 import { join, relative } from 'path';
 import { isFile } from '../../../../utils/fs/isFile';
 import { readDir } from '../../../../utils/fs/readDir';
-import { ComponentPresetsInfo } from '../ComponentInfo';
+import { ComponentPresetInfo } from '../ComponentInfo';
 import { ComponentPaths } from '../ComponentPaths';
 import { filterPresets } from './filterPresets';
 import { sortPresets } from './sortPresets';
 
 const PRESETS_DIR:string = 'presets';
 
-export function getPresetsInfo(componentPaths:ComponentPaths):Promise<ComponentPresetsInfo> {
+export function getPresetInfos(componentPaths:ComponentPaths):Promise<ComponentPresetInfo[]> {
   return getFilePaths(join(componentPaths.projectRoot, componentPaths.componentDirPath, PRESETS_DIR))
     .then((paths) => getRelativePaths(componentPaths.projectRoot, paths))
     .then(filterPresets)
     .then(sortPresets)
-    .then((paths) => ({ paths }));
+    .then((paths) => paths.map((path) => ({ path })));
 }
 
 function getFilePaths(dirPath:string):Promise<string[]> {

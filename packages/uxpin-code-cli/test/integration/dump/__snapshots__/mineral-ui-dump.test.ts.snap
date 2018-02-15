@@ -14,11 +14,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				documentation: {
 					path: 'src/Button/Button.md'
 				},
-				presets: {
-					paths: [
-						'src/Button/presets/0-default.json'
-					]
-				}
+				presets: [
+					{
+						path: 'src/Button/presets/0-default.json'
+					}
+				]
 			},
 			name: 'Button',
 			properties: [
@@ -265,11 +265,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					lang: 'javascript',
 					path: 'src/Card/Card.js'
 				},
-				presets: {
-					paths: [
-						'src/Card/presets/0-default.json'
-					]
-				}
+				presets: [
+					{
+						path: 'src/Card/presets/0-default.json'
+					}
+				]
 			},
 			name: 'Card',
 			properties: [
@@ -331,9 +331,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				documentation: {
 					path: 'src/Dropdown/Dropdown.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Dropdown',
 			properties: [
@@ -667,9 +665,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					lang: 'javascript',
 					path: 'src/EventListener/EventListener.js'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'EventListener',
 			properties: [
@@ -732,9 +728,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				documentation: {
 					path: 'src/Icon/Icon.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Icon',
 			properties: [
@@ -832,11 +826,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				documentation: {
 					path: 'src/Link/Link.md'
 				},
-				presets: {
-					paths: [
-						'src/Link/presets/0-default.json'
-					]
-				}
+				presets: [
+					{
+						path: 'src/Link/presets/0-default.json'
+					}
+				]
 			},
 			name: 'Link',
 			properties: [
@@ -940,11 +934,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				documentation: {
 					path: 'src/Menu/Menu.md'
 				},
-				presets: {
-					paths: [
-						'src/Menu/presets/0-default.json'
-					]
-				}
+				presets: [
+					{
+						path: 'src/Menu/presets/0-default.json'
+					}
+				]
 			},
 			name: 'Menu',
 			properties: [
@@ -1176,9 +1170,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				documentation: {
 					path: 'src/Popover/Popover.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Popover',
 			properties: [
@@ -1515,9 +1507,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					lang: 'javascript',
 					path: 'src/Portal/Portal.js'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Portal',
 			properties: [
@@ -1562,11 +1552,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				documentation: {
 					path: 'src/TextInput/TextInput.md'
 				},
-				presets: {
-					paths: [
-						'src/TextInput/presets/0-default.json'
-					]
-				}
+				presets: [
+					{
+						path: 'src/TextInput/presets/0-default.json'
+					}
+				]
 			},
 			name: 'TextInput',
 			properties: [

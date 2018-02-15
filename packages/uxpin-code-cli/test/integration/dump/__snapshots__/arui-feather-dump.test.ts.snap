@@ -14,9 +14,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/amount/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Amount',
 			properties: [
@@ -176,9 +174,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/attach/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Attach',
 			properties: [
@@ -690,9 +686,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/button/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Button',
 			properties: [
@@ -1186,9 +1180,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/calendar/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Calendar',
 			properties: [
@@ -1483,9 +1475,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/calendar-input/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'CalendarInput',
 			properties: [
@@ -2076,9 +2066,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/card-input/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'CardInput',
 			properties: [
@@ -2115,9 +2103,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/checkbox/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Checkbox',
 			properties: [
@@ -2388,9 +2374,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/checkbox-group/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'CheckboxGroup',
 			properties: [
@@ -2608,9 +2592,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/collapse/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Collapse',
 			properties: [
@@ -2744,9 +2726,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/dropdown/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Dropdown',
 			properties: [
@@ -3320,9 +3300,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/email-input/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'EmailInput',
 			properties: [],
@@ -3346,9 +3324,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/flag-icon/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'FlagIcon',
 			properties: [
@@ -3516,9 +3492,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/form/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Form',
 			properties: [
@@ -3796,9 +3770,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/form-field/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'FormField',
 			properties: [
@@ -3929,9 +3901,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/heading/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Heading',
 			properties: [
@@ -4062,9 +4032,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/icon/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Icon',
 			properties: [
@@ -4203,9 +4171,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/icon-button/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'IconButton',
 			properties: [],
@@ -4229,9 +4195,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/input/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Input',
 			properties: [
@@ -4769,9 +4733,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/input-autocomplete/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'InputAutocomplete',
 			properties: [
@@ -5084,9 +5046,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/input-group/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'InputGroup',
 			properties: [
@@ -5205,9 +5165,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/intl-phone-input/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'IntlPhoneInput',
 			properties: [
@@ -5245,9 +5203,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					lang: 'javascript',
 					path: 'src/isolated-container/isolated-container.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'IsolatedContainer',
 			properties: [],
@@ -5267,9 +5223,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/label/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Label',
 			properties: [
@@ -5412,9 +5366,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/link/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Link',
 			properties: [
@@ -5743,9 +5695,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/list/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'List',
 			properties: [
@@ -5859,9 +5809,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					lang: 'javascript',
 					path: 'src/masked-input/masked-input.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'MaskedInput',
 			properties: [
@@ -5918,9 +5866,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/menu/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Menu',
 			properties: [
@@ -6343,9 +6289,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/menu-item/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'MenuItem',
 			properties: [
@@ -6691,9 +6635,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/money-input/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'MoneyInput',
 			properties: [
@@ -6739,9 +6681,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					lang: 'javascript',
 					path: 'src/mq/mq.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Mq',
 			properties: [
@@ -6798,9 +6738,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/notification/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Notification',
 			properties: [
@@ -7078,9 +7016,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/paragraph/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Paragraph',
 			properties: [
@@ -7205,9 +7141,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/phone-input/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'PhoneInput',
 			properties: [
@@ -7256,9 +7190,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/plate/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Plate',
 			properties: [
@@ -7389,9 +7321,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/popup/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Popup',
 			properties: [
@@ -7821,9 +7751,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					lang: 'javascript',
 					path: 'src/popup-container-provider/popup-container-provider.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'PopupContainerProvider',
 			properties: [
@@ -7920,9 +7848,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/popup-header/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'PopupHeader',
 			properties: [
@@ -8039,9 +7965,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/progress-bar/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'ProgressBar',
 			properties: [
@@ -8108,9 +8032,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/radio/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Radio',
 			properties: [
@@ -8375,9 +8297,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/radio-group/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'RadioGroup',
 			properties: [
@@ -8658,9 +8578,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					lang: 'javascript',
 					path: 'src/render-in-container/render-in-container.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'RenderInContainer',
 			properties: [
@@ -8730,9 +8648,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					lang: 'javascript',
 					path: 'src/resize-sensor/resize-sensor.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'ResizeSensor',
 			properties: [
@@ -8762,9 +8678,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/select/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Select',
 			properties: [
@@ -9404,9 +9318,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/sidebar/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Sidebar',
 			properties: [
@@ -9564,9 +9476,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/slide-down/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'SlideDown',
 			properties: [
@@ -9651,9 +9561,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/spin/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Spin',
 			properties: [
@@ -9768,9 +9676,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					lang: 'javascript',
 					path: 'src/swipeable/swipeable.jsx'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Swipeable',
 			properties: [
@@ -9835,9 +9741,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/tab-item/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'TabItem',
 			properties: [],
@@ -9861,9 +9765,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/tabs/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Tabs',
 			properties: [
@@ -9951,9 +9853,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/tag-button/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'TagButton',
 			properties: [],
@@ -9977,9 +9877,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/textarea/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'Textarea',
 			properties: [
@@ -10325,9 +10223,7 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				documentation: {
 					path: 'src/theme-provider/README.md'
 				},
-				presets: {
-					paths: []
-				}
+				presets: []
 			},
 			name: 'ThemeProvider',
 			properties: [

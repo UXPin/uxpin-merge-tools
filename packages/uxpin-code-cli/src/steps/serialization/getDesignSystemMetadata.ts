@@ -46,10 +46,10 @@ function serializeOptionalExamples(info:ComponentInfo):Promise<ExamplesSerializa
 
 function serializeOptionalPresets(info:ComponentInfo):Promise<PresetsSerializationResult> {
   return new Promise((resolve) => {
-    if (!info.presets || !info.presets.paths.length) {
+    if (!info.presets || !info.presets.length) {
       return resolve({ result: [], warnings: [] });
     }
 
-    serializePresets(info.presets.paths).then(resolve);
+    serializePresets(info.presets).then(resolve);
   });
 }

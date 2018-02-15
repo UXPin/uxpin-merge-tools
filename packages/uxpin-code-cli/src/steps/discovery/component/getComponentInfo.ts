@@ -5,7 +5,7 @@ import { ComponentInfo } from './ComponentInfo';
 import { ComponentPaths } from './ComponentPaths';
 import { getDocumentationInfo } from './documentation/getDocumentationInfo';
 import { getImplementationInfo } from './implementation/getImplementationInfo';
-import { getPresetsInfo } from './presets/getPresetsInfo';
+import { getPresetInfos } from './presets/getPresetInfos';
 
 type AsyncExtender<T> = (object:T) => Promise<T>;
 
@@ -41,7 +41,7 @@ function thunkFillDocumentation(paths:ComponentPaths):AsyncExtender<ComponentInf
 }
 
 function thunkFillPresets(paths:ComponentPaths):AsyncExtender<ComponentInfo> {
-  return (info:ComponentInfo) => getPresetsInfo(paths)
+  return (info:ComponentInfo) => getPresetInfos(paths)
     .then((presets) => ({ ...info, presets }))
     .catch(() => info);
 }
