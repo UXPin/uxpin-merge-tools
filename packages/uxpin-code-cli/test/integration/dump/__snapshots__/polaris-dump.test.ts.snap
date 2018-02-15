@@ -4654,7 +4654,7 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					isRequired: true,
 					name: 'padStart',
 					type: {
-						name: '(maxLength: number, fillString?: string) => string',
+						name: '{ (maxLength: number, fillString?: string): string; (length: number, fillStr?: string): string; }',
 						structure: {}
 					}
 				},
@@ -4663,7 +4663,7 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 					isRequired: true,
 					name: 'padEnd',
 					type: {
-						name: '(maxLength: number, fillString?: string) => string',
+						name: '{ (maxLength: number, fillString?: string): string; (length: number, fillStr?: string): string; }',
 						structure: {}
 					}
 				},
