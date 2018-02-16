@@ -28,6 +28,29 @@ describe('sortPresets', () => {
     expect(result).toEqual(expectedPaths);
   });
 
+  it('should return paths with no index prefix at the end of the list', () => {
+    // having
+    const paths:string[] = [
+      './test/resources/directories/directoryWithPresets/presets/minimal.json',
+      './test/resources/directories/directoryWithPresets/presets/10-default.json',
+      './test/resources/directories/directoryWithPresets/presets/advanced.json',
+      './test/resources/directories/directoryWithPresets/presets/5-basic.json',
+    ];
+
+    const expectedPaths:string[] = [
+      './test/resources/directories/directoryWithPresets/presets/5-basic.json',
+      './test/resources/directories/directoryWithPresets/presets/10-default.json',
+      './test/resources/directories/directoryWithPresets/presets/minimal.json',
+      './test/resources/directories/directoryWithPresets/presets/advanced.json',
+    ];
+
+    // when
+    const result:string[] = sortPresets(paths);
+
+    // then
+    expect(result).toEqual(expectedPaths);
+  });
+
   it('should return unsorted paths if index prefix is not present', () => {
     // having
     const paths:string[] = [
