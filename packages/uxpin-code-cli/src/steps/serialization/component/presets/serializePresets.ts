@@ -3,7 +3,7 @@ import pReduce = require('p-reduce');
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { readFile } from '../../../../utils/fs/readFile';
 import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
-import { getPresetNameFromPath } from './getPresetNameFromPath';
+import { getPresetName } from '../../../discovery/component/presets/presetFileNameParser';
 import { PresetsSerializationResult } from './PresetsSerializationResult';
 
 export function serializePresets(infos:ComponentPresetInfo[]):Promise<PresetsSerializationResult> {
@@ -20,7 +20,7 @@ function serializePreset(info:ComponentPresetInfo):Promise<PresetsSerializationR
     .then((content) => JSON.parse(content))
     .then((properties) => ({
       result: [{
-        name: getPresetNameFromPath(info.path),
+        name: getPresetName(info.path),
         properties,
       }],
       warnings: [],
