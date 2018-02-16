@@ -1,4 +1,4 @@
-interface ComponentPresetProps {
+export interface ComponentPresetProps {
   [propName:string]:any;
 }
 
