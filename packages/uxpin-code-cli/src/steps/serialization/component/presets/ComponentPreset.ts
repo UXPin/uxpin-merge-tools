@@ -1,4 +1,14 @@
+interface ComponentPresetProps {
+  [propName:string]:any;
+};
+
+export interface ComponentPresetData {
+  rootId:string;
+  elements:{[id:string]:ComponentPresetProps};
+}
+
 export interface ComponentPreset {
   name:string;
-  properties:{[propName:string]:any};
+  rootId:string;
+  elements:{[id:string]:ComponentPresetProps};
 }

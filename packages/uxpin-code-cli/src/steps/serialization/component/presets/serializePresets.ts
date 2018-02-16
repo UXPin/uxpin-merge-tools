@@ -4,6 +4,7 @@ import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { readFile } from '../../../../utils/fs/readFile';
 import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
 import { getPresetName } from '../../../discovery/component/presets/presetFileNameParser';
+import { ComponentPresetData } from './ComponentPreset';
 import { PresetsSerializationResult } from './PresetsSerializationResult';
 
 export function serializePresets(infos:ComponentPresetInfo[]):Promise<PresetsSerializationResult> {
@@ -18,10 +19,10 @@ export function serializePresets(infos:ComponentPresetInfo[]):Promise<PresetsSer
 function serializePreset(info:ComponentPresetInfo):Promise<PresetsSerializationResult> {
   return readFile(info.path, { encoding: 'utf8' })
     .then((content) => JSON.parse(content))
-    .then((properties) => ({
+    .then((presetData:ComponentPresetData) => ({
       result: [{
         name: getPresetName(info.path),
-        properties,
+        ...presetData,
       }],
       warnings: [],
     }))
