@@ -1,6 +1,6 @@
 interface ComponentPresetProps {
   [propName:string]:any;
-};
+}
 
 export interface ComponentPresetData {
   rootId:string;
