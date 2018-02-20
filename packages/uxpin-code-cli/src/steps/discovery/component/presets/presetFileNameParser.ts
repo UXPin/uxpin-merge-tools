@@ -1,13 +1,13 @@
 import { basename } from 'path';
 
 const PRESET_FILENAME_REGEX:RegExp = /^(\d+)-(.+)\.json$/i;
-const MAGIC_NUMBER:number = 2;
+const PRESET_NAME_INDEX_IN_MATCH_RESULT:number = 2;
 
 export function getPresetName(path:string):string {
   const fileName:string = basename(path);
   const found:RegExpMatchArray | null = fileName.match(PRESET_FILENAME_REGEX);
-  if (found && found[MAGIC_NUMBER]) {
-    return found[MAGIC_NUMBER];
+  if (found && found[PRESET_NAME_INDEX_IN_MATCH_RESULT]) {
+    return found[PRESET_NAME_INDEX_IN_MATCH_RESULT];
   }
 
   return '';
