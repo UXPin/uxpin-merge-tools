@@ -13,7 +13,12 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Button/Button.md'
-				}
+				},
+				presets: [
+					{
+						path: 'src/Button/presets/0-default.json'
+					}
+				]
 			},
 			name: 'Button',
 			properties: [
@@ -241,7 +246,22 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					}
 				]
 			},
-			presets: []
+			presets: [
+				{
+					name: 'default',
+					rootId: '1526ABF05067F99EF65F83152E26DA39',
+					elements: {
+						'1526ABF05067F99EF65F83152E26DA39': {
+							type: 'Button',
+							props: {
+								children: 'Default',
+								fullWidth: true,
+								primary: true
+							}
+						}
+					}
+				}
+			]
 		},
 		{
 			info: {
@@ -250,7 +270,12 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/Card/Card.js'
-				}
+				},
+				presets: [
+					{
+						path: 'src/Card/presets/0-default.json'
+					}
+				]
 			},
 			name: 'Card',
 			properties: [
@@ -292,7 +317,20 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 			documentation: {
 				examples: []
 			},
-			presets: []
+			presets: [
+				{
+					name: 'default',
+					rootId: '538BDA4C348A7E7B56609B200C70672A',
+					elements: {
+						'538BDA4C348A7E7B56609B200C70672A': {
+							type: 'Card',
+							props: {
+								children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
+							}
+						}
+					}
+				}
+			]
 		},
 		{
 			info: {
@@ -304,7 +342,8 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Dropdown/Dropdown.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Dropdown',
 			properties: [
@@ -637,7 +676,8 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/EventListener/EventListener.js'
-				}
+				},
+				presets: []
 			},
 			name: 'EventListener',
 			properties: [
@@ -699,7 +739,8 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Icon/Icon.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Icon',
 			properties: [
@@ -796,7 +837,12 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Link/Link.md'
-				}
+				},
+				presets: [
+					{
+						path: 'src/Link/presets/0-default.json'
+					}
+				]
 			},
 			name: 'Link',
 			properties: [
@@ -879,7 +925,21 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					}
 				]
 			},
-			presets: []
+			presets: [
+				{
+					name: 'default',
+					rootId: '54FAB3F540C5DA7385E05BC8C0683997',
+					elements: {
+						'54FAB3F540C5DA7385E05BC8C0683997': {
+							type: 'Link',
+							props: {
+								children: 'Click me',
+								href: 'https://www.google.com/'
+							}
+						}
+					}
+				}
+			]
 		},
 		{
 			info: {
@@ -891,7 +951,12 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Menu/Menu.md'
-				}
+				},
+				presets: [
+					{
+						path: 'src/Menu/presets/0-default.json'
+					}
+				]
 			},
 			name: 'Menu',
 			properties: [
@@ -1078,7 +1143,45 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					}
 				]
 			},
-			presets: []
+			presets: [
+				{
+					name: 'default',
+					rootId: 'F85995B051CF1B9DAE5B74E20509B335',
+					elements: {
+						F85995B051CF1B9DAE5B74E20509B335: {
+							type: 'Button',
+							props: {
+								data: [
+									{
+										items: [
+											{
+												text: 'Menu item 1',
+												secondaryText: 'Secondary text'
+											},
+											{
+												text: 'Menu item 2',
+												secondaryText: 'Secondary text'
+											}
+										]
+									},
+									{
+										items: [
+											{
+												text: 'Menu item 1',
+												secondaryText: 'Secondary text'
+											},
+											{
+												text: 'Menu item 2',
+												secondaryText: 'Secondary text'
+											}
+										]
+									}
+								]
+							}
+						}
+					}
+				}
+			]
 		},
 		{
 			info: {
@@ -1090,7 +1193,8 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/Popover/Popover.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Popover',
 			properties: [
@@ -1426,7 +1530,8 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/Portal/Portal.js'
-				}
+				},
+				presets: []
 			},
 			name: 'Portal',
 			properties: [
@@ -1470,7 +1575,12 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				documentation: {
 					path: 'src/TextInput/TextInput.md'
-				}
+				},
+				presets: [
+					{
+						path: 'src/TextInput/presets/0-default.json'
+					}
+				]
 			},
 			name: 'TextInput',
 			properties: [
@@ -1810,7 +1920,20 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					}
 				]
 			},
-			presets: []
+			presets: [
+				{
+					name: 'default',
+					rootId: 'AF11C384BDFF8ABB8AC5ED99554F61B9',
+					elements: {
+						AF11C384BDFF8ABB8AC5ED99554F61B9: {
+							type: 'Button',
+							props: {
+								defaultValue: 'Hello World'
+							}
+						}
+					}
+				}
+			]
 		}
 	],
 	name: ''

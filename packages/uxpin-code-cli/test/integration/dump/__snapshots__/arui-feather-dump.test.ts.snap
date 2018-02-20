@@ -13,7 +13,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/amount/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Amount',
 			properties: [
@@ -172,7 +173,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/attach/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Attach',
 			properties: [
@@ -683,7 +685,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/button/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Button',
 			properties: [
@@ -1176,7 +1179,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/calendar/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Calendar',
 			properties: [
@@ -1470,7 +1474,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/calendar-input/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'CalendarInput',
 			properties: [
@@ -2060,7 +2065,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/card-input/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'CardInput',
 			properties: [
@@ -2096,7 +2102,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/checkbox/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Checkbox',
 			properties: [
@@ -2366,7 +2373,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/checkbox-group/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'CheckboxGroup',
 			properties: [
@@ -2583,7 +2591,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/collapse/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Collapse',
 			properties: [
@@ -2716,7 +2725,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/dropdown/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Dropdown',
 			properties: [
@@ -3289,7 +3299,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/email-input/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'EmailInput',
 			properties: [],
@@ -3312,7 +3323,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/flag-icon/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'FlagIcon',
 			properties: [
@@ -3479,7 +3491,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/form/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Form',
 			properties: [
@@ -3756,7 +3769,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/form-field/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'FormField',
 			properties: [
@@ -3886,7 +3900,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/heading/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Heading',
 			properties: [
@@ -4016,7 +4031,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/icon/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Icon',
 			properties: [
@@ -4154,7 +4170,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/icon-button/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'IconButton',
 			properties: [],
@@ -4177,7 +4194,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/input/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Input',
 			properties: [
@@ -4714,7 +4732,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/input-autocomplete/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'InputAutocomplete',
 			properties: [
@@ -5026,7 +5045,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/input-group/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'InputGroup',
 			properties: [
@@ -5144,7 +5164,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/intl-phone-input/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'IntlPhoneInput',
 			properties: [
@@ -5181,7 +5202,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/isolated-container/isolated-container.jsx'
-				}
+				},
+				presets: []
 			},
 			name: 'IsolatedContainer',
 			properties: [],
@@ -5200,7 +5222,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/label/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Label',
 			properties: [
@@ -5342,7 +5365,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/link/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Link',
 			properties: [
@@ -5670,7 +5694,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/list/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'List',
 			properties: [
@@ -5783,7 +5808,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/masked-input/masked-input.jsx'
-				}
+				},
+				presets: []
 			},
 			name: 'MaskedInput',
 			properties: [
@@ -5839,7 +5865,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/menu/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Menu',
 			properties: [
@@ -6261,7 +6288,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/menu-item/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'MenuItem',
 			properties: [
@@ -6606,7 +6634,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/money-input/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'MoneyInput',
 			properties: [
@@ -6651,7 +6680,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/mq/mq.jsx'
-				}
+				},
+				presets: []
 			},
 			name: 'Mq',
 			properties: [
@@ -6707,7 +6737,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/notification/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Notification',
 			properties: [
@@ -6984,7 +7015,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/paragraph/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Paragraph',
 			properties: [
@@ -7108,7 +7140,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/phone-input/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'PhoneInput',
 			properties: [
@@ -7156,7 +7189,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/plate/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Plate',
 			properties: [
@@ -7286,7 +7320,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/popup/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Popup',
 			properties: [
@@ -7715,7 +7750,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/popup-container-provider/popup-container-provider.jsx'
-				}
+				},
+				presets: []
 			},
 			name: 'PopupContainerProvider',
 			properties: [
@@ -7811,7 +7847,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/popup-header/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'PopupHeader',
 			properties: [
@@ -7927,7 +7964,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/progress-bar/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'ProgressBar',
 			properties: [
@@ -7993,7 +8031,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/radio/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Radio',
 			properties: [
@@ -8257,7 +8296,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/radio-group/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'RadioGroup',
 			properties: [
@@ -8537,7 +8577,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/render-in-container/render-in-container.jsx'
-				}
+				},
+				presets: []
 			},
 			name: 'RenderInContainer',
 			properties: [
@@ -8606,7 +8647,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/resize-sensor/resize-sensor.jsx'
-				}
+				},
+				presets: []
 			},
 			name: 'ResizeSensor',
 			properties: [
@@ -8635,7 +8677,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/select/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Select',
 			properties: [
@@ -9274,7 +9317,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/sidebar/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Sidebar',
 			properties: [
@@ -9431,7 +9475,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/slide-down/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'SlideDown',
 			properties: [
@@ -9515,7 +9560,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/spin/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Spin',
 			properties: [
@@ -9629,7 +9675,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/swipeable/swipeable.jsx'
-				}
+				},
+				presets: []
 			},
 			name: 'Swipeable',
 			properties: [
@@ -9693,7 +9740,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/tab-item/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'TabItem',
 			properties: [],
@@ -9716,7 +9764,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/tabs/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Tabs',
 			properties: [
@@ -9803,7 +9852,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/tag-button/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'TagButton',
 			properties: [],
@@ -9826,7 +9876,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/textarea/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'Textarea',
 			properties: [
@@ -10171,7 +10222,8 @@ exports[`The --dump option run for the arui-feather repository prints the JSON d
 				},
 				documentation: {
 					path: 'src/theme-provider/README.md'
-				}
+				},
+				presets: []
 			},
 			name: 'ThemeProvider',
 			properties: [
