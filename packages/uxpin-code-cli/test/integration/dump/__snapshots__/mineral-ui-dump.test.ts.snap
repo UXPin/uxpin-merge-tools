@@ -252,9 +252,12 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					rootId: '1526ABF05067F99EF65F83152E26DA39',
 					elements: {
 						'1526ABF05067F99EF65F83152E26DA39': {
-							children: 'Default',
-							fullWidth: true,
-							primary: true
+							type: 'Button',
+							props: {
+								children: 'Default',
+								fullWidth: true,
+								primary: true
+							}
 						}
 					}
 				}
@@ -320,7 +323,10 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					rootId: '538BDA4C348A7E7B56609B200C70672A',
 					elements: {
 						'538BDA4C348A7E7B56609B200C70672A': {
-							children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
+							type: 'Card',
+							props: {
+								children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
+							}
 						}
 					}
 				}
@@ -925,8 +931,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					rootId: '54FAB3F540C5DA7385E05BC8C0683997',
 					elements: {
 						'54FAB3F540C5DA7385E05BC8C0683997': {
-							children: 'Click me',
-							href: 'https://www.google.com/'
+							type: 'Link',
+							props: {
+								children: 'Click me',
+								href: 'https://www.google.com/'
+							}
 						}
 					}
 				}
@@ -1140,32 +1149,35 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					rootId: 'F85995B051CF1B9DAE5B74E20509B335',
 					elements: {
 						F85995B051CF1B9DAE5B74E20509B335: {
-							data: [
-								{
-									items: [
-										{
-											text: 'Menu item 1',
-											secondaryText: 'Secondary text'
-										},
-										{
-											text: 'Menu item 2',
-											secondaryText: 'Secondary text'
-										}
-									]
-								},
-								{
-									items: [
-										{
-											text: 'Menu item 1',
-											secondaryText: 'Secondary text'
-										},
-										{
-											text: 'Menu item 2',
-											secondaryText: 'Secondary text'
-										}
-									]
-								}
-							]
+							type: 'Button',
+							props: {
+								data: [
+									{
+										items: [
+											{
+												text: 'Menu item 1',
+												secondaryText: 'Secondary text'
+											},
+											{
+												text: 'Menu item 2',
+												secondaryText: 'Secondary text'
+											}
+										]
+									},
+									{
+										items: [
+											{
+												text: 'Menu item 1',
+												secondaryText: 'Secondary text'
+											},
+											{
+												text: 'Menu item 2',
+												secondaryText: 'Secondary text'
+											}
+										]
+									}
+								]
+							}
 						}
 					}
 				}
@@ -1914,7 +1926,10 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					rootId: 'AF11C384BDFF8ABB8AC5ED99554F61B9',
 					elements: {
 						AF11C384BDFF8ABB8AC5ED99554F61B9: {
-							defaultValue: 'Hello World'
+							type: 'Button',
+							props: {
+								defaultValue: 'Hello World'
+							}
 						}
 					}
 				}
