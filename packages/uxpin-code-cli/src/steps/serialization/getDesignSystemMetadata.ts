@@ -1,6 +1,8 @@
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
+import { ComponentCategoryInfo } from '../discovery/component/ComponentCategoryInfo';
 import { ComponentInfo } from '../discovery/component/ComponentInfo';
+import { ComponentCategory } from './component/categories/ComponentCategory';
 import { ComponentDefinition } from './component/ComponentDefinition';
 import { ExamplesSerializationResult } from './component/examples/ExamplesSerializationResult';
 import { serializeExamples } from './component/examples/serializeExamples';
@@ -9,12 +11,23 @@ import { PresetsSerializationResult } from './component/presets/PresetsSerializa
 import { serializePresets } from './component/presets/serializePresets';
 import { DesignSystemSnapshot } from './DesignSystemSnapshot';
 
-export function getDesignSystemMetadata(componentInfos:ComponentInfo[]):Promise<Warned<DesignSystemSnapshot>> {
-  return Promise.all(componentInfos.map(componentInfoToDefinition))
+export function getDesignSystemMetadata(categoryInfos:ComponentCategoryInfo[]):Promise<Warned<DesignSystemSnapshot>> {
+  return Promise.all(categoryInfos.map(categoryInfoToCategoryMetadata))
+    .then((categories) => ({
+      result: {
+        components: { categories: categories.map((category) => category.result) },
+        name: '',
+      },
+      warnings: joinWarningLists(categories.map((category) => category.warnings)),
+    }));
+}
+
+function categoryInfoToCategoryMetadata(info:ComponentCategoryInfo):Promise<Warned<ComponentCategory>> {
+  return Promise.all(info.componentInfos.map(componentInfoToDefinition))
     .then((components) => ({
       result: {
         components: components.map((component) => component.result),
-        name: '',
+        name: info.name,
       },
       warnings: joinWarningLists(components.map((component) => component.warnings)),
     }));

@@ -1,8 +1,8 @@
-import { ComponentDefinition } from './component/ComponentDefinition';
+import { ComponentCategory } from './component/categories/ComponentCategory';
 
 export interface DesignSystemSnapshot {
   name:string;
-  components:ComponentDefinition[];
+  components:DesignSystemComponents;
   // @todo: make `vcs` property required after implementation of files tracking
   vcs?:VCSDetails;
 }
@@ -27,4 +27,8 @@ export interface MovedFilePathsMap {
 export interface VCSTag {
   name:string;
   commitHash:string;
+}
+
+export interface DesignSystemComponents {
+  categories:ComponentCategory[];
 }
