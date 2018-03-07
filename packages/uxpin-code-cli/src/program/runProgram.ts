@@ -1,5 +1,6 @@
 import pMapSeries = require('p-map-series');
 import { join } from 'path';
+import sortobject = require('sortobject');
 import * as stringifyObject from 'stringify-object';
 import { stringifyWarnings } from '../common/warning/stringifyWarnings';
 import { Warned } from '../common/warning/Warned';
@@ -65,7 +66,7 @@ function thunkStartServer(buildOptions:BuildOptions, port:number):(ds:DSMetadata
 }
 
 function printDump({ warnings, result }:DSMetadata):void {
-  console.log(stringifyObject(result));
+  console.log(stringifyObject(sortobject(result)));
   console.log(stringifyWarnings(warnings, true));
 }
 

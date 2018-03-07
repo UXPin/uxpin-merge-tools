@@ -4,139 +4,143 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 "{
 	components: [
 		{
+			documentation: {
+				examples: []
+			},
 			info: {
 				dirPath: 'src/components/alert',
+				documentation: {
+					path: 'src/components/alert/alert.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/alert/alert.jsx'
 				},
-				documentation: {
-					path: 'src/components/alert/alert.md'
-				},
 				presets: []
 			},
 			name: 'Alert',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/animate',
+				documentation: {
+					path: 'src/components/animate/animate.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/animate/animate.jsx'
 				},
-				documentation: {
-					path: 'src/components/animate/animate.md'
-				},
 				presets: []
 			},
 			name: 'Animate',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/avatar',
+				documentation: {
+					path: 'src/components/avatar/avatar.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/avatar/avatar.jsx'
 				},
-				documentation: {
-					path: 'src/components/avatar/avatar.md'
-				},
 				presets: []
 			},
 			name: 'Avatar',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/badge',
+				documentation: {
+					path: 'src/components/badge/badge.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/badge/badge.jsx'
 				},
-				documentation: {
-					path: 'src/components/badge/badge.md'
-				},
 				presets: []
 			},
 			name: 'Badge',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/button',
+				documentation: {
+					path: 'src/components/button/button.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/button/button.jsx'
 				},
-				documentation: {
-					path: 'src/components/button/button.md'
-				},
 				presets: []
 			},
 			name: 'Button',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/dropdown',
+				documentation: {
+					path: 'src/components/dropdown/dropdown.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/dropdown/dropdown.jsx'
 				},
-				documentation: {
-					path: 'src/components/dropdown/dropdown.md'
-				},
 				presets: []
 			},
 			name: 'Dropdown',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/flag',
+				documentation: {
+					path: 'src/components/flag/flag.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/flag/flag.jsx'
 				},
-				documentation: {
-					path: 'src/components/flag/flag.md'
-				},
 				presets: []
 			},
 			name: 'Flag',
+			presets: [],
 			properties: [
 				{
 					description: '',
@@ -148,12 +152,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: 'A valid 2-character country code',
-					isRequired: false,
-					name: 'countryCode',
 					defaultValue: {
 						value: ''
 					},
+					description: 'A valid 2-character country code',
+					isRequired: false,
+					name: 'countryCode',
 					type: {
 						name: 'union',
 						structure: {
@@ -487,12 +491,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: 'Unitless pixel value',
-					isRequired: false,
-					name: 'size',
 					defaultValue: {
 						value: 32
 					},
+					description: 'Unitless pixel value',
+					isRequired: false,
+					name: 'size',
 					type: {
 						name: 'number',
 						structure: {}
@@ -508,37 +512,37 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'round',
 					defaultValue: {
 						value: false
 					},
+					description: '',
+					isRequired: false,
+					name: 'round',
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				}
-			],
+			]
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/icon',
+				documentation: {
+					path: 'src/components/icon/icon.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/icon/icon.jsx'
 				},
-				documentation: {
-					path: 'src/components/icon/icon.md'
-				},
 				presets: []
 			},
 			name: 'Icon',
+			presets: [],
 			properties: [
 				{
 					description: '',
@@ -550,127 +554,127 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'style',
 					defaultValue: {
 						value: {
 							pointerEvents: 'none'
 						}
 					},
+					description: '',
+					isRequired: false,
+					name: 'style',
 					type: {
 						name: 'object',
 						structure: {}
 					}
 				},
 				{
+					defaultValue: {
+						value: 16
+					},
 					description: 'Unitless pixel value',
 					isRequired: false,
 					name: 'width',
-					defaultValue: {
-						value: 16
-					},
 					type: {
 						name: 'number',
 						structure: {}
 					}
 				},
 				{
+					defaultValue: {
+						value: 16
+					},
 					description: 'Unitless pixel value',
 					isRequired: false,
 					name: 'height',
-					defaultValue: {
-						value: 16
-					},
 					type: {
 						name: 'number',
 						structure: {}
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'viewBox',
 					defaultValue: {
 						value: '0 0 16 16'
 					},
+					description: '',
+					isRequired: false,
+					name: 'viewBox',
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
+					defaultValue: {
+						value: '#222'
+					},
 					description: '',
 					isRequired: false,
 					name: 'fill',
-					defaultValue: {
-						value: '#222'
-					},
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
+					defaultValue: {
+						value: '#222'
+					},
 					description: '',
 					isRequired: false,
 					name: 'stroke',
-					defaultValue: {
-						value: '#222'
-					},
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'strokeWidth',
 					defaultValue: {
 						value: 1
 					},
+					description: '',
+					isRequired: false,
+					name: 'strokeWidth',
 					type: {
 						name: 'number',
 						structure: {}
 					}
 				},
 				{
-					description: undefined,
-					isRequired: undefined,
-					name: 'aria-hidden',
 					defaultValue: {
 						value: 'true'
-					}
-				},
-				{
+					},
 					description: undefined,
 					isRequired: undefined,
-					name: 'focusable',
+					name: 'aria-hidden'
+				},
+				{
 					defaultValue: {
 						value: 'false'
-					}
+					},
+					description: undefined,
+					isRequired: undefined,
+					name: 'focusable'
 				}
-			],
+			]
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/input',
+				documentation: {
+					path: 'src/components/input/input.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/input/input.jsx'
 				},
-				documentation: {
-					path: 'src/components/input/input.md'
-				},
 				presets: []
 			},
 			name: 'Input',
+			presets: [],
 			properties: [
 				{
 					description: '',
@@ -691,24 +695,24 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: 'Needs to be a valid input type',
-					isRequired: false,
-					name: 'type',
 					defaultValue: {
 						value: 'text'
 					},
+					description: 'Needs to be a valid input type',
+					isRequired: false,
+					name: 'type',
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'variant',
 					defaultValue: {
 						value: 'primary'
 					},
+					description: '',
+					isRequired: false,
+					name: 'variant',
 					type: {
 						name: 'union',
 						structure: {
@@ -887,66 +891,66 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 						structure: {}
 					}
 				}
-			],
+			]
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/labeled-value',
+				documentation: {
+					path: 'src/components/labeled-value/labeled-value.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/labeled-value/labeled-value.jsx'
 				},
-				documentation: {
-					path: 'src/components/labeled-value/labeled-value.md'
-				},
 				presets: []
 			},
 			name: 'LabeledValue',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/li',
+				documentation: {
+					path: 'src/components/li/li.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/li/li.jsx'
 				},
-				documentation: {
-					path: 'src/components/li/li.md'
-				},
 				presets: []
 			},
 			name: 'Li',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/logo',
+				documentation: {
+					path: 'src/components/logo/logo.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/logo/logo.jsx'
 				},
-				documentation: {
-					path: 'src/components/logo/logo.md'
-				},
 				presets: []
 			},
 			name: 'Logo',
+			presets: [],
 			properties: [
 				{
 					description: '',
@@ -958,12 +962,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'onlyIcon',
 					defaultValue: {
 						value: false
 					},
+					description: '',
+					isRequired: false,
+					name: 'onlyIcon',
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -979,81 +983,81 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'iconColor',
 					defaultValue: {
 						value: '#00A9EC'
 					},
+					description: '',
+					isRequired: false,
+					name: 'iconColor',
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'textColor',
 					defaultValue: {
 						value: '#222222'
 					},
+					description: '',
+					isRequired: false,
+					name: 'textColor',
 					type: {
 						name: 'string',
 						structure: {}
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'height',
 					defaultValue: {
 						value: 27
 					},
+					description: '',
+					isRequired: false,
+					name: 'height',
 					type: {
 						name: 'number',
 						structure: {}
 					}
 				}
-			],
+			]
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/pane',
+				documentation: {
+					path: 'src/components/pane/pane.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/pane/pane.jsx'
 				},
-				documentation: {
-					path: 'src/components/pane/pane.md'
-				},
 				presets: []
 			},
 			name: 'Pane',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/radio-group',
+				documentation: {
+					path: 'src/components/radio-group/radio-group.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/radio-group/radio-group.jsx'
 				},
-				documentation: {
-					path: 'src/components/radio-group/radio-group.md'
-				},
 				presets: []
 			},
 			name: 'RadioGroup',
+			presets: [],
 			properties: [
 				{
 					description: 'The value to be selected',
@@ -1091,26 +1095,26 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 						structure: {}
 					}
 				}
-			],
+			]
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/segmented-control',
+				documentation: {
+					path: 'src/components/segmented-control/segmented-control.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/segmented-control/segmented-control.jsx'
 				},
-				documentation: {
-					path: 'src/components/segmented-control/segmented-control.md'
-				},
 				presets: []
 			},
 			name: 'SegmentedControl',
+			presets: [],
 			properties: [
 				{
 					description: '@ignore',
@@ -1200,12 +1204,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'variant',
 					defaultValue: {
 						value: 'primary'
 					},
+					description: '',
+					isRequired: false,
+					name: 'variant',
 					type: {
 						name: 'union',
 						structure: {
@@ -1226,46 +1230,46 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 						}
 					}
 				}
-			],
+			]
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/spinner',
+				documentation: {
+					path: 'src/components/spinner/spinner.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/spinner/spinner.jsx'
 				},
-				documentation: {
-					path: 'src/components/spinner/spinner.md'
-				},
 				presets: []
 			},
 			name: 'Spinner',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/table',
+				documentation: {
+					path: 'src/components/table/table.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/table/table.jsx'
 				},
-				documentation: {
-					path: 'src/components/table/table.md'
-				},
 				presets: []
 			},
 			name: 'Table',
+			presets: [],
 			properties: [
 				{
 					description: '@ignore',
@@ -1331,12 +1335,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'minWidth',
 					defaultValue: {
 						value: 700
 					},
+					description: '',
+					isRequired: false,
+					name: 'minWidth',
 					type: {
 						name: 'number',
 						structure: {}
@@ -1351,13 +1355,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 						structure: {}
 					}
 				}
-			],
+			]
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/tbody',
 				implementation: {
@@ -1368,6 +1371,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				presets: []
 			},
 			name: 'Tbody',
+			presets: [],
 			properties: [
 				{
 					description: '@ignore',
@@ -1442,12 +1446,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'colorAlternateRows',
 					defaultValue: {
 						value: true
 					},
+					description: '',
+					isRequired: false,
+					name: 'colorAlternateRows',
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -1463,72 +1467,71 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
+					defaultValue: {
+						value: false
+					},
 					description: '',
 					isRequired: false,
 					name: 'border',
-					defaultValue: {
-						value: false
-					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
+					defaultValue: {
+						value: false
+					},
 					description: '',
 					isRequired: false,
 					name: 'borderTop',
-					defaultValue: {
-						value: false
-					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
+					defaultValue: {
+						value: false
+					},
 					description: '',
 					isRequired: false,
 					name: 'borderRight',
-					defaultValue: {
-						value: false
-					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
+					defaultValue: {
+						value: false
+					},
 					description: '',
 					isRequired: false,
 					name: 'borderBottom',
-					defaultValue: {
-						value: false
-					},
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'borderLeft',
 					defaultValue: {
 						value: false
 					},
+					description: '',
+					isRequired: false,
+					name: 'borderLeft',
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				}
-			],
+			]
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/td',
 				implementation: {
@@ -1539,13 +1542,13 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				presets: []
 			},
 			name: 'Td',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/tfoot',
 				implementation: {
@@ -1556,6 +1559,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				presets: []
 			},
 			name: 'Tfoot',
+			presets: [],
 			properties: [
 				{
 					description: '@ignore',
@@ -1620,13 +1624,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 						}
 					}
 				}
-			],
+			]
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/th',
 				implementation: {
@@ -1637,13 +1640,13 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				presets: []
 			},
 			name: 'Th',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/thead',
 				implementation: {
@@ -1654,6 +1657,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				presets: []
 			},
 			name: 'Thead',
+			presets: [],
 			properties: [
 				{
 					description: '@ignore',
@@ -1742,33 +1746,32 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 						}
 					}
 				}
-			],
+			]
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/tooltip',
+				documentation: {
+					path: 'src/components/tooltip/tooltip.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/tooltip/tooltip.jsx'
 				},
-				documentation: {
-					path: 'src/components/tooltip/tooltip.md'
-				},
 				presets: []
 			},
 			name: 'Tooltip',
-			properties: [],
+			presets: [],
+			properties: []
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/tr',
 				implementation: {
@@ -1779,6 +1782,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 				presets: []
 			},
 			name: 'Tr',
+			presets: [],
 			properties: [
 				{
 					description: '@ignore',
@@ -1844,12 +1848,12 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'border',
 					defaultValue: {
 						value: false
 					},
+					description: '',
+					isRequired: false,
+					name: 'border',
 					type: {
 						name: 'boolean',
 						structure: {}
@@ -1880,49 +1884,49 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 					}
 				},
 				{
-					description: '',
-					isRequired: false,
-					name: 'sticky',
 					defaultValue: {
 						value: false
 					},
+					description: '',
+					isRequired: false,
+					name: 'sticky',
 					type: {
 						name: 'boolean',
 						structure: {}
 					}
 				},
 				{
-					description: 'Unitless pixel value: if there are other sticky elements at the top of the page, use this to compensate',
-					isRequired: false,
-					name: 'stickyOffset',
 					defaultValue: {
 						value: 0
 					},
+					description: 'Unitless pixel value: if there are other sticky elements at the top of the page, use this to compensate',
+					isRequired: false,
+					name: 'stickyOffset',
 					type: {
 						name: 'number',
 						structure: {}
 					}
 				}
-			],
+			]
+		},
+		{
 			documentation: {
 				examples: []
 			},
-			presets: []
-		},
-		{
 			info: {
 				dirPath: 'src/components/ul',
+				documentation: {
+					path: 'src/components/ul/ul.md'
+				},
 				implementation: {
 					framework: 'reactjs',
 					lang: 'javascript',
 					path: 'src/components/ul/ul.jsx'
 				},
-				documentation: {
-					path: 'src/components/ul/ul.md'
-				},
 				presets: []
 			},
 			name: 'Ul',
+			presets: [],
 			properties: [
 				{
 					description: '',
@@ -1951,11 +1955,7 @@ exports[`The --dump option run for the nordnet-ui-kit repository prints the JSON
 						structure: {}
 					}
 				}
-			],
-			documentation: {
-				examples: []
-			},
-			presets: []
+			]
 		}
 	],
 	name: ''
