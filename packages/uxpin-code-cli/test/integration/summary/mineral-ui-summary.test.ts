@@ -13,55 +13,57 @@ describe('--summary option integration', () => {
         .then((output) => {
           // then
           expect(output).toContain(
-            `Button
-    📜 documentation: ✔
-    💡 examples: ✔
-    🎛  presets: ✔
+            `Uncategorized
 
-Card
-    📜 documentation: ✘
-    💡 examples: ✘
-    🎛  presets: ✔
+    Button
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
 
-Dropdown
-    📜 documentation: ✔
-    💡 examples: ✔
-    🎛  presets: ✘
+    Card
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
 
-EventListener
-    📜 documentation: ✘
-    💡 examples: ✘
-    🎛  presets: ✘
+    Dropdown
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
 
-Icon
-    📜 documentation: ✔
-    💡 examples: ✔
-    🎛  presets: ✘
+    EventListener
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
 
-Link
-    📜 documentation: ✔
-    💡 examples: ✔
-    🎛  presets: ✔
+    Icon
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
 
-Menu
-    📜 documentation: ✔
-    💡 examples: ✔
-    🎛  presets: ✔
+    Link
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
 
-Popover
-    📜 documentation: ✔
-    💡 examples: ✔
-    🎛  presets: ✘
+    Menu
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
 
-Portal
-    📜 documentation: ✘
-    💡 examples: ✘
-    🎛  presets: ✘
+    Popover
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
 
-TextInput
-    📜 documentation: ✔
-    💡 examples: ✔
-    🎛  presets: ✔`);
+    Portal
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    TextInput
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔`);
         });
     });
   });
