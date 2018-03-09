@@ -2,1940 +2,1947 @@
 
 exports[`The --dump option run for the mineral-ui repository prints the JSON describing the full repository 1`] = `
 "{
-	components: [
-		{
-			documentation: {
-				examples: [
+	components: {
+		categories: [
+			{
+				components: [
 					{
-						code: '<div>\\\\n  <Button primary>Default</Button>\\\\n  <Button variant=\\"success\\" primary>Success</Button>\\\\n  <Button variant=\\"warning\\" primary>Warning</Button>\\\\n  <Button variant=\\"danger\\" primary>Danger</Button>\\\\n  <Button primary disabled>Disabled</Button>\\\\n</div>'
-					},
-					{
-						code: '<div>\\\\n  <Button>Default</Button>\\\\n  <Button variant=\\"success\\">Success</Button>\\\\n  <Button variant=\\"warning\\">Warning</Button>\\\\n  <Button variant=\\"danger\\">Danger</Button>\\\\n  <Button disabled>Disabled</Button>\\\\n</div>'
-					},
-					{
-						code: '<div>\\\\n  <Button minimal>Default</Button>\\\\n  <Button variant=\\"success\\" minimal>Success</Button>\\\\n  <Button variant=\\"warning\\" minimal>Warning</Button>\\\\n  <Button variant=\\"danger\\" minimal>Danger</Button>\\\\n  <Button disabled minimal>Disabled</Button>\\\\n</div>'
-					},
-					{
-						code: '<div>\\\\n  <Button size=\\"small\\">Small</Button>\\\\n  <Button size=\\"medium\\">Medium</Button>\\\\n  <Button>Large</Button>\\\\n  <Button size=\\"jumbo\\">Jumbo</Button>\\\\n  <div>\\\\n  <Button fullWidth>Full Width</Button>\\\\n  </div>\\\\n</div>'
-					},
-					{
-						code: '<Button element=\\"a\\" href=\\"#link\\">Link</Button>'
-					},
-					{
-						code: '<div style={{width: \\\\'100px\\\\'}}>\\\\n  <Button>Supercalifragilisticexpialidocious</Button>\\\\n</div>'
-					}
-				]
-			},
-			info: {
-				dirPath: 'src/Button',
-				documentation: {
-					path: 'src/Button/Button.md'
-				},
-				implementation: {
-					framework: 'reactjs',
-					lang: 'javascript',
-					path: 'src/Button/Button.js'
-				},
-				presets: [
-					{
-						path: 'src/Button/presets/0-default.json'
-					}
-				]
-			},
-			name: 'Button',
-			presets: [
-				{
-					elements: {
-						'1526ABF05067F99EF65F83152E26DA39': {
-							props: {
-								children: 'Default',
-								fullWidth: true,
-								primary: true
-							},
-							type: 'Button'
-						}
-					},
-					name: 'default',
-					rootId: '1526ABF05067F99EF65F83152E26DA39'
-				}
-			],
-			properties: [
-				{
-					description: 'Rendered content of the component',
-					isRequired: false,
-					name: 'children',
-					type: {
-						name: 'node',
-						structure: {}
-					}
-				},
-				{
-					description: 'Displays a circular Button',
-					isRequired: false,
-					name: 'circular',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Disables the Button',
-					isRequired: false,
-					name: 'disabled',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					defaultValue: {
-						value: 'button'
-					},
-					description: 'Element to be used as the root node - e.g. \`a\` can be used to create a link that is styled like a Button',
-					isRequired: false,
-					name: 'element',
-					type: {
-						name: 'unsupported',
-						structure: {
-							raw: '$FlowFixMe'
-						}
-					}
-				},
-				{
-					description: 'Stretch Button to fill its container',
-					isRequired: false,
-					name: 'fullWidth',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Icon that goes after the children',
-					isRequired: false,
-					name: 'iconEnd',
-					type: {
-						name: 'element',
-						structure: {}
-					}
-				},
-				{
-					description: 'Icon that goes before the children',
-					isRequired: false,
-					name: 'iconStart',
-					type: {
-						name: 'element',
-						structure: {}
-					}
-				},
-				{
-					description: 'Display a minimal Button',
-					isRequired: false,
-					name: 'minimal',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Called with the click event',
-					isRequired: false,
-					name: 'onClick',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [
+						documentation: {
+							examples: [
 								{
-									name: 'event',
-									type: {
-										name: 'unsupported',
-										structure: {
-											raw: 'SyntheticEvent'
-										}
-									}
-								}
-							],
-							returnType: {
-								name: 'empty',
-								structure: {}
-							}
-						}
-					}
-				},
-				{
-					description: 'Display a primary Button',
-					isRequired: false,
-					name: 'primary',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					defaultValue: {
-						value: 'large'
-					},
-					description: 'Available sizes',
-					isRequired: false,
-					name: 'size',
-					type: {
-						name: 'union',
-						structure: {
-							elements: [
-								{
-									name: 'literal',
-									structure: {
-										value: 'small'
-									}
+									code: '<div>\\\\n  <Button primary>Default</Button>\\\\n  <Button variant=\\"success\\" primary>Success</Button>\\\\n  <Button variant=\\"warning\\" primary>Warning</Button>\\\\n  <Button variant=\\"danger\\" primary>Danger</Button>\\\\n  <Button primary disabled>Disabled</Button>\\\\n</div>'
 								},
 								{
-									name: 'literal',
-									structure: {
-										value: 'medium'
-									}
+									code: '<div>\\\\n  <Button>Default</Button>\\\\n  <Button variant=\\"success\\">Success</Button>\\\\n  <Button variant=\\"warning\\">Warning</Button>\\\\n  <Button variant=\\"danger\\">Danger</Button>\\\\n  <Button disabled>Disabled</Button>\\\\n</div>'
 								},
 								{
-									name: 'literal',
-									structure: {
-										value: 'large'
-									}
+									code: '<div>\\\\n  <Button minimal>Default</Button>\\\\n  <Button variant=\\"success\\" minimal>Success</Button>\\\\n  <Button variant=\\"warning\\" minimal>Warning</Button>\\\\n  <Button variant=\\"danger\\" minimal>Danger</Button>\\\\n  <Button disabled minimal>Disabled</Button>\\\\n</div>'
 								},
 								{
-									name: 'literal',
-									structure: {
-										value: 'jumbo'
-									}
+									code: '<div>\\\\n  <Button size=\\"small\\">Small</Button>\\\\n  <Button size=\\"medium\\">Medium</Button>\\\\n  <Button>Large</Button>\\\\n  <Button size=\\"jumbo\\">Jumbo</Button>\\\\n  <div>\\\\n  <Button fullWidth>Full Width</Button>\\\\n  </div>\\\\n</div>'
+								},
+								{
+									code: '<Button element=\\"a\\" href=\\"#link\\">Link</Button>'
+								},
+								{
+									code: '<div style={{width: \\\\'100px\\\\'}}>\\\\n  <Button>Supercalifragilisticexpialidocious</Button>\\\\n</div>'
 								}
 							]
-						}
-					}
-				},
-				{
-					defaultValue: {
-						value: 'button'
-					},
-					description: 'Available types',
-					isRequired: false,
-					name: 'type',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					defaultValue: {
-						value: 'regular'
-					},
-					description: 'Available variants',
-					isRequired: false,
-					name: 'variant',
-					type: {
-						name: 'union',
-						structure: {
-							elements: [
+						},
+						info: {
+							dirPath: 'src/Button',
+							documentation: {
+								path: 'src/Button/Button.md'
+							},
+							implementation: {
+								framework: 'reactjs',
+								lang: 'javascript',
+								path: 'src/Button/Button.js'
+							},
+							presets: [
 								{
-									name: 'literal',
-									structure: {
-										value: 'regular'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'danger'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'success'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'warning'
-									}
+									path: 'src/Button/presets/0-default.json'
 								}
 							]
-						}
-					}
-				}
-			]
-		},
-		{
-			documentation: {
-				examples: []
-			},
-			info: {
-				dirPath: 'src/Card',
-				implementation: {
-					framework: 'reactjs',
-					lang: 'javascript',
-					path: 'src/Card/Card.js'
-				},
-				presets: [
-					{
-						path: 'src/Card/presets/0-default.json'
-					}
-				]
-			},
-			name: 'Card',
-			presets: [
-				{
-					elements: {
-						'538BDA4C348A7E7B56609B200C70672A': {
-							props: {
-								children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
+						},
+						name: 'Button',
+						presets: [
+							{
+								elements: {
+									'1526ABF05067F99EF65F83152E26DA39': {
+										props: {
+											children: 'Default',
+											fullWidth: true,
+											primary: true
+										},
+										type: 'Button'
+									}
+								},
+								name: 'default',
+								rootId: '1526ABF05067F99EF65F83152E26DA39'
+							}
+						],
+						properties: [
+							{
+								description: 'Rendered content of the component',
+								isRequired: false,
+								name: 'children',
+								type: {
+									name: 'node',
+									structure: {}
+								}
 							},
-							type: 'Card'
-						}
-					},
-					name: 'default',
-					rootId: '538BDA4C348A7E7B56609B200C70672A'
-				}
-			],
-			properties: [
-				{
-					description: 'Content of the Card. Can be anything, but see [CardBlock](../card-block), [CardImage](../card-image), and [CardTitle](../card-title).',
-					isRequired: true,
-					name: 'children',
-					type: {
-						name: 'node',
-						structure: {}
-					}
-				},
-				{
-					description: 'Called with the click event',
-					isRequired: false,
-					name: 'onClick',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [
-								{
-									name: 'event',
-									type: {
-										name: 'unsupported',
-										structure: {
-											raw: 'SyntheticEvent'
-										}
+							{
+								description: 'Displays a circular Button',
+								isRequired: false,
+								name: 'circular',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Disables the Button',
+								isRequired: false,
+								name: 'disabled',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								defaultValue: {
+									value: 'button'
+								},
+								description: 'Element to be used as the root node - e.g. \`a\` can be used to create a link that is styled like a Button',
+								isRequired: false,
+								name: 'element',
+								type: {
+									name: 'unsupported',
+									structure: {
+										raw: '$FlowFixMe'
 									}
 								}
-							],
-							returnType: {
-								name: 'empty',
-								structure: {}
-							}
-						}
-					}
-				}
-			]
-		},
-		{
-			documentation: {
-				examples: [
-					{
-						code: '(() => {\\\\n  function IconDanger() {\\\\n    return (\\\\n      <Icon>\\\\n        <g>\\\\n          <path d=\\"M3.94 19.49h16.118a1 1 0 0 0 .866-1.498l-8.06-13.99a.996.996 0 0 0-1.732-.001L3.074 17.993a.998.998 0 0 0 .867 1.499zM12 17a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-3.503h-2v-5h2v5z\\"/>\\\\n        </g>\\\\n      </Icon>\\\\n    );\\\\n  }\\\\n  \\\\n  const data = [\\\\n    {\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Menu item with onClick\\\\',\\\\n          onClick: event => { console.log(event); }\\\\n        },\\\\n        {\\\\n          text: \\\\'Menu item\\\\',\\\\n          secondaryText: \\\\'Secondary text\\\\'\\\\n        }\\\\n      ]\\\\n    },\\\\n    {\\\\n      title: \\\\'Group Title\\\\',\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Icon at start\\\\',\\\\n          iconStart: <IconDanger />\\\\n        },\\\\n        {\\\\n          text: \\\\'Icon at end\\\\',\\\\n          iconEnd: <IconDanger />\\\\n        },\\\\n        {\\\\n          divider: true\\\\n        },\\\\n        {\\\\n          text: \\\\'Danger variant\\\\',\\\\n          variant: \\\\'danger\\\\' // \\\\'danger\\\\' | \\\\'success\\\\' | \\\\'warning\\\\'\\\\n        },\\\\n        {\\\\n          text: \\\\'Disabled menu item\\\\',\\\\n          onClick: () => { console.log(\\\\'onClick is not triggered for disabled MenuItems\\\\'); },\\\\n          disabled: true\\\\n        }\\\\n      ]\\\\n    }\\\\n  ];\\\\n\\\\n  return (\\\\n    <Dropdown data={data}>\\\\n      <Button>Menu</Button>\\\\n    </Dropdown>\\\\n  );\\\\n})();'
-					}
-				]
-			},
-			info: {
-				dirPath: 'src/Dropdown',
-				documentation: {
-					path: 'src/Dropdown/Dropdown.md'
-				},
-				implementation: {
-					framework: 'reactjs',
-					lang: 'javascript',
-					path: 'src/Dropdown/Dropdown.js'
-				},
-				presets: []
-			},
-			name: 'Dropdown',
-			presets: [],
-			properties: [
-				{
-					description: 'Trigger for the Dropdown',
-					isRequired: true,
-					name: 'children',
-					type: {
-						name: 'node',
-						structure: {}
-					}
-				},
-				{
-					description: 'Open the Dropdown immediately upon initialization',
-					isRequired: false,
-					name: 'defaultIsOpen',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Disable the Dropdown',
-					isRequired: false,
-					name: 'disabled',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Data from which the [Menu](../menu#data) will be constructed (see [example](#data))',
-					isRequired: true,
-					name: 'data',
-					type: {
-						name: 'typedArray',
-						structure: {
-							memberType: {
-								name: 'shape',
-								structure: {
-									items: {
-										name: 'typedArray',
-										structure: {
-											memberType: {
-												name: 'shape',
-												structure: {
-													disabled: {
-														name: 'boolean',
-														structure: {}
-													},
-													divider: {
-														name: 'boolean',
-														structure: {}
-													},
-													iconEnd: {
-														name: 'element',
-														structure: {}
-													},
-													iconStart: {
-														name: 'element',
-														structure: {}
-													},
-													onClick: {
-														name: 'func',
-														structure: {
-															arguments: [
-																{
-																	name: 'event',
-																	type: {
-																		name: 'unsupported',
-																		structure: {
-																			raw: 'SyntheticEvent'
-																		}
-																	}
-																}
-															],
-															returnType: {
-																name: 'empty',
-																structure: {}
-															}
-														}
-													},
-													render: {
-														name: 'func',
-														structure: {
-															arguments: [
-																{
-																	name: 'item',
-																	type: {
-																		name: 'object',
-																		structure: {}
-																	}
-																},
-																{
-																	name: 'props',
-																	type: {
-																		name: 'object',
-																		structure: {}
-																	}
-																},
-																{
-																	name: 'theme',
-																	type: {
-																		name: 'object',
-																		structure: {}
-																	}
-																}
-															],
-															returnType: {
-																name: 'element',
-																structure: {}
-															}
-														}
-													},
-													secondaryText: {
-														name: 'node',
-														structure: {}
-													},
-													text: {
-														name: 'node',
-														structure: {}
-													},
-													variant: {
-														name: 'union',
-														structure: {
-															elements: [
-																{
-																	name: 'literal',
-																	structure: {
-																		value: 'regular'
-																	}
-																},
-																{
-																	name: 'literal',
-																	structure: {
-																		value: 'danger'
-																	}
-																},
-																{
-																	name: 'literal',
-																	structure: {
-																		value: 'success'
-																	}
-																},
-																{
-																	name: 'literal',
-																	structure: {
-																		value: 'warning'
-																	}
-																}
-															]
-														}
+							},
+							{
+								description: 'Stretch Button to fill its container',
+								isRequired: false,
+								name: 'fullWidth',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Icon that goes after the children',
+								isRequired: false,
+								name: 'iconEnd',
+								type: {
+									name: 'element',
+									structure: {}
+								}
+							},
+							{
+								description: 'Icon that goes before the children',
+								isRequired: false,
+								name: 'iconStart',
+								type: {
+									name: 'element',
+									structure: {}
+								}
+							},
+							{
+								description: 'Display a minimal Button',
+								isRequired: false,
+								name: 'minimal',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Called with the click event',
+								isRequired: false,
+								name: 'onClick',
+								type: {
+									name: 'func',
+									structure: {
+										arguments: [
+											{
+												name: 'event',
+												type: {
+													name: 'unsupported',
+													structure: {
+														raw: 'SyntheticEvent'
 													}
 												}
 											}
-										}
-									},
-									title: {
-										name: 'node',
-										structure: {}
-									}
-								}
-							}
-						}
-					}
-				},
-				{
-					description: 'For use with controlled components, in which the app manages Dropdown state',
-					isRequired: false,
-					name: 'isOpen',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Plugins that are used to alter behavior. See [PopperJS docs](https://popper.js.org/popper-documentation.html#modifiers) for options.',
-					isRequired: false,
-					name: 'modifiers',
-					type: {
-						name: 'object',
-						structure: {}
-					}
-				},
-				{
-					description: 'Called when Dropdown is closed',
-					isRequired: false,
-					name: 'onClose',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [
-								{
-									name: 'event',
-									type: {
-										name: 'unsupported',
-										structure: {
-											raw: 'SyntheticEvent'
+										],
+										returnType: {
+											name: 'empty',
+											structure: {}
 										}
 									}
 								}
-							],
-							returnType: {
-								name: 'empty',
-								structure: {}
-							}
-						}
-					}
-				},
-				{
-					description: 'Called when Dropdown is opened',
-					isRequired: false,
-					name: 'onOpen',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [
-								{
-									name: 'event',
-									type: {
-										name: 'unsupported',
-										structure: {
-											raw: 'SyntheticEvent'
-										}
+							},
+							{
+								description: 'Display a primary Button',
+								isRequired: false,
+								name: 'primary',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								defaultValue: {
+									value: 'large'
+								},
+								description: 'Available sizes',
+								isRequired: false,
+								name: 'size',
+								type: {
+									name: 'union',
+									structure: {
+										elements: [
+											{
+												name: 'literal',
+												structure: {
+													value: 'small'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'medium'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'large'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'jumbo'
+												}
+											}
+										]
 									}
 								}
-							],
-							returnType: {
-								name: 'empty',
-								structure: {}
+							},
+							{
+								defaultValue: {
+									value: 'button'
+								},
+								description: 'Available types',
+								isRequired: false,
+								name: 'type',
+								type: {
+									name: 'string',
+									structure: {}
+								}
+							},
+							{
+								defaultValue: {
+									value: 'regular'
+								},
+								description: 'Available variants',
+								isRequired: false,
+								name: 'variant',
+								type: {
+									name: 'union',
+									structure: {
+										elements: [
+											{
+												name: 'literal',
+												structure: {
+													value: 'regular'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'danger'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'success'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'warning'
+												}
+											}
+										]
+									}
+								}
 							}
-						}
-					}
-				},
-				{
-					defaultValue: {
-						value: 'bottom-start'
+						]
 					},
-					description: 'Placement of the Dropdown menu',
-					isRequired: false,
-					name: 'placement',
-					type: {
-						name: 'union',
-						structure: {
-							elements: [
+					{
+						documentation: {
+							examples: []
+						},
+						info: {
+							dirPath: 'src/Card',
+							implementation: {
+								framework: 'reactjs',
+								lang: 'javascript',
+								path: 'src/Card/Card.js'
+							},
+							presets: [
 								{
-									name: 'literal',
-									structure: {
-										value: 'bottom-end'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'bottom-start'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'left-end'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'left-start'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'right-end'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'right-start'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'top-end'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'top-start'
-									}
+									path: 'src/Card/presets/0-default.json'
 								}
 							]
-						}
-					}
-				},
-				{
-					description: 'Use a Portal to render the Dropdown menu to the body rather than as a sibling to the trigger',
-					isRequired: false,
-					name: 'usePortal',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Display a wider Dropdown menu',
-					isRequired: false,
-					name: 'wide',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				}
-			]
-		},
-		{
-			documentation: {
-				examples: []
-			},
-			info: {
-				dirPath: 'src/EventListener',
-				implementation: {
-					framework: 'reactjs',
-					lang: 'javascript',
-					path: 'src/EventListener/EventListener.js'
-				},
-				presets: []
-			},
-			name: 'EventListener',
-			presets: [],
-			properties: [
-				{
-					description: '',
-					isRequired: true,
-					name: 'listeners',
-					type: {
-						name: 'typedArray',
-						structure: {
-							memberType: {
-								name: 'shape',
-								structure: {
-									event: {
-										name: 'string',
-										structure: {}
-									},
-									handler: {
-										name: 'func',
-										structure: {}
-									},
-									options: {
-										name: 'union',
-										structure: {
-											elements: [
-												{
-													name: 'boolean',
+						},
+						name: 'Card',
+						presets: [
+							{
+								elements: {
+									'538BDA4C348A7E7B56609B200C70672A': {
+										props: {
+											children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
+										},
+										type: 'Card'
+									}
+								},
+								name: 'default',
+								rootId: '538BDA4C348A7E7B56609B200C70672A'
+							}
+						],
+						properties: [
+							{
+								description: 'Content of the Card. Can be anything, but see [CardBlock](../card-block), [CardImage](../card-image), and [CardTitle](../card-title).',
+								isRequired: true,
+								name: 'children',
+								type: {
+									name: 'node',
+									structure: {}
+								}
+							},
+							{
+								description: 'Called with the click event',
+								isRequired: false,
+								name: 'onClick',
+								type: {
+									name: 'func',
+									structure: {
+										arguments: [
+											{
+												name: 'event',
+												type: {
+													name: 'unsupported',
+													structure: {
+														raw: 'SyntheticEvent'
+													}
+												}
+											}
+										],
+										returnType: {
+											name: 'empty',
+											structure: {}
+										}
+									}
+								}
+							}
+						]
+					},
+					{
+						documentation: {
+							examples: [
+								{
+									code: '(() => {\\\\n  function IconDanger() {\\\\n    return (\\\\n      <Icon>\\\\n        <g>\\\\n          <path d=\\"M3.94 19.49h16.118a1 1 0 0 0 .866-1.498l-8.06-13.99a.996.996 0 0 0-1.732-.001L3.074 17.993a.998.998 0 0 0 .867 1.499zM12 17a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-3.503h-2v-5h2v5z\\"/>\\\\n        </g>\\\\n      </Icon>\\\\n    );\\\\n  }\\\\n  \\\\n  const data = [\\\\n    {\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Menu item with onClick\\\\',\\\\n          onClick: event => { console.log(event); }\\\\n        },\\\\n        {\\\\n          text: \\\\'Menu item\\\\',\\\\n          secondaryText: \\\\'Secondary text\\\\'\\\\n        }\\\\n      ]\\\\n    },\\\\n    {\\\\n      title: \\\\'Group Title\\\\',\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Icon at start\\\\',\\\\n          iconStart: <IconDanger />\\\\n        },\\\\n        {\\\\n          text: \\\\'Icon at end\\\\',\\\\n          iconEnd: <IconDanger />\\\\n        },\\\\n        {\\\\n          divider: true\\\\n        },\\\\n        {\\\\n          text: \\\\'Danger variant\\\\',\\\\n          variant: \\\\'danger\\\\' // \\\\'danger\\\\' | \\\\'success\\\\' | \\\\'warning\\\\'\\\\n        },\\\\n        {\\\\n          text: \\\\'Disabled menu item\\\\',\\\\n          onClick: () => { console.log(\\\\'onClick is not triggered for disabled MenuItems\\\\'); },\\\\n          disabled: true\\\\n        }\\\\n      ]\\\\n    }\\\\n  ];\\\\n\\\\n  return (\\\\n    <Dropdown data={data}>\\\\n      <Button>Menu</Button>\\\\n    </Dropdown>\\\\n  );\\\\n})();'
+								}
+							]
+						},
+						info: {
+							dirPath: 'src/Dropdown',
+							documentation: {
+								path: 'src/Dropdown/Dropdown.md'
+							},
+							implementation: {
+								framework: 'reactjs',
+								lang: 'javascript',
+								path: 'src/Dropdown/Dropdown.js'
+							},
+							presets: []
+						},
+						name: 'Dropdown',
+						presets: [],
+						properties: [
+							{
+								description: 'Trigger for the Dropdown',
+								isRequired: true,
+								name: 'children',
+								type: {
+									name: 'node',
+									structure: {}
+								}
+							},
+							{
+								description: 'Open the Dropdown immediately upon initialization',
+								isRequired: false,
+								name: 'defaultIsOpen',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Disable the Dropdown',
+								isRequired: false,
+								name: 'disabled',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Data from which the [Menu](../menu#data) will be constructed (see [example](#data))',
+								isRequired: true,
+								name: 'data',
+								type: {
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'shape',
+											structure: {
+												items: {
+													name: 'typedArray',
+													structure: {
+														memberType: {
+															name: 'shape',
+															structure: {
+																disabled: {
+																	name: 'boolean',
+																	structure: {}
+																},
+																divider: {
+																	name: 'boolean',
+																	structure: {}
+																},
+																iconEnd: {
+																	name: 'element',
+																	structure: {}
+																},
+																iconStart: {
+																	name: 'element',
+																	structure: {}
+																},
+																onClick: {
+																	name: 'func',
+																	structure: {
+																		arguments: [
+																			{
+																				name: 'event',
+																				type: {
+																					name: 'unsupported',
+																					structure: {
+																						raw: 'SyntheticEvent'
+																					}
+																				}
+																			}
+																		],
+																		returnType: {
+																			name: 'empty',
+																			structure: {}
+																		}
+																	}
+																},
+																render: {
+																	name: 'func',
+																	structure: {
+																		arguments: [
+																			{
+																				name: 'item',
+																				type: {
+																					name: 'object',
+																					structure: {}
+																				}
+																			},
+																			{
+																				name: 'props',
+																				type: {
+																					name: 'object',
+																					structure: {}
+																				}
+																			},
+																			{
+																				name: 'theme',
+																				type: {
+																					name: 'object',
+																					structure: {}
+																				}
+																			}
+																		],
+																		returnType: {
+																			name: 'element',
+																			structure: {}
+																		}
+																	}
+																},
+																secondaryText: {
+																	name: 'node',
+																	structure: {}
+																},
+																text: {
+																	name: 'node',
+																	structure: {}
+																},
+																variant: {
+																	name: 'union',
+																	structure: {
+																		elements: [
+																			{
+																				name: 'literal',
+																				structure: {
+																					value: 'regular'
+																				}
+																			},
+																			{
+																				name: 'literal',
+																				structure: {
+																					value: 'danger'
+																				}
+																			},
+																			{
+																				name: 'literal',
+																				structure: {
+																					value: 'success'
+																				}
+																			},
+																			{
+																				name: 'literal',
+																				structure: {
+																					value: 'warning'
+																				}
+																			}
+																		]
+																	}
+																}
+															}
+														}
+													}
+												},
+												title: {
+													name: 'node',
+													structure: {}
+												}
+											}
+										}
+									}
+								}
+							},
+							{
+								description: 'For use with controlled components, in which the app manages Dropdown state',
+								isRequired: false,
+								name: 'isOpen',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Plugins that are used to alter behavior. See [PopperJS docs](https://popper.js.org/popper-documentation.html#modifiers) for options.',
+								isRequired: false,
+								name: 'modifiers',
+								type: {
+									name: 'object',
+									structure: {}
+								}
+							},
+							{
+								description: 'Called when Dropdown is closed',
+								isRequired: false,
+								name: 'onClose',
+								type: {
+									name: 'func',
+									structure: {
+										arguments: [
+											{
+												name: 'event',
+												type: {
+													name: 'unsupported',
+													structure: {
+														raw: 'SyntheticEvent'
+													}
+												}
+											}
+										],
+										returnType: {
+											name: 'empty',
+											structure: {}
+										}
+									}
+								}
+							},
+							{
+								description: 'Called when Dropdown is opened',
+								isRequired: false,
+								name: 'onOpen',
+								type: {
+									name: 'func',
+									structure: {
+										arguments: [
+											{
+												name: 'event',
+												type: {
+													name: 'unsupported',
+													structure: {
+														raw: 'SyntheticEvent'
+													}
+												}
+											}
+										],
+										returnType: {
+											name: 'empty',
+											structure: {}
+										}
+									}
+								}
+							},
+							{
+								defaultValue: {
+									value: 'bottom-start'
+								},
+								description: 'Placement of the Dropdown menu',
+								isRequired: false,
+								name: 'placement',
+								type: {
+									name: 'union',
+									structure: {
+										elements: [
+											{
+												name: 'literal',
+												structure: {
+													value: 'bottom-end'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'bottom-start'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'left-end'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'left-start'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'right-end'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'right-start'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'top-end'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'top-start'
+												}
+											}
+										]
+									}
+								}
+							},
+							{
+								description: 'Use a Portal to render the Dropdown menu to the body rather than as a sibling to the trigger',
+								isRequired: false,
+								name: 'usePortal',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Display a wider Dropdown menu',
+								isRequired: false,
+								name: 'wide',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							}
+						]
+					},
+					{
+						documentation: {
+							examples: []
+						},
+						info: {
+							dirPath: 'src/EventListener',
+							implementation: {
+								framework: 'reactjs',
+								lang: 'javascript',
+								path: 'src/EventListener/EventListener.js'
+							},
+							presets: []
+						},
+						name: 'EventListener',
+						presets: [],
+						properties: [
+							{
+								description: '',
+								isRequired: true,
+								name: 'listeners',
+								type: {
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'shape',
+											structure: {
+												event: {
+													name: 'string',
 													structure: {}
 												},
+												handler: {
+													name: 'func',
+													structure: {}
+												},
+												options: {
+													name: 'union',
+													structure: {
+														elements: [
+															{
+																name: 'boolean',
+																structure: {}
+															},
+															{
+																name: 'object',
+																structure: {}
+															}
+														]
+													}
+												},
+												target: {
+													name: 'string',
+													structure: {}
+												}
+											}
+										}
+									}
+								}
+							}
+						]
+					},
+					{
+						documentation: {
+							examples: [
+								{
+									code: '<Icon size=\\"7em\\" title=\\"CA Technologies\\">\\\\n  <svg viewBox=\\"0 0 16 16\\">\\\\n    <path\\\\n      className=\\"trademark\\"\\\\n      d=\\"M14.514 10.187c-0.256 0-0.419-0.186-0.419-0.442s0.186-0.442 0.419-0.442c0.256 0 0.419 0.186 0.419 0.442 0 0.279-0.163 0.442-0.419 0.442zM14.514 9.373c-0.209 0-0.372 0.14-0.372 0.395s0.163 0.372 0.372 0.372c0.209 0 0.372-0.14 0.372-0.372 0-0.256-0.163-0.395-0.372-0.395zM14.653 9.977l-0.14-0.209h-0.070v0.209h-0.093v-0.489h0.14c0.093 0 0.163 0.047 0.163 0.14 0 0.070-0.047 0.116-0.093 0.14l0.14 0.186-0.047 0.023zM14.514 9.582h-0.070v0.14h0.070c0.047 0 0.093-0.023 0.093-0.070s-0.023-0.070-0.093-0.070z\\"\\\\n    />\\\\n    <g className=\\"technologies\\">\\\\n      <path d=\\"M0.788 12.187v-0.465h0.349v0.465h0.279v0.279h-0.279v0.814c0 0.070 0.047 0.093 0.116 0.093 0.047 0 0.116-0.023 0.163-0.023v0.279c-0.093 0-0.186 0.023-0.279 0.023-0.256 0-0.349-0.116-0.349-0.326v-0.861h-0.186v-0.279h0.186z\\" />\\\\n      <path d=\\"M1.905 12.955c0 0.302 0.14 0.419 0.302 0.419s0.233-0.070 0.326-0.163l0.256 0.163c-0.14 0.209-0.326 0.302-0.605 0.302-0.372 0-0.605-0.279-0.605-0.744s0.233-0.744 0.605-0.744c0.372 0 0.582 0.326 0.582 0.651v0.116h-0.861zM2.44 12.722c0-0.209-0.116-0.302-0.279-0.302s-0.279 0.116-0.279 0.302h0.558z\\" />\\\\n      <path d=\\"M3.859 12.653c-0.047-0.116-0.116-0.209-0.279-0.209-0.186 0-0.279 0.14-0.279 0.465s0.093 0.465 0.279 0.465c0.14 0 0.233-0.093 0.302-0.233l0.256 0.14c-0.14 0.256-0.302 0.349-0.558 0.349-0.395 0-0.605-0.279-0.605-0.744s0.233-0.744 0.605-0.744c0.279 0 0.489 0.14 0.558 0.372l-0.279 0.14z\\" />\\\\n      <path d=\\"M4.394 13.607v-1.977h0.349v0.698c0.093-0.093 0.233-0.186 0.419-0.186 0.279 0 0.419 0.186 0.419 0.489v0.977h-0.349v-0.931c0-0.186-0.070-0.256-0.186-0.256-0.14 0-0.256 0.093-0.326 0.163v1.024h-0.326z\\" />\\\\n      <path d=\\"M5.906 13.607v-1.442h0.302v0.163c0.116-0.093 0.279-0.186 0.442-0.186 0.279 0 0.419 0.186 0.419 0.489v0.977h-0.349v-0.931c0-0.186-0.070-0.256-0.186-0.256-0.14 0-0.256 0.093-0.326 0.163v1.024h-0.302z\\" />\\\\n      <path d=\\"M7.953 12.164c0.395 0 0.628 0.279 0.628 0.744s-0.233 0.744-0.628 0.744c-0.395 0-0.628-0.279-0.628-0.744s0.233-0.744 0.628-0.744zM7.953 12.443c-0.186 0-0.279 0.14-0.279 0.465s0.093 0.465 0.279 0.465c0.186 0 0.279-0.14 0.279-0.465s-0.093-0.465-0.279-0.465z\\" />\\\\n      <path d=\\"M8.837 13.607v-1.977h0.349v1.977z\\" />\\\\n      <path d=\\"M10.070 12.164c0.395 0 0.628 0.279 0.628 0.744s-0.233 0.744-0.628 0.744c-0.395 0-0.628-0.279-0.628-0.744s0.233-0.744 0.628-0.744zM10.070 12.443c-0.186 0-0.279 0.14-0.279 0.465s0.093 0.465 0.279 0.465c0.186 0 0.279-0.14 0.279-0.465s-0.093-0.465-0.279-0.465z\\" />\\\\n      <path d=\\"M12.094 12.397c-0.070 0-0.163 0-0.209 0.023 0.047 0.070 0.070 0.14 0.070 0.256 0 0.279-0.186 0.465-0.535 0.465-0.14 0-0.256 0-0.256 0.093 0 0.233 0.931-0.093 0.931 0.489 0 0.209-0.209 0.419-0.651 0.419-0.372 0-0.628-0.116-0.628-0.349 0-0.186 0.14-0.256 0.256-0.256v0c-0.070-0.047-0.209-0.070-0.209-0.233 0-0.14 0.163-0.233 0.209-0.256-0.116-0.093-0.209-0.209-0.209-0.372 0-0.256 0.186-0.489 0.558-0.489 0.116 0 0.256 0.047 0.349 0.116 0.070-0.093 0.163-0.14 0.326-0.116v0.209zM11.094 13.746c0 0.116 0.093 0.163 0.372 0.163 0.209 0 0.302-0.116 0.302-0.163 0-0.070-0.093-0.163-0.419-0.163-0.209 0-0.256 0.116-0.256 0.163zM11.396 12.42c-0.14 0-0.256 0.093-0.256 0.233s0.093 0.233 0.256 0.233c0.14 0 0.233-0.116 0.233-0.233 0-0.14-0.093-0.233-0.233-0.233z\\" />\\\\n      <path d=\\"M12.327 11.932v-0.326h0.349v0.326h-0.349zM12.676 13.188v0.419h-0.349v-1.442h0.349v1.024z\\" />\\\\n      <path d=\\"M13.281 12.955c0 0.302 0.14 0.419 0.302 0.419s0.233-0.070 0.326-0.163l0.256 0.163c-0.14 0.209-0.326 0.302-0.605 0.302-0.372 0-0.605-0.279-0.605-0.744s0.233-0.744 0.628-0.744c0.372 0 0.582 0.326 0.582 0.651v0.116h-0.884zM13.816 12.722c0-0.209-0.116-0.302-0.279-0.302s-0.279 0.116-0.279 0.302h0.558z\\" />\\\\n      <path d=\\"M15.119 12.56c-0.070-0.070-0.163-0.14-0.256-0.14-0.14 0-0.186 0.047-0.186 0.14 0 0.256 0.721 0.14 0.721 0.675 0 0.302-0.233 0.419-0.512 0.419-0.233 0-0.419-0.093-0.535-0.279l0.233-0.163c0.070 0.116 0.186 0.209 0.326 0.209 0.116 0 0.209-0.070 0.209-0.163 0-0.233-0.721-0.163-0.721-0.651 0-0.256 0.233-0.419 0.465-0.419 0.186 0 0.372 0.070 0.512 0.209l-0.256 0.163z\\" />\\\\n    </g>\\\\n    <g className=\\"ca\\">\\\\n      <path d=\\"M10.838 8.14c-0.279 0.419-0.698 0.675-1.186 0.675-0.651 0-1.21-0.302-1.21-1.024 0-1.047 1.535-1.419 2.722-1.489v0.302c0 0.698 0 1.047-0.326 1.535zM8.651 4.348c0.186-0.489 0.651-0.675 1.303-0.675 0.931 0 1.186 0.651 1.21 1.186v0.256c-2.559 0.116-4.955 0.605-4.909 2.931 0.023 1.628 1.512 2.303 2.536 2.303 1.186 0 1.838-0.326 2.489-1.117 0 0.349 0.047 0.698 0.116 0.954h2.28c-0.116-0.395-0.163-0.814-0.163-1.21v-4.257c0-1.024-0.186-1.605-0.744-2.117-0.535-0.489-1.373-0.744-2.536-0.744-1.070 0-1.977 0.233-2.652 0.698v0c0.558 0.465 0.931 1.070 1.070 1.791v0z\\" />\\\\n      <path d=\\"M6.116 7.953c0 0.047 0 0.093 0 0.14 0 0.023 0 0.047 0 0.070 0.047 0.837 0.442 1.349 0.814 1.652-0.628 0.372-1.396 0.512-2.070 0.512-2.443 0.023-3.908-1.721-3.908-4.141 0-2.512 1.512-4.327 4.071-4.327 1.861 0 3.396 1 3.559 2.931h-2.233c0-0.744-0.512-1.117-1.233-1.117-1.163 0-1.512 0.814-1.512 2.326 0 1.535 0.326 2.419 1.512 2.419 0.442 0 0.791-0.14 1-0.465v0z\\" />\\\\n    </g>\\\\n  </svg>\\\\n</Icon>'
+								}
+							]
+						},
+						info: {
+							dirPath: 'src/Icon',
+							documentation: {
+								path: 'src/Icon/Icon.md'
+							},
+							implementation: {
+								framework: 'reactjs',
+								lang: 'javascript',
+								path: 'src/Icon/Icon.js'
+							},
+							presets: []
+						},
+						name: 'Icon',
+						presets: [],
+						properties: [
+							{
+								defaultValue: {
+									value: 'medium'
+								},
+								description: 'Available sizes, including custom - e.g. \\\\'5em\\\\' or \\\\'20px\\\\'',
+								isRequired: false,
+								name: 'size',
+								type: {
+									name: 'union',
+									structure: {
+										elements: [
+											{
+												name: 'literal',
+												structure: {
+													value: 'small'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'medium'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'large'
+												}
+											},
+											{
+												name: 'string',
+												structure: {}
+											}
+										]
+									}
+								}
+							},
+							{
+								description: 'SVG content, required for the generic Icon component',
+								isRequired: false,
+								name: 'children',
+								type: {
+									name: 'node',
+									structure: {}
+								}
+							},
+							{
+								description: 'Fill color, defaults to theme.color_gray_60',
+								isRequired: false,
+								name: 'color',
+								type: {
+									name: 'string',
+									structure: {}
+								}
+							},
+							{
+								description: 'Flip the Icon horizontally when used with RTL languages',
+								isRequired: false,
+								name: 'rtl',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Alternative text',
+								isRequired: false,
+								name: 'title',
+								type: {
+									name: 'string',
+									structure: {}
+								}
+							}
+						]
+					},
+					{
+						documentation: {
+							examples: [
+								{
+									code: '<div>\\\\n  <Link href=\\"http://example.com\\">Regular</Link>\\\\n  <Link variant=\\"danger\\" href=\\"http://example.com\\">Danger</Link>\\\\n  <Link variant=\\"success\\" href=\\"http://example.com\\">Success</Link>\\\\n  <Link variant=\\"warning\\" href=\\"http://example.com\\">Warning</Link>\\\\n</div>'
+								}
+							]
+						},
+						info: {
+							dirPath: 'src/Link',
+							documentation: {
+								path: 'src/Link/Link.md'
+							},
+							implementation: {
+								framework: 'reactjs',
+								lang: 'javascript',
+								path: 'src/Link/Link.js'
+							},
+							presets: [
+								{
+									path: 'src/Link/presets/0-default.json'
+								}
+							]
+						},
+						name: 'Link',
+						presets: [
+							{
+								elements: {
+									'54FAB3F540C5DA7385E05BC8C0683997': {
+										props: {
+											children: 'Click me',
+											href: 'https://www.google.com/'
+										},
+										type: 'Link'
+									}
+								},
+								name: 'default',
+								rootId: '54FAB3F540C5DA7385E05BC8C0683997'
+							}
+						],
+						properties: [
+							{
+								description: 'Content of the Link',
+								isRequired: false,
+								name: 'children',
+								type: {
+									name: 'node',
+									structure: {}
+								}
+							},
+							{
+								description: 'A URL or URL fragment to which the Link points',
+								isRequired: false,
+								name: 'href',
+								type: {
+									name: 'string',
+									structure: {}
+								}
+							},
+							{
+								defaultValue: {
+									value: 'a'
+								},
+								description: 'Element to be used as the root node - e.g. \`a\` or \`ReactRouterLink\`',
+								isRequired: false,
+								name: 'element',
+								type: {
+									name: 'unsupported',
+									structure: {
+										raw: '$FlowFixMe'
+									}
+								}
+							},
+							{
+								defaultValue: {
+									value: 'regular'
+								},
+								description: 'Available variants',
+								isRequired: false,
+								name: 'variant',
+								type: {
+									name: 'union',
+									structure: {
+										elements: [
+											{
+												name: 'literal',
+												structure: {
+													value: 'regular'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'danger'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'success'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'warning'
+												}
+											}
+										]
+									}
+								}
+							}
+						]
+					},
+					{
+						documentation: {
+							examples: [
+								{
+									code: '(() => {\\\\n  function IconDanger() {\\\\n      return (\\\\n        <Icon>\\\\n          <g>\\\\n            <path d=\\"M3.94 19.49h16.118a1 1 0 0 0 .866-1.498l-8.06-13.99a.996.996 0 0 0-1.732-.001L3.074 17.993a.998.998 0 0 0 .867 1.499zM12 17a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-3.503h-2v-5h2v5z\\"/>\\\\n          </g>\\\\n        </Icon>\\\\n      );\\\\n    }\\\\n  \\\\n  const data = [\\\\n    {\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Menu item with onClick\\\\',\\\\n          onClick: event => { console.log(event); }\\\\n        },\\\\n        {\\\\n          text: \\\\'Menu item\\\\',\\\\n          secondaryText: \\\\'Secondary text\\\\'\\\\n        }\\\\n      ]\\\\n    },\\\\n    {\\\\n      title: \\\\'Group Title\\\\',\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Icon at start\\\\',\\\\n          iconStart: <IconDanger />\\\\n        },\\\\n        {\\\\n          text: \\\\'Icon at end\\\\',\\\\n          iconEnd: <IconDanger />\\\\n        },\\\\n        {\\\\n          divider: true\\\\n        },\\\\n        {\\\\n          text: \\\\'Danger variant\\\\',\\\\n          variant: \\\\'danger\\\\' // \\\\'danger\\\\' | \\\\'success\\\\' | \\\\'warning\\\\'\\\\n        },\\\\n        {\\\\n          text: \\\\'Disabled menu item\\\\',\\\\n          disabled: true,\\\\n          onClick: () => { console.log(\\\\'onClick is not triggered for disabled items\\\\'); }\\\\n        }\\\\n      ]\\\\n    }\\\\n  ];\\\\n\\\\n  return (\\\\n    <div>\\\\n      <Menu data={data} />\\\\n    </div>\\\\n  );\\\\n})();'
+								}
+							]
+						},
+						info: {
+							dirPath: 'src/Menu',
+							documentation: {
+								path: 'src/Menu/Menu.md'
+							},
+							implementation: {
+								framework: 'reactjs',
+								lang: 'javascript',
+								path: 'src/Menu/Menu.js'
+							},
+							presets: [
+								{
+									path: 'src/Menu/presets/0-default.json'
+								}
+							]
+						},
+						name: 'Menu',
+						presets: [
+							{
+								elements: {
+									F85995B051CF1B9DAE5B74E20509B335: {
+										props: {
+											data: [
 												{
+													items: [
+														{
+															secondaryText: 'Secondary text',
+															text: 'Menu item 1'
+														},
+														{
+															secondaryText: 'Secondary text',
+															text: 'Menu item 2'
+														}
+													]
+												},
+												{
+													items: [
+														{
+															secondaryText: 'Secondary text',
+															text: 'Menu item 1'
+														},
+														{
+															secondaryText: 'Secondary text',
+															text: 'Menu item 2'
+														}
+													]
+												}
+											]
+										},
+										type: 'Button'
+									}
+								},
+								name: 'default',
+								rootId: 'F85995B051CF1B9DAE5B74E20509B335'
+							}
+						],
+						properties: [
+							{
+								description: '[MenuDivider](../menu-divider), [MenuGroup](../menu-group), or [MenuItem](../menu-item)',
+								isRequired: false,
+								name: 'children',
+								type: {
+									name: 'node',
+									structure: {}
+								}
+							},
+							{
+								description: 'Data used to contruct Menu. See [example](#data)',
+								isRequired: false,
+								name: 'data',
+								type: {
+									name: 'typedArray',
+									structure: {
+										memberType: {
+											name: 'shape',
+											structure: {
+												items: {
+													name: 'typedArray',
+													structure: {
+														memberType: {
+															name: 'shape',
+															structure: {
+																disabled: {
+																	name: 'boolean',
+																	structure: {}
+																},
+																divider: {
+																	name: 'boolean',
+																	structure: {}
+																},
+																iconEnd: {
+																	name: 'element',
+																	structure: {}
+																},
+																iconStart: {
+																	name: 'element',
+																	structure: {}
+																},
+																onClick: {
+																	name: 'func',
+																	structure: {
+																		arguments: [
+																			{
+																				name: 'event',
+																				type: {
+																					name: 'unsupported',
+																					structure: {
+																						raw: 'SyntheticEvent'
+																					}
+																				}
+																			}
+																		],
+																		returnType: {
+																			name: 'empty',
+																			structure: {}
+																		}
+																	}
+																},
+																render: {
+																	name: 'func',
+																	structure: {
+																		arguments: [
+																			{
+																				name: 'item',
+																				type: {
+																					name: 'object',
+																					structure: {}
+																				}
+																			},
+																			{
+																				name: 'props',
+																				type: {
+																					name: 'object',
+																					structure: {}
+																				}
+																			},
+																			{
+																				name: 'theme',
+																				type: {
+																					name: 'object',
+																					structure: {}
+																				}
+																			}
+																		],
+																		returnType: {
+																			name: 'element',
+																			structure: {}
+																		}
+																	}
+																},
+																secondaryText: {
+																	name: 'node',
+																	structure: {}
+																},
+																text: {
+																	name: 'node',
+																	structure: {}
+																},
+																variant: {
+																	name: 'union',
+																	structure: {
+																		elements: [
+																			{
+																				name: 'literal',
+																				structure: {
+																					value: 'regular'
+																				}
+																			},
+																			{
+																				name: 'literal',
+																				structure: {
+																					value: 'danger'
+																				}
+																			},
+																			{
+																				name: 'literal',
+																				structure: {
+																					value: 'success'
+																				}
+																			},
+																			{
+																				name: 'literal',
+																				structure: {
+																					value: 'warning'
+																				}
+																			}
+																		]
+																	}
+																}
+															}
+														}
+													}
+												},
+												title: {
+													name: 'node',
+													structure: {}
+												}
+											}
+										}
+									}
+								}
+							},
+							{
+								description: '@Private Function that returns props to be applied to each item',
+								isRequired: false,
+								name: 'getItemProps',
+								type: {
+									name: 'func',
+									structure: {
+										arguments: [
+											{
+												name: 'props',
+												type: {
 													name: 'object',
 													structure: {}
 												}
-											]
+											},
+											{
+												name: 'scope',
+												type: {
+													name: 'object',
+													structure: {}
+												}
+											}
+										],
+										returnType: {
+											name: 'object',
+											structure: {}
 										}
-									},
-									target: {
-										name: 'string',
-										structure: {}
 									}
 								}
 							}
-						}
-					}
-				}
-			]
-		},
-		{
-			documentation: {
-				examples: [
-					{
-						code: '<Icon size=\\"7em\\" title=\\"CA Technologies\\">\\\\n  <svg viewBox=\\"0 0 16 16\\">\\\\n    <path\\\\n      className=\\"trademark\\"\\\\n      d=\\"M14.514 10.187c-0.256 0-0.419-0.186-0.419-0.442s0.186-0.442 0.419-0.442c0.256 0 0.419 0.186 0.419 0.442 0 0.279-0.163 0.442-0.419 0.442zM14.514 9.373c-0.209 0-0.372 0.14-0.372 0.395s0.163 0.372 0.372 0.372c0.209 0 0.372-0.14 0.372-0.372 0-0.256-0.163-0.395-0.372-0.395zM14.653 9.977l-0.14-0.209h-0.070v0.209h-0.093v-0.489h0.14c0.093 0 0.163 0.047 0.163 0.14 0 0.070-0.047 0.116-0.093 0.14l0.14 0.186-0.047 0.023zM14.514 9.582h-0.070v0.14h0.070c0.047 0 0.093-0.023 0.093-0.070s-0.023-0.070-0.093-0.070z\\"\\\\n    />\\\\n    <g className=\\"technologies\\">\\\\n      <path d=\\"M0.788 12.187v-0.465h0.349v0.465h0.279v0.279h-0.279v0.814c0 0.070 0.047 0.093 0.116 0.093 0.047 0 0.116-0.023 0.163-0.023v0.279c-0.093 0-0.186 0.023-0.279 0.023-0.256 0-0.349-0.116-0.349-0.326v-0.861h-0.186v-0.279h0.186z\\" />\\\\n      <path d=\\"M1.905 12.955c0 0.302 0.14 0.419 0.302 0.419s0.233-0.070 0.326-0.163l0.256 0.163c-0.14 0.209-0.326 0.302-0.605 0.302-0.372 0-0.605-0.279-0.605-0.744s0.233-0.744 0.605-0.744c0.372 0 0.582 0.326 0.582 0.651v0.116h-0.861zM2.44 12.722c0-0.209-0.116-0.302-0.279-0.302s-0.279 0.116-0.279 0.302h0.558z\\" />\\\\n      <path d=\\"M3.859 12.653c-0.047-0.116-0.116-0.209-0.279-0.209-0.186 0-0.279 0.14-0.279 0.465s0.093 0.465 0.279 0.465c0.14 0 0.233-0.093 0.302-0.233l0.256 0.14c-0.14 0.256-0.302 0.349-0.558 0.349-0.395 0-0.605-0.279-0.605-0.744s0.233-0.744 0.605-0.744c0.279 0 0.489 0.14 0.558 0.372l-0.279 0.14z\\" />\\\\n      <path d=\\"M4.394 13.607v-1.977h0.349v0.698c0.093-0.093 0.233-0.186 0.419-0.186 0.279 0 0.419 0.186 0.419 0.489v0.977h-0.349v-0.931c0-0.186-0.070-0.256-0.186-0.256-0.14 0-0.256 0.093-0.326 0.163v1.024h-0.326z\\" />\\\\n      <path d=\\"M5.906 13.607v-1.442h0.302v0.163c0.116-0.093 0.279-0.186 0.442-0.186 0.279 0 0.419 0.186 0.419 0.489v0.977h-0.349v-0.931c0-0.186-0.070-0.256-0.186-0.256-0.14 0-0.256 0.093-0.326 0.163v1.024h-0.302z\\" />\\\\n      <path d=\\"M7.953 12.164c0.395 0 0.628 0.279 0.628 0.744s-0.233 0.744-0.628 0.744c-0.395 0-0.628-0.279-0.628-0.744s0.233-0.744 0.628-0.744zM7.953 12.443c-0.186 0-0.279 0.14-0.279 0.465s0.093 0.465 0.279 0.465c0.186 0 0.279-0.14 0.279-0.465s-0.093-0.465-0.279-0.465z\\" />\\\\n      <path d=\\"M8.837 13.607v-1.977h0.349v1.977z\\" />\\\\n      <path d=\\"M10.070 12.164c0.395 0 0.628 0.279 0.628 0.744s-0.233 0.744-0.628 0.744c-0.395 0-0.628-0.279-0.628-0.744s0.233-0.744 0.628-0.744zM10.070 12.443c-0.186 0-0.279 0.14-0.279 0.465s0.093 0.465 0.279 0.465c0.186 0 0.279-0.14 0.279-0.465s-0.093-0.465-0.279-0.465z\\" />\\\\n      <path d=\\"M12.094 12.397c-0.070 0-0.163 0-0.209 0.023 0.047 0.070 0.070 0.14 0.070 0.256 0 0.279-0.186 0.465-0.535 0.465-0.14 0-0.256 0-0.256 0.093 0 0.233 0.931-0.093 0.931 0.489 0 0.209-0.209 0.419-0.651 0.419-0.372 0-0.628-0.116-0.628-0.349 0-0.186 0.14-0.256 0.256-0.256v0c-0.070-0.047-0.209-0.070-0.209-0.233 0-0.14 0.163-0.233 0.209-0.256-0.116-0.093-0.209-0.209-0.209-0.372 0-0.256 0.186-0.489 0.558-0.489 0.116 0 0.256 0.047 0.349 0.116 0.070-0.093 0.163-0.14 0.326-0.116v0.209zM11.094 13.746c0 0.116 0.093 0.163 0.372 0.163 0.209 0 0.302-0.116 0.302-0.163 0-0.070-0.093-0.163-0.419-0.163-0.209 0-0.256 0.116-0.256 0.163zM11.396 12.42c-0.14 0-0.256 0.093-0.256 0.233s0.093 0.233 0.256 0.233c0.14 0 0.233-0.116 0.233-0.233 0-0.14-0.093-0.233-0.233-0.233z\\" />\\\\n      <path d=\\"M12.327 11.932v-0.326h0.349v0.326h-0.349zM12.676 13.188v0.419h-0.349v-1.442h0.349v1.024z\\" />\\\\n      <path d=\\"M13.281 12.955c0 0.302 0.14 0.419 0.302 0.419s0.233-0.070 0.326-0.163l0.256 0.163c-0.14 0.209-0.326 0.302-0.605 0.302-0.372 0-0.605-0.279-0.605-0.744s0.233-0.744 0.628-0.744c0.372 0 0.582 0.326 0.582 0.651v0.116h-0.884zM13.816 12.722c0-0.209-0.116-0.302-0.279-0.302s-0.279 0.116-0.279 0.302h0.558z\\" />\\\\n      <path d=\\"M15.119 12.56c-0.070-0.070-0.163-0.14-0.256-0.14-0.14 0-0.186 0.047-0.186 0.14 0 0.256 0.721 0.14 0.721 0.675 0 0.302-0.233 0.419-0.512 0.419-0.233 0-0.419-0.093-0.535-0.279l0.233-0.163c0.070 0.116 0.186 0.209 0.326 0.209 0.116 0 0.209-0.070 0.209-0.163 0-0.233-0.721-0.163-0.721-0.651 0-0.256 0.233-0.419 0.465-0.419 0.186 0 0.372 0.070 0.512 0.209l-0.256 0.163z\\" />\\\\n    </g>\\\\n    <g className=\\"ca\\">\\\\n      <path d=\\"M10.838 8.14c-0.279 0.419-0.698 0.675-1.186 0.675-0.651 0-1.21-0.302-1.21-1.024 0-1.047 1.535-1.419 2.722-1.489v0.302c0 0.698 0 1.047-0.326 1.535zM8.651 4.348c0.186-0.489 0.651-0.675 1.303-0.675 0.931 0 1.186 0.651 1.21 1.186v0.256c-2.559 0.116-4.955 0.605-4.909 2.931 0.023 1.628 1.512 2.303 2.536 2.303 1.186 0 1.838-0.326 2.489-1.117 0 0.349 0.047 0.698 0.116 0.954h2.28c-0.116-0.395-0.163-0.814-0.163-1.21v-4.257c0-1.024-0.186-1.605-0.744-2.117-0.535-0.489-1.373-0.744-2.536-0.744-1.070 0-1.977 0.233-2.652 0.698v0c0.558 0.465 0.931 1.070 1.070 1.791v0z\\" />\\\\n      <path d=\\"M6.116 7.953c0 0.047 0 0.093 0 0.14 0 0.023 0 0.047 0 0.070 0.047 0.837 0.442 1.349 0.814 1.652-0.628 0.372-1.396 0.512-2.070 0.512-2.443 0.023-3.908-1.721-3.908-4.141 0-2.512 1.512-4.327 4.071-4.327 1.861 0 3.396 1 3.559 2.931h-2.233c0-0.744-0.512-1.117-1.233-1.117-1.163 0-1.512 0.814-1.512 2.326 0 1.535 0.326 2.419 1.512 2.419 0.442 0 0.791-0.14 1-0.465v0z\\" />\\\\n    </g>\\\\n  </svg>\\\\n</Icon>'
-					}
-				]
-			},
-			info: {
-				dirPath: 'src/Icon',
-				documentation: {
-					path: 'src/Icon/Icon.md'
-				},
-				implementation: {
-					framework: 'reactjs',
-					lang: 'javascript',
-					path: 'src/Icon/Icon.js'
-				},
-				presets: []
-			},
-			name: 'Icon',
-			presets: [],
-			properties: [
-				{
-					defaultValue: {
-						value: 'medium'
+						]
 					},
-					description: 'Available sizes, including custom - e.g. \\\\'5em\\\\' or \\\\'20px\\\\'',
-					isRequired: false,
-					name: 'size',
-					type: {
-						name: 'union',
-						structure: {
-							elements: [
+					{
+						documentation: {
+							examples: [
 								{
-									name: 'literal',
-									structure: {
-										value: 'small'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'medium'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'large'
-									}
-								},
-								{
-									name: 'string',
+									code: '<div>\\\\n  <Popover\\\\n    content={<span>Some content</span>}\\\\n    placement=\\"right\\"\\\\n    subtitle=\\"Subtitle\\"\\\\n    title=\\"Title\\"\\\\n    isOpen>\\\\n    <Button>Open Popover</Button>\\\\n  </Popover>\\\\n</div>'
+								}
+							]
+						},
+						info: {
+							dirPath: 'src/Popover',
+							documentation: {
+								path: 'src/Popover/Popover.md'
+							},
+							implementation: {
+								framework: 'reactjs',
+								lang: 'javascript',
+								path: 'src/Popover/Popover.js'
+							},
+							presets: []
+						},
+						name: 'Popover',
+						presets: [],
+						properties: [
+							{
+								description: 'Trigger for the Popover',
+								isRequired: true,
+								name: 'children',
+								type: {
+									name: 'node',
 									structure: {}
 								}
-							]
-						}
-					}
-				},
-				{
-					description: 'SVG content, required for the generic Icon component',
-					isRequired: false,
-					name: 'children',
-					type: {
-						name: 'node',
-						structure: {}
-					}
-				},
-				{
-					description: 'Fill color, defaults to theme.color_gray_60',
-					isRequired: false,
-					name: 'color',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: 'Flip the Icon horizontally when used with RTL languages',
-					isRequired: false,
-					name: 'rtl',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Alternative text',
-					isRequired: false,
-					name: 'title',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				}
-			]
-		},
-		{
-			documentation: {
-				examples: [
-					{
-						code: '<div>\\\\n  <Link href=\\"http://example.com\\">Regular</Link>\\\\n  <Link variant=\\"danger\\" href=\\"http://example.com\\">Danger</Link>\\\\n  <Link variant=\\"success\\" href=\\"http://example.com\\">Success</Link>\\\\n  <Link variant=\\"warning\\" href=\\"http://example.com\\">Warning</Link>\\\\n</div>'
-					}
-				]
-			},
-			info: {
-				dirPath: 'src/Link',
-				documentation: {
-					path: 'src/Link/Link.md'
-				},
-				implementation: {
-					framework: 'reactjs',
-					lang: 'javascript',
-					path: 'src/Link/Link.js'
-				},
-				presets: [
-					{
-						path: 'src/Link/presets/0-default.json'
-					}
-				]
-			},
-			name: 'Link',
-			presets: [
-				{
-					elements: {
-						'54FAB3F540C5DA7385E05BC8C0683997': {
-							props: {
-								children: 'Click me',
-								href: 'https://www.google.com/'
 							},
-							type: 'Link'
-						}
-					},
-					name: 'default',
-					rootId: '54FAB3F540C5DA7385E05BC8C0683997'
-				}
-			],
-			properties: [
-				{
-					description: 'Content of the Link',
-					isRequired: false,
-					name: 'children',
-					type: {
-						name: 'node',
-						structure: {}
-					}
-				},
-				{
-					description: 'A URL or URL fragment to which the Link points',
-					isRequired: false,
-					name: 'href',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					defaultValue: {
-						value: 'a'
-					},
-					description: 'Element to be used as the root node - e.g. \`a\` or \`ReactRouterLink\`',
-					isRequired: false,
-					name: 'element',
-					type: {
-						name: 'unsupported',
-						structure: {
-							raw: '$FlowFixMe'
-						}
-					}
-				},
-				{
-					defaultValue: {
-						value: 'regular'
-					},
-					description: 'Available variants',
-					isRequired: false,
-					name: 'variant',
-					type: {
-						name: 'union',
-						structure: {
-							elements: [
-								{
-									name: 'literal',
+							{
+								description: 'Content of the Popover',
+								isRequired: true,
+								name: 'content',
+								type: {
+									name: 'unsupported',
 									structure: {
-										value: 'regular'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'danger'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'success'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'warning'
+										raw: '$FlowFixMe'
 									}
 								}
-							]
-						}
-					}
-				}
-			]
-		},
-		{
-			documentation: {
-				examples: [
-					{
-						code: '(() => {\\\\n  function IconDanger() {\\\\n      return (\\\\n        <Icon>\\\\n          <g>\\\\n            <path d=\\"M3.94 19.49h16.118a1 1 0 0 0 .866-1.498l-8.06-13.99a.996.996 0 0 0-1.732-.001L3.074 17.993a.998.998 0 0 0 .867 1.499zM12 17a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-3.503h-2v-5h2v5z\\"/>\\\\n          </g>\\\\n        </Icon>\\\\n      );\\\\n    }\\\\n  \\\\n  const data = [\\\\n    {\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Menu item with onClick\\\\',\\\\n          onClick: event => { console.log(event); }\\\\n        },\\\\n        {\\\\n          text: \\\\'Menu item\\\\',\\\\n          secondaryText: \\\\'Secondary text\\\\'\\\\n        }\\\\n      ]\\\\n    },\\\\n    {\\\\n      title: \\\\'Group Title\\\\',\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Icon at start\\\\',\\\\n          iconStart: <IconDanger />\\\\n        },\\\\n        {\\\\n          text: \\\\'Icon at end\\\\',\\\\n          iconEnd: <IconDanger />\\\\n        },\\\\n        {\\\\n          divider: true\\\\n        },\\\\n        {\\\\n          text: \\\\'Danger variant\\\\',\\\\n          variant: \\\\'danger\\\\' // \\\\'danger\\\\' | \\\\'success\\\\' | \\\\'warning\\\\'\\\\n        },\\\\n        {\\\\n          text: \\\\'Disabled menu item\\\\',\\\\n          disabled: true,\\\\n          onClick: () => { console.log(\\\\'onClick is not triggered for disabled items\\\\'); }\\\\n        }\\\\n      ]\\\\n    }\\\\n  ];\\\\n\\\\n  return (\\\\n    <div>\\\\n      <Menu data={data} />\\\\n    </div>\\\\n  );\\\\n})();'
-					}
-				]
-			},
-			info: {
-				dirPath: 'src/Menu',
-				documentation: {
-					path: 'src/Menu/Menu.md'
-				},
-				implementation: {
-					framework: 'reactjs',
-					lang: 'javascript',
-					path: 'src/Menu/Menu.js'
-				},
-				presets: [
-					{
-						path: 'src/Menu/presets/0-default.json'
-					}
-				]
-			},
-			name: 'Menu',
-			presets: [
-				{
-					elements: {
-						F85995B051CF1B9DAE5B74E20509B335: {
-							props: {
-								data: [
-									{
-										items: [
-											{
-												secondaryText: 'Secondary text',
-												text: 'Menu item 1'
-											},
-											{
-												secondaryText: 'Secondary text',
-												text: 'Menu item 2'
-											}
-										]
-									},
-									{
-										items: [
-											{
-												secondaryText: 'Secondary text',
-												text: 'Menu item 1'
-											},
-											{
-												secondaryText: 'Secondary text',
-												text: 'Menu item 2'
-											}
-										]
-									}
-								]
 							},
-							type: 'Button'
-						}
-					},
-					name: 'default',
-					rootId: 'F85995B051CF1B9DAE5B74E20509B335'
-				}
-			],
-			properties: [
-				{
-					description: '[MenuDivider](../menu-divider), [MenuGroup](../menu-group), or [MenuItem](../menu-item)',
-					isRequired: false,
-					name: 'children',
-					type: {
-						name: 'node',
-						structure: {}
-					}
-				},
-				{
-					description: 'Data used to contruct Menu. See [example](#data)',
-					isRequired: false,
-					name: 'data',
-					type: {
-						name: 'typedArray',
-						structure: {
-							memberType: {
-								name: 'shape',
-								structure: {
-									items: {
-										name: 'typedArray',
-										structure: {
-											memberType: {
-												name: 'shape',
-												structure: {
-													disabled: {
-														name: 'boolean',
-														structure: {}
-													},
-													divider: {
-														name: 'boolean',
-														structure: {}
-													},
-													iconEnd: {
-														name: 'element',
-														structure: {}
-													},
-													iconStart: {
-														name: 'element',
-														structure: {}
-													},
-													onClick: {
-														name: 'func',
-														structure: {
-															arguments: [
-																{
-																	name: 'event',
-																	type: {
-																		name: 'unsupported',
-																		structure: {
-																			raw: 'SyntheticEvent'
-																		}
-																	}
-																}
-															],
-															returnType: {
-																name: 'empty',
-																structure: {}
-															}
-														}
-													},
-													render: {
-														name: 'func',
-														structure: {
-															arguments: [
-																{
-																	name: 'item',
-																	type: {
-																		name: 'object',
-																		structure: {}
-																	}
-																},
-																{
-																	name: 'props',
-																	type: {
-																		name: 'object',
-																		structure: {}
-																	}
-																},
-																{
-																	name: 'theme',
-																	type: {
-																		name: 'object',
-																		structure: {}
-																	}
-																}
-															],
-															returnType: {
-																name: 'element',
-																structure: {}
-															}
-														}
-													},
-													secondaryText: {
-														name: 'node',
-														structure: {}
-													},
-													text: {
-														name: 'node',
-														structure: {}
-													},
-													variant: {
-														name: 'union',
-														structure: {
-															elements: [
-																{
-																	name: 'literal',
-																	structure: {
-																		value: 'regular'
-																	}
-																},
-																{
-																	name: 'literal',
-																	structure: {
-																		value: 'danger'
-																	}
-																},
-																{
-																	name: 'literal',
-																	structure: {
-																		value: 'success'
-																	}
-																},
-																{
-																	name: 'literal',
-																	structure: {
-																		value: 'warning'
-																	}
-																}
-															]
-														}
+							{
+								description: 'Disables the Popover',
+								isRequired: false,
+								name: 'disabled',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								defaultValue: {
+									value: true
+								},
+								description: 'Include an arrow on the Popover content pointing to the trigger',
+								isRequired: false,
+								name: 'hasArrow',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'For use with controlled components, in which the app manages Popover state',
+								isRequired: false,
+								name: 'isOpen',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Plugins that are used to alter behavior. See [PopperJS docs](https://popper.js.org/popper-documentation.html#modifiers) for options.',
+								isRequired: false,
+								name: 'modifiers',
+								type: {
+									name: 'object',
+									structure: {}
+								}
+							},
+							{
+								description: 'Called when Popover is closed',
+								isRequired: false,
+								name: 'onClose',
+								type: {
+									name: 'func',
+									structure: {
+										arguments: [
+											{
+												name: 'event',
+												type: {
+													name: 'unsupported',
+													structure: {
+														raw: 'SyntheticEvent'
 													}
 												}
 											}
-										}
-									},
-									title: {
-										name: 'node',
-										structure: {}
-									}
-								}
-							}
-						}
-					}
-				},
-				{
-					description: '@Private Function that returns props to be applied to each item',
-					isRequired: false,
-					name: 'getItemProps',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [
-								{
-									name: 'props',
-									type: {
-										name: 'object',
-										structure: {}
-									}
-								},
-								{
-									name: 'scope',
-									type: {
-										name: 'object',
-										structure: {}
-									}
-								}
-							],
-							returnType: {
-								name: 'object',
-								structure: {}
-							}
-						}
-					}
-				}
-			]
-		},
-		{
-			documentation: {
-				examples: [
-					{
-						code: '<div>\\\\n  <Popover\\\\n    content={<span>Some content</span>}\\\\n    placement=\\"right\\"\\\\n    subtitle=\\"Subtitle\\"\\\\n    title=\\"Title\\"\\\\n    isOpen>\\\\n    <Button>Open Popover</Button>\\\\n  </Popover>\\\\n</div>'
-					}
-				]
-			},
-			info: {
-				dirPath: 'src/Popover',
-				documentation: {
-					path: 'src/Popover/Popover.md'
-				},
-				implementation: {
-					framework: 'reactjs',
-					lang: 'javascript',
-					path: 'src/Popover/Popover.js'
-				},
-				presets: []
-			},
-			name: 'Popover',
-			presets: [],
-			properties: [
-				{
-					description: 'Trigger for the Popover',
-					isRequired: true,
-					name: 'children',
-					type: {
-						name: 'node',
-						structure: {}
-					}
-				},
-				{
-					description: 'Content of the Popover',
-					isRequired: true,
-					name: 'content',
-					type: {
-						name: 'unsupported',
-						structure: {
-							raw: '$FlowFixMe'
-						}
-					}
-				},
-				{
-					description: 'Disables the Popover',
-					isRequired: false,
-					name: 'disabled',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					defaultValue: {
-						value: true
-					},
-					description: 'Include an arrow on the Popover content pointing to the trigger',
-					isRequired: false,
-					name: 'hasArrow',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'For use with controlled components, in which the app manages Popover state',
-					isRequired: false,
-					name: 'isOpen',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Plugins that are used to alter behavior. See [PopperJS docs](https://popper.js.org/popper-documentation.html#modifiers) for options.',
-					isRequired: false,
-					name: 'modifiers',
-					type: {
-						name: 'object',
-						structure: {}
-					}
-				},
-				{
-					description: 'Called when Popover is closed',
-					isRequired: false,
-					name: 'onClose',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [
-								{
-									name: 'event',
-									type: {
-										name: 'unsupported',
-										structure: {
-											raw: 'SyntheticEvent'
+										],
+										returnType: {
+											name: 'empty',
+											structure: {}
 										}
 									}
 								}
-							],
-							returnType: {
-								name: 'empty',
-								structure: {}
-							}
-						}
-					}
-				},
-				{
-					description: 'Called when Popover is opened',
-					isRequired: false,
-					name: 'onOpen',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [
-								{
-									name: 'event',
-									type: {
-										name: 'unsupported',
-										structure: {
-											raw: 'SyntheticEvent'
-										}
-									}
-								}
-							],
-							returnType: {
-								name: 'empty',
-								structure: {}
-							}
-						}
-					}
-				},
-				{
-					description: 'Open the Popover immediately upon initialization',
-					isRequired: false,
-					name: 'defaultIsOpen',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Function that returns props to be applied to the trigger',
-					isRequired: false,
-					name: 'getTriggerProps',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [
-								{
-									name: 'props',
-									type: {
-										name: 'object',
-										structure: {}
-									}
-								},
-								{
-									name: 'scope',
-									type: {
-										name: 'object',
-										structure: {}
-									}
-								}
-							],
-							returnType: {
-								name: 'object',
-								structure: {}
-							}
-						}
-					}
-				},
-				{
-					defaultValue: {
-						value: 'bottom'
-					},
-					description: 'Placement of the Popover',
-					isRequired: false,
-					name: 'placement',
-					type: {
-						name: 'union',
-						structure: {
-							elements: [
-								{
-									name: 'literal',
-									structure: {
-										value: 'auto'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'auto-end'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'auto-start'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'bottom'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'bottom-end'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'bottom-start'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'left'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'left-end'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'left-start'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'right'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'right-end'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'right-start'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'top'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'top-end'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'top-start'
-									}
-								}
-							]
-						}
-					}
-				},
-				{
-					description: 'Subtitle displayed under the title',
-					isRequired: false,
-					name: 'subtitle',
-					type: {
-						name: 'node',
-						structure: {}
-					}
-				},
-				{
-					description: 'Title of the Popover',
-					isRequired: false,
-					name: 'title',
-					type: {
-						name: 'node',
-						structure: {}
-					}
-				},
-				{
-					description: '@Private ref for the Popover trigger',
-					isRequired: false,
-					name: 'triggerRef',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [
-								{
-									name: 'node',
-									type: {
-										name: 'element',
-										structure: {}
-									}
-								}
-							],
-							returnType: {
-								name: 'empty',
-								structure: {}
-							}
-						}
-					}
-				},
-				{
-					description: 'Use a Portal to render the Popover to the body rather than as a sibling to the trigger',
-					isRequired: false,
-					name: 'usePortal',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					defaultValue: {
-						value: true
-					},
-					description: 'Display the content with default styles',
-					isRequired: false,
-					name: 'wrapContent',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				}
-			]
-		},
-		{
-			documentation: {
-				examples: []
-			},
-			info: {
-				dirPath: 'src/Portal',
-				implementation: {
-					framework: 'reactjs',
-					lang: 'javascript',
-					path: 'src/Portal/Portal.js'
-				},
-				presets: []
-			},
-			name: 'Portal',
-			presets: [],
-			properties: [
-				{
-					description: '',
-					isRequired: true,
-					name: 'children',
-					type: {
-						name: 'node',
-						structure: {}
-					}
-				},
-				{
-					description: '',
-					isRequired: false,
-					name: 'callback',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [],
-							returnType: {
-								name: 'empty',
-								structure: {}
-							}
-						}
-					}
-				}
-			]
-		},
-		{
-			documentation: {
-				examples: [
-					{
-						code: '<TextInput defaultValue=\\"Hello World\\" />'
-					}
-				]
-			},
-			info: {
-				dirPath: 'src/TextInput',
-				documentation: {
-					path: 'src/TextInput/TextInput.md'
-				},
-				implementation: {
-					framework: 'reactjs',
-					lang: 'javascript',
-					path: 'src/TextInput/TextInput.js'
-				},
-				presets: [
-					{
-						path: 'src/TextInput/presets/0-default.json'
-					}
-				]
-			},
-			name: 'TextInput',
-			presets: [
-				{
-					elements: {
-						AF11C384BDFF8ABB8AC5ED99554F61B9: {
-							props: {
-								defaultValue: 'Hello World'
 							},
-							type: 'Button'
-						}
-					},
-					name: 'default',
-					rootId: 'AF11C384BDFF8ABB8AC5ED99554F61B9'
-				}
-			],
-			properties: [
-				{
-					description: '@Private CSS className',
-					isRequired: false,
-					name: 'className',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: 'Initial value of the input. Primarily for use with uncontrolled components',
-					isRequired: false,
-					name: 'defaultValue',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: 'Disables the input',
-					isRequired: false,
-					name: 'disabled',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Icon located at the start of the input',
-					isRequired: false,
-					name: 'iconStart',
-					type: {
-						name: 'element',
-						structure: {}
-					}
-				},
-				{
-					description: 'Icon located at the end of the input',
-					isRequired: false,
-					name: 'iconEnd',
-					type: {
-						name: 'element',
-						structure: {}
-					}
-				},
-				{
-					description: 'ref for the input',
-					isRequired: false,
-					name: 'inputRef',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [
-								{
-									name: 'node',
-									type: {
-										name: 'element',
-										structure: {}
-									}
-								}
-							],
-							returnType: {
-								name: 'empty',
-								structure: {}
-							}
-						}
-					}
-				},
-				{
-					description: 'Props to be applied directly to the root element, rather than the input',
-					isRequired: false,
-					name: 'rootProps',
-					type: {
-						name: 'object',
-						structure: {}
-					}
-				},
-				{
-					description: 'Indicates that the value of the element is invalid',
-					isRequired: false,
-					name: 'invalid',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Function called when input value changes',
-					isRequired: false,
-					name: 'onChange',
-					type: {
-						name: 'func',
-						structure: {
-							arguments: [
-								{
-									name: 'event',
-									type: {
-										name: 'unsupported',
-										structure: {
-											raw: 'SyntheticEvent'
+							{
+								description: 'Called when Popover is opened',
+								isRequired: false,
+								name: 'onOpen',
+								type: {
+									name: 'func',
+									structure: {
+										arguments: [
+											{
+												name: 'event',
+												type: {
+													name: 'unsupported',
+													structure: {
+														raw: 'SyntheticEvent'
+													}
+												}
+											}
+										],
+										returnType: {
+											name: 'empty',
+											structure: {}
 										}
 									}
 								}
-							],
-							returnType: {
-								name: 'empty',
-								structure: {}
+							},
+							{
+								description: 'Open the Popover immediately upon initialization',
+								isRequired: false,
+								name: 'defaultIsOpen',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Function that returns props to be applied to the trigger',
+								isRequired: false,
+								name: 'getTriggerProps',
+								type: {
+									name: 'func',
+									structure: {
+										arguments: [
+											{
+												name: 'props',
+												type: {
+													name: 'object',
+													structure: {}
+												}
+											},
+											{
+												name: 'scope',
+												type: {
+													name: 'object',
+													structure: {}
+												}
+											}
+										],
+										returnType: {
+											name: 'object',
+											structure: {}
+										}
+									}
+								}
+							},
+							{
+								defaultValue: {
+									value: 'bottom'
+								},
+								description: 'Placement of the Popover',
+								isRequired: false,
+								name: 'placement',
+								type: {
+									name: 'union',
+									structure: {
+										elements: [
+											{
+												name: 'literal',
+												structure: {
+													value: 'auto'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'auto-end'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'auto-start'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'bottom'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'bottom-end'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'bottom-start'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'left'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'left-end'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'left-start'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'right'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'right-end'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'right-start'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'top'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'top-end'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'top-start'
+												}
+											}
+										]
+									}
+								}
+							},
+							{
+								description: 'Subtitle displayed under the title',
+								isRequired: false,
+								name: 'subtitle',
+								type: {
+									name: 'node',
+									structure: {}
+								}
+							},
+							{
+								description: 'Title of the Popover',
+								isRequired: false,
+								name: 'title',
+								type: {
+									name: 'node',
+									structure: {}
+								}
+							},
+							{
+								description: '@Private ref for the Popover trigger',
+								isRequired: false,
+								name: 'triggerRef',
+								type: {
+									name: 'func',
+									structure: {
+										arguments: [
+											{
+												name: 'node',
+												type: {
+													name: 'element',
+													structure: {}
+												}
+											}
+										],
+										returnType: {
+											name: 'empty',
+											structure: {}
+										}
+									}
+								}
+							},
+							{
+								description: 'Use a Portal to render the Popover to the body rather than as a sibling to the trigger',
+								isRequired: false,
+								name: 'usePortal',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								defaultValue: {
+									value: true
+								},
+								description: 'Display the content with default styles',
+								isRequired: false,
+								name: 'wrapContent',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
 							}
-						}
-					}
-				},
-				{
-					description: 'Text to display before input value',
-					isRequired: false,
-					name: 'prefix',
-					type: {
-						name: 'union',
-						structure: {
-							elements: [
+						]
+					},
+					{
+						documentation: {
+							examples: []
+						},
+						info: {
+							dirPath: 'src/Portal',
+							implementation: {
+								framework: 'reactjs',
+								lang: 'javascript',
+								path: 'src/Portal/Portal.js'
+							},
+							presets: []
+						},
+						name: 'Portal',
+						presets: [],
+						properties: [
+							{
+								description: '',
+								isRequired: true,
+								name: 'children',
+								type: {
+									name: 'node',
+									structure: {}
+								}
+							},
+							{
+								description: '',
+								isRequired: false,
+								name: 'callback',
+								type: {
+									name: 'func',
+									structure: {
+										arguments: [],
+										returnType: {
+											name: 'empty',
+											structure: {}
+										}
+									}
+								}
+							}
+						]
+					},
+					{
+						documentation: {
+							examples: [
 								{
+									code: '<TextInput defaultValue=\\"Hello World\\" />'
+								}
+							]
+						},
+						info: {
+							dirPath: 'src/TextInput',
+							documentation: {
+								path: 'src/TextInput/TextInput.md'
+							},
+							implementation: {
+								framework: 'reactjs',
+								lang: 'javascript',
+								path: 'src/TextInput/TextInput.js'
+							},
+							presets: [
+								{
+									path: 'src/TextInput/presets/0-default.json'
+								}
+							]
+						},
+						name: 'TextInput',
+						presets: [
+							{
+								elements: {
+									AF11C384BDFF8ABB8AC5ED99554F61B9: {
+										props: {
+											defaultValue: 'Hello World'
+										},
+										type: 'Button'
+									}
+								},
+								name: 'default',
+								rootId: 'AF11C384BDFF8ABB8AC5ED99554F61B9'
+							}
+						],
+						properties: [
+							{
+								description: '@Private CSS className',
+								isRequired: false,
+								name: 'className',
+								type: {
 									name: 'string',
 									structure: {}
-								},
-								{
+								}
+							},
+							{
+								description: 'Initial value of the input. Primarily for use with uncontrolled components',
+								isRequired: false,
+								name: 'defaultValue',
+								type: {
+									name: 'string',
+									structure: {}
+								}
+							},
+							{
+								description: 'Disables the input',
+								isRequired: false,
+								name: 'disabled',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Icon located at the start of the input',
+								isRequired: false,
+								name: 'iconStart',
+								type: {
 									name: 'element',
 									structure: {}
 								}
-							]
-						}
-					}
-				},
-				{
-					description: 'Indicates that the user cannot modify the value of the input',
-					isRequired: false,
-					name: 'readOnly',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					description: 'Indicates that the user must fill in a value before submitting a form',
-					isRequired: false,
-					name: 'required',
-					type: {
-						name: 'boolean',
-						structure: {}
-					}
-				},
-				{
-					defaultValue: {
-						value: 'large'
-					},
-					description: 'Available sizes',
-					isRequired: false,
-					name: 'size',
-					type: {
-						name: 'union',
-						structure: {
-							elements: [
-								{
-									name: 'literal',
-									structure: {
-										value: 'small'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'medium'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'large'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'jumbo'
-									}
-								}
-							]
-						}
-					}
-				},
-				{
-					description: 'Text to display after input value',
-					isRequired: false,
-					name: 'suffix',
-					type: {
-						name: 'union',
-						structure: {
-							elements: [
-								{
-									name: 'string',
-									structure: {}
-								},
-								{
+							},
+							{
+								description: 'Icon located at the end of the input',
+								isRequired: false,
+								name: 'iconEnd',
+								type: {
 									name: 'element',
 									structure: {}
 								}
-							]
-						}
-					}
-				},
-				{
-					defaultValue: {
-						value: 'text'
-					},
-					description: 'Type of input. Not all types are equally supported across browsers.',
-					isRequired: false,
-					name: 'type',
-					type: {
-						name: 'union',
-						structure: {
-							elements: [
-								{
-									name: 'literal',
+							},
+							{
+								description: 'ref for the input',
+								isRequired: false,
+								name: 'inputRef',
+								type: {
+									name: 'func',
 									structure: {
-										value: 'date'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'datetime-local'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'email'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'month'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'number'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'password'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'tel'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'text'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'time'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'url'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'week'
+										arguments: [
+											{
+												name: 'node',
+												type: {
+													name: 'element',
+													structure: {}
+												}
+											}
+										],
+										returnType: {
+											name: 'empty',
+											structure: {}
+										}
 									}
 								}
-							]
-						}
-					}
-				},
-				{
-					description: 'The initial value of the input. Primarily for use with controlled components.  If this prop is specified, an onChange handler must also be specified.  Also see \`defaultValue\`.',
-					isRequired: false,
-					name: 'value',
-					type: {
-						name: 'string',
-						structure: {}
-					}
-				},
-				{
-					description: 'Available variants',
-					isRequired: false,
-					name: 'variant',
-					type: {
-						name: 'union',
-						structure: {
-							elements: [
-								{
-									name: 'literal',
+							},
+							{
+								description: 'Props to be applied directly to the root element, rather than the input',
+								isRequired: false,
+								name: 'rootProps',
+								type: {
+									name: 'object',
+									structure: {}
+								}
+							},
+							{
+								description: 'Indicates that the value of the element is invalid',
+								isRequired: false,
+								name: 'invalid',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Function called when input value changes',
+								isRequired: false,
+								name: 'onChange',
+								type: {
+									name: 'func',
 									structure: {
-										value: 'success'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'warning'
-									}
-								},
-								{
-									name: 'literal',
-									structure: {
-										value: 'danger'
+										arguments: [
+											{
+												name: 'event',
+												type: {
+													name: 'unsupported',
+													structure: {
+														raw: 'SyntheticEvent'
+													}
+												}
+											}
+										],
+										returnType: {
+											name: 'empty',
+											structure: {}
+										}
 									}
 								}
-							]
-						}
+							},
+							{
+								description: 'Text to display before input value',
+								isRequired: false,
+								name: 'prefix',
+								type: {
+									name: 'union',
+									structure: {
+										elements: [
+											{
+												name: 'string',
+												structure: {}
+											},
+											{
+												name: 'element',
+												structure: {}
+											}
+										]
+									}
+								}
+							},
+							{
+								description: 'Indicates that the user cannot modify the value of the input',
+								isRequired: false,
+								name: 'readOnly',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								description: 'Indicates that the user must fill in a value before submitting a form',
+								isRequired: false,
+								name: 'required',
+								type: {
+									name: 'boolean',
+									structure: {}
+								}
+							},
+							{
+								defaultValue: {
+									value: 'large'
+								},
+								description: 'Available sizes',
+								isRequired: false,
+								name: 'size',
+								type: {
+									name: 'union',
+									structure: {
+										elements: [
+											{
+												name: 'literal',
+												structure: {
+													value: 'small'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'medium'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'large'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'jumbo'
+												}
+											}
+										]
+									}
+								}
+							},
+							{
+								description: 'Text to display after input value',
+								isRequired: false,
+								name: 'suffix',
+								type: {
+									name: 'union',
+									structure: {
+										elements: [
+											{
+												name: 'string',
+												structure: {}
+											},
+											{
+												name: 'element',
+												structure: {}
+											}
+										]
+									}
+								}
+							},
+							{
+								defaultValue: {
+									value: 'text'
+								},
+								description: 'Type of input. Not all types are equally supported across browsers.',
+								isRequired: false,
+								name: 'type',
+								type: {
+									name: 'union',
+									structure: {
+										elements: [
+											{
+												name: 'literal',
+												structure: {
+													value: 'date'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'datetime-local'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'email'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'month'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'number'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'password'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'tel'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'text'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'time'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'url'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'week'
+												}
+											}
+										]
+									}
+								}
+							},
+							{
+								description: 'The initial value of the input. Primarily for use with controlled components.  If this prop is specified, an onChange handler must also be specified.  Also see \`defaultValue\`.',
+								isRequired: false,
+								name: 'value',
+								type: {
+									name: 'string',
+									structure: {}
+								}
+							},
+							{
+								description: 'Available variants',
+								isRequired: false,
+								name: 'variant',
+								type: {
+									name: 'union',
+									structure: {
+										elements: [
+											{
+												name: 'literal',
+												structure: {
+													value: 'success'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'warning'
+												}
+											},
+											{
+												name: 'literal',
+												structure: {
+													value: 'danger'
+												}
+											}
+										]
+									}
+								}
+							}
+						]
 					}
-				}
-			]
-		}
-	],
+				],
+				name: 'Uncategorized'
+			}
+		]
+	},
 	name: ''
 }
 
