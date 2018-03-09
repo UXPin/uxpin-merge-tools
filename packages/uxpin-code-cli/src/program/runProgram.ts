@@ -8,8 +8,10 @@ import { startServer } from '../debug/server/startServer';
 import { buildDesignSystem } from '../steps/building/buildDesignSystem';
 import { BuildOptions } from '../steps/building/BuildOptions';
 import { TEMP_DIR_PATH } from '../steps/building/config/getConfig';
-import { getDesignSystemComponentInfos } from '../steps/discovery/component/getDesignSystemComponentInfos';
+import { getComponentCategoryInfos } from '../steps/discovery/component/getComponentCategoryInfos';
 import { getDesignSystemSummary } from '../steps/discovery/getDesignSystemSummary';
+import { getAllComponentsFromCategories } from '../steps/serialization/component/categories/getAllComponentsFromCategories';
+import { ComponentDefinition } from '../steps/serialization/component/ComponentDefinition';
 import { DesignSystemSnapshot } from '../steps/serialization/DesignSystemSnapshot';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
@@ -23,7 +25,7 @@ export function runProgram(program:RawProgramArgs):Promise<any> {
   const steps:Step[] = getSteps(programArgs);
   const stepFunctions:StepExecutor[] = steps.filter((step) => step.shouldRun).map((step) => tapPromise(step.exec));
 
-  return getDesignSystemComponentInfos(cwd)
+  return getComponentCategoryInfos(cwd)
     .then(getDesignSystemMetadata)
     .then((designSystem:DSMetadata) => pMapSeries(stepFunctions, (step) => step(designSystem)))
     .catch(logError);
@@ -55,11 +57,14 @@ function getSteps(args:ProgramArgs):Step[] {
 }
 
 function thunkBuildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
-  return ({ result: { components } }) => buildDesignSystem(components, buildOptions);
+  return ({ result: { components: { categories } } }) => {
+    const components:ComponentDefinition[] = getAllComponentsFromCategories(categories);
+    return buildDesignSystem(components, buildOptions);
+  };
 }
 
 function thunkStartServer(buildOptions:BuildOptions, port:number):(ds:DSMetadata) => Promise<any> {
-  return ({ result: { components } }) => startServer(components, {
+  return ({ result: { components: { categories } } }) => startServer(getAllComponentsFromCategories(categories), {
     port,
     root: join(buildOptions.projectRoot, TEMP_DIR_PATH),
   });
