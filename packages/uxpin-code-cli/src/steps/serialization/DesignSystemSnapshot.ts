@@ -10,14 +10,13 @@ export interface DesignSystemSnapshot {
 export interface VCSDetails {
   commitHash:string;
   branchName:string;
-  movedFiles:MovedFiles;
+  movedObjects:MovedObjects;
   tags:VCSTag[];
 }
 
-export interface MovedFiles {
+export interface MovedObjects {
   diffSourceCommitHash:string;
   components:MovedFilePathsMap;
-  presets:MovedFilePathsMap;
 }
 
 export interface MovedFilePathsMap {
