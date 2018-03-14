@@ -57,14 +57,14 @@ function getSteps(args:ProgramArgs):Step[] {
 }
 
 function thunkBuildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
-  return ({ result: { components: { categories } } }) => {
-    const components:ComponentDefinition[] = getAllComponentsFromCategories(categories);
+  return ({ result: { categorizedComponents } }) => {
+    const components:ComponentDefinition[] = getAllComponentsFromCategories(categorizedComponents);
     return buildDesignSystem(components, buildOptions);
   };
 }
 
 function thunkStartServer(buildOptions:BuildOptions, port:number):(ds:DSMetadata) => Promise<any> {
-  return ({ result: { components: { categories } } }) => startServer(getAllComponentsFromCategories(categories), {
+  return ({ result: { categorizedComponents } }) => startServer(getAllComponentsFromCategories(categorizedComponents), {
     port,
     root: join(buildOptions.projectRoot, TEMP_DIR_PATH),
   });
@@ -75,8 +75,8 @@ function printDump({ warnings, result }:DSMetadata):void {
   console.log(stringifyWarnings(warnings, true));
 }
 
-function printSummary({ result: { components } }:DSMetadata):void {
-  console.log(getDesignSystemSummary(components));
+function printSummary({ result: { categorizedComponents } }:DSMetadata):void {
+  console.log(getDesignSystemSummary(categorizedComponents));
 }
 
 function printSerializationWarnings({ warnings }:DSMetadata):void {

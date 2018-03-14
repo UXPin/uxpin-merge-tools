@@ -1,9 +1,8 @@
 import safe = require('colors/safe');
 import { ComponentCategory } from '../serialization/component/categories/ComponentCategory';
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
-import { DesignSystemComponents } from '../serialization/DesignSystemSnapshot';
 
-export function getDesignSystemSummary({ categories }:DesignSystemComponents):string {
+export function getDesignSystemSummary(categories:ComponentCategory[]):string {
   return categories.map(describeCategory).join('\n');
 }
 
