@@ -15,7 +15,7 @@ export function getDesignSystemMetadata(categoryInfos:ComponentCategoryInfo[]):P
   return Promise.all(categoryInfos.map(categoryInfoToCategoryMetadata))
     .then((categories) => ({
       result: {
-        components: { categories: categories.map((category) => category.result) },
+        categorizedComponents: categories.map((category) => category.result),
         name: '',
       },
       warnings: joinWarningLists(categories.map((category) => category.warnings)),
@@ -39,12 +39,14 @@ function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentD
     serializeOptionalExamples(info),
     serializeOptionalPresets(info),
   ]).then(([
-    { result: metadata, warnings: metadataWarnings },
-    { result: examples, warnings: exampleWarnings },
-    { result: presets, warnings: presetWarnings }]) => ({
+      { result: metadata, warnings: metadataWarnings },
+      { result: examples, warnings: exampleWarnings },
+      { result: presets, warnings: presetWarnings },
+    ]) => ({
       result: { info, ...metadata, documentation: { examples }, presets },
       warnings: joinWarningLists([metadataWarnings, exampleWarnings, presetWarnings]),
-    }));
+    }),
+  );
 }
 
 function serializeOptionalExamples(info:ComponentInfo):Promise<ExamplesSerializationResult> {

@@ -2,7 +2,7 @@ import { ComponentCategory } from './component/categories/ComponentCategory';
 
 export interface DesignSystemSnapshot {
   name:string;
-  components:DesignSystemComponents;
+  categorizedComponents:ComponentCategory[];
   // @todo: make `vcs` property required after implementation of files tracking
   vcs?:VCSDetails;
 }
@@ -10,14 +10,13 @@ export interface DesignSystemSnapshot {
 export interface VCSDetails {
   commitHash:string;
   branchName:string;
-  movedFiles:MovedFiles;
+  movedObjects:MovedObjects;
   tags:VCSTag[];
 }
 
-export interface MovedFiles {
+export interface MovedObjects {
   diffSourceCommitHash:string;
   components:MovedFilePathsMap;
-  presets:MovedFilePathsMap;
 }
 
 export interface MovedFilePathsMap {
@@ -27,8 +26,4 @@ export interface MovedFilePathsMap {
 export interface VCSTag {
   name:string;
   commitHash:string;
-}
-
-export interface DesignSystemComponents {
-  categories:ComponentCategory[];
 }
