@@ -7,6 +7,7 @@ jobs:
     working_directory: ~/project/packages/uxpin-code-cli
     steps:
       - checkout
+          path: ~/project/
       # Yarn install with cache
       - restore_cache:
           key: uxpin-code-cli-dependencies-cache-{{ checksum "package.json" }}
