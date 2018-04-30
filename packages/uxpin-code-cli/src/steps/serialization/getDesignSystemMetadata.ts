@@ -1,6 +1,6 @@
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
-import { ComponentCategoryInfo } from '../discovery/component/ComponentCategoryInfo';
+import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
 import { ComponentInfo } from '../discovery/component/ComponentInfo';
 import { ComponentCategory } from './component/categories/ComponentCategory';
 import { ComponentDefinition } from './component/ComponentDefinition';

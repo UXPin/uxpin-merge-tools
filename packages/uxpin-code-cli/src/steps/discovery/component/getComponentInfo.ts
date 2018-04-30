@@ -1,47 +1,37 @@
-import pReduce = require('p-reduce');
-import { join } from 'path';
-import { ProjectPaths } from '../paths/ProjectPaths';
-import { ComponentInfo } from './ComponentInfo';
-import { ComponentPaths } from './ComponentPaths';
+import { dirname } from 'path';
+import { ComponentImplementationInfo, ComponentInfo } from './ComponentInfo';
 import { getDocumentationInfo } from './documentation/getDocumentationInfo';
 import { getImplementationInfo } from './implementation/getImplementationInfo';
+import { ComponentPaths } from './paths/ComponentPaths';
+import { getComponentPaths } from './paths/getComponentPaths';
 import { getPresetInfos } from './presets/getPresetInfos';
 
-type AsyncExtender<T> = (object:T) => Promise<T>;
-
-export function getComponentInfo(paths:ProjectPaths, componentDirName:string):Promise<ComponentInfo | null> {
-  const componentDirPath:string = join(paths.componentsDirPath, componentDirName);
-  const componentPaths:ComponentPaths = { ...paths, componentDirPath, componentDirName };
-  return getBasics(componentPaths)
-    .then(thunkExtendBasics([
-      thunkFillDocumentation(componentPaths),
-      thunkFillPresets(componentPaths),
-    ]))
-    .catch(() => null);
-}
-
-function getBasics(componentPaths:ComponentPaths):Promise<ComponentInfo> {
-  return getImplementationInfo(componentPaths).then((implementation) => ({
-    dirPath: componentPaths.componentDirPath,
+export async function getComponentInfo(projectRoot:string, implementationPath:string):Promise<ComponentInfo | null> {
+  const implementation:ComponentImplementationInfo | null = getImplementationInfo(implementationPath);
+  if (!implementation) {
+    return null;
+  }
+  const paths:ComponentPaths = getComponentPaths(projectRoot, implementationPath);
+  return {
+    dirPath: dirname(implementationPath),
     implementation,
-  }));
+    ...await getDocumentation(paths),
+    ...await getPresets(paths),
+  };
 }
 
-function thunkExtendBasics(thunks:Array<AsyncExtender<ComponentInfo>>):AsyncExtender<ComponentInfo> {
-  return (info:ComponentInfo) => pReduce(thunks.map((thunk) => thunk(info)), (componentInfo, extension) => ({
-    ...componentInfo,
-    ...extension,
-  }), info);
+async function getDocumentation(paths:ComponentPaths):Promise<Pick<ComponentInfo, 'documentation'>> {
+  try {
+    return { documentation: await getDocumentationInfo(paths) };
+  } catch {
+    return {};
+  }
 }
 
-function thunkFillDocumentation(paths:ComponentPaths):AsyncExtender<ComponentInfo> {
-  return (info:ComponentInfo) => getDocumentationInfo(paths)
-    .then((documentation) => ({ ...info, documentation }))
-    .catch(() => info);
-}
-
-function thunkFillPresets(paths:ComponentPaths):AsyncExtender<ComponentInfo> {
-  return (info:ComponentInfo) => getPresetInfos(paths)
-    .then((presets) => ({ ...info, presets }))
-    .catch(() => info);
+async function getPresets(paths:ComponentPaths):Promise<Pick<ComponentInfo, 'presets'>> {
+  try {
+    return { presets: await getPresetInfos(paths) };
+  } catch {
+    return {};
+  }
 }

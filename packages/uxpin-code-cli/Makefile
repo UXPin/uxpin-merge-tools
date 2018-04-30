@@ -36,7 +36,7 @@ clean:
 	find ./reports -name "*.*" ! -path "./reports/.gitkeep" -delete
 	rm -rf ./coverage-cli
 	rm -rf ./.nyc_output
-	find ./src -name "*.js" -delete
+	find ./src -name "*.js" ! -path "**/__tests__/resources/**" -delete
 	find ./src -name "*.js.map" -delete
 	find ./src -type d -empty -delete
 	find ./test -name "*.js" ! -path "./test/resources/**" -delete

@@ -8,7 +8,7 @@ import { startServer } from '../debug/server/startServer';
 import { buildDesignSystem } from '../steps/building/buildDesignSystem';
 import { BuildOptions } from '../steps/building/BuildOptions';
 import { TEMP_DIR_PATH } from '../steps/building/config/getConfig';
-import { getComponentCategoryInfos } from '../steps/discovery/component/getComponentCategoryInfos';
+import { getComponentCategoryInfos } from '../steps/discovery/component/category/getComponentCategoryInfos';
 import { getDesignSystemSummary } from '../steps/discovery/getDesignSystemSummary';
 import { getAllComponentsFromCategories } from '../steps/serialization/component/categories/getAllComponentsFromCategories';
 import { ComponentDefinition } from '../steps/serialization/component/ComponentDefinition';

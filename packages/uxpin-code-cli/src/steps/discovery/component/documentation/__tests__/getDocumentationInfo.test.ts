@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 import { ComponentDocumenationInfo } from '../../ComponentInfo';
-import { ComponentPaths } from '../../ComponentPaths';
+import { ComponentPaths } from '../../paths/ComponentPaths';
 import { getDocumentationInfo } from '../getDocumentationInfo';
 
 describe('getDocumentationInfo', () => {
@@ -75,7 +75,6 @@ describe('getDocumentationInfo', () => {
     return {
       componentDirName,
       componentDirPath: `directories/${componentDirName}`,
-      componentsDirPath: 'directories/',
       projectRoot: resolve('./test/resources/'),
     };
   }

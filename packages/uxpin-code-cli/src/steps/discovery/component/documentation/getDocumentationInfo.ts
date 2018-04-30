@@ -3,7 +3,7 @@ import { join, relative } from 'path';
 import { isFile } from '../../../../utils/fs/isFile';
 import { tapPromise } from '../../../../utils/promise/tapPromise';
 import { ComponentDocumenationInfo } from '../ComponentInfo';
-import { ComponentPaths } from '../ComponentPaths';
+import { ComponentPaths } from '../paths/ComponentPaths';
 
 export function getDocumentationInfo(paths:ComponentPaths):Promise<ComponentDocumenationInfo> {
   const { projectRoot, componentDirPath, componentDirName } = paths;
