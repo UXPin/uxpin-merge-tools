@@ -2,7 +2,7 @@ import { CommanderStatic } from 'commander';
 
 import { ProgramArgs, RawProgramArgs } from './ProgramArgs';
 
-const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
+export const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
 
 const defaultArgs:{[key in Command]:ProgramArgs} = {
   server: {
