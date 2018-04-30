@@ -1,16 +1,17 @@
-import pAny = require('p-any');
+import { extname } from 'path';
 import { ComponentImplementationInfo } from '../ComponentInfo';
-import { ComponentPaths } from '../ComponentPaths';
-import { getJSImplementationInfo } from './strategies/getJSImplementationInfo';
-import { getTSImplementationInfo } from './strategies/getTSImplementationInfo';
 
-type ImplementationDiscoveryStrategy = (paths:ComponentPaths) => Promise<ComponentImplementationInfo>;
-
-const STRATEGIES:ImplementationDiscoveryStrategy[] = [
-  getTSImplementationInfo,
-  getJSImplementationInfo,
-];
-
-export function getImplementationInfo(paths:ComponentPaths):Promise<ComponentImplementationInfo> {
-  return pAny(STRATEGIES.map((strategy) => strategy(paths)));
+export function getImplementationInfo(path:string):ComponentImplementationInfo | null {
+  const info:Pick<ComponentImplementationInfo, 'framework' | 'path'> = {
+    framework: 'reactjs',
+    path,
+  };
+  const extenstion:string = extname(path);
+  if (['.ts', '.tsx'].includes(extenstion)) {
+    return { ...info, lang: 'typescript' };
+  }
+  if (['.js', '.jsx'].includes(extenstion)) {
+    return { ...info, lang: 'javascript' };
+  }
+  return null;
 }
