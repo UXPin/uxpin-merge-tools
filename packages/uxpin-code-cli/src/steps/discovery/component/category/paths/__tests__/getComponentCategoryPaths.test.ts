@@ -97,6 +97,22 @@ describe('getComponentCategoryPaths', () => {
         expectedPaths: [],
         projectRoot: testProjectPath,
       },
+      {
+        caseName: 'patterns matching directory are ignored',
+        config: {
+          include: [
+            'src/*/*.js',
+            'src/Icons/',
+            'src/Icons/*',
+          ],
+          name: 'Category Name',
+        },
+        expectedPaths: [
+          'src/FirstComponent/FirstComponent.js',
+          'src/SecondComponent/SecondComponent.js',
+        ],
+        projectRoot: testProjectPath,
+      },
     ];
 
     using(cases).describe('correctly returns paths for', ({ caseName, config, expectedPaths, projectRoot }) => {
