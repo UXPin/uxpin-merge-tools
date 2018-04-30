@@ -42,7 +42,6 @@ To run unit (or integration) test separately from the other you can run `make te
 Note the value in the "Jest options" field:
 ```
 --testPathIgnorePatterns="/(test/integration|node_modules|test/resources)/"
---testMatch="**/__tests__/**/*.test.ts"
 ```
 To create a configuration running only integration tests, change the value of this field to the following value (excluding tests in the `spec` directory):
 ```

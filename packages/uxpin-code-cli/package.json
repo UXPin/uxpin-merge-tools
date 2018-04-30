@@ -30,7 +30,8 @@
       "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
     },
     "testMatch": [
-      "**/test/**/*.test.ts"
+      "**/test/**/*.test.ts",
+      "**/__tests__/*.test.ts"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/test/resources/"
