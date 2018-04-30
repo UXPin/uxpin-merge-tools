@@ -10,17 +10,12 @@ export function keepChromelessWhileTestsRunning(port:number,
   let urlToOpenByChromeless:string = `${SERVER_URL}:${port}`;
 
   if (process.env.CI) {
-    beforeAll((done) => {
-      ngrok.connect(port, (err, url) => {
-        if (url) {
-          urlToOpenByChromeless = url;
-          done();
-        }
-      });
+    beforeAll(async () => {
+      urlToOpenByChromeless = await ngrok.connect(port);
     });
 
     afterAll(() => {
-      ngrok.disconnect(urlToOpenByChromeless);
+      return ngrok.disconnect(urlToOpenByChromeless);
     });
   }
 
@@ -31,6 +26,6 @@ export function keepChromelessWhileTestsRunning(port:number,
   });
 
   afterAll(() => {
-    chromeless.end();
+    return chromeless.end();
   });
 }
