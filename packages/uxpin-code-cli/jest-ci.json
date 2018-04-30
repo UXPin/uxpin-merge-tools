@@ -7,7 +7,8 @@
     "json"
   ],
   "testMatch": [
-    "**/test/**/*.test.js"
+    "**/test/**/*.test.js",
+    "**/__tests__/*.test.js"
   ],
   "testPathIgnorePatterns": [
     "<rootDir>/test/resources/"
