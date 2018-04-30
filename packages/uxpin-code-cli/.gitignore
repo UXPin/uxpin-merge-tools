@@ -12,4 +12,4 @@
 /reports/
 !/reports/.gitkeep
 
-!/test/resources/configs/
+!/test/resources/configs/*.js

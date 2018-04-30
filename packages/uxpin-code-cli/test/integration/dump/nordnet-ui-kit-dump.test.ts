@@ -10,7 +10,7 @@ describe('The --dump option', () => {
       // when
       return runUXPinCodeCommand({
         cwd: 'resources/repos/nordnet-ui-kit',
-        params: ['--dump'],
+        params: ['--dump', '--config="../../configs/nordnet-ui-kit-uxpin.config.js"'],
       }).then((consoleOutput) => {
         // then
         expect(consoleOutput).toMatchSnapshot();

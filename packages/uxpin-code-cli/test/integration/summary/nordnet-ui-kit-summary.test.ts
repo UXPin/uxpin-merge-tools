@@ -55,6 +55,11 @@ describe('--summary option integration', () => {
         💡 examples: ✘
         🎛  presets: ✘
 
+    Icon
+        📜 documentation: ✔
+        💡 examples: ✘
+        🎛  presets: ✘
+
     Input
         📜 documentation: ✔
         💡 examples: ✘
