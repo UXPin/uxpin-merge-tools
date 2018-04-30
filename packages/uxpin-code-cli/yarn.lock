@@ -467,7 +467,7 @@ async@^2.1.2:
   dependencies:
     lodash "^4.14.0"
 
-async@^2.1.4, async@^2.3.0:
+async@^2.1.4:
   version "2.6.0"
   resolved "https://registry.npmjs.org/async/-/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
   dependencies:
@@ -813,10 +813,6 @@ brorand@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
 
-browser-fingerprint@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/browser-fingerprint/-/browser-fingerprint-0.0.1.tgz#8df3cdca25bf7d5b3542d61545d730053fce604a"
-
 browser-process-hrtime@^0.1.2:
   version "0.1.2"
   resolved "https://registry.npmjs.org/browser-process-hrtime/-/browser-process-hrtime-0.1.2.tgz#425d68a58d3447f02a04aa894187fce8af8b7b8e"
@@ -1091,15 +1087,15 @@ chrome-remote-interface@^0.25.5:
     commander "2.11.x"
     ws "3.3.x"
 
-chromeless@^1.3.0:
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/chromeless/-/chromeless-1.5.0.tgz#9df29da1003153e667f01ad54158b51c016196b6"
+chromeless@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.npmjs.org/chromeless/-/chromeless-1.5.1.tgz#b2c6265780b995aa2615d60a18ae48a26fa10937"
   dependencies:
     aws-sdk "^2.177.0"
     bluebird "^3.5.1"
     chrome-launcher "^0.10.0"
     chrome-remote-interface "^0.25.5"
-    cuid "^1.3.8"
+    cuid "^2.1.0"
     form-data "^2.3.1"
     got "^8.0.0"
     mqtt "^2.15.0"
@@ -1292,7 +1288,7 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.npmjs.org/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
 
-core-js@^1.0.0, core-js@^1.1.1:
+core-js@^1.0.0:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
@@ -1407,13 +1403,9 @@ cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   dependencies:
     cssom "0.3.x"
 
-cuid@^1.3.8:
-  version "1.3.8"
-  resolved "https://registry.npmjs.org/cuid/-/cuid-1.3.8.tgz#4b875e0969bad764f7ec0706cf44f5fb0831f6b7"
-  dependencies:
-    browser-fingerprint "0.0.1"
-    core-js "^1.1.1"
-    node-fingerprint "0.0.2"
+cuid@^2.1.0:
+  version "2.1.1"
+  resolved "https://registry.npmjs.org/cuid/-/cuid-2.1.1.tgz#3b0fccbda1089ff123a127320c860b975200d62b"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -3578,10 +3570,6 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lock@^0.1.2:
-  version "0.1.4"
-  resolved "https://registry.npmjs.org/lock/-/lock-0.1.4.tgz#fec7deaef17e7c3a0a55e1da042803e25d91745d"
-
 lodash._basecopy@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/lodash._basecopy/-/lodash._basecopy-3.0.1.tgz#8da0e6a876cf344c0ad8a54882111dd3c5c7ca36"
@@ -4030,15 +4018,14 @@ needle@^2.2.0:
     iconv-lite "^0.4.4"
     sax "^1.2.4"
 
-ngrok@^2.2.23:
-  version "2.2.26"
-  resolved "https://registry.npmjs.org/ngrok/-/ngrok-2.2.26.tgz#ae8257c7056bc73a13a253251348c7ef062e8d0a"
+ngrok@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/ngrok/-/ngrok-3.0.1.tgz#1be0fb5a02c618da5458aa68b83494b561a84af2"
   dependencies:
     "@types/node" "^8.0.19"
-    async "^2.3.0"
     decompress-zip "^0.3.0"
-    lock "^0.1.2"
-    request "^2.55.0"
+    request "^2.83.0"
+    request-promise-native "^1.0.5"
     uuid "^3.0.0"
 
 node-dir@^0.1.10:
@@ -4053,10 +4040,6 @@ node-fetch@^1.0.1:
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
-
-node-fingerprint@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.npmjs.org/node-fingerprint/-/node-fingerprint-0.0.2.tgz#31cbabeb71a67ae7dd5a7dc042e51c3c75868501"
 
 node-int64@^0.4.0:
   version "0.4.0"
@@ -5013,33 +4996,6 @@ request@2.81.0:
     tough-cookie "~2.3.0"
     tunnel-agent "^0.6.0"
     uuid "^3.0.0"
-
-request@^2.55.0:
-  version "2.83.0"
-  resolved "https://registry.npmjs.org/request/-/request-2.83.0.tgz#ca0b65da02ed62935887808e6f510381034e3356"
-  dependencies:
-    aws-sign2 "~0.7.0"
-    aws4 "^1.6.0"
-    caseless "~0.12.0"
-    combined-stream "~1.0.5"
-    extend "~3.0.1"
-    forever-agent "~0.6.1"
-    form-data "~2.3.1"
-    har-validator "~5.0.3"
-    hawk "~6.0.2"
-    http-signature "~1.2.0"
-    is-typedarray "~1.0.0"
-    isstream "~0.1.2"
-    json-stringify-safe "~5.0.1"
-    mime-types "~2.1.17"
-    oauth-sign "~0.8.2"
-    performance-now "^2.1.0"
-    qs "~6.5.1"
-    safe-buffer "^5.1.1"
-    stringstream "~0.0.5"
-    tough-cookie "~2.3.3"
-    tunnel-agent "^0.6.0"
-    uuid "^3.1.0"
 
 request@^2.83.0:
   version "2.85.0"
