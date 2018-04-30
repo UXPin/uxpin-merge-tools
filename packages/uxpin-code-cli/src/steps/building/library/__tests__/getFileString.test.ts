@@ -1,11 +1,11 @@
-import { getFileString } from '../../../../../src/steps/building/library/getFileString';
-import { ComponentImplementationInfo } from '../../../../../src/steps/discovery/component/ComponentInfo';
-import { ComponentDefinition } from '../../../../../src/steps/serialization/component/ComponentDefinition';
+import { ComponentImplementationInfo } from '../../../discovery/component/ComponentInfo';
+import { ComponentDefinition } from '../../../serialization/component/ComponentDefinition';
+import { getFileString } from '../getFileString';
 
 describe('getFileString', () => {
 
   const commonImplementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
-  const commonProps:Pick<ComponentDefinition, 'properties'|'documentation'|'presets'> = {
+  const commonProps:Pick<ComponentDefinition, 'properties' | 'documentation' | 'presets'> = {
     documentation: { examples: [] },
     presets: [],
     properties: [],

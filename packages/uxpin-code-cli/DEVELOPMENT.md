@@ -3,7 +3,7 @@
 
 Debug server is run for every example repository withing e2e tests located in `test/integration/server`, however sometimes it's useful to be able to run such server manually for debugging or tests authoring.
 
-First of all go the the CLI package, and install dependencies: 
+First of all go the the CLI package, and install dependencies:
 ```bash
 cd packages/uxpin-code-cli/
 yarn
@@ -42,8 +42,9 @@ To run unit (or integration) test separately from the other you can run `make te
 Note the value in the "Jest options" field:
 ```
 --testPathIgnorePatterns="/(test/integration|node_modules|test/resources)/"
+--testMatch="**/__tests__/**/*.test.ts"
 ```
 To create a configuration running only integration tests, change the value of this field to the following value (excluding tests in the `spec` directory):
 ```
---testPathIgnorePatterns="/(test/spec|node_modules|test/resources)/"
+--testPathIgnorePatterns="/(src|node_modules|test/resources)/"
 ```

@@ -1,10 +1,10 @@
 import { resolve } from 'path';
 
-import { ComponentExample } from '../../../../../../src/steps/serialization/component/examples/ComponentExample';
+import { ComponentExample } from '../ComponentExample';
 import {
   ExamplesSerializationResult,
-} from '../../../../../../src/steps/serialization/component/examples/ExamplesSerializationResult';
-import { serializeExamples } from '../../../../../../src/steps/serialization/component/examples/serializeExamples';
+} from '../ExamplesSerializationResult';
+import { serializeExamples } from '../serializeExamples';
 
 describe('getExamples', () => {
   describe('getting list of examples', () => {

@@ -1,8 +1,8 @@
-import { WarningDetails } from '../../../../../../../src/common/warning/WarningDetails';
-import { ComponentImplementationInfo } from '../../../../../../../src/steps/discovery/component/ComponentInfo';
-import { ComponentMetadata } from '../../../../../../../src/steps/serialization/component/ComponentDefinition';
-import { serializeJSComponent } from '../../../../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent';
-import { getJavaScriptComponentPath } from '../../../../../../utils/resources/getExampleComponentPath';
+import { getJavaScriptComponentPath } from '../../../../../../../test/utils/resources/getExampleComponentPath';
+import { WarningDetails } from '../../../../../../common/warning/WarningDetails';
+import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
+import { ComponentMetadata } from '../../../ComponentDefinition';
+import { serializeJSComponent } from '../serializeJSComponent';
 
 describe('serializeJSComponentProps', () => {
   describe('providing array of objects describing all properties of the JavaScript component', () => {

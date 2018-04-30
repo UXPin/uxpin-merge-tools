@@ -20,7 +20,7 @@ test:
 	make test-integration
 
 test-unit:
-	jest --testMatch="**/test/spec/**/*.test.ts"
+	jest --testMatch="**/__tests__/*.test.ts"
 
 test-integration:
 	jest --testMatch="**/test/integration/**/*.test.ts"

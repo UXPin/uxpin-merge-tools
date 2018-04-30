@@ -1,4 +1,4 @@
-import { getComponentClassName } from '../../../../../src/steps/serialization/component/name/getComponentClassName';
+import { getComponentClassName } from '../getComponentClassName';
 
 describe('getComponentClassName', () => {
   it('returns className for CamelCase component name', () => {

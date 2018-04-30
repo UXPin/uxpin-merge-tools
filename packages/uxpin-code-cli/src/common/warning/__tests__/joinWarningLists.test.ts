@@ -1,5 +1,5 @@
-import { joinWarningLists } from '../../../../src/common/warning/joinWarningLists';
-import { WarningDetails } from '../../../../src/common/warning/WarningDetails';
+import { joinWarningLists } from '../joinWarningLists';
+import { WarningDetails } from '../WarningDetails';
 
 describe('joinWarningLists', () => {
   describe('joining list of lists of warnings into a flat list', () => {
