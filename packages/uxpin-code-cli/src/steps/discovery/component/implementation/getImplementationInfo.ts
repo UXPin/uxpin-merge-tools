@@ -6,11 +6,11 @@ export function getImplementationInfo(path:string):ComponentImplementationInfo |
     framework: 'reactjs',
     path,
   };
-  const extenstion:string = extname(path);
-  if (['.ts', '.tsx'].includes(extenstion)) {
+  const extension:string = extname(path);
+  if (['.ts', '.tsx'].includes(extension)) {
     return { ...info, lang: 'typescript' };
   }
-  if (['.js', '.jsx'].includes(extenstion)) {
+  if (['.js', '.jsx'].includes(extension)) {
     return { ...info, lang: 'javascript' };
   }
   return null;
