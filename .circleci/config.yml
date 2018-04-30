@@ -6,7 +6,7 @@ jobs:
     resource_class: large
     working_directory: ~/project/packages/uxpin-code-cli
     steps:
-      - checkout
+      - checkout:
           path: ~/project/
       # Yarn install with cache
       - restore_cache:
