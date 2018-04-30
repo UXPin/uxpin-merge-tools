@@ -9,7 +9,10 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in arui-feather example', () => {
       // when
-      return runUXPinCodeCommand({ cwd: 'resources/repos/arui-feather', params: ['--summary'] }).then((output) => {
+      return runUXPinCodeCommand({
+        cwd: 'resources/repos/arui-feather',
+        params: ['--summary', '--config="../../configs/arui-feather-uxpin.config.js"'],
+      }).then((output) => {
         // then
         expect(output).toContain(
           `Uncategorized
