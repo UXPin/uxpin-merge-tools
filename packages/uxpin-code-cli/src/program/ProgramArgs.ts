@@ -8,6 +8,7 @@ export interface RawProgramArgs {
   summary:boolean;
   webpackConfig?:string;
   wrapper?:string;
+  config?:string;
 }
 
 export type ProgramArgs = UploadProgramArgs | ServerProgramArgs;
@@ -19,6 +20,7 @@ interface UploadProgramArgs {
   summary:boolean;
   webpackConfig?:string;
   wrapper?:string;
+  config:string;
 }
 
 interface ServerProgramArgs {
@@ -27,6 +29,7 @@ interface ServerProgramArgs {
   port:number;
   webpackConfig?:string;
   wrapper?:string;
+  config:string;
 }
 
 type Arg = string|CommanderStatic;

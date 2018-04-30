@@ -1,6 +1,8 @@
-import { ProjectPaths } from '../../paths/ProjectPaths';
-
-export interface ComponentPaths extends ProjectPaths {
+export interface ComponentPaths {
+  /**
+   * absolute path of the project root directory
+   */
+  projectRoot:string;
   /**
    * component directory path relative to the project root
    */

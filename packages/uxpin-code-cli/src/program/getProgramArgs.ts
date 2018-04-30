@@ -2,14 +2,18 @@ import { CommanderStatic } from 'commander';
 
 import { ProgramArgs, RawProgramArgs } from './ProgramArgs';
 
+const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
+
 const defaultArgs:{[key in Command]:ProgramArgs} = {
   server: {
     command: 'server',
+    config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
     port: 8080,
   },
   upload: {
     command: 'upload',
+    config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
     dump: false,
     summary: false,
