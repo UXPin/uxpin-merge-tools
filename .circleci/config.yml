@@ -12,7 +12,7 @@ jobs:
       - restore_cache:
           key: uxpin-code-cli-dependencies-cache-{{ checksum "package.json" }}
       - run:
-          name: install-dependencies
+          name: "Install dependencies"
           command: yarn install
       - save_cache:
           key: uxpin-code-cli-dependencies-cache-{{ checksum "package.json" }}
@@ -22,10 +22,10 @@ jobs:
       - restore_cache:
           key: uxpin-code-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
       - run:
-          name: allow-cloning-git-dependencies
-          command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+          name: "Allow cloning git dependencies from github"
+          command: mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
       - run:
-          name: test-resources
+          name: "Create test resources"
           command: make test-resources
       - save_cache:
           key: uxpin-code-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
@@ -33,19 +33,19 @@ jobs:
             - ./test/resources/repos
       # Build and test
       - run:
-          name: build
+          name: "Build"
           command: make build
       - run:
-          name: check
+          name: "Check"
           command: make check
       - run:
-          name: test
+          name: "Test"
           command: make test-ci
           environment:
             CHROME_PATH: /usr/bin/google-chrome
       - store_test_results:
           path: ./reports
       - run:
-          name: code-coverage
+          name: "Upload code coverage"
           command: ./packages/uxpin-code-cli/node_modules/.bin/codecov -F unittests -F uxpin_code_cli
           working_directory: ~/project/
