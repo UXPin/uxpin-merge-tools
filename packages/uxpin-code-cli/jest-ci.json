@@ -5,7 +5,7 @@
   ],
   "coveragePathIgnorePatterns": [
     "/node_modules/",
-    "**/__tests__/*.js"
+    "/__tests__/"
   ],
   "coverageReporters": [
     "json"
