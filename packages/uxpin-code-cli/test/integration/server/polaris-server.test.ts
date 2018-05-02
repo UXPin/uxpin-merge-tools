@@ -12,7 +12,10 @@ describe('server run in polaris', () => {
 
   setupDebugServerTest({
     projectPath: 'resources/repos/polaris',
-    serverCmdArgs: ['--webpack-config "./playground/webpack.config"'],
+    serverCmdArgs: [
+      '--webpack-config "./playground/webpack.config"',
+      '--config="../../configs/polaris-uxpin.config.js"',
+    ],
   }, (c) => chromeless = c);
 
   it('renders `Banner` component with preview', async () => {

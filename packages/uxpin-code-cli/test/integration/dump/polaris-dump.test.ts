@@ -7,7 +7,10 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('The --dump option', () => {
   it('run for the polaris repository, prints the JSON describing the full repository', () => {
     // when
-    return runUXPinCodeCommand({ cwd: 'resources/repos/polaris', params: ['--dump'] }).then((consoleOutput) => {
+    return runUXPinCodeCommand({
+      cwd: 'resources/repos/polaris',
+      params: ['--dump', '--config="../../configs/polaris-uxpin.config.js"'],
+    }).then((consoleOutput) => {
       // then
       expect(consoleOutput).toMatchSnapshot();
     });
