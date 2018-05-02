@@ -3,11 +3,16 @@
   "collectCoverageFrom": [
     "src/**/*.js"
   ],
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/__tests__/"
+  ],
   "coverageReporters": [
     "json"
   ],
   "testMatch": [
-    "**/test/**/*.test.js"
+    "**/test/**/*.test.js",
+    "**/__tests__/*.test.js"
   ],
   "testPathIgnorePatterns": [
     "<rootDir>/test/resources/"

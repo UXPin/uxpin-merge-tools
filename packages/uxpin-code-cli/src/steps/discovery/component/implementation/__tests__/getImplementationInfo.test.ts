@@ -1,7 +1,7 @@
 import { resolve } from 'path';
-import { ComponentImplementationInfo } from '../../../../../../src/steps/discovery/component/ComponentInfo';
-import { ComponentPaths } from '../../../../../../src/steps/discovery/component/ComponentPaths';
-import { getImplementationInfo } from '../../../../../../src/steps/discovery/component/implementation/getImplementationInfo';
+import { ComponentImplementationInfo } from '../../ComponentInfo';
+import { ComponentPaths } from '../../ComponentPaths';
+import { getImplementationInfo } from '../getImplementationInfo';
 
 describe('getImplementationInfo', () => {
   describe('obtaining information about the implementation of a component in the given directory', () => {

@@ -1,7 +1,7 @@
 import { resolve } from 'path';
-import { ComponentDocumenationInfo } from '../../../../../../src/steps/discovery/component/ComponentInfo';
-import { ComponentPaths } from '../../../../../../src/steps/discovery/component/ComponentPaths';
-import { getDocumentationInfo } from '../../../../../../src/steps/discovery/component/documentation/getDocumentationInfo';
+import { ComponentDocumenationInfo } from '../../ComponentInfo';
+import { ComponentPaths } from '../../ComponentPaths';
+import { getDocumentationInfo } from '../getDocumentationInfo';
 
 describe('getDocumentationInfo', () => {
   describe('obtaining info about the documentation of a component in the given directory', () => {

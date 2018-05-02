@@ -1,4 +1,4 @@
-import { filterPresets } from '../../../../../../src/steps/discovery/component/presets/filterPresets';
+import { filterPresets } from '../filterPresets';
 
 describe('filterPresets', () => {
   it('should return paths that meet preset filename pattern only', () => {

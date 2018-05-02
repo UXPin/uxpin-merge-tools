@@ -1,7 +1,7 @@
-import { ComponentImplementationInfo } from '../../../../../../../src/steps/discovery/component/ComponentInfo';
-import { ComponentMetadata } from '../../../../../../../src/steps/serialization/component/ComponentDefinition';
-import { serializeTSComponent } from '../../../../../../../src/steps/serialization/component/implementation/typescript/serializeTSComponent';
-import { getTypeScriptComponentPath } from '../../../../../../utils/resources/getExampleComponentPath';
+import { getTypeScriptComponentPath } from '../../../../../../../test/utils/resources/getExampleComponentPath';
+import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
+import { ComponentMetadata } from '../../../ComponentDefinition';
+import { serializeTSComponent } from '../serializeTSComponent';
 
 describe('serializeTSComponent', () => {
   describe('providing array of objects describing all properties of the TypeScript component', () => {

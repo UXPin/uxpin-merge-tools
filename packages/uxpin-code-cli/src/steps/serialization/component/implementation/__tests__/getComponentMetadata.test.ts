@@ -1,10 +1,10 @@
-import { ComponentImplementationInfo } from '../../../../../../src/steps/discovery/component/ComponentInfo';
-import { ComponentMetadata } from '../../../../../../src/steps/serialization/component/ComponentDefinition';
-import { getComponentMetadata } from '../../../../../../src/steps/serialization/component/implementation/getComponentMetadata';
 import {
   getJavaScriptComponentPath,
   getTypeScriptComponentPath,
-} from '../../../../../utils/resources/getExampleComponentPath';
+} from '../../../../../../test/utils/resources/getExampleComponentPath';
+import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
+import { ComponentMetadata } from '../../ComponentDefinition';
+import { getComponentMetadata } from '../getComponentMetadata';
 
 describe('getComponentMetadata – integration', () => {
   describe('providing array of objects describing all properties of the component', () => {

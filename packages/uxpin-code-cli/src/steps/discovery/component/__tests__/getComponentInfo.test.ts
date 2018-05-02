@@ -1,8 +1,8 @@
 import { join } from 'path';
-import { ComponentInfo } from '../../../../../src/steps/discovery/component/ComponentInfo';
-import { getComponentInfo } from '../../../../../src/steps/discovery/component/getComponentInfo';
-import { ProjectPaths } from '../../../../../src/steps/discovery/paths/ProjectPaths';
-import { testDirPath } from '../../../../utils/resources/testDirPath';
+import { testDirPath } from '../../../../../test/utils/resources/testDirPath';
+import { ProjectPaths } from '../../paths/ProjectPaths';
+import { ComponentInfo } from '../ComponentInfo';
+import { getComponentInfo } from '../getComponentInfo';
 
 describe('getComponentInfo', () => {
   describe('getting object describing component basics for given directory path and expected filename', () => {

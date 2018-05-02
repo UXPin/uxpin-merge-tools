@@ -1,4 +1,4 @@
-import { sortPresets } from '../../../../../../src/steps/discovery/component/presets/sortPresets';
+import { sortPresets } from '../sortPresets';
 
 describe('sortPresets', () => {
   it('should return sorted paths according to index prefix', () => {
