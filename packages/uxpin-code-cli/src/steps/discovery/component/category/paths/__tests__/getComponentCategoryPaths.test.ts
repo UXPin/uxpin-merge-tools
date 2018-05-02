@@ -26,9 +26,9 @@ describe('getComponentCategoryPaths', () => {
         },
         expectedPaths: [
           'src/FirstComponent/FirstComponent.js',
-          'src/SecondComponent/SecondComponent.js',
           'src/Icons/Flower/index.jsx',
           'src/Icons/Search/index.jsx',
+          'src/SecondComponent/SecondComponent.js',
         ],
         projectRoot: testProjectPath,
       },
@@ -43,10 +43,10 @@ describe('getComponentCategoryPaths', () => {
         },
         expectedPaths: [
           'src/FirstComponent/FirstComponent.js',
-          'src/SecondComponent/SecondComponent.js',
           'src/Icons/Flower/index.jsx',
           'src/Icons/Play/Play.js',
           'src/Icons/Search/index.jsx',
+          'src/SecondComponent/SecondComponent.js',
         ],
         projectRoot: testProjectPath,
       },
@@ -70,9 +70,9 @@ describe('getComponentCategoryPaths', () => {
         },
         expectedPaths: [
           'src/FirstComponent/FirstComponent.js',
-          'src/SecondComponent/SecondComponent.js',
-          'src/Icons/Play/Play.js',
           'src/Icons/Flower/SunFlower/SunFlower.jsx',
+          'src/Icons/Play/Play.js',
+          'src/SecondComponent/SecondComponent.js',
         ],
         projectRoot: testProjectPath,
       },
@@ -113,6 +113,34 @@ describe('getComponentCategoryPaths', () => {
         ],
         projectRoot: testProjectPath,
       },
+      {
+        caseName: 'patterns support pattern fragment exclusion',
+        config: {
+          include: [
+            'src/Icons/!(Play)/*.*',
+          ],
+          name: 'Category Name',
+        },
+        expectedPaths: [
+          'src/Icons/Flower/index.jsx',
+          'src/Icons/Search/index.jsx',
+        ],
+        projectRoot: testProjectPath,
+      },
+      {
+        caseName: 'exclusion patterns support pattern fragment exclusion',
+        config: {
+          include: [
+            'src/Icons/*/*.*',
+            '!src/Icons/!(Play)/*.*',
+          ],
+          name: 'Category Name',
+        },
+        expectedPaths: [
+          'src/Icons/Play/Play.js',
+        ],
+        projectRoot: testProjectPath,
+      },
     ];
 
     using(cases).describe('correctly returns paths for', ({ caseName, config, expectedPaths, projectRoot }) => {
@@ -121,7 +149,7 @@ describe('getComponentCategoryPaths', () => {
         const result:string[] = await getComponentCategoryPaths(projectRoot, config);
 
         // then
-        expect(result).toEqual(expectedPaths);
+        expect(result.sort()).toEqual(expectedPaths);
       });
     });
   });
