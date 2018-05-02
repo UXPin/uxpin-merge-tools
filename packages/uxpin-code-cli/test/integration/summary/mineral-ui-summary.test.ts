@@ -9,7 +9,10 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in mineral-ui example', () => {
       // when
-      return runUXPinCodeCommand({ cwd: 'resources/repos/mineral-ui', params: ['--summary'] })
+      return runUXPinCodeCommand({
+        cwd: 'resources/repos/mineral-ui',
+        params: ['--summary', '--config="../../configs/mineral-ui-uxpin.config.js"'],
+      })
         .then((output) => {
           // then
           expect(output).toContain(
@@ -28,11 +31,6 @@ describe('--summary option integration', () => {
     Dropdown
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
-
-    EventListener
-        📜 documentation: ✘
-        💡 examples: ✘
         🎛  presets: ✘
 
     Icon
