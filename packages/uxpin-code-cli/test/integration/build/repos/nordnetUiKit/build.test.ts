@@ -16,7 +16,7 @@ describe('Building repos/nordnet-ui-kit design system', () => {
     beforeAll(() => {
       const params:string[] = [
         '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',
-        '--wrapper "../documentation/wrapper.jsx"',
+        '--wrapper "documentation/wrapper.jsx"',
       ];
 
       return runUXPinCodeCommand({ cwd: 'resources/repos/nordnet-ui-kit', params })

@@ -15,7 +15,7 @@ describe('server run in mineral-ui', () => {
     projectPath: 'resources/repos/mineral-ui',
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
-      '--wrapper "../src/themes/UXPinWrapper.js"',
+      '--wrapper "src/themes/UXPinWrapper.js"',
     ],
   }, (c) => chromeless = c);
 

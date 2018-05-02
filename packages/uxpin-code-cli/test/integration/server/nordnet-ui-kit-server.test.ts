@@ -1,7 +1,6 @@
 import Chromeless from 'chromeless';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
-import { waitForComponent } from '../../utils/e2e/chromeless/waitForComponent';
 import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 
 const CURRENT_TIMEOUT:number = 300000;
@@ -9,7 +8,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 const serverCmdArgs:string[] = [
   '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',
-  '--wrapper "../documentation/wrapper.jsx"',
+  '--wrapper "documentation/wrapper.jsx"',
 ];
 
 describe('server run in nordnet-ui-kit', () => {
