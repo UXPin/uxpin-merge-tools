@@ -33,11 +33,6 @@ describe('--summary option integration', () => {
         💡 examples: ✔
         🎛  presets: ✘
 
-    Icon
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✘
-
     Link
         📜 documentation: ✔
         💡 examples: ✔
@@ -61,7 +56,29 @@ describe('--summary option integration', () => {
     TextInput
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✔`);
+        🎛  presets: ✔
+
+Icons
+
+    Icon
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconDanger
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconSuccess
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconWarning
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘`);
         });
     });
   });
