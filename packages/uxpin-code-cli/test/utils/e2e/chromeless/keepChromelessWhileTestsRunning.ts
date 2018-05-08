@@ -26,6 +26,8 @@ export function keepChromelessWhileTestsRunning(port:number,
   });
 
   afterAll(() => {
-    return chromeless.end();
+    return chromeless.end().catch((e) => {
+    	console.warn('Closing Chrome failed', e);
+    });
   });
 }
