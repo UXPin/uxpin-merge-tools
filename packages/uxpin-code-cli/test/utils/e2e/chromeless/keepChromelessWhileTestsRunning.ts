@@ -26,22 +26,6 @@ export function keepChromelessWhileTestsRunning(port:number,
   });
 
   afterAll(() => {
-    return closeChrome(chromeless);
-  });
-}
-
-export function closeChrome<T>(chrome:Chromeless<T>):Promise<void> {
-  const CHROME_CLOSE_TIMEOUT:number = 2500;
-  return new Promise((resolve) => {
-    chrome.end().then(() => {
-      setTimeout(() => {
-        (chrome as any).kill()
-          .then(() => resolve())
-          .catch((e:any) => {
-            console.error('>>> error closing chrome', e);
-            resolve(e);
-          });
-      }, CHROME_CLOSE_TIMEOUT);
-    });
+    chromeless.end();
   });
 }
