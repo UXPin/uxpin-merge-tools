@@ -1,7 +1,7 @@
 import Chromeless from 'chromeless';
+import ngrok = require('ngrok');
 import { SERVER_URL } from '../../../../src/debug/server/serverConfig';
 import { createChromeless } from './createChromeless';
-import ngrok = require('ngrok');
 
 export function keepChromelessWhileTestsRunning(port:number,
   onChromelessReady:(c:Chromeless<any>) => void,
