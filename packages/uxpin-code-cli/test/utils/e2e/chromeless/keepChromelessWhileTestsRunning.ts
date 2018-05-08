@@ -26,6 +26,6 @@ export function keepChromelessWhileTestsRunning(port:number,
   });
 
   afterAll(() => {
-    return chromeless.end();
+    chromeless.end();
   });
 }

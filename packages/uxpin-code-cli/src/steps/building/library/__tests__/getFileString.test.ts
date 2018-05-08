@@ -87,7 +87,7 @@ export {
 import * as ReactDOM from 'react-dom';
 import Button from '../src/components/button/button';
 import ButtonList from '../src/components/button-list/button-list';
-import Wrapper from './wrapper/wrapper.jsx';
+import Wrapper from '../wrapper/wrapper.jsx';
 export {
   Button,
   ButtonList,
