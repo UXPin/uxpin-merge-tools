@@ -1,4 +1,3 @@
-import { dirname } from 'path';
 import { ComponentImplementationInfo, ComponentInfo } from './ComponentInfo';
 import { getDocumentationInfo } from './documentation/getDocumentationInfo';
 import { getImplementationInfo } from './implementation/getImplementationInfo';
@@ -13,7 +12,7 @@ export async function getComponentInfo(projectRoot:string, implementationPath:st
   }
   const paths:ComponentPaths = getComponentPaths(projectRoot, implementationPath);
   return {
-    dirPath: dirname(implementationPath),
+    dirPath: paths.componentDirPath,
     implementation,
     ...await getDocumentation(paths),
     ...await getPresets(paths),
