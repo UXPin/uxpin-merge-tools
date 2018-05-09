@@ -45,6 +45,7 @@ clean:
 	find ./test -name "*.js" ! -path "./test/resources/**" -delete
 	find ./test -name "*.js.map" ! -path "./test/resources/**" -delete
 	find ./test -type d -empty -delete
+	rm -rf ./test/resources/repos/*/.uxpin-temp
 
 clean-test-resources:
 	rm -rf ./test/resources/repos/*
