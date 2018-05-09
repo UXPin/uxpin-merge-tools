@@ -12,22 +12,57 @@ describe('--summary option integration', () => {
       const output:string = await runUXPinCodeCommand({ cwd: 'resources/repos/mineral-ui', params: ['--summary'] });
 
       // then
-      expect(output).toEqual(
-        `Uncategorized
+      expect(output).toContain(
+        `General
+
+    Avatar
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
 
     Button
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✔
 
-    Card
+    Checkbox
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
+
+    CheckboxGroup
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    Choice
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    ChoiceGroup
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
 
     Dropdown
         📜 documentation: ✔
         💡 examples: ✔
+        🎛  presets: ✘
+
+    FormField
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    FormFieldDivider
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    FormFieldset
+        📜 documentation: ✘
+        💡 examples: ✘
         🎛  presets: ✘
 
     Link
@@ -40,12 +75,47 @@ describe('--summary option integration', () => {
         💡 examples: ✔
         🎛  presets: ✔
 
+    MenuDivider
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
+    MenuGroup
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
+    MenuItem
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
     Popover
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✘
 
-    Portal
+    Radio
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    RadioGroup
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    Select
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    Text
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    TextArea
         📜 documentation: ✘
         💡 examples: ✘
         🎛  presets: ✘
@@ -53,6 +123,63 @@ describe('--summary option integration', () => {
     TextInput
         📜 documentation: ✔
         💡 examples: ✔
+        🎛  presets: ✔
+
+    ThemeProvider
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    Tooltip
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+Card
+
+    Card
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    CardActions
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    CardBlock
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    CardDivider
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    CardFooter
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    CardImage
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    CardStatus
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    CardTitle
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    CardTitleMenu
+        📜 documentation: ✘
+        💡 examples: ✘
         🎛  presets: ✔
 
 Icons
@@ -132,7 +259,37 @@ Icons
         💡 examples: ✔
         🎛  presets: ✘
 
+Layout
 
+    Box
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    Flex
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    FlexItem
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    Grid
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    GridItem
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    StartEnd
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
 `);
     });
   });
