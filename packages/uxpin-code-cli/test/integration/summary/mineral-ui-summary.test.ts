@@ -7,16 +7,13 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
-    it('prints the list of components found in mineral-ui example', () => {
+    it('prints the list of components found in mineral-ui example', async () => {
       // when
-      return runUXPinCodeCommand({
-        cwd: 'resources/repos/mineral-ui',
-        params: ['--summary', '--config="../../configs/mineral-ui-uxpin.config.js"'],
-      })
-        .then((output) => {
-          // then
-          expect(output).toContain(
-            `Uncategorized
+      const output:string = await runUXPinCodeCommand({ cwd: 'resources/repos/mineral-ui', params: ['--summary'] });
+
+      // then
+      expect(output).toEqual(
+        `Uncategorized
 
     Button
         📜 documentation: ✔
@@ -65,7 +62,52 @@ Icons
         💡 examples: ✔
         🎛  presets: ✘
 
+    IconArrowDropdownDown
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconArrowDropdownUp
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconCheckBoxCheck
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconCheckBoxIndeterminate
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
     IconDanger
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconDangerSimple
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconExpandLess
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconExpandMore
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconMoreHoriz
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconRadioButtonCheck
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✘
@@ -75,11 +117,23 @@ Icons
         💡 examples: ✔
         🎛  presets: ✘
 
+    IconSuccessSimple
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
     IconWarning
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘`);
-        });
+        🎛  presets: ✘
+
+    IconWarningSimple
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+
+`);
     });
   });
 });

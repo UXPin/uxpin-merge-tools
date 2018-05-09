@@ -6,15 +6,12 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('The --dump option', () => {
   describe('run for the mineral-ui repository', () => {
-    it('prints the JSON describing the full repository', () => {
+    it('prints the JSON describing the full repository', async () => {
       // when
-      return runUXPinCodeCommand({
-        cwd: 'resources/repos/mineral-ui',
-        params: ['--dump', '--config="../../configs/mineral-ui-uxpin.config.js"'],
-      }).then((consoleOutput) => {
-        // then
-        expect(consoleOutput).toMatchSnapshot();
-      });
+      const output:string = await runUXPinCodeCommand({ cwd: 'resources/repos/mineral-ui', params: ['--dump'] });
+
+      // then
+      expect(output).toMatchSnapshot();
     });
   });
 });
