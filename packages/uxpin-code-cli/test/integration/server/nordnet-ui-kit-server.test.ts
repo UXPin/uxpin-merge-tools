@@ -8,7 +8,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 const serverCmdArgs:string[] = [
   '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',
-  '--wrapper "../documentation/wrapper.jsx"',
+  '--wrapper "./documentation/wrapper.jsx"',
   '--config="../../configs/nordnet-ui-kit-uxpin.config.js"',
 ];
 

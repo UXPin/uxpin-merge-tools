@@ -12,7 +12,7 @@ export function getFileString(components:ComponentDefinition[], wrapperPath?:str
 
   const imports:string[] = components.map((comp) => `import ${comp.name} from '${getImportPath(comp)}';`);
 
-  const wrapperImport:string[] = wrapperPath ? [`import ${CLASS_NAME_WRAPPER} from '${wrapperPath}';`] : [];
+  const wrapperImport:string[] = getWrapperImport(wrapperPath);
 
   const exports:string[] = [
     `export {`,
@@ -30,4 +30,11 @@ function getImportPath({ info }:ComponentDefinition):string {
   const path:string = relative(TEMP_DIR_PATH, `./${info.dirPath}`);
   const fileName:string = parse(info.implementation.path).name;
   return `${path}/${fileName}`;
+}
+
+function getWrapperImport(wrapperPath?:string):string[] {
+  if (!wrapperPath) {
+    return [];
+  }
+  return [`import ${CLASS_NAME_WRAPPER} from '${relative(TEMP_DIR_PATH, wrapperPath)}';`];
 }

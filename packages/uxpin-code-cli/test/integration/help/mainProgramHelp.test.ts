@@ -27,7 +27,9 @@ describe('--help option', () => {
     // when
     return runUXPinCodeCommand({ params: ['--help'] }).then((output) => {
       // then
-      expect(output).toMatch(/--webpack-config <path>\s+path to a custom webpack config, relative to the project root/);
+      expect(output).toMatch(
+        /--webpack-config <path>\s+path to a custom webpack config, relative to the current working directory/,
+      );
     });
   });
 
@@ -36,7 +38,7 @@ describe('--help option', () => {
     return runUXPinCodeCommand({ params: ['--help'] }).then((output) => {
       // then
       expect(output)
-        .toMatch(/--wrapper <path>\s+path to a custom component wrapper implementation, relative to the project root/);
+        .toMatch(/--wrapper <path>\s+path to a custom component wrapper, relative to the current working directory/);
     });
   });
 
