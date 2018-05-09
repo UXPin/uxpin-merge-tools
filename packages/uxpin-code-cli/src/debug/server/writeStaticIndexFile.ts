@@ -31,7 +31,7 @@ function getIndexFileContent(bundlePath:string, preloadedState:{}, title:string 
     <script>
       window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
     </script>
-    <script src=${bundlePath}></script>
+    <script src="${bundlePath}"></script>
   </body>
 </html>`;
 }
