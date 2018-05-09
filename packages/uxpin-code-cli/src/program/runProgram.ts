@@ -8,7 +8,7 @@ import { startServer } from '../debug/server/startServer';
 import { buildDesignSystem } from '../steps/building/buildDesignSystem';
 import { BuildOptions } from '../steps/building/BuildOptions';
 import { TEMP_DIR_PATH } from '../steps/building/config/getConfig';
-import { getComponentCategoryInfos } from '../steps/discovery/component/getComponentCategoryInfos';
+import { getComponentCategoryInfos } from '../steps/discovery/component/category/getComponentCategoryInfos';
 import { getDesignSystemSummary } from '../steps/discovery/getDesignSystemSummary';
 import { getAllComponentsFromCategories } from '../steps/serialization/component/categories/getAllComponentsFromCategories';
 import { ComponentDefinition } from '../steps/serialization/component/ComponentDefinition';
@@ -16,16 +16,16 @@ import { DesignSystemSnapshot } from '../steps/serialization/DesignSystemSnapsho
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './getProgramArgs';
+import { getProjectPaths } from './getProjectPaths';
 import { ProgramArgs, RawProgramArgs } from './ProgramArgs';
 
 export function runProgram(program:RawProgramArgs):Promise<any> {
   const programArgs:ProgramArgs = getProgramArgs(program);
-  const { cwd } = programArgs;
 
   const steps:Step[] = getSteps(programArgs);
   const stepFunctions:StepExecutor[] = steps.filter((step) => step.shouldRun).map((step) => tapPromise(step.exec));
 
-  return getComponentCategoryInfos(cwd)
+  return getComponentCategoryInfos(getProjectPaths(programArgs))
     .then(getDesignSystemMetadata)
     .then((designSystem:DSMetadata) => pMapSeries(stepFunctions, (step) => step(designSystem)))
     .catch(logError);

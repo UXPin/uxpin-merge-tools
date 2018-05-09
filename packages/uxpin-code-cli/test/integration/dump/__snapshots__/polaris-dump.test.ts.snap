@@ -1651,69 +1651,6 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 				},
 				{
 					documentation: {
-						examples: []
-					},
-					info: {
-						dirPath: 'src/components/EventListener',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'typescript',
-							path: 'src/components/EventListener/EventListener.tsx'
-						},
-						presets: []
-					},
-					name: 'EventListener',
-					presets: [],
-					properties: [
-						{
-							description: '',
-							isRequired: false,
-							name: 'children',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: '',
-							isRequired: true,
-							name: 'event',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: '',
-							isRequired: false,
-							name: 'capture',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: '',
-							isRequired: false,
-							name: 'passive',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: '',
-							isRequired: true,
-							name: 'handler',
-							type: {
-								name: '(event: Event) => void',
-								structure: {}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
 						examples: [
 							{
 								code: '<FooterHelp>\\\\n  Learn more about <Link url=\\"https://help.shopify.com/manual/orders/fulfill-orders\\">fulfilling orders</Link>.\\\\n</FooterHelp>'
@@ -4529,51 +4466,6 @@ exports[`The --dump option run for the polaris repository, prints the JSON descr
 							name: 'children',
 							type: {
 								name: 'string',
-								structure: {}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
-						examples: []
-					},
-					info: {
-						dirPath: 'src/components/KeypressListener',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'typescript',
-							path: 'src/components/KeypressListener/KeypressListener.tsx'
-						},
-						presets: []
-					},
-					name: 'KeypressListener',
-					presets: [],
-					properties: [
-						{
-							description: '',
-							isRequired: false,
-							name: 'children',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: '',
-							isRequired: true,
-							name: 'keyCode',
-							type: {
-								name: 'Keys',
-								structure: {}
-							}
-						},
-						{
-							description: '',
-							isRequired: true,
-							name: 'handler',
-							type: {
-								name: '(event: KeyboardEvent) => void',
 								structure: {}
 							}
 						}

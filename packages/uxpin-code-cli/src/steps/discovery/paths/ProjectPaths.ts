@@ -4,7 +4,7 @@ export interface ProjectPaths {
    */
   projectRoot:string;
   /**
-   * path of the directory containing component directories, relative to the project root
+   * absolute path of the UXPin configuration file
    */
-  componentsDirPath:string;
+  configPath:string;
 }

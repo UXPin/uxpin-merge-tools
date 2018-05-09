@@ -9,7 +9,10 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in polaris example', () => {
       // when
-      return runUXPinCodeCommand({ cwd: 'resources/repos/polaris', params: ['--summary'] })
+      return runUXPinCodeCommand({
+        cwd: 'resources/repos/polaris',
+        params: ['--summary', '--config="../../configs/polaris-uxpin.config.js"'],
+      })
         .then((output) => {
           // then
           expect(output).toContain(`Uncategorized
@@ -119,11 +122,6 @@ describe('--summary option integration', () => {
         💡 examples: ✔
         🎛  presets: ✘
 
-    EventListener
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
-
     FooterHelp
         📜 documentation: ✔
         💡 examples: ✔
@@ -152,11 +150,6 @@ describe('--summary option integration', () => {
     KeyboardKey
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
-
-    KeypressListener
-        📜 documentation: ✘
-        💡 examples: ✘
         🎛  presets: ✘
 
     labelID

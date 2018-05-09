@@ -3,7 +3,7 @@ import { join, relative } from 'path';
 import { isFile } from '../../../../utils/fs/isFile';
 import { readDir } from '../../../../utils/fs/readDir';
 import { ComponentPresetInfo } from '../ComponentInfo';
-import { ComponentPaths } from '../ComponentPaths';
+import { ComponentPaths } from '../paths/ComponentPaths';
 import { filterPresets } from './filterPresets';
 import { sortPresets } from './sortPresets';
 

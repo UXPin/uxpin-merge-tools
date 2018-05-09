@@ -10,7 +10,8 @@ program
   .option('-s, --summary', 'Show only design system summary without building it')
   .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
   .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
-  .option('--cwd <path>', 'working directory: path to root of the DS repository');
+  .option('--cwd <path>', 'working directory: path to root of the DS repository')
+  .option('--config <path>', 'path to a config file. \'./uxpin.config.js\' is used by default.');
 
 program
   .command('server')

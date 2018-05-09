@@ -42,6 +42,15 @@ describe('--help option', () => {
     });
   });
 
+  it('it prints help for --config <path> option', () => {
+    // when
+    return runUXPinCodeCommand({ params: ['--help'] }).then((output) => {
+      // then
+      expect(output)
+        .toMatch(/--config <path>\s+path to a config file. '\.\/uxpin\.config\.js' is used by default./);
+    });
+  });
+
   it('it prints help for --cwd <path> option', () => {
     // when
     return runUXPinCodeCommand({ params: ['--help'] }).then((output) => {

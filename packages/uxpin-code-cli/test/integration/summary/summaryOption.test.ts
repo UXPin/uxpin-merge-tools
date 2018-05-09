@@ -7,13 +7,11 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
-    it('prints an error when there`s no `src` directory in the project', () => {
-      // given
-
+    it('prints a info when there`s no config file in the project', () => {
       // when
       return runUXPinCodeCommand({ cwd: 'resources/designSystems/noSrcDir', params: ['--summary'] }).then((output) => {
         // then
-        expect(output).toContain('Unable to locate components source directory');
+        expect(output).toContain('uxpin.config.js\' not found. Using default configuration.');
       });
     });
   });

@@ -12,7 +12,10 @@ describe('server run in arui-feather', () => {
 
   setupDebugServerTest({
     projectPath: 'resources/repos/arui-feather',
-    serverCmdArgs: ['--webpack-config "./webpack.gemini.config.js"'],
+    serverCmdArgs: [
+      '--webpack-config "./webpack.gemini.config.js"',
+      '--config="../../configs/arui-feather-uxpin.config.js"',
+    ],
   }, (c) => chromeless = c);
 
   it('renders `Button` component with preview', async () => {

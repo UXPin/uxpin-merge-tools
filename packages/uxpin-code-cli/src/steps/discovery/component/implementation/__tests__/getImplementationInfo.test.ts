@@ -1,74 +1,67 @@
-import { resolve } from 'path';
 import { ComponentImplementationInfo } from '../../ComponentInfo';
-import { ComponentPaths } from '../../ComponentPaths';
 import { getImplementationInfo } from '../getImplementationInfo';
 
 describe('getImplementationInfo', () => {
-  describe('obtaining information about the implementation of a component in the given directory', () => {
-    it('returns correct info if directory contains component file', () => {
-      const paths:ComponentPaths = getComponentsPath('directoryWithComponent');
-      const expectedImplInfo:ComponentImplementationInfo = {
-        framework: 'reactjs',
-        lang: 'javascript',
-        path: `directories/directoryWithComponent/directoryWithComponent.jsx`,
-      };
+  describe('providing information about the implementation based on given file path', () => {
 
-      // when
-      return getImplementationInfo(paths)
-      // then
-        .then((implInfo) => expect(implInfo).toEqual(expectedImplInfo));
-    });
-
-    it('returns correct info if directory contains TypeScript component file', () => {
-      const paths:ComponentPaths = getComponentsPath('directoryWithTypeScriptComponent');
-      const expectedImplInfo:ComponentImplementationInfo = {
+    it('returns react typescript info for path with `.tsx` extension', () => {
+      // given
+      const path:string = 'some/path/Component.react.tsx';
+      const expectedInfo:ComponentImplementationInfo = {
         framework: 'reactjs',
         lang: 'typescript',
-        path: `directories/directoryWithTypeScriptComponent/directoryWithTypeScriptComponent.tsx`,
+        path,
       };
 
-      // when
-      return getImplementationInfo(paths)
       // then
-        .then((implInfo) => expect(implInfo).toEqual(expectedImplInfo));
+      expect(getImplementationInfo(path)).toEqual(expectedInfo);
     });
 
-    it('rejects a promise if directory does not contain component file', (done) => {
-      const paths:ComponentPaths = getComponentsPath('directoryWithoutComponent');
+    it('returns react typescript info for path with `.ts` extension', () => {
+      // given
+      const path:string = 'some/path/Component.ts';
+      const expectedInfo:ComponentImplementationInfo = {
+        framework: 'reactjs',
+        lang: 'typescript',
+        path,
+      };
 
-      // when
-      return getImplementationInfo(paths)
       // then
-        .catch(() => done());
+      expect(getImplementationInfo(path)).toEqual(expectedInfo);
     });
 
-    it('rejects a promise if directory does not exist', (done) => {
-      const paths:ComponentPaths = getComponentsPath('iDontExist');
+    it('returns react javascript info for path with `.jsx` extension', () => {
+      // given
+      const path:string = 'some/path/Component.jsx';
+      const expectedInfo:ComponentImplementationInfo = {
+        framework: 'reactjs',
+        lang: 'javascript',
+        path,
+      };
 
-      // when
-      return getImplementationInfo(paths)
       // then
-        .catch(() => done());
+      expect(getImplementationInfo(path)).toEqual(expectedInfo);
     });
 
-    describe('when the given directory path is a path to a file', () => {
-      it('rejects a promise', (done) => {
-        const paths:ComponentPaths = getComponentsPath('notDirectory.ts');
+    it('returns react javascript info for path with `.js` extension', () => {
+      // given
+      const path:string = 'some/path/Component.js';
+      const expectedInfo:ComponentImplementationInfo = {
+        framework: 'reactjs',
+        lang: 'javascript',
+        path,
+      };
 
-        // when
-        return getImplementationInfo(paths)
-        // then
-          .catch(() => done());
-      });
+      // then
+      expect(getImplementationInfo(path)).toEqual(expectedInfo);
+    });
+
+    it('return null when the given path is not JavaScript nor TypeScript file', () => {
+      // given
+      const path:string = 'some/path/Component.java';
+
+      // then
+      expect(getImplementationInfo(path)).toBeNull();
     });
   });
-
-  function getComponentsPath(componentDirName:string):ComponentPaths {
-    return {
-      componentDirName,
-      componentDirPath: `directories/${componentDirName}`,
-      componentsDirPath: 'directories/',
-      projectRoot: resolve('./test/resources/'),
-    };
-  }
 });

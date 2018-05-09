@@ -1,4 +1,4 @@
-import { ComponentInfo } from './ComponentInfo';
+import { ComponentInfo } from '../ComponentInfo';
 
 export interface ComponentCategoryInfo {
   name:string;
