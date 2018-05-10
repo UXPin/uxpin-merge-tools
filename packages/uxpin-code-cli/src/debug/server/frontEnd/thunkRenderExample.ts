@@ -6,10 +6,10 @@ import { ExampleRenderer } from './ExampleRenderer';
 export function thunkRenderExample(library:BuiltLibrary, componentNames:string[]):ExampleRenderer {
   return (example, container) => new Promise((resolve) => {
     const { React, ReactDOM, Wrapper } = library;
-    const html:string = getHtml(example, componentNames);
+    const jsxCode:string = getJSX(example, componentNames);
 
     // tslint:disable:no-eval variable-name
-    const Preview:JSX.Element = eval(transform(html, {
+    const Preview:JSX.Element = eval(transform(jsxCode, {
       presets: [
         'es2015',
         'react',
@@ -26,7 +26,7 @@ export function thunkRenderExample(library:BuiltLibrary, componentNames:string[]
   });
 }
 
-function getHtml(example:ComponentExample, componentNames:string[]):string {
+function getJSX(example:ComponentExample, componentNames:string[]):string {
   return `const { React } = library;
 const { ${componentNames.join(', ')} } = library;
 
