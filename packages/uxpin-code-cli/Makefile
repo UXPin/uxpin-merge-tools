@@ -1,7 +1,8 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
+UXPIN_CODE=$(shell pwd)/bin/uxpin-code
 
-.PHONY: dependencies build check test test-unit test-integration test-ci clean clean-test-resources test-remap-coverage test-resources test-rename-snapshots
+.PHONY: dependencies build check test test-unit test-integration test-ci clean clean-test-resources test-remap-coverage test-resources test-rename-snapshots serve-mineral serve-polaris serve-arui
 
 dependencies:
 	yarn install
@@ -62,3 +63,15 @@ test-rename-snapshots:
 publish:
 	make build
 	npm publish
+
+serve-mineral:
+	cd ./test/resources/repos/mineral-ui && \
+	$(UXPIN_CODE) server --webpack-config="./webpack.config.js" --wrapper "./src/library/themes/UXPinWrapper.js"
+
+serve-polaris:
+	cd ./test/resources/repos/polaris && \
+	$(UXPIN_CODE) server --webpack-config="./polaris-webpack.config" --config="../../configs/polaris-uxpin.config.js"
+
+serve-arui:
+	cd ./test/resources/repos/arui-feather && \
+	$(UXPIN_CODE) server --webpack-config "./webpack.gemini.config.js" --config="../../configs/arui-feather-uxpin.config.js"
