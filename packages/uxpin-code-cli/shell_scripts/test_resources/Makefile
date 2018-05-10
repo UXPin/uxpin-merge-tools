@@ -28,7 +28,8 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& git checkout v1.7.0 \
 	&& mkdir ./yarn-cache \
 	&& yarn install --cache-folder ./yarn-cache \
-	&& rm -rf ./yarn-cache
+	&& rm -rf ./yarn-cache \
+	&& ln -s ../../configs/polaris-webpack.config.js ./polaris-webpack.config.js
 
 ../../test/resources/repos/mineral-ui:
 	cd ../../test/resources/repos \
