@@ -75,3 +75,7 @@ serve-polaris:
 serve-arui:
 	cd ./test/resources/repos/arui-feather && \
 	$(UXPIN_CODE) server --webpack-config "./webpack.gemini.config.js" --config="../../configs/arui-feather-uxpin.config.js"
+
+serve-nordnet:
+	cd ./test/resources/repos/nordnet-ui-kit && \
+	$(UXPIN_CODE) server --webpack-config "../../configs/nordnet-ui-kit-webpack.config.js" --config="../../configs/nordnet-ui-kit-uxpin.config.js"
