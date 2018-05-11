@@ -36,7 +36,7 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& git clone git@github.com:UXPin/mineral-ui.git \
 	&& cd mineral-ui \
 	&& git remote add official https://github.com/mineral-ui/mineral-ui.git \
-	&& git checkout c20221f700c675a2bb6a62fa8e5325ff2f5b624b \
+	&& git checkout 198d3be21406602dda6f3db7f2e3c60a2be9766a \
 	&& mkdir ./npm-cache \
 	&& npm install --cache=./npm-cache \
 	&& rm -rf ./npm-cache
