@@ -25,67 +25,12 @@ describe('--summary option integration', () => {
         💡 examples: ✔
         🎛  presets: ✔
 
-    Checkbox
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
-
-    CheckboxGroup
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
-
-    Choice
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
-
-    ChoiceGroup
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
-
     Dropdown
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
-
-    FormField
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
-
-    FormFieldDivider
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
-
-    FormFieldset
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Link
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    Menu
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    MenuDivider
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    MenuGroup
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    MenuItem
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✔
@@ -93,32 +38,22 @@ describe('--summary option integration', () => {
     Popover
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
-
-    Radio
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
-
-    RadioGroup
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Select
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Text
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     TextArea
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     TextInput
         📜 documentation: ✔
@@ -133,7 +68,62 @@ describe('--summary option integration', () => {
     Tooltip
         📜 documentation: ✘
         💡 examples: ✘
+        🎛  presets: ✔
+
+    Checkbox
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    CheckboxGroup
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    FormField
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    FormFieldDivider
+        📜 documentation: ✘
+        💡 examples: ✘
         🎛  presets: ✘
+
+    FormFieldset
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    Menu
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    MenuDivider
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+    MenuGroup
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    MenuItem
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    Radio
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    RadioGroup
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
 
 Card
 
@@ -155,7 +145,7 @@ Card
     CardDivider
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     CardFooter
         📜 documentation: ✘
@@ -266,10 +256,15 @@ Layout
         💡 examples: ✘
         🎛  presets: ✘
 
+    StartEnd
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
     Flex
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     FlexItem
         📜 documentation: ✘
@@ -279,14 +274,9 @@ Layout
     Grid
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     GridItem
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
-
-    StartEnd
         📜 documentation: ✘
         💡 examples: ✘
         🎛  presets: ✘
