@@ -27,10 +27,10 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						{
 							elements: {
 								IUR6EPRYZLA2XRUHSS2SN9BQLGV2429R: {
+									name: 'Avatar',
 									props: {
 										children: 'Melissa'
-									},
-									type: 'Avatar'
+									}
 								}
 							},
 							name: 'default',
@@ -192,12 +192,12 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						{
 							elements: {
 								'1526ABF05067F99EF65F83152E26DA39': {
+									name: 'Button',
 									props: {
 										children: 'Default',
 										fullWidth: true,
 										primary: true
-									},
-									type: 'Button'
+									}
 								}
 							},
 							name: 'default',
@@ -410,940 +410,6 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				{
 					documentation: {
-						examples: []
-					},
-					info: {
-						dirPath: 'src/library/Checkbox',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Checkbox/Checkbox.js'
-						},
-						presets: []
-					},
-					name: 'Checkbox',
-					presets: [],
-					properties: [
-						{
-							description: 'Checked state of the checkbox. Primarily for use with controlled\\\\ncomponents. If this prop is specified, an \`onChange\` handler must also be\\\\nspecified. See also: \`defaultChecked\`.',
-							isRequired: false,
-							name: 'checked',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: '@Private CSS className',
-							isRequired: false,
-							name: 'className',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Initial checked state of the checkbox; primarily for use with\\\\nuncontrolled components',
-							isRequired: false,
-							name: 'defaultChecked',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Disables the checkbox',
-							isRequired: false,
-							name: 'disabled',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Maximize the distance between the label and the control',
-							isRequired: false,
-							name: 'justify',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Indicates a state in which it cannot be determined if the input is checked\\\\nor not',
-							isRequired: false,
-							name: 'indeterminate',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Ref for the checkbox',
-							isRequired: false,
-							name: 'inputRef',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'node',
-											type: {
-												name: 'element',
-												structure: {}
-											}
-										}
-									],
-									returnType: {
-										name: 'empty',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Props to be applied directly to the root element rather than the input',
-							isRequired: false,
-							name: 'rootProps',
-							type: {
-								name: 'object',
-								structure: {}
-							}
-						},
-						{
-							description: 'Indicates that the value of the input is invalid',
-							isRequired: false,
-							name: 'invalid',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Label associated with the input element',
-							isRequired: true,
-							name: 'label',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'string',
-											structure: {}
-										},
-										{
-											name: 'element',
-											structure: {}
-										}
-									]
-								}
-							}
-						},
-						{
-							defaultValue: {
-								value: 'end'
-							},
-							description: 'Determines the position of the label relative to the control',
-							isRequired: false,
-							name: 'labelPosition',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'start'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'end'
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Used to uniquely define a group of checkboxes',
-							isRequired: false,
-							name: 'name',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Function called when a checkbox is selected',
-							isRequired: false,
-							name: 'onChange',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'event',
-											type: {
-												name: 'unsupported',
-												structure: {
-													raw: 'SyntheticEvent'
-												}
-											}
-										}
-									],
-									returnType: {
-										name: 'empty',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Indicates that the user must select an option before submitting a form',
-							isRequired: false,
-							name: 'required',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							defaultValue: {
-								value: 'large'
-							},
-							description: 'Available sizes',
-							isRequired: false,
-							name: 'size',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'small'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'medium'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'large'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'jumbo'
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'The value of the checkbox',
-							isRequired: false,
-							name: 'value',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
-						examples: []
-					},
-					info: {
-						dirPath: 'src/library/Checkbox',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Checkbox/CheckboxGroup.js'
-						},
-						presets: []
-					},
-					name: 'CheckboxGroup',
-					presets: [],
-					properties: [
-						{
-							description: 'Array of values of the selected Checkboxes; primarily for use with\\\\ncontrolled components. If this prop is specified, an \`onChange\` handler\\\\nmust also be specified. See also: \`defaultChecked\`.',
-							isRequired: false,
-							name: 'checked',
-							type: {
-								name: 'typedArray',
-								structure: {
-									memberType: {
-										name: 'string',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Mineral [Checkbox](/components/checkbox) components',
-							isRequired: false,
-							name: 'children',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: 'Data used to contruct [Checkboxes](/components/checkbox), see [example](#data)',
-							isRequired: false,
-							name: 'data',
-							type: {
-								name: 'typedArray',
-								structure: {
-									memberType: {
-										name: 'shape',
-										structure: {
-											label: {
-												name: 'union',
-												structure: {
-													elements: [
-														{
-															name: 'string',
-															structure: {}
-														},
-														{
-															name: 'element',
-															structure: {}
-														}
-													]
-												}
-											},
-											value: {
-												name: 'string',
-												structure: {}
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							description: 'Array of values of the selected [Checkboxes](/components/checkbox); primarily for\\\\nuse with uncontrolled components.',
-							isRequired: false,
-							name: 'defaultChecked',
-							type: {
-								name: 'typedArray',
-								structure: {
-									memberType: {
-										name: 'string',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Display the choices inline horizontally rather than stacked vertically.',
-							isRequired: false,
-							name: 'inline',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'The name of the group',
-							isRequired: true,
-							name: 'name',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Function called when a choice is selected',
-							isRequired: false,
-							name: 'onChange',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'event',
-											type: {
-												name: 'unsupported',
-												structure: {
-													raw: 'SyntheticEvent'
-												}
-											}
-										}
-									],
-									returnType: {
-										name: 'empty',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Props to be applied directly to the root element',
-							isRequired: false,
-							name: 'rootProps',
-							type: {
-								name: 'object',
-								structure: {}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
-						examples: []
-					},
-					info: {
-						dirPath: 'src/library/Choice',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Choice/Choice.js'
-						},
-						presets: []
-					},
-					name: 'Choice',
-					presets: [],
-					properties: [
-						{
-							description: 'Checked state of the input. Primarily for use with controlled\\\\ncomponents. If this prop is specified, an \`onChange\` handler must also be\\\\nspecified. See also: \`defaultChecked\`.',
-							isRequired: false,
-							name: 'checked',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: '@Private CSS className',
-							isRequired: false,
-							name: 'className',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							defaultValue: {
-								value: 'end'
-							},
-							description: 'Determines the position of the label relative to the control',
-							isRequired: false,
-							name: 'labelPosition',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'start'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'end'
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Initial checked state of the input; primarily for use with\\\\nuncontrolled components',
-							isRequired: false,
-							name: 'defaultChecked',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Disables the input',
-							isRequired: false,
-							name: 'disabled',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Maximize the distance between the label and the control',
-							isRequired: false,
-							name: 'justify',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'The checked icon',
-							isRequired: true,
-							name: 'iconChecked',
-							type: {
-								name: 'element',
-								structure: {}
-							}
-						},
-						{
-							description: 'Ref for the input',
-							isRequired: false,
-							name: 'inputRef',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'node',
-											type: {
-												name: 'element',
-												structure: {}
-											}
-										}
-									],
-									returnType: {
-										name: 'empty',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Props to be applied directly to the root element rather than the input',
-							isRequired: false,
-							name: 'rootProps',
-							type: {
-								name: 'object',
-								structure: {}
-							}
-						},
-						{
-							description: 'Indicates that the value of the input is invalid',
-							isRequired: false,
-							name: 'invalid',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Label associated with the input element',
-							isRequired: true,
-							name: 'label',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'string',
-											structure: {}
-										},
-										{
-											name: 'element',
-											structure: {}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Used to uniquely define a group of inputs',
-							isRequired: false,
-							name: 'name',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Function called when a input is selected',
-							isRequired: false,
-							name: 'onChange',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'event',
-											type: {
-												name: 'unsupported',
-												structure: {
-													raw: 'SyntheticEvent'
-												}
-											}
-										}
-									],
-									returnType: {
-										name: 'empty',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Indicates that the user must select an option before submitting a form',
-							isRequired: false,
-							name: 'required',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							defaultValue: {
-								value: 'large'
-							},
-							description: 'Available sizes',
-							isRequired: false,
-							name: 'size',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'small'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'medium'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'large'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'jumbo'
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'The type of HTML input',
-							isRequired: true,
-							name: 'type',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'checkbox'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'radio'
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'The value of the input',
-							isRequired: false,
-							name: 'value',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
-						examples: []
-					},
-					info: {
-						dirPath: 'src/library/Choice',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Choice/ChoiceGroup.js'
-						},
-						presets: []
-					},
-					name: 'ChoiceGroup',
-					presets: [],
-					properties: [
-						{
-							description: 'Value of the selected Radio or an array of values of the selected\\\\nCheckboxes. Primarily for use with controlled components. If this prop is\\\\nspecified, an \`onChange\` handler must also be specified. See also:\\\\n\`defaultChecked\`.',
-							isRequired: false,
-							name: 'checked',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'string',
-											structure: {}
-										},
-										{
-											name: 'typedArray',
-											structure: {
-												memberType: {
-													name: 'string',
-													structure: {}
-												}
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Mineral Checkbox or Radio components',
-							isRequired: false,
-							name: 'children',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: 'Data used to contruct Checkboxes, see [example](#data)',
-							isRequired: false,
-							name: 'data',
-							type: {
-								name: 'typedArray',
-								structure: {
-									memberType: {
-										name: 'shape',
-										structure: {
-											label: {
-												name: 'union',
-												structure: {
-													elements: [
-														{
-															name: 'string',
-															structure: {}
-														},
-														{
-															name: 'element',
-															structure: {}
-														}
-													]
-												}
-											},
-											value: {
-												name: 'string',
-												structure: {}
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							description: 'Value of the selected Radio or an array of values of the selected\\\\nCheckboxes.  Primarily for use with uncontrolled components.',
-							isRequired: false,
-							name: 'defaultChecked',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'string',
-											structure: {}
-										},
-										{
-											name: 'typedArray',
-											structure: {
-												memberType: {
-													name: 'string',
-													structure: {}
-												}
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Display the choices inline horizontally rather than stacked vertically.',
-							isRequired: false,
-							name: 'inline',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'The class of input to render. e.g. Checkbox or Radio',
-							isRequired: false,
-							name: 'input',
-							type: {
-								name: 'unsupported',
-								structure: {
-									raw: 'React$ComponentType'
-								}
-							}
-						},
-						{
-							description: '@Private Indicates that the field is invalid. Not forwarded for checkboxes.',
-							isRequired: false,
-							name: 'invalid',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'The name of the group',
-							isRequired: true,
-							name: 'name',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Function called when a choice is selected',
-							isRequired: false,
-							name: 'onChange',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'event',
-											type: {
-												name: 'unsupported',
-												structure: {
-													raw: 'SyntheticEvent'
-												}
-											}
-										}
-									],
-									returnType: {
-										name: 'empty',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: '@Private Indicates that the field is required. Not forwarded for checkboxes.',
-							isRequired: false,
-							name: 'required',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							defaultValue: {
-								value: 'group'
-							},
-							description: 'The aria role for the group',
-							isRequired: false,
-							name: 'role',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Props to be applied directly to the root element',
-							isRequired: false,
-							name: 'rootProps',
-							type: {
-								name: 'object',
-								structure: {}
-							}
-						},
-						{
-							defaultValue: {
-								value: 'large'
-							},
-							description: '@Private Available sizes',
-							isRequired: false,
-							name: 'size',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'small'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'medium'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'large'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'jumbo'
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Type of component that will be rendered',
-							isRequired: true,
-							name: 'type',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'checkbox'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'radio'
-											}
-										}
-									]
-								}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
 						examples: [
 							{
 								code: '(() => {\\\\n  function IconDanger() {\\\\n    return (\\\\n      <Icon>\\\\n        <g>\\\\n          <path d=\\"M3.94 19.49h16.118a1 1 0 0 0 .866-1.498l-8.06-13.99a.996.996 0 0 0-1.732-.001L3.074 17.993a.998.998 0 0 0 .867 1.499zM12 17a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-3.503h-2v-5h2v5z\\"/>\\\\n        </g>\\\\n      </Icon>\\\\n    );\\\\n  }\\\\n  \\\\n  const data = [\\\\n    {\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Menu item with onClick\\\\',\\\\n          onClick: event => { console.log(event); }\\\\n        },\\\\n        {\\\\n          text: \\\\'Menu item\\\\',\\\\n          secondaryText: \\\\'Secondary text\\\\'\\\\n        }\\\\n      ]\\\\n    },\\\\n    {\\\\n      title: \\\\'Group Title\\\\',\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Icon at start\\\\',\\\\n          iconStart: <IconDanger />\\\\n        },\\\\n        {\\\\n          text: \\\\'Icon at end\\\\',\\\\n          iconEnd: <IconDanger />\\\\n        },\\\\n        {\\\\n          divider: true\\\\n        },\\\\n        {\\\\n          text: \\\\'Danger variant\\\\',\\\\n          variant: \\\\'danger\\\\' // \\\\'danger\\\\' | \\\\'success\\\\' | \\\\'warning\\\\'\\\\n        },\\\\n        {\\\\n          text: \\\\'Disabled menu item\\\\',\\\\n          onClick: () => { console.log(\\\\'onClick is not triggered for disabled MenuItems\\\\'); },\\\\n          disabled: true\\\\n        }\\\\n      ]\\\\n    }\\\\n  ];\\\\n\\\\n  return (\\\\n    <Dropdown data={data}>\\\\n      <Button>Menu</Button>\\\\n    </Dropdown>\\\\n  );\\\\n})();'
@@ -1360,10 +426,115 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 							lang: 'javascript',
 							path: 'src/library/Dropdown/Dropdown.js'
 						},
-						presets: []
+						presets: [
+							{
+								path: 'src/library/Dropdown/presets/0-default.json'
+							},
+							{
+								path: 'src/library/Dropdown/presets/50-with icons.json'
+							}
+						]
 					},
 					name: 'Dropdown',
-					presets: [],
+					presets: [
+						{
+							elements: {
+								'1526ABF05067F99EF65F83152E26DA39': {
+									name: 'Dropdown',
+									props: {
+										children: {
+											uxpinPresetElementId: 'SPNM3VK5JSHWM6LK9JJ7OTHYF96AX6KU'
+										},
+										data: [
+											{
+												secondaryText: 'Secondary text',
+												text: 'Menu item'
+											},
+											{
+												divider: true
+											},
+											{
+												text: 'Danger variant',
+												variant: 'danger'
+											},
+											{
+												disabled: true,
+												text: 'Disabled menu item'
+											}
+										]
+									}
+								},
+								SPNM3VK5JSHWM6LK9JJ7OTHYF96AX6KU: {
+									name: 'Button',
+									props: {
+										children: 'Menu'
+									}
+								}
+							},
+							name: 'default',
+							rootId: '1526ABF05067F99EF65F83152E26DA39'
+						},
+						{
+							elements: {
+								'1526ABF05067F99EF65F83152E26DA39': {
+									name: 'Dropdown',
+									props: {
+										children: {
+											uxpinPresetElementId: 'SPNM3VK5JSHWM6LK9JJ7OTHYF96AX6KU'
+										},
+										data: [
+											{
+												text: 'Menu item with onClick'
+											},
+											{
+												secondaryText: 'Secondary text',
+												text: 'Menu item'
+											},
+											{
+												iconStart: {
+													uxpinPresetElementId: 'LUT2OEH5MBWIZ14927AYRL9T0UWD6ABK'
+												},
+												text: 'Icon at start'
+											},
+											{
+												iconEnd: {
+													uxpinPresetElementId: '8GZ573PJUL8MCE239NVM7O6GTLOB2JQQ'
+												},
+												text: 'Icon at end'
+											},
+											{
+												divider: true
+											},
+											{
+												text: 'Danger variant',
+												variant: 'danger'
+											},
+											{
+												disabled: true,
+												text: 'Disabled menu item'
+											}
+										]
+									}
+								},
+								'8GZ573PJUL8MCE239NVM7O6GTLOB2JQQ': {
+									name: 'IconCloud',
+									props: {}
+								},
+								LUT2OEH5MBWIZ14927AYRL9T0UWD6ABK: {
+									name: 'IconCloud',
+									props: {}
+								},
+								SPNM3VK5JSHWM6LK9JJ7OTHYF96AX6KU: {
+									name: 'Button',
+									props: {
+										children: 'Menu'
+									}
+								}
+							},
+							name: 'with icons',
+							rootId: '1526ABF05067F99EF65F83152E26DA39'
+						}
+					],
 					properties: [
 						{
 							description: 'Trigger for the Dropdown. Optionally provides custom rendering control.\\\\nSee the [custom trigger example](/components/dropdown#custom-trigger)\\\\nand [React docs](https://reactjs.org/docs/render-props.html).',
@@ -1685,266 +856,6 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 				},
 				{
 					documentation: {
-						examples: []
-					},
-					info: {
-						dirPath: 'src/library/Form',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Form/FormField.js'
-						},
-						presets: []
-					},
-					name: 'FormField',
-					presets: [],
-					properties: [
-						{
-							description: 'Caption associated with the input element; commonly used to provide help\\\\ntext',
-							isRequired: false,
-							name: 'caption',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'string',
-											structure: {}
-										},
-										{
-											name: 'element',
-											structure: {}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Form input element',
-							isRequired: false,
-							name: 'children',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: '@Private CSS className',
-							isRequired: false,
-							name: 'className',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Visually hide label, but keep available for [assistive technologies](https://webaccess.berkeley.edu/resources/assistive-technology)',
-							isRequired: false,
-							name: 'hideLabel',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Form input class; alternative to \`children\`',
-							isRequired: false,
-							name: 'input',
-							type: {
-								name: 'unsupported',
-								structure: {
-									raw: 'React$ComponentType'
-								}
-							}
-						},
-						{
-							description: 'Props to be applied directly to the root element, rather than the input',
-							isRequired: false,
-							name: 'rootProps',
-							type: {
-								name: 'object',
-								structure: {}
-							}
-						},
-						{
-							description: 'Label associated with the input element',
-							isRequired: true,
-							name: 'label',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'string',
-											structure: {}
-										},
-										{
-											name: 'element',
-											structure: {}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Marks associated input as required',
-							isRequired: false,
-							name: 'required',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							defaultValue: {
-								value: 'Required'
-							},
-							description: 'Text used to indicate a required field',
-							isRequired: false,
-							name: 'requiredText',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'string',
-											structure: {}
-										},
-										{
-											name: 'element',
-											structure: {}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Secondary text associated with the input element; takes precedence over\\\\n\`requiredText\`',
-							isRequired: false,
-							name: 'secondaryText',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'string',
-											structure: {}
-										},
-										{
-											name: 'element',
-											structure: {}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Available variants',
-							isRequired: false,
-							name: 'variant',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'success'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'warning'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'danger'
-											}
-										}
-									]
-								}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
-						examples: []
-					},
-					info: {
-						dirPath: 'src/library/Form',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Form/FormFieldDivider.js'
-						},
-						presets: []
-					},
-					name: 'FormFieldDivider',
-					presets: [],
-					properties: []
-				},
-				{
-					documentation: {
-						examples: []
-					},
-					info: {
-						dirPath: 'src/library/Form',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Form/FormFieldset.js'
-						},
-						presets: []
-					},
-					name: 'FormFieldset',
-					presets: [],
-					properties: [
-						{
-							description: 'Rendered content of the component, most likely [FormField](/components/form-field)',
-							isRequired: false,
-							name: 'children',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: 'Disable (visually) the fieldset',
-							isRequired: false,
-							name: 'disabled',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Title of the fieldset',
-							isRequired: false,
-							name: 'legend',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'string',
-											structure: {}
-										},
-										{
-											name: 'element',
-											structure: {}
-										}
-									]
-								}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
 						examples: [
 							{
 								code: '<div>\\\\n  <Link href=\\"http://example.com\\">Regular</Link>\\\\n  <Link variant=\\"danger\\" href=\\"http://example.com\\">Danger</Link>\\\\n  <Link variant=\\"success\\" href=\\"http://example.com\\">Success</Link>\\\\n  <Link variant=\\"warning\\" href=\\"http://example.com\\">Warning</Link>\\\\n</div>'
@@ -1971,16 +882,16 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					presets: [
 						{
 							elements: {
-								'54FAB3F540C5DA7385E05BC8C0683997': {
+								KLYO507LR1I8BAFWJC41FRW15L9TC0XG: {
+									name: 'Link',
 									props: {
 										children: 'Click me',
 										href: 'https://www.google.com/'
-									},
-									type: 'Link'
+									}
 								}
 							},
 							name: 'default',
-							rootId: '54FAB3F540C5DA7385E05BC8C0683997'
+							rootId: 'KLYO507LR1I8BAFWJC41FRW15L9TC0XG'
 						}
 					],
 					properties: [
@@ -2061,732 +972,6 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					documentation: {
 						examples: [
 							{
-								code: '(() => {\\\\n  function IconDanger() {\\\\n      return (\\\\n        <Icon>\\\\n          <g>\\\\n            <path d=\\"M3.94 19.49h16.118a1 1 0 0 0 .866-1.498l-8.06-13.99a.996.996 0 0 0-1.732-.001L3.074 17.993a.998.998 0 0 0 .867 1.499zM12 17a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-3.503h-2v-5h2v5z\\"/>\\\\n          </g>\\\\n        </Icon>\\\\n      );\\\\n    }\\\\n  \\\\n  const data = [\\\\n    {\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Menu item with onClick\\\\',\\\\n          onClick: event => { console.log(event); }\\\\n        },\\\\n        {\\\\n          text: \\\\'Menu item\\\\',\\\\n          secondaryText: \\\\'Secondary text\\\\'\\\\n        }\\\\n      ]\\\\n    },\\\\n    {\\\\n      title: \\\\'Group Title\\\\',\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Icon at start\\\\',\\\\n          iconStart: <IconDanger />\\\\n        },\\\\n        {\\\\n          text: \\\\'Icon at end\\\\',\\\\n          iconEnd: <IconDanger />\\\\n        },\\\\n        {\\\\n          divider: true\\\\n        },\\\\n        {\\\\n          text: \\\\'Danger variant\\\\',\\\\n          variant: \\\\'danger\\\\' // \\\\'danger\\\\' | \\\\'success\\\\' | \\\\'warning\\\\'\\\\n        },\\\\n        {\\\\n          text: \\\\'Disabled menu item\\\\',\\\\n          disabled: true,\\\\n          onClick: () => { console.log(\\\\'onClick is not triggered for disabled items\\\\'); }\\\\n        }\\\\n      ]\\\\n    }\\\\n  ];\\\\n\\\\n  return (\\\\n    <div>\\\\n      <Menu data={data} />\\\\n    </div>\\\\n  );\\\\n})();'
-							}
-						]
-					},
-					info: {
-						dirPath: 'src/library/Menu',
-						documentation: {
-							path: 'src/library/Menu/Menu.md'
-						},
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Menu/Menu.js'
-						},
-						presets: [
-							{
-								path: 'src/library/Menu/presets/0-default.json'
-							}
-						]
-					},
-					name: 'Menu',
-					presets: [
-						{
-							elements: {
-								F85995B051CF1B9DAE5B74E20509B335: {
-									props: {
-										data: [
-											{
-												items: [
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 1'
-													},
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 2'
-													}
-												]
-											},
-											{
-												items: [
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 1'
-													},
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 2'
-													}
-												]
-											}
-										]
-									},
-									type: 'Menu'
-								}
-							},
-							name: 'default',
-							rootId: 'F85995B051CF1B9DAE5B74E20509B335'
-						}
-					],
-					properties: [
-						{
-							description: '[MenuDivider](/components/menu-divider),\\\\n[MenuGroup](/components/menu-group),\\\\nor [MenuItem](/components/menu-item)',
-							isRequired: false,
-							name: 'children',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: 'Data used to contruct Menu. See [example](#data)',
-							isRequired: false,
-							name: 'data',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'typedArray',
-											structure: {
-												memberType: {
-													name: 'shape',
-													structure: {
-														disabled: {
-															name: 'boolean',
-															structure: {}
-														},
-														divider: {
-															name: 'boolean',
-															structure: {}
-														},
-														iconEnd: {
-															name: 'element',
-															structure: {}
-														},
-														iconStart: {
-															name: 'element',
-															structure: {}
-														},
-														onClick: {
-															name: 'func',
-															structure: {
-																arguments: [
-																	{
-																		name: 'event',
-																		type: {
-																			name: 'unsupported',
-																			structure: {
-																				raw: 'SyntheticEvent'
-																			}
-																		}
-																	}
-																],
-																returnType: {
-																	name: 'empty',
-																	structure: {}
-																}
-															}
-														},
-														render: {
-															name: 'func',
-															structure: {
-																arguments: [
-																	{
-																		name: 'props',
-																		type: {
-																			name: 'shape',
-																			structure: {
-																				props: {
-																					name: 'object',
-																					structure: {}
-																				}
-																			}
-																		}
-																	}
-																],
-																returnType: {
-																	name: 'node',
-																	structure: {}
-																}
-															}
-														},
-														secondaryText: {
-															name: 'node',
-															structure: {}
-														},
-														text: {
-															name: 'node',
-															structure: {}
-														},
-														value: {
-															name: 'string',
-															structure: {}
-														},
-														variant: {
-															name: 'union',
-															structure: {
-																elements: [
-																	{
-																		name: 'literal',
-																		structure: {
-																			value: 'danger'
-																		}
-																	},
-																	{
-																		name: 'literal',
-																		structure: {
-																			value: 'success'
-																		}
-																	},
-																	{
-																		name: 'literal',
-																		structure: {
-																			value: 'warning'
-																		}
-																	}
-																]
-															}
-														}
-													}
-												}
-											}
-										},
-										{
-											name: 'typedArray',
-											structure: {
-												memberType: {
-													name: 'shape',
-													structure: {
-														items: {
-															name: 'typedArray',
-															structure: {
-																memberType: {
-																	name: 'shape',
-																	structure: {
-																		disabled: {
-																			name: 'boolean',
-																			structure: {}
-																		},
-																		divider: {
-																			name: 'boolean',
-																			structure: {}
-																		},
-																		iconEnd: {
-																			name: 'element',
-																			structure: {}
-																		},
-																		iconStart: {
-																			name: 'element',
-																			structure: {}
-																		},
-																		onClick: {
-																			name: 'func',
-																			structure: {
-																				arguments: [
-																					{
-																						name: 'event',
-																						type: {
-																							name: 'unsupported',
-																							structure: {
-																								raw: 'SyntheticEvent'
-																							}
-																						}
-																					}
-																				],
-																				returnType: {
-																					name: 'empty',
-																					structure: {}
-																				}
-																			}
-																		},
-																		render: {
-																			name: 'func',
-																			structure: {
-																				arguments: [
-																					{
-																						name: 'props',
-																						type: {
-																							name: 'shape',
-																							structure: {
-																								props: {
-																									name: 'object',
-																									structure: {}
-																								}
-																							}
-																						}
-																					}
-																				],
-																				returnType: {
-																					name: 'node',
-																					structure: {}
-																				}
-																			}
-																		},
-																		secondaryText: {
-																			name: 'node',
-																			structure: {}
-																		},
-																		text: {
-																			name: 'node',
-																			structure: {}
-																		},
-																		value: {
-																			name: 'string',
-																			structure: {}
-																		},
-																		variant: {
-																			name: 'union',
-																			structure: {
-																				elements: [
-																					{
-																						name: 'literal',
-																						structure: {
-																							value: 'danger'
-																						}
-																					},
-																					{
-																						name: 'literal',
-																						structure: {
-																							value: 'success'
-																						}
-																					},
-																					{
-																						name: 'literal',
-																						structure: {
-																							value: 'warning'
-																						}
-																					}
-																				]
-																			}
-																		}
-																	}
-																}
-															}
-														},
-														title: {
-															name: 'node',
-															structure: {}
-														}
-													}
-												}
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Provides custom rendering control for the items. See the\\\\n[custom item example](/components/menu#custom-item) and\\\\n[React docs](https://reactjs.org/docs/render-props.html).',
-							isRequired: false,
-							name: 'item',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'props',
-											type: {
-												name: 'shape',
-												structure: {
-													props: {
-														name: 'object',
-														structure: {}
-													}
-												}
-											}
-										}
-									],
-									returnType: {
-										name: 'node',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Specifies a key in the item data that gives an item its unique identity.\\\\nSee the [React docs](https://reactjs.org/docs/lists-and-keys.html#keys).',
-							isRequired: false,
-							name: 'itemKey',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
-						examples: [
-							{
-								code: '(() => {\\\\n  function IconDanger() {\\\\n      return (\\\\n        <Icon>\\\\n          <g>\\\\n            <path d=\\"M3.94 19.49h16.118a1 1 0 0 0 .866-1.498l-8.06-13.99a.996.996 0 0 0-1.732-.001L3.074 17.993a.998.998 0 0 0 .867 1.499zM12 17a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-3.503h-2v-5h2v5z\\"/>\\\\n          </g>\\\\n        </Icon>\\\\n      );\\\\n    }\\\\n  \\\\n  const data = [\\\\n    {\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Menu item with onClick\\\\',\\\\n          onClick: event => { console.log(event); }\\\\n        },\\\\n        {\\\\n          text: \\\\'Menu item\\\\',\\\\n          secondaryText: \\\\'Secondary text\\\\'\\\\n        }\\\\n      ]\\\\n    },\\\\n    {\\\\n      title: \\\\'Group Title\\\\',\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Icon at start\\\\',\\\\n          iconStart: <IconDanger />\\\\n        },\\\\n        {\\\\n          text: \\\\'Icon at end\\\\',\\\\n          iconEnd: <IconDanger />\\\\n        },\\\\n        {\\\\n          divider: true\\\\n        },\\\\n        {\\\\n          text: \\\\'Danger variant\\\\',\\\\n          variant: \\\\'danger\\\\' // \\\\'danger\\\\' | \\\\'success\\\\' | \\\\'warning\\\\'\\\\n        },\\\\n        {\\\\n          text: \\\\'Disabled menu item\\\\',\\\\n          disabled: true,\\\\n          onClick: () => { console.log(\\\\'onClick is not triggered for disabled items\\\\'); }\\\\n        }\\\\n      ]\\\\n    }\\\\n  ];\\\\n\\\\n  return (\\\\n    <div>\\\\n      <Menu data={data} />\\\\n    </div>\\\\n  );\\\\n})();'
-							}
-						]
-					},
-					info: {
-						dirPath: 'src/library/Menu',
-						documentation: {
-							path: 'src/library/Menu/Menu.md'
-						},
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Menu/MenuDivider.js'
-						},
-						presets: [
-							{
-								path: 'src/library/Menu/presets/0-default.json'
-							}
-						]
-					},
-					name: 'MenuDivider',
-					presets: [
-						{
-							elements: {
-								F85995B051CF1B9DAE5B74E20509B335: {
-									props: {
-										data: [
-											{
-												items: [
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 1'
-													},
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 2'
-													}
-												]
-											},
-											{
-												items: [
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 1'
-													},
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 2'
-													}
-												]
-											}
-										]
-									},
-									type: 'Menu'
-								}
-							},
-							name: 'default',
-							rootId: 'F85995B051CF1B9DAE5B74E20509B335'
-						}
-					],
-					properties: []
-				},
-				{
-					documentation: {
-						examples: [
-							{
-								code: '(() => {\\\\n  function IconDanger() {\\\\n      return (\\\\n        <Icon>\\\\n          <g>\\\\n            <path d=\\"M3.94 19.49h16.118a1 1 0 0 0 .866-1.498l-8.06-13.99a.996.996 0 0 0-1.732-.001L3.074 17.993a.998.998 0 0 0 .867 1.499zM12 17a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-3.503h-2v-5h2v5z\\"/>\\\\n          </g>\\\\n        </Icon>\\\\n      );\\\\n    }\\\\n  \\\\n  const data = [\\\\n    {\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Menu item with onClick\\\\',\\\\n          onClick: event => { console.log(event); }\\\\n        },\\\\n        {\\\\n          text: \\\\'Menu item\\\\',\\\\n          secondaryText: \\\\'Secondary text\\\\'\\\\n        }\\\\n      ]\\\\n    },\\\\n    {\\\\n      title: \\\\'Group Title\\\\',\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Icon at start\\\\',\\\\n          iconStart: <IconDanger />\\\\n        },\\\\n        {\\\\n          text: \\\\'Icon at end\\\\',\\\\n          iconEnd: <IconDanger />\\\\n        },\\\\n        {\\\\n          divider: true\\\\n        },\\\\n        {\\\\n          text: \\\\'Danger variant\\\\',\\\\n          variant: \\\\'danger\\\\' // \\\\'danger\\\\' | \\\\'success\\\\' | \\\\'warning\\\\'\\\\n        },\\\\n        {\\\\n          text: \\\\'Disabled menu item\\\\',\\\\n          disabled: true,\\\\n          onClick: () => { console.log(\\\\'onClick is not triggered for disabled items\\\\'); }\\\\n        }\\\\n      ]\\\\n    }\\\\n  ];\\\\n\\\\n  return (\\\\n    <div>\\\\n      <Menu data={data} />\\\\n    </div>\\\\n  );\\\\n})();'
-							}
-						]
-					},
-					info: {
-						dirPath: 'src/library/Menu',
-						documentation: {
-							path: 'src/library/Menu/Menu.md'
-						},
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Menu/MenuGroup.js'
-						},
-						presets: [
-							{
-								path: 'src/library/Menu/presets/0-default.json'
-							}
-						]
-					},
-					name: 'MenuGroup',
-					presets: [
-						{
-							elements: {
-								F85995B051CF1B9DAE5B74E20509B335: {
-									props: {
-										data: [
-											{
-												items: [
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 1'
-													},
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 2'
-													}
-												]
-											},
-											{
-												items: [
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 1'
-													},
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 2'
-													}
-												]
-											}
-										]
-									},
-									type: 'Menu'
-								}
-							},
-							name: 'default',
-							rootId: 'F85995B051CF1B9DAE5B74E20509B335'
-						}
-					],
-					properties: [
-						{
-							description: '[MenuItems](/components/menu-item)',
-							isRequired: false,
-							name: 'children',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: 'Title for the group',
-							isRequired: false,
-							name: 'title',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
-						examples: [
-							{
-								code: '(() => {\\\\n  function IconDanger() {\\\\n      return (\\\\n        <Icon>\\\\n          <g>\\\\n            <path d=\\"M3.94 19.49h16.118a1 1 0 0 0 .866-1.498l-8.06-13.99a.996.996 0 0 0-1.732-.001L3.074 17.993a.998.998 0 0 0 .867 1.499zM12 17a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-3.503h-2v-5h2v5z\\"/>\\\\n          </g>\\\\n        </Icon>\\\\n      );\\\\n    }\\\\n  \\\\n  const data = [\\\\n    {\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Menu item with onClick\\\\',\\\\n          onClick: event => { console.log(event); }\\\\n        },\\\\n        {\\\\n          text: \\\\'Menu item\\\\',\\\\n          secondaryText: \\\\'Secondary text\\\\'\\\\n        }\\\\n      ]\\\\n    },\\\\n    {\\\\n      title: \\\\'Group Title\\\\',\\\\n      items: [\\\\n        {\\\\n          text: \\\\'Icon at start\\\\',\\\\n          iconStart: <IconDanger />\\\\n        },\\\\n        {\\\\n          text: \\\\'Icon at end\\\\',\\\\n          iconEnd: <IconDanger />\\\\n        },\\\\n        {\\\\n          divider: true\\\\n        },\\\\n        {\\\\n          text: \\\\'Danger variant\\\\',\\\\n          variant: \\\\'danger\\\\' // \\\\'danger\\\\' | \\\\'success\\\\' | \\\\'warning\\\\'\\\\n        },\\\\n        {\\\\n          text: \\\\'Disabled menu item\\\\',\\\\n          disabled: true,\\\\n          onClick: () => { console.log(\\\\'onClick is not triggered for disabled items\\\\'); }\\\\n        }\\\\n      ]\\\\n    }\\\\n  ];\\\\n\\\\n  return (\\\\n    <div>\\\\n      <Menu data={data} />\\\\n    </div>\\\\n  );\\\\n})();'
-							}
-						]
-					},
-					info: {
-						dirPath: 'src/library/Menu',
-						documentation: {
-							path: 'src/library/Menu/Menu.md'
-						},
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Menu/MenuItem.js'
-						},
-						presets: [
-							{
-								path: 'src/library/Menu/presets/0-default.json'
-							}
-						]
-					},
-					name: 'MenuItem',
-					presets: [
-						{
-							elements: {
-								F85995B051CF1B9DAE5B74E20509B335: {
-									props: {
-										data: [
-											{
-												items: [
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 1'
-													},
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 2'
-													}
-												]
-											},
-											{
-												items: [
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 1'
-													},
-													{
-														secondaryText: 'Secondary text',
-														text: 'Menu item 2'
-													}
-												]
-											}
-										]
-									},
-									type: 'Menu'
-								}
-							},
-							name: 'default',
-							rootId: 'F85995B051CF1B9DAE5B74E20509B335'
-						}
-					],
-					properties: [
-						{
-							description: 'Rendered content of the component',
-							isRequired: false,
-							name: 'children',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: 'Disable the menu item',
-							isRequired: false,
-							name: 'disabled',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Icon that goes after the children',
-							isRequired: false,
-							name: 'iconEnd',
-							type: {
-								name: 'element',
-								structure: {}
-							}
-						},
-						{
-							description: 'Icon that goes before the children',
-							isRequired: false,
-							name: 'iconStart',
-							type: {
-								name: 'element',
-								structure: {}
-							}
-						},
-						{
-							description: 'Item index - provided to render callback',
-							isRequired: false,
-							name: 'index',
-							type: {
-								name: 'number',
-								structure: {}
-							}
-						},
-						{
-							description: 'Display the item in an active style',
-							isRequired: false,
-							name: 'isHighlighted',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Item data - provided to render callback',
-							isRequired: false,
-							name: 'item',
-							type: {
-								name: 'unsupported',
-								structure: {
-									raw: 'Item'
-								}
-							}
-						},
-						{
-							description: 'Called with the click event',
-							isRequired: false,
-							name: 'onClick',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'event',
-											type: {
-												name: 'unsupported',
-												structure: {
-													raw: 'SyntheticEvent'
-												}
-											}
-										}
-									],
-									returnType: {
-										name: 'empty',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Provides custom rendering control. See the\\\\n[custom item example](/components/menu#custom-item) and\\\\n[React docs](https://reactjs.org/docs/render-props.html).',
-							isRequired: false,
-							name: 'render',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'props',
-											type: {
-												name: 'shape',
-												structure: {
-													props: {
-														name: 'object',
-														structure: {}
-													}
-												}
-											}
-										}
-									],
-									returnType: {
-										name: 'node',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Secondary text',
-							isRequired: false,
-							name: 'secondaryText',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: 'Available variants',
-							isRequired: false,
-							name: 'variant',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'danger'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'success'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'warning'
-											}
-										}
-									]
-								}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
-						examples: [
-							{
 								code: '<div>\\\\n  <Popover\\\\n    content={<span>Some content</span>}\\\\n    placement=\\"right\\"\\\\n    subtitle=\\"Subtitle\\"\\\\n    title=\\"Title\\"\\\\n    isOpen>\\\\n    <Button>Open Popover</Button>\\\\n  </Popover>\\\\n</div>'
 							}
 						]
@@ -2801,10 +986,47 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 							lang: 'javascript',
 							path: 'src/library/Popover/Popover.js'
 						},
-						presets: []
+						presets: [
+							{
+								path: 'src/library/Popover/presets/0-default.json'
+							}
+						]
 					},
 					name: 'Popover',
-					presets: [],
+					presets: [
+						{
+							elements: {
+								IUR6EPRYZLA2XRUHSS2SN9BQLGV2429R: {
+									content: {
+										uxpinPresetElementId: 'RQDQUVHEPJVDUX2WRMM6AUOAE0VRZR8M'
+									},
+									isOpen: true,
+									name: 'Popover',
+									props: {
+										children: {
+											uxpinPresetElementId: 'Y6EEY8JC96RZZ0ZJ7R3P7B80Q93WBIR3'
+										}
+									},
+									subtitle: 'Subtitle',
+									title: 'Title'
+								},
+								RQDQUVHEPJVDUX2WRMM6AUOAE0VRZR8M: {
+									name: 'Text',
+									props: {
+										children: 'Light years star stuff harvesting star light citizens of distant epochs encyclopaedia galactica.'
+									}
+								},
+								Y6EEY8JC96RZZ0ZJ7R3P7B80Q93WBIR3: {
+									name: 'Button',
+									props: {
+										children: 'Open Popover'
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'IUR6EPRYZLA2XRUHSS2SN9BQLGV2429R'
+						}
+					],
 					properties: [
 						{
 							description: 'Trigger for the Popover. Optionally provides custom rendering control.\\\\nSee the [custom trigger example](/components/popover#custom-trigger)\\\\nand [React docs](https://reactjs.org/docs/render-props.html).',
@@ -3161,389 +1383,98 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Radio',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Radio/Radio.js'
-						},
-						presets: []
-					},
-					name: 'Radio',
-					presets: [],
-					properties: [
-						{
-							description: 'Checked state of the radio button. Primarily for use with controlled\\\\ncomponents. If this prop is specified, an \`onChange\` handler must also be\\\\nspecified. See also: \`defaultChecked\`.',
-							isRequired: false,
-							name: 'checked',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: '@Private CSS className',
-							isRequired: false,
-							name: 'className',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Initial checked state of the radio button; primarily for use with\\\\nuncontrolled components',
-							isRequired: false,
-							name: 'defaultChecked',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Disables the radio button',
-							isRequired: false,
-							name: 'disabled',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Maximize the distance between the label and the control',
-							isRequired: false,
-							name: 'justify',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Ref for the radio button',
-							isRequired: false,
-							name: 'inputRef',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'node',
-											type: {
-												name: 'element',
-												structure: {}
-											}
-										}
-									],
-									returnType: {
-										name: 'empty',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Props to be applied directly to the root element rather than the input',
-							isRequired: false,
-							name: 'rootProps',
-							type: {
-								name: 'object',
-								structure: {}
-							}
-						},
-						{
-							description: 'Indicates that the value of the input is invalid',
-							isRequired: false,
-							name: 'invalid',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'Label associated with the input element',
-							isRequired: true,
-							name: 'label',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'string',
-											structure: {}
-										},
-										{
-											name: 'element',
-											structure: {}
-										}
-									]
-								}
-							}
-						},
-						{
-							defaultValue: {
-								value: 'end'
-							},
-							description: 'Determines the position of the label relative to the control',
-							isRequired: false,
-							name: 'labelPosition',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'start'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'end'
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'Used to uniquely define a group of radio buttons',
-							isRequired: false,
-							name: 'name',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Function called when a radio button is selected',
-							isRequired: false,
-							name: 'onChange',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'event',
-											type: {
-												name: 'unsupported',
-												structure: {
-													raw: 'SyntheticEvent'
-												}
-											}
-										}
-									],
-									returnType: {
-										name: 'empty',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Indicates that the user must select an option before submitting a form',
-							isRequired: false,
-							name: 'required',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							defaultValue: {
-								value: 'large'
-							},
-							description: 'Available sizes',
-							isRequired: false,
-							name: 'size',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'small'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'medium'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'large'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'jumbo'
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: 'The value of the radio button',
-							isRequired: false,
-							name: 'value',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
-						examples: []
-					},
-					info: {
-						dirPath: 'src/library/Radio',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/Radio/RadioGroup.js'
-						},
-						presets: []
-					},
-					name: 'RadioGroup',
-					presets: [],
-					properties: [
-						{
-							description: 'Value of the selected [Radio](/components/radio); primarily for use with controlled\\\\ncomponents. If this prop is specified, an \`onChange\` handler must also be\\\\nspecified. See also: \`defaultChecked\`.',
-							isRequired: false,
-							name: 'checked',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Mineral [Radio](/components/radio) components',
-							isRequired: false,
-							name: 'children',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: 'Data used to contruct [Radio](/components/radio), see [example](#data)',
-							isRequired: false,
-							name: 'data',
-							type: {
-								name: 'typedArray',
-								structure: {
-									memberType: {
-										name: 'shape',
-										structure: {
-											label: {
-												name: 'union',
-												structure: {
-													elements: [
-														{
-															name: 'string',
-															structure: {}
-														},
-														{
-															name: 'element',
-															structure: {}
-														}
-													]
-												}
-											},
-											value: {
-												name: 'string',
-												structure: {}
-											}
-										}
-									}
-								}
-							}
-						},
-						{
-							description: 'Value of the selected [Radio](/components/radio); primarily for use with\\\\nuncontrolled components.',
-							isRequired: false,
-							name: 'defaultChecked',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Display the choices inline horizontally rather than stacked vertically.',
-							isRequired: false,
-							name: 'inline',
-							type: {
-								name: 'boolean',
-								structure: {}
-							}
-						},
-						{
-							description: 'The name of the group',
-							isRequired: true,
-							name: 'name',
-							type: {
-								name: 'string',
-								structure: {}
-							}
-						},
-						{
-							description: 'Function called when a choice is selected',
-							isRequired: false,
-							name: 'onChange',
-							type: {
-								name: 'func',
-								structure: {
-									arguments: [
-										{
-											name: 'event',
-											type: {
-												name: 'unsupported',
-												structure: {
-													raw: 'SyntheticEvent'
-												}
-											}
-										}
-									],
-									returnType: {
-										name: 'empty',
-										structure: {}
-									}
-								}
-							}
-						},
-						{
-							description: 'Props to be applied directly to the root element',
-							isRequired: false,
-							name: 'rootProps',
-							type: {
-								name: 'object',
-								structure: {}
-							}
-						}
-					]
-				},
-				{
-					documentation: {
-						examples: []
-					},
-					info: {
 						dirPath: 'src/library/Select',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
 							path: 'src/library/Select/Select.js'
 						},
-						presets: []
+						presets: [
+							{
+								path: 'src/library/Select/presets/0-default.json'
+							},
+							{
+								path: 'src/library/Select/presets/50-with icons.json'
+							}
+						]
 					},
 					name: 'Select',
-					presets: [],
+					presets: [
+						{
+							elements: {
+								EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X: {
+									name: 'Select',
+									props: {
+										data: [
+											{
+												secondaryText: 'Secondary text',
+												text: 'Select item',
+												value: 'basic'
+											},
+											{
+												divider: true
+											},
+											{
+												text: 'Danger variant',
+												value: 'variant',
+												variant: 'danger'
+											},
+											{
+												disabled: true,
+												text: 'Disabled menu item',
+												value: 'disabled'
+											}
+										]
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X'
+						},
+						{
+							elements: {
+								CEFQWE4EMYU45HRQNVJCHX3FQ6QY8JO8: {
+									name: 'IconWbSunny',
+									props: {}
+								},
+								EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X: {
+									name: 'Select',
+									props: {
+										data: [
+											{
+												secondaryText: 'Secondary text',
+												text: 'Select item',
+												value: 'basic'
+											},
+											{
+												divider: true
+											},
+											{
+												iconStart: {
+													uxpinPresetElementId: 'NP4Z1C9PJW9Z4J36NY6BUFI0JRFT1WCF'
+												},
+												text: 'Icon at start',
+												value: 'iconStart'
+											},
+											{
+												iconEnd: {
+													uxpinPresetElementId: 'CEFQWE4EMYU45HRQNVJCHX3FQ6QY8JO8'
+												},
+												text: 'Icon at end',
+												value: 'iconEnd'
+											}
+										]
+									}
+								},
+								NP4Z1C9PJW9Z4J36NY6BUFI0JRFT1WCF: {
+									name: 'IconCloud',
+									props: {}
+								}
+							},
+							name: 'with icons',
+							rootId: 'EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X'
+						}
+					],
 					properties: [
 						{
 							description: 'Data from which the [Menu](/components/menu#data) will be constructed\\\\n(see [example](#data))',
@@ -4060,10 +1991,92 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 							lang: 'javascript',
 							path: 'src/library/Text/Text.js'
 						},
-						presets: []
+						presets: [
+							{
+								path: 'src/library/Text/presets/0-default.json'
+							},
+							{
+								path: 'src/library/Text/presets/50-with inline icon.json'
+							},
+							{
+								path: 'src/library/Text/presets/100-with formatting.json'
+							}
+						]
 					},
 					name: 'Text',
-					presets: [],
+					presets: [
+						{
+							elements: {
+								EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X: {
+									name: 'Text',
+									props: {
+										children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus id dolor maximus eleifend nec in nunc. Integer quis lacinia leo, in suscipit orci. Donec enim augue, vehicula vel enim a, vestibulum tempus nunc.'
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X'
+						},
+						{
+							elements: {
+								EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X: {
+									name: 'Text',
+									props: {
+										children: [
+											'Lorem ipsum ',
+											{
+												uxpinPresetElementId: 'ZRL6QZCWKOYDKMLSN1GK7I5PAAD43IM6'
+											},
+											'dolor sit amet, consectetur adipiscing elit. Sed non purus id dolor maximus eleifend nec in nunc. Integer quis lacinia leo, in suscipit orci. Donec enim augue, vehicula vel enim a, vestibulum tempus nunc.'
+										]
+									}
+								},
+								ZRL6QZCWKOYDKMLSN1GK7I5PAAD43IM6: {
+									name: 'IconCloud',
+									props: {}
+								}
+							},
+							name: 'with inline icon',
+							rootId: 'EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X'
+						},
+						{
+							elements: {
+								'5QNQV48AUD4VQKAG0PWEEF9BSKU55UAR': {
+									name: 'Text',
+									props: {
+										children: 'consectetur',
+										element: 'strong'
+									}
+								},
+								E2FHJ7T5CNDOKC408FMZNVJSH06NQB5D: {
+									name: 'Text',
+									props: {
+										children: 'Integer',
+										element: 'span',
+										fontWeight: 300
+									}
+								},
+								EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X: {
+									name: 'Text',
+									props: {
+										children: [
+											'Lorem ipsum dolor sit amet, ',
+											{
+												uxpinPresetElementId: '5QNQV48AUD4VQKAG0PWEEF9BSKU55UAR'
+											},
+											' adipiscing elit. Sed non purus id dolor maximus eleifend nec in nunc. ',
+											{
+												uxpinPresetElementId: 'E2FHJ7T5CNDOKC408FMZNVJSH06NQB5D'
+											},
+											' quis lacinia leo, in suscipit orci. Donec enim augue, vehicula vel enim a, vestibulum tempus nunc.'
+										]
+									}
+								}
+							},
+							name: 'with formatting',
+							rootId: 'EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X'
+						}
+					],
 					properties: [
 						{
 							description: 'Available horizontal alignments',
@@ -4304,10 +2317,27 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 							lang: 'javascript',
 							path: 'src/library/TextArea/TextArea.js'
 						},
-						presets: []
+						presets: [
+							{
+								path: 'src/library/TextArea/presets/0-default.json'
+							}
+						]
 					},
 					name: 'TextArea',
-					presets: [],
+					presets: [
+						{
+							elements: {
+								IUR6EPRYZLA2XRUHSS2SN9BQLGV2429R: {
+									name: 'TextArea',
+									props: {
+										defaultValue: 'Hello World'
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'IUR6EPRYZLA2XRUHSS2SN9BQLGV2429R'
+						}
+					],
 					properties: [
 						{
 							description: 'Automatically adjust the height of the input to fit the content',
@@ -4578,10 +2608,10 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						{
 							elements: {
 								AF11C384BDFF8ABB8AC5ED99554F61B9: {
+									name: 'TextInput',
 									props: {
 										defaultValue: 'Hello World'
-									},
-									type: 'TextInput'
+									}
 								}
 							},
 							name: 'default',
@@ -4966,10 +2996,68 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 							lang: 'javascript',
 							path: 'src/library/Tooltip/Tooltip.js'
 						},
-						presets: []
+						presets: [
+							{
+								path: 'src/library/Tooltip/presets/0-default.json'
+							},
+							{
+								path: 'src/library/Tooltip/presets/50-in prose.json'
+							}
+						]
 					},
 					name: 'Tooltip',
-					presets: [],
+					presets: [
+						{
+							elements: {
+								HUAO1YCR4ENVNG97PX9CLIIS7QU94I5S: {
+									name: 'Button',
+									props: {
+										children: 'Action'
+									}
+								},
+								IUR6EPRYZLA2XRUHSS2SN9BQLGV2429R: {
+									name: 'Tooltip',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: 'HUAO1YCR4ENVNG97PX9CLIIS7QU94I5S'
+											}
+										],
+										content: 'Tooltip contents'
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'IUR6EPRYZLA2XRUHSS2SN9BQLGV2429R'
+						},
+						{
+							elements: {
+								IUR6EPRYZLA2XRUHSS2SN9BQLGV2429R: {
+									name: 'Tooltip',
+									props: {
+										children: 'Tooltip',
+										content: 'Light years star stuff',
+										isOpen: true,
+										usePortal: true
+									}
+								},
+								MODG7BEJSWVEO19E3JCIU8T9VQO3CRXL: {
+									name: 'Text',
+									props: {
+										children: [
+											'Here\\\\'s some prose with a ',
+											{
+												uxpinPresetElementId: 'IUR6EPRYZLA2XRUHSS2SN9BQLGV2429R'
+											},
+											' in the middle of it.'
+										]
+									}
+								}
+							},
+							name: 'in prose',
+							rootId: 'IUR6EPRYZLA2XRUHSS2SN9BQLGV2429R'
+						}
+					],
 					properties: [
 						{
 							description: 'Trigger for the Tooltip',
@@ -5226,6 +3314,2137 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 							}
 						}
 					]
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Checkbox/Checkbox',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Checkbox/Checkbox/Checkbox.js'
+						},
+						presets: [
+							{
+								path: 'src/library/Checkbox/Checkbox/presets/0-default.json'
+							}
+						]
+					},
+					name: 'Checkbox',
+					presets: [
+						{
+							elements: {
+								EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X: {
+									name: 'Checkbox',
+									props: {
+										defaultChecked: true,
+										label: 'Quartz',
+										name: 'minerals',
+										value: 'quartz'
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X'
+						}
+					],
+					properties: [
+						{
+							description: 'Checked state of the checkbox. Primarily for use with controlled\\\\ncomponents. If this prop is specified, an \`onChange\` handler must also be\\\\nspecified. See also: \`defaultChecked\`.',
+							isRequired: false,
+							name: 'checked',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: '@Private CSS className',
+							isRequired: false,
+							name: 'className',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						},
+						{
+							description: 'Initial checked state of the checkbox; primarily for use with\\\\nuncontrolled components',
+							isRequired: false,
+							name: 'defaultChecked',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Disables the checkbox',
+							isRequired: false,
+							name: 'disabled',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Maximize the distance between the label and the control',
+							isRequired: false,
+							name: 'justify',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Indicates a state in which it cannot be determined if the input is checked\\\\nor not',
+							isRequired: false,
+							name: 'indeterminate',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Ref for the checkbox',
+							isRequired: false,
+							name: 'inputRef',
+							type: {
+								name: 'func',
+								structure: {
+									arguments: [
+										{
+											name: 'node',
+											type: {
+												name: 'element',
+												structure: {}
+											}
+										}
+									],
+									returnType: {
+										name: 'empty',
+										structure: {}
+									}
+								}
+							}
+						},
+						{
+							description: 'Props to be applied directly to the root element rather than the input',
+							isRequired: false,
+							name: 'rootProps',
+							type: {
+								name: 'object',
+								structure: {}
+							}
+						},
+						{
+							description: 'Indicates that the value of the input is invalid',
+							isRequired: false,
+							name: 'invalid',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Label associated with the input element',
+							isRequired: true,
+							name: 'label',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'string',
+											structure: {}
+										},
+										{
+											name: 'element',
+											structure: {}
+										}
+									]
+								}
+							}
+						},
+						{
+							defaultValue: {
+								value: 'end'
+							},
+							description: 'Determines the position of the label relative to the control',
+							isRequired: false,
+							name: 'labelPosition',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'start'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'end'
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							description: 'Used to uniquely define a group of checkboxes',
+							isRequired: false,
+							name: 'name',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						},
+						{
+							description: 'Function called when a checkbox is selected',
+							isRequired: false,
+							name: 'onChange',
+							type: {
+								name: 'func',
+								structure: {
+									arguments: [
+										{
+											name: 'event',
+											type: {
+												name: 'unsupported',
+												structure: {
+													raw: 'SyntheticEvent'
+												}
+											}
+										}
+									],
+									returnType: {
+										name: 'empty',
+										structure: {}
+									}
+								}
+							}
+						},
+						{
+							description: 'Indicates that the user must select an option before submitting a form',
+							isRequired: false,
+							name: 'required',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							defaultValue: {
+								value: 'large'
+							},
+							description: 'Available sizes',
+							isRequired: false,
+							name: 'size',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'small'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'medium'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'large'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'jumbo'
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							description: 'The value of the checkbox',
+							isRequired: false,
+							name: 'value',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						}
+					]
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Checkbox/CheckboxGroup',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Checkbox/CheckboxGroup/CheckboxGroup.js'
+						},
+						presets: [
+							{
+								path: 'src/library/Checkbox/CheckboxGroup/presets/0-default.json'
+							},
+							{
+								path: 'src/library/Checkbox/CheckboxGroup/presets/50-controlled with data object.json'
+							}
+						]
+					},
+					name: 'CheckboxGroup',
+					presets: [
+						{
+							elements: {
+								'0YDENGD0Q6VGDXJK3N1C0EFN2GHHDFSU': {
+									name: 'CheckboxGroup',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: 'EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X'
+											},
+											{
+												uxpinPresetElementId: '9BZANYTUTRX8FFZIOATGB0ABIPYYLKTD'
+											},
+											{
+												uxpinPresetElementId: '25742CUEE2H85OM1XY9XYWQ1QUE12QUA'
+											}
+										],
+										defaultChecked: [
+											'hematite',
+											'pyrite'
+										],
+										name: 'minerals-1'
+									}
+								},
+								'25742CUEE2H85OM1XY9XYWQ1QUE12QUA': {
+									name: 'Checkbox',
+									props: {
+										label: 'Pyrite',
+										value: 'pyrite'
+									}
+								},
+								'9BZANYTUTRX8FFZIOATGB0ABIPYYLKTD': {
+									name: 'Checkbox',
+									props: {
+										label: 'Hematite',
+										value: 'hematite'
+									}
+								},
+								EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X: {
+									name: 'Checkbox',
+									props: {
+										label: 'Azurite',
+										value: 'azurite'
+									}
+								}
+							},
+							name: 'default',
+							rootId: '0YDENGD0Q6VGDXJK3N1C0EFN2GHHDFSU'
+						},
+						{
+							elements: {
+								HT9WU09S0XSJNWKDZPE1CFVVH11FXRDC: {
+									name: 'CheckboxGroup',
+									props: {
+										data: [
+											{
+												label: 'Fluorite',
+												value: 'fluorite'
+											},
+											{
+												label: 'Magnetite',
+												value: 'magnetite'
+											},
+											{
+												label: 'Quartz',
+												value: 'quartz'
+											}
+										],
+										defaultChecked: [
+											'magnetite',
+											'quartz'
+										],
+										name: 'minerals-2'
+									}
+								}
+							},
+							name: 'controlled with data object',
+							rootId: 'HT9WU09S0XSJNWKDZPE1CFVVH11FXRDC'
+						}
+					],
+					properties: [
+						{
+							description: 'Array of values of the selected Checkboxes; primarily for use with\\\\ncontrolled components. If this prop is specified, an \`onChange\` handler\\\\nmust also be specified. See also: \`defaultChecked\`.',
+							isRequired: false,
+							name: 'checked',
+							type: {
+								name: 'typedArray',
+								structure: {
+									memberType: {
+										name: 'string',
+										structure: {}
+									}
+								}
+							}
+						},
+						{
+							description: 'Mineral [Checkbox](/components/checkbox) components',
+							isRequired: false,
+							name: 'children',
+							type: {
+								name: 'node',
+								structure: {}
+							}
+						},
+						{
+							description: 'Data used to contruct [Checkboxes](/components/checkbox), see [example](#data)',
+							isRequired: false,
+							name: 'data',
+							type: {
+								name: 'typedArray',
+								structure: {
+									memberType: {
+										name: 'shape',
+										structure: {
+											label: {
+												name: 'union',
+												structure: {
+													elements: [
+														{
+															name: 'string',
+															structure: {}
+														},
+														{
+															name: 'element',
+															structure: {}
+														}
+													]
+												}
+											},
+											value: {
+												name: 'string',
+												structure: {}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							description: 'Array of values of the selected [Checkboxes](/components/checkbox); primarily for\\\\nuse with uncontrolled components.',
+							isRequired: false,
+							name: 'defaultChecked',
+							type: {
+								name: 'typedArray',
+								structure: {
+									memberType: {
+										name: 'string',
+										structure: {}
+									}
+								}
+							}
+						},
+						{
+							description: 'Display the choices inline horizontally rather than stacked vertically.',
+							isRequired: false,
+							name: 'inline',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'The name of the group',
+							isRequired: true,
+							name: 'name',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						},
+						{
+							description: 'Function called when a choice is selected',
+							isRequired: false,
+							name: 'onChange',
+							type: {
+								name: 'func',
+								structure: {
+									arguments: [
+										{
+											name: 'event',
+											type: {
+												name: 'unsupported',
+												structure: {
+													raw: 'SyntheticEvent'
+												}
+											}
+										}
+									],
+									returnType: {
+										name: 'empty',
+										structure: {}
+									}
+								}
+							}
+						},
+						{
+							description: 'Props to be applied directly to the root element',
+							isRequired: false,
+							name: 'rootProps',
+							type: {
+								name: 'object',
+								structure: {}
+							}
+						}
+					]
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Form/FormField',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Form/FormField/FormField.js'
+						},
+						presets: [
+							{
+								path: 'src/library/Form/FormField/presets/0-default.json'
+							}
+						]
+					},
+					name: 'FormField',
+					presets: [
+						{
+							elements: {
+								UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0: {
+									name: 'FormField',
+									props: {
+										children: {
+											uxpinPresetElementId: 'ZYFOAVMGAZUGQF6G6I866PTY5U5B10A6'
+										},
+										label: 'Name'
+									}
+								},
+								ZYFOAVMGAZUGQF6G6I866PTY5U5B10A6: {
+									name: 'TextInput',
+									props: {}
+								}
+							},
+							name: 'default',
+							rootId: 'UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0'
+						}
+					],
+					properties: [
+						{
+							description: 'Caption associated with the input element; commonly used to provide help\\\\ntext',
+							isRequired: false,
+							name: 'caption',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'string',
+											structure: {}
+										},
+										{
+											name: 'element',
+											structure: {}
+										}
+									]
+								}
+							}
+						},
+						{
+							description: 'Form input element',
+							isRequired: false,
+							name: 'children',
+							type: {
+								name: 'node',
+								structure: {}
+							}
+						},
+						{
+							description: '@Private CSS className',
+							isRequired: false,
+							name: 'className',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						},
+						{
+							description: 'Visually hide label, but keep available for [assistive technologies](https://webaccess.berkeley.edu/resources/assistive-technology)',
+							isRequired: false,
+							name: 'hideLabel',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Form input class; alternative to \`children\`',
+							isRequired: false,
+							name: 'input',
+							type: {
+								name: 'unsupported',
+								structure: {
+									raw: 'React$ComponentType'
+								}
+							}
+						},
+						{
+							description: 'Props to be applied directly to the root element, rather than the input',
+							isRequired: false,
+							name: 'rootProps',
+							type: {
+								name: 'object',
+								structure: {}
+							}
+						},
+						{
+							description: 'Label associated with the input element',
+							isRequired: true,
+							name: 'label',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'string',
+											structure: {}
+										},
+										{
+											name: 'element',
+											structure: {}
+										}
+									]
+								}
+							}
+						},
+						{
+							description: 'Marks associated input as required',
+							isRequired: false,
+							name: 'required',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							defaultValue: {
+								value: 'Required'
+							},
+							description: 'Text used to indicate a required field',
+							isRequired: false,
+							name: 'requiredText',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'string',
+											structure: {}
+										},
+										{
+											name: 'element',
+											structure: {}
+										}
+									]
+								}
+							}
+						},
+						{
+							description: 'Secondary text associated with the input element; takes precedence over\\\\n\`requiredText\`',
+							isRequired: false,
+							name: 'secondaryText',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'string',
+											structure: {}
+										},
+										{
+											name: 'element',
+											structure: {}
+										}
+									]
+								}
+							}
+						},
+						{
+							description: 'Available variants',
+							isRequired: false,
+							name: 'variant',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'success'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'warning'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'danger'
+											}
+										}
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Form/FormFieldDivider',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Form/FormFieldDivider/FormFieldDivider.js'
+						},
+						presets: []
+					},
+					name: 'FormFieldDivider',
+					presets: [],
+					properties: []
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Form/FormFieldset',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Form/FormFieldset/FormFieldset.js'
+						},
+						presets: [
+							{
+								path: 'src/library/Form/FormFieldset/presets/0-default.json'
+							}
+						]
+					},
+					name: 'FormFieldset',
+					presets: [
+						{
+							elements: {
+								'1CERL36N4BI0HMJKUBS4PG23AL1JNOIA': {
+									name: 'TextInput',
+									props: {
+										type: 'password'
+									}
+								},
+								DWST8ARSNIUIBSOCFVZ73ELAVWCUBYVQ: {
+									name: 'FormField',
+									props: {
+										children: {
+											uxpinPresetElementId: '1CERL36N4BI0HMJKUBS4PG23AL1JNOIA'
+										},
+										label: 'Password'
+									}
+								},
+								R73VROA306AR7DO0R6SUTQNDQI6S73NR: {
+									name: 'FormField',
+									props: {
+										children: {
+											uxpinPresetElementId: 'ZYFOAVMGAZUGQF6G6I866PTY5U5B10A6'
+										},
+										label: 'Email'
+									}
+								},
+								UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0: {
+									name: 'FormFieldset',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: 'R73VROA306AR7DO0R6SUTQNDQI6S73NR'
+											},
+											{
+												uxpinPresetElementId: 'DWST8ARSNIUIBSOCFVZ73ELAVWCUBYVQ'
+											}
+										],
+										legend: 'Login'
+									}
+								},
+								ZYFOAVMGAZUGQF6G6I866PTY5U5B10A6: {
+									name: 'TextInput',
+									props: {
+										type: 'email'
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0'
+						}
+					],
+					properties: [
+						{
+							description: 'Rendered content of the component, most likely [FormField](/components/form-field)',
+							isRequired: false,
+							name: 'children',
+							type: {
+								name: 'node',
+								structure: {}
+							}
+						},
+						{
+							description: 'Disable (visually) the fieldset',
+							isRequired: false,
+							name: 'disabled',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Title of the fieldset',
+							isRequired: false,
+							name: 'legend',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'string',
+											structure: {}
+										},
+										{
+											name: 'element',
+											structure: {}
+										}
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Menu/Menu',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Menu/Menu/Menu.js'
+						},
+						presets: [
+							{
+								path: 'src/library/Menu/Menu/presets/0-default.json'
+							},
+							{
+								path: 'src/library/Menu/Menu/presets/50-data driven.json'
+							},
+							{
+								path: 'src/library/Menu/Menu/presets/100-with custom icons.json'
+							}
+						]
+					},
+					name: 'Menu',
+					presets: [
+						{
+							elements: {
+								'5WCQ7AUYKJ6ZC128QSO72KH57V8725YZ': {
+									name: 'MenuItem',
+									props: {
+										children: 'Menu Item 1'
+									}
+								},
+								'67CE0I1XGJ25DJ2SKMMETBF8Z9KULMGR': {
+									name: 'MenuDivider',
+									props: {}
+								},
+								'914CHOZ7UST58UST9627WECXHVJHAIT2': {
+									name: 'MenuItem',
+									props: {
+										children: 'Menu Item 2',
+										secondaryText: 'Secondary text'
+									}
+								},
+								AOVQ6ULGRBO08ADB810R0OWEKBLP245W: {
+									name: 'MenuItem',
+									props: {
+										children: 'Disabled menu item',
+										disabled: true
+									}
+								},
+								F85995B051CF1B9DAE5B74E20509B335: {
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: '5WCQ7AUYKJ6ZC128QSO72KH57V8725YZ'
+											},
+											{
+												uxpinPresetElementId: '914CHOZ7UST58UST9627WECXHVJHAIT2'
+											},
+											{
+												uxpinPresetElementId: 'ZU22SAKIOQBY5WD86WWOXECG4BB83QR4'
+											}
+										]
+									},
+									type: 'Menu'
+								},
+								KVMDS3W7NSWU5FXFDEUBPSRAZ7URBH8W: {
+									name: 'MenuItem',
+									props: {
+										children: 'Danger variant',
+										variant: 'danger'
+									}
+								},
+								ZU22SAKIOQBY5WD86WWOXECG4BB83QR4: {
+									name: 'MenuGroup',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: 'ZVZAEWUMZ8DGEX54X1BRDXF9SHMZ5FY7'
+											},
+											{
+												uxpinPresetElementId: '67CE0I1XGJ25DJ2SKMMETBF8Z9KULMGR'
+											},
+											{
+												uxpinPresetElementId: 'KVMDS3W7NSWU5FXFDEUBPSRAZ7URBH8W'
+											},
+											{
+												uxpinPresetElementId: 'AOVQ6ULGRBO08ADB810R0OWEKBLP245W'
+											}
+										],
+										title: 'Group Title'
+									}
+								},
+								ZVZAEWUMZ8DGEX54X1BRDXF9SHMZ5FY7: {
+									name: 'MenuItem',
+									props: {
+										children: 'First Item in group'
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'F85995B051CF1B9DAE5B74E20509B335'
+						},
+						{
+							elements: {
+								F85995B051CF1B9DAE5B74E20509B335: {
+									props: {
+										data: [
+											{
+												items: [
+													{
+														secondaryText: 'Secondary text',
+														text: 'Menu item 1'
+													},
+													{
+														secondaryText: 'Secondary text',
+														text: 'Menu item 2'
+													}
+												]
+											},
+											{
+												items: [
+													{
+														secondaryText: 'Secondary text',
+														text: 'Menu item 1'
+													},
+													{
+														secondaryText: 'Secondary text',
+														text: 'Menu item 2'
+													}
+												]
+											}
+										]
+									},
+									type: 'Menu'
+								}
+							},
+							name: 'data driven',
+							rootId: 'F85995B051CF1B9DAE5B74E20509B335'
+						},
+						{
+							elements: {
+								'5WCQ7AUYKJ6ZC128QSO72KH57V8725YZ': {
+									name: 'MenuItem',
+									props: {
+										children: 'Menu Item 1'
+									}
+								},
+								'67CE0I1XGJ25DJ2SKMMETBF8Z9KULMGR': {
+									name: 'MenuDivider',
+									props: {}
+								},
+								'914CHOZ7UST58UST9627WECXHVJHAIT2': {
+									name: 'MenuItem',
+									props: {
+										children: 'Menu Item 2',
+										secondaryText: 'Secondary text'
+									}
+								},
+								CEFQWE4EMYU45HRQNVJCHX3FQ6QY8JO8: {
+									name: 'IconWbSunny',
+									props: {}
+								},
+								F85995B051CF1B9DAE5B74E20509B335: {
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: '5WCQ7AUYKJ6ZC128QSO72KH57V8725YZ'
+											},
+											{
+												uxpinPresetElementId: '914CHOZ7UST58UST9627WECXHVJHAIT2'
+											},
+											{
+												uxpinPresetElementId: 'ZU22SAKIOQBY5WD86WWOXECG4BB83QR4'
+											}
+										]
+									},
+									type: 'Menu'
+								},
+								I2SWYA89DXXC502FF5TLKOUSLGODDXQM: {
+									name: 'MenuItem',
+									props: {
+										children: 'Icon at end',
+										iconStart: {
+											uxpinPresetElementId: 'CEFQWE4EMYU45HRQNVJCHX3FQ6QY8JO8'
+										}
+									}
+								},
+								KVMDS3W7NSWU5FXFDEUBPSRAZ7URBH8W: {
+									name: 'MenuItem',
+									props: {
+										children: 'Danger variant',
+										variant: 'danger'
+									}
+								},
+								NP4Z1C9PJW9Z4J36NY6BUFI0JRFT1WCF: {
+									name: 'IconCloud',
+									props: {}
+								},
+								ZU22SAKIOQBY5WD86WWOXECG4BB83QR4: {
+									name: 'MenuGroup',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: 'ZVZAEWUMZ8DGEX54X1BRDXF9SHMZ5FY7'
+											},
+											{
+												uxpinPresetElementId: 'I2SWYA89DXXC502FF5TLKOUSLGODDXQM'
+											},
+											{
+												uxpinPresetElementId: '67CE0I1XGJ25DJ2SKMMETBF8Z9KULMGR'
+											},
+											{
+												uxpinPresetElementId: 'KVMDS3W7NSWU5FXFDEUBPSRAZ7URBH8W'
+											}
+										],
+										title: 'Group Title'
+									}
+								},
+								ZVZAEWUMZ8DGEX54X1BRDXF9SHMZ5FY7: {
+									name: 'MenuItem',
+									props: {
+										children: 'Icon at start',
+										iconStart: {
+											uxpinPresetElementId: 'NP4Z1C9PJW9Z4J36NY6BUFI0JRFT1WCF'
+										}
+									}
+								}
+							},
+							name: 'with custom icons',
+							rootId: 'F85995B051CF1B9DAE5B74E20509B335'
+						}
+					],
+					properties: [
+						{
+							description: '[MenuDivider](/components/menu-divider),\\\\n[MenuGroup](/components/menu-group),\\\\nor [MenuItem](/components/menu-item)',
+							isRequired: false,
+							name: 'children',
+							type: {
+								name: 'node',
+								structure: {}
+							}
+						},
+						{
+							description: 'Data used to contruct Menu. See [example](#data)',
+							isRequired: false,
+							name: 'data',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'typedArray',
+											structure: {
+												memberType: {
+													name: 'shape',
+													structure: {
+														disabled: {
+															name: 'boolean',
+															structure: {}
+														},
+														divider: {
+															name: 'boolean',
+															structure: {}
+														},
+														iconEnd: {
+															name: 'element',
+															structure: {}
+														},
+														iconStart: {
+															name: 'element',
+															structure: {}
+														},
+														onClick: {
+															name: 'func',
+															structure: {
+																arguments: [
+																	{
+																		name: 'event',
+																		type: {
+																			name: 'unsupported',
+																			structure: {
+																				raw: 'SyntheticEvent'
+																			}
+																		}
+																	}
+																],
+																returnType: {
+																	name: 'empty',
+																	structure: {}
+																}
+															}
+														},
+														render: {
+															name: 'func',
+															structure: {
+																arguments: [
+																	{
+																		name: 'props',
+																		type: {
+																			name: 'shape',
+																			structure: {
+																				props: {
+																					name: 'object',
+																					structure: {}
+																				}
+																			}
+																		}
+																	}
+																],
+																returnType: {
+																	name: 'node',
+																	structure: {}
+																}
+															}
+														},
+														secondaryText: {
+															name: 'node',
+															structure: {}
+														},
+														text: {
+															name: 'node',
+															structure: {}
+														},
+														value: {
+															name: 'string',
+															structure: {}
+														},
+														variant: {
+															name: 'union',
+															structure: {
+																elements: [
+																	{
+																		name: 'literal',
+																		structure: {
+																			value: 'danger'
+																		}
+																	},
+																	{
+																		name: 'literal',
+																		structure: {
+																			value: 'success'
+																		}
+																	},
+																	{
+																		name: 'literal',
+																		structure: {
+																			value: 'warning'
+																		}
+																	}
+																]
+															}
+														}
+													}
+												}
+											}
+										},
+										{
+											name: 'typedArray',
+											structure: {
+												memberType: {
+													name: 'shape',
+													structure: {
+														items: {
+															name: 'typedArray',
+															structure: {
+																memberType: {
+																	name: 'shape',
+																	structure: {
+																		disabled: {
+																			name: 'boolean',
+																			structure: {}
+																		},
+																		divider: {
+																			name: 'boolean',
+																			structure: {}
+																		},
+																		iconEnd: {
+																			name: 'element',
+																			structure: {}
+																		},
+																		iconStart: {
+																			name: 'element',
+																			structure: {}
+																		},
+																		onClick: {
+																			name: 'func',
+																			structure: {
+																				arguments: [
+																					{
+																						name: 'event',
+																						type: {
+																							name: 'unsupported',
+																							structure: {
+																								raw: 'SyntheticEvent'
+																							}
+																						}
+																					}
+																				],
+																				returnType: {
+																					name: 'empty',
+																					structure: {}
+																				}
+																			}
+																		},
+																		render: {
+																			name: 'func',
+																			structure: {
+																				arguments: [
+																					{
+																						name: 'props',
+																						type: {
+																							name: 'shape',
+																							structure: {
+																								props: {
+																									name: 'object',
+																									structure: {}
+																								}
+																							}
+																						}
+																					}
+																				],
+																				returnType: {
+																					name: 'node',
+																					structure: {}
+																				}
+																			}
+																		},
+																		secondaryText: {
+																			name: 'node',
+																			structure: {}
+																		},
+																		text: {
+																			name: 'node',
+																			structure: {}
+																		},
+																		value: {
+																			name: 'string',
+																			structure: {}
+																		},
+																		variant: {
+																			name: 'union',
+																			structure: {
+																				elements: [
+																					{
+																						name: 'literal',
+																						structure: {
+																							value: 'danger'
+																						}
+																					},
+																					{
+																						name: 'literal',
+																						structure: {
+																							value: 'success'
+																						}
+																					},
+																					{
+																						name: 'literal',
+																						structure: {
+																							value: 'warning'
+																						}
+																					}
+																				]
+																			}
+																		}
+																	}
+																}
+															}
+														},
+														title: {
+															name: 'node',
+															structure: {}
+														}
+													}
+												}
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							description: 'Provides custom rendering control for the items. See the\\\\n[custom item example](/components/menu#custom-item) and\\\\n[React docs](https://reactjs.org/docs/render-props.html).',
+							isRequired: false,
+							name: 'item',
+							type: {
+								name: 'func',
+								structure: {
+									arguments: [
+										{
+											name: 'props',
+											type: {
+												name: 'shape',
+												structure: {
+													props: {
+														name: 'object',
+														structure: {}
+													}
+												}
+											}
+										}
+									],
+									returnType: {
+										name: 'node',
+										structure: {}
+									}
+								}
+							}
+						},
+						{
+							description: 'Specifies a key in the item data that gives an item its unique identity.\\\\nSee the [React docs](https://reactjs.org/docs/lists-and-keys.html#keys).',
+							isRequired: false,
+							name: 'itemKey',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						}
+					]
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Menu/MenuDivider',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Menu/MenuDivider/MenuDivider.js'
+						},
+						presets: []
+					},
+					name: 'MenuDivider',
+					presets: [],
+					properties: []
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Menu/MenuGroup',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Menu/MenuGroup/MenuGroup.js'
+						},
+						presets: [
+							{
+								path: 'src/library/Menu/MenuGroup/presets/0-default.json'
+							}
+						]
+					},
+					name: 'MenuGroup',
+					presets: [
+						{
+							elements: {
+								'67CE0I1XGJ25DJ2SKMMETBF8Z9KULMGR': {
+									name: 'MenuDivider',
+									props: {}
+								},
+								AOVQ6ULGRBO08ADB810R0OWEKBLP245W: {
+									name: 'MenuItem',
+									props: {
+										children: 'Disabled menu item',
+										disabled: true
+									}
+								},
+								KVMDS3W7NSWU5FXFDEUBPSRAZ7URBH8W: {
+									name: 'MenuItem',
+									props: {
+										children: 'Danger variant',
+										variant: 'danger'
+									}
+								},
+								ZU22SAKIOQBY5WD86WWOXECG4BB83QR4: {
+									name: 'MenuGroup',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: 'ZVZAEWUMZ8DGEX54X1BRDXF9SHMZ5FY7'
+											},
+											{
+												uxpinPresetElementId: '67CE0I1XGJ25DJ2SKMMETBF8Z9KULMGR'
+											},
+											{
+												uxpinPresetElementId: 'KVMDS3W7NSWU5FXFDEUBPSRAZ7URBH8W'
+											},
+											{
+												uxpinPresetElementId: 'AOVQ6ULGRBO08ADB810R0OWEKBLP245W'
+											}
+										],
+										title: 'Group Title'
+									}
+								},
+								ZVZAEWUMZ8DGEX54X1BRDXF9SHMZ5FY7: {
+									name: 'MenuItem',
+									props: {
+										children: 'First Item in group'
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'ZU22SAKIOQBY5WD86WWOXECG4BB83QR4'
+						}
+					],
+					properties: [
+						{
+							description: '[MenuItems](/components/menu-item)',
+							isRequired: false,
+							name: 'children',
+							type: {
+								name: 'node',
+								structure: {}
+							}
+						},
+						{
+							description: 'Title for the group',
+							isRequired: false,
+							name: 'title',
+							type: {
+								name: 'node',
+								structure: {}
+							}
+						}
+					]
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Menu/MenuItem',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Menu/MenuItem/MenuItem.js'
+						},
+						presets: [
+							{
+								path: 'src/library/Menu/MenuItem/presets/0-default.json'
+							}
+						]
+					},
+					name: 'MenuItem',
+					presets: [
+						{
+							elements: {
+								ZVZAEWUMZ8DGEX54X1BRDXF9SHMZ5FY7: {
+									name: 'MenuItem',
+									props: {
+										children: 'Menu Item Name'
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'ZVZAEWUMZ8DGEX54X1BRDXF9SHMZ5FY7'
+						}
+					],
+					properties: [
+						{
+							description: 'Rendered content of the component',
+							isRequired: false,
+							name: 'children',
+							type: {
+								name: 'node',
+								structure: {}
+							}
+						},
+						{
+							description: 'Disable the menu item',
+							isRequired: false,
+							name: 'disabled',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Icon that goes after the children',
+							isRequired: false,
+							name: 'iconEnd',
+							type: {
+								name: 'element',
+								structure: {}
+							}
+						},
+						{
+							description: 'Icon that goes before the children',
+							isRequired: false,
+							name: 'iconStart',
+							type: {
+								name: 'element',
+								structure: {}
+							}
+						},
+						{
+							description: 'Item index - provided to render callback',
+							isRequired: false,
+							name: 'index',
+							type: {
+								name: 'number',
+								structure: {}
+							}
+						},
+						{
+							description: 'Display the item in an active style',
+							isRequired: false,
+							name: 'isHighlighted',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Item data - provided to render callback',
+							isRequired: false,
+							name: 'item',
+							type: {
+								name: 'unsupported',
+								structure: {
+									raw: 'Item'
+								}
+							}
+						},
+						{
+							description: 'Called with the click event',
+							isRequired: false,
+							name: 'onClick',
+							type: {
+								name: 'func',
+								structure: {
+									arguments: [
+										{
+											name: 'event',
+											type: {
+												name: 'unsupported',
+												structure: {
+													raw: 'SyntheticEvent'
+												}
+											}
+										}
+									],
+									returnType: {
+										name: 'empty',
+										structure: {}
+									}
+								}
+							}
+						},
+						{
+							description: 'Provides custom rendering control. See the\\\\n[custom item example](/components/menu#custom-item) and\\\\n[React docs](https://reactjs.org/docs/render-props.html).',
+							isRequired: false,
+							name: 'render',
+							type: {
+								name: 'func',
+								structure: {
+									arguments: [
+										{
+											name: 'props',
+											type: {
+												name: 'shape',
+												structure: {
+													props: {
+														name: 'object',
+														structure: {}
+													}
+												}
+											}
+										}
+									],
+									returnType: {
+										name: 'node',
+										structure: {}
+									}
+								}
+							}
+						},
+						{
+							description: 'Secondary text',
+							isRequired: false,
+							name: 'secondaryText',
+							type: {
+								name: 'node',
+								structure: {}
+							}
+						},
+						{
+							description: 'Available variants',
+							isRequired: false,
+							name: 'variant',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'danger'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'success'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'warning'
+											}
+										}
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Radio/Radio',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Radio/Radio/Radio.js'
+						},
+						presets: [
+							{
+								path: 'src/library/Radio/Radio/presets/0-default.json'
+							}
+						]
+					},
+					name: 'Radio',
+					presets: [
+						{
+							elements: {
+								EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X: {
+									name: 'Radio',
+									props: {
+										defaultChecked: true,
+										label: 'Quartz',
+										name: 'minerals',
+										value: 'quartz'
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X'
+						}
+					],
+					properties: [
+						{
+							description: 'Checked state of the radio button. Primarily for use with controlled\\\\ncomponents. If this prop is specified, an \`onChange\` handler must also be\\\\nspecified. See also: \`defaultChecked\`.',
+							isRequired: false,
+							name: 'checked',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: '@Private CSS className',
+							isRequired: false,
+							name: 'className',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						},
+						{
+							description: 'Initial checked state of the radio button; primarily for use with\\\\nuncontrolled components',
+							isRequired: false,
+							name: 'defaultChecked',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Disables the radio button',
+							isRequired: false,
+							name: 'disabled',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Maximize the distance between the label and the control',
+							isRequired: false,
+							name: 'justify',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Ref for the radio button',
+							isRequired: false,
+							name: 'inputRef',
+							type: {
+								name: 'func',
+								structure: {
+									arguments: [
+										{
+											name: 'node',
+											type: {
+												name: 'element',
+												structure: {}
+											}
+										}
+									],
+									returnType: {
+										name: 'empty',
+										structure: {}
+									}
+								}
+							}
+						},
+						{
+							description: 'Props to be applied directly to the root element rather than the input',
+							isRequired: false,
+							name: 'rootProps',
+							type: {
+								name: 'object',
+								structure: {}
+							}
+						},
+						{
+							description: 'Indicates that the value of the input is invalid',
+							isRequired: false,
+							name: 'invalid',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'Label associated with the input element',
+							isRequired: true,
+							name: 'label',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'string',
+											structure: {}
+										},
+										{
+											name: 'element',
+											structure: {}
+										}
+									]
+								}
+							}
+						},
+						{
+							defaultValue: {
+								value: 'end'
+							},
+							description: 'Determines the position of the label relative to the control',
+							isRequired: false,
+							name: 'labelPosition',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'start'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'end'
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							description: 'Used to uniquely define a group of radio buttons',
+							isRequired: false,
+							name: 'name',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						},
+						{
+							description: 'Function called when a radio button is selected',
+							isRequired: false,
+							name: 'onChange',
+							type: {
+								name: 'func',
+								structure: {
+									arguments: [
+										{
+											name: 'event',
+											type: {
+												name: 'unsupported',
+												structure: {
+													raw: 'SyntheticEvent'
+												}
+											}
+										}
+									],
+									returnType: {
+										name: 'empty',
+										structure: {}
+									}
+								}
+							}
+						},
+						{
+							description: 'Indicates that the user must select an option before submitting a form',
+							isRequired: false,
+							name: 'required',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							defaultValue: {
+								value: 'large'
+							},
+							description: 'Available sizes',
+							isRequired: false,
+							name: 'size',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'small'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'medium'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'large'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'jumbo'
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							description: 'The value of the radio button',
+							isRequired: false,
+							name: 'value',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						}
+					]
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Radio/RadioGroup',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Radio/RadioGroup/RadioGroup.js'
+						},
+						presets: [
+							{
+								path: 'src/library/Radio/RadioGroup/presets/0-default.json'
+							},
+							{
+								path: 'src/library/Radio/RadioGroup/presets/50-controlled with data object.json'
+							}
+						]
+					},
+					name: 'RadioGroup',
+					presets: [
+						{
+							elements: {
+								'0YDENGD0Q6VGDXJK3N1C0EFN2GHHDFSU': {
+									name: 'RadioGroup',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: 'EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X'
+											},
+											{
+												uxpinPresetElementId: '9BZANYTUTRX8FFZIOATGB0ABIPYYLKTD'
+											},
+											{
+												uxpinPresetElementId: '25742CUEE2H85OM1XY9XYWQ1QUE12QUA'
+											}
+										],
+										defaultChecked: 'pyrite',
+										name: 'minerals-1'
+									}
+								},
+								'25742CUEE2H85OM1XY9XYWQ1QUE12QUA': {
+									name: 'Radio',
+									props: {
+										label: 'Pyrite',
+										value: 'pyrite'
+									}
+								},
+								'9BZANYTUTRX8FFZIOATGB0ABIPYYLKTD': {
+									name: 'Radio',
+									props: {
+										label: 'Hematite',
+										value: 'hematite'
+									}
+								},
+								EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X: {
+									name: 'Radio',
+									props: {
+										label: 'Azurite',
+										value: 'azurite'
+									}
+								}
+							},
+							name: 'default',
+							rootId: '0YDENGD0Q6VGDXJK3N1C0EFN2GHHDFSU'
+						},
+						{
+							elements: {
+								HT9WU09S0XSJNWKDZPE1CFVVH11FXRDC: {
+									name: 'RadioGroup',
+									props: {
+										data: [
+											{
+												label: 'Fluorite',
+												value: 'fluorite'
+											},
+											{
+												label: 'Magnetite',
+												value: 'magnetite'
+											},
+											{
+												label: 'Quartz',
+												value: 'quartz'
+											}
+										],
+										defaultChecked: 'quartz',
+										name: 'minerals-2'
+									}
+								}
+							},
+							name: 'controlled with data object',
+							rootId: 'HT9WU09S0XSJNWKDZPE1CFVVH11FXRDC'
+						}
+					],
+					properties: [
+						{
+							description: 'Value of the selected [Radio](/components/radio); primarily for use with controlled\\\\ncomponents. If this prop is specified, an \`onChange\` handler must also be\\\\nspecified. See also: \`defaultChecked\`.',
+							isRequired: false,
+							name: 'checked',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						},
+						{
+							description: 'Mineral [Radio](/components/radio) components',
+							isRequired: false,
+							name: 'children',
+							type: {
+								name: 'node',
+								structure: {}
+							}
+						},
+						{
+							description: 'Data used to contruct [Radio](/components/radio), see [example](#data)',
+							isRequired: false,
+							name: 'data',
+							type: {
+								name: 'typedArray',
+								structure: {
+									memberType: {
+										name: 'shape',
+										structure: {
+											label: {
+												name: 'union',
+												structure: {
+													elements: [
+														{
+															name: 'string',
+															structure: {}
+														},
+														{
+															name: 'element',
+															structure: {}
+														}
+													]
+												}
+											},
+											value: {
+												name: 'string',
+												structure: {}
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							description: 'Value of the selected [Radio](/components/radio); primarily for use with\\\\nuncontrolled components.',
+							isRequired: false,
+							name: 'defaultChecked',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						},
+						{
+							description: 'Display the choices inline horizontally rather than stacked vertically.',
+							isRequired: false,
+							name: 'inline',
+							type: {
+								name: 'boolean',
+								structure: {}
+							}
+						},
+						{
+							description: 'The name of the group',
+							isRequired: true,
+							name: 'name',
+							type: {
+								name: 'string',
+								structure: {}
+							}
+						},
+						{
+							description: 'Function called when a choice is selected',
+							isRequired: false,
+							name: 'onChange',
+							type: {
+								name: 'func',
+								structure: {
+									arguments: [
+										{
+											name: 'event',
+											type: {
+												name: 'unsupported',
+												structure: {
+													raw: 'SyntheticEvent'
+												}
+											}
+										}
+									],
+									returnType: {
+										name: 'empty',
+										structure: {}
+									}
+								}
+							}
+						},
+						{
+							description: 'Props to be applied directly to the root element',
+							isRequired: false,
+							name: 'rootProps',
+							type: {
+								name: 'object',
+								structure: {}
+							}
+						}
+					]
 				}
 			],
 			name: 'General'
@@ -5237,15 +5456,15 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Card',
+						dirPath: 'src/library/Card/Card',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Card/Card.js'
+							path: 'src/library/Card/Card/Card.js'
 						},
 						presets: [
 							{
-								path: 'src/library/Card/presets/0-default.json'
+								path: 'src/library/Card/Card/presets/0-default.json'
 							}
 						]
 					},
@@ -5253,15 +5472,52 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					presets: [
 						{
 							elements: {
-								'538BDA4C348A7E7B56609B200C70672A': {
+								'77XCO8EASMVIM7H8KF7OY57YU0Q90EMH': {
+									name: 'CardActions',
 									props: {
-										children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
+										children: {
+											uxpinPresetElementId: '9XI3KDGOF0H05837DAG2M9EUUUQIMAO3'
+										}
+									}
+								},
+								'9XI3KDGOF0H05837DAG2M9EUUUQIMAO3': {
+									name: 'Link',
+									props: {
+										children: 'Read more',
+										href: 'http://example.com'
+									}
+								},
+								OFOK2ZKES405DYHFSHQ28OM9WSKA8APM: {
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: 'YT1AHFK6AXX16PA90UCP4M8UBPYMOG52'
+											},
+											{
+												uxpinPresetElementId: 'UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0'
+											},
+											{
+												uxpinPresetElementId: '77XCO8EASMVIM7H8KF7OY57YU0Q90EMH'
+											}
+										]
 									},
 									type: 'Card'
+								},
+								UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0: {
+									name: 'CardBlock',
+									props: {
+										children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.'
+									}
+								},
+								YT1AHFK6AXX16PA90UCP4M8UBPYMOG52: {
+									name: 'CardTitle',
+									props: {
+										children: 'Card Title'
+									}
 								}
 							},
 							name: 'default',
-							rootId: '538BDA4C348A7E7B56609B200C70672A'
+							rootId: 'OFOK2ZKES405DYHFSHQ28OM9WSKA8APM'
 						}
 					],
 					properties: [
@@ -5306,15 +5562,15 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Card',
+						dirPath: 'src/library/Card/CardActions',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Card/CardActions.js'
+							path: 'src/library/Card/CardActions/CardActions.js'
 						},
 						presets: [
 							{
-								path: 'src/library/Card/presets/0-default.json'
+								path: 'src/library/Card/CardActions/presets/0-default.json'
 							}
 						]
 					},
@@ -5322,15 +5578,43 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					presets: [
 						{
 							elements: {
-								'538BDA4C348A7E7B56609B200C70672A': {
+								'2SUHVXZXHDX8S8BBQMFAWXQ6SZPKPCCM': {
+									name: 'Button',
 									props: {
-										children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
-									},
-									type: 'Card'
+										children: 'Primary action',
+										iconStart: {
+											uxpinPresetElementId: '9G1JWCM5J271V0D9A6Z5M2A4EY58UUSC'
+										},
+										primary: true
+									}
+								},
+								'77XCO8EASMVIM7H8KF7OY57YU0Q90EMH': {
+									name: 'CardActions',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: '9XI3KDGOF0H05837DAG2M9EUUUQIMAO3'
+											},
+											{
+												uxpinPresetElementId: '2SUHVXZXHDX8S8BBQMFAWXQ6SZPKPCCM'
+											}
+										]
+									}
+								},
+								'9G1JWCM5J271V0D9A6Z5M2A4EY58UUSC': {
+									name: 'IconCloud',
+									props: {}
+								},
+								'9XI3KDGOF0H05837DAG2M9EUUUQIMAO3': {
+									name: 'Button',
+									props: {
+										children: 'Secondary action',
+										minimal: true
+									}
 								}
 							},
 							name: 'default',
-							rootId: '538BDA4C348A7E7B56609B200C70672A'
+							rootId: '77XCO8EASMVIM7H8KF7OY57YU0Q90EMH'
 						}
 					],
 					properties: [
@@ -5350,15 +5634,15 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Card',
+						dirPath: 'src/library/Card/CardBlock',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Card/CardBlock.js'
+							path: 'src/library/Card/CardBlock/CardBlock.js'
 						},
 						presets: [
 							{
-								path: 'src/library/Card/presets/0-default.json'
+								path: 'src/library/Card/CardBlock/presets/0-default.json'
 							}
 						]
 					},
@@ -5366,15 +5650,15 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					presets: [
 						{
 							elements: {
-								'538BDA4C348A7E7B56609B200C70672A': {
+								UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0: {
+									name: 'CardBlock',
 									props: {
-										children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
-									},
-									type: 'Card'
+										children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.'
+									}
 								}
 							},
 							name: 'default',
-							rootId: '538BDA4C348A7E7B56609B200C70672A'
+							rootId: 'UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0'
 						}
 					],
 					properties: [
@@ -5394,33 +5678,16 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Card',
+						dirPath: 'src/library/Card/CardDivider',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Card/CardDivider.js'
+							path: 'src/library/Card/CardDivider/CardDivider.js'
 						},
-						presets: [
-							{
-								path: 'src/library/Card/presets/0-default.json'
-							}
-						]
+						presets: []
 					},
 					name: 'CardDivider',
-					presets: [
-						{
-							elements: {
-								'538BDA4C348A7E7B56609B200C70672A': {
-									props: {
-										children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
-									},
-									type: 'Card'
-								}
-							},
-							name: 'default',
-							rootId: '538BDA4C348A7E7B56609B200C70672A'
-						}
-					],
+					presets: [],
 					properties: []
 				},
 				{
@@ -5428,15 +5695,15 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Card',
+						dirPath: 'src/library/Card/CardFooter',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Card/CardFooter.js'
+							path: 'src/library/Card/CardFooter/CardFooter.js'
 						},
 						presets: [
 							{
-								path: 'src/library/Card/presets/0-default.json'
+								path: 'src/library/Card/CardFooter/presets/0-default.json'
 							}
 						]
 					},
@@ -5444,15 +5711,58 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					presets: [
 						{
 							elements: {
-								'538BDA4C348A7E7B56609B200C70672A': {
+								'791X7S1AMCT4S9CYT7JTG16JMQAQ666I': {
+									name: 'CardActions',
 									props: {
-										children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
-									},
-									type: 'Card'
+										children: [
+											{
+												uxpinPresetElementId: 'SCGMAS5M2NJ0TY51HEF9JMO6REP1UF09'
+											},
+											{
+												uxpinPresetElementId: 'DCFUSH8VLNCRVVNEPTAEEBTDNC8HUTNJ'
+											}
+										]
+									}
+								},
+								DCFUSH8VLNCRVVNEPTAEEBTDNC8HUTNJ: {
+									name: 'Button',
+									props: {
+										children: 'Button 2',
+										primary: true
+									}
+								},
+								HRHMIQBTFTTJJH8LPE6XM77ANG2TRV31: {
+									name: 'CardBlock',
+									props: {
+										children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.'
+									}
+								},
+								NH4JFP2A69U6GHFL7YLIMI9EZIM72IZR: {
+									name: 'CardFooter',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: 'HRHMIQBTFTTJJH8LPE6XM77ANG2TRV31'
+											},
+											{
+												uxpinPresetElementId: '791X7S1AMCT4S9CYT7JTG16JMQAQ666I'
+											}
+										],
+										defaultIsOpen: true,
+										expandable: true,
+										title: 'Card Footer Title'
+									}
+								},
+								SCGMAS5M2NJ0TY51HEF9JMO6REP1UF09: {
+									name: 'Button',
+									props: {
+										children: 'Button 1',
+										minimal: true
+									}
 								}
 							},
 							name: 'default',
-							rootId: '538BDA4C348A7E7B56609B200C70672A'
+							rootId: 'NH4JFP2A69U6GHFL7YLIMI9EZIM72IZR'
 						}
 					],
 					properties: [
@@ -5622,15 +5932,15 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Card',
+						dirPath: 'src/library/Card/CardImage',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Card/CardImage.js'
+							path: 'src/library/Card/CardImage/CardImage.js'
 						},
 						presets: [
 							{
-								path: 'src/library/Card/presets/0-default.json'
+								path: 'src/library/Card/CardImage/presets/0-default.json'
 							}
 						]
 					},
@@ -5638,15 +5948,16 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					presets: [
 						{
 							elements: {
-								'538BDA4C348A7E7B56609B200C70672A': {
+								NH4JFP2A69U6GHFL7YLIMI9EZIM72IZR: {
+									name: 'CardImage',
 									props: {
-										children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
-									},
-									type: 'Card'
+										alt: 'Random photo',
+										src: 'https://picsum.photos/500/281/?random'
+									}
 								}
 							},
 							name: 'default',
-							rootId: '538BDA4C348A7E7B56609B200C70672A'
+							rootId: 'NH4JFP2A69U6GHFL7YLIMI9EZIM72IZR'
 						}
 					],
 					properties: []
@@ -5656,15 +5967,15 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Card',
+						dirPath: 'src/library/Card/CardStatus',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Card/CardStatus.js'
+							path: 'src/library/Card/CardStatus/CardStatus.js'
 						},
 						presets: [
 							{
-								path: 'src/library/Card/presets/0-default.json'
+								path: 'src/library/Card/CardStatus/presets/0-default.json'
 							}
 						]
 					},
@@ -5672,15 +5983,16 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					presets: [
 						{
 							elements: {
-								'538BDA4C348A7E7B56609B200C70672A': {
+								'1HYO5HMRE3M0G7ZECDNZRSJBI95NPV2D': {
+									name: 'CardStatus',
 									props: {
-										children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
-									},
-									type: 'Card'
+										children: 'Available',
+										variant: 'success'
+									}
 								}
 							},
 							name: 'default',
-							rootId: '538BDA4C348A7E7B56609B200C70672A'
+							rootId: '1HYO5HMRE3M0G7ZECDNZRSJBI95NPV2D'
 						}
 					],
 					properties: [
@@ -5730,15 +6042,18 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Card',
+						dirPath: 'src/library/Card/CardTitle',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Card/CardTitle.js'
+							path: 'src/library/Card/CardTitle/CardTitle.js'
 						},
 						presets: [
 							{
-								path: 'src/library/Card/presets/0-default.json'
+								path: 'src/library/Card/CardTitle/presets/0-default.json'
+							},
+							{
+								path: 'src/library/Card/CardTitle/presets/50-title with menu.json'
 							}
 						]
 					},
@@ -5746,15 +6061,57 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					presets: [
 						{
 							elements: {
-								'538BDA4C348A7E7B56609B200C70672A': {
+								VQ0Z5S02EDHJFHP55YLJR4LFP4WBUMOK: {
+									name: 'CardTitle',
 									props: {
-										children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
-									},
-									type: 'Card'
+										children: 'Card Title',
+										subtitle: 'Card Subtitle'
+									}
 								}
 							},
 							name: 'default',
-							rootId: '538BDA4C348A7E7B56609B200C70672A'
+							rootId: 'VQ0Z5S02EDHJFHP55YLJR4LFP4WBUMOK'
+						},
+						{
+							elements: {
+								NH4JFP2A69U6GHFL7YLIMI9EZIM72IZR: {
+									name: 'CardTitleMenu',
+									props: {
+										data: [
+											{
+												items: [
+													{
+														onClick: '() => { console.log(\\\\'Clicked 1\\\\') }',
+														text: 'MenuItem 1'
+													},
+													{
+														onClick: '() => { console.log(\\\\'Clicked 2\\\\') }',
+														text: 'MenuItem 2'
+													},
+													{
+														divider: true
+													},
+													{
+														onClick: '() => { console.log(\\\\'Clicked 3\\\\') }',
+														text: 'MenuItem 3'
+													}
+												]
+											}
+										]
+									}
+								},
+								VQ0Z5S02EDHJFHP55YLJR4LFP4WBUMOK: {
+									name: 'CardTitle',
+									props: {
+										actions: {
+											uxpinPresetElementId: 'NH4JFP2A69U6GHFL7YLIMI9EZIM72IZR'
+										},
+										children: 'Card Title'
+									}
+								}
+							},
+							name: 'title with menu',
+							rootId: 'VQ0Z5S02EDHJFHP55YLJR4LFP4WBUMOK'
 						}
 					],
 					properties: [
@@ -5862,15 +6219,15 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Card',
+						dirPath: 'src/library/Card/CardTitleMenu',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Card/CardTitleMenu.js'
+							path: 'src/library/Card/CardTitleMenu/CardTitleMenu.js'
 						},
 						presets: [
 							{
-								path: 'src/library/Card/presets/0-default.json'
+								path: 'src/library/Card/CardTitleMenu/presets/0-default.json'
 							}
 						]
 					},
@@ -5878,15 +6235,35 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 					presets: [
 						{
 							elements: {
-								'538BDA4C348A7E7B56609B200C70672A': {
+								QATTOR6N3QK74G14MFCTCWGEA7MWM0KA: {
+									name: 'CardTitleMenu',
 									props: {
-										children: 'Pink Floyd were an English rock band formed in London in 1965. They achieved international acclaim with their progressive and psychedelic music. Distinguished by their use of philosophical lyrics, sonic experimentation, extended compositions, and elaborate live shows, they are one of the most commercially successful and influential groups in popular music history.'
-									},
-									type: 'Card'
+										data: [
+											{
+												items: [
+													{
+														onClick: '() => { console.log(\\\\'Clicked 1\\\\') }',
+														text: 'MenuItem 1'
+													},
+													{
+														onClick: '() => { console.log(\\\\'Clicked 2\\\\') }',
+														text: 'MenuItem 2'
+													},
+													{
+														divider: true
+													},
+													{
+														onClick: '() => { console.log(\\\\'Clicked 3\\\\') }',
+														text: 'MenuItem 3'
+													}
+												]
+											}
+										]
+									}
 								}
 							},
 							name: 'default',
-							rootId: '538BDA4C348A7E7B56609B200C70672A'
+							rootId: 'QATTOR6N3QK74G14MFCTCWGEA7MWM0KA'
 						}
 					],
 					properties: [
@@ -9722,16 +10099,251 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Flex',
+						dirPath: 'src/library/StartEnd',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Flex/Flex.js'
+							path: 'src/library/StartEnd/StartEnd.js'
 						},
-						presets: []
+						presets: [
+							{
+								path: 'src/library/StartEnd/presets/0-default.json'
+							}
+						]
+					},
+					name: 'StartEnd',
+					presets: [
+						{
+							elements: {
+								'9I7N66RVKQODV9PA0D34VCBY5H0IPJ2M': {
+									name: 'Box',
+									props: {
+										children: 'Start'
+									}
+								},
+								EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X: {
+									name: 'StartEnd',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: '9I7N66RVKQODV9PA0D34VCBY5H0IPJ2M'
+											},
+											{
+												uxpinPresetElementId: 'KIWRK6UAO0TFQT1OGS4AAR5ED6CQQ1Z1'
+											}
+										]
+									}
+								},
+								KIWRK6UAO0TFQT1OGS4AAR5ED6CQQ1Z1: {
+									name: 'Box',
+									props: {
+										children: 'End'
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'EW6KZL8ZZIXSSNAMNU7DHV34F5UQVP1X'
+						}
+					],
+					properties: [
+						{
+							description: 'Media query (min-width) breakpoints along which to apply props marked\\\\n\\"&#xfeff;[[Responsive-capable]](#responsive)&#xfeff;\\"',
+							isRequired: false,
+							name: 'breakpoints',
+							type: {
+								name: 'typedArray',
+								structure: {
+									memberType: {
+										name: 'union',
+										structure: {
+											elements: [
+												{
+													name: 'number',
+													structure: {}
+												},
+												{
+													name: 'string',
+													structure: {}
+												}
+											]
+										}
+									}
+								}
+							}
+						},
+						{
+							description: 'Must be exactly two nodes',
+							isRequired: true,
+							name: 'children',
+							type: {
+								name: 'node',
+								structure: {}
+							}
+						},
+						{
+							description: 'Direction of flow of items along the main axis\\\\n[[Responsive-capable]](#responsive)',
+							isRequired: false,
+							name: 'direction',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'column'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'row'
+											}
+										},
+										{
+											name: 'typedArray',
+											structure: {
+												memberType: {
+													name: 'union',
+													structure: {
+														elements: [
+															{
+																name: 'literal',
+																structure: {
+																	value: 'column'
+																}
+															},
+															{
+																name: 'literal',
+																structure: {
+																	value: 'row'
+																}
+															},
+															{
+																name: 'unsupported',
+																structure: {
+																	raw: 'unknown'
+																}
+															}
+														]
+													}
+												}
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							description: '@Private From Flex; filtered out',
+							isRequired: false,
+							name: 'justifyContent',
+							type: {
+								name: 'any',
+								structure: {}
+							}
+						},
+						{
+							description: 'Determines which side stretches to fill the available width',
+							isRequired: false,
+							name: 'priority',
+							type: {
+								name: 'union',
+								structure: {
+									elements: [
+										{
+											name: 'literal',
+											structure: {
+												value: 'start'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'end'
+											}
+										},
+										{
+											name: 'literal',
+											structure: {
+												value: 'both'
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							description: '@Private From Flex; filtered out',
+							isRequired: false,
+							name: 'wrap',
+							type: {
+								name: 'any',
+								structure: {}
+							}
+						}
+					]
+				},
+				{
+					documentation: {
+						examples: []
+					},
+					info: {
+						dirPath: 'src/library/Flex/Flex',
+						implementation: {
+							framework: 'reactjs',
+							lang: 'javascript',
+							path: 'src/library/Flex/Flex/Flex.js'
+						},
+						presets: [
+							{
+								path: 'src/library/Flex/Flex/presets/0-default.json'
+							}
+						]
 					},
 					name: 'Flex',
-					presets: [],
+					presets: [
+						{
+							elements: {
+								'6QZPBJVX17UAIO8R1CESY1Y2U45COCUB': {
+									name: 'FlexItem',
+									props: {
+										children: 'A'
+									}
+								},
+								HYKKZD23Z4KW4761DQH3KPFIGHXGVMXS: {
+									name: 'FlexItem',
+									props: {
+										children: 'B'
+									}
+								},
+								UE02H9I9LIN3SMMRV949G8KZJ9757XBY: {
+									name: 'FlexItem',
+									props: {
+										children: 'C'
+									}
+								},
+								UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0: {
+									name: 'Flex',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: '6QZPBJVX17UAIO8R1CESY1Y2U45COCUB'
+											},
+											{
+												uxpinPresetElementId: 'HYKKZD23Z4KW4761DQH3KPFIGHXGVMXS'
+											},
+											{
+												uxpinPresetElementId: 'UE02H9I9LIN3SMMRV949G8KZJ9757XBY'
+											}
+										]
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0'
+						}
+					],
 					properties: [
 						{
 							defaultValue: {
@@ -10144,11 +10756,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Flex',
+						dirPath: 'src/library/Flex/FlexItem',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Flex/FlexItem.js'
+							path: 'src/library/Flex/FlexItem/FlexItem.js'
 						},
 						presets: []
 					},
@@ -10347,16 +10959,61 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Grid',
+						dirPath: 'src/library/Grid/Grid',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Grid/Grid.js'
+							path: 'src/library/Grid/Grid/Grid.js'
 						},
-						presets: []
+						presets: [
+							{
+								path: 'src/library/Grid/Grid/presets/0-default.json'
+							}
+						]
 					},
 					name: 'Grid',
-					presets: [],
+					presets: [
+						{
+							elements: {
+								'6QZPBJVX17UAIO8R1CESY1Y2U45COCUB': {
+									name: 'GridItem',
+									props: {
+										children: 'A'
+									}
+								},
+								HYKKZD23Z4KW4761DQH3KPFIGHXGVMXS: {
+									name: 'GridItem',
+									props: {
+										children: 'B'
+									}
+								},
+								UE02H9I9LIN3SMMRV949G8KZJ9757XBY: {
+									name: 'GridItem',
+									props: {
+										children: 'C'
+									}
+								},
+								UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0: {
+									name: 'Grid',
+									props: {
+										children: [
+											{
+												uxpinPresetElementId: '6QZPBJVX17UAIO8R1CESY1Y2U45COCUB'
+											},
+											{
+												uxpinPresetElementId: 'HYKKZD23Z4KW4761DQH3KPFIGHXGVMXS'
+											},
+											{
+												uxpinPresetElementId: 'UE02H9I9LIN3SMMRV949G8KZJ9757XBY'
+											}
+										]
+									}
+								}
+							},
+							name: 'default',
+							rootId: 'UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0'
+						}
+					],
 					properties: [
 						{
 							defaultValue: {
@@ -10557,11 +11214,11 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						examples: []
 					},
 					info: {
-						dirPath: 'src/library/Grid',
+						dirPath: 'src/library/Grid/GridItem',
 						implementation: {
 							framework: 'reactjs',
 							lang: 'javascript',
-							path: 'src/library/Grid/GridItem.js'
+							path: 'src/library/Grid/GridItem/GridItem.js'
 						},
 						presets: []
 					},
@@ -10607,160 +11264,6 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 							}
 						}
 					]
-				},
-				{
-					documentation: {
-						examples: []
-					},
-					info: {
-						dirPath: 'src/library/StartEnd',
-						implementation: {
-							framework: 'reactjs',
-							lang: 'javascript',
-							path: 'src/library/StartEnd/StartEnd.js'
-						},
-						presets: []
-					},
-					name: 'StartEnd',
-					presets: [],
-					properties: [
-						{
-							description: 'Media query (min-width) breakpoints along which to apply props marked\\\\n\\"&#xfeff;[[Responsive-capable]](#responsive)&#xfeff;\\"',
-							isRequired: false,
-							name: 'breakpoints',
-							type: {
-								name: 'typedArray',
-								structure: {
-									memberType: {
-										name: 'union',
-										structure: {
-											elements: [
-												{
-													name: 'number',
-													structure: {}
-												},
-												{
-													name: 'string',
-													structure: {}
-												}
-											]
-										}
-									}
-								}
-							}
-						},
-						{
-							description: 'Must be exactly two nodes',
-							isRequired: true,
-							name: 'children',
-							type: {
-								name: 'node',
-								structure: {}
-							}
-						},
-						{
-							description: 'Direction of flow of items along the main axis\\\\n[[Responsive-capable]](#responsive)',
-							isRequired: false,
-							name: 'direction',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'column'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'row'
-											}
-										},
-										{
-											name: 'typedArray',
-											structure: {
-												memberType: {
-													name: 'union',
-													structure: {
-														elements: [
-															{
-																name: 'literal',
-																structure: {
-																	value: 'column'
-																}
-															},
-															{
-																name: 'literal',
-																structure: {
-																	value: 'row'
-																}
-															},
-															{
-																name: 'unsupported',
-																structure: {
-																	raw: 'unknown'
-																}
-															}
-														]
-													}
-												}
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: '@Private From Flex; filtered out',
-							isRequired: false,
-							name: 'justifyContent',
-							type: {
-								name: 'any',
-								structure: {}
-							}
-						},
-						{
-							description: 'Determines which side stretches to fill the available width',
-							isRequired: false,
-							name: 'priority',
-							type: {
-								name: 'union',
-								structure: {
-									elements: [
-										{
-											name: 'literal',
-											structure: {
-												value: 'start'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'end'
-											}
-										},
-										{
-											name: 'literal',
-											structure: {
-												value: 'both'
-											}
-										}
-									]
-								}
-							}
-						},
-						{
-							description: '@Private From Flex; filtered out',
-							isRequired: false,
-							name: 'wrap',
-							type: {
-								name: 'any',
-								structure: {}
-							}
-						}
-					]
 				}
 			],
 			name: 'Layout'
@@ -10783,7 +11286,7 @@ ReferenceError: mineralTheme is not defined
     at Array.map (<anonymous>)
 
 warning Cannot compute default value for property \`triggerTitle\` in:
-src/library/Card/CardFooter.js
+src/library/Card/CardFooter/CardFooter.js
 SyntaxError: Unexpected token :
     at new Function (<anonymous>)
     at resolve (../../../../src/steps/serialization/component/implementation/javascript/defaultValue/parseValue.js:1:1622)
