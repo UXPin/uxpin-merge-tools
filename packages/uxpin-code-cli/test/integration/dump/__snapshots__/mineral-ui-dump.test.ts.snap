@@ -4204,6 +4204,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 									}
 								},
 								F85995B051CF1B9DAE5B74E20509B335: {
+									name: 'Menu',
 									props: {
 										children: [
 											{
@@ -4216,8 +4217,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 												uxpinPresetElementId: 'ZU22SAKIOQBY5WD86WWOXECG4BB83QR4'
 											}
 										]
-									},
-									type: 'Menu'
+									}
 								},
 								KVMDS3W7NSWU5FXFDEUBPSRAZ7URBH8W: {
 									name: 'MenuItem',
@@ -4259,6 +4259,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 						{
 							elements: {
 								F85995B051CF1B9DAE5B74E20509B335: {
+									name: 'Menu',
 									props: {
 										data: [
 											{
@@ -4286,8 +4287,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 												]
 											}
 										]
-									},
-									type: 'Menu'
+									}
 								}
 							},
 							name: 'data driven',
@@ -4317,6 +4317,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 									props: {}
 								},
 								F85995B051CF1B9DAE5B74E20509B335: {
+									name: 'Menu',
 									props: {
 										children: [
 											{
@@ -4329,8 +4330,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 												uxpinPresetElementId: 'ZU22SAKIOQBY5WD86WWOXECG4BB83QR4'
 											}
 										]
-									},
-									type: 'Menu'
+									}
 								},
 								I2SWYA89DXXC502FF5TLKOUSLGODDXQM: {
 									name: 'MenuItem',
@@ -5488,6 +5488,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 									}
 								},
 								OFOK2ZKES405DYHFSHQ28OM9WSKA8APM: {
+									name: 'Card',
 									props: {
 										children: [
 											{
@@ -5501,7 +5502,6 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 											}
 										]
 									},
-									type: 'Card'
 								},
 								UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0: {
 									name: 'CardBlock',
