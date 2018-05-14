@@ -11271,33 +11271,19 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 	],
 	name: ''
 }
-warning Cannot compute default value for property \`theme\` in:
-src/library/themes/ThemeProvider.js
-ReferenceError: mineralTheme is not defined
-    at eval (eval at resolve (/Users/michaluxpin/Projekty/uxpin-docker/code-tools/packages/uxpin-code-cli/src/steps/serialization/component/implementation/javascript/defaultValue/parseValue.js:1:1684), <anonymous>:2:1)
-    at resolve (../../../../src/steps/serialization/component/implementation/javascript/defaultValue/parseValue.js:1:1695)
-    at new Promise (<anonymous>)
-    at Object.parseValue (../../../../src/steps/serialization/component/implementation/javascript/defaultValue/parseValue.js:1:1540)
-    at resolve (../../../../src/steps/serialization/component/implementation/javascript/defaultValue/getDefaultValue.js:1:2947)
-    at new Promise (<anonymous>)
-    at Object.getDefaultValue (../../../../src/steps/serialization/component/implementation/javascript/defaultValue/getDefaultValue.js:1:2799)
-    at Object.convertPropItemToPropertyDefinition (../../../../src/steps/serialization/component/implementation/javascript/convertPropItemToPropertyDefinition.js:1:2284)
-    at Promise.all.lodash_1.toPairs.map (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4322)
-    at Array.map (<anonymous>)
+warning Cannot compute default value for property \`theme\`
 
-warning Cannot compute default value for property \`triggerTitle\` in:
-src/library/Card/CardFooter/CardFooter.js
+ReferenceError: mineralTheme is not defined
+
+ in:
+src/library/themes/ThemeProvider.js
+
+warning Cannot compute default value for property \`triggerTitle\`
+
 SyntaxError: Unexpected token :
-    at new Function (<anonymous>)
-    at resolve (../../../../src/steps/serialization/component/implementation/javascript/defaultValue/parseValue.js:1:1622)
-    at new Promise (<anonymous>)
-    at Object.parseValue (../../../../src/steps/serialization/component/implementation/javascript/defaultValue/parseValue.js:1:1540)
-    at resolve (../../../../src/steps/serialization/component/implementation/javascript/defaultValue/getDefaultValue.js:1:2947)
-    at new Promise (<anonymous>)
-    at Object.getDefaultValue (../../../../src/steps/serialization/component/implementation/javascript/defaultValue/getDefaultValue.js:1:2799)
-    at Object.convertPropItemToPropertyDefinition (../../../../src/steps/serialization/component/implementation/javascript/convertPropItemToPropertyDefinition.js:1:2284)
-    at Promise.all.lodash_1.toPairs.map (../../../../src/steps/serialization/component/implementation/javascript/serializeJSComponent.js:1:4322)
-    at Array.map (<anonymous>)
+
+ in:
+src/library/Card/CardFooter/CardFooter.js
 
 "
 `;

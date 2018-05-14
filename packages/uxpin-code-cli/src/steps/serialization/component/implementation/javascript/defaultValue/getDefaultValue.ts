@@ -14,13 +14,23 @@ export function getDefaultValue(propName:string, propItem:GeneralPropItem):Promi
           result.defaultValue = { value };
         })
         .catch((originalError:Error) => {
-          warnings.push({ originalError, message: `Cannot compute default value for property \`${propName}\`` });
+          warnings.push({
+            message: `Cannot compute default value for property \`${propName}\`
+
+${getFirstLine(originalError.stack || '')}
+
+`,
+          });
         })
         .then(() => resolve({ result, warnings }));
     } else {
       resolve({ result, warnings });
     }
   });
+}
+
+function getFirstLine(text:string):string {
+  return text.split('\n')[0];
 }
 
 type DefaultValueParsingResult = Warned<Pick<ComponentPropertyDefinition, 'defaultValue'>>;
