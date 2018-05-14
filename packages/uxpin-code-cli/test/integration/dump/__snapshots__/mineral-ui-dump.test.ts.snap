@@ -5501,7 +5501,7 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
 												uxpinPresetElementId: '77XCO8EASMVIM7H8KF7OY57YU0Q90EMH'
 											}
 										]
-									},
+									}
 								},
 								UY8QB4P8Y2TXG5170CH1K8IXALSB8VG0: {
 									name: 'CardBlock',
