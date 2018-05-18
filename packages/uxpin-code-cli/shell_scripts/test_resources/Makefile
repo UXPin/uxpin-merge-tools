@@ -28,14 +28,15 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& git checkout v1.7.0 \
 	&& mkdir ./yarn-cache \
 	&& yarn install --cache-folder ./yarn-cache \
-	&& rm -rf ./yarn-cache
+	&& rm -rf ./yarn-cache \
+	&& ln -s ../../configs/polaris-webpack.config.js ./polaris-webpack.config.js
 
 ../../test/resources/repos/mineral-ui:
 	cd ../../test/resources/repos \
 	&& git clone git@github.com:UXPin/mineral-ui.git \
 	&& cd mineral-ui \
 	&& git remote add official https://github.com/mineral-ui/mineral-ui.git \
-	&& git checkout 2e3a77610ce4c620e23141352fbf2b4f26a841d4 \
+	&& git checkout 198d3be21406602dda6f3db7f2e3c60a2be9766a \
 	&& mkdir ./npm-cache \
 	&& npm install --cache=./npm-cache \
 	&& rm -rf ./npm-cache

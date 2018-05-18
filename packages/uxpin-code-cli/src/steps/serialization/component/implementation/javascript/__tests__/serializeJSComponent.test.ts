@@ -429,7 +429,11 @@ describe('serializeJSComponentProps', () => {
         ],
       };
       const expectedWarning:WarningDetails = {
-        message: 'Cannot compute default value for property `value`',
+        message: `Cannot compute default value for property \`value\`
+
+ReferenceError: some is not defined
+
+`,
         sourcePath: component.path,
       };
 
@@ -439,7 +443,6 @@ describe('serializeJSComponentProps', () => {
         expect(serialized.result).toEqual(expectedMetadata);
         expect(serialized.warnings[0].message).toEqual(expectedWarning.message);
         expect(serialized.warnings[0].sourcePath).toEqual(expectedWarning.sourcePath);
-        expect(serialized.warnings[0].originalError).toBeInstanceOf(Error);
       });
     });
 

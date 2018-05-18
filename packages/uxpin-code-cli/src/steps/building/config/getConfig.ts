@@ -12,6 +12,11 @@ export const LIBRARY_OUTPUT_PATH:string = `${TEMP_DIR_PATH}/${LIBRARY_OUTPUT_FIL
 export function getConfig(projectRoot:string, webpackConfigPath?:string):Configuration {
   const config:Configuration = {
     entry: LIBRARY_INPUT_PATH,
+    mode: 'production',
+    optimization: {
+      runtimeChunk: false,
+      splitChunks: false,
+    },
     output: {
       filename: LIBRARY_OUTPUT_FILENAME,
       libraryTarget: 'commonjs',

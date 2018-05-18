@@ -1,7 +1,11 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
+UXPIN_CODE=$(shell pwd)/bin/uxpin-code
 
-.PHONY: build check test test-unit test-integration test-ci clean clean-test-resources test-remap-coverage test-resources test-rename-snapshots
+.PHONY: dependencies build check test test-unit test-integration test-ci clean clean-test-resources test-remap-coverage test-resources test-rename-snapshots serve-mineral serve-polaris serve-arui
+
+dependencies:
+	yarn install
 
 build:
 	tsc
@@ -42,6 +46,7 @@ clean:
 	find ./test -name "*.js" ! -path "./test/resources/**" -delete
 	find ./test -name "*.js.map" ! -path "./test/resources/**" -delete
 	find ./test -type d -empty -delete
+	rm -rf ./test/resources/repos/*/.uxpin-temp
 
 clean-test-resources:
 	rm -rf ./test/resources/repos/*
@@ -58,3 +63,19 @@ test-rename-snapshots:
 publish:
 	make build
 	npm publish
+
+serve-mineral:
+	cd ./test/resources/repos/mineral-ui && \
+	$(UXPIN_CODE) server --webpack-config="./webpack.config.js" --wrapper "./src/library/themes/UXPinWrapper.js"
+
+serve-polaris:
+	cd ./test/resources/repos/polaris && \
+	$(UXPIN_CODE) server --webpack-config="./polaris-webpack.config" --config="../../configs/polaris-uxpin.config.js"
+
+serve-arui:
+	cd ./test/resources/repos/arui-feather && \
+	$(UXPIN_CODE) server --webpack-config "./webpack.gemini.config.js" --config="../../configs/arui-feather-uxpin.config.js"
+
+serve-nordnet:
+	cd ./test/resources/repos/nordnet-ui-kit && \
+	$(UXPIN_CODE) server --webpack-config "../../configs/nordnet-ui-kit-webpack.config.js" --config="../../configs/nordnet-ui-kit-uxpin.config.js"
