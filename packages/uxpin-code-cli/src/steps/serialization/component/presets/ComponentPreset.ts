@@ -18,8 +18,8 @@ export interface ComponentPreset {
   elements:{ [id:string]:ComponentPresetElement };
 }
 
-export interface ComponentReference {
+export interface PresetElementReference {
   uxpinPresetElementId:string;
 }
 
-export type PropertyValue = ComponentReference | any | Array<ComponentReference | any>;
+export type PropertyValue = PresetElementReference | any | Array<PresetElementReference | any>;
