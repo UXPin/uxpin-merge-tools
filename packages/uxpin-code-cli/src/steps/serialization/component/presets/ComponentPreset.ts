@@ -4,7 +4,7 @@ export interface ComponentPresetElement {
 }
 
 export interface ComponentPresetElementProps {
-  [propName:string]:PropertyValue;
+  [propName:string]:PresetElementPropValue;
 }
 
 export interface ComponentPresetData {
@@ -22,4 +22,4 @@ export interface PresetElementReference {
   uxpinPresetElementId:string;
 }
 
-export type PropertyValue = PresetElementReference | any | Array<PresetElementReference | any>;
+export type PresetElementPropValue = PresetElementReference | any | Array<PresetElementReference | any>;
