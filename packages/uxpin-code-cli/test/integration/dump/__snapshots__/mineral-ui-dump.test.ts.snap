@@ -5960,7 +5960,26 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
               \\"rootId\\": \\"NH4JFP2A69U6GHFL7YLIMI9EZIM72IZR\\"
             }
           ],
-          \\"properties\\": []
+          \\"properties\\": [
+            {
+              \\"description\\": \\"\\",
+              \\"isRequired\\": true,
+              \\"name\\": \\"src\\",
+              \\"type\\": {
+                \\"name\\": \\"string\\",
+                \\"structure\\": {}
+              }
+            },
+            {
+              \\"description\\": \\"\\",
+              \\"isRequired\\": true,
+              \\"name\\": \\"alt\\",
+              \\"type\\": {
+                \\"name\\": \\"string\\",
+                \\"structure\\": {}
+              }
+            }
+          ]
         },
         {
           \\"documentation\\": {
@@ -10108,6 +10127,15 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
                   ]
                 }
               }
+            },
+            {
+              \\"description\\": \\"\\",
+              \\"isRequired\\": true,
+              \\"name\\": \\"children\\",
+              \\"type\\": {
+                \\"name\\": \\"node\\",
+                \\"structure\\": {}
+              }
             }
           ]
         },
@@ -10985,6 +11013,2446 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
                   ]
                 }
               }
+            },
+            {
+              \\"description\\": \\"Rendered root HTML element\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"element\\",
+              \\"type\\": {
+                \\"name\\": \\"string\\",
+                \\"structure\\": {}
+              }
+            },
+            {
+              \\"description\\": \\"Sets the box height. [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"height\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Renders Box as an inline-block [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"inline\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"boolean\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"boolean\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a margin on all sides [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"margin\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a bottom margin [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginBottom\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a right margin when the language is left-to-right and left margin\\\\n[for RTL languages](#rtl) [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginEnd\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies left & right margins [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginHorizontal\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a left margin [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginLeft\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a right margin [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginRight\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a left margin when the language is left-to-right and right margin\\\\n[for RTL languages](#rtl) [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginStart\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a top margin [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginTop\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies top & bottom margins [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginVertical\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies padding to all sides [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"padding\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies bottom padding [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingBottom\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies right padding when the language is left-to-right and left padding\\\\n[for RTL languages](#rtl) [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"padddingEnd\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies left & right padding [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingHorizontal\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies left padding [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingLeft\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies right padding [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingRight\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies left padding when the language is left-to-right and right padding\\\\n[for RTL languages](#rtl) [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"padddingStart\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies bottom padding [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingTop\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies top & bottom margins [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingVertical\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Sets the box width [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"width\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"\\",
+              \\"isRequired\\": true,
+              \\"name\\": \\"children\\",
+              \\"type\\": {
+                \\"name\\": \\"node\\",
+                \\"structure\\": {}
+              }
             }
           ]
         },
@@ -11312,6 +13780,2425 @@ exports[`The --dump option run for the mineral-ui repository prints the JSON des
                     }
                   ]
                 }
+              }
+            },
+            {
+              \\"description\\": \\"Media query (min-width) breakpoints along which to apply props marked\\\\n\\\\\\"&#xfeff;[[Responsive-capable]](#responsive)&#xfeff;\\\\\\"\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"breakpoints\\",
+              \\"type\\": {
+                \\"name\\": \\"typedArray\\",
+                \\"structure\\": {
+                  \\"memberType\\": {
+                    \\"name\\": \\"union\\",
+                    \\"structure\\": {
+                      \\"elements\\": [
+                        {
+                          \\"name\\": \\"number\\",
+                          \\"structure\\": {}
+                        },
+                        {
+                          \\"name\\": \\"string\\",
+                          \\"structure\\": {}
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Rendered root HTML element\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"element\\",
+              \\"type\\": {
+                \\"name\\": \\"string\\",
+                \\"structure\\": {}
+              }
+            },
+            {
+              \\"description\\": \\"Sets the box height. [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"height\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Renders Box as an inline-block [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"inline\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"boolean\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"boolean\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a margin on all sides [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"margin\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a bottom margin [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginBottom\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a right margin when the language is left-to-right and left margin\\\\n[for RTL languages](#rtl) [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginEnd\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies left & right margins [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginHorizontal\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a left margin [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginLeft\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a right margin [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginRight\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a left margin when the language is left-to-right and right margin\\\\n[for RTL languages](#rtl) [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginStart\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies a top margin [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginTop\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies top & bottom margins [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"marginVertical\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies padding to all sides [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"padding\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies bottom padding [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingBottom\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies right padding when the language is left-to-right and left padding\\\\n[for RTL languages](#rtl) [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"padddingEnd\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies left & right padding [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingHorizontal\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies left padding [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingLeft\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies right padding [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingRight\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies left padding when the language is left-to-right and right padding\\\\n[for RTL languages](#rtl) [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"padddingStart\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies bottom padding [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingTop\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"Applies top & bottom margins [[Responsive-capable]](#responsive)\\",
+              \\"isRequired\\": false,
+              \\"name\\": \\"paddingVertical\\",
+              \\"type\\": {
+                \\"name\\": \\"union\\",
+                \\"structure\\": {
+                  \\"elements\\": [
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xs\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"sm\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"md\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"lg\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"literal\\",
+                      \\"structure\\": {
+                        \\"value\\": \\"xxl\\"
+                      }
+                    },
+                    {
+                      \\"name\\": \\"number\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"string\\",
+                      \\"structure\\": {}
+                    },
+                    {
+                      \\"name\\": \\"typedArray\\",
+                      \\"structure\\": {
+                        \\"memberType\\": {
+                          \\"name\\": \\"union\\",
+                          \\"structure\\": {
+                            \\"elements\\": [
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xs\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"sm\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"md\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"lg\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"literal\\",
+                                \\"structure\\": {
+                                  \\"value\\": \\"xxl\\"
+                                }
+                              },
+                              {
+                                \\"name\\": \\"number\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"string\\",
+                                \\"structure\\": {}
+                              },
+                              {
+                                \\"name\\": \\"unsupported\\",
+                                \\"structure\\": {
+                                  \\"raw\\": \\"unknown\\"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              \\"description\\": \\"\\",
+              \\"isRequired\\": true,
+              \\"name\\": \\"children\\",
+              \\"type\\": {
+                \\"name\\": \\"node\\",
+                \\"structure\\": {}
               }
             }
           ]
