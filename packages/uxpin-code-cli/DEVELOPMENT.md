@@ -1,18 +1,73 @@
 
-## How to run debug server for the example repo
+# Development
 
-Debug server is run for every example repository withing e2e tests located in `test/integration/server`, however sometimes it's useful to be able to run such server manually for debugging or tests authoring.
+## First steps
 
-First of all go the the CLI package, and install dependencies:
+### Requirements
+
+We didn't tested the development environment on Windows, so it's better to use Mac or Linux to play with the tool, especially that most of the build tasks are created in Makefile.
+Tools required to set up a development environment:
+
+1. [make](https://www.gnu.org/software/make/)
+2. [Node.js](https://nodejs.org/) >=6.5.0
+3. [Yarn](https://yarnpkg.com/) >=1.2.1
+
+### Basic commands
+
+After cloning the repo, go the the CLI package, and **install dependencies**:
 ```bash
 cd packages/uxpin-code-cli/
-yarn
+make dependencies
 make test-resources
 ```
-then, build the project:
+The second command is cloning and installing dependencies of our test repositories. You can find them later under `packages/uxpin-code-cli/test/resources/repos`.
+
+Then, **build the project**:
 ```bash
 make build
 ```
+
+Now, **run tests**, to make sure everything is working as expected:
+```bash
+make test
+```
+
+You can also **check the code style**:
+
+```
+make check
+```
+
+### Different tests
+
+`make test` is running all tests (both integration and unit tests), which takes some time. During development you may find it useful to run only a unit test:
+
+```
+make test-unit
+```
+
+or only the integration:
+
+```
+make test-integration
+```
+
+See also the "Jest Test setup for JetBrains IDE" section below, as running tests from IDE is far the most handy method to work with them.
+
+### Cleaning project
+
+Sometimes after changing a branch there are some messy JS file (TS compilation output) or empty directories. To clean those stuff and get the project fresh and ready, run:
+
+```
+make clean build
+```
+
+## How to run debug server for the example repo?
+
+Debug server is a tool that allows verifying how our DS components are built and rendered, before we push them to UXPin.
+
+Debug server is run for every example repository within e2e tests located in `test/integration/server`, however sometimes it's useful to be able to run such server manually for debugging or tests authoring.
+
 and finally run the server in a directory of the example design system (Polaris in this case), providing all required config flags:
 ```bash
 cd test/resources/repos/polaris/
@@ -22,6 +77,23 @@ Now wait for the console log claiming the server is ready, and open the given ad
 ```text
 server started successfully!
 server ready on http://127.0.0.1:8080/
+```
+
+💡 Note, that there are several make tasks allowing running server in our test repositories:
+
+  * `make serve-mineral`
+  * `make serve-polaris`
+  * `make serve-arui`
+  * `make serve-nordnet`
+
+⚠️ Note, that due to the recent update of Webpack, some of the example repositories may not work. Currently the only working example is MineralUI
+
+## How to save generated JSON metadata to a file?
+
+Simply use bash to redirect stdout to a JSON file:
+```
+cd test/resources/repos/mineral-ui/
+../../../../bin/uxpin-code --webpack-config "./playground/webpack.config" --dump > ../../../../metadata.json
 ```
 
 ## Jest Test setup for JetBrains IDE
