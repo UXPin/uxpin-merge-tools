@@ -5,7 +5,7 @@
 
 ### Requirements
 
-We didn't tested the development environment on Windows, so it's better to use Mac or Linux to play with the tool, especially that most of the build tasks are created in Makefile.
+We haven't tested the development environment on Windows, so it's better to use Mac or Linux to play with the tool, especially that most of the build tasks are created in Makefile.
 Tools required to set up a development environment:
 
 1. [make](https://www.gnu.org/software/make/)
@@ -56,7 +56,7 @@ See also the "Jest Test setup for JetBrains IDE" section below, as running tests
 
 ### Cleaning project
 
-Sometimes after changing a branch there are some messy JS file (TS compilation output) or empty directories. To clean those stuff and get the project fresh and ready, run:
+Sometimes after changing a branch there are some messy JS files (TS compilation output) or empty directories. To clean this stuff and get the project fresh and ready, run:
 
 ```
 make clean build
