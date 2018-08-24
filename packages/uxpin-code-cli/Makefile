@@ -68,6 +68,10 @@ serve-mineral:
 	cd ./test/resources/repos/mineral-ui && \
 	$(UXPIN_CODE) server --webpack-config="./webpack.config.js" --wrapper "./src/library/themes/UXPinWrapper.js"
 
+serialize-mineral:
+	cd ./test/resources/repos/mineral-ui && \
+	$(UXPIN_CODE) --webpack-config="./webpack.config.js" --wrapper "./src/library/themes/UXPinWrapper.js" --dump
+
 serve-polaris:
 	cd ./test/resources/repos/polaris && \
 	$(UXPIN_CODE) server --webpack-config="./polaris-webpack.config" --config="../../configs/polaris-uxpin.config.js"

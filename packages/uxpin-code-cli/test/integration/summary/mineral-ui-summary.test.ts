@@ -60,11 +60,6 @@ describe('--summary option integration', () => {
         💡 examples: ✔
         🎛  presets: ✔
 
-    ThemeProvider
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✘
-
     Tooltip
         📜 documentation: ✘
         💡 examples: ✘
@@ -254,7 +249,7 @@ Layout
     Box
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     StartEnd
         📜 documentation: ✘
@@ -269,7 +264,7 @@ Layout
     FlexItem
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Grid
         📜 documentation: ✘
@@ -279,7 +274,7 @@ Layout
     GridItem
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 `);
     });
   });
