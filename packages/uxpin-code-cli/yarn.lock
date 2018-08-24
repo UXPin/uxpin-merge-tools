@@ -7349,9 +7349,9 @@ tslint-config-airbnb@^5.2.1:
     tslint-eslint-rules "^4.1.1"
     tslint-microsoft-contrib "~5.0.1"
 
-tslint-config-uxpin@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/tslint-config-uxpin/-/tslint-config-uxpin-1.5.0.tgz#7894ec92e1fb0eaca1fa438eecdd382185832191"
+tslint-config-uxpin@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.npmjs.org/tslint-config-uxpin/-/tslint-config-uxpin-1.7.0.tgz#6970c729beed8bba04e2a300258ea9d9d338c604"
   dependencies:
     tslint-config-airbnb "^5.2.1"
 
