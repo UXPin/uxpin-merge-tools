@@ -5,7 +5,7 @@ import { getRandomString } from './getRandomString';
 
 const packageRootDir:string = join(__dirname, '../../../');
 const nycPath:string = join(packageRootDir, 'node_modules/.bin/nyc');
-const uxPinPath:string = join(packageRootDir, 'bin/uxpin-code');
+const uxPinPath:string = join(packageRootDir, 'bin/uxpin-merge');
 
 export function buildCommand(options?:CmdOptions):string {
   const { cwd, env, params }:AllCmdOptions = getOptions(options || {});

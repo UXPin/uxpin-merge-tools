@@ -16,11 +16,11 @@ Tools required to set up a development environment:
 
 After cloning the repo, go the the CLI package, and **install dependencies**:
 ```bash
-cd packages/uxpin-code-cli/
+cd packages/uxpin-merge-cli/
 make dependencies
 make test-resources
 ```
-The second command is cloning and installing dependencies of our test repositories. You can find them later under `packages/uxpin-code-cli/test/resources/repos`.
+The second command is cloning and installing dependencies of our test repositories. You can find them later under `packages/uxpin-merge-cli/test/resources/repos`.
 
 Then, **build the project**:
 ```bash
@@ -71,7 +71,7 @@ Debug server is run for every example repository within e2e tests located in `te
 and finally run the server in a directory of the example design system (Polaris in this case), providing all required config flags:
 ```bash
 cd test/resources/repos/polaris/
-../../../../bin/uxpin-code server --webpack-config "./playground/webpack.config"
+../../../../bin/uxpin-merge server --webpack-config "./playground/webpack.config"
 ```
 Now wait for the console log claiming the server is ready, and open the given address in the browser:
 ```text
@@ -93,7 +93,7 @@ server ready on http://127.0.0.1:8080/
 Simply use bash to redirect stdout to a JSON file:
 ```
 cd test/resources/repos/mineral-ui/
-../../../../bin/uxpin-code --webpack-config "./playground/webpack.config" --dump > ../../../../metadata.json
+../../../../bin/uxpin-merge --webpack-config "./playground/webpack.config" --dump > ../../../../metadata.json
 ```
 
 ## Jest Test setup for JetBrains IDE
