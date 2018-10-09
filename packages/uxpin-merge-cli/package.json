@@ -4,7 +4,7 @@
   "description": "Command-line tool integrating Design System repository with http://code.uxpin.com",
   "main": "src/index.js",
   "bin": {
-    "merge-cli": "bin/uxpin-merge"
+    "uxpin-merge": "bin/uxpin-merge"
   },
   "typings": "src/types.d.ts",
   "author": "UXPin Inc.",
