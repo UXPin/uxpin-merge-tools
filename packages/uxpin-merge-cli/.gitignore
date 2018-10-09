@@ -8,8 +8,9 @@
 /src/**/*.js
 /src/**/*.js.map
 /src/types.d.ts
-/test/resources/repos/
-/reports/
+/test/resources/repos/*
+!/test/resources/repos/.gitkeep
+/reports/*
 !/reports/.gitkeep
 
 !/test/resources/configs/*.js
