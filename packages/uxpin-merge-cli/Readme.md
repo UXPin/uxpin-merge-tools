@@ -1,15 +1,15 @@
-# UXPin code
+# UXPin Merge
 
 Command-line tool integrating Design System repository with https://www.uxpin.com/design-from-code
 
 ## Installation
-Add `uxpin-code` to your package.json:
+Add `uxpin-merge` to your package.json:
 ```
-npm install @uxpin/code-cli --save-dev
+npm install @uxpin/merge-cli --save-dev
 ```
 or
 ```
-yarn add @uxpin/code-cli --dev
+yarn add @uxpin/merge-cli --dev
 ```
 
 ## Usage

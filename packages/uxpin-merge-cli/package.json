@@ -1,9 +1,11 @@
 {
-  "name": "@uxpin/code-cli",
+  "name": "@uxpin/merge-cli",
   "version": "0.0.11",
   "description": "Command-line tool integrating Design System repository with http://code.uxpin.com",
   "main": "src/index.js",
-  "bin": "bin/uxpin-code",
+  "bin": {
+    "uxpin-merge": "bin/uxpin-merge"
+  },
   "typings": "src/types.d.ts",
   "author": "UXPin Inc.",
   "license": "MIT",

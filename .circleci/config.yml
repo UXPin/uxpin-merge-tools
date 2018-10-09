@@ -4,23 +4,23 @@ jobs:
     docker:
       - image: circleci/node:8.11
     resource_class: large
-    working_directory: ~/project/packages/uxpin-code-cli
+    working_directory: ~/project/packages/uxpin-merge-cli
     steps:
       - checkout:
           path: ~/project/
       # Yarn install with cache
       - restore_cache:
-          key: uxpin-code-cli-dependencies-cache-{{ checksum "package.json" }}
+          key: uxpin-merge-cli-dependencies-cache-{{ checksum "package.json" }}
       - run:
           name: "Install dependencies"
           command: yarn install
       - save_cache:
-          key: uxpin-code-cli-dependencies-cache-{{ checksum "package.json" }}
+          key: uxpin-merge-cli-dependencies-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       # Download test repositories with cache
       - restore_cache:
-          key: uxpin-code-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
+          key: uxpin-merge-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
       - run:
           name: "Allow cloning git dependencies from github"
           command: mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
@@ -28,7 +28,7 @@ jobs:
           name: "Create test resources"
           command: make test-resources
       - save_cache:
-          key: uxpin-code-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
+          key: uxpin-merge-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
           paths:
             - ./test/resources/repos
       # Build and test
@@ -47,5 +47,5 @@ jobs:
           path: ./reports
       - run:
           name: "Upload code coverage"
-          command: ./packages/uxpin-code-cli/node_modules/.bin/codecov -F unittests -F uxpin_code_cli
+          command: ./packages/uxpin-merge-cli/node_modules/.bin/codecov -F unittests -F uxpin_merge_cli
           working_directory: ~/project/

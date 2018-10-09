@@ -1,6 +1,6 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
-UXPIN_CODE=$(shell pwd)/bin/uxpin-code
+UXPIN_CODE=$(shell pwd)/bin/uxpin-merge
 
 .PHONY: dependencies build check test test-unit test-integration test-ci clean clean-test-resources test-remap-coverage test-resources test-rename-snapshots serve-mineral serve-polaris serve-arui
 

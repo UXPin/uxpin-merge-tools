@@ -2,19 +2,19 @@ SHELL := /bin/bash -o pipefail
 
 .PHONY: dependencies check build clean test
 
-dependencies: packages/uxpin-code-cli/node_modules
+dependencies: packages/uxpin-merge-cli/node_modules
 
-packages/uxpin-code-cli/node_modules: packages/uxpin-code-cli/package.json
-	cd packages/uxpin-code-cli && yarn install
+packages/uxpin-merge-cli/node_modules: packages/uxpin-merge-cli/package.json
+	cd packages/uxpin-merge-cli && yarn install
 
 build:
-	cd packages/uxpin-code-cli && make build
+	cd packages/uxpin-merge-cli && make build
 
 check:
-	cd packages/uxpin-code-cli && make check
+	cd packages/uxpin-merge-cli && make check
 
 clean:
-	cd packages/uxpin-code-cli && make clean
+	cd packages/uxpin-merge-cli && make clean
 
 test:
-	cd packages/uxpin-code-cli && make test
+	cd packages/uxpin-merge-cli && make test
