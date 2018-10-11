@@ -31,7 +31,7 @@ program
   .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
   .option('--config <path>', 'path to a config file. \'./uxpin.config.js\' is used by default.')
-  .action(() => console.log('uploading design system...'));
+  .action(() => {});
 
 program.parse(process.argv);
 
