@@ -1,4 +1,4 @@
-import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
+import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT:number = 30000;
@@ -9,7 +9,7 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in mineral-ui example', async () => {
       // when
-      const output:string = await runUXPinCodeCommand({ cwd: 'resources/repos/mineral-ui', params: ['--summary'] });
+      const output:string = await runUXPinMergeCommand({ cwd: 'resources/repos/mineral-ui', params: ['push', '--summary'] });
 
       // then
       expect(output).toContain(

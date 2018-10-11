@@ -1,4 +1,4 @@
-import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
+import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT:number = 300000;
@@ -9,8 +9,9 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in nordnet-ui-kit example', () => {
       // when
-      return runUXPinCodeCommand({
+      return runUXPinMergeCommand({
         cwd: 'resources/repos/nordnet-ui-kit', params: [
+          'push',
           '--summary',
           '--config="../../configs/nordnet-ui-kit-uxpin.config.js"',
         ],

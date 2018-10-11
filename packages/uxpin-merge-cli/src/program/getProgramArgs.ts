@@ -11,8 +11,8 @@ const defaultArgs:{[key in Command]:ProgramArgs} = {
     cwd: process.cwd(),
     port: 8080,
   },
-  upload: {
-    command: 'upload',
+  push: {
+    command: 'push',
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
     dump: false,
@@ -28,7 +28,7 @@ export function getProgramArgs(program:RawProgramArgs):ProgramArgs {
 function getCommand(program:RawProgramArgs):Command {
   return (program.args || [])
     .filter((arg) => typeof arg !== 'string' && Object.keys(defaultArgs).includes(arg.name()))
-    .reduce((command, arg) => (arg as CommanderStatic).name(), 'upload') as Command;
+    .reduce((command, arg) => (arg as CommanderStatic).name(), '') as Command;
 }
 
 function getCommandArgs(program:RawProgramArgs, command:Command):ProgramArgs | {} {
@@ -42,4 +42,4 @@ function getCommandArgs(program:RawProgramArgs, command:Command):ProgramArgs | {
   return { ...commanderStatic as any } as RawProgramArgs;
 }
 
-type Command = 'upload'|'server';
+type Command = 'push'|'server';

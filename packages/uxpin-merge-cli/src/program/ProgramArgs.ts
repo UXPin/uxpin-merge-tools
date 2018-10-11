@@ -11,10 +11,10 @@ export interface RawProgramArgs {
   config?:string;
 }
 
-export type ProgramArgs = UploadProgramArgs | ServerProgramArgs;
+export type ProgramArgs = PushProgramArgs | ServerProgramArgs;
 
-interface UploadProgramArgs {
-  command:'upload';
+export interface PushProgramArgs {
+  command:'push';
   cwd:string;
   dump:boolean;
   summary:boolean;
@@ -23,7 +23,7 @@ interface UploadProgramArgs {
   config:string;
 }
 
-interface ServerProgramArgs {
+export interface ServerProgramArgs {
   command:'server';
   cwd:string;
   port:number;
