@@ -9,7 +9,10 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in mineral-ui example', async () => {
       // when
-      const output:string = await runUXPinMergeCommand({ cwd: 'resources/repos/mineral-ui', params: ['push', '--summary'] });
+      const output:string = await runUXPinMergeCommand({
+        cwd: 'resources/repos/mineral-ui',
+        params: ['push', '--summary'],
+      });
 
       // then
       expect(output).toContain(

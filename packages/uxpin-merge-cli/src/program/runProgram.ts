@@ -50,14 +50,14 @@ function getSteps(args:ProgramArgs):Step[] {
   return [];
 }
 
-function getServerCommandSteps(buildOptions:BuildOptions, args:ServerProgramArgs) {
+function getServerCommandSteps(buildOptions:BuildOptions, args:ServerProgramArgs):Step[] {
   return [
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
     { exec: thunkStartServer(buildOptions, args.port), shouldRun: true },
   ];
 }
 
-function getPushCommandSteps(buildOptions:BuildOptions, args:PushProgramArgs) {
+function getPushCommandSteps(buildOptions:BuildOptions, args:PushProgramArgs):Step[] {
   const { dump, summary } = args;
   return [
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },

@@ -5,18 +5,18 @@ import { ProgramArgs, RawProgramArgs } from './ProgramArgs';
 export const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
 
 const defaultArgs:{[key in Command]:ProgramArgs} = {
-  server: {
-    command: 'server',
-    config: DEFAULT_CONFIG_PATH,
-    cwd: process.cwd(),
-    port: 8080,
-  },
   push: {
     command: 'push',
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
     dump: false,
     summary: false,
+  },
+  server: {
+    command: 'server',
+    config: DEFAULT_CONFIG_PATH,
+    cwd: process.cwd(),
+    port: 8080,
   },
 };
 
