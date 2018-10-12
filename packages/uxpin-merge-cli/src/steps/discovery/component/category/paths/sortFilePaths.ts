@@ -1,5 +1,5 @@
 import { sep } from 'path';
-import pathSort = require('path-sort');
+import * as pathSort from 'path-sort';
 
 export function sortFilePaths(paths:string[]):string[] {
   return pathSort(paths, sep);
