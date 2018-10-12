@@ -6,8 +6,6 @@ const { runProgram } = require('../src/index');
 
 program
   .version(require('../package.json').version)
-  .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
-  .option('-s, --summary', 'Show only design system summary without building it')
   .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
   .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
@@ -25,8 +23,24 @@ program
 program
   .command('push')
   .description('Upload design system repository information to UXPin')
-  .option('-d, --dump', 'Show all information about the design system repository and NOT send to UXPin')
-  .option('-s, --summary', 'Show only design system summary without building it')
+  .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
+  .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
+  .option('--cwd <path>', 'working directory: path to root of the DS repository')
+  .option('--config <path>', 'path to a config file. \'./uxpin.config.js\' is used by default.')
+  .action(() => {});
+
+program
+  .command('dump')
+  .description('Show all information about the design system repository and NOT send to UXPin')
+  .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
+  .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
+  .option('--cwd <path>', 'working directory: path to root of the DS repository')
+  .option('--config <path>', 'path to a config file. \'./uxpin.config.js\' is used by default.')
+  .action(() => {});
+
+program
+  .command('summary')
+  .description('Show only design system summary without building it')
   .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
   .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')

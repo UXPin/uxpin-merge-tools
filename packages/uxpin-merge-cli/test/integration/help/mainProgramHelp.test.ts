@@ -6,23 +6,6 @@ const CURRENT_TIMEOUT:number = 20000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('--help option', () => {
-  it('it prints help for --dump option', () => {
-    // when
-    return runUXPinMergeCommand({ params: ['--help'] }).then((output) => {
-      // then
-      expect(output)
-        .toMatch(/--dump\s+Show all information about the design system repository and NOT send to UXPin/);
-    });
-  });
-
-  it('it prints help for --summary option', () => {
-    // when
-    return runUXPinMergeCommand({ params: ['--help'] }).then((output) => {
-      // then
-      expect(output).toMatch(/--summary\s+Show only design system summary without building it/);
-    });
-  });
-
   it('it prints help for --webpack-config <path> option', () => {
     // when
     return runUXPinMergeCommand({ params: ['--help'] }).then((output) => {
@@ -61,7 +44,7 @@ describe('--help option', () => {
   });
 
   it('it prints `server` command in command list', () => {
-// when
+    // when
     return runUXPinMergeCommand({ params: ['--help'] }).then((output) => {
       // then
       expect(output)
@@ -69,4 +52,29 @@ describe('--help option', () => {
     });
   });
 
+  it('it prints `push` command in command list', () => {
+    // when
+    return runUXPinMergeCommand({ params: ['--help'] }).then((output) => {
+      // then
+      expect(output)
+        .toMatch(/push \[options\]\s+Upload design system repository information to UXPin/);
+    });
+  });
+
+  it('it prints `dump` command in command list', () => {
+    // when
+    return runUXPinMergeCommand({ params: ['--help'] }).then((output) => {
+      // then
+      expect(output)
+        .toMatch(/dump \[options\]\s+Show all information about the design system repository and NOT send to UXPin/);
+    });
+  });
+
+  it('it prints `summary` command in command list', () => {
+    // when
+    return runUXPinMergeCommand({ params: ['--help'] }).then((output) => {
+      // then
+      expect(output).toMatch(/summary \[options\]\s+Show only design system summary without building it/);
+    });
+  });
 });
