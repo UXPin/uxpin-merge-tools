@@ -1,36 +1,29 @@
-import { BuildOptions } from '../../steps/building/BuildOptions';
-import { ProgramArgs, PushProgramArgs, ServerProgramArgs } from '../ProgramArgs';
+import { ProgramArgs } from '../ProgramArgs';
 import { getDumpCommandSteps } from './dump/getDumpCommandSteps';
+import { getExperimentationServerCommandSteps } from './experimentation/getExperimentationServerCommandSteps';
 import { getPushCommandSteps } from './push/getPushCommandSteps';
 import { getServerCommandSteps } from './server/getServerCommandSteps';
 import { Step } from './Step';
 import { getSummaryCommandSteps } from './summary/getSummaryCommandSteps';
 
 export function getSteps(args:ProgramArgs):Step[] {
-  if (args.command === 'server') {
-    return getServerCommandSteps(getBuildOptions(args), args);
+  switch (args.command) {
+    case 'server':
+      return getServerCommandSteps(args);
+
+    case 'push':
+      return getPushCommandSteps(args);
+
+    case 'dump':
+      return getDumpCommandSteps();
+
+    case 'summary':
+      return getSummaryCommandSteps();
+
+    case 'experiment':
+      return getExperimentationServerCommandSteps(args);
+
+    default:
+      return [];
   }
-
-  if (args.command === 'push') {
-    return getPushCommandSteps(getBuildOptions(args));
-  }
-
-  if (args.command === 'dump') {
-    return getDumpCommandSteps();
-  }
-
-  if (args.command === 'summary') {
-    return getSummaryCommandSteps();
-  }
-
-  return [];
-}
-
-function getBuildOptions(args:ServerProgramArgs | PushProgramArgs):BuildOptions {
-  const { cwd, webpackConfig, wrapper } = args;
-  return {
-    projectRoot: cwd,
-    webpackConfigPath: webpackConfig,
-    wrapperPath: wrapper,
-  };
 }

@@ -6,9 +6,11 @@ import { getAllComponentsFromCategories } from '../../../steps/serialization/com
 import { DSMetadata } from '../../DSMeta';
 import { ServerProgramArgs } from '../../ProgramArgs';
 import { thunkBuildComponentsLibrary } from '../../utils/thunkBuildComponentsLibrary';
+import { getBuildOptions } from '../push/getBuildOptions';
 import { Step } from '../Step';
 
-export function getServerCommandSteps(buildOptions:BuildOptions, args:ServerProgramArgs):Step[] {
+export function getServerCommandSteps(args:ServerProgramArgs):Step[] {
+  const buildOptions:BuildOptions = getBuildOptions(args);
   return [
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
     { exec: thunkStartServer(buildOptions, args.port), shouldRun: true },
