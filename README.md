@@ -1,4 +1,4 @@
-# UXPin code
+# UXPin Merge
 
 [![CircleCI](https://circleci.com/gh/UXPin/uxpin-merge-tools/tree/master.svg?style=svg&circle-token=3be428149d85d471f8a2661cc39d764a12df725f)](https://circleci.com/gh/UXPin/uxpin-merge-tools/tree/master)
 [![codecov](https://codecov.io/gh/UXPin/uxpin-merge-tools/branch/master/graph/badge.svg?token=oCSlKMhJDN)](https://codecov.io/gh/UXPin/uxpin-merge-tools)

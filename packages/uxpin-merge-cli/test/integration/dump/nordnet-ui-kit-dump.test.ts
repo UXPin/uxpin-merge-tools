@@ -1,4 +1,4 @@
-import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
+import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT:number = 30000;
@@ -8,9 +8,9 @@ describe('The --dump option', () => {
   describe('run for the nordnet-ui-kit repository', () => {
     it('prints the JSON describing the full repository', () => {
       // when
-      return runUXPinCodeCommand({
+      return runUXPinMergeCommand({
         cwd: 'resources/repos/nordnet-ui-kit',
-        params: ['--dump', '--config="../../configs/nordnet-ui-kit-uxpin.config.js"'],
+        params: ['push', '--dump', '--config="../../configs/nordnet-ui-kit-uxpin.config.js"'],
       }).then((consoleOutput) => {
         // then
         expect(consoleOutput).toMatchSnapshot();

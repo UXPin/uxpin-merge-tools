@@ -16,7 +16,7 @@ import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemM
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './getProgramArgs';
 import { getProjectPaths } from './getProjectPaths';
-import { ProgramArgs, RawProgramArgs } from './ProgramArgs';
+import { ProgramArgs, PushProgramArgs, RawProgramArgs, ServerProgramArgs } from './ProgramArgs';
 
 export function runProgram(program:RawProgramArgs):Promise<any> {
   const programArgs:ProgramArgs = getProgramArgs(program);
@@ -40,12 +40,24 @@ function getSteps(args:ProgramArgs):Step[] {
   };
 
   if (args.command === 'server') {
-    return [
-      { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
-      { exec: thunkStartServer(buildOptions, args.port), shouldRun: true },
-    ];
+    return getServerCommandSteps(buildOptions, args);
   }
 
+  if (args.command === 'push') {
+    return getPushCommandSteps(buildOptions, args);
+  }
+
+  return [];
+}
+
+function getServerCommandSteps(buildOptions:BuildOptions, args:ServerProgramArgs):Step[] {
+  return [
+    { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
+    { exec: thunkStartServer(buildOptions, args.port), shouldRun: true },
+  ];
+}
+
+function getPushCommandSteps(buildOptions:BuildOptions, args:PushProgramArgs):Step[] {
   const { dump, summary } = args;
   return [
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },

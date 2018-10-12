@@ -1,4 +1,4 @@
-import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
+import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT:number = 15000;
@@ -9,7 +9,10 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints a info when there`s no config file in the project', () => {
       // when
-      return runUXPinCodeCommand({ cwd: 'resources/designSystems/noSrcDir', params: ['--summary'] }).then((output) => {
+      return runUXPinMergeCommand({
+        cwd: 'resources/designSystems/noSrcDir',
+        params: ['push', '--summary'],
+      }).then((output) => {
         // then
         expect(output).toContain('uxpin.config.js\' not found. Using default configuration.');
       });

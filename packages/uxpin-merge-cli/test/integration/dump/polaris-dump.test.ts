@@ -1,4 +1,4 @@
-import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
+import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT:number = 120000;
@@ -7,9 +7,9 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('The --dump option', () => {
   it('run for the polaris repository, prints the JSON describing the full repository', () => {
     // when
-    return runUXPinCodeCommand({
+    return runUXPinMergeCommand({
       cwd: 'resources/repos/polaris',
-      params: ['--dump', '--config="../../configs/polaris-uxpin.config.js"'],
+      params: ['push', '--dump', '--config="../../configs/polaris-uxpin.config.js"'],
     }).then((consoleOutput) => {
       // then
       expect(consoleOutput).toMatchSnapshot();

@@ -1,7 +1,7 @@
 import { relative, resolve } from 'path';
 
 import { LIBRARY_OUTPUT_PATH } from '../../../../../src/steps/building/config/getConfig';
-import { runUXPinCodeCommand } from '../../../../utils/command/runUXPinCodeCommand';
+import { runUXPinMergeCommand } from '../../../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT:number = 75000;
@@ -15,12 +15,13 @@ xdescribe('Building repos/nordnet-ui-kit design system', () => {
 
     beforeAll(() => {
       const params:string[] = [
+        'push',
         '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',
         '--config="../../configs/nordnet-ui-kit-uxpin.config.js"',
         '--wrapper "./documentation/wrapper.jsx"',
       ];
 
-      return runUXPinCodeCommand({ cwd: 'resources/repos/nordnet-ui-kit', params })
+      return runUXPinMergeCommand({ cwd: 'resources/repos/nordnet-ui-kit', params })
         .then((output) => {
           const path:string = relative(__dirname, resolve('test/resources/repos/nordnet-ui-kit', LIBRARY_OUTPUT_PATH));
           components = require(path);
@@ -50,7 +51,7 @@ xdescribe('Building repos/nordnet-ui-kit design system', () => {
 
   describe('without required user webpack config', () => {
     it('throws an error', () => {
-      return runUXPinCodeCommand({ cwd: 'resources/repos/nordnet-ui-kit' })
+      return runUXPinMergeCommand({ cwd: 'resources/repos/nordnet-ui-kit', params: ['push'] })
         .then((output) => {
           expect(output).toContain('ERROR:');
           expect(output).toContain('Module parse failed');

@@ -1,4 +1,4 @@
-import { runUXPinCodeCommand } from '../../utils/command/runUXPinCodeCommand';
+import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT:number = 30000;
@@ -9,9 +9,9 @@ describe('--summary option integration', () => {
   describe('--summary option prints ', () => {
     it('prints the list of components found in arui-feather example', () => {
       // when
-      return runUXPinCodeCommand({
+      return runUXPinMergeCommand({
         cwd: 'resources/repos/arui-feather',
-        params: ['--summary', '--config="../../configs/arui-feather-uxpin.config.js"'],
+        params: ['push', '--summary', '--config="../../configs/arui-feather-uxpin.config.js"'],
       }).then((output) => {
         // then
         expect(output).toContain(
