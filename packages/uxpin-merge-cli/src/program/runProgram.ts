@@ -3,7 +3,7 @@ import { join } from 'path';
 import sortobject = require('sortobject');
 import { stringifyWarnings } from '../common/warning/stringifyWarnings';
 import { Warned } from '../common/warning/Warned';
-import { startServer } from '../debug/server/startServer';
+import { startDebugServer } from '../debug/server/startDebugServer';
 import { buildDesignSystem } from '../steps/building/buildDesignSystem';
 import { BuildOptions } from '../steps/building/BuildOptions';
 import { TEMP_DIR_PATH } from '../steps/building/config/getConfig';
@@ -40,7 +40,7 @@ function getSteps(args:ProgramArgs):Step[] {
   };
 
   if (args.command === 'server') {
-    return getServerCommandSteps(buildOptions, args);
+    return getDebugServerCommandSteps(buildOptions, args);
   }
 
   if (args.command === 'push') {
@@ -50,10 +50,10 @@ function getSteps(args:ProgramArgs):Step[] {
   return [];
 }
 
-function getServerCommandSteps(buildOptions:BuildOptions, args:ServerProgramArgs):Step[] {
+function getDebugServerCommandSteps(buildOptions:BuildOptions, args:ServerProgramArgs):Step[] {
   return [
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
-    { exec: thunkStartServer(buildOptions, args.port), shouldRun: true },
+    { exec: thunkStartDebugServer(buildOptions, args.port), shouldRun: true },
   ];
 }
 
@@ -74,11 +74,13 @@ function thunkBuildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) 
   };
 }
 
-function thunkStartServer(buildOptions:BuildOptions, port:number):(ds:DSMetadata) => Promise<any> {
-  return ({ result: { categorizedComponents } }) => startServer(getAllComponentsFromCategories(categorizedComponents), {
-    port,
-    root: join(buildOptions.projectRoot, TEMP_DIR_PATH),
-  });
+function thunkStartDebugServer(buildOptions:BuildOptions, port:number):(ds:DSMetadata) => Promise<any> {
+  return ({ result: { categorizedComponents } }) => {
+    return startDebugServer(getAllComponentsFromCategories(categorizedComponents), {
+      port,
+      root: join(buildOptions.projectRoot, TEMP_DIR_PATH),
+    });
+  };
 }
 
 function printDump({ warnings, result }:DSMetadata):void {
