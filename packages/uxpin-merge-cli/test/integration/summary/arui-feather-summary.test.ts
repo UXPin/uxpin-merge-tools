@@ -5,13 +5,13 @@ const CURRENT_TIMEOUT:number = 30000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('--summary option integration', () => {
-  describe('--summary option prints ', () => {
+describe('summary command integration', () => {
+  describe('summary command prints ', () => {
     it('prints the list of components found in arui-feather example', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/repos/arui-feather',
-        params: ['push', '--summary', '--config="../../configs/arui-feather-uxpin.config.js"'],
+        params: ['summary', '--config="../../configs/arui-feather-uxpin.config.js"'],
       }).then((output) => {
         // then
         expect(output).toContain(

@@ -3,21 +3,21 @@ import { CommanderStatic } from 'commander';
 export interface RawProgramArgs {
   args?:Arg[];
   cwd:string;
-  dump:boolean;
   port?:number;
-  summary:boolean;
   webpackConfig?:string;
   wrapper?:string;
   config?:string;
 }
 
-export type ProgramArgs = PushProgramArgs | ServerProgramArgs | ExperimentProgramArgs;
+export type ProgramArgs = PushProgramArgs
+  | ServerProgramArgs
+  | DumpProgramArgs
+  | SummaryProgramArgs
+  | ExperimentProgramArgs;
 
 export interface PushProgramArgs {
   command:'push';
   cwd:string;
-  dump:boolean;
-  summary:boolean;
   webpackConfig?:string;
   wrapper?:string;
   config:string;
@@ -32,6 +32,22 @@ export interface ServerProgramArgs {
   config:string;
 }
 
+export interface DumpProgramArgs {
+  command:'dump';
+  cwd:string;
+  webpackConfig?:string;
+  wrapper?:string;
+  config:string;
+}
+
+export interface SummaryProgramArgs {
+  command:'summary';
+  cwd:string;
+  webpackConfig?:string;
+  wrapper?:string;
+  config:string;
+}
+
 export interface ExperimentProgramArgs {
   command:'experiment';
   cwd:string;
@@ -41,4 +57,4 @@ export interface ExperimentProgramArgs {
   config:string;
 }
 
-export type Arg = string|CommanderStatic;
+export type Arg = string | CommanderStatic;

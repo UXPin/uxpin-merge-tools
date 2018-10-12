@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The --dump option run for the mineral-ui repository prints the JSON describing the full repository 1`] = `
+exports[`The dump command run for the mineral-ui repository prints the JSON describing the full repository 1`] = `
 "{
   \\"categorizedComponents\\": [
     {
