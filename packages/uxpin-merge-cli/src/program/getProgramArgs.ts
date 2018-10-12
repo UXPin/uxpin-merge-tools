@@ -1,10 +1,17 @@
 import { CommanderStatic } from 'commander';
 
-import { ProgramArgs, RawProgramArgs } from './ProgramArgs';
+import { Arg, ProgramArgs, RawProgramArgs } from './ProgramArgs';
 
 export const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
+export const DEFAULT_COMMAND:Command = 'experiment';
 
-const defaultArgs:{[key in Command]:ProgramArgs} = {
+const defaultArgs:{ [key in Command]:ProgramArgs } = {
+  experiment: {
+    command: 'experiment',
+    config: DEFAULT_CONFIG_PATH,
+    cwd: process.cwd(),
+    port: 8877,
+  },
   push: {
     command: 'push',
     config: DEFAULT_CONFIG_PATH,
@@ -26,14 +33,14 @@ export function getProgramArgs(program:RawProgramArgs):ProgramArgs {
 }
 
 function getCommand(program:RawProgramArgs):Command {
-  return (program.args || [])
-    .filter((arg) => typeof arg !== 'string' && Object.keys(defaultArgs).includes(arg.name()))
-    .reduce((command, arg) => (arg as CommanderStatic).name(), '') as Command;
+  const args:Arg[] = program.args || [];
+  return args.filter(isArgKnownCommand(Object.keys(defaultArgs)))
+    .reduce((command, arg) => arg.name(), DEFAULT_COMMAND) as Command;
 }
 
 function getCommandArgs(program:RawProgramArgs, command:Command):ProgramArgs | {} {
   const commanderStatic:CommanderStatic = (program.args || [])
-    .find((arg) => typeof arg !== 'string' && arg.name() === command) as CommanderStatic;
+    .find(isArgKnownCommand([command])) as CommanderStatic;
 
   if (!commanderStatic) {
     return {};
@@ -42,4 +49,8 @@ function getCommandArgs(program:RawProgramArgs, command:Command):ProgramArgs | {
   return { ...commanderStatic as any } as RawProgramArgs;
 }
 
-type Command = 'push'|'server';
+function isArgKnownCommand(knownCommands:string[]):(arg:Arg) => arg is CommanderStatic {
+  return (arg:Arg):arg is CommanderStatic => typeof arg !== 'string' && knownCommands.includes(arg.name());
+}
+
+type Command = 'push' | 'server' | 'experiment';

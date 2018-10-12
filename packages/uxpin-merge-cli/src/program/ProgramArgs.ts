@@ -11,7 +11,7 @@ export interface RawProgramArgs {
   config?:string;
 }
 
-export type ProgramArgs = PushProgramArgs | ServerProgramArgs;
+export type ProgramArgs = PushProgramArgs | ServerProgramArgs | ExperimentProgramArgs;
 
 export interface PushProgramArgs {
   command:'push';
@@ -32,4 +32,13 @@ export interface ServerProgramArgs {
   config:string;
 }
 
-type Arg = string|CommanderStatic;
+export interface ExperimentProgramArgs {
+  command:'experiment';
+  cwd:string;
+  port:number;
+  webpackConfig?:string;
+  wrapper?:string;
+  config:string;
+}
+
+export type Arg = string|CommanderStatic;
