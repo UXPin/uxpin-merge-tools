@@ -5,14 +5,13 @@ const CURRENT_TIMEOUT:number = 300000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('--summary option integration', () => {
-  describe('--summary option prints ', () => {
+describe('summary command integration', () => {
+  describe('summary command prints ', () => {
     it('prints the list of components found in nordnet-ui-kit example', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/repos/nordnet-ui-kit', params: [
-          'push',
-          '--summary',
+          'summary',
           '--config="../../configs/nordnet-ui-kit-uxpin.config.js"',
         ],
       })

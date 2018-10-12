@@ -47,6 +47,14 @@ function getSteps(args:ProgramArgs):Step[] {
     return getPushCommandSteps(buildOptions, args);
   }
 
+  if (args.command === 'dump') {
+    return getDumpCommandSteps();
+  }
+
+  if (args.command === 'summary') {
+    return getSummaryCommandSteps();
+  }
+
   return [];
 }
 
@@ -58,12 +66,22 @@ function getServerCommandSteps(buildOptions:BuildOptions, args:ServerProgramArgs
 }
 
 function getPushCommandSteps(buildOptions:BuildOptions, args:PushProgramArgs):Step[] {
-  const { dump, summary } = args;
   return [
-    { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: !dump && !summary },
-    { exec: printDump, shouldRun: dump },
-    { exec: printSummary, shouldRun: !dump },
-    { exec: printSerializationWarnings, shouldRun: !dump },
+    { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
+    { exec: printSerializationWarnings, shouldRun: true },
+  ];
+}
+
+function getDumpCommandSteps():Step[] {
+  return [
+    { exec: printDump, shouldRun: true },
+  ];
+}
+
+function getSummaryCommandSteps():Step[] {
+  return [
+    { exec: printSummary, shouldRun: true },
+    { exec: printSerializationWarnings, shouldRun: true },
   ];
 }
 
