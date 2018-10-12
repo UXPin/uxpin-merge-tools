@@ -1,7 +1,7 @@
 import { getDesignSystemSummary } from '../../../steps/discovery/getDesignSystemSummary';
 import { DSMetadata } from '../../DSMeta';
-import { Step } from '../Step';
 import { printSerializationWarnings } from '../../utils/printSerializationWarnings';
+import { Step } from '../Step';
 
 export function getSummaryCommandSteps():Step[] {
   return [

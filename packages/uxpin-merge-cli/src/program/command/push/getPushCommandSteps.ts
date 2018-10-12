@@ -1,7 +1,7 @@
 import { BuildOptions } from '../../../steps/building/BuildOptions';
-import { Step } from '../Step';
 import { printSerializationWarnings } from '../../utils/printSerializationWarnings';
 import { thunkBuildComponentsLibrary } from '../../utils/thunkBuildComponentsLibrary';
+import { Step } from '../Step';
 
 export function getPushCommandSteps(buildOptions:BuildOptions):Step[] {
   return [

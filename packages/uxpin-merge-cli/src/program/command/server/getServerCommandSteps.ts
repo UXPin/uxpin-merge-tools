@@ -5,8 +5,8 @@ import { TEMP_DIR_PATH } from '../../../steps/building/config/getConfig';
 import { getAllComponentsFromCategories } from '../../../steps/serialization/component/categories/getAllComponentsFromCategories';
 import { DSMetadata } from '../../DSMeta';
 import { ServerProgramArgs } from '../../ProgramArgs';
-import { Step } from '../Step';
 import { thunkBuildComponentsLibrary } from '../../utils/thunkBuildComponentsLibrary';
+import { Step } from '../Step';
 
 export function getServerCommandSteps(buildOptions:BuildOptions, args:ServerProgramArgs):Step[] {
   return [

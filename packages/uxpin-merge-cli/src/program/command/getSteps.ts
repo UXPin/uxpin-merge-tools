@@ -1,9 +1,9 @@
 import { BuildOptions } from '../../steps/building/BuildOptions';
 import { ProgramArgs } from '../ProgramArgs';
-import { Step } from './Step';
 import { getDumpCommandSteps } from './dump/getDumpCommandSteps';
 import { getPushCommandSteps } from './push/getPushCommandSteps';
 import { getServerCommandSteps } from './server/getServerCommandSteps';
+import { Step } from './Step';
 import { getSummaryCommandSteps } from './summary/getSummaryCommandSteps';
 
 export function getSteps(args:ProgramArgs):Step[] {
