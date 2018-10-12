@@ -1,22 +1,13 @@
 import pMapSeries = require('p-map-series');
-import { join } from 'path';
-import sortobject = require('sortobject');
-import { stringifyWarnings } from '../common/warning/stringifyWarnings';
-import { Warned } from '../common/warning/Warned';
-import { startServer } from '../debug/server/startServer';
-import { buildDesignSystem } from '../steps/building/buildDesignSystem';
-import { BuildOptions } from '../steps/building/BuildOptions';
-import { TEMP_DIR_PATH } from '../steps/building/config/getConfig';
 import { getComponentCategoryInfos } from '../steps/discovery/component/category/getComponentCategoryInfos';
-import { getDesignSystemSummary } from '../steps/discovery/getDesignSystemSummary';
-import { getAllComponentsFromCategories } from '../steps/serialization/component/categories/getAllComponentsFromCategories';
-import { ComponentDefinition } from '../steps/serialization/component/ComponentDefinition';
-import { DesignSystemSnapshot } from '../steps/serialization/DesignSystemSnapshot';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
+import { getSteps } from './command/getSteps';
+import { Step } from './command/Step';
+import { DSMetadata } from './DSMeta';
 import { getProgramArgs } from './getProgramArgs';
 import { getProjectPaths } from './getProjectPaths';
-import { ProgramArgs, PushProgramArgs, RawProgramArgs, ServerProgramArgs } from './ProgramArgs';
+import { ProgramArgs, RawProgramArgs } from './ProgramArgs';
 
 export function runProgram(program:RawProgramArgs):Promise<any> {
   const programArgs:ProgramArgs = getProgramArgs(program);
@@ -31,97 +22,8 @@ export function runProgram(program:RawProgramArgs):Promise<any> {
 
 }
 
-function getSteps(args:ProgramArgs):Step[] {
-  const { cwd, webpackConfig, wrapper } = args;
-  const buildOptions:BuildOptions = {
-    projectRoot: cwd,
-    webpackConfigPath: webpackConfig,
-    wrapperPath: wrapper,
-  };
-
-  if (args.command === 'server') {
-    return getServerCommandSteps(buildOptions, args);
-  }
-
-  if (args.command === 'push') {
-    return getPushCommandSteps(buildOptions, args);
-  }
-
-  if (args.command === 'dump') {
-    return getDumpCommandSteps();
-  }
-
-  if (args.command === 'summary') {
-    return getSummaryCommandSteps();
-  }
-
-  return [];
-}
-
-function getServerCommandSteps(buildOptions:BuildOptions, args:ServerProgramArgs):Step[] {
-  return [
-    { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
-    { exec: thunkStartServer(buildOptions, args.port), shouldRun: true },
-  ];
-}
-
-function getPushCommandSteps(buildOptions:BuildOptions, args:PushProgramArgs):Step[] {
-  return [
-    { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
-    { exec: printSerializationWarnings, shouldRun: true },
-  ];
-}
-
-function getDumpCommandSteps():Step[] {
-  return [
-    { exec: printDump, shouldRun: true },
-  ];
-}
-
-function getSummaryCommandSteps():Step[] {
-  return [
-    { exec: printSummary, shouldRun: true },
-    { exec: printSerializationWarnings, shouldRun: true },
-  ];
-}
-
-function thunkBuildComponentsLibrary(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
-  return ({ result: { categorizedComponents } }) => {
-    const components:ComponentDefinition[] = getAllComponentsFromCategories(categorizedComponents);
-    return buildDesignSystem(components, buildOptions);
-  };
-}
-
-function thunkStartServer(buildOptions:BuildOptions, port:number):(ds:DSMetadata) => Promise<any> {
-  return ({ result: { categorizedComponents } }) => startServer(getAllComponentsFromCategories(categorizedComponents), {
-    port,
-    root: join(buildOptions.projectRoot, TEMP_DIR_PATH),
-  });
-}
-
-function printDump({ warnings, result }:DSMetadata):void {
-  const INDENT:number = 2;
-  console.log(JSON.stringify(sortobject(result), null, INDENT));
-  console.error(stringifyWarnings(warnings, true));
-}
-
-function printSummary({ result: { categorizedComponents } }:DSMetadata):void {
-  console.log(getDesignSystemSummary(categorizedComponents));
-}
-
-function printSerializationWarnings({ warnings }:DSMetadata):void {
-  console.log(stringifyWarnings(warnings));
-}
-
 function logError(errorMessage:string):void {
   console.log('ERROR:', errorMessage);
 }
 
 type StepExecutor = (designSystem:DSMetadata) => Promise<DSMetadata>;
-
-interface Step {
-  shouldRun:boolean;
-  exec:(infos:DSMetadata) => any;
-}
-
-type DSMetadata = Warned<DesignSystemSnapshot>;
