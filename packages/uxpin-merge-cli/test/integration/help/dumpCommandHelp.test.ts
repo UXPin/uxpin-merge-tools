@@ -1,31 +1,21 @@
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 
 describe('--help option for `dump` command', () => {
-  it('it prints help for --webpack-config <path> option', () => {
+  it('it prints description for dump command', async () => {
     // when
-    return runUXPinMergeCommand({ params: ['dump', '--help'] }).then((output) => {
-      // then
-      expect(output).toMatch(
-        /--webpack-config <path>\s+path to a custom webpack config, relative to the current working directory/,
-      );
-    });
+    const output:string = await runUXPinMergeCommand({ params: ['dump', '--help'] });
+
+    // then
+    expect(output).toContain(
+      'Shows all information (in JSON) about the design system repository and NOT send to UXPin',
+    );
   });
 
-  it('it prints help for --wrapper <path> option', () => {
+  it('it prints help for --cwd <path> option', async () => {
     // when
-    return runUXPinMergeCommand({ params: ['dump', '--help'] }).then((output) => {
-      // then
-      expect(output)
-        .toMatch(/--wrapper <path>\s+path to a custom component wrapper, relative to the current working directory/);
-    });
-  });
+    const output:string = await runUXPinMergeCommand({ params: ['dump', '--help'] });
 
-  it('it prints help for --cwd <path> option', () => {
-    // when
-    return runUXPinMergeCommand({ params: ['dump', '--help'] }).then((output) => {
-      // then
-      expect(output)
-        .toMatch(/--cwd <path>\s+working directory: path to root of the DS repository/);
-    });
+    // then
+    expect(output).toMatch(/--cwd <path>\s+working directory: path to root of the DS repository/);
   });
 });

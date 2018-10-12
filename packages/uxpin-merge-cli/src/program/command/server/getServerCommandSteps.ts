@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { startServer } from '../../../debug/server/startServer';
+import { startDebugServer } from '../../../debug/server/startDebugServer';
 import { BuildOptions } from '../../../steps/building/BuildOptions';
 import { TEMP_DIR_PATH } from '../../../steps/building/config/getConfig';
 import { getAllComponentsFromCategories } from '../../../steps/serialization/component/categories/getAllComponentsFromCategories';
@@ -16,8 +16,10 @@ export function getServerCommandSteps(buildOptions:BuildOptions, args:ServerProg
 }
 
 function thunkStartServer(buildOptions:BuildOptions, port:number):(ds:DSMetadata) => Promise<any> {
-  return ({ result: { categorizedComponents } }) => startServer(getAllComponentsFromCategories(categorizedComponents), {
-    port,
-    root: join(buildOptions.projectRoot, TEMP_DIR_PATH),
-  });
+  return ({ result: { categorizedComponents } }) => {
+    return startDebugServer(getAllComponentsFromCategories(categorizedComponents), {
+      port,
+      root: join(buildOptions.projectRoot, TEMP_DIR_PATH),
+    });
+  };
 }

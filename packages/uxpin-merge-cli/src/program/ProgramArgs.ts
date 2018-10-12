@@ -35,16 +35,12 @@ export interface ServerProgramArgs {
 export interface DumpProgramArgs {
   command:'dump';
   cwd:string;
-  webpackConfig?:string;
-  wrapper?:string;
   config:string;
 }
 
 export interface SummaryProgramArgs {
   command:'summary';
   cwd:string;
-  webpackConfig?:string;
-  wrapper?:string;
   config:string;
 }
 

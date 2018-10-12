@@ -31,9 +31,7 @@ program
 
 program
   .command('dump')
-  .description('Show all information about the design system repository and NOT send to UXPin')
-  .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
-  .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
+  .description('Shows all information (in JSON) about the design system repository and NOT send to UXPin')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
   .option('--config <path>', 'path to a config file. \'./uxpin.config.js\' is used by default.')
   .action(() => {});
@@ -41,8 +39,6 @@ program
 program
   .command('summary')
   .description('Show only design system summary without building it')
-  .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
-  .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
   .option('--config <path>', 'path to a config file. \'./uxpin.config.js\' is used by default.')
   .action(() => {});
