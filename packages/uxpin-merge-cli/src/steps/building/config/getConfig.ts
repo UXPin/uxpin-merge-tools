@@ -10,10 +10,10 @@ export const LIBRARY_METADATA_PATH:string = `${TEMP_DIR_PATH}/designsystem.json`
 export const LIBRARY_OUTPUT_FILENAME:string = 'designsystemlibrary.js';
 export const LIBRARY_OUTPUT_PATH:string = `${TEMP_DIR_PATH}/${LIBRARY_OUTPUT_FILENAME}`;
 
-export function getConfig(projectRoot:string, webpackConfigPath?:string):Configuration {
-  const config:Configuration = {
+export function getConfig(projectRoot:string, webpackConfigPath?:string, development?:boolean):Configuration {
+  const config:Configuration = decorateWithDevToolsWhenDevelopment({
     entry: LIBRARY_INPUT_PATH,
-    mode: 'production',
+    mode: development ? 'development' : 'production',
     optimization: {
       runtimeChunk: false,
       splitChunks: false,
@@ -26,11 +26,23 @@ export function getConfig(projectRoot:string, webpackConfigPath?:string):Configu
     resolve: {
       extensions: ['.js', '.jsx'],
     },
-  };
+  }, development);
 
   if (webpackConfigPath) {
     const userWebpackConfig:Configuration = require(join(projectRoot, webpackConfigPath));
     return smart(userWebpackConfig, config);
   }
+
   return config;
+}
+
+function decorateWithDevToolsWhenDevelopment(config:Configuration, development:boolean = false):Configuration {
+  if (!development) {
+    return config;
+  }
+
+  return {
+    ...config,
+    devtool: 'cheap-module-eval-source-map',
+  };
 }
