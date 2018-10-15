@@ -505,12 +505,6 @@ are-we-there-yet@~1.1.2:
     delegates "^1.0.0"
     readable-stream "^2.0.6"
 
-argparse@1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.9.tgz#73d83bc263f86e97f8cc4f6bae1b0e90a7d22c86"
-  dependencies:
-    sprintf-js "~1.0.2"
-
 argparse@^1.0.7:
   version "1.0.10"
   resolved "https://registry.npmjs.org/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
@@ -2358,13 +2352,12 @@ domexception@^1.0.0:
   dependencies:
     webidl-conversions "^4.0.2"
 
-dts-bundle-generator@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.npmjs.org/dts-bundle-generator/-/dts-bundle-generator-0.6.1.tgz#59cc88f291c9c5056c95e771cdbf29d89951d8e7"
+dts-bundle-generator@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.npmjs.org/dts-bundle-generator/-/dts-bundle-generator-1.6.1.tgz#08b09a3b282d615d4699fe78430815fc012e519e"
   dependencies:
-    argparse "1.0.9"
-    tslib "1.7.1"
-    typescript "^2.2.1"
+    typescript ">=2.6.1"
+    yargs "~11.0.0"
 
 duplexer2@0.0.2:
   version "0.0.2"
@@ -7212,10 +7205,6 @@ ts-jest@^23.10.4:
     semver "^5.5"
     yargs-parser "10.x"
 
-tslib@1.7.1:
-  version "1.7.1"
-  resolved "https://registry.npmjs.org/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
-
 tslib@^1.0.0, tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.9.0"
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
@@ -7312,11 +7301,7 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typescript@^2.2.1:
-  version "2.7.1"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-2.7.1.tgz#bb3682c2c791ac90e7c6210b26478a8da085c359"
-
-typescript@^3.1.3:
+typescript@>=2.6.1, typescript@^3.1.3:
   version "3.1.3"
   resolved "https://registry.npmjs.org/typescript/-/typescript-3.1.3.tgz#01b70247a6d3c2467f70c45795ef5ea18ce191d5"
 
@@ -7989,6 +7974,23 @@ yargs@~1.2.6:
   resolved "https://registry.npmjs.org/yargs/-/yargs-1.2.6.tgz#9c7b4a82fd5d595b2bf17ab6dcc43135432fe34b"
   dependencies:
     minimist "^0.1.0"
+
+yargs@~11.0.0:
+  version "11.0.0"
+  resolved "https://registry.npmjs.org/yargs/-/yargs-11.0.0.tgz#c052931006c5eee74610e5fc0354bedfd08a201b"
+  dependencies:
+    cliui "^4.0.0"
+    decamelize "^1.1.1"
+    find-up "^2.1.0"
+    get-caller-file "^1.0.1"
+    os-locale "^2.0.0"
+    require-directory "^2.1.1"
+    require-main-filename "^1.0.1"
+    set-blocking "^2.0.0"
+    string-width "^2.0.0"
+    which-module "^2.0.0"
+    y18n "^3.2.1"
+    yargs-parser "^9.0.2"
 
 yargs@~3.10.0:
   version "3.10.0"
