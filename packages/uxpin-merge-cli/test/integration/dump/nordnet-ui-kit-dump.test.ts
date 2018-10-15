@@ -4,13 +4,13 @@ import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('The --dump option', () => {
+describe('The dump command', () => {
   describe('run for the nordnet-ui-kit repository', () => {
     it('prints the JSON describing the full repository', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/repos/nordnet-ui-kit',
-        params: ['push', '--dump', '--config="../../configs/nordnet-ui-kit-uxpin.config.js"'],
+        params: ['dump', '--config="../../configs/nordnet-ui-kit-uxpin.config.js"'],
       }).then((consoleOutput) => {
         // then
         expect(consoleOutput).toMatchSnapshot();

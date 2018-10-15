@@ -5,13 +5,13 @@ const CURRENT_TIMEOUT:number = 30000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('--summary option integration', () => {
-  describe('--summary option prints ', () => {
+describe('summary command integration', () => {
+  describe('summary command prints ', () => {
     it('prints the list of components found in mineral-ui example', async () => {
       // when
       const output:string = await runUXPinMergeCommand({
         cwd: 'resources/repos/mineral-ui',
-        params: ['push', '--summary'],
+        params: ['summary'],
       });
 
       // then

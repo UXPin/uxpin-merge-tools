@@ -5,13 +5,13 @@ const CURRENT_TIMEOUT:number = 15000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('--summary option integration', () => {
-  describe('--summary option prints ', () => {
+describe('summary command integration', () => {
+  describe('summary command prints ', () => {
     it('prints a info when there`s no config file in the project', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/designSystems/noSrcDir',
-        params: ['push', '--summary'],
+        params: ['summary'],
       }).then((output) => {
         // then
         expect(output).toContain('uxpin.config.js\' not found. Using default configuration.');
