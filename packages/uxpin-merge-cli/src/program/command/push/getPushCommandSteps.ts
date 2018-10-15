@@ -1,5 +1,5 @@
 import { BuildOptions } from '../../../steps/building/BuildOptions';
-import { PushProgramArgs } from '../../ProgramArgs';
+import { PushProgramArgs } from '../../args/ProgramArgs';
 import { printSerializationWarnings } from '../../utils/printSerializationWarnings';
 import { thunkBuildComponentsLibrary } from '../../utils/thunkBuildComponentsLibrary';
 import { Step } from '../Step';

@@ -46,11 +46,12 @@ export interface SummaryProgramArgs {
 
 export interface ExperimentProgramArgs {
   command:'experiment';
+  config:string;
   cwd:string;
   port:number;
   webpackConfig?:string;
   wrapper?:string;
-  config:string;
+  uxpinDomain:string;
 }
 
 export type Arg = string | CommanderStatic;

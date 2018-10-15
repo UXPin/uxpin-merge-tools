@@ -1,4 +1,4 @@
-import { ProgramArgs } from '../ProgramArgs';
+import { ProgramArgs } from '../args/ProgramArgs';
 import { getDumpCommandSteps } from './dump/getDumpCommandSteps';
 import { getExperimentationServerCommandSteps } from './experimentation/getExperimentationServerCommandSteps';
 import { getPushCommandSteps } from './push/getPushCommandSteps';
