@@ -19,7 +19,7 @@ export function setupDebugServerTest(options:DebugServerTestSetupOptions,
   const serverCmdArgsWithPort:CmdOptions = {
     cwd: projectPath,
     env,
-    params: [...(serverCmdArgs || []), `--port=${port}`],
+    params: ['server', ...(serverCmdArgs || []), `--port=${port}`],
   };
   keepServerWhileTestsRunning(serverCmdArgsWithPort);
   keepChromelessWhileTestsRunning(port, onChromelessReady, debugAppPath);

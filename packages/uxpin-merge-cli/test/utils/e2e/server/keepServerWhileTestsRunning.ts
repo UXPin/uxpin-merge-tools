@@ -1,10 +1,10 @@
 import { CmdOptions } from '../../command/CmdOptions';
-import { startUXPinCodeServer } from '../../command/startUXPinCodeServer';
+import { startUXPinMergeServer } from '../../command/startUXPinMergeServer';
 
 export function keepServerWhileTestsRunning(options:CmdOptions):void {
   let closeServer:() => void;
   beforeAll((done) => {
-    return startUXPinCodeServer(options).then((close) => {
+    return startUXPinMergeServer(options).then((close) => {
       closeServer = close;
       done();
     });

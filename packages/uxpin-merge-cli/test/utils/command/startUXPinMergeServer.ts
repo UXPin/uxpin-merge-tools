@@ -4,9 +4,9 @@ import { buildCommand } from './buildCommand';
 import { CmdOptions } from './CmdOptions';
 import { getExecOptions } from './getExecOptions';
 
-export function startUXPinCodeServer(options:CmdOptions):Promise<() => void> {
+export function startUXPinMergeServer(options:CmdOptions):Promise<() => void> {
   return new Promise((resolve, reject) => {
-    const uxpinCommandOptions:CmdOptions = { ...options, params: ['server', ...(options.params || [])] };
+    const uxpinCommandOptions:CmdOptions = { ...options, params: [...(options.params || [])] };
     const command:string = buildCommand(uxpinCommandOptions);
     const subprocess:ChildProcess = exec(command, getExecOptions());
     onServerReady(subprocess, () => resolve(() => subprocess.kill()));
