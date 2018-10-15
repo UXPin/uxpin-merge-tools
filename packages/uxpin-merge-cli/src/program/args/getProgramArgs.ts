@@ -44,7 +44,7 @@ export function getProgramArgs(program:RawProgramArgs):ProgramArgs {
 function getCommand(program:RawProgramArgs):Command {
   const args:Arg[] = program.args || [];
   return args.filter(isArgKnownCommand(Object.keys(defaultArgs)))
-    .reduce((command, arg) => arg.name(), DEFAULT_COMMAND) as Command;
+    .reduce<Command>((command, arg) => arg.name() as Command, DEFAULT_COMMAND);
 }
 
 function getCommandArgs(program:RawProgramArgs, command:Command):ProgramArgs | {} {
