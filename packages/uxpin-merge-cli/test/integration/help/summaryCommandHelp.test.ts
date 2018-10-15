@@ -1,5 +1,8 @@
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 
+const timeout:number = 8000;
+jest.setTimeout(timeout);
+
 describe('--help option for `summary` command', () => {
 
   let output:string;

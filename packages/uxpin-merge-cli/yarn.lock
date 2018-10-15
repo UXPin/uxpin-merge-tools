@@ -138,9 +138,9 @@
   dependencies:
     "@types/connect" "*"
 
-"@types/jest@^20.0.8":
-  version "20.0.8"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-20.0.8.tgz#7f8c97f73d20d3bf5448fbe33661a342002b5954"
+"@types/jest@^23.3.5":
+  version "23.3.5"
+  resolved "https://registry.npmjs.org/@types/jest/-/jest-23.3.5.tgz#870a1434208b60603745bfd214fc3fc675142364"
 
 "@types/locate-path@^2.0.0":
   version "2.0.0"
