@@ -16,5 +16,9 @@ export function getDocumentationInfo(paths:ComponentPaths):Promise<ComponentDocu
 }
 
 function isExactFile(path:string):Promise<void> {
-  return isFile(path, { caseSensitive: true });
+  return isFile(path, { caseSensitive: true }).then((value) => {
+    if (!value) {
+      throw new Error(`${path} is not a file`);
+    }
+  });
 }

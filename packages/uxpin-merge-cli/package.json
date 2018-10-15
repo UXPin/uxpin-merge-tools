@@ -81,7 +81,6 @@
     "clean-stacktrace-relative-paths": "^1.0.4",
     "colors": "^1.1.2",
     "fs-extra": "^7.0.0",
-    "fs-readfile-promise": "^3.0.0",
     "globby": "^8.0.1",
     "http-server": "^0.10.0",
     "locate-path": "^2.0.0",
