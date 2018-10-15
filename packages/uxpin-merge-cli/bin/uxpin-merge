@@ -9,9 +9,10 @@ program
   .description('`uxpin-merge` starts up an experimentation mode for the project in the CWD. See more commands below.')
   .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
   .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
-  .option('--cwd <path>', 'working directory: path to root of the DS repository')
-  .option('--config <path>', 'path to a config file. \'./uxpin.config.js\' is used by default.')
-  .option('--uxpin-domain <domain>', 'UXPin domain name – "uxpin.com" by default. Can be used to set a UXPin private cloud domain');
+  .option('--cwd <path>', 'working directory: path to root of the DS repository. Default: `./`')
+  .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
+  .option('--port <number>', 'port number on which the local server will listen. Default: 8877')
+  .option('--uxpin-domain <domain>', 'Can be used to set a UXPin private cloud domain. Default: `uxpin.com`');
 
 program
   .command('server')
@@ -28,21 +29,21 @@ program
   .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
   .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
-  .option('--config <path>', 'path to a config file. \'./uxpin.config.js\' is used by default.')
+  .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
   .action(() => {});
 
 program
   .command('dump')
   .description('Shows all information (in JSON) about the design system repository and NOT send to UXPin')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
-  .option('--config <path>', 'path to a config file. \'./uxpin.config.js\' is used by default.')
+  .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
   .action(() => {});
 
 program
   .command('summary')
   .description('Show only design system summary without building it')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
-  .option('--config <path>', 'path to a config file. \'./uxpin.config.js\' is used by default.')
+  .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
   .action(() => {});
 
 program.parse(process.argv);
