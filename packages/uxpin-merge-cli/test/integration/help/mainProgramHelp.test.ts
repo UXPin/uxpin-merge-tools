@@ -30,7 +30,7 @@ describe('--help option', () => {
     return runUXPinMergeCommand({ params: ['--help'] }).then((output) => {
       // then
       expect(output)
-        .toMatch(/--config <path>\s+path to a config file. '\.\/uxpin\.config\.js' is used by default./);
+        .toMatch(/--config <path>\s+path to a config file. Default: `\.\/uxpin\.config\.js`/);
     });
   });
 

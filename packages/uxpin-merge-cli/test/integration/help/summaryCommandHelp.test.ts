@@ -15,7 +15,7 @@ describe('--help option for `summary` command', () => {
 
     // then
     expect(output)
-      .toMatch(/--config <path>\s+path to a config file\. '\.\/uxpin\.config\.js' is used by default\./);
+      .toMatch(/--config <path>\s+path to a config file\. Default: `\.\/uxpin\.config\.js`/);
   });
 
   it('it prints help for --cwd <path> option', async () => {
