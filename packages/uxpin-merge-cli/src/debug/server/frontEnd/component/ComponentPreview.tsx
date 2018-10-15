@@ -12,7 +12,7 @@ interface State {
 }
 
 export class ComponentPreview extends React.Component<Props, State> {
-  private container:HTMLElement | null;
+  private container:HTMLElement | null | undefined;
 
   constructor(props:Props) {
     super(props);
