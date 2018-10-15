@@ -1,11 +1,8 @@
-import fsReaddirPromise = require('fs-readdir-promise');
+import { readdir } from 'fs-extra';
 import { parse } from 'path';
 
-export function isFileCaseSensitive(path:string):Promise<void> {
+export async function isFileCaseSensitive(path:string):Promise<boolean> {
   const { dir, base } = parse(path);
-  return fsReaddirPromise(dir).then((contents) => {
-    if (!contents.includes(base)) {
-      throw new Error(`Exact path ${path} does not exist`);
-    }
-  });
+  const dirContents:string[] = await readdir(dir);
+  return dirContents.includes(base);
 }

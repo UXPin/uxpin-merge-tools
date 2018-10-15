@@ -1,7 +1,7 @@
+import { readdir } from 'fs-extra';
 import pReduce = require('p-reduce');
 import { join, relative } from 'path';
 import { isFile } from '../../../../utils/fs/isFile';
-import { readDir } from '../../../../utils/fs/readDir';
 import { ComponentPresetInfo } from '../ComponentInfo';
 import { ComponentPaths } from '../paths/ComponentPaths';
 import { filterPresets } from './filterPresets';
@@ -18,7 +18,7 @@ export function getPresetInfos(componentPaths:ComponentPaths):Promise<ComponentP
 }
 
 function getFilePaths(dirPath:string):Promise<string[]> {
-  return readDir(dirPath)
+  return readdir(dirPath)
     .then((content) => content.map((fileName) => join(dirPath, fileName)))
     .then(skipDirectories)
     .catch(() => []);
@@ -34,7 +34,7 @@ function skipDirectories(paths:string[]):Promise<string[]> {
   }, [] as string[]);
 }
 
-function getFilePath(path:string):Promise<string|null> {
+function getFilePath(path:string):Promise<string | null> {
   return isFile(path).then((value) => value ? path : null).catch(() => null);
 }
 
