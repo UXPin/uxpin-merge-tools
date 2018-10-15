@@ -66,7 +66,7 @@ describe('--help option', () => {
     return runUXPinMergeCommand({ params: ['--help'] }).then((output) => {
       // then
       expect(output).toMatch(
-        /dump \[options\]\s+Shows all information \(in JSON\) about the design system repository and NOT send to UXPin/
+        /dump \[options\]\s+Shows all information \(in JSON\) about the design system repository and NOT send to UXPin/,
       );
     });
   });
