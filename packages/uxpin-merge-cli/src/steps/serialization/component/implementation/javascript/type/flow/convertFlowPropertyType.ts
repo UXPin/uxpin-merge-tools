@@ -8,7 +8,7 @@ import { convertSignatureFlowType } from './strategy/convertSignatureFlowType';
 import { convertUnionFlowType } from './strategy/convertUnionFlowType';
 import { thunkCreatePrimitivePropertyType } from './strategy/thunkCreatePrimitivePropertyType';
 
-const STRATEGIES:{ [typeName in NamesToBeConverted]:(type:FlowType) => PropertyType } = {
+const STRATEGIES:{ [typeName in NamesToBeConverted]:(type:FlowType | any) => PropertyType } = {
   Array: convertArrayFlowType,
   Function: thunkCreatePrimitivePropertyType('func'),
   Object: thunkCreatePrimitivePropertyType('object'),
