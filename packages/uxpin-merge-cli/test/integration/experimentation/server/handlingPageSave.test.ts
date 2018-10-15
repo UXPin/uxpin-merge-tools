@@ -11,9 +11,9 @@ describe('Experimentation server – handling save page request', () => {
     // given
     const options:RequestPromiseOptions = { method: 'POST', resolveWithFullResponse: true };
     const expectedHeaders:any = {
-      'Access-Control-Allow-Credentials': 'true',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
-      'Access-Control-Allow-Origin': 'https://app.uxpin.com',
+      'access-control-allow-credentials': 'true',
+      'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
+      'access-control-allow-origin': 'https://app.uxpin.com',
     };
 
     // when
