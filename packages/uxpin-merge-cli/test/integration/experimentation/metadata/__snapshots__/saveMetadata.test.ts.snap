@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Experimentation mode - save library metadata should metadata json be with specific format 1`] = `
+exports[`Experimentation mode - save library metadata should metadata file match snapshot 1`] = `
 "{
   \\"categorizedComponents\\": [
     {
