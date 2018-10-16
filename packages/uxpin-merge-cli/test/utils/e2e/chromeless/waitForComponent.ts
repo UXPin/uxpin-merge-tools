@@ -7,6 +7,6 @@ export function waitForComponent(
   chromeless:Chromeless<any>,
   componentName:string,
   timeout:number = DEFAULT_TIMEOUT,
-):Promise<void> {
+):Chromeless<any> {
   return chromeless.wait(`#header-(${kebabCase(componentName)})`, timeout);
 }

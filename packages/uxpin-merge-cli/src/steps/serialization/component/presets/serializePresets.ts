@@ -1,7 +1,7 @@
 import pReduce = require('p-reduce');
 
+import { readFile } from 'fs-extra';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
-import { readFile } from '../../../../utils/fs/readFile';
 import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
 import { getPresetName } from '../../../discovery/component/presets/presetFileNameParser';
 import { ComponentPresetData } from './ComponentPreset';
