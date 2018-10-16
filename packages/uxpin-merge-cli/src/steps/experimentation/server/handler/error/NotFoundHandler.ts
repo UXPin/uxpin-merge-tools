@@ -7,8 +7,7 @@ export class NotFoundHandler implements RequestHandler {
 
   public handle(request:IncomingMessage, response:ServerResponse):void {
     response.writeHead(NOT_FOUND, { 'Content-Type': 'text/plain' });
-    response.write('');
+    response.write('Not found');
     response.end();
   }
-
 }

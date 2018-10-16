@@ -12,6 +12,6 @@ describe('Experimentation server – handling not found path', () => {
 
     // then
     expect(response.statusCode).toEqual(NOT_FOUND);
-    expect(response.body).toEqual('');
+    expect(response.body).toEqual('Not found');
   });
 });
