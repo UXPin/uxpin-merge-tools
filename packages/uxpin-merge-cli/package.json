@@ -28,9 +28,6 @@
     "modulePathIgnorePatterns": [
       "/node_modules/"
     ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
-    },
     "testMatch": [
       "**/test/**/*.test.ts",
       "**/__tests__/*.test.ts"
@@ -38,7 +35,8 @@
     "testPathIgnorePatterns": [
       "<rootDir>/test/resources/"
     ],
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "preset": "ts-jest"
   },
   "devDependencies": {
     "@types/babel-core": "^6.25.2",
@@ -66,7 +64,7 @@
     "codecov": "^2.3.0",
     "deferred-proxy-chain": "^0.0.1",
     "dts-bundle-generator": "^1.6.1",
-    "jest": "^22.4.3",
+    "jest": "^23.6.0",
     "jest-junit-reporter": "^1.1.0",
     "ngrok": "^3.0.1",
     "nyc": "^11.2.1",
@@ -90,7 +88,6 @@
     "locate-path": "^2.0.0",
     "lodash": "^4.17.4",
     "markdown-to-ast": "^4.0.0",
-    "mkdirp-promise": "^5.0.1",
     "p-any": "^1.1.0",
     "p-map-series": "^1.0.0",
     "p-reduce": "^1.0.0",
