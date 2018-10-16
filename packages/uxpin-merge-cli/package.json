@@ -28,9 +28,6 @@
     "modulePathIgnorePatterns": [
       "/node_modules/"
     ],
-    "transform": {
-      "^.+\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
-    },
     "testMatch": [
       "**/test/**/*.test.ts",
       "**/__tests__/*.test.ts"
@@ -38,16 +35,17 @@
     "testPathIgnorePatterns": [
       "<rootDir>/test/resources/"
     ],
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "preset": "ts-jest"
   },
   "devDependencies": {
     "@types/babel-core": "^6.25.2",
     "@types/colors": "^1.1.3",
     "@types/commander": "^2.11.0",
-    "@types/fs-extra": "^4.0.3",
+    "@types/fs-extra": "^5.0.4",
     "@types/globby": "^6.1.0",
     "@types/http-server": "^0.10.0",
-    "@types/jest": "^20.0.8",
+    "@types/jest": "^23.3.5",
     "@types/locate-path": "^2.0.0",
     "@types/lodash": "^4.14.74",
     "@types/node": "^8.0.26",
@@ -60,18 +58,18 @@
     "@types/webpack": "^4.1.4",
     "@types/webpack-merge": "^4.1.3",
     "child-process-promise": "^2.2.1",
-    "chromeless": "^1.5.1",
+    "chromeless": "^1.5.2",
     "codecov": "^2.3.0",
     "dts-bundle-generator": "^0.6.1",
-    "jest": "^22.4.3",
+    "jest": "^23.6.0",
     "jest-junit-reporter": "^1.1.0",
     "ngrok": "^3.0.1",
     "nyc": "^11.2.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "remap-istanbul": "^0.9.5",
-    "ts-jest": "^22.4.4",
-    "tslint": "^5.9.1",
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
     "tslint-config-uxpin": "^1.7.0",
     "webpack-cli": "^2.1.3"
   },
@@ -80,16 +78,12 @@
     "clean-stacktrace": "^1.1.0",
     "clean-stacktrace-relative-paths": "^1.0.4",
     "colors": "^1.1.2",
-    "fs-extra": "^4.0.2",
-    "fs-readdir-promise": "^1.0.1",
-    "fs-readfile-promise": "^3.0.0",
+    "fs-extra": "^7.0.0",
     "globby": "^8.0.1",
     "http-server": "^0.10.0",
-    "is-file-promise": "^1.0.3",
     "locate-path": "^2.0.0",
     "lodash": "^4.17.4",
     "markdown-to-ast": "^4.0.0",
-    "mkdirp-promise": "^5.0.1",
     "p-any": "^1.1.0",
     "p-map-series": "^1.0.0",
     "p-reduce": "^1.0.0",
@@ -100,7 +94,7 @@
     "sortobject": "^1.1.1",
     "source-map-support": "^0.4.18",
     "tslib": "^1.9.0",
-    "typescript": "^2.5.2",
+    "typescript": "^3.1.3",
     "webpack": "^4.8.1",
     "webpack-merge": "^4.1.2"
   }

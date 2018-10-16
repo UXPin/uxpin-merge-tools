@@ -1,6 +1,6 @@
+import { readFile } from 'fs-extra';
 import { parse, Syntax, Token } from 'markdown-to-ast';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
-import { readFile } from '../../../../utils/fs/readFile';
 import { ExamplesSerializationResult } from './ExamplesSerializationResult';
 
 interface TokenWithValue extends Token {
@@ -10,10 +10,14 @@ interface TokenWithValue extends Token {
 export function serializeExamples(filePath:string):Promise<ExamplesSerializationResult> {
   return readFile(filePath, { encoding: 'utf8' })
     .then((content) => parse(content).children
-      .filter((node) => node.type === Syntax.CodeBlock && isSupportedLang(node.lang) && node.value)
+      .filter(isSupportedLangTokenWithValue)
       .map((codeBlock:TokenWithValue) => ({ code: codeBlock.value })))
     .then((examples) => ({ result: examples, warnings: [] }))
     .catch(thunkGetResultForInvalidExamples(filePath));
+}
+
+function isSupportedLangTokenWithValue(node:Token):node is TokenWithValue {
+  return node.type === Syntax.CodeBlock && isSupportedLang(node.lang) && !!node.value;
 }
 
 function isSupportedLang(lang?:string):boolean {
