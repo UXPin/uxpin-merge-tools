@@ -1,4 +1,5 @@
 import { BuildOptions } from '../../../steps/building/BuildOptions';
+import { thunkSaveMetadataLibrary } from '../../../steps/experimentation/metadata/saveMetadata';
 import { startExperimentationServer } from '../../../steps/experimentation/server/startExperimentationServer';
 import { ExperimentProgramArgs } from '../../args/ProgramArgs';
 import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
@@ -8,8 +9,10 @@ import { thunkBuildComponentsLibrary } from '../../utils/thunkBuildComponentsLib
 import { Step } from '../Step';
 
 export function getExperimentationServerCommandSteps(args:ExperimentProgramArgs):Step[] {
+  const buildOptions:BuildOptions = getBuildOptions(args);
   return [
-    { exec: thunkBuildComponentsLibrary(getBuildOptions(args)), shouldRun: true },
+    { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
+    { exec: thunkSaveMetadataLibrary(buildOptions), shouldRun: true },
     { exec: thunkStartExperimentationServer(args), shouldRun: true },
   ];
 }
