@@ -9,7 +9,11 @@ export interface RawProgramArgs {
   config?:string;
 }
 
-export type ProgramArgs = PushProgramArgs | ServerProgramArgs | DumpProgramArgs | SummaryProgramArgs;
+export type ProgramArgs = PushProgramArgs
+  | ServerProgramArgs
+  | DumpProgramArgs
+  | SummaryProgramArgs
+  | ExperimentProgramArgs;
 
 export interface PushProgramArgs {
   command:'push';
@@ -31,17 +35,23 @@ export interface ServerProgramArgs {
 export interface DumpProgramArgs {
   command:'dump';
   cwd:string;
-  webpackConfig?:string;
-  wrapper?:string;
   config:string;
 }
 
 export interface SummaryProgramArgs {
   command:'summary';
   cwd:string;
-  webpackConfig?:string;
-  wrapper?:string;
   config:string;
 }
 
-type Arg = string|CommanderStatic;
+export interface ExperimentProgramArgs {
+  command:'experiment';
+  config:string;
+  cwd:string;
+  port:number;
+  webpackConfig?:string;
+  wrapper?:string;
+  uxpinDomain:string;
+}
+
+export type Arg = string | CommanderStatic;

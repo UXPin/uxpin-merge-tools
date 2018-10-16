@@ -14,7 +14,7 @@ interface ServerOptions {
   root:string;
 }
 
-export function startServer(components:ComponentDefinition[], serverOptions:ServerOptions):Promise<void> {
+export function startDebugServer(components:ComponentDefinition[], serverOptions:ServerOptions):Promise<void> {
   const { port, root } = serverOptions;
   return copyRequiredFiles(root)
     .then((bundlePath) => writeStaticIndexFile(root, bundlePath, components))

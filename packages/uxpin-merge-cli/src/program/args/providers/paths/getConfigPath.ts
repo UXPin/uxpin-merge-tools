@@ -1,5 +1,5 @@
 import { isAbsolute, join } from 'path';
-import { ProgramArgs } from './ProgramArgs';
+import { ProgramArgs } from '../../ProgramArgs';
 
 export function getConfigPath({ cwd, config }:ProgramArgs):string {
   if (isAbsolute(config)) {

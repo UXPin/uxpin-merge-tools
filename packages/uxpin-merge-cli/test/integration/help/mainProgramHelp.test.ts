@@ -30,7 +30,7 @@ describe('--help option', () => {
     return runUXPinMergeCommand({ params: ['--help'] }).then((output) => {
       // then
       expect(output)
-        .toMatch(/--config <path>\s+path to a config file. '\.\/uxpin\.config\.js' is used by default./);
+        .toMatch(/--config <path>\s+path to a config file. Default: `\.\/uxpin\.config\.js`/);
     });
   });
 
@@ -65,8 +65,9 @@ describe('--help option', () => {
     // when
     return runUXPinMergeCommand({ params: ['--help'] }).then((output) => {
       // then
-      expect(output)
-        .toMatch(/dump \[options\]\s+Show all information about the design system repository and NOT send to UXPin/);
+      expect(output).toMatch(
+        /dump \[options\]\s+Shows all information \(in JSON\) about the design system repository and NOT send to UXPin/,
+      );
     });
   });
 

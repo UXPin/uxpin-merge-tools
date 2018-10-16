@@ -1,5 +1,7 @@
 import Chromeless from 'chromeless';
+import { SERVER_SUCCESS_MESSAGE } from '../../../src/debug/server/serverConfig';
 import { CmdOptions } from '../command/CmdOptions';
+import { TestServerOptions } from '../command/startUXPinMergeServer';
 import { keepChromelessWhileTestsRunning } from './chromeless/keepChromelessWhileTestsRunning';
 import { getRandomPortNumber } from './server/getRandomPortNumber';
 import { keepServerWhileTestsRunning } from './server/keepServerWhileTestsRunning';
@@ -19,8 +21,11 @@ export function setupDebugServerTest(options:DebugServerTestSetupOptions,
   const serverCmdArgsWithPort:CmdOptions = {
     cwd: projectPath,
     env,
-    params: [...(serverCmdArgs || []), `--port=${port}`],
+    params: ['server', ...(serverCmdArgs || []), `--port=${port}`],
   };
-  keepServerWhileTestsRunning(serverCmdArgsWithPort);
+  const serverOptions:TestServerOptions = {
+    serverReadyOutput: new RegExp(SERVER_SUCCESS_MESSAGE),
+  };
+  keepServerWhileTestsRunning(serverCmdArgsWithPort, serverOptions);
   keepChromelessWhileTestsRunning(port, onChromelessReady, debugAppPath);
 }
