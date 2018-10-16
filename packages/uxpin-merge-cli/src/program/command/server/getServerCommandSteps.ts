@@ -1,23 +1,27 @@
-import { join } from 'path';
-import { startServer } from '../../../debug/server/startServer';
+import { startDebugServer } from '../../../debug/server/startDebugServer';
 import { BuildOptions } from '../../../steps/building/BuildOptions';
-import { TEMP_DIR_PATH } from '../../../steps/building/config/getConfig';
 import { getAllComponentsFromCategories } from '../../../steps/serialization/component/categories/getAllComponentsFromCategories';
+import { ServerProgramArgs } from '../../args/ProgramArgs';
+import { getTempDirPath } from '../../args/providers/paths/getTempDirPath';
 import { DSMetadata } from '../../DSMeta';
-import { ServerProgramArgs } from '../../ProgramArgs';
 import { thunkBuildComponentsLibrary } from '../../utils/thunkBuildComponentsLibrary';
+import { getBuildOptions } from '../push/getBuildOptions';
 import { Step } from '../Step';
 
-export function getServerCommandSteps(buildOptions:BuildOptions, args:ServerProgramArgs):Step[] {
+export function getServerCommandSteps(args:ServerProgramArgs):Step[] {
+  const buildOptions:BuildOptions = getBuildOptions(args);
   return [
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
-    { exec: thunkStartServer(buildOptions, args.port), shouldRun: true },
+    { exec: thunkStartServer(args), shouldRun: true },
   ];
 }
 
-function thunkStartServer(buildOptions:BuildOptions, port:number):(ds:DSMetadata) => Promise<any> {
-  return ({ result: { categorizedComponents } }) => startServer(getAllComponentsFromCategories(categorizedComponents), {
-    port,
-    root: join(buildOptions.projectRoot, TEMP_DIR_PATH),
-  });
+function thunkStartServer(args:ServerProgramArgs):(ds:DSMetadata) => Promise<any> {
+  return ({ result: { categorizedComponents } }) => {
+    const { port } = args;
+    return startDebugServer(getAllComponentsFromCategories(categorizedComponents), {
+      port,
+      root: getTempDirPath(args),
+    });
+  };
 }

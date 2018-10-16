@@ -1,5 +1,5 @@
+import { ProgramArgs } from '../../../ProgramArgs';
 import { getConfigPath } from '../getConfigPath';
-import { ProgramArgs } from '../ProgramArgs';
 
 describe('getConfigPath', () => {
   describe('returning absolute path of the config file', () => {

@@ -1,4 +1,4 @@
-import isFilePromise = require('is-file-promise');
+import { pathExists } from 'fs-extra';
 import { isFileCaseSensitive } from './isFile/isFileCaseSensitive';
 
 const defaults:IsFileOptions = {
@@ -9,10 +9,10 @@ interface IsFileOptions {
   caseSensitive?:boolean;
 }
 
-export function isFile(path:string, options:IsFileOptions = {}):Promise<void> {
+export function isFile(path:string, options:IsFileOptions = {}):Promise<boolean> {
   const { caseSensitive }:IsFileOptions = { ...defaults, ...options };
   if (caseSensitive) {
     return isFileCaseSensitive(path);
   }
-  return isFilePromise(path);
+  return pathExists(path);
 }
