@@ -4,6 +4,8 @@
 /coverage-cli
 .nyc_output
 .uxpin-merge
+!/test/resources/designSystems/withEpidFile/.uxpin-merge
+!/test/resources/designSystems/cantWriteToUxpinTemp/.uxpin-merge
 /test/**/*.js
 /test/**/*.js.map
 /src/**/*.js
