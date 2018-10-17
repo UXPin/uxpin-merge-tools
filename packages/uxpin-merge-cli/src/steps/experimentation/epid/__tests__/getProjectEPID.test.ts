@@ -2,7 +2,7 @@ import * as path from 'path';
 import { getProjectEPID } from '../getProjectEPID';
 
 describe('getProjectEPID', () => {
-  it('should read epid file and convert it to EPID format', async () => {
+  it('should read epid file and convert it to EPID object', async () => {
     // given
     const projectPath:string = path.resolve(__dirname, '../../../../../test/resources/designSystems/withEpidFile/');
 
