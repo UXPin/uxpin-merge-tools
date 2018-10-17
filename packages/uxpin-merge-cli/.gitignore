@@ -3,6 +3,7 @@
 /coverage
 /coverage-cli
 .nyc_output
+.uxpin-merge
 /test/**/*.js
 /test/**/*.js.map
 /src/**/*.js

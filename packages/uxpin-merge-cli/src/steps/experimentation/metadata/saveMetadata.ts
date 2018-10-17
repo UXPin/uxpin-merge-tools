@@ -1,7 +1,7 @@
-import { writeFile } from 'fs';
 import * as path from 'path';
 import sortobject = require('sortobject');
 import { DSMetadata } from '../../../program/DSMeta';
+import { writeToFile } from '../../../utils/fs/writeToFile';
 import { BuildOptions } from '../../building/BuildOptions';
 import { TEMP_DIR_PATH } from '../../building/config/getConfig';
 import { DesignSystemSnapshot } from '../../serialization/DesignSystemSnapshot';
@@ -17,14 +17,6 @@ export function thunkSaveMetadataLibrary(buildOptions:BuildOptions):(ds:DSMetada
 }
 
 function saveMetadata(filePath:string, snapshot:DesignSystemSnapshot):Promise<void> {
-  return new Promise((resolve, reject) => {
-    const serializedSnapshot:string = JSON.stringify(sortobject(snapshot), null, INDENT);
-    writeFile(filePath, serializedSnapshot, 'utf-8', (error) => {
-      if (error) {
-        return reject(error);
-      }
-
-      resolve();
-    });
-  });
+  const serializedSnapshot:string = JSON.stringify(sortobject(snapshot), null, INDENT);
+  return writeToFile(filePath, serializedSnapshot);
 }

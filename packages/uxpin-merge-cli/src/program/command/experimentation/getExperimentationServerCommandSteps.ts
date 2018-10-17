@@ -1,4 +1,5 @@
 import { BuildOptions } from '../../../steps/building/BuildOptions';
+import { thunkCreateEPID } from '../../../steps/experimentation/epid/thunkCreateEPID';
 import { thunkSaveMetadataLibrary } from '../../../steps/experimentation/metadata/saveMetadata';
 import { startExperimentationServer } from '../../../steps/experimentation/server/startExperimentationServer';
 import { ExperimentProgramArgs } from '../../args/ProgramArgs';
@@ -13,6 +14,7 @@ export function getExperimentationServerCommandSteps(args:ExperimentProgramArgs)
   return [
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
     { exec: thunkSaveMetadataLibrary(buildOptions), shouldRun: true },
+    { exec: thunkCreateEPID(buildOptions), shouldRun: true },
     { exec: thunkStartExperimentationServer(args), shouldRun: true },
   ];
 }

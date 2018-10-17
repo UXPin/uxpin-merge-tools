@@ -1,12 +1,14 @@
 import { createServer, Server } from 'http';
 import { resolve } from 'path';
 import { LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../../building/config/getConfig';
+import { EPID } from '../epid/EPID';
+import { getProjectEPID } from '../epid/getProjectEPID';
 import { StaticNoCacheFileHandler } from './handler/file/StaticNoCacheFileHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
 import { RequestHandler } from './handler/RequestHandler';
 import { ServerRouter } from './router/ServerRouter';
 
-export const SERVER_READY_OUTPUT:RegExp = /Server ready/;
+export const SERVER_READY_OUTPUT:RegExp = /Experimental Mode/;
 
 export async function startExperimentationServer(options:ExperimentationServerOptions):Promise<void> {
   const router:ServerRouter = new ServerRouter();
@@ -16,7 +18,8 @@ export async function startExperimentationServer(options:ExperimentationServerOp
     handler.handle(request, response);
   });
   server.listen(options.port);
-  console.log('Server ready');
+  displayMergeBanner();
+  console.log(await getExperimentalURL(options));
 }
 
 function registerHandlers(router:ServerRouter, context:ExperimentationServerOptions):void {
@@ -27,6 +30,21 @@ function registerHandlers(router:ServerRouter, context:ExperimentationServerOpti
 
 function getLibraryBundleFilePath({ projectRoot }:ExperimentationServerOptions):string {
   return resolve(projectRoot, TEMP_DIR_NAME, LIBRARY_OUTPUT_FILENAME);
+}
+
+function displayMergeBanner():void {
+  console.log(`
+┌─────────┐
+│         │
+│  UXPin  │ {\\/}erge - Experimental Mode
+│         │
+└─────────┘
+`);
+}
+
+async function getExperimentalURL(options:ExperimentationServerOptions):Promise<string> {
+  const epid:EPID = await getProjectEPID(options.projectRoot);
+  return `https://app.${options.uxpinDomain}/experiment/${epid.revisionId}?port=${options.port}`;
 }
 
 export interface ExperimentationServerOptions extends ExperimentationServerContext {

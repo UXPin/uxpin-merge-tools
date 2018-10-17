@@ -1,10 +1,13 @@
 import { OK } from 'http-status-codes';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
+import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
-describe('uxpinDomainParam', () => {
+const CURRENT_TIMEOUT:number = 30000;
+setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
+describe('uxpinDomainParam', () => {
   const { request } = setupExperimentationServerTest({
     projectPath: './',
     serverCmdArgs: ['--uxpin-domain="merge.uxpin.cloud"'],
