@@ -1,9 +1,21 @@
 import { createServer, Server } from 'http';
+import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundleHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
 import { RequestHandler } from './handler/RequestHandler';
 import { ServerRouter } from './router/ServerRouter';
 
 export const SERVER_READY_OUTPUT:RegExp = /Server ready/;
+
+export interface ExperimentationServerOptions extends ExperimentationServerContext {
+  port:number;
+  projectRoot:string;
+}
+
+export interface ExperimentationServerContext {
+  bundlePath:string;
+  uxpinDirPath:string;
+  uxpinDomain:string;
+}
 
 export async function startExperimentationServer(options:ExperimentationServerOptions):Promise<void> {
   const router:ServerRouter = new ServerRouter();
@@ -18,13 +30,5 @@ export async function startExperimentationServer(options:ExperimentationServerOp
 
 function registerHandlers(router:ServerRouter, context:ExperimentationServerContext):void {
   router.register('/ajax/dmsDPPage/Save/', new PageSaveHandler(context));
-}
-
-export interface ExperimentationServerOptions extends ExperimentationServerContext {
-  port:number;
-}
-
-export interface ExperimentationServerContext {
-  uxpinDomain:string;
-  uxpinDirPath:string;
+  router.register('/code/library.js', createLibraryBundleHandler(context));
 }
