@@ -1,6 +1,5 @@
 import { BuildOptions } from '../../../steps/building/BuildOptions';
 import { getLibraryBundleFilePath } from '../../../steps/building/library/getLibraryBundleFilePath';
-import { getEPIDFilePath } from '../../../steps/experimentation/epid/getEPIDFilePath';
 import { getProjectEPID } from '../../../steps/experimentation/epid/getProjectEPID';
 import { thunkCreateEPID } from '../../../steps/experimentation/epid/thunkCreateEPID';
 import {
@@ -52,11 +51,12 @@ function getMetadataOptions(args:ExperimentProgramArgs):ExperimentMetadataOption
 async function getExperimentServerOptions(args:ExperimentProgramArgs):Promise<ExperimentationServerOptions> {
   const { port, uxpinDomain } = args;
   const uxpinDirPath:string = getTempDirPath(args);
+  const projectRoot:string = getProjectRoot(args);
   return {
     bundlePath: getLibraryBundleFilePath(uxpinDirPath),
-    epid: await getProjectEPID(getEPIDFilePath(uxpinDirPath)),
+    epid: await getProjectEPID(projectRoot),
     port,
-    projectRoot: getProjectRoot(args),
+    projectRoot,
     uxpinDirPath,
     uxpinDomain,
   };

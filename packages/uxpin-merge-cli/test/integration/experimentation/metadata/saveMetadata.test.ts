@@ -1,7 +1,9 @@
-import { existsSync, readFileSync } from 'fs';
+import { existsSync } from 'fs';
 import { resolve } from 'path';
 import { TEMP_DIR_PATH } from '../../../../src/steps/building/config/getConfig';
-import { METADATA_FILE_NAME } from '../../../../src/steps/experimentation/metadata/saveMetadata';
+import { getMetadataFilePath } from '../../../../src/steps/experimentation/metadata/getMetadataFilePath';
+import { getProjectMetadata } from '../../../../src/steps/experimentation/metadata/getProjectMetadata';
+import { DesignSystemSnapshot } from '../../../../src/types';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
@@ -10,7 +12,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - save library metadata', () => {
   const projectPath:string = resolve(__dirname, '../../../resources/repos/mineral-ui');
-  const metadataFilePath:string = resolve(projectPath, TEMP_DIR_PATH, METADATA_FILE_NAME);
+  const uxpinDirPath:string = resolve(projectPath, TEMP_DIR_PATH);
 
   setupExperimentationServerTest({
     projectPath,
@@ -21,12 +23,12 @@ describe('Experimentation mode - save library metadata', () => {
   });
 
   it('should create metadata.json file', () => {
-    expect(existsSync(metadataFilePath)).toBeTruthy();
+    expect(existsSync(getMetadataFilePath(uxpinDirPath))).toBeTruthy();
   });
 
-  it('should metadata file match snapshot', () => {
+  it('should metadata file match snapshot', async () => {
     // given
-    const metadataFile:string = readFileSync(metadataFilePath).toString('utf-8');
+    const metadataFile:DesignSystemSnapshot = await getProjectMetadata(uxpinDirPath);
 
     // then
     expect(metadataFile).toMatchSnapshot();
