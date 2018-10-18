@@ -1,6 +1,8 @@
 import { createServer, Server } from 'http';
+import { EPID } from '../epid/EPID';
 import { printServerReadyMessage } from './console/printServerReadyMessage';
 import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundleHandler';
+import { GetLibrariesHandler } from './handler/libraries/GetLibrariesHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
 import { SetActivePageHandler } from './handler/page/set/SetActivePageHandler';
 import { RequestHandler } from './handler/RequestHandler';
@@ -13,6 +15,7 @@ export interface ExperimentationServerOptions extends ExperimentationServerConte
 
 export interface ExperimentationServerContext {
   bundlePath:string;
+  epid:EPID;
   uxpinDirPath:string;
   uxpinDomain:string;
 }
@@ -32,4 +35,5 @@ function registerHandlers(router:ServerRouter, context:ExperimentationServerCont
   router.register('/ajax/dmsDPPage/Save/', new PageSaveHandler(context));
   router.register('/ajax/dmsDPPage/SetActivePage/', new SetActivePageHandler(context));
   router.register('/code/library.js', createLibraryBundleHandler(context));
+  router.register('/libraries/', new GetLibrariesHandler(context));
 }

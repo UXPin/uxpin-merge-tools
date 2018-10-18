@@ -9,7 +9,7 @@ const INDENT:number = 2;
 
 export function thunkSaveMetadataLibrary(buildOptions:ExperimentMetadataOptions):(ds:DSMetadata) => Promise<any> {
   return async ({ result }:DSMetadata) => {
-    await saveMetadata(getMetadataFilePath(buildOptions), result);
+    await saveMetadata(getMetadataFilePath(buildOptions.uxpinDirPath), result);
   };
 }
 
