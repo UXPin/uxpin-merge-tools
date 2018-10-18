@@ -1,12 +1,13 @@
 import { createServer, Server } from 'http';
-import { EPID } from '../epid/EPID';
-import { getProjectEPID } from '../epid/getProjectEPID';
+import { getUXPinMergeBanner } from '../../../utils/banner/getUXPinMergeBanner';
+import { getAPPExperimentationRemoteURL } from '../app/getAPPExperimentationRemoteURL';
 import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundleHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
 import { RequestHandler } from './handler/RequestHandler';
 import { ServerRouter } from './router/ServerRouter';
 
-export const SERVER_READY_OUTPUT:RegExp = /Experimental Mode/;
+const mode:string = 'Experimental Mode';
+export const SERVER_READY_OUTPUT:RegExp = new RegExp(mode);
 
 export interface ExperimentationServerOptions extends ExperimentationServerContext {
   port:number;
@@ -27,26 +28,11 @@ export async function startExperimentationServer(options:ExperimentationServerOp
     handler.handle(request, response);
   });
   server.listen(options.port);
-  displayMergeBanner();
-  console.log(await getExperimentalURL(options));
+  console.log(getUXPinMergeBanner(mode));
+  console.log(await getAPPExperimentationRemoteURL(options));
 }
 
 function registerHandlers(router:ServerRouter, context:ExperimentationServerContext):void {
   router.register('/ajax/dmsDPPage/Save/', new PageSaveHandler(context));
   router.register('/code/library.js', createLibraryBundleHandler(context));
-}
-
-function displayMergeBanner():void {
-  console.log(`
-┌─────────┐
-│         │
-│  UXPin  │ {\\/}erge - Experimental Mode
-│         │
-└─────────┘
-`);
-}
-
-async function getExperimentalURL(options:ExperimentationServerOptions):Promise<string> {
-  const epid:EPID = await getProjectEPID(options.projectRoot);
-  return `https://app.${options.uxpinDomain}/experiment/${epid.revisionId}?port=${options.port}`;
 }
