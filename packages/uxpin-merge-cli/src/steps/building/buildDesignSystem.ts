@@ -5,14 +5,16 @@ import { getConfig } from './config/getConfig';
 import { createComponentsLibrary } from './library/createComponentsLibrary';
 
 export function buildDesignSystem(components:ComponentDefinition[], options:BuildOptions):Promise<webpack.Stats> {
-  const { webpackConfigPath, wrapperPath, projectRoot } = options;
+  const { development, webpackConfigPath, wrapperPath, projectRoot } = options;
   return createComponentsLibrary(components, wrapperPath)
-    .then(() => bundle(projectRoot, webpackConfigPath));
+    .then(() => bundle(projectRoot, webpackConfigPath, development));
 }
 
-function bundle(projectRoot:string, webpackConfigPath?:string):Promise<webpack.Stats> {
+function bundle(projectRoot:string, webpackConfigPath?:string, development?:boolean):Promise<webpack.Stats> {
   return new Promise((resolve, reject) => {
-    const compiler:webpack.Compiler = webpack(getConfig(projectRoot, webpackConfigPath));
+    const config:webpack.Configuration = getConfig(projectRoot, webpackConfigPath, development);
+    setNodeEnvironment(development);
+    const compiler:webpack.Compiler = webpack(config);
 
     compiler.run((err, stats) => {
       if (err) {
@@ -26,4 +28,8 @@ function bundle(projectRoot:string, webpackConfigPath?:string):Promise<webpack.S
       resolve(stats);
     });
   });
+}
+
+function setNodeEnvironment(development:boolean = false):void {
+  process.env.NODE_ENV = development ? 'development' : 'production';
 }
