@@ -1,6 +1,7 @@
 import { createHash } from 'crypto';
 import { v4 } from 'uuid';
 import { DSMetadata } from '../../../program/DSMeta';
+import { isFile } from '../../../utils/fs/isFile';
 import { writeToFile } from '../../../utils/fs/writeToFile';
 import { BuildOptions } from '../../building/BuildOptions';
 import { EPID } from './EPID';
@@ -8,7 +9,12 @@ import { getEPIDFilePath } from './getEPIDFilePath';
 
 export function thunkCreateEPID(buildOptions:BuildOptions):(ds:DSMetadata) => Promise<any> {
   return async () => {
-    await createEPID(getEPIDFilePath(buildOptions.projectRoot));
+    const epidFilePath:string = getEPIDFilePath(buildOptions.projectRoot);
+    if (await isFile(epidFilePath)) {
+      return;
+    }
+
+    await createEPID(epidFilePath);
   };
 }
 
