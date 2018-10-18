@@ -1,5 +1,6 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
+import { PageData } from '../../../../../../common/types/PageData';
 import { getAccessControlHeaders } from '../../../headers/getAccessControlHeaders';
 import { ExperimentationServerContext } from '../../../startExperimentationServer';
 import { RequestHandler } from '../../RequestHandler';
@@ -20,7 +21,7 @@ export class SetActivePageHandler implements RequestHandler {
 
 }
 
-function getPageContent():any {
+function getPageContent():PageData {
   return {
     code_sync: { bundles: [], components: [], presets: [] },
     component_version: null,

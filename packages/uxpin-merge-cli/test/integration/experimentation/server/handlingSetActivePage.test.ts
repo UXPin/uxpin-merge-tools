@@ -2,6 +2,7 @@ import { OK } from 'http-status-codes';
 import { join } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
+import { PageData } from '../../../../src/common/types/PageData';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 describe('Experimentation server – handling set active page request', () => {
@@ -41,7 +42,7 @@ describe('Experimentation server – handling set active page request', () => {
 
   it('responds with a page object with an empty canvas', () => {
     // given
-    const expectedBody:any = {
+    const expectedBody:PageData = {
       code_sync: { bundles: [], components: [], presets: [] },
       component_version: null,
       components_master_ids: [],
