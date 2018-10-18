@@ -3,6 +3,7 @@ import { getUXPinMergeBanner } from '../../../utils/banner/getUXPinMergeBanner';
 import { getAPPExperimentationRemoteURL } from '../app/getAPPExperimentationRemoteURL';
 import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundleHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
+import { SetActivePageHandler } from './handler/page/set/SetActivePageHandler';
 import { RequestHandler } from './handler/RequestHandler';
 import { ServerRouter } from './router/ServerRouter';
 
@@ -34,5 +35,6 @@ export async function startExperimentationServer(options:ExperimentationServerOp
 
 function registerHandlers(router:ServerRouter, context:ExperimentationServerContext):void {
   router.register('/ajax/dmsDPPage/Save/', new PageSaveHandler(context));
+  router.register('/ajax/dmsDPPage/SetActivePage/', new SetActivePageHandler(context));
   router.register('/code/library.js', createLibraryBundleHandler(context));
 }
