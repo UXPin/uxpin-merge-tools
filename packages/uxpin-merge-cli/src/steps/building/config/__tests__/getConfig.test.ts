@@ -7,30 +7,34 @@ describe('getConfig', () => {
 
   describe('when webpack config is defined', () => {
     const webpackConfigPath:string = './getconfig-webpack.config.js';
+    let rules:Rule[];
+
+    beforeEach(() => {
+      rules = [
+        {
+          test: expect.any(Function),
+          use: [
+            { loader: '@shopify/images/icon-loader' },
+            { loader: 'image-webpack-loader' },
+          ],
+        },
+        {
+          test: expect.any(Function),
+          use: [{
+            loader: 'url-loader',
+            options: {
+              emitFile: true,
+              limit: 10000,
+            },
+          }],
+        },
+      ];
+    });
 
     describe('and is development mode', () => {
       it('returns merged configuration from specific file with \'cheap-module-eval-source-map\ devtool ' +
         'and with development mod', () => {
         // given
-        const rules:Rule[] = [
-          {
-            test: expect.any(Function),
-            use: [
-              { loader: '@shopify/images/icon-loader' },
-              { loader: 'image-webpack-loader' },
-            ],
-          },
-          {
-            test: expect.any(Function),
-            use: [{
-              loader: 'url-loader',
-              options: {
-                emitFile: true,
-                limit: 10000,
-              },
-            }],
-          },
-        ];
         const expectedConfig:Configuration = {
           devtool: 'cheap-module-eval-source-map',
           entry: LIBRARY_INPUT_PATH,
@@ -68,25 +72,6 @@ describe('getConfig', () => {
       it('returns merged configuration from specific file without changed devtools rule ' +
         'and with production mode', () => {
         // given
-        const rules:Rule[] = [
-          {
-            test: expect.any(Function),
-            use: [
-              { loader: '@shopify/images/icon-loader' },
-              { loader: 'image-webpack-loader' },
-            ],
-          },
-          {
-            test: expect.any(Function),
-            use: [{
-              loader: 'url-loader',
-              options: {
-                emitFile: true,
-                limit: 10000,
-              },
-            }],
-          },
-        ];
         const expectedConfig:Configuration = {
           devtool: 'eval',
           entry: LIBRARY_INPUT_PATH,
