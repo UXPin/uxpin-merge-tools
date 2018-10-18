@@ -1,5 +1,9 @@
 import { BuildOptions } from '../../../steps/building/BuildOptions';
-import { startExperimentationServer } from '../../../steps/experimentation/server/startExperimentationServer';
+import { getLibraryBundleFilePath } from '../../../steps/building/library/getLibraryBundleFilePath';
+import {
+  ExperimentationServerOptions,
+  startExperimentationServer,
+} from '../../../steps/experimentation/server/startExperimentationServer';
 import { ExperimentProgramArgs } from '../../args/ProgramArgs';
 import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../args/providers/paths/getTempDirPath';
@@ -16,13 +20,7 @@ export function getExperimentationServerCommandSteps(args:ExperimentProgramArgs)
 
 function thunkStartExperimentationServer(args:ExperimentProgramArgs):(ds:DSMetadata) => Promise<any> {
   return () => {
-    const { port, uxpinDomain } = args;
-    return startExperimentationServer({
-      port,
-      projectRoot: getProjectRoot(args),
-      uxpinDirPath: getTempDirPath(args),
-      uxpinDomain,
-    });
+    return startExperimentationServer(getExperimentServerOptions(args));
   };
 }
 
@@ -33,5 +31,17 @@ function getBuildOptions(args:ExperimentProgramArgs):BuildOptions {
     projectRoot: getProjectRoot(args),
     webpackConfigPath: webpackConfig,
     wrapperPath: wrapper,
+  };
+}
+
+function getExperimentServerOptions(args:ExperimentProgramArgs):ExperimentationServerOptions {
+  const { port, uxpinDomain } = args;
+  const uxpinDirPath:string = getTempDirPath(args);
+  return {
+    bundlePath: getLibraryBundleFilePath(uxpinDirPath),
+    port,
+    projectRoot: getProjectRoot(args),
+    uxpinDirPath,
+    uxpinDomain,
   };
 }
