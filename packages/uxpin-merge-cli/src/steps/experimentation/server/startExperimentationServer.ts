@@ -1,10 +1,13 @@
 import { createServer, Server } from 'http';
+import { getUXPinMergeBanner } from '../../../utils/banner/getUXPinMergeBanner';
+import { getAPPExperimentationRemoteURL } from '../app/getAPPExperimentationRemoteURL';
 import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundleHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
 import { RequestHandler } from './handler/RequestHandler';
 import { ServerRouter } from './router/ServerRouter';
 
-export const SERVER_READY_OUTPUT:RegExp = /Server ready/;
+const mode:string = 'Experimental Mode';
+export const SERVER_READY_OUTPUT:RegExp = new RegExp(mode);
 
 export interface ExperimentationServerOptions extends ExperimentationServerContext {
   port:number;
@@ -25,7 +28,8 @@ export async function startExperimentationServer(options:ExperimentationServerOp
     handler.handle(request, response);
   });
   server.listen(options.port);
-  console.log('Server ready');
+  console.log(getUXPinMergeBanner(mode));
+  console.log(await getAPPExperimentationRemoteURL(options));
 }
 
 function registerHandlers(router:ServerRouter, context:ExperimentationServerContext):void {

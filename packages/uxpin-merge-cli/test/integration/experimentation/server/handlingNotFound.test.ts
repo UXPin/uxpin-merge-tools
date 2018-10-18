@@ -1,9 +1,12 @@
 import { NOT_FOUND } from 'http-status-codes';
 import { Response } from 'request';
+import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
-describe('Experimentation server – handling not found path', () => {
+const CURRENT_TIMEOUT:number = 30000;
+setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
+describe('Experimentation server – handling not found path', () => {
   const { request } = setupExperimentationServerTest({ projectPath: './' });
 
   it('Responds with NOT_FOUND status code', async () => {

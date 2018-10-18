@@ -1,22 +1,19 @@
-import { writeFile } from 'fs';
 import { join, relative } from 'path';
 
 import { ComponentDefinition } from '../../steps/serialization/component/ComponentDefinition';
+import { writeToFile } from '../../utils/fs/writeToFile';
 
-export function writeStaticIndexFile(root:string, bundlePath:string, components:ComponentDefinition[]):Promise<string> {
-  return new Promise((resolve, reject) => {
-    const indexPath:string = join(root, 'index.html');
-    const relativeBundlePath:string = relative(root, bundlePath);
-    const fileContent:string = getIndexFileContent(relativeBundlePath, { components }, 'Design System styleguide');
+export async function writeStaticIndexFile(
+  root:string,
+  bundlePath:string,
+  components:ComponentDefinition[],
+):Promise<string> {
+  const indexPath:string = join(root, 'index.html');
+  const relativeBundlePath:string = relative(root, bundlePath);
+  const fileContent:string = getIndexFileContent(relativeBundlePath, { components }, 'Design System styleguide');
 
-    writeFile(indexPath, fileContent, 'utf8', (error) => {
-      if (error) {
-        return reject(error.message);
-      }
-
-      resolve(indexPath);
-    });
-  });
+  await writeToFile(indexPath, fileContent);
+  return indexPath;
 }
 
 function getIndexFileContent(bundlePath:string, preloadedState:{}, title:string = ''):string {
