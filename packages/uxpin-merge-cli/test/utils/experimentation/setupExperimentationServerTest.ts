@@ -3,7 +3,7 @@ import { DeferredChain } from 'deferred-proxy-chain';
 import * as requestPromise from 'request-promise';
 import { RequestPromise, RequestPromiseOptions } from 'request-promise';
 import { URL } from 'url';
-import { SERVER_READY_OUTPUT } from '../../../src/steps/experimentation/server/startExperimentationServer';
+import { SERVER_READY_OUTPUT } from '../../../src/steps/experimentation/server/console/printServerReadyMessage';
 import { CmdOptions } from '../command/CmdOptions';
 import { startUXPinMergeServer, TestServerOptions } from '../command/startUXPinMergeServer';
 import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
