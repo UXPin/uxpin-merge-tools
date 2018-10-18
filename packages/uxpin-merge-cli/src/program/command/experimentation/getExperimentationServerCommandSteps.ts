@@ -1,6 +1,10 @@
 import { BuildOptions } from '../../../steps/building/BuildOptions';
 import { getLibraryBundleFilePath } from '../../../steps/building/library/getLibraryBundleFilePath';
 import {
+  ExperimentMetadataOptions,
+  thunkSaveMetadataLibrary,
+} from '../../../steps/experimentation/metadata/saveMetadata';
+import {
   ExperimentationServerOptions,
   startExperimentationServer,
 } from '../../../steps/experimentation/server/startExperimentationServer';
@@ -14,6 +18,7 @@ import { Step } from '../Step';
 export function getExperimentationServerCommandSteps(args:ExperimentProgramArgs):Step[] {
   return [
     { exec: thunkBuildComponentsLibrary(getBuildOptions(args)), shouldRun: true },
+    { exec: thunkSaveMetadataLibrary(getMetadataOptions(args)), shouldRun: true },
     { exec: thunkStartExperimentationServer(args), shouldRun: true },
   ];
 }
@@ -31,6 +36,12 @@ function getBuildOptions(args:ExperimentProgramArgs):BuildOptions {
     projectRoot: getProjectRoot(args),
     webpackConfigPath: webpackConfig,
     wrapperPath: wrapper,
+  };
+}
+
+function getMetadataOptions(args:ExperimentProgramArgs):ExperimentMetadataOptions {
+  return {
+    uxpinDirPath: getTempDirPath(args),
   };
 }
 
