@@ -1,0 +1,12 @@
+{
+  "rootId": "1",
+  "elements": {
+    "1": {
+      "name": "Button",
+      "props": {
+        "children": "Click me",
+        "appearance": "primary"
+      }
+    }
+  }
+}
