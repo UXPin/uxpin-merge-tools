@@ -1,5 +1,7 @@
 import { BuildOptions } from '../../../steps/building/BuildOptions';
 import { getLibraryBundleFilePath } from '../../../steps/building/library/getLibraryBundleFilePath';
+import { getEPIDFilePath } from '../../../steps/experimentation/epid/getEPIDFilePath';
+import { getProjectEPID } from '../../../steps/experimentation/epid/getProjectEPID';
 import { thunkCreateEPID } from '../../../steps/experimentation/epid/thunkCreateEPID';
 import {
   ExperimentMetadataOptions,
@@ -26,8 +28,8 @@ export function getExperimentationServerCommandSteps(args:ExperimentProgramArgs)
 }
 
 function thunkStartExperimentationServer(args:ExperimentProgramArgs):(ds:DSMetadata) => Promise<any> {
-  return () => {
-    return startExperimentationServer(getExperimentServerOptions(args));
+  return async () => {
+    return startExperimentationServer(await getExperimentServerOptions(args));
   };
 }
 
@@ -47,11 +49,12 @@ function getMetadataOptions(args:ExperimentProgramArgs):ExperimentMetadataOption
   };
 }
 
-function getExperimentServerOptions(args:ExperimentProgramArgs):ExperimentationServerOptions {
+async function getExperimentServerOptions(args:ExperimentProgramArgs):Promise<ExperimentationServerOptions> {
   const { port, uxpinDomain } = args;
   const uxpinDirPath:string = getTempDirPath(args);
   return {
     bundlePath: getLibraryBundleFilePath(uxpinDirPath),
+    epid: await getProjectEPID(getEPIDFilePath(uxpinDirPath)),
     port,
     projectRoot: getProjectRoot(args),
     uxpinDirPath,
