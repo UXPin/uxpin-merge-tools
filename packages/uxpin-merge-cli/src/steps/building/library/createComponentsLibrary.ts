@@ -1,14 +1,14 @@
 import { ensureDir } from 'fs-extra';
 import { writeToFile } from '../../../utils/fs/writeToFile';
 import { ComponentDefinition } from '../../serialization/component/ComponentDefinition';
-import { LIBRARY_INPUT_PATH, TEMP_DIR_PATH } from '../config/getConfig';
+import { BuildOptions } from '../BuildOptions';
+import { getComponentLibraryInputPath } from './getComponentLibraryInputPath';
 import { getFileString } from './getFileString';
 
 export async function createComponentsLibrary(
   componentInfos:ComponentDefinition[],
-  wrapperPath?:string,
-):Promise<string> {
-  await ensureDir(TEMP_DIR_PATH);
-  await writeToFile(LIBRARY_INPUT_PATH, getFileString(componentInfos, wrapperPath));
-  return LIBRARY_INPUT_PATH;
+  { uxpinDirPath, wrapperPath }:BuildOptions,
+):Promise<void> {
+  await ensureDir(uxpinDirPath);
+  await writeToFile(getComponentLibraryInputPath(uxpinDirPath), getFileString(componentInfos, wrapperPath));
 }
