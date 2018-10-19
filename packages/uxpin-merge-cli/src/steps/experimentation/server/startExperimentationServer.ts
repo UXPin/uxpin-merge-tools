@@ -3,6 +3,7 @@ import { getUXPinMergeBanner } from '../../../utils/banner/getUXPinMergeBanner';
 import { getAPPExperimentationRemoteURL } from '../app/getAPPExperimentationRemoteURL';
 import { EPID } from '../epid/EPID';
 import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundleHandler';
+import { GetRepositoryPointer } from './handler/code/GetRepositoryPointer';
 import { GetLibrariesHandler } from './handler/libraries/GetLibrariesHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
 import { RequestHandler } from './handler/RequestHandler';
@@ -39,4 +40,5 @@ function registerHandlers(router:ServerRouter, context:ExperimentationServerCont
   router.register('/ajax/dmsDPPage/Save/', new PageSaveHandler(context));
   router.register('/code/library.js', createLibraryBundleHandler(context));
   router.register('/libraries/', new GetLibrariesHandler(context));
+  router.register('/code/repositoryPointer', new GetRepositoryPointer(context));
 }
