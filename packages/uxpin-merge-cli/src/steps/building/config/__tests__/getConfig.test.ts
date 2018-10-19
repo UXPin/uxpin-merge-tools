@@ -1,9 +1,11 @@
-import { resolve } from 'path';
+import { join, resolve } from 'path';
 import { Configuration, Rule } from 'webpack';
-import { getConfig, LIBRARY_INPUT_PATH, LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../getConfig';
+import { BuildOptions } from '../../BuildOptions';
+import { getConfig, LIBRARY_INPUT_FILENAME, LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../getConfig';
 
 describe('getConfig', () => {
   const projectRoot:string = resolve(__dirname, '../../../../../test/resources/configs/');
+  const entryPath:string = join(projectRoot, TEMP_DIR_NAME, LIBRARY_INPUT_FILENAME);
 
   describe('when webpack config is defined', () => {
     const webpackConfigPath:string = './getconfig-webpack.config.js';
@@ -37,7 +39,7 @@ describe('getConfig', () => {
         // given
         const expectedConfig:Configuration = {
           devtool: 'cheap-module-eval-source-map',
-          entry: LIBRARY_INPUT_PATH,
+          entry: entryPath,
           mode: 'development',
           module: { rules },
           optimization: {
@@ -59,9 +61,15 @@ describe('getConfig', () => {
           },
           target: 'web',
         };
+        const options:BuildOptions = {
+          development: true,
+          projectRoot,
+          uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,
+          webpackConfigPath,
+        };
 
         // when
-        const config:Configuration = getConfig(projectRoot, webpackConfigPath, true);
+        const config:Configuration = getConfig(options);
 
         // then
         expect(config).toEqual(expectedConfig);
@@ -74,7 +82,7 @@ describe('getConfig', () => {
         // given
         const expectedConfig:Configuration = {
           devtool: 'eval',
-          entry: LIBRARY_INPUT_PATH,
+          entry: entryPath,
           mode: 'production',
           module: { rules },
           optimization: {
@@ -96,9 +104,15 @@ describe('getConfig', () => {
           },
           target: 'web',
         };
+        const options:BuildOptions = {
+          development: false,
+          projectRoot,
+          uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,
+          webpackConfigPath,
+        };
 
         // when
-        const config:Configuration = getConfig(projectRoot, webpackConfigPath, false);
+        const config:Configuration = getConfig(options);
 
         // then
         expect(config).toEqual(expectedConfig);
@@ -112,7 +126,7 @@ describe('getConfig', () => {
         // given
         const expectedConfig:Configuration = {
           devtool: 'cheap-module-eval-source-map',
-          entry: LIBRARY_INPUT_PATH,
+          entry: entryPath,
           mode: 'development',
           optimization: {
             runtimeChunk: false,
@@ -127,9 +141,14 @@ describe('getConfig', () => {
             extensions: ['.js', '.jsx'],
           },
         };
+        const options:BuildOptions = {
+          development: true,
+          projectRoot,
+          uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,
+        };
 
         // when
-        const config:Configuration = getConfig(projectRoot, undefined, true);
+        const config:Configuration = getConfig(options);
 
         // then
         expect(config).toEqual(expectedConfig);
@@ -140,7 +159,7 @@ describe('getConfig', () => {
       it('returns defined configuration with production mode and without devtool parameter', () => {
         // given
         const expectedConfig:Configuration = {
-          entry: LIBRARY_INPUT_PATH,
+          entry: entryPath,
           mode: 'production',
           optimization: {
             runtimeChunk: false,
@@ -155,9 +174,14 @@ describe('getConfig', () => {
             extensions: ['.js', '.jsx'],
           },
         };
+        const options:BuildOptions = {
+          development: false,
+          projectRoot,
+          uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,
+        };
 
         // when
-        const config:Configuration = getConfig(projectRoot, undefined, false);
+        const config:Configuration = getConfig(options);
 
         // then
         expect(config).toEqual(expectedConfig);
