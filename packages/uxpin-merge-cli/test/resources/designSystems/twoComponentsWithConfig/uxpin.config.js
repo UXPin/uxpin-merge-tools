@@ -1,4 +1,5 @@
 module.exports = {
+  name: 'Example Design System',
   components: {
     categories: [
       {
