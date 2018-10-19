@@ -4,16 +4,15 @@ import { BuildOptions } from './BuildOptions';
 import { getConfig } from './config/getConfig';
 import { createComponentsLibrary } from './library/createComponentsLibrary';
 
-export function buildDesignSystem(components:ComponentDefinition[], options:BuildOptions):Promise<webpack.Stats> {
-  const { development, webpackConfigPath, wrapperPath, projectRoot } = options;
-  return createComponentsLibrary(components, wrapperPath)
-    .then(() => bundle(projectRoot, webpackConfigPath, development));
+export async function buildDesignSystem(components:ComponentDefinition[], options:BuildOptions):Promise<webpack.Stats> {
+  await createComponentsLibrary(components, options);
+  return bundle(options);
 }
 
-function bundle(projectRoot:string, webpackConfigPath?:string, development?:boolean):Promise<webpack.Stats> {
+function bundle(options:BuildOptions):Promise<webpack.Stats> {
   return new Promise((resolve, reject) => {
-    const config:webpack.Configuration = getConfig(projectRoot, webpackConfigPath, development);
-    setNodeEnvironment(development);
+    const config:webpack.Configuration = getConfig(options);
+    setNodeEnvironment(options.development);
     const compiler:webpack.Compiler = webpack(config);
 
     compiler.run((err, stats) => {
