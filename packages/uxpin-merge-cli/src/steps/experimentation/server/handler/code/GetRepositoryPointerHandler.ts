@@ -4,7 +4,7 @@ import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { RequestHandler } from '../RequestHandler';
 
-export class GetRepositoryPointer implements RequestHandler {
+export class GetRepositoryPointerHandler implements RequestHandler {
   constructor(private context:ExperimentationServerContext) {}
 
   public handle(request:IncomingMessage, response:ServerResponse):void {
