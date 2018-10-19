@@ -1,7 +1,7 @@
 import { ComponentDefinition } from '../../../../src/steps/serialization/component/ComponentDefinition';
 import { DesignSystemSnapshot } from '../../../../src/steps/serialization/DesignSystemSnapshot';
 
-const expectedAvatarMetadata:ComponentDefinition = {
+export const expectedAvatarMetadata:ComponentDefinition = {
   documentation: { examples: [] },
   info: {
     dirPath: 'src/components/Avatar/',
@@ -55,7 +55,7 @@ const expectedAvatarMetadata:ComponentDefinition = {
   ],
 };
 
-const expectedButtonMetadata:ComponentDefinition = {
+export const expectedButtonMetadata:ComponentDefinition = {
   documentation: { examples: [] },
   info: {
     dirPath: 'src/components/Button/',

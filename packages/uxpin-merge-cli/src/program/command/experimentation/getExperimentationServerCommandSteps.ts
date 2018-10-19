@@ -36,6 +36,7 @@ function getBuildOptions(args:ExperimentProgramArgs):BuildOptions {
   return {
     development: true,
     projectRoot: getProjectRoot(args),
+    uxpinDirPath: getTempDirPath(args),
     webpackConfigPath: webpackConfig,
     wrapperPath: wrapper,
   };

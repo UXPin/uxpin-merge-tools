@@ -1,3 +1,4 @@
-!uxpin.config.js
+!*.config.js
 *.jsx
-!.uxpin-merge/
+.uxpin-merge/*
+!.uxpin-merge/epid
