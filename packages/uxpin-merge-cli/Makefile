@@ -31,7 +31,7 @@ test-integration:
 
 test-ci:
 	make test-rename-snapshots
-	TEST_REPORT_PATH=./reports jest --config="jest-ci.json" --runInBand
+	TEST_REPORT_PATH=./reports jest --config="jest-ci.json" --runInBand --forceExit
 	make test-remap-coverage
 
 clean:
