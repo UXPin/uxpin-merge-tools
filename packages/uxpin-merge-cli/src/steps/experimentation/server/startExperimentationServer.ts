@@ -4,6 +4,7 @@ import { getAPPExperimentationRemoteURL } from '../app/getAPPExperimentationRemo
 import { EPID } from '../epid/EPID';
 import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundleHandler';
 import { GetCategoriesHandler } from './handler/code/GetCategoriesHandler';
+import { GetPreviewsHandler } from './handler/code/GetPreviewsHandler';
 import { GetRepositoryPointerHandler } from './handler/code/GetRepositoryPointerHandler';
 import { GetLibrariesHandler } from './handler/libraries/GetLibrariesHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
@@ -43,4 +44,5 @@ function registerHandlers(router:ServerRouter, context:ExperimentationServerCont
   router.register('/libraries/', new GetLibrariesHandler(context));
   router.register('/code/repositoryPointer', new GetRepositoryPointerHandler(context));
   router.register('/code/categories', new GetCategoriesHandler(context));
+  router.register('/code/previews', new GetPreviewsHandler(context));
 }
