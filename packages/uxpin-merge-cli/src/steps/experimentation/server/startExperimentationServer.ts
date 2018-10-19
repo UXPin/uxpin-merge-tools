@@ -9,11 +9,11 @@ import { RequestHandler } from './handler/RequestHandler';
 import { ServerRouter } from './router/ServerRouter';
 
 export interface ExperimentationServerOptions extends ExperimentationServerContext {
-  port:number;
   projectRoot:string;
 }
 
 export interface ExperimentationServerContext {
+  port:number;
   bundlePath:string;
   epid:EPID;
   uxpinDirPath:string;

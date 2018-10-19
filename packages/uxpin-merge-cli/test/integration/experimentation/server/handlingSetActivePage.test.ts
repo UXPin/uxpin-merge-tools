@@ -1,5 +1,4 @@
 import { OK } from 'http-status-codes';
-import { join } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { PageData } from '../../../../src/common/types/PageData';
@@ -9,11 +8,15 @@ import {
 } from '../../../resources/designSystems/twoComponentsWithConfig/expectedMetadata';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
+const TIMEOUT:number = 80000;
+jest.setTimeout(TIMEOUT);
+
 describe('Experimentation server – handling set active page request', () => {
 
   const { request } = setupExperimentationServerTest({
     port: 1134,
-    projectPath: join(__dirname, '../../../resources/designSystems/twoComponentsWithConfig'),
+    projectPath: 'resources/designSystems/twoComponentsWithConfig',
+    serverCmdArgs: ['--webpack-config="./webpack.config.js"'],
   });
 
   let response:Response;
@@ -38,6 +41,7 @@ describe('Experimentation server – handling set active page request', () => {
       'access-control-allow-credentials': 'true',
       'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
       'access-control-allow-origin': 'https://app.uxpin.com',
+      'content-type': 'text/xml; charset=utf-8',
     };
 
     // then
