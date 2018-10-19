@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export interface Props {
-  size:'small' | 'normal' | 'large';
+  size:string;
   imageUrl:string;
 }
 
