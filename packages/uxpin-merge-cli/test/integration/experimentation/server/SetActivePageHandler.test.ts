@@ -6,6 +6,7 @@ import {
   expectedAvatarMetadata,
   expectedButtonMetadata,
 } from '../../../resources/designSystems/twoComponentsWithConfig/expectedMetadata';
+import { getRandomPortNumber } from '../../../utils/e2e/server/getRandomPortNumber';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 const TIMEOUT:number = 80000;
@@ -13,8 +14,9 @@ jest.setTimeout(TIMEOUT);
 
 describe('Experimentation server – handling set active page request', () => {
 
+  const port:number = getRandomPortNumber();
   const { request } = setupExperimentationServerTest({
-    port: 1134,
+    port,
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: ['--webpack-config="./webpack.config.js"'],
   });
@@ -55,7 +57,7 @@ describe('Experimentation server – handling set active page request', () => {
     const expectedBody:PageData = {
       code_sync: {
         bundles: {
-          [revisionId]: 'http://localhost:1134/code/library.js',
+          [revisionId]: `http://localhost:${port}/code/library.js`,
         },
         components: {
           'ba14886c-2674-52a3-a147-7b88e725e4ee': {
