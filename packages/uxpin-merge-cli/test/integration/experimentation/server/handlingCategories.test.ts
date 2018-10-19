@@ -7,10 +7,13 @@ import { setupExperimentationServerTest } from '../../../utils/experimentation/s
 const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe.skip('Experimentation mode - handling categories', () => {
+describe('Experimentation mode - handling categories', () => {
   let response:Response;
   const { request } = setupExperimentationServerTest({
     projectPath: path.resolve(__dirname, '../../../resources/designSystems/twoComponentsWithConfig'),
+    serverCmdArgs: [
+      '--webpack-config "./webpack.config.js"',
+    ],
   });
 
   beforeAll(async () => {
@@ -36,6 +39,6 @@ describe.skip('Experimentation mode - handling categories', () => {
   });
 
   it('should respond with proper body', () => {
-    expect(response.body).toMatchSnapshot();
+    expect(JSON.parse(response.body)).toMatchSnapshot();
   });
 });
