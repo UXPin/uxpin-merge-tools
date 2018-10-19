@@ -12,6 +12,7 @@ export interface ExperimentationServerTestSetupOptions {
   serverCmdArgs?:string[];
   projectPath:string;
   env?:CmdOptions['env'];
+  port?:number;
 }
 
 export interface ExperimentationServerTestContext {
@@ -21,7 +22,7 @@ export interface ExperimentationServerTestContext {
 export function setupExperimentationServerTest(
   options:ExperimentationServerTestSetupOptions,
 ):ExperimentationServerTestContext {
-  const port:number = getRandomPortNumber();
+  const port:number = options.port || getRandomPortNumber();
   const serverCmdArgsWithPort:CmdOptions = getCmdOptions(options, port);
   const serverOptions:TestServerOptions = { serverReadyOutput: SERVER_READY_OUTPUT };
   const deferredContext:DeferredChain<ExperimentationServerTestContext> = new DeferredChain();
