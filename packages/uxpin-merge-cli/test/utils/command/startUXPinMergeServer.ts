@@ -27,7 +27,10 @@ function onServerReady(subprocess:ChildProcess, serverReadyOutput:RegExp, onRead
 
 function onFailure(subprocess:ChildProcess, callback:(error:any) => void):void {
   let errorOut:string = '';
-  subprocess.stderr.on('data', (data) => errorOut += data);
+  subprocess.stderr.on('data', (data) => {
+    console.error(data);
+    errorOut += data;
+  });
   subprocess.on('close', () => callback(errorOut));
   subprocess.on('error', (data) => callback(data));
 }
