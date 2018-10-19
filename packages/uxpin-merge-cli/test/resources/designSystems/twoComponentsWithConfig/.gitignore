@@ -1,2 +1,3 @@
 !uxpin.config.js
 *.jsx
+!.uxpin-merge/
