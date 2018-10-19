@@ -3,10 +3,11 @@ import { OK } from 'http-status-codes';
 import { DesignSystemSnapshot } from '../../../../serialization/DesignSystemSnapshot';
 import { getProjectMetadata } from '../../../metadata/getProjectMetadata';
 import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
+import { getNoCacheHeaders } from '../../headers/getNoCacheHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { RequestHandler } from '../RequestHandler';
 
-const LIBRARY_DEFAULT_NAME:string = 'UXPin Merge - Experiment Mode';
+export const LIBRARY_DEFAULT_NAME:string = 'UXPin Merge - Experiment Mode';
 
 export class GetLibrariesHandler implements RequestHandler {
   constructor(private context:ExperimentationServerContext) {}
@@ -15,6 +16,7 @@ export class GetLibrariesHandler implements RequestHandler {
     response.writeHead(OK, {
       'Content-Type': 'application/json',
       ...getAccessControlHeaders(this.context.uxpinDomain),
+      ...getNoCacheHeaders(),
     });
     response.write(await this.getLibrariesContent());
     response.end();
