@@ -1,4 +1,3 @@
-import { awaitExpression } from 'babel-types';
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
 import { DesignSystemSnapshot } from '../../../../serialization/DesignSystemSnapshot';
