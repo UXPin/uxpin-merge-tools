@@ -1,5 +1,5 @@
+import { flatMap } from 'lodash';
 import { AllComponentsCollection } from '../../../../../../../../common/types/CodeSyncMetadata';
-import { flatMap } from '../../../../../../../../utils/array/flatMap';
 import { ComponentDefinition } from '../../../../../../../serialization/component/ComponentDefinition';
 import { DesignSystemSnapshot } from '../../../../../../../serialization/DesignSystemSnapshot';
 import { getDesignSystemId } from '../getDesignSystemId';

@@ -1,6 +1,6 @@
+import { flatMap } from 'lodash';
 import { AllPresetsCollection } from '../../../../../../../../common/types/CodeSyncMetadata';
 import { ComponentPresetRevision } from '../../../../../../../../common/types/ComponentPresetRevision';
-import { flatMap } from '../../../../../../../../utils/array/flatMap';
 import { DesignSystemSnapshot } from '../../../../../../../serialization/DesignSystemSnapshot';
 import { getComponentId } from '../component/getComponentId';
 import { getComponentRevisionId } from '../component/getComponentRevisionId';
