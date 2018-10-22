@@ -13,7 +13,8 @@ export type ProgramArgs = PushProgramArgs
   | ServerProgramArgs
   | DumpProgramArgs
   | SummaryProgramArgs
-  | ExperimentProgramArgs;
+  | ExperimentProgramArgs
+  | CleanProgramArgs;
 
 export interface PushProgramArgs {
   command:'push';
@@ -52,6 +53,12 @@ export interface ExperimentProgramArgs {
   webpackConfig?:string;
   wrapper?:string;
   uxpinDomain:string;
+}
+
+export interface CleanProgramArgs {
+  command:'clean';
+  cwd:string;
+  config:string;
 }
 
 export type Arg = string | CommanderStatic;

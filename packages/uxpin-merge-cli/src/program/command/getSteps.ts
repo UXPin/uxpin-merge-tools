@@ -1,4 +1,5 @@
 import { ProgramArgs } from '../args/ProgramArgs';
+import { getCleanCommandSteps } from './clean/getCleanCommandSteps';
 import { getDumpCommandSteps } from './dump/getDumpCommandSteps';
 import { getExperimentationServerCommandSteps } from './experimentation/getExperimentationServerCommandSteps';
 import { getPushCommandSteps } from './push/getPushCommandSteps';
@@ -22,6 +23,9 @@ export function getSteps(args:ProgramArgs):Step[] {
 
     case 'experiment':
       return getExperimentationServerCommandSteps(args);
+
+    case 'clean':
+      return getCleanCommandSteps(args);
 
     default:
       return [];

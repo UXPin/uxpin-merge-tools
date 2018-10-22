@@ -46,6 +46,13 @@ program
   .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
   .action(() => {});
 
+program
+  .command('clean')
+  .description('Removes temporary files and directories')
+  .option('--cwd <path>', 'working directory: path to root of the DS repository')
+  .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
+  .action(() => {});
+
 program.parse(process.argv);
 
 return runProgram(program);

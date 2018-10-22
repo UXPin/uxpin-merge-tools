@@ -6,6 +6,11 @@ export const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
 export const DEFAULT_COMMAND:Command = 'experiment';
 
 const defaultArgs:{ [key in Command]:ProgramArgs } = {
+  clean: {
+    command: 'clean',
+    config: DEFAULT_CONFIG_PATH,
+    cwd: process.cwd(),
+  },
   dump: {
     command: 'dump',
     config: DEFAULT_CONFIG_PATH,
@@ -62,4 +67,4 @@ function isArgKnownCommand(knownCommands:string[]):(arg:Arg) => arg is Commander
   return (arg:Arg):arg is CommanderStatic => typeof arg !== 'string' && knownCommands.includes(arg.name());
 }
 
-type Command = 'dump' | 'push' | 'server' | 'summary' | 'experiment';
+type Command = 'clean' | 'dump' | 'push' | 'server' | 'summary' | 'experiment';
