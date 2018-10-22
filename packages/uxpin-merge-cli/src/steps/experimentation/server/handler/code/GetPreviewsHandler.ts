@@ -1,8 +1,9 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
-import v5 = require('uuid/v5');
+import { flatMap } from 'tslint/lib/utils';
 import { DesignSystemSnapshot } from '../../../../serialization/DesignSystemSnapshot';
 import { getProjectMetadata } from '../../../metadata/getProjectMetadata';
+import { getComponentId } from '../../common/page/data/codeSync/component/getComponentId';
 import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
 import { getNoCacheHeaders } from '../../headers/getNoCacheHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
@@ -28,20 +29,17 @@ export class GetPreviewsHandler implements RequestHandler {
     const metadata:DesignSystemSnapshot = await this.getMetadata();
     const [designSystemId] = this.context.epid.revisionId.split('_');
 
-    const response:SinglePreviewResponse[] = metadata.categorizedComponents.reduce<SinglePreviewResponse[]>(
-      (previews, category, index) => {
-        const idCategory:number = index + 1;
-        return [...previews, ...category.components.map((component) => ({
-          id: v5(component.info.implementation.path, designSystemId),
-          idCategory,
-          idLibrary: EXPERIMENTAL_LIBRARY_ID,
-          name: component.name,
-          revisionId: this.context.epid.revisionId,
-          type: PREVIEW_ITEM_TYPE,
-        }))];
-      },
-      [],
-    );
+    const response:SinglePreviewResponse[] = flatMap(metadata.categorizedComponents, (category, index) => {
+      const idCategory:number = index + 1;
+      return category.components.map((component) => ({
+        id: getComponentId(designSystemId, component.info),
+        idCategory,
+        idLibrary: EXPERIMENTAL_LIBRARY_ID,
+        name: component.name,
+        revisionId: this.context.epid.revisionId,
+        type: PREVIEW_ITEM_TYPE,
+      }));
+    });
 
     return JSON.stringify(response);
   }
