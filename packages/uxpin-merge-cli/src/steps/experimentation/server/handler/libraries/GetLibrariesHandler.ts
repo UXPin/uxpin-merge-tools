@@ -7,6 +7,7 @@ import { getNoCacheHeaders } from '../../headers/getNoCacheHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { RequestHandler } from '../RequestHandler';
 
+export const EXPERIMENTAL_LIBRARY_ID:number = -1;
 export const LIBRARY_DEFAULT_NAME:string = 'UXPin Merge - Experiment Mode';
 
 export class GetLibrariesHandler implements RequestHandler {
@@ -50,7 +51,7 @@ export class GetLibrariesHandler implements RequestHandler {
         },
         hasDesignSystem: false,
         hash: this.context.epid.revisionId,
-        id: -1,
+        id: EXPERIMENTAL_LIBRARY_ID,
         idAccount: -1,
         idClient: null,
         idUser: -1,
