@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
-import { flatMap } from 'tslint/lib/utils';
+import { flatMap } from 'lodash';
 import { DesignSystemSnapshot } from '../../../../serialization/DesignSystemSnapshot';
 import { getProjectMetadata } from '../../../metadata/getProjectMetadata';
 import { getComponentId } from '../../common/page/data/codeSync/component/getComponentId';
@@ -31,7 +31,7 @@ export class GetPreviewsHandler implements RequestHandler {
 
     const response:SinglePreviewResponse[] = flatMap(metadata.categorizedComponents, (category, index) => {
       const idCategory:number = index + 1;
-      return category.components.map((component) => ({
+      return category.components.map<SinglePreviewResponse>((component) => ({
         id: getComponentId(designSystemId, component.info),
         idCategory,
         idLibrary: EXPERIMENTAL_LIBRARY_ID,
