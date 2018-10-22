@@ -10,9 +10,10 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
 }
 
 function bundle(options:BuildOptions):Promise<webpack.Stats> {
+  setNodeEnvironment(options.development);
+
   return new Promise((resolve, reject) => {
     const config:webpack.Configuration = getConfig(options);
-    setNodeEnvironment(options.development);
     const compiler:webpack.Compiler = webpack(config);
 
     compiler.run((err, stats) => {
