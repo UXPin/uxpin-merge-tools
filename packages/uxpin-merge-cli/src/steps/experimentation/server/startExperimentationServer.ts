@@ -1,7 +1,9 @@
 import { createServer, Server } from 'http';
 import { getUXPinMergeBanner } from '../../../utils/banner/getUXPinMergeBanner';
 import { getAPPExperimentationRemoteURL } from '../app/getAPPExperimentationRemoteURL';
+import { EPID } from '../epid/EPID';
 import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundleHandler';
+import { GetLibrariesHandler } from './handler/libraries/GetLibrariesHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
 import { RequestHandler } from './handler/RequestHandler';
 import { ServerRouter } from './router/ServerRouter';
@@ -16,6 +18,7 @@ export interface ExperimentationServerOptions extends ExperimentationServerConte
 
 export interface ExperimentationServerContext {
   bundlePath:string;
+  epid:EPID;
   uxpinDirPath:string;
   uxpinDomain:string;
 }
@@ -35,4 +38,5 @@ export async function startExperimentationServer(options:ExperimentationServerOp
 function registerHandlers(router:ServerRouter, context:ExperimentationServerContext):void {
   router.register('/ajax/dmsDPPage/Save/', new PageSaveHandler(context));
   router.register('/code/library.js', createLibraryBundleHandler(context));
+  router.register('/libraries/', new GetLibrariesHandler(context));
 }
