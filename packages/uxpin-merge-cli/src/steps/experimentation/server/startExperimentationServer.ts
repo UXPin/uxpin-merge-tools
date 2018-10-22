@@ -6,6 +6,7 @@ import { GetCategoriesHandler } from './handler/code/GetCategoriesHandler';
 import { GetPreviewsHandler } from './handler/code/GetPreviewsHandler';
 import { GetRepositoryPointerHandler } from './handler/code/GetRepositoryPointerHandler';
 import { GetLibrariesHandler } from './handler/libraries/GetLibrariesHandler';
+import { GetLibrariesIndexHandler } from './handler/libraries/GetLibrariesIndexHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
 import { SetActivePageHandler } from './handler/page/set/SetActivePageHandler';
 import { RequestHandler } from './handler/RequestHandler';
@@ -37,9 +38,10 @@ export async function startExperimentationServer(options:ExperimentationServerOp
 function registerHandlers(router:ServerRouter, context:ExperimentationServerContext):void {
   router.register('/ajax/dmsDPPage/Save/', new PageSaveHandler(context));
   router.register('/ajax/dmsDPPage/SetActivePage/', new SetActivePageHandler(context));
-  router.register('/code/library.js', createLibraryBundleHandler(context));
-  router.register('/libraries/', new GetLibrariesHandler(context));
-  router.register('/code/repositoryPointer', new GetRepositoryPointerHandler(context));
   router.register('/code/categories', new GetCategoriesHandler(context));
+  router.register('/code/library.js', createLibraryBundleHandler(context));
   router.register('/code/previews', new GetPreviewsHandler(context));
+  router.register('/code/repositoryPointer', new GetRepositoryPointerHandler(context));
+  router.register('/libraries/', new GetLibrariesHandler(context));
+  router.register('/libraries/items/index/', new GetLibrariesIndexHandler(context));
 }
