@@ -28,15 +28,15 @@ export class GetLibrariesHandler implements RequestHandler {
       {
         _links: {
           categories: {
-            href: '/components/categories',
+            href: '/code/categories',
             templated: false,
           },
           items: {
-            href: '/components/previews',
+            href: '/code/previews',
             templated: false,
           },
           pointer: {
-            href: '/repositoryPointer',
+            href: '/code/repositoryPointer',
             templated: false,
           },
         },
