@@ -28,7 +28,7 @@ describe('uxpinDomainParam', () => {
 
       // then
       expect(response.statusCode).toEqual(OK);
-      expect(response.body).toEqual('');
+      expect(response.body).toEqual('{}');
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
   });

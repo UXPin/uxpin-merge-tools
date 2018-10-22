@@ -4,7 +4,7 @@ import { DesignSystemSnapshot } from '../../../../src/steps/serialization/Design
 export const expectedAvatarMetadata:ComponentDefinition = {
   documentation: { examples: [] },
   info: {
-    dirPath: 'src/components/Avatar/',
+    dirPath: 'src/components/Avatar',
     implementation: {
       framework: 'reactjs',
       lang: 'typescript',
@@ -34,21 +34,18 @@ export const expectedAvatarMetadata:ComponentDefinition = {
     {
       description: '',
       isRequired: false,
-      name: 'size',
-      type: {
-        name: 'union',
-        structure: {
-          elements: [
-            { name: 'literal', structure: { value: 'small' } },
-            { name: 'literal', structure: { value: 'normal' } },
-            { name: 'literal', structure: { value: 'large' } },
-          ],
-        },
-      },
+      name: 'children',
+      type: { name: 'node', structure: {} },
     },
     {
       description: '',
-      isRequired: false,
+      isRequired: true,
+      name: 'size',
+      type: { name: 'string', structure: {} },
+    },
+    {
+      description: '',
+      isRequired: true,
       name: 'imageUrl',
       type: { name: 'string', structure: {} },
     },
@@ -58,7 +55,7 @@ export const expectedAvatarMetadata:ComponentDefinition = {
 export const expectedButtonMetadata:ComponentDefinition = {
   documentation: { examples: [] },
   info: {
-    dirPath: 'src/components/Button/',
+    dirPath: 'src/components/Button',
     implementation: {
       framework: 'reactjs',
       lang: 'typescript',
@@ -75,8 +72,8 @@ export const expectedButtonMetadata:ComponentDefinition = {
         ['1']: {
           name: 'Button',
           props: {
-            appearance: 'primary',
             children: 'Click me',
+            isPrimary: true,
           },
         },
       },
@@ -87,24 +84,15 @@ export const expectedButtonMetadata:ComponentDefinition = {
   properties: [
     {
       description: '',
-      isRequired: false,
+      isRequired: true,
       name: 'children',
       type: { name: 'node', structure: {} },
     },
     {
       description: '',
       isRequired: false,
-      name: 'appearance',
-      type: {
-        name: 'union',
-        structure: {
-          elements: [
-            { name: 'literal', structure: { value: 'secondary' } },
-            { name: 'literal', structure: { value: 'primary' } },
-            { name: 'literal', structure: { value: 'link' } },
-          ],
-        },
-      },
+      name: 'isPrimary',
+      type: { name: 'boolean', structure: {} },
     },
   ],
 };

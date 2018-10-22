@@ -12,10 +12,10 @@ export class PageSaveHandler implements RequestHandler {
 
   public handle(request:IncomingMessage, response:ServerResponse):void {
     response.writeHead(OK, {
-      'Content-Type': 'text/plain',
+      'Content-Type': 'application/json',
       ...getAccessControlHeaders(this.context.uxpinDomain),
     });
-    response.write('');
+    response.write('{}');
     response.end();
   }
 
