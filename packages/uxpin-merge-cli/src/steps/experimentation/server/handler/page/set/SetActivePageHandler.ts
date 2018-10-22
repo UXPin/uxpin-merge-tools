@@ -6,7 +6,7 @@ import { getProjectMetadata } from '../../../../metadata/getProjectMetadata';
 import { getPageData } from '../../../common/page/data/getPageData';
 import { getAccessControlHeaders } from '../../../headers/getAccessControlHeaders';
 import { ExperimentationServerContext } from '../../../startExperimentationServer';
-import { ImplementationErrorHandler } from '../../error/ImplementationErrorHandler';
+import { handleImplementationError } from '../../error/handleImplementationError';
 import { RequestHandler } from '../../RequestHandler';
 
 export class SetActivePageHandler implements RequestHandler {
@@ -15,9 +15,7 @@ export class SetActivePageHandler implements RequestHandler {
   }
 
   public handle(request:IncomingMessage, response:ServerResponse):void {
-    this.respondWithPageContent(response).catch((error) => {
-      new ImplementationErrorHandler(error).handle(request, response);
-    });
+    this.respondWithPageContent(response).catch((error) => handleImplementationError(response, error));
   }
 
   private async respondWithPageContent(response:ServerResponse):Promise<void> {
