@@ -3,7 +3,7 @@ import { DeferredChain } from 'deferred-proxy-chain';
 import * as requestPromise from 'request-promise';
 import { RequestPromise, RequestPromiseOptions } from 'request-promise';
 import { URL } from 'url';
-import { SERVER_READY_OUTPUT } from '../../../src/steps/experimentation/server/startExperimentationServer';
+import { SERVER_READY_OUTPUT } from '../../../src/steps/experimentation/server/console/printServerReadyMessage';
 import { CmdOptions } from '../command/CmdOptions';
 import { startUXPinMergeServer, TestServerOptions } from '../command/startUXPinMergeServer';
 import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
@@ -12,6 +12,7 @@ export interface ExperimentationServerTestSetupOptions {
   serverCmdArgs?:string[];
   projectPath:string;
   env?:CmdOptions['env'];
+  port?:number;
 }
 
 export interface ExperimentationServerTestContext {
@@ -21,7 +22,7 @@ export interface ExperimentationServerTestContext {
 export function setupExperimentationServerTest(
   options:ExperimentationServerTestSetupOptions,
 ):ExperimentationServerTestContext {
-  const port:number = getRandomPortNumber();
+  const port:number = options.port || getRandomPortNumber();
   const serverCmdArgsWithPort:CmdOptions = getCmdOptions(options, port);
   const serverOptions:TestServerOptions = { serverReadyOutput: SERVER_READY_OUTPUT };
   const deferredContext:DeferredChain<ExperimentationServerTestContext> = new DeferredChain();
