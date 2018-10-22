@@ -72,8 +72,8 @@ export const expectedButtonMetadata:ComponentDefinition = {
         ['1']: {
           name: 'Button',
           props: {
-            appearance: 'primary',
             children: 'Click me',
+            isPrimary: true,
           },
         },
       },
