@@ -25,7 +25,7 @@ export interface ExperimentationServerContext {
 }
 
 export async function startExperimentationServer(options:ExperimentationServerOptions):Promise<void> {
-  const router:ServerRouter = new ServerRouter();
+  const router:ServerRouter = new ServerRouter(options);
   registerHandlers(router, options);
   const server:Server = createServer((request, response) => {
     const handler:RequestHandler = router.route(request);
