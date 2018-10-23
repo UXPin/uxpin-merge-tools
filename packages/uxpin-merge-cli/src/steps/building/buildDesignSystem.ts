@@ -1,33 +1,16 @@
-import * as webpack from 'webpack';
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
 import { BuildOptions } from './BuildOptions';
-import { getConfig } from './config/getConfig';
+import { getCompiler } from './compiler/getCompiler';
 import { createComponentsLibrary } from './library/createComponentsLibrary';
 
-export async function buildDesignSystem(components:ComponentDefinition[], options:BuildOptions):Promise<webpack.Stats> {
+export async function buildDesignSystem(components:ComponentDefinition[], options:BuildOptions):Promise<void> {
   await createComponentsLibrary(components, options);
-  return bundle(options);
+  await bundle(options);
 }
 
-function bundle(options:BuildOptions):Promise<webpack.Stats> {
+function bundle(options:BuildOptions):Promise<void> {
   setNodeEnvironment(options.development);
-
-  return new Promise((resolve, reject) => {
-    const config:webpack.Configuration = getConfig(options);
-    const compiler:webpack.Compiler = webpack(config);
-
-    compiler.run((err, stats) => {
-      if (err) {
-        return reject(err.message);
-      }
-
-      if (stats.hasErrors()) {
-        return reject(stats.toString({ errors: true }));
-      }
-
-      resolve(stats);
-    });
-  });
+  return getCompiler(options).compile();
 }
 
 function setNodeEnvironment(development:boolean = false):void {
