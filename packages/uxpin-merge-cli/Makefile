@@ -6,6 +6,7 @@ UXPIN_CODE=$(shell pwd)/bin/uxpin-merge
 
 dependencies:
 	yarn install
+	cd ./test/resources/designSystems && yarn install || npx yarn@1.7.0 install
 
 build:
 	tsc
