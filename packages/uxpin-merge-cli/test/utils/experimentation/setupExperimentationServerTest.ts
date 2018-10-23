@@ -28,7 +28,8 @@ export interface ExperimentationServerConfiguration {
 
 export interface ExperimentationServerTestContext {
   request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
-  workingDir:string;
+
+  getWorkingDir():string;
 }
 
 export function setupExperimentationServerTest(
@@ -61,7 +62,9 @@ function getTestContext({ port, workingDir }:ExperimentationServerConfiguration)
       const url:URL = new URL(uri, `http://localhost:${port}`);
       return requestPromise({ url, ...options });
     },
-    workingDir,
+    getWorkingDir():string {
+      return workingDir;
+    },
   };
 }
 
