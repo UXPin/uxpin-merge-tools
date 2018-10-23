@@ -7175,7 +7175,14 @@ timers-browserify@^2.0.2:
   dependencies:
     setimmediate "^1.0.4"
 
-tmp@^0.0.33:
+tmp-promise@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/tmp-promise/-/tmp-promise-1.0.5.tgz#3208d7fa44758f86a2a4c4060f3c33fea30e8038"
+  dependencies:
+    bluebird "^3.5.0"
+    tmp "0.0.33"
+
+tmp@0.0.33, tmp@^0.0.33:
   version "0.0.33"
   resolved "https://registry.npmjs.org/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
   dependencies:
