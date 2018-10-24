@@ -8,6 +8,7 @@ import { setupExperimentationServerTest } from '../../../utils/experimentation/s
 describe('handlingGetLibraries', () => {
   const { request } = setupExperimentationServerTest({
     projectPath: path.resolve(__dirname, '../../../resources/designSystems/withEpidFile'),
+    useTempDir: true,
   });
 
   describe('should serve library bundle', () => {
