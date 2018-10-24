@@ -1,13 +1,16 @@
 import * as webpack from 'webpack';
+import { formatWebpackErrorMessages } from '../../../../utils/webpack/formatWebpackErrorMessages';
 import { BuildOptions } from '../../BuildOptions';
 import { getConfig } from '../../config/getConfig';
 import { Compiler } from '../Compiler';
 
-export class PushCompiler implements Compiler {
+export class WebpackCompiler implements Compiler {
+  private readonly config:webpack.Configuration;
   private compiler:webpack.Compiler;
 
-  constructor(private options:BuildOptions) {
-    this.compiler = webpack(getConfig(options));
+  constructor(options:BuildOptions) {
+    this.config = getConfig(options);
+    this.compiler = webpack(this.config);
   }
 
   public compile():Promise<void> {
@@ -18,7 +21,7 @@ export class PushCompiler implements Compiler {
         }
 
         if (stats.hasErrors()) {
-          return reject(stats.toString({ errors: true }));
+          return reject(formatWebpackErrorMessages(stats));
         }
 
         resolve();

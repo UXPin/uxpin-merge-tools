@@ -1,6 +1,6 @@
 import { ProgramArgs } from '../args/ProgramArgs';
 import { getDumpCommandSteps } from './dump/getDumpCommandSteps';
-import { getExperimentationServerCommandSteps } from './experimentation/getExperimentationServerCommandSteps';
+import { getExperimentationCommandSteps } from './experimentation/getExperimentationCommandSteps';
 import { getPushCommandSteps } from './push/getPushCommandSteps';
 import { getServerCommandSteps } from './server/getServerCommandSteps';
 import { Step } from './Step';
@@ -21,7 +21,7 @@ export function getSteps(args:ProgramArgs):Step[] {
       return getSummaryCommandSteps();
 
     case 'experiment':
-      return getExperimentationServerCommandSteps(args);
+      return getExperimentationCommandSteps(args);
 
     default:
       return [];
