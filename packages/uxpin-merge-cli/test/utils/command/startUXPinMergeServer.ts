@@ -1,5 +1,4 @@
 import { ChildProcess, exec } from 'child_process';
-import { terminateProcess } from '../process/terminateProcess';
 import { buildCommand } from './buildCommand';
 import { CmdOptions } from './CmdOptions';
 import { getAllCmdOptions } from './getAllCmdOptions';
@@ -9,11 +8,11 @@ export interface TestServerOptions {
   serverReadyOutput:RegExp;
 }
 
-export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerOptions):Promise<() => Promise<void>> {
+export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerOptions):Promise<() => void> {
   return new Promise((resolve, reject) => {
     const command:string = buildCommand(getAllCmdOptions(cmdOptions));
     const subprocess:ChildProcess = exec(command, getExecOptions());
-    onServerReady(subprocess, options.serverReadyOutput, () => resolve(() => terminateProcess(subprocess.pid)));
+    onServerReady(subprocess, options.serverReadyOutput, () => resolve(() => subprocess.kill()));
     onFailure(subprocess, (error) => reject(error));
   });
 }

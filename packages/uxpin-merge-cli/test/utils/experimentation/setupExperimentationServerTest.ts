@@ -20,7 +20,7 @@ export function setupExperimentationServerTest(
   const serverOptions:TestServerOptions = { serverReadyOutput: SERVER_READY_OUTPUT };
   const deferredContext:DeferredChain<ExperimentationServerTestContext> = new DeferredChain();
 
-  let closeServer:() => Promise<void>;
+  let closeServer:() => void;
   let cleanupTemp:() => void;
 
   beforeAll(async () => {
