@@ -1,5 +1,5 @@
 import { OK } from 'http-status-codes';
-import { resolve } from "path";
+import { resolve } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { PageData } from '../../../../src/common/types/PageData';

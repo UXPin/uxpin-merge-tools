@@ -1,5 +1,5 @@
 import { OK } from 'http-status-codes';
-import { resolve } from "path";
+import { resolve } from 'path';
 import { Response } from 'request';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
