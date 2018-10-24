@@ -10,11 +10,8 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental server - serving library bundle', () => {
   const { request } = setupExperimentationServerTest({
-    projectPath: resolve(__dirname, '../../../resources/repos/mineral-ui'),
-    serverCmdArgs: [
-      '--webpack-config "./webpack.config.js"',
-      '--wrapper "./src/library/themes/UXPinWrapper.js"',
-    ],
+    projectPath: resolve(__dirname, '../../../resources/designSystems/twoComponentsWithConfig'),
+    serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
     useTempDir: true,
   });
 

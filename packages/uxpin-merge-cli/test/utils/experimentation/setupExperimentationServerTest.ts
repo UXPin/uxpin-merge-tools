@@ -38,7 +38,7 @@ export function setupExperimentationServerTest(
   const serverOptions:TestServerOptions = { serverReadyOutput: SERVER_READY_OUTPUT };
   const deferredContext:DeferredChain<ExperimentationServerTestContext> = new DeferredChain();
 
-  let closeServer:() => void;
+  let closeServer:() => Promise<void>;
   let cleanupTemp:() => void;
 
   beforeAll(async () => {
@@ -48,8 +48,8 @@ export function setupExperimentationServerTest(
     deferredContext.setTarget(getTestContext(config));
   });
 
-  afterAll(() => {
-    closeServer();
+  afterAll(async () => {
+    await closeServer();
     cleanupTemp();
   });
 
