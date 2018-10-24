@@ -14,7 +14,6 @@ describe('Experimentation mode - handling previews', () => {
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
     ],
-    useTempDir: true,
   });
 
   beforeAll(async () => {

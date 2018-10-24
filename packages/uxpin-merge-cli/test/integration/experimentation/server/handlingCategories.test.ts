@@ -14,7 +14,6 @@ describe('Experimentation mode - handling categories', () => {
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
     ],
-    useTempDir: true,
   });
 
   beforeAll(async () => {
