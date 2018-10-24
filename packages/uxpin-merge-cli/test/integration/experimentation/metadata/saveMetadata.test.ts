@@ -1,6 +1,8 @@
 import { existsSync } from 'fs';
 import { readJson } from 'fs-extra';
 import { join } from 'path';
+import { TEMP_DIR_NAME } from '../../../../src/steps/building/config/getConfig';
+import { METADATA_FILE_NAME } from '../../../../src/steps/experimentation/metadata/saveMetadata';
 import { DesignSystemSnapshot } from '../../../../src/types';
 import { expectedMetadata } from '../../../resources/designSystems/twoComponentsWithConfig/expectedMetadata';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
@@ -30,6 +32,6 @@ describe('Experimentation mode - save library metadata', () => {
   });
 
   function getMetadataPath():string {
-    return join(getWorkingDir(), '.uxpin-merge', 'metadata.json');
+    return join(getWorkingDir(), TEMP_DIR_NAME, METADATA_FILE_NAME);
   }
 });

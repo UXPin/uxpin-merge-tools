@@ -1,12 +1,6 @@
 import terminate = require('terminate');
+import { promisify } from 'util';
 
 export function terminateProcess(pid:number):Promise<void> {
-  return new Promise((resolve, reject) => {
-    terminate(pid, (error) => {
-      if (error) {
-        return reject(error);
-      }
-      resolve();
-    });
-  });
+  return promisify(terminate)(pid);
 }
