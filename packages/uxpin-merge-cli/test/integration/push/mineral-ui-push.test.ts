@@ -25,14 +25,9 @@ describe('Pushing mineral-ui design system', () => {
   });
 
   describe('without required user webpack config', () => {
-    it('throws an error', async (done) => {
-      runUXPinMergeCommand({ cwd: 'resources/repos/mineral-ui', params: ['push'] })
-        .then(() => done('Expected command to exit with non-zero code'))
-        .catch((err) => {
-          expect(err.toString()).toMatch('ERROR:');
-          expect(err.toString()).toMatch('Module parse failed: Unexpected token');
-          done();
-        });
+    it('throws an error', async () => {
+      await expect(runUXPinMergeCommand({ cwd: 'resources/repos/mineral-ui', params: ['push'] }))
+        .rejects.toMatch('Module parse failed: Unexpected token');
     });
   });
 });
