@@ -1,8 +1,6 @@
 import { existsSync } from 'fs';
-import { resolve } from 'path';
-import { TEMP_DIR_PATH } from '../../../../src/steps/building/config/getConfig';
-import { getMetadataFilePath } from '../../../../src/steps/experimentation/metadata/getMetadataFilePath';
-import { getProjectMetadata } from '../../../../src/steps/experimentation/metadata/getProjectMetadata';
+import { readJson } from 'fs-extra';
+import { join, resolve } from 'path';
 import { DesignSystemSnapshot } from '../../../../src/types';
 import { expectedMetadata } from '../../../resources/designSystems/twoComponentsWithConfig/expectedMetadata';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
@@ -13,9 +11,8 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - save library metadata', () => {
   const projectPath:string = resolve(__dirname, '../../../resources/designSystems/twoComponentsWithConfig');
-  const uxpinDirPath:string = resolve(projectPath, TEMP_DIR_PATH);
 
-  setupExperimentationServerTest({
+  const { getWorkingDir } = setupExperimentationServerTest({
     projectPath,
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
@@ -24,14 +21,19 @@ describe('Experimentation mode - save library metadata', () => {
   });
 
   it('should create metadata.json file', () => {
-    expect(existsSync(getMetadataFilePath(uxpinDirPath))).toBeTruthy();
+    // then
+    expect(existsSync(getMetadataPath())).toBeTruthy();
   });
 
-  it('should metadata file match snapshot', async () => {
-    // given
-    const metadataFile:DesignSystemSnapshot = await getProjectMetadata(uxpinDirPath);
+  it('should metadata file match expected metadata', async () => {
+    // when
+    const metadataFile:DesignSystemSnapshot = await readJson(getMetadataPath());
 
     // then
     expect(metadataFile).toEqual(expectedMetadata);
   });
+
+  function getMetadataPath():string {
+    return join(getWorkingDir(), '.uxpin-merge', 'metadata.json');
+  }
 });
