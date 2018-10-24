@@ -22,7 +22,7 @@ describe('Building designSystems/cantWriteToUxpinTemp design system', () => {
   it('shows permission denied Error when can not write to temporary directory', () => {
     return chmod(uxpinTempPath, READONLY_PERMISSIONS)
       .then(() => runUXPinMergeCommand({ cwd: workingDir, params: ['push'] }))
-      .then((output) => {
+      .catch((output) => {
         expect(output).toContain('ERROR:');
         expect(output).toContain('EACCES: permission denied');
       });

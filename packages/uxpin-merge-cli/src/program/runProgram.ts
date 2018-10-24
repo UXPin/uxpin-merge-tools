@@ -23,7 +23,7 @@ export function runProgram(program:RawProgramArgs):Promise<any> {
 }
 
 function logError(errorMessage:string):void {
-  console.log('ERROR:', errorMessage);
+  console.error('ERROR:', errorMessage);
 }
 
 type StepExecutor = (designSystem:DSMetadata) => Promise<DSMetadata>;
