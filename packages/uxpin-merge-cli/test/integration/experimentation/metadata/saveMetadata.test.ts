@@ -20,6 +20,7 @@ describe('Experimentation mode - save library metadata', () => {
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
     ],
+    useTempDir: true,
   });
 
   it('should create metadata.json file', () => {

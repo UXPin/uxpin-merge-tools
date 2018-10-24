@@ -1,4 +1,5 @@
 import { OK } from 'http-status-codes';
+import { resolve } from "path";
 import { Response } from 'request';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
@@ -9,8 +10,9 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('OptionsRequestHandler', () => {
   const { request } = setupExperimentationServerTest({
-    projectPath: 'resources/designSystems/twoComponentsWithConfig',
+    projectPath: resolve(__dirname, '../../../resources/designSystems/twoComponentsWithConfig'),
     serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
+    useTempDir: true,
   });
 
   const getEndpoints:string[] = [

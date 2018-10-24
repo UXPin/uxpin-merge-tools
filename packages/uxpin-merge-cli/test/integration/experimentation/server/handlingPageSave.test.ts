@@ -1,4 +1,5 @@
 import { OK } from 'http-status-codes';
+import { resolve } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
@@ -8,7 +9,10 @@ const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server – handling save page request', () => {
-  const { request } = setupExperimentationServerTest({ projectPath: './' });
+  const { request } = setupExperimentationServerTest({
+    projectPath: resolve(__dirname, '../../../resources/designSystems/noSrcDir'),
+    useTempDir: true,
+  });
 
   it('Responds with OK status code and correct headers', async () => {
     // given

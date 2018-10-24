@@ -15,6 +15,7 @@ describe('Experimental server - serving library bundle', () => {
       '--webpack-config "./webpack.config.js"',
       '--wrapper "./src/library/themes/UXPinWrapper.js"',
     ],
+    useTempDir: true,
   });
 
   describe('should serve library bundle', () => {

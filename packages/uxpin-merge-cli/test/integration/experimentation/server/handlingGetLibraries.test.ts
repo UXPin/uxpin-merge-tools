@@ -1,5 +1,5 @@
 import { OK } from 'http-status-codes';
-import * as path from 'path';
+import { resolve } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { LIBRARY_DEFAULT_NAME } from '../../../../src/steps/experimentation/server/handler/libraries/GetLibrariesHandler';
@@ -11,7 +11,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('handlingGetLibraries', () => {
   const { request } = setupExperimentationServerTest({
-    projectPath: path.resolve(__dirname, '../../../resources/designSystems/withEpidFile'),
+    projectPath: resolve(__dirname, '../../../resources/designSystems/withEpidFile'),
     useTempDir: true,
   });
 
