@@ -1,9 +1,17 @@
 import { NO_CONTENT } from 'http-status-codes';
+import { resolve } from 'path';
 import { Response } from 'request';
+import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
+const CURRENT_TIMEOUT:number = 20_000;
+setTimeoutBeforeAll(CURRENT_TIMEOUT);
+
 describe('Experimentation server - handling repository pointer', () => {
-  const { request } = setupExperimentationServerTest({ projectPath: './' });
+  const { request } = setupExperimentationServerTest({
+    projectPath: resolve(__dirname, '../../../resources/designSystems/noSrcDir'),
+    useTempDir: true,
+  });
 
   it('should responds with NO_CONTENT status code', async () => {
     // when

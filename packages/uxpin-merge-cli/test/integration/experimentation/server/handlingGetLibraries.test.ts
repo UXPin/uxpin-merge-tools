@@ -3,7 +3,11 @@ import * as path from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { LIBRARY_DEFAULT_NAME } from '../../../../src/steps/experimentation/server/handler/libraries/GetLibrariesHandler';
+import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
+
+const CURRENT_TIMEOUT:number = 20_000;
+setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('handlingGetLibraries', () => {
   const { request } = setupExperimentationServerTest({
