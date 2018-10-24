@@ -38,18 +38,15 @@ export function setupExperimentationServerTest(
   const deferredContext:DeferredChain<ExperimentationServerTestContext> = new DeferredChain();
 
   let closeServer:() => void;
-  let cleanupTemp:() => void;
 
   beforeAll(async () => {
     const config:ExperimentationServerConfiguration = await getServerConfiguration(options);
-    cleanupTemp = config.cleanupTemp;
     closeServer = await startUXPinMergeServer(config.cmdOptions, serverOptions);
     deferredContext.setTarget(getTestContext(config));
   });
 
   afterAll(() => {
     closeServer();
-    cleanupTemp();
   });
 
   return deferredContext.getProxy();
