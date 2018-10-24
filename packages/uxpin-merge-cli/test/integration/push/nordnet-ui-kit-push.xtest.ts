@@ -1,8 +1,8 @@
 import { relative, resolve } from 'path';
 
-import { LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../../../../../src/steps/building/config/getConfig';
-import { runUXPinMergeCommand } from '../../../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../../../utils/command/setTimeoutBeforeAll';
+import { LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../../../src/steps/building/config/getConfig';
+import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
+import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT:number = 75000;
 

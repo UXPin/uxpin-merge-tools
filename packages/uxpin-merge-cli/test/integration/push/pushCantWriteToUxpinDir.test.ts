@@ -1,7 +1,7 @@
-import { TEMP_DIR_NAME } from '../../../../../src/steps/building/config/getConfig';
-import { runCommand } from '../../../../utils/command/runCommand';
-import { runUXPinMergeCommand } from '../../../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../../../utils/command/setTimeoutBeforeAll';
+import { TEMP_DIR_NAME } from '../../../src/steps/building/config/getConfig';
+import { runCommand } from '../../utils/command/runCommand';
+import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
+import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT:number = 60000;
 
