@@ -1,30 +1,12 @@
 // tslint:disable no-duplicate-imports
 import { DeferredChain } from 'deferred-proxy-chain';
-import { noop } from 'lodash';
 import * as requestPromise from 'request-promise';
 import { RequestPromise, RequestPromiseOptions } from 'request-promise';
-import { DirectoryResult } from 'tmp-promise';
 import { URL } from 'url';
 import { SERVER_READY_OUTPUT } from '../../../src/steps/experimentation/server/console/printServerReadyMessage';
-import { CmdOptions } from '../command/CmdOptions';
 import { startUXPinMergeServer, TestServerOptions } from '../command/startUXPinMergeServer';
-import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
-import { prepareTempDir } from '../temp/prepareTempDir';
-
-export interface ExperimentationServerTestSetupOptions {
-  serverCmdArgs?:string[];
-  projectPath:string;
-  env?:CmdOptions['env'];
-  port?:number;
-  useTempDir?:boolean;
-}
-
-export interface ExperimentationServerConfiguration {
-  cmdOptions:CmdOptions;
-  port:number;
-  workingDir:string;
-  cleanupTemp:() => void;
-}
+import { ExperimentationServerTestSetupOptions } from './experimentationServerTestSetupOptions';
+import { ExperimentationServerConfiguration, getServerConfiguration } from './getServerConfiguration';
 
 export interface ExperimentationServerTestContext {
   request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
@@ -65,28 +47,5 @@ function getTestContext({ port, workingDir }:ExperimentationServerConfiguration)
     getWorkingDir():string {
       return workingDir;
     },
-  };
-}
-
-async function getServerConfiguration(
-  options:ExperimentationServerTestSetupOptions,
-):Promise<ExperimentationServerConfiguration> {
-  const port:number = options.port || getRandomPortNumber();
-  let workingDir:string = options.projectPath;
-  let cleanupTemp:() => void = noop;
-  if (options.useTempDir) {
-    const tempDir:DirectoryResult = await prepareTempDir(options.projectPath);
-    workingDir = tempDir.path;
-    cleanupTemp = tempDir.cleanup;
-  }
-  return {
-    cleanupTemp,
-    cmdOptions: {
-      cwd: workingDir,
-      env: options.env,
-      params: [...(options.serverCmdArgs || []), `--port=${port}`],
-    },
-    port,
-    workingDir,
   };
 }

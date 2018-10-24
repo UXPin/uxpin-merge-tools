@@ -1,5 +1,6 @@
 import { reduce } from 'lodash';
-import { isAbsolute, join } from 'path';
+import { join } from 'path';
+import { resolveTestProjectPath } from '../resources/resolveTestProjectPath';
 import { AllCmdOptions } from './CmdOptions';
 import { getRandomString } from './getRandomString';
 
@@ -9,16 +10,9 @@ const uxPinPath:string = join(packageRootDir, 'bin/uxpin-merge');
 
 export function buildCommand({ cwd, env, params }:AllCmdOptions):string {
   const envVars:string = stringifyEnv(env);
-  const absoluteWorkingDir:string = getAbsoluteWorkingDir(cwd);
+  const absoluteWorkingDir:string = resolveTestProjectPath(cwd);
   const coverageCommand:string = `${nycPath} ${getNycOptions()}`;
   return `cd ${absoluteWorkingDir} && ${envVars} ${coverageCommand} ${uxPinPath} ${params.join(' ')}`;
-}
-
-function getAbsoluteWorkingDir(path:string):string {
-  if (isAbsolute(path)) {
-    return path;
-  }
-  return join(packageRootDir, 'test', path);
 }
 
 function getCoverageOutputDirPath():string {
