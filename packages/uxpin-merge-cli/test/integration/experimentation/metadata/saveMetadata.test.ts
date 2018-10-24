@@ -1,6 +1,6 @@
 import { existsSync } from 'fs';
 import { readJson } from 'fs-extra';
-import { join, resolve } from 'path';
+import { join } from 'path';
 import { DesignSystemSnapshot } from '../../../../src/types';
 import { expectedMetadata } from '../../../resources/designSystems/twoComponentsWithConfig/expectedMetadata';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
@@ -10,14 +10,10 @@ const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - save library metadata', () => {
-  const projectPath:string = resolve(__dirname, '../../../resources/designSystems/twoComponentsWithConfig');
 
   const { getWorkingDir } = setupExperimentationServerTest({
-    projectPath,
-    serverCmdArgs: [
-      '--webpack-config "./webpack.config.js"',
-    ],
-    useTempDir: true,
+    projectPath: 'resources/designSystems/twoComponentsWithConfig',
+    serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
   });
 
   it('should create metadata.json file', () => {

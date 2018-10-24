@@ -1,5 +1,4 @@
 import { OK } from 'http-status-codes';
-import { resolve } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { PageData } from '../../../../src/common/types/PageData';
@@ -18,9 +17,8 @@ describe('Experimentation server – handling set active page request', () => {
   const port:number = getRandomPortNumber();
   const { request } = setupExperimentationServerTest({
     port,
-    projectPath: resolve(__dirname, '../../../resources/designSystems/twoComponentsWithConfig'),
+    projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: ['--webpack-config="./webpack.config.js"'],
-    useTempDir: true,
   });
 
   let response:Response;

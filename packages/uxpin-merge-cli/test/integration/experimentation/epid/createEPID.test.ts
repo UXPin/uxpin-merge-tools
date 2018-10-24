@@ -11,10 +11,9 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('createEPID', () => {
   describe('when epid file doesn\'t exist', () => {
-    const projectPath:string = resolve(__dirname, '../../../resources/designSystems/noSrcDir');
     let epidFilePath:string;
 
-    const { getWorkingDir } = setupExperimentationServerTest({ projectPath, useTempDir: true });
+    const { getWorkingDir } = setupExperimentationServerTest();
 
     beforeEach(() => {
       epidFilePath = getEPIDFilePath(getWorkingDir());

@@ -1,5 +1,4 @@
 import { OK } from 'http-status-codes';
-import { resolve } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
@@ -10,10 +9,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server - handling libraries index', () => {
   let response:Response;
-  const { request } = setupExperimentationServerTest({
-    projectPath: resolve(__dirname, '../../../resources/designSystems/noSrcDir'),
-    useTempDir: true,
-  });
+  const { request } = setupExperimentationServerTest();
 
   beforeAll(async () => {
     // given

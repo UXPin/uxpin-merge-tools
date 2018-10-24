@@ -1,5 +1,4 @@
 import { OK } from 'http-status-codes';
-import { resolve } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
@@ -10,9 +9,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('uxpinDomainParam', () => {
   const { request } = setupExperimentationServerTest({
-    projectPath: resolve(__dirname, '../../../resources/designSystems/noSrcDir'),
     serverCmdArgs: ['--uxpin-domain="merge.uxpin.cloud"'],
-    useTempDir: true,
   });
 
   describe('when --uxpin-domain set while running the experimentation mode', () => {

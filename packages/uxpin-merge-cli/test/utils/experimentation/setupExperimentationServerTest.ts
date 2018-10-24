@@ -15,7 +15,7 @@ export interface ExperimentationServerTestContext {
 }
 
 export function setupExperimentationServerTest(
-  options:ExperimentationServerTestSetupOptions,
+  options:ExperimentationServerTestSetupOptions = {},
 ):ExperimentationServerTestContext {
   const serverOptions:TestServerOptions = { serverReadyOutput: SERVER_READY_OUTPUT };
   const deferredContext:DeferredChain<ExperimentationServerTestContext> = new DeferredChain();
