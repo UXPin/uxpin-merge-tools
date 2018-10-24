@@ -8,7 +8,7 @@ const CURRENT_TIMEOUT:number = 75000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-xdescribe('Building repos/nordnet-ui-kit design system', () => {
+describe('Building repos/nordnet-ui-kit design system', () => {
   describe('with required user webpack config', () => {
     let components:any;
     let consoleOutput:string;
