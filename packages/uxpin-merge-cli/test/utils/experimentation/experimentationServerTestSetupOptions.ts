@@ -14,5 +14,5 @@ export interface ExperimentationServerOptionsWithDefaults {
 export const defaultOptions:ExperimentationServerOptionsWithDefaults = {
   port: getRandomPortNumber(),
   projectPath: 'resources/designSystems/noSrcDir',
-  useTempDir: true,
+  useTempDir: false,
 };
