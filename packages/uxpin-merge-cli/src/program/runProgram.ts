@@ -59,7 +59,7 @@ function isWatchCommand(programArgs:ProgramArgs):boolean {
 }
 
 function logError(errorMessage:string):void {
-  printLine(`\nERROR\n${errorMessage}`);
+  printLine(`\nERROR:\n${errorMessage}`);
 }
 
 type StepExecutor = (designSystem:DSMetadata) => Promise<DSMetadata>;
