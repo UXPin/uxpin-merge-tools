@@ -9,6 +9,7 @@ export interface ExperimentationServerOptionsWithDefaults {
   env?:CmdOptions['env'];
   port:number;
   useTempDir:boolean;
+  useExistingServer?:ExistingServerConfiguration;
 }
 
 export const defaultOptions:ExperimentationServerOptionsWithDefaults = {
@@ -16,3 +17,8 @@ export const defaultOptions:ExperimentationServerOptionsWithDefaults = {
   projectPath: 'resources/designSystems/noSrcDir',
   useTempDir: true,
 };
+
+export interface ExistingServerConfiguration {
+  port:number;
+  projectPath:string;
+}
