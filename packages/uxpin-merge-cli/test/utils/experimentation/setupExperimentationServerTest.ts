@@ -47,10 +47,9 @@ function getTestContext(
 ):ExperimentationServerTestContext {
   return {
     changeFileContent(filePath:string, content:string):Promise<void> {
-      return new Promise(async (resolve, reject) => {
+      return new Promise((resolve, reject) => {
         const eventName:string = 'data';
         const changeListener:(data:Buffer) => void = (data) => {
-          console.log(data.toString());
           if (!data.toString().match(new RegExp(COMPILATION_SUCCESS_MESSAGE))) {
             return;
           }
@@ -59,20 +58,20 @@ function getTestContext(
           resolve();
         };
 
-        let fileHandle:number = 0;
-        console.log('write start');
-        try {
-          fileHandle = await open(filePath, 'w');
-          subprocess.stdout.addListener(eventName, changeListener);
-          await write(fileHandle, content, 0);
-        } catch (error) {
-          reject(error);
-        } finally {
-          if (fileHandle) {
-            await close(fileHandle);
+        process.nextTick(async () => {
+          let fileHandle:number = 0;
+          try {
+            fileHandle = await open(filePath, 'w');
+            subprocess.stdout.addListener(eventName, changeListener);
+            await write(fileHandle, content, 0);
+          } catch (error) {
+            reject(error);
+          } finally {
+            if (fileHandle) {
+              await close(fileHandle);
+            }
           }
-        }
-        console.log('write end');
+        });
       });
     },
     getWorkingDir():string {

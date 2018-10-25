@@ -8,7 +8,7 @@ import { getFileChecksum } from '../../../utils/file/getFileChecksum';
 const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('Experimental - watch - change file content', () => {
+describe('Experimental - watch - imported file from component changed', () => {
   let initialBundleChecksum:string;
   const { changeFileContent, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
@@ -22,41 +22,30 @@ describe('Experimental - watch - change file content', () => {
     initialBundleChecksum = await getBundleChecksum();
   });
 
-  it('should update library bundle when component changed', async () => {
+  it('should update library bundle when imported file changed', async () => {
     // given
-    const avatarJsxPath:string = path.resolve(getWorkingDir(), './src/components/Avatar/Avatar.jsx');
-    const changedFileContent:string = `
-import PropTypes from 'prop-types';
-import React from 'react';
-import { PureComponent } from 'react';
+    const cssFilePath:string = path.resolve(getWorkingDir(), './src/components/Button/button.css');
+    const changedCss:string = `
+.watch__btn {
+    width: 100%;
+    height: 100%;
+    color: black;
+    background: magenta;
+    border: 1px solid grey;
+}
 
-export default class Avatar extends PureComponent {
-  static propTypes = {
-    size: PropTypes.oneOf(['xs', 's', 'l', 'xl']).isRequired,
-    imageUrl: PropTypes.string.isRequired,
-  };
-
-  static defaultProps = {
-    size: '',
-  };
-
-  render() {
-    const { imageUrl, size } = this.props;
-    return (
-      <div className={size}>
-        <img src={imageUrl} alt="Avatar" /> Changed content :boom:
-      </div>
-    );
-  }
+.watch__btn--primary {
+    color: white;
+    background: darkblue;
 }
 
 `;
 
     // when
-    await changeFileContent(avatarJsxPath, changedFileContent);
+    await changeFileContent(cssFilePath, changedCss);
 
     // then
-    expect(await getBundleChecksum()).not.toEqual(initialBundleChecksum);
+    expect(getBundleChecksum()).not.toEqual(initialBundleChecksum);
   });
 
   function getBundleChecksum():Promise<string> {
