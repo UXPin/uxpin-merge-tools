@@ -1,5 +1,4 @@
 import { OK } from 'http-status-codes';
-import { resolve } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
@@ -10,11 +9,8 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental server - serving library bundle', () => {
   const { request } = setupExperimentationServerTest({
-    projectPath: resolve(__dirname, '../../../resources/repos/mineral-ui'),
-    serverCmdArgs: [
-      '--webpack-config "./webpack.config.js"',
-      '--wrapper "./src/library/themes/UXPinWrapper.js"',
-    ],
+    projectPath: 'resources/designSystems/twoComponentsWithConfig',
+    serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
   });
 
   describe('should serve library bundle', () => {

@@ -1,5 +1,4 @@
 import { OK } from 'http-status-codes';
-import * as path from 'path';
 import { Response } from 'request';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
@@ -10,10 +9,8 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('Experimentation mode - handling categories', () => {
   let response:Response;
   const { request } = setupExperimentationServerTest({
-    projectPath: path.resolve(__dirname, '../../../resources/designSystems/twoComponentsWithConfig'),
-    serverCmdArgs: [
-      '--webpack-config "./webpack.config.js"',
-    ],
+    projectPath: 'resources/designSystems/twoComponentsWithConfig',
+    serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
   });
 
   beforeAll(async () => {

@@ -8,7 +8,7 @@ const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server – handling save page request', () => {
-  const { request } = setupExperimentationServerTest({ projectPath: './' });
+  const { request } = setupExperimentationServerTest();
 
   it('Responds with OK status code and correct headers', async () => {
     // given

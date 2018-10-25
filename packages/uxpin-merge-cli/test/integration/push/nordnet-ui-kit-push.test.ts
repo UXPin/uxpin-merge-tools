@@ -1,8 +1,9 @@
-import { relative, resolve } from 'path';
+import { join } from 'path';
 
-import { LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../../../../../src/steps/building/config/getConfig';
-import { runUXPinMergeCommand } from '../../../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../../../utils/command/setTimeoutBeforeAll';
+import { LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../../../src/steps/building/config/getConfig';
+import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
+import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
+import { testDirPath } from '../../utils/resources/testDirPath';
 
 const CURRENT_TIMEOUT:number = 75000;
 
@@ -23,8 +24,8 @@ xdescribe('Building repos/nordnet-ui-kit design system', () => {
 
       return runUXPinMergeCommand({ cwd: 'resources/repos/nordnet-ui-kit', params })
         .then((output) => {
-          const path:string = relative(__dirname,
-            resolve('test/resources/repos/nordnet-ui-kit', TEMP_DIR_NAME, LIBRARY_OUTPUT_FILENAME),
+          const path:string = join(
+            testDirPath, 'resources/repos/nordnet-ui-kit', TEMP_DIR_NAME, LIBRARY_OUTPUT_FILENAME,
           );
           components = require(path);
           consoleOutput = output;

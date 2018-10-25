@@ -9,7 +9,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server - handling libraries index', () => {
   let response:Response;
-  const { request } = setupExperimentationServerTest({ projectPath: './' });
+  const { request } = setupExperimentationServerTest();
 
   beforeAll(async () => {
     // given

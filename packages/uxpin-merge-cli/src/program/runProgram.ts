@@ -2,7 +2,6 @@ import pMapSeries = require('p-map-series');
 import { ComponentCategoryInfo } from '../steps/discovery/component/category/ComponentCategoryInfo';
 import { getComponentCategoryInfos } from '../steps/discovery/component/category/getComponentCategoryInfos';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
-import { printLine } from '../utils/console/printLine';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './args/getProgramArgs';
 import { ProgramArgs, RawProgramArgs } from './args/ProgramArgs';
@@ -19,7 +18,7 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
     await runCommand(programArgs);
     setupProjectWatcher(programArgs);
   } catch (error) {
-    logError(error);
+    endWithError(error);
   }
 }
 
@@ -58,8 +57,13 @@ function isWatchChangesCommand(programArgs:ProgramArgs):boolean {
   return programArgs.command === 'experiment';
 }
 
+function endWithError(errorMessage:string):void {
+  logError(errorMessage);
+  process.exit(1);
+}
+
 function logError(errorMessage:string):void {
-  printLine(`\nERROR:\n${errorMessage}`);
+  console.error('ERROR:', errorMessage);
 }
 
 type StepExecutor = (designSystem:DSMetadata) => Promise<DSMetadata>;
