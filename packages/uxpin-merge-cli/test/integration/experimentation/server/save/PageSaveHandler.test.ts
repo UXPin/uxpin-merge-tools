@@ -20,25 +20,29 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('Experimentation server – handling save page request', () => {
   const { request, getWorkingDir } = setupExperimentationServerTest();
 
-  it('Responds with OK status code and correct headers', async () => {
-    // given
-    const options:RequestPromiseOptions = { method: 'POST', resolveWithFullResponse: true };
-    const expectedHeaders:any = {
-      'access-control-allow-credentials': 'true',
-      'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
-      'access-control-allow-origin': 'https://app.uxpin.com',
-    };
+  describe('saving the first element', () => {
 
-    // when
-    const response:Response = await request('/ajax/dmsDPPage/Save/?__ajax_request=1', options);
+    let response:Response;
 
-    // then
-    expect(response.statusCode).toEqual(OK);
-    expect(response.body).toEqual('{}');
-    expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
-  });
+    beforeAll(async () => {
+      // when
+      response = await performSaveRequestWith(createFirstElementRequestPayload);
+    });
 
-  describe('persisting changes', () => {
+    it('responds with OK status code and correct headers', async () => {
+      // given
+      const expectedHeaders:any = {
+        'access-control-allow-credentials': 'true',
+        'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
+        'access-control-allow-origin': 'https://app.uxpin.com',
+      };
+
+      // then
+      expect(response.statusCode).toEqual(OK);
+      expect(response.body).toEqual('{}');
+      expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
+    });
+
     it('correctly saves first element', async () => {
       // given
       const expectedPageContent:PageContent = {
@@ -53,97 +57,109 @@ describe('Experimentation server – handling save page request', () => {
         },
       };
 
-      // when
-      await performSaveRequestWith(createFirstElementRequestPayload);
-
       // then
       expect(await getCurrentSavedPage()).toEqual(expectedPageContent);
     });
 
-    it('correctly updates existing elements', async () => {
-      // given
-      const expectedPageContent:PageContent = {
-        '46a48bee71ce4c20bbc1d1ee97b3891f': {
-          props: {
-            ...createFirstElementRequestPayload.changed_elements['46a48bee71ce4c20bbc1d1ee97b3891f'].props,
-            height: 163,
-            width: 347,
+    describe('and then updating the element', () => {
+
+      beforeAll(async () => {
+        // when
+        await performSaveRequestWith(updateElementRequestPayload);
+      });
+
+      it('correctly updates existing elements', async () => {
+        // given
+        const expectedPageContent:PageContent = {
+          '46a48bee71ce4c20bbc1d1ee97b3891f': {
+            props: {
+              ...createFirstElementRequestPayload.changed_elements['46a48bee71ce4c20bbc1d1ee97b3891f'].props,
+              height: 163,
+              width: 347,
+            },
+            type: 'Box',
+            v: '2.0',
           },
-          type: 'Box',
-          v: '2.0',
-        },
-        canvas: {
-          props: {
-            storedElements: [
-              '46a48bee71ce4c20bbc1d1ee97b3891f',
-            ],
-          }, type: 'Canvas', v: '2.0',
-        },
-      };
-
-      // when
-      await performSaveRequestWith(updateElementRequestPayload);
-
-      // then
-      expect(await getCurrentSavedPage()).toEqual(expectedPageContent);
-    });
-
-    it('correctly saves new element', async () => {
-      // given
-      const expectedPageContent:PageContent = {
-        '46a48bee71ce4c20bbc1d1ee97b3891f': {
-          props: {
-            ...createFirstElementRequestPayload.changed_elements['46a48bee71ce4c20bbc1d1ee97b3891f'].props,
-            height: 163,
-            width: 347,
+          canvas: {
+            props: {
+              storedElements: [
+                '46a48bee71ce4c20bbc1d1ee97b3891f',
+              ],
+            }, type: 'Canvas', v: '2.0',
           },
-          type: 'Box',
-          v: '2.0',
-        },
-        b5b8401708bf42df9e2b5ef5cca419bf: {
-          props: addSecondElementRequestPayload.changed_elements.b5b8401708bf42df9e2b5ef5cca419bf.props,
-          type: 'Circle',
-          v: '2.0',
-        },
-        canvas: {
-          props: {
-            storedElements: [
-              '46a48bee71ce4c20bbc1d1ee97b3891f',
-              'b5b8401708bf42df9e2b5ef5cca419bf',
-            ],
-          }, type: 'Canvas', v: '2.0',
-        },
-      };
+        };
 
-      // when
-      await performSaveRequestWith(createFirstElementRequestPayload);
+        // then
+        expect(await getCurrentSavedPage()).toEqual(expectedPageContent);
+      });
 
-      // then
-      expect(await getCurrentSavedPage()).toEqual(expectedPageContent);
-    });
+      describe('and then adding a new element', () => {
 
-    it('correctly removes elements', async () => {
-      // given
-      const expectedPageContent:PageContent = {
-        b5b8401708bf42df9e2b5ef5cca419bf: {
-          props: addSecondElementRequestPayload.changed_elements.b5b8401708bf42df9e2b5ef5cca419bf.props,
-          type: 'Circle',
-          v: '2.0',
-        },
-        canvas: {
-          props: {
-            storedElements: [
-              'b5b8401708bf42df9e2b5ef5cca419bf',
-            ],
-          }, type: 'Canvas', v: '2.0',
-        },
-      };
+        beforeAll(async () => {
+          // when
+          await performSaveRequestWith(createFirstElementRequestPayload);
+        });
 
-      // when
-      await performSaveRequestWith(deleteElementRequestPayload);
+        it('correctly saves the new element', async () => {
+          // given
+          const expectedPageContent:PageContent = {
+            '46a48bee71ce4c20bbc1d1ee97b3891f': {
+              props: {
+                ...createFirstElementRequestPayload.changed_elements['46a48bee71ce4c20bbc1d1ee97b3891f'].props,
+                height: 163,
+                width: 347,
+              },
+              type: 'Box',
+              v: '2.0',
+            },
+            b5b8401708bf42df9e2b5ef5cca419bf: {
+              props: addSecondElementRequestPayload.changed_elements.b5b8401708bf42df9e2b5ef5cca419bf.props,
+              type: 'Circle',
+              v: '2.0',
+            },
+            canvas: {
+              props: {
+                storedElements: [
+                  '46a48bee71ce4c20bbc1d1ee97b3891f',
+                  'b5b8401708bf42df9e2b5ef5cca419bf',
+                ],
+              }, type: 'Canvas', v: '2.0',
+            },
+          };
 
-      // then
-      expect(await getCurrentSavedPage()).toEqual(expectedPageContent);
+          // then
+          expect(await getCurrentSavedPage()).toEqual(expectedPageContent);
+        });
+
+        describe('and then removing the first element', () => {
+
+          beforeAll(async () => {
+            // when
+            await performSaveRequestWith(deleteElementRequestPayload);
+          });
+
+          it('correctly removes elements', async () => {
+            // given
+            const expectedPageContent:PageContent = {
+              b5b8401708bf42df9e2b5ef5cca419bf: {
+                props: addSecondElementRequestPayload.changed_elements.b5b8401708bf42df9e2b5ef5cca419bf.props,
+                type: 'Circle',
+                v: '2.0',
+              },
+              canvas: {
+                props: {
+                  storedElements: [
+                    'b5b8401708bf42df9e2b5ef5cca419bf',
+                  ],
+                }, type: 'Canvas', v: '2.0',
+              },
+            };
+
+            // then
+            expect(await getCurrentSavedPage()).toEqual(expectedPageContent);
+          });
+        });
+      });
     });
   });
 
@@ -151,6 +167,7 @@ describe('Experimentation server – handling save page request', () => {
     const options:RequestPromiseOptions = {
       form: { json: JSON.stringify(payload) },
       method: 'POST',
+      resolveWithFullResponse: true,
     };
     return request('/ajax/dmsDPPage/Save/?__ajax_request=1', options);
   }
