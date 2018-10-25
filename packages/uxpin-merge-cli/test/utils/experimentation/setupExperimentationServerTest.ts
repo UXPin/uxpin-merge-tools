@@ -58,13 +58,17 @@ function getTestContext(
           resolve();
         };
 
+        let fileHandle:number = 0;
         try {
-          const fd:number = await open(filePath, 'w');
+          fileHandle = await open(filePath, 'w');
           subprocess.stdout.addListener(eventName, changeListener);
-          await write(fd, content, 0);
-          await close(fd);
+          await write(fileHandle, content, 0);
         } catch (error) {
           reject(error);
+        } finally {
+          if (fileHandle) {
+            await close(fileHandle);
+          }
         }
       });
     },
