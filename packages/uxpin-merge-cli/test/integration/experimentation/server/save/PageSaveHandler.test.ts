@@ -149,7 +149,7 @@ describe('Experimentation server – handling save page request', () => {
 
   function performSaveRequestWith(payload:PageIncrementalUpdate):RequestPromise {
     const options:RequestPromiseOptions = {
-      formData: { json: JSON.stringify(payload) },
+      form: { json: JSON.stringify(payload) },
       method: 'POST',
     };
     return request('/ajax/dmsDPPage/Save/?__ajax_request=1', options);
