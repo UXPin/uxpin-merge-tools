@@ -14,6 +14,8 @@ export function setupWatcher(programArgs:ProgramArgs, onChangeListener:WatchList
       getConfigPath(programArgs),
       getTempDirPath(programArgs),
     ],
+    interval: 300,
+    useFsEvents: true,
   };
 
   const watcher:FSWatcher = watch(programArgs.cwd, watchOptions);

@@ -50,6 +50,7 @@ function getTestContext(
       return new Promise(async (resolve, reject) => {
         const eventName:string = 'data';
         const changeListener:(data:Buffer) => void = (data) => {
+          console.log(data.toString());
           if (!data.toString().match(new RegExp(COMPILATION_SUCCESS_MESSAGE))) {
             return;
           }
@@ -59,6 +60,7 @@ function getTestContext(
         };
 
         let fileHandle:number = 0;
+        console.log('write start');
         try {
           fileHandle = await open(filePath, 'w');
           subprocess.stdout.addListener(eventName, changeListener);
@@ -70,6 +72,7 @@ function getTestContext(
             await close(fileHandle);
           }
         }
+        console.log('write end');
       });
     },
     getWorkingDir():string {
