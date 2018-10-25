@@ -28,7 +28,7 @@ async function runCommand(programArgs:ProgramArgs):Promise<any> {
 }
 
 function setupProjectWatcher(programArgs:ProgramArgs):void {
-  if (!isWatchCommand(programArgs)) {
+  if (!isWatchChangesCommand(programArgs)) {
     return;
   }
 
@@ -54,7 +54,7 @@ async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promis
   await pMapSeries(stepFunctions, (step) => step(designSystem));
 }
 
-function isWatchCommand(programArgs:ProgramArgs):boolean {
+function isWatchChangesCommand(programArgs:ProgramArgs):boolean {
   return programArgs.command === 'experiment';
 }
 

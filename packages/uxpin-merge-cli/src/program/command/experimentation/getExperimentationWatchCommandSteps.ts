@@ -24,9 +24,7 @@ function onCompilationStart():Step {
 
 function onCompilationEnd():Step {
   return {
-    exec: () => {
-      printLine('\r🌐 Compiled successfully! Now you can refresh your browser.');
-    },
+    exec: () => printLine('\r🌐 Compiled successfully! Now you can refresh your browser.'),
     shouldRun: true,
   };
 }
