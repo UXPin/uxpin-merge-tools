@@ -7,7 +7,7 @@ const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server – handling not found path', () => {
-  const { request } = setupExperimentationServerTest({ projectPath: './' });
+  const { request } = setupExperimentationServerTest();
 
   it('Responds with NOT_FOUND status code', async () => {
     // when

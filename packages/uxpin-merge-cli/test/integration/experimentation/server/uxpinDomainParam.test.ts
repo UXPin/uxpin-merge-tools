@@ -9,7 +9,6 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('uxpinDomainParam', () => {
   const { request } = setupExperimentationServerTest({
-    projectPath: './',
     serverCmdArgs: ['--uxpin-domain="merge.uxpin.cloud"'],
   });
 

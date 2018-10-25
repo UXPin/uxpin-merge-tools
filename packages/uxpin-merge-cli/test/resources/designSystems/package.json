@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "cantWriteToUxpinTemp",
+      "noSrcDir",
+      "twoComponentsWithConfig",
+      "withEpidFile"
+    ],
+    "nohoist": [
+      "**/**"
+    ]
+  }
+}

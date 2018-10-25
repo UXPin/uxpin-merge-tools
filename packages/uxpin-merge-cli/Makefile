@@ -6,6 +6,7 @@ UXPIN_CODE=$(shell pwd)/bin/uxpin-merge
 
 dependencies:
 	yarn install
+	cd ./test/resources/designSystems && yarn install || npx yarn@1.7.0 install
 
 build:
 	tsc
@@ -31,7 +32,7 @@ test-integration:
 
 test-ci:
 	make test-rename-snapshots
-	TEST_REPORT_PATH=./reports jest --config="jest-ci.json" --runInBand --forceExit
+	TEST_REPORT_PATH=./reports jest --config="jest-ci.json" --maxWorkers=6
 	make test-remap-coverage
 
 clean:

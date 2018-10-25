@@ -18,12 +18,12 @@ export function runProgram(program:RawProgramArgs):Promise<any> {
   return getComponentCategoryInfos(getProjectPaths(programArgs))
     .then(getDesignSystemMetadata)
     .then((designSystem:DSMetadata) => pMapSeries(stepFunctions, (step) => step(designSystem)))
-    .catch(logError);
-
+    .catch(endWithError);
 }
 
-function logError(errorMessage:string):void {
-  console.log('ERROR:', errorMessage);
+function endWithError(errorMessage:string):void {
+  console.error('ERROR:', errorMessage);
+  process.exit(1);
 }
 
 type StepExecutor = (designSystem:DSMetadata) => Promise<DSMetadata>;

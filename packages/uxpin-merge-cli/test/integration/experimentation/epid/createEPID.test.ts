@@ -1,6 +1,5 @@
-import { existsSync, readFileSync, unlinkSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
 import { resolve } from 'path';
-import { TEMP_DIR_PATH } from '../../../../src/steps/building/config/getConfig';
 import { EPID } from '../../../../src/steps/experimentation/epid/EPID';
 import { getEPIDFilePath } from '../../../../src/steps/experimentation/epid/getEPIDFilePath';
 import { getProjectEPID } from '../../../../src/steps/experimentation/epid/getProjectEPID';
@@ -12,13 +11,12 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('createEPID', () => {
   describe('when epid file doesn\'t exist', () => {
-    const projectPath:string = resolve(__dirname, '../../../');
-    const epidFilePath:string = getEPIDFilePath(projectPath);
+    let epidFilePath:string;
 
-    setupExperimentationServerTest({ projectPath });
+    const { getWorkingDir } = setupExperimentationServerTest();
 
-    afterAll(() => {
-      unlinkSync(resolve(projectPath, TEMP_DIR_PATH));
+    beforeEach(() => {
+      epidFilePath = getEPIDFilePath(getWorkingDir());
     });
 
     it('should create epid file', () => {
@@ -33,27 +31,20 @@ describe('createEPID', () => {
 
       // when
       // then
-      expect(await getProjectEPID(projectPath)).toEqual(expectedEPID);
+      expect(await getProjectEPID(getWorkingDir())).toEqual(expectedEPID);
     });
   });
 
   describe('when epid file exists', () => {
     const projectPath:string = resolve(__dirname, '../../../resources/designSystems/withEpidFile');
-    const epidFilePath:string = getEPIDFilePath(projectPath);
-    let epidContent:string;
-
-    beforeAll(() => {
-      epidContent = getEpidContent();
-    });
-
-    setupExperimentationServerTest({ projectPath });
+    const { getWorkingDir } = setupExperimentationServerTest({ projectPath });
 
     it('should not override already existed epid file', () => {
-      expect(epidContent).toEqual(getEpidContent());
+      expect(getEpidContent(getWorkingDir())).toEqual(getEpidContent(projectPath));
     });
 
-    function getEpidContent():string {
-      return readFileSync(epidFilePath).toString('utf-8');
+    function getEpidContent(projectDir:string):string {
+      return readFileSync(getEPIDFilePath(projectDir)).toString('utf-8');
     }
   });
 });

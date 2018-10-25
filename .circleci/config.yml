@@ -13,7 +13,7 @@ jobs:
           key: uxpin-merge-cli-dependencies-cache-{{ checksum "package.json" }}
       - run:
           name: "Install dependencies"
-          command: yarn install
+          command: make dependencies
       - save_cache:
           key: uxpin-merge-cli-dependencies-cache-{{ checksum "package.json" }}
           paths:
