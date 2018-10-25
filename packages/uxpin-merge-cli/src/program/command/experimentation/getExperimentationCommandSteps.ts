@@ -7,8 +7,8 @@ import { experimentationRunServerStep } from './steps/experimentationRunServerSt
 
 export function getExperimentationCommandSteps(args:ExperimentProgramArgs):Step[] {
   return [
-    experimentationCreateEpidStep(args),
     experimentationBuildLibraryStep(args),
+    experimentationCreateEpidStep(args),
     experimentationPrepareMetadataStep(args),
     experimentationRunServerStep(args),
   ];
