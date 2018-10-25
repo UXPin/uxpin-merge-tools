@@ -6,6 +6,8 @@ import { Step } from '../Step';
 import { experimentationBuildLibraryStep } from './steps/experimentationBuildLibraryStep';
 import { experimentationPrepareMetadataStep } from './steps/experimentationPrepareMetadataStep';
 
+export const COMPILATION_SUCCESS_MESSAGE:string = '🌐 Compiled successfully! Now you can refresh your browser.';
+
 export function getExperimentationWatchCommandSteps(args:ExperimentProgramArgs):Step[] {
   return [
     onCompilationStart(),
@@ -24,7 +26,7 @@ function onCompilationStart():Step {
 
 function onCompilationEnd():Step {
   return {
-    exec: () => printLine('\r🌐 Compiled successfully! Now you can refresh your browser.'),
+    exec: () => printLine(`\r${COMPILATION_SUCCESS_MESSAGE}`),
     shouldRun: true,
   };
 }

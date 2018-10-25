@@ -7,12 +7,22 @@ export interface TestServerOptions {
   serverReadyOutput:RegExp;
 }
 
-export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerOptions):Promise<() => void> {
+export interface MergeServerResponse {
+  close:() => void;
+  subprocess:ChildProcess;
+}
+
+export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerOptions):Promise<MergeServerResponse> {
   return new Promise((resolve, reject) => {
     const uxpinCommandOptions:CmdOptions = { ...cmdOptions, params: [...(cmdOptions.params || [])] };
     const command:string = buildCommand(uxpinCommandOptions);
     const subprocess:ChildProcess = exec(command, getExecOptions());
-    onServerReady(subprocess, options.serverReadyOutput, () => resolve(() => subprocess.kill()));
+    onServerReady(subprocess, options.serverReadyOutput, () => {
+      return resolve({
+        close: () => subprocess.kill(),
+        subprocess,
+      });
+    });
     onFailure(subprocess, (error) => reject(error));
   });
 }
