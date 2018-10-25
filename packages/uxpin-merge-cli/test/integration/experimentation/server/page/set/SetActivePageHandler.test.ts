@@ -1,13 +1,13 @@
 import { OK } from 'http-status-codes';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
-import { PageData } from '../../../../src/common/types/PageData';
+import { PageData } from '../../../../../../src/common/types/PageData';
 import {
   expectedAvatarMetadata,
   expectedButtonMetadata,
-} from '../../../resources/designSystems/twoComponentsWithConfig/expectedMetadata';
-import { getRandomPortNumber } from '../../../utils/e2e/server/getRandomPortNumber';
-import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
+} from '../../../../../resources/designSystems/twoComponentsWithConfig/expectedMetadata';
+import { getRandomPortNumber } from '../../../../../utils/e2e/server/getRandomPortNumber';
+import { setupExperimentationServerTest } from '../../../../../utils/experimentation/setupExperimentationServerTest';
 
 const TIMEOUT:number = 80000;
 jest.setTimeout(TIMEOUT);

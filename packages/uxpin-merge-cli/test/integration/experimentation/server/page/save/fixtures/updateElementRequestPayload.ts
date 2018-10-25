@@ -1,4 +1,4 @@
-import { PageIncrementalUpdate } from '../../../../../../src/common/types/PageIncrementalUpdate';
+import { PageIncrementalUpdate } from '../../../../../../../src/common/types/PageIncrementalUpdate';
 
 export const updateElementRequestPayload:PageIncrementalUpdate = {
   can_break_cohesion: false,
