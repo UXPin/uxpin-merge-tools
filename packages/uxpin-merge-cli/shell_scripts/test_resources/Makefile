@@ -1,7 +1,7 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 
-test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/repos/arui-feather ../../test/resources/repos/polaris ../../test/resources/repos/mineral-ui ../../test/resources/designSystems/watchingChanges/yarn.lock
+test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/repos/arui-feather ../../test/resources/repos/polaris ../../test/resources/repos/mineral-ui
 
 ../../test/resources/repos/nordnet-ui-kit:
 	cd ../../test/resources/repos \
@@ -40,7 +40,3 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& mkdir ./npm-cache \
 	&& npm install --cache=./npm-cache \
 	&& rm -rf ./npm-cache
-
-../../test/resources/designSystems/watchingChanges/yarn.lock:
-	cd ../../test/resources/designSystems/watchingChanges \
-	&& yarn install
