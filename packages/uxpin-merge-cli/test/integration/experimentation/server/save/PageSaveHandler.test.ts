@@ -97,7 +97,7 @@ describe('Experimentation server – handling save page request', () => {
 
         beforeAll(async () => {
           // when
-          await performSaveRequestWith(createFirstElementRequestPayload);
+          await performSaveRequestWith(addSecondElementRequestPayload);
         });
 
         it('correctly saves the new element', async () => {
