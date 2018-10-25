@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-
-const styles = { width: '100%', height: '100%' };
+import { classNames } from '../../utils/classNames';
+import './button.css'
 
 export default class Button extends PureComponent {
   static propTypes = {
@@ -11,10 +11,14 @@ export default class Button extends PureComponent {
 
   render() {
     const { children, primary } = this.props;
+    const className = classNames({
+      'watch__btn': true,
+      'watch__btn--primary': primary,
+    });
 
     return (
-      <button style={styles} className={primary ? 'btn__primary' : ''}>
-        {children} {primary ? 'Primary' : ''}
+      <button className={className}>
+        {children}
       </button>
     );
   }
