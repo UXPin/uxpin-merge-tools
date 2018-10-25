@@ -6,43 +6,45 @@ import { RequestPromise, RequestPromiseOptions } from 'request-promise';
 import { URL } from 'url';
 import { COMPILATION_SUCCESS_MESSAGE } from '../../../src/program/command/experimentation/getExperimentationWatchCommandSteps';
 import { SERVER_READY_OUTPUT } from '../../../src/steps/experimentation/server/console/printServerReadyMessage';
-import { CmdOptions } from '../command/CmdOptions';
 import { MergeServerResponse, startUXPinMergeServer, TestServerOptions } from '../command/startUXPinMergeServer';
-import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
-
-export interface ExperimentationServerTestSetupOptions {
-  serverCmdArgs?:string[];
-  projectPath:string;
-  env?:CmdOptions['env'];
-  port?:number;
-}
+import { ExperimentationServerTestSetupOptions } from './experimentationServerTestSetupOptions';
+import { ExperimentationServerConfiguration, getServerConfiguration } from './getServerConfiguration';
 
 export interface ExperimentationServerTestContext {
-  changeFileContent:(filePath:string, content:string) => Promise<void>;
   request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
+  changeFileContent:(filePath:string, content:string) => Promise<void>;
+
+  getWorkingDir():string;
 }
 
 export function setupExperimentationServerTest(
-  options:ExperimentationServerTestSetupOptions,
+  options:ExperimentationServerTestSetupOptions = {},
 ):ExperimentationServerTestContext {
-  const port:number = options.port || getRandomPortNumber();
-  const serverCmdArgsWithPort:CmdOptions = getCmdOptions(options, port);
   const serverOptions:TestServerOptions = { serverReadyOutput: SERVER_READY_OUTPUT };
   const deferredContext:DeferredChain<ExperimentationServerTestContext> = new DeferredChain();
 
   let mergeServerResponse:MergeServerResponse;
+  let cleanupTemp:() => void;
 
   beforeAll(async () => {
-    mergeServerResponse = await startUXPinMergeServer(serverCmdArgsWithPort, serverOptions);
-    deferredContext.setTarget(getTestContext(port, mergeServerResponse));
+    const config:ExperimentationServerConfiguration = await getServerConfiguration(options);
+    cleanupTemp = config.cleanupTemp;
+    mergeServerResponse = await startUXPinMergeServer(config.cmdOptions, serverOptions);
+    deferredContext.setTarget(getTestContext(config, mergeServerResponse));
   });
 
-  afterAll(() => mergeServerResponse.close());
+  afterAll(async () => {
+    await mergeServerResponse.close();
+    cleanupTemp();
+  });
 
   return deferredContext.getProxy();
 }
 
-function getTestContext(port:number, mergeServerResponse:MergeServerResponse):ExperimentationServerTestContext {
+function getTestContext(
+  { port, workingDir }:ExperimentationServerConfiguration,
+  { subprocess }:MergeServerResponse,
+):ExperimentationServerTestContext {
   return {
     changeFileContent(filePath:string, content:string):Promise<void> {
       return new Promise(async (resolve, reject) => {
@@ -52,13 +54,13 @@ function getTestContext(port:number, mergeServerResponse:MergeServerResponse):Ex
             return;
           }
 
-          mergeServerResponse.subprocess.stdout.removeListener(eventName, changeListener);
+          subprocess.stdout.removeListener(eventName, changeListener);
           resolve();
         };
 
         try {
           const fd:number = await open(filePath, 'w');
-          mergeServerResponse.subprocess.stdout.addListener(eventName, changeListener);
+          subprocess.stdout.addListener(eventName, changeListener);
           await write(fd, content, 0);
           await close(fd);
         } catch (error) {
@@ -66,18 +68,12 @@ function getTestContext(port:number, mergeServerResponse:MergeServerResponse):Ex
         }
       });
     },
+    getWorkingDir():string {
+      return workingDir;
+    },
     request(uri:string, options:RequestPromiseOptions = {}):RequestPromise {
       const url:URL = new URL(uri, `http://localhost:${port}`);
       return requestPromise({ url, ...options });
     },
-  };
-}
-
-function getCmdOptions(options:ExperimentationServerTestSetupOptions, port:number):CmdOptions {
-  const { projectPath, serverCmdArgs, env } = options;
-  return {
-    cwd: projectPath,
-    env,
-    params: [...(serverCmdArgs || []), `--port=${port}`],
   };
 }

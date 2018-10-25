@@ -10,9 +10,8 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental - watch - change file content', () => {
   let bundleCheckSum:string;
-  const projectDirPath:string = path.resolve(__dirname, '../../../resources/designSystems/watchingChanges');
-  const { changeFileContent } = setupExperimentationServerTest({
-    projectPath: projectDirPath,
+  const { changeFileContent, getWorkingDir } = setupExperimentationServerTest({
+    projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
       '--webpack-config "node_modules/react-scripts/config/webpack.config.dev.js"',
@@ -25,7 +24,7 @@ describe('Experimental - watch - change file content', () => {
 
   it('should update library output file when', async () => {
     // given
-    const avatarJsxPath:string = path.resolve(projectDirPath, './src/components/Avatar/Avatar.jsx');
+    const avatarJsxPath:string = path.resolve(getWorkingDir(), './src/components/Avatar/Avatar.jsx');
     const changedFileContent:string = `
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -61,7 +60,7 @@ export default class Avatar extends PureComponent {
   });
 
   function getBundleChecksum():Promise<string> {
-    const tempDirPath:string = getTempDirPath({ cwd: projectDirPath });
+    const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
     return getFileChecksum(path.resolve(tempDirPath, LIBRARY_OUTPUT_FILENAME));
   }
 });

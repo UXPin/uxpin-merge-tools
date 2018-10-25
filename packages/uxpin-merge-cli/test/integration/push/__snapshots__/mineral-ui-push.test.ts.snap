@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pushing mineral-ui design system with required user webpack config prints warnings without stack traces to the console 1`] = `
+"warning Cannot compute default value for property \`triggerTitle\`
+
+SyntaxError: Unexpected token :
+
+ in:
+src/library/Card/CardFooter/CardFooter.js
+
+"
+`;

@@ -1,6 +1,7 @@
 import { ChildProcess, exec } from 'child_process';
 import { buildCommand } from './buildCommand';
 import { CmdOptions } from './CmdOptions';
+import { getAllCmdOptions } from './getAllCmdOptions';
 import { getExecOptions } from './getExecOptions';
 
 export interface TestServerOptions {
@@ -14,8 +15,7 @@ export interface MergeServerResponse {
 
 export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerOptions):Promise<MergeServerResponse> {
   return new Promise((resolve, reject) => {
-    const uxpinCommandOptions:CmdOptions = { ...cmdOptions, params: [...(cmdOptions.params || [])] };
-    const command:string = buildCommand(uxpinCommandOptions);
+    const command:string = buildCommand(getAllCmdOptions(cmdOptions));
     const subprocess:ChildProcess = exec(command, getExecOptions());
     onServerReady(subprocess, options.serverReadyOutput, () => {
       return resolve({
