@@ -4,6 +4,8 @@ import { getAccessControlHeaders } from '../../../headers/getAccessControlHeader
 import { ExperimentationServerContext } from '../../../startExperimentationServer';
 import { RequestHandler } from '../../RequestHandler';
 
+export const PAGE_FILE_NAME:string = 'page.json';
+
 // tslint:disable prefer-function-over-method
 export class PageSaveHandler implements RequestHandler {
 
