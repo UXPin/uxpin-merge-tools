@@ -1,5 +1,4 @@
 import { createServer, Server } from 'http';
-import { openUserBrowserOnSpecificUrl } from '../../../utils/browser/openUserBrowserOnSpecificUrl';
 import { getAPPExperimentationRemoteURL } from '../app/getAPPExperimentationRemoteURL';
 import { EPID } from '../epid/EPID';
 import { printServerReadyMessage } from './console/printServerReadyMessage';
@@ -37,9 +36,6 @@ export async function startExperimentationServer(options:ExperimentationServerOp
   server.listen(options.port);
   const experimentationAppURL:string = await getAPPExperimentationRemoteURL(options);
   await printServerReadyMessage(experimentationAppURL);
-  if (!options.skipBrowser) {
-    await openUserBrowserOnSpecificUrl(experimentationAppURL);
-  }
 }
 
 function registerHandlers(router:ServerRouter, context:ExperimentationServerContext):void {
