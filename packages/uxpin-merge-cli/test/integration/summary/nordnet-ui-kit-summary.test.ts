@@ -1,3 +1,4 @@
+import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
@@ -11,7 +12,7 @@ describe('summary command integration', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/repos/nordnet-ui-kit', params: [
-          'summary',
+          Command.SUMMARY,
           '--config="../../configs/nordnet-ui-kit-uxpin.config.js"',
         ],
       })

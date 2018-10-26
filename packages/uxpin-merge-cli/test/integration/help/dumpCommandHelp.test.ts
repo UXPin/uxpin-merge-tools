@@ -1,3 +1,4 @@
+import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 
 describe('--help option for `dump` command', () => {
@@ -5,7 +6,7 @@ describe('--help option for `dump` command', () => {
   let output:string;
 
   beforeAll(async () => {
-    output = await runUXPinMergeCommand({ params: ['dump', '--help'] });
+    output = await runUXPinMergeCommand({ params: [Command.DUMP, '--help'] });
   });
 
   it('it prints description for dump command', () => {

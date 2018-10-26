@@ -2,7 +2,7 @@
 
 const program = require('commander');
 
-const { runProgram } = require('../src/index');
+const { runProgram, Command } = require('../src/index');
 
 program
   .version(require('../package.json').version)
@@ -16,7 +16,7 @@ program
   .option('--skip-browser', 'Don\'t open browser after compilation');
 
 program
-  .command('server')
+  .command(Command.SERVER)
   .description('Start local web server and display the list of design system components')
   .option('--port <number>', 'port number')
   .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
@@ -25,7 +25,7 @@ program
   .action(() => console.log('starting server...'));
 
 program
-  .command('push')
+  .command(Command.PUSH)
   .description('Upload design system repository information to UXPin')
   .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
   .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
@@ -34,14 +34,14 @@ program
   .action(() => {});
 
 program
-  .command('dump')
+  .command(Command.DUMP)
   .description('Shows all information (in JSON) about the design system repository and NOT send to UXPin')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
   .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
   .action(() => {});
 
 program
-  .command('summary')
+  .command(Command.SUMMARY)
   .description('Show only design system summary without building it')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
   .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
