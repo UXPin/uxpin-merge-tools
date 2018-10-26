@@ -34,7 +34,7 @@ export async function startExperimentationServer(options:ExperimentationServerOp
     handler.handle(request, response);
   });
   server.listen(options.port);
-  const experimentationAppURL:string = await getAPPExperimentationRemoteURL(options);
+  const experimentationAppURL:string = getAPPExperimentationRemoteURL(options);
   await printServerReadyMessage(experimentationAppURL);
 }
 
