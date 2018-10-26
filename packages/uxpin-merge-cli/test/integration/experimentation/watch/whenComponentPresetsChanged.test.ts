@@ -11,10 +11,9 @@ import { getFileChecksum } from '../../../utils/file/getFileChecksum';
 const CURRENT_TIMEOUT:number = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('Experimental - watch - change file content', () => {
+describe('Experimental - watch - when component presets has changed', () => {
   let initialBundleChecksum:string;
   let initialMetadata:string;
-  let buttonJSXPath:string;
   const { changeFileContent, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
@@ -24,34 +23,16 @@ describe('Experimental - watch - change file content', () => {
   });
 
   const changedFileContent:string = `
-import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import { classNames } from '../../utils/classNames';
-import './button.css'
-
-export default class Button extends PureComponent {
-  static propTypes = {
-    children: PropTypes.node,
-    disabled: PropTypes.bool,
-    primary: PropTypes.bool.isRequired,
-  };
-
-  static defaultProps = {
-    disabled: false,
-  };
-
-  render() {
-    const { children, disabled, primary } = this.props;
-    const className = classNames({
-      'watch__btn': true,
-      'watch__btn--primary': primary,
-    });
-
-    return (
-      <button className={className} disabled={disabled}>
-        {children}
-      </button>
-    );
+{
+  "rootId": "1",
+  "elements": {
+    "1": {
+      "name": "Button",
+      "props": {
+        "children": "Click me",
+        "primary": false
+      }
+    }
   }
 }
 
@@ -61,21 +42,21 @@ export default class Button extends PureComponent {
     // given
     initialBundleChecksum = await getBundleChecksum();
     initialMetadata = await getMetadataChecksum();
-    buttonJSXPath = path.resolve(getWorkingDir(), './src/components/Button/Button.jsx');
+    const buttonPresetsPath:string = path.resolve(getWorkingDir(), './src/components/Button/presets/0-default.json');
 
     // when
-    await changeFileContent(buttonJSXPath, changedFileContent);
+    await changeFileContent(buttonPresetsPath, changedFileContent);
   });
 
-  it('should update library bundle when component props changed', async () => {
-    expect(await getBundleChecksum()).not.toEqual(initialBundleChecksum);
+  it('should not change library bundle when only component presets changed', async () => {
+    expect(await getBundleChecksum()).toEqual(initialBundleChecksum);
   });
 
-  it('should update metadata file when props changed', async () => {
+  it('should update metadata file', async () => {
     expect(await getMetadataChecksum()).not.toEqual(initialMetadata);
   });
 
-  it('should metadata has added new props from changed file', async () => {
+  it('should update metadata file with new presets', async () => {
     // given
     const expectedMetadata:DesignSystemSnapshot = {
       categorizedComponents: [
@@ -194,7 +175,7 @@ export default class Button extends PureComponent {
                       name: 'Button',
                       props: {
                         children: 'Click me',
-                        primary: true,
+                        primary: false,
                       },
                     },
                   },
@@ -209,18 +190,6 @@ export default class Button extends PureComponent {
                   name: 'children',
                   type: {
                     name: 'node',
-                    structure: {},
-                  },
-                },
-                {
-                  defaultValue: {
-                    value: false,
-                  },
-                  description: '',
-                  isRequired: false,
-                  name: 'disabled',
-                  type: {
-                    name: 'boolean',
                     structure: {},
                   },
                 },
