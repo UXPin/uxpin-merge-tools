@@ -15,8 +15,8 @@ import { setupWatcher } from './watcher/setupWatcher';
 export async function runProgram(program:RawProgramArgs):Promise<any> {
   try {
     const programArgs:ProgramArgs = getProgramArgs(program);
+    await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
-    setupProjectWatcher(programArgs);
   } catch (error) {
     endWithError(error);
   }
@@ -26,12 +26,12 @@ async function runCommand(programArgs:ProgramArgs):Promise<any> {
   await executeCommandSteps(programArgs, getSteps(programArgs));
 }
 
-function setupProjectWatcher(programArgs:ProgramArgs):void {
+async function setupProjectWatcher(programArgs:ProgramArgs):Promise<void> {
   if (!isWatchChangesCommand(programArgs)) {
     return;
   }
 
-  setupWatcher(programArgs, thunkRunCommandWhenFilesChanged(programArgs));
+  await setupWatcher(programArgs, thunkRunCommandWhenFilesChanged(programArgs));
 }
 
 function thunkRunCommandWhenFilesChanged(programArgs:ProgramArgs):(path:string) => void {
