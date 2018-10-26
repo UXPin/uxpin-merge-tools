@@ -52,6 +52,7 @@ export interface ExperimentProgramArgs {
   webpackConfig?:string;
   wrapper?:string;
   uxpinDomain:string;
+  skipBrowser:boolean;
 }
 
 export type Arg = string | CommanderStatic;

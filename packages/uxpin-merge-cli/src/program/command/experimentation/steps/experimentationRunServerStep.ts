@@ -21,7 +21,7 @@ function thunkStartExperimentationServer(args:ExperimentProgramArgs):(ds:DSMetad
 }
 
 async function getExperimentServerOptions(args:ExperimentProgramArgs):Promise<ExperimentationServerOptions> {
-  const { port, uxpinDomain } = args;
+  const { port, uxpinDomain, skipBrowser } = args;
   const uxpinDirPath:string = getTempDirPath(args);
   const projectRoot:string = getProjectRoot(args);
   return {
@@ -29,6 +29,7 @@ async function getExperimentServerOptions(args:ExperimentProgramArgs):Promise<Ex
     epid: await getProjectEPID(projectRoot),
     port,
     projectRoot,
+    skipBrowser,
     uxpinDirPath,
     uxpinDomain,
   };

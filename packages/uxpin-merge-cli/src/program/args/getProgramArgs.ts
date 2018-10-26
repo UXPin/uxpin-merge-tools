@@ -16,6 +16,7 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
     port: 8877,
+    skipBrowser: false,
     uxpinDomain: 'uxpin.com',
   },
   push: {
