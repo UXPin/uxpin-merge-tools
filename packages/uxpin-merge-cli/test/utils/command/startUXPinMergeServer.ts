@@ -6,6 +6,7 @@ import { getExecOptions } from './getExecOptions';
 
 export interface TestServerOptions {
   serverReadyOutput:RegExp;
+  silent?:boolean;
 }
 
 export interface MergeServerResponse {
@@ -23,7 +24,7 @@ export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerO
         subprocess,
       });
     });
-    onFailure(subprocess, (error) => reject(error));
+    onFailure(subprocess, Boolean(options.silent), (error) => reject(error));
   });
 }
 
@@ -35,10 +36,12 @@ function onServerReady(subprocess:ChildProcess, serverReadyOutput:RegExp, onRead
   });
 }
 
-function onFailure(subprocess:ChildProcess, callback:(error:any) => void):void {
+function onFailure(subprocess:ChildProcess, silent:boolean, callback:(error:any) => void):void {
   let errorOut:string = '';
   subprocess.stderr.on('data', (data) => {
-    console.error(data);
+    if (!silent) {
+      console.error(data);
+    }
     errorOut += data;
   });
   subprocess.on('close', () => callback(errorOut));

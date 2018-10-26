@@ -8,11 +8,13 @@ export interface ExperimentationServerOptionsWithDefaults {
   projectPath:string;
   env?:CmdOptions['env'];
   port:number;
+  silent:boolean;
   useTempDir:boolean;
 }
 
 export const defaultOptions:ExperimentationServerOptionsWithDefaults = {
   port: getRandomPortNumber(),
   projectPath: 'resources/designSystems/noSrcDir',
+  silent: false,
   useTempDir: true,
 };

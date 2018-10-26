@@ -20,7 +20,7 @@ export interface ExperimentationServerTestContext {
 export function setupExperimentationServerTest(
   options:ExperimentationServerTestSetupOptions = {},
 ):ExperimentationServerTestContext {
-  const serverOptions:TestServerOptions = { serverReadyOutput: SERVER_READY_OUTPUT };
+  const serverOptions:TestServerOptions = { serverReadyOutput: SERVER_READY_OUTPUT, silent: options.silent };
   const deferredContext:DeferredChain<ExperimentationServerTestContext> = new DeferredChain();
 
   let mergeServerResponse:MergeServerResponse;
@@ -58,11 +58,18 @@ function getTestContext(
           resolve();
         };
 
+        const stdErrorDataListener:(data:Buffer) => void = (data) => {
+          subprocess.stdout.removeListener(eventName, changeListener);
+          reject(data.toString());
+        };
+
+        subprocess.stdout.addListener(eventName, changeListener);
+        subprocess.stderr.addListener(eventName, stdErrorDataListener);
+
         process.nextTick(async () => {
           let fileHandle:number = 0;
           try {
             fileHandle = await open(filePath, 'w');
-            subprocess.stdout.addListener(eventName, changeListener);
             await write(fileHandle, content, 0);
           } catch (error) {
             reject(error);
