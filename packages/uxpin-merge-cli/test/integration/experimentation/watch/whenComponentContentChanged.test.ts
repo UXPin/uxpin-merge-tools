@@ -10,7 +10,9 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental - watch - change file content', () => {
   let initialBundleChecksum:string;
-  const { changeFileContent, getWorkingDir } = setupExperimentationServerTest({
+  const avatarJsxPath:string = './src/components/Avatar/Avatar.jsx';
+
+  const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
@@ -24,7 +26,6 @@ describe('Experimental - watch - change file content', () => {
 
   it('should update library bundle when component changed', async () => {
     // given
-    const avatarJsxPath:string = path.resolve(getWorkingDir(), './src/components/Avatar/Avatar.jsx');
     const changedFileContent:string = `
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -53,7 +54,7 @@ export default class Avatar extends PureComponent {
 `;
 
     // when
-    await changeFileContent(avatarJsxPath, changedFileContent);
+    await changeProjectFile(avatarJsxPath, changedFileContent);
 
     // then
     expect(await getBundleChecksum()).not.toEqual(initialBundleChecksum);

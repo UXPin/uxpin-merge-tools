@@ -14,7 +14,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('Experimental - watch - when component presets has changed', () => {
   let initialBundleChecksum:string;
   let initialMetadata:string;
-  const { changeFileContent, getWorkingDir } = setupExperimentationServerTest({
+  const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
@@ -42,10 +42,10 @@ describe('Experimental - watch - when component presets has changed', () => {
     // given
     initialBundleChecksum = await getBundleChecksum();
     initialMetadata = await getMetadataChecksum();
-    const buttonPresetsPath:string = path.resolve(getWorkingDir(), './src/components/Button/presets/0-default.json');
+    const buttonPresetsPath:string = './src/components/Button/presets/0-default.json';
 
     // when
-    await changeFileContent(buttonPresetsPath, changedFileContent);
+    await changeProjectFile(buttonPresetsPath, changedFileContent);
   });
 
   it('should not change library bundle when only component presets changed', async () => {

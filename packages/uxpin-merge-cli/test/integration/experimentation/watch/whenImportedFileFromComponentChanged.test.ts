@@ -10,7 +10,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental - watch - imported file from component changed', () => {
   let initialBundleChecksum:string;
-  const { changeFileContent, getWorkingDir } = setupExperimentationServerTest({
+  const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
@@ -24,7 +24,7 @@ describe('Experimental - watch - imported file from component changed', () => {
 
   it('should update library bundle when imported file changed', async () => {
     // given
-    const cssFilePath:string = path.resolve(getWorkingDir(), './src/components/Button/button.css');
+    const cssFilePath:string = './src/components/Button/button.css';
     const changedCss:string = `
 .watch__btn {
     width: 100%;
@@ -42,7 +42,7 @@ describe('Experimental - watch - imported file from component changed', () => {
 `;
 
     // when
-    await changeFileContent(cssFilePath, changedCss);
+    await changeProjectFile(cssFilePath, changedCss);
 
     // then
     expect(getBundleChecksum()).not.toEqual(initialBundleChecksum);

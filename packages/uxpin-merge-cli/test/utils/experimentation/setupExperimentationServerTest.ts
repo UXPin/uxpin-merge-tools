@@ -1,18 +1,19 @@
 // tslint:disable no-duplicate-imports
 import { DeferredChain } from 'deferred-proxy-chain';
-import { close, open, write } from 'fs-extra';
+import * as path from 'path';
 import * as requestPromise from 'request-promise';
 import { RequestPromise, RequestPromiseOptions } from 'request-promise';
 import { URL } from 'url';
 import { COMPILATION_SUCCESS_MESSAGE } from '../../../src/program/command/experimentation/getExperimentationWatchCommandSteps';
 import { SERVER_READY_OUTPUT } from '../../../src/steps/experimentation/server/console/printServerReadyMessage';
+import { writeToFile } from '../../../src/utils/fs/writeToFile';
 import { MergeServerResponse, startUXPinMergeServer, TestServerOptions } from '../command/startUXPinMergeServer';
 import { ExperimentationServerTestSetupOptions } from './experimentationServerTestSetupOptions';
 import { ExperimentationServerConfiguration, getServerConfiguration } from './getServerConfiguration';
 
 export interface ExperimentationServerTestContext {
   request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
-  changeFileContent:(filePath:string, content:string) => Promise<void>;
+  changeProjectFile:(filePath:string, content:string) => Promise<void>;
 
   getWorkingDir():string;
 }
@@ -46,7 +47,7 @@ function getTestContext(
   { subprocess }:MergeServerResponse,
 ):ExperimentationServerTestContext {
   return {
-    changeFileContent(filePath:string, content:string):Promise<void> {
+    changeProjectFile(relativeFilePath:string, content:string):Promise<void> {
       return new Promise((resolve, reject) => {
         const eventName:string = 'data';
         const changeListener:(data:Buffer) => void = (data) => {
@@ -67,16 +68,10 @@ function getTestContext(
         subprocess.stderr.addListener(eventName, stdErrorDataListener);
 
         process.nextTick(async () => {
-          let fileHandle:number = 0;
           try {
-            fileHandle = await open(filePath, 'w');
-            await write(fileHandle, content, 0);
+            await writeToFile(path.resolve(workingDir, relativeFilePath), content);
           } catch (error) {
             reject(error);
-          } finally {
-            if (fileHandle) {
-              await close(fileHandle);
-            }
           }
         });
       });

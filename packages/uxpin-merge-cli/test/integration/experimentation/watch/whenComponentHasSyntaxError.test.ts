@@ -10,7 +10,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental - watch - change file content with syntax error', () => {
   let initialBundleChecksum:string;
-  let avatarJsxPath:string;
+  const avatarJsxPath:string = './src/components/Avatar/Avatar.jsx';
 
   const avatarSyntaxErrorContent:string = `
 import PropTypes from 'prop-types';
@@ -66,7 +66,7 @@ export default class Avatar extends PureComponent {
 
 `;
 
-  const { changeFileContent, getWorkingDir } = setupExperimentationServerTest({
+  const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
@@ -76,7 +76,6 @@ export default class Avatar extends PureComponent {
   });
 
   beforeAll(async () => {
-    avatarJsxPath = path.resolve(getWorkingDir(), './src/components/Avatar/Avatar.jsx');
     initialBundleChecksum = await getBundleChecksum();
   });
 
@@ -84,7 +83,7 @@ export default class Avatar extends PureComponent {
     let errorResponse:string;
     beforeAll(async () => {
       try {
-        await changeFileContent(avatarJsxPath, avatarSyntaxErrorContent);
+        await changeProjectFile(avatarJsxPath, avatarSyntaxErrorContent);
       } catch (error) {
         errorResponse = error;
       }
@@ -96,7 +95,7 @@ export default class Avatar extends PureComponent {
 
     describe('when user fix content syntax error', () => {
       beforeAll(async () => {
-        await changeFileContent(avatarJsxPath, avatarCorrectContent);
+        await changeProjectFile(avatarJsxPath, avatarCorrectContent);
       });
 
       it('should update library bundle', async () => {

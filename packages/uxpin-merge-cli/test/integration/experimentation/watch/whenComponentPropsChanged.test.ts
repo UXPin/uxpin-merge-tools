@@ -14,8 +14,9 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('Experimental - watch - change file content', () => {
   let initialBundleChecksum:string;
   let initialMetadata:string;
-  let buttonJSXPath:string;
-  const { changeFileContent, getWorkingDir } = setupExperimentationServerTest({
+  const buttonJSXPath:string = './src/components/Button/Button.jsx';
+
+  const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
@@ -61,10 +62,9 @@ export default class Button extends PureComponent {
     // given
     initialBundleChecksum = await getBundleChecksum();
     initialMetadata = await getMetadataChecksum();
-    buttonJSXPath = path.resolve(getWorkingDir(), './src/components/Button/Button.jsx');
 
     // when
-    await changeFileContent(buttonJSXPath, changedFileContent);
+    await changeProjectFile(buttonJSXPath, changedFileContent);
   });
 
   it('should update library bundle when component props changed', async () => {
