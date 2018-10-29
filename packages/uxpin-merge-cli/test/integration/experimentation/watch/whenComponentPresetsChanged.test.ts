@@ -3,7 +3,6 @@ import * as path from 'path';
 import { getTempDirPath } from '../../../../src/program/args/providers/paths/getTempDirPath';
 import { LIBRARY_OUTPUT_FILENAME } from '../../../../src/steps/building/config/getConfig';
 import { METADATA_FILE_NAME } from '../../../../src/steps/experimentation/metadata/saveMetadata';
-import { ComponentPreset } from '../../../../src/steps/serialization/component/presets/ComponentPreset';
 import { DesignSystemSnapshot } from '../../../../src/steps/serialization/DesignSystemSnapshot';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
