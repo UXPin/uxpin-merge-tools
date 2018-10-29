@@ -1,37 +1,36 @@
 import { CommanderStatic } from 'commander';
-
+import { Command, DEFAULT_COMMAND } from '../command/Command';
 import { Arg, ProgramArgs, RawProgramArgs } from './ProgramArgs';
 
 export const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
-export const DEFAULT_COMMAND:Command = 'experiment';
 
 const defaultArgs:{ [key in Command]:ProgramArgs } = {
-  dump: {
-    command: 'dump',
+  [Command.DUMP]: {
+    command: Command.DUMP,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
   },
-  experiment: {
-    command: 'experiment',
+  [Command.EXPERIMENT]: {
+    command: Command.EXPERIMENT,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
     port: 8877,
     skipBrowser: false,
     uxpinDomain: 'uxpin.com',
   },
-  push: {
-    command: 'push',
+  [Command.PUSH]: {
+    command: Command.PUSH,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
   },
-  server: {
-    command: 'server',
+  [Command.SERVER]: {
+    command: Command.SERVER,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
     port: 8080,
   },
-  summary: {
-    command: 'summary',
+  [Command.SUMMARY]: {
+    command: Command.SUMMARY,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
   },
@@ -62,5 +61,3 @@ function getCommandArgs(program:RawProgramArgs, command:Command):ProgramArgs | {
 function isArgKnownCommand(knownCommands:string[]):(arg:Arg) => arg is CommanderStatic {
   return (arg:Arg):arg is CommanderStatic => typeof arg !== 'string' && knownCommands.includes(arg.name());
 }
-
-type Command = 'dump' | 'push' | 'server' | 'summary' | 'experiment';

@@ -6,6 +6,7 @@ import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './args/getProgramArgs';
 import { ProgramArgs, RawProgramArgs } from './args/ProgramArgs';
 import { getProjectPaths } from './args/providers/paths/getProjectPaths';
+import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
 import { getStepsForWatcher } from './command/getStepsForWatcher';
 import { Step } from './command/Step';
@@ -54,7 +55,7 @@ async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promis
 }
 
 function isWatchChangesCommand(programArgs:ProgramArgs):boolean {
-  return programArgs.command === 'experiment';
+  return programArgs.command === Command.EXPERIMENT;
 }
 
 function endWithError(errorMessage:string):void {

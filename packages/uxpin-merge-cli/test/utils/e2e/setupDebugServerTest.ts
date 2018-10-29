@@ -1,4 +1,5 @@
 import Chromeless from 'chromeless';
+import { Command } from '../../../src';
 import { SERVER_SUCCESS_MESSAGE } from '../../../src/debug/server/serverConfig';
 import { CmdOptions } from '../command/CmdOptions';
 import { TestServerOptions } from '../command/startUXPinMergeServer';
@@ -21,7 +22,7 @@ export function setupDebugServerTest(options:DebugServerTestSetupOptions,
   const serverCmdArgsWithPort:CmdOptions = {
     cwd: projectPath,
     env,
-    params: ['server', ...(serverCmdArgs || []), `--port=${port}`],
+    params: [Command.SERVER, ...(serverCmdArgs || []), `--port=${port}`],
   };
   const serverOptions:TestServerOptions = {
     serverReadyOutput: new RegExp(SERVER_SUCCESS_MESSAGE),

@@ -1,3 +1,4 @@
+import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 
 describe('--help option for `push` command', () => {
@@ -5,7 +6,7 @@ describe('--help option for `push` command', () => {
   let output:string;
 
   beforeAll(async () => {
-    output = await runUXPinMergeCommand({ params: ['push', '--help'] });
+    output = await runUXPinMergeCommand({ params: [Command.PUSH, '--help'] });
   });
 
   it('it prints help for --webpack-config <path> option', () => {
