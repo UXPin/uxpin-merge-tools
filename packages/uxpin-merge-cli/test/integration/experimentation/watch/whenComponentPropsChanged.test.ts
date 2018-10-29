@@ -11,7 +11,7 @@ import { getFileChecksum } from '../../../utils/file/getFileChecksum';
 const CURRENT_TIMEOUT:number = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('Experimental - watch - change file content', () => {
+describe('Experimental - watch - change file content (changed prop types)', () => {
   let initialBundleChecksum:string;
   let initialMetadata:string;
   const buttonJSXPath:string = './src/components/Button/Button.jsx';
@@ -77,141 +77,18 @@ export default class Button extends PureComponent {
 
   it('should metadata has added new props from changed file', async () => {
     // given
+    const metadataBeforeChanges:DesignSystemSnapshot = await getMetadataBeforeChanges();
     const expectedMetadata:DesignSystemSnapshot = {
+      ...metadataBeforeChanges,
       categorizedComponents: [
+        metadataBeforeChanges.categorizedComponents[0],
         {
+          ...metadataBeforeChanges.categorizedComponents[1],
           components: [
             {
-              documentation: {
-                examples: [],
-              },
-              info: {
-                dirPath: 'src/components/Avatar',
-                implementation: {
-                  framework: 'reactjs',
-                  lang: 'javascript',
-                  path: 'src/components/Avatar/Avatar.jsx',
-                },
-                presets: [
-                  {
-                    path: 'src/components/Avatar/presets/0-default.json',
-                  },
-                ],
-              },
-              name: 'Avatar',
-              presets: [
-                {
-                  elements: {
-                    1: {
-                      name: 'Avatar',
-                      props: {
-                        imageUrl: 'https://placekitten.com/200/300',
-                      },
-                    },
-                  },
-                  name: 'default',
-                  rootId: '1',
-                },
-              ],
+              ...metadataBeforeChanges.categorizedComponents[1].components[0],
               properties: [
-                {
-                  defaultValue: {
-                    value: '',
-                  },
-                  description: '',
-                  isRequired: true,
-                  name: 'size',
-                  type: {
-                    name: 'union',
-                    structure: {
-                      elements: [
-                        {
-                          name: 'literal',
-                          structure: {
-                            value: 'xs',
-                          },
-                        },
-                        {
-                          name: 'literal',
-                          structure: {
-                            value: 's',
-                          },
-                        },
-                        {
-                          name: 'literal',
-                          structure: {
-                            value: 'l',
-                          },
-                        },
-                        {
-                          name: 'literal',
-                          structure: {
-                            value: 'xl',
-                          },
-                        },
-                      ],
-                    },
-                  },
-                },
-                {
-                  description: '',
-                  isRequired: true,
-                  name: 'imageUrl',
-                  type: {
-                    name: 'string',
-                    structure: {},
-                  },
-                },
-              ],
-            },
-          ],
-          name: 'General',
-        },
-        {
-          components: [
-            {
-              documentation: {
-                examples: [],
-              },
-              info: {
-                dirPath: 'src/components/Button',
-                implementation: {
-                  framework: 'reactjs',
-                  lang: 'javascript',
-                  path: 'src/components/Button/Button.jsx',
-                },
-                presets: [
-                  {
-                    path: 'src/components/Button/presets/0-default.json',
-                  },
-                ],
-              },
-              name: 'Button',
-              presets: [
-                {
-                  elements: {
-                    1: {
-                      name: 'Button',
-                      props: {
-                        children: 'Click me',
-                        primary: true,
-                      },
-                    },
-                  },
-                  name: 'default',
-                  rootId: '1',
-                },
-              ],
-              properties: [
-                {
-                  description: '',
-                  isRequired: false,
-                  name: 'children',
-                  type: {
-                    name: 'node',
-                    structure: {},
-                  },
-                },
+                metadataBeforeChanges.categorizedComponents[1].components[0].properties[0],
                 {
                   defaultValue: {
                     value: false,
@@ -224,22 +101,12 @@ export default class Button extends PureComponent {
                     structure: {},
                   },
                 },
-                {
-                  description: '',
-                  isRequired: true,
-                  name: 'primary',
-                  type: {
-                    name: 'boolean',
-                    structure: {},
-                  },
-                },
+                metadataBeforeChanges.categorizedComponents[1].components[0].properties[1],
               ],
             },
           ],
-          name: 'Forms',
         },
       ],
-      name: '',
     };
 
     // when
@@ -261,5 +128,10 @@ export default class Button extends PureComponent {
   function getMetadataPath():string {
     const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
     return path.resolve(tempDirPath, METADATA_FILE_NAME);
+  }
+
+  function getMetadataBeforeChanges():Promise<DesignSystemSnapshot> {
+    const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
+    return readJson(path.resolve(tempDirPath, './expectedMetadata.json'));
   }
 });

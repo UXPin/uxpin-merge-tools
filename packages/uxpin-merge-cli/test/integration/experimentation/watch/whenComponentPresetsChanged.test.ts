@@ -3,6 +3,7 @@ import * as path from 'path';
 import { getTempDirPath } from '../../../../src/program/args/providers/paths/getTempDirPath';
 import { LIBRARY_OUTPUT_FILENAME } from '../../../../src/steps/building/config/getConfig';
 import { METADATA_FILE_NAME } from '../../../../src/steps/experimentation/metadata/saveMetadata';
+import { ComponentPreset } from '../../../../src/steps/serialization/component/presets/ComponentPreset';
 import { DesignSystemSnapshot } from '../../../../src/steps/serialization/DesignSystemSnapshot';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
@@ -58,116 +59,16 @@ describe('Experimental - watch - when component presets has changed', () => {
 
   it('should update metadata file with new presets', async () => {
     // given
+    const metadataBeforeChanges:DesignSystemSnapshot = await getMetadataBeforeChanges();
     const expectedMetadata:DesignSystemSnapshot = {
+      ...metadataBeforeChanges,
       categorizedComponents: [
+        metadataBeforeChanges.categorizedComponents[0],
         {
+          ...metadataBeforeChanges.categorizedComponents[1],
           components: [
             {
-              documentation: {
-                examples: [],
-              },
-              info: {
-                dirPath: 'src/components/Avatar',
-                implementation: {
-                  framework: 'reactjs',
-                  lang: 'javascript',
-                  path: 'src/components/Avatar/Avatar.jsx',
-                },
-                presets: [
-                  {
-                    path: 'src/components/Avatar/presets/0-default.json',
-                  },
-                ],
-              },
-              name: 'Avatar',
-              presets: [
-                {
-                  elements: {
-                    1: {
-                      name: 'Avatar',
-                      props: {
-                        imageUrl: 'https://placekitten.com/200/300',
-                      },
-                    },
-                  },
-                  name: 'default',
-                  rootId: '1',
-                },
-              ],
-              properties: [
-                {
-                  defaultValue: {
-                    value: '',
-                  },
-                  description: '',
-                  isRequired: true,
-                  name: 'size',
-                  type: {
-                    name: 'union',
-                    structure: {
-                      elements: [
-                        {
-                          name: 'literal',
-                          structure: {
-                            value: 'xs',
-                          },
-                        },
-                        {
-                          name: 'literal',
-                          structure: {
-                            value: 's',
-                          },
-                        },
-                        {
-                          name: 'literal',
-                          structure: {
-                            value: 'l',
-                          },
-                        },
-                        {
-                          name: 'literal',
-                          structure: {
-                            value: 'xl',
-                          },
-                        },
-                      ],
-                    },
-                  },
-                },
-                {
-                  description: '',
-                  isRequired: true,
-                  name: 'imageUrl',
-                  type: {
-                    name: 'string',
-                    structure: {},
-                  },
-                },
-              ],
-            },
-          ],
-          name: 'General',
-        },
-        {
-          components: [
-            {
-              documentation: {
-                examples: [],
-              },
-              info: {
-                dirPath: 'src/components/Button',
-                implementation: {
-                  framework: 'reactjs',
-                  lang: 'javascript',
-                  path: 'src/components/Button/Button.jsx',
-                },
-                presets: [
-                  {
-                    path: 'src/components/Button/presets/0-default.json',
-                  },
-                ],
-              },
-              name: 'Button',
+              ...metadataBeforeChanges.categorizedComponents[1].components[0],
               presets: [
                 {
                   elements: {
@@ -183,32 +84,10 @@ describe('Experimental - watch - when component presets has changed', () => {
                   rootId: '1',
                 },
               ],
-              properties: [
-                {
-                  description: '',
-                  isRequired: false,
-                  name: 'children',
-                  type: {
-                    name: 'node',
-                    structure: {},
-                  },
-                },
-                {
-                  description: '',
-                  isRequired: true,
-                  name: 'primary',
-                  type: {
-                    name: 'boolean',
-                    structure: {},
-                  },
-                },
-              ],
             },
           ],
-          name: 'Forms',
         },
       ],
-      name: '',
     };
 
     // when
@@ -230,5 +109,10 @@ describe('Experimental - watch - when component presets has changed', () => {
   function getMetadataPath():string {
     const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
     return path.resolve(tempDirPath, METADATA_FILE_NAME);
+  }
+
+  function getMetadataBeforeChanges():Promise<DesignSystemSnapshot> {
+    const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
+    return readJson(path.resolve(tempDirPath, './expectedMetadata.json'));
   }
 });
