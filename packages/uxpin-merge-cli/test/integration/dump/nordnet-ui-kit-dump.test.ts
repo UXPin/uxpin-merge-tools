@@ -1,3 +1,4 @@
+import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
@@ -10,7 +11,7 @@ describe('The dump command', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/repos/nordnet-ui-kit',
-        params: ['dump', '--config="../../configs/nordnet-ui-kit-uxpin.config.js"'],
+        params: [Command.DUMP, '--config="../../configs/nordnet-ui-kit-uxpin.config.js"'],
       }).then((consoleOutput) => {
         // then
         expect(consoleOutput).toMatchSnapshot();

@@ -1,3 +1,4 @@
+import { Command } from '../../../src';
 import { TEMP_DIR_NAME } from '../../../src/steps/building/config/getConfig';
 import { runCommand } from '../../utils/command/runCommand';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
@@ -21,7 +22,7 @@ describe('Building designSystems/cantWriteToUxpinTemp design system', () => {
 
   it('shows permission denied Error when can not write to temporary directory', async () => {
     await chmod(uxpinTempPath, READONLY_PERMISSIONS);
-    await expect(runUXPinMergeCommand({ cwd: workingDir, params: ['push'] }))
+    await expect(runUXPinMergeCommand({ cwd: workingDir, params: [Command.PUSH] }))
       .rejects.toMatch('EACCES: permission denied');
   });
 });

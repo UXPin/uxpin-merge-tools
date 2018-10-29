@@ -6,6 +6,7 @@ import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './args/getProgramArgs';
 import { ProgramArgs, RawProgramArgs } from './args/ProgramArgs';
 import { getProjectPaths } from './args/providers/paths/getProjectPaths';
+import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
 import { getStepsForWatcher } from './command/getStepsForWatcher';
 import { Step } from './command/Step';
@@ -15,8 +16,8 @@ import { setupWatcher } from './watcher/setupWatcher';
 export async function runProgram(program:RawProgramArgs):Promise<any> {
   try {
     const programArgs:ProgramArgs = getProgramArgs(program);
+    await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
-    setupProjectWatcher(programArgs);
   } catch (error) {
     endWithError(error);
   }
@@ -26,12 +27,12 @@ async function runCommand(programArgs:ProgramArgs):Promise<any> {
   await executeCommandSteps(programArgs, getSteps(programArgs));
 }
 
-function setupProjectWatcher(programArgs:ProgramArgs):void {
+async function setupProjectWatcher(programArgs:ProgramArgs):Promise<void> {
   if (!isWatchChangesCommand(programArgs)) {
     return;
   }
 
-  setupWatcher(programArgs, thunkRunCommandWhenFilesChanged(programArgs));
+  await setupWatcher(programArgs, thunkRunCommandWhenFilesChanged(programArgs));
 }
 
 function thunkRunCommandWhenFilesChanged(programArgs:ProgramArgs):(path:string) => void {
@@ -54,7 +55,7 @@ async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promis
 }
 
 function isWatchChangesCommand(programArgs:ProgramArgs):boolean {
-  return programArgs.command === 'experiment';
+  return programArgs.command === Command.EXPERIMENT;
 }
 
 function endWithError(errorMessage:string):void {

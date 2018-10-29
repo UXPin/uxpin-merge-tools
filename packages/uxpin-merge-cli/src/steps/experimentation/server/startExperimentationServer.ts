@@ -1,4 +1,5 @@
 import { createServer, Server } from 'http';
+import { getAPPExperimentationRemoteURL } from '../app/getAPPExperimentationRemoteURL';
 import { EPID } from '../epid/EPID';
 import { printServerReadyMessage } from './console/printServerReadyMessage';
 import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundleHandler';
@@ -14,6 +15,7 @@ import { ServerRouter } from './router/ServerRouter';
 
 export interface ExperimentationServerOptions extends ExperimentationServerContext {
   projectRoot:string;
+  skipBrowser:boolean;
 }
 
 export interface ExperimentationServerContext {
@@ -32,7 +34,8 @@ export async function startExperimentationServer(options:ExperimentationServerOp
     handler.handle(request, response);
   });
   server.listen(options.port);
-  await printServerReadyMessage(options);
+  const experimentationAppURL:string = getAPPExperimentationRemoteURL(options);
+  await printServerReadyMessage(experimentationAppURL);
 }
 
 function registerHandlers(router:ServerRouter, context:ExperimentationServerContext):void {

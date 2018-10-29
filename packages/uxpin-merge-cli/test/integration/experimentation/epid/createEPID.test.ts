@@ -4,6 +4,7 @@ import { EPID } from '../../../../src/steps/experimentation/epid/EPID';
 import { getEPIDFilePath } from '../../../../src/steps/experimentation/epid/getEPIDFilePath';
 import { getProjectEPID } from '../../../../src/steps/experimentation/epid/getProjectEPID';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
+import { getRandomPortNumber } from '../../../utils/e2e/server/getRandomPortNumber';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 const CURRENT_TIMEOUT:number = 30000;
@@ -37,7 +38,7 @@ describe('createEPID', () => {
 
   describe('when epid file exists', () => {
     const projectPath:string = resolve(__dirname, '../../../resources/designSystems/withEpidFile');
-    const { getWorkingDir } = setupExperimentationServerTest({ projectPath });
+    const { getWorkingDir } = setupExperimentationServerTest({ port: getRandomPortNumber(), projectPath });
 
     it('should not override already existed epid file', () => {
       expect(getEpidContent(getWorkingDir())).toEqual(getEpidContent(projectPath));
