@@ -6,8 +6,8 @@ import { RequestPromise, RequestPromiseOptions } from 'request-promise';
 import { URL } from 'url';
 import { COMPILATION_SUCCESS_MESSAGE } from '../../../src/program/command/experimentation/getExperimentationWatchCommandSteps';
 import { SERVER_READY_OUTPUT } from '../../../src/steps/experimentation/server/console/printServerReadyMessage';
-import { writeToFile } from '../../../src/utils/fs/writeToFile';
 import { MergeServerResponse, startUXPinMergeServer, TestServerOptions } from '../command/startUXPinMergeServer';
+import { changeWatchingFileContent } from '../file/changeWatchingFileContent';
 import { ExperimentationServerTestSetupOptions } from './experimentationServerTestSetupOptions';
 import { ExperimentationServerConfiguration, getServerConfiguration } from './getServerConfiguration';
 
@@ -48,32 +48,11 @@ function getTestContext(
 ):ExperimentationServerTestContext {
   return {
     changeProjectFile(relativeFilePath:string, content:string):Promise<void> {
-      return new Promise((resolve, reject) => {
-        const eventName:string = 'data';
-        const changeListener:(data:Buffer) => void = (data) => {
-          if (!data.toString().match(new RegExp(COMPILATION_SUCCESS_MESSAGE))) {
-            return;
-          }
-
-          subprocess.stdout.removeListener(eventName, changeListener);
-          resolve();
-        };
-
-        const stdErrorDataListener:(data:Buffer) => void = (data) => {
-          subprocess.stdout.removeListener(eventName, changeListener);
-          reject(data.toString());
-        };
-
-        subprocess.stdout.addListener(eventName, changeListener);
-        subprocess.stderr.addListener(eventName, stdErrorDataListener);
-
-        process.nextTick(async () => {
-          try {
-            await writeToFile(path.resolve(workingDir, relativeFilePath), content);
-          } catch (error) {
-            reject(error);
-          }
-        });
+      return changeWatchingFileContent({
+        content,
+        filePath: path.resolve(workingDir, relativeFilePath),
+        subprocess,
+        successMatcher: COMPILATION_SUCCESS_MESSAGE,
       });
     },
     getWorkingDir():string {
