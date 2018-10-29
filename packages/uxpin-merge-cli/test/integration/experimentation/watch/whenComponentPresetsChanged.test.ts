@@ -4,6 +4,7 @@ import { getTempDirPath } from '../../../../src/program/args/providers/paths/get
 import { LIBRARY_OUTPUT_FILENAME } from '../../../../src/steps/building/config/getConfig';
 import { METADATA_FILE_NAME } from '../../../../src/steps/experimentation/metadata/saveMetadata';
 import { DesignSystemSnapshot } from '../../../../src/steps/serialization/DesignSystemSnapshot';
+import { expectedButtonDefinition, expectedDSWatchingChangesMetadata } from '../../../resources/designSystems/watchingChanges/.uxpin-merge/expectedDSWatchingChangesMetadata';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../utils/file/getFileChecksum';
@@ -58,16 +59,15 @@ describe('Experimental - watch - when component presets has changed', () => {
 
   it('should update metadata file with new presets', async () => {
     // given
-    const metadataBeforeChanges:DesignSystemSnapshot = await getMetadataBeforeChanges();
     const expectedMetadata:DesignSystemSnapshot = {
-      ...metadataBeforeChanges,
+      ...expectedDSWatchingChangesMetadata,
       categorizedComponents: [
-        metadataBeforeChanges.categorizedComponents[0],
+        expectedDSWatchingChangesMetadata.categorizedComponents[0],
         {
-          ...metadataBeforeChanges.categorizedComponents[1],
+          ...expectedDSWatchingChangesMetadata.categorizedComponents[1],
           components: [
             {
-              ...metadataBeforeChanges.categorizedComponents[1].components[0],
+              ...expectedButtonDefinition,
               presets: [
                 {
                   elements: {
@@ -108,10 +108,5 @@ describe('Experimental - watch - when component presets has changed', () => {
   function getMetadataPath():string {
     const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
     return path.resolve(tempDirPath, METADATA_FILE_NAME);
-  }
-
-  function getMetadataBeforeChanges():Promise<DesignSystemSnapshot> {
-    const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
-    return readJson(path.resolve(tempDirPath, './expectedMetadata.json'));
   }
 });
