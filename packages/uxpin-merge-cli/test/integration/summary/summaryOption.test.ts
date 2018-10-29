@@ -1,3 +1,4 @@
+import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
@@ -11,7 +12,7 @@ describe('summary command integration', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/designSystems/noSrcDir',
-        params: ['summary'],
+        params: [Command.SUMMARY],
       }).then((output) => {
         // then
         expect(output).toContain('uxpin.config.js\' not found. Using default configuration.');

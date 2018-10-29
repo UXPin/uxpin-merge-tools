@@ -1,4 +1,5 @@
 import { ProgramArgs } from '../args/ProgramArgs';
+import { Command } from './Command';
 import { getDumpCommandSteps } from './dump/getDumpCommandSteps';
 import { getExperimentationCommandSteps } from './experimentation/getExperimentationCommandSteps';
 import { getPushCommandSteps } from './push/getPushCommandSteps';
@@ -8,19 +9,19 @@ import { getSummaryCommandSteps } from './summary/getSummaryCommandSteps';
 
 export function getSteps(args:ProgramArgs):Step[] {
   switch (args.command) {
-    case 'server':
+    case Command.SERVER:
       return getServerCommandSteps(args);
 
-    case 'push':
+    case Command.PUSH:
       return getPushCommandSteps(args);
 
-    case 'dump':
+    case Command.DUMP:
       return getDumpCommandSteps();
 
-    case 'summary':
+    case Command.SUMMARY:
       return getSummaryCommandSteps();
 
-    case 'experiment':
+    case Command.EXPERIMENT:
       return getExperimentationCommandSteps(args);
 
     default:

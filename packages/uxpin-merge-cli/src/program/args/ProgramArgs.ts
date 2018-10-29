@@ -1,4 +1,5 @@
 import { CommanderStatic } from 'commander';
+import { Command } from '../..';
 
 export interface RawProgramArgs {
   args?:Arg[];
@@ -16,7 +17,7 @@ export type ProgramArgs = PushProgramArgs
   | ExperimentProgramArgs;
 
 export interface PushProgramArgs {
-  command:'push';
+  command:Command.PUSH;
   cwd:string;
   webpackConfig?:string;
   wrapper?:string;
@@ -24,7 +25,7 @@ export interface PushProgramArgs {
 }
 
 export interface ServerProgramArgs {
-  command:'server';
+  command:Command.SERVER;
   cwd:string;
   port:number;
   webpackConfig?:string;
@@ -33,25 +34,26 @@ export interface ServerProgramArgs {
 }
 
 export interface DumpProgramArgs {
-  command:'dump';
+  command:Command.DUMP;
   cwd:string;
   config:string;
 }
 
 export interface SummaryProgramArgs {
-  command:'summary';
+  command:Command.SUMMARY;
   cwd:string;
   config:string;
 }
 
 export interface ExperimentProgramArgs {
-  command:'experiment';
+  command:Command.EXPERIMENT;
   config:string;
   cwd:string;
   port:number;
   webpackConfig?:string;
   wrapper?:string;
   uxpinDomain:string;
+  skipBrowser:boolean;
 }
 
 export type Arg = string | CommanderStatic;

@@ -1,3 +1,4 @@
+import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
@@ -11,7 +12,7 @@ describe('summary command integration', () => {
       // when
       const output:string = await runUXPinMergeCommand({
         cwd: 'resources/repos/mineral-ui',
-        params: ['summary'],
+        params: [Command.SUMMARY],
       });
 
       // then

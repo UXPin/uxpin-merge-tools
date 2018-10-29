@@ -1,3 +1,4 @@
+import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
@@ -11,7 +12,7 @@ describe('summary command integration', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/repos/arui-feather',
-        params: ['summary', '--config="../../configs/arui-feather-uxpin.config.js"'],
+        params: [Command.SUMMARY, '--config="../../configs/arui-feather-uxpin.config.js"'],
       }).then((output) => {
         // then
         expect(output).toContain(
