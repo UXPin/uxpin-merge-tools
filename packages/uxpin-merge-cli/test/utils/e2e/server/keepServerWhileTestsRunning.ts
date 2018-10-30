@@ -4,7 +4,7 @@ import { startUXPinMergeServer, TestServerOptions } from '../../command/startUXP
 export function keepServerWhileTestsRunning(cmdOptions:CmdOptions, options:TestServerOptions):void {
   let closeServer:() => void;
   beforeAll((done) => {
-    return startUXPinMergeServer(cmdOptions, options).then((close) => {
+    return startUXPinMergeServer(cmdOptions, options).then(({ close }) => {
       closeServer = close;
       done();
     });

@@ -32,7 +32,7 @@ export async function getServerConfiguration(
     cmdOptions: {
       cwd: workingDir,
       env,
-      params: [...(serverCmdArgs || []), `--port=${port}`],
+      params: [...(serverCmdArgs || []), `--port=${port}`, '--skip-browser'],
     },
     port: serverPort,
     workingDir,

@@ -5,7 +5,8 @@
       "cantWriteToUxpinTemp",
       "noSrcDir",
       "twoComponentsWithConfig",
-      "withEpidFile"
+      "withEpidFile",
+      "watchingChanges"
     ],
     "nohoist": [
       "**/**"

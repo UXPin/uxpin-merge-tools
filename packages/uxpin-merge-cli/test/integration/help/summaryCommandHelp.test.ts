@@ -1,3 +1,4 @@
+import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 
 describe('--help option for `summary` command', () => {
@@ -5,7 +6,7 @@ describe('--help option for `summary` command', () => {
   let output:string;
 
   beforeAll(async () => {
-    output = await runUXPinMergeCommand({ params: ['summary', '--help'] });
+    output = await runUXPinMergeCommand({ params: [Command.SUMMARY, '--help'] });
   });
 
   it('it prints description for summary command', () => {

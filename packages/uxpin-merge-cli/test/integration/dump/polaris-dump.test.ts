@@ -1,3 +1,4 @@
+import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
@@ -9,7 +10,7 @@ describe('The dump command', () => {
     // when
     return runUXPinMergeCommand({
       cwd: 'resources/repos/polaris',
-      params: ['dump', '--config="../../configs/polaris-uxpin.config.js"'],
+      params: [Command.DUMP, '--config="../../configs/polaris-uxpin.config.js"'],
     }).then((consoleOutput) => {
       // then
       expect(consoleOutput).toMatchSnapshot();
