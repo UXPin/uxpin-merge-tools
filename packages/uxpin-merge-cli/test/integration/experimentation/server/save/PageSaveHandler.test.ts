@@ -21,7 +21,6 @@ describe('Experimentation server – handling save page request', () => {
   const { request, getWorkingDir } = setupExperimentationServerTest();
 
   describe('saving the first element', () => {
-
     let response:Response;
 
     beforeAll(async () => {
@@ -62,7 +61,6 @@ describe('Experimentation server – handling save page request', () => {
     });
 
     describe('and then updating the element', () => {
-
       beforeAll(async () => {
         // when
         await performSaveRequestWith(updateElementRequestPayload);
@@ -94,7 +92,6 @@ describe('Experimentation server – handling save page request', () => {
       });
 
       describe('and then adding a new element', () => {
-
         beforeAll(async () => {
           // when
           await performSaveRequestWith(addSecondElementRequestPayload);
@@ -132,7 +129,6 @@ describe('Experimentation server – handling save page request', () => {
         });
 
         describe('and then removing the first element', () => {
-
           beforeAll(async () => {
             // when
             await performSaveRequestWith(deleteElementRequestPayload);

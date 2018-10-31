@@ -42,10 +42,5 @@ function getElementIds(deleted:DeletedElements):string[] {
   if (isArray(deleted)) {
     return [];
   }
-  return reduce(deleted, (ids, isDeleted, elementId) => {
-    if (isDeleted) {
-      ids.push(elementId);
-    }
-    return ids;
-  }, [] as string[]);
+  return Object.keys(deleted).filter((id) => deleted[id]);
 }
