@@ -10,6 +10,7 @@ import { GetLibrariesHandler } from './handler/libraries/GetLibrariesHandler';
 import { GetLibrariesIndexHandler } from './handler/libraries/GetLibrariesIndexHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
 import { SetActivePageHandler } from './handler/page/set/SetActivePageHandler';
+import { GetPreviewAllDataHandler } from './handler/preview/GetPreviewAllDataHandler';
 import { RequestHandler } from './handler/RequestHandler';
 import { ServerRouter } from './router/ServerRouter';
 
@@ -47,4 +48,5 @@ function registerHandlers(router:ServerRouter, context:ExperimentationServerCont
   router.register('/code/repositoryPointer', new GetRepositoryPointerHandler(context));
   router.register('/libraries/', new GetLibrariesHandler(context));
   router.register('/libraries/items/index/', new GetLibrariesIndexHandler(context));
+  router.register('/preview/all', new GetPreviewAllDataHandler(context));
 }
