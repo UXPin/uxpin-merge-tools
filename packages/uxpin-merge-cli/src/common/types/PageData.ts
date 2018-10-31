@@ -14,7 +14,7 @@ export interface PageData {
   page:PageContent;
 }
 
-interface PageContent {
+export interface PageContent {
   canvas:{
     props:{
       storedElements:string[];
