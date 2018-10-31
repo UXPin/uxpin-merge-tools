@@ -11,6 +11,7 @@ import { setTimeoutBeforeAll } from '../../../../utils/command/setTimeoutBeforeA
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 import { addSecondElementRequestPayload } from './fixtures/addSecondElementRequestPayload';
 import { createFirstElementsRequestPayload } from './fixtures/createFirstElementsRequestPayload';
+import { deleteChangedElementRequestPayload } from './fixtures/deleteChangedElementRequestPayload';
 import { deleteElementRequestPayload } from './fixtures/deleteElementRequestPayload';
 import { updateElementRequestPayload } from './fixtures/updateElementRequestPayload';
 
@@ -152,6 +153,30 @@ describe('Experimentation server – handling save page request', () => {
 
             // then
             expect(await getCurrentSavedPage()).toEqual(expectedPageContent);
+          });
+
+          describe('and then removing the second element having also changed properties', () => {
+            beforeAll(async () => {
+              // when
+              await performSaveRequestWith(deleteChangedElementRequestPayload);
+            });
+
+            it('correctly removes the element', async () => {
+              // given
+              const expectedPageContent:PageContent = {
+                b5b84017: addSecondElementRequestPayload.changed_elements.b5b84017,
+                canvas: {
+                  props: {
+                    storedElements: [
+                      'b5b84017',
+                    ],
+                  }, type: 'Canvas', v: '2.0',
+                },
+              };
+
+              // then
+              expect(await getCurrentSavedPage()).toEqual(expectedPageContent);
+            });
           });
         });
       });
