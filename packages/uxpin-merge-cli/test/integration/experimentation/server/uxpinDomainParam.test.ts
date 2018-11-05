@@ -7,7 +7,7 @@ import { setupExperimentationServerTest } from '../../../utils/experimentation/s
 const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('uxpinDomainParam', () => {
+describe('uxpin domain param', () => {
   const { request } = setupExperimentationServerTest({
     serverCmdArgs: ['--uxpin-domain="merge.uxpin.cloud"'],
   });
@@ -15,7 +15,7 @@ describe('uxpinDomainParam', () => {
   describe('when --uxpin-domain set while running the experimentation mode', () => {
     it('responds headers containing the correct domain', async () => {
       // given
-      const options:RequestPromiseOptions = { method: 'POST', resolveWithFullResponse: true };
+      const options:RequestPromiseOptions = { method: 'GET', resolveWithFullResponse: true };
       const expectedHeaders:any = {
         'access-control-allow-credentials': 'true',
         'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
@@ -23,11 +23,11 @@ describe('uxpinDomainParam', () => {
       };
 
       // when
-      const response:Response = await request('/ajax/dmsDPPage/Save/?__ajax_request=1', options);
+      const response:Response = await request('/libraries/items/index/', options);
 
       // then
       expect(response.statusCode).toEqual(OK);
-      expect(response.body).toEqual('{}');
+      expect(response.body).toEqual('[]');
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
   });
