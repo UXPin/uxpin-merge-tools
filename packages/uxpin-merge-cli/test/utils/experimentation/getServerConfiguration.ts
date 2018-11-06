@@ -3,7 +3,7 @@ import { DirectoryResult } from 'tmp-promise';
 import { CmdOptions } from '../command/CmdOptions';
 import { resolveTestProjectPath } from '../resources/resolveTestProjectPath';
 import { prepareTempDir } from '../temp/prepareTempDir';
-import { defaultOptions, ExperimentationServerTestSetupOptions } from './experimentationServerTestSetupOptions';
+import { ExperimentationServerTestSetupOptions, getDefaultOptions } from './experimentationServerTestSetupOptions';
 
 export interface ExperimentationServerConfiguration {
   cmdOptions:CmdOptions;
@@ -15,7 +15,7 @@ export interface ExperimentationServerConfiguration {
 export async function getServerConfiguration(
   opts:ExperimentationServerTestSetupOptions,
 ):Promise<ExperimentationServerConfiguration> {
-  const { useTempDir, projectPath, port, serverCmdArgs, env, useExistingServer } = defaults(opts, defaultOptions);
+  const { useTempDir, projectPath, port, serverCmdArgs, env, useExistingServer } = defaults(opts, getDefaultOptions());
   let workingDir:string = resolveTestProjectPath(projectPath);
   let cleanupTemp:() => void = noop;
   let serverPort:number = port;
