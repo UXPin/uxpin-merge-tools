@@ -1,4 +1,5 @@
 import { join } from 'path';
+import { Command } from '../../../src';
 
 import { LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../../../src/steps/building/config/getConfig';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
@@ -16,7 +17,7 @@ xdescribe('Building repos/nordnet-ui-kit design system', () => {
 
     beforeAll(() => {
       const params:string[] = [
-        'push',
+        Command.PUSH,
         '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',
         '--config="../../configs/nordnet-ui-kit-uxpin.config.js"',
         '--wrapper "./documentation/wrapper.jsx"',
@@ -54,7 +55,7 @@ xdescribe('Building repos/nordnet-ui-kit design system', () => {
 
   describe('without required user webpack config', () => {
     it('throws an error', () => {
-      return runUXPinMergeCommand({ cwd: 'resources/repos/nordnet-ui-kit', params: ['push'] })
+      return runUXPinMergeCommand({ cwd: 'resources/repos/nordnet-ui-kit', params: [Command.PUSH] })
         .then((output) => {
           expect(output).toContain('ERROR:');
           expect(output).toContain('Module parse failed');

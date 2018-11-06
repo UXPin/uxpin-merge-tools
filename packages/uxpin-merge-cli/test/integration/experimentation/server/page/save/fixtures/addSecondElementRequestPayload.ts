@@ -3,7 +3,7 @@ import { PageIncrementalUpdate } from '../../../../../../../src/common/types/Pag
 export const addSecondElementRequestPayload:PageIncrementalUpdate = {
   can_break_cohesion: false,
   changed_elements: {
-    b5b8401708bf42df9e2b5ef5cca419bf: {
+    b5b84017: {
       props: {
         anchorX: 0,
         anchorY: 0,
@@ -53,7 +53,7 @@ export const addSecondElementRequestPayload:PageIncrementalUpdate = {
       }, type: 'Circle', v: '2.0',
     },
     canvas: {
-      props: { storedElements: ['46a48bee71ce4c20bbc1d1ee97b3891f', 'b5b8401708bf42df9e2b5ef5cca419bf'] },
+      props: { storedElements: ['46a48bee', '83ty393l', 'b5b84017'] },
       type: 'Canvas',
       v: '2.0',
     },

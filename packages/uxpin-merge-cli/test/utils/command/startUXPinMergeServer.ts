@@ -6,14 +6,25 @@ import { getExecOptions } from './getExecOptions';
 
 export interface TestServerOptions {
   serverReadyOutput:RegExp;
+  silent?:boolean;
 }
 
-export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerOptions):Promise<() => void> {
+export interface MergeServerResponse {
+  close:() => void;
+  subprocess:ChildProcess;
+}
+
+export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerOptions):Promise<MergeServerResponse> {
   return new Promise((resolve, reject) => {
     const command:string = buildCommand(getAllCmdOptions(cmdOptions));
     const subprocess:ChildProcess = exec(command, getExecOptions());
-    onServerReady(subprocess, options.serverReadyOutput, () => resolve(() => subprocess.kill()));
-    onFailure(subprocess, (error) => reject(error));
+    onServerReady(subprocess, options.serverReadyOutput, () => {
+      return resolve({
+        close: () => subprocess.kill(),
+        subprocess,
+      });
+    });
+    onFailure(subprocess, Boolean(options.silent), (error) => reject(error));
   });
 }
 
@@ -25,10 +36,12 @@ function onServerReady(subprocess:ChildProcess, serverReadyOutput:RegExp, onRead
   });
 }
 
-function onFailure(subprocess:ChildProcess, callback:(error:any) => void):void {
+function onFailure(subprocess:ChildProcess, silent:boolean, callback:(error:any) => void):void {
   let errorOut:string = '';
   subprocess.stderr.on('data', (data) => {
-    console.error(data);
+    if (!silent) {
+      console.error(data);
+    }
     errorOut += data;
   });
   subprocess.on('close', () => callback(errorOut));

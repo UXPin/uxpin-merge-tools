@@ -1,4 +1,4 @@
-import { isArray, reduce } from 'lodash';
+import { cloneDeep, isArray, reduce } from 'lodash';
 import { PageContent } from '../../../../../../common/types/PageData';
 import { DeletedElements, PageIncrementalUpdate } from '../../../../../../common/types/PageIncrementalUpdate';
 import { getPageContent } from '../../../common/page/content/getPageContent';
@@ -6,16 +6,15 @@ import { writePageContent } from '../../../common/page/content/writePageContent'
 
 export async function updatePage(uxpinDirPath:string, changes:PageIncrementalUpdate):Promise<void> {
   const oldPage:PageContent = await getPageContent(uxpinDirPath);
-  const newPage:PageContent = {
-    ...removeElements(oldPage, changes.deleted_elements),
-    ...updateElements(oldPage, changes.changed_elements),
-  };
-  await writePageContent(uxpinDirPath, newPage);
+  const updatedPage:PageContent = updateElements(oldPage, changes.changed_elements);
+  const remainingUpdated:PageContent = removeElements(updatedPage, changes.deleted_elements);
+  await writePageContent(uxpinDirPath, remainingUpdated);
 }
 
 function updateElements(oldPage:PageContent, changedElements:Partial<PageContent>):PageContent {
+  const oldPageCopy:PageContent = cloneDeep(oldPage);
   return reduce(changedElements, (newContent, elementChanges, elementId) => {
-    const oldElement:{ props:{} } = oldPage[elementId] || { props: {} };
+    const oldElement:{ props:{} } = oldPageCopy[elementId] || { props: {} };
     newContent[elementId] = {
       ...oldElement,
       ...elementChanges,
@@ -25,13 +24,13 @@ function updateElements(oldPage:PageContent, changedElements:Partial<PageContent
       },
     };
     return newContent;
-  }, {} as PageContent);
+  }, oldPageCopy);
 }
 
 function removeElements(pageContent:PageContent, deleted:DeletedElements):PageContent {
-  const elementIds:string[] = getElementIds(deleted);
+  const removedElementIds:string[] = getElementIds(deleted);
   return reduce(pageContent, (newContent, element, elementId) => {
-    if (!elementIds.includes(elementId)) {
+    if (!removedElementIds.includes(elementId)) {
       newContent[elementId] = element;
     }
     return newContent;
@@ -42,10 +41,5 @@ function getElementIds(deleted:DeletedElements):string[] {
   if (isArray(deleted)) {
     return [];
   }
-  return reduce(deleted, (ids, isDeleted, elementId) => {
-    if (isDeleted) {
-      ids.push(elementId);
-    }
-    return ids;
-  }, [] as string[]);
+  return Object.keys(deleted).filter((id) => deleted[id]);
 }

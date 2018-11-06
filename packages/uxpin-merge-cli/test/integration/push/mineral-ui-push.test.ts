@@ -1,3 +1,4 @@
+import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
@@ -10,7 +11,7 @@ describe('Pushing mineral-ui design system', () => {
 
     beforeAll(async () => {
       const params:string[] = [
-        'push',
+        Command.PUSH,
         '--webpack-config "./webpack.config.js"',
         '--wrapper "./src/library/themes/UXPinWrapper.js"',
       ];
@@ -26,7 +27,7 @@ describe('Pushing mineral-ui design system', () => {
 
   describe('without required user webpack config', () => {
     it('throws an error', async () => {
-      await expect(runUXPinMergeCommand({ cwd: 'resources/repos/mineral-ui', params: ['push'] }))
+      await expect(runUXPinMergeCommand({ cwd: 'resources/repos/mineral-ui', params: [Command.PUSH] }))
         .rejects.toMatch('Module parse failed: Unexpected token');
     });
   });
