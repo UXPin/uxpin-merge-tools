@@ -7,8 +7,10 @@ const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - handling preview all data', () => {
+  const port:number = 8888;
   let response:Response;
   const { request } = setupExperimentationServerTest({
+    port,
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
   });
