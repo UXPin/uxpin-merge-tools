@@ -13,12 +13,14 @@ export interface ExperimentationServerOptionsWithDefaults {
   useExistingServer?:ExistingServerConfiguration;
 }
 
-export const defaultOptions:ExperimentationServerOptionsWithDefaults = {
-  port: getRandomPortNumber(),
-  projectPath: 'resources/designSystems/noSrcDir',
-  silent: false,
-  useTempDir: true,
-};
+export function getDefaultOptions():ExperimentationServerOptionsWithDefaults {
+  return {
+    port: getRandomPortNumber(),
+    projectPath: 'resources/designSystems/noSrcDir',
+    silent: false,
+    useTempDir: true,
+  };
+}
 
 export interface ExistingServerConfiguration {
   port:number;

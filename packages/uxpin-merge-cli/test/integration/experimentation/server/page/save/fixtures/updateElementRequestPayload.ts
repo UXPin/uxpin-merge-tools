@@ -3,7 +3,7 @@ import { PageIncrementalUpdate } from '../../../../../../../src/common/types/Pag
 export const updateElementRequestPayload:PageIncrementalUpdate = {
   can_break_cohesion: false,
   changed_elements: {
-    '46a48bee71ce4c20bbc1d1ee97b3891f': {
+    '46a48bee': {
       props: {
         height: 163,
         width: 347,

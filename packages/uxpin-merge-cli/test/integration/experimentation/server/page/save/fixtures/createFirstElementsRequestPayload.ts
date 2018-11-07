@@ -1,9 +1,9 @@
 import { PageIncrementalUpdate } from '../../../../../../../src/common/types/PageIncrementalUpdate';
 
-export const createFirstElementRequestPayload:PageIncrementalUpdate = {
+export const createFirstElementsRequestPayload:PageIncrementalUpdate = {
   can_break_cohesion: false,
   changed_elements: {
-    '46a48bee71ce4c20bbc1d1ee97b3891f': {
+    '46a48bee': {
       props: {
         anchorX: 0,
         anchorY: 0,
@@ -56,10 +56,64 @@ export const createFirstElementRequestPayload:PageIncrementalUpdate = {
         y: 1275,
       }, type: 'Box', v: '2.0',
     },
+    '83ty393l': {
+      props: {
+        anchorX: 0,
+        anchorY: 0,
+        backgroundColor: '#ebebeb',
+        backgroundImage: '',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'repeat',
+        backgroundSize: 'cover',
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
+        borderBottomWidth: 0,
+        borderColor: '#666666',
+        borderLeftWidth: 0,
+        borderLock: true,
+        borderRightWidth: 0,
+        borderStyle: 'solid',
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
+        borderTopWidth: 0,
+        color: '#000000',
+        constraints: { auto: true, x: { type: 'stretch' }, y: { type: 'stretch' } },
+        customStyles: [],
+        elementBlur: 0,
+        fixed: 0,
+        flipHorizontal: false,
+        flipVertical: false,
+        fontFamily: 'G-Amethysta-n4',
+        fontSize: 12,
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        height: 150,
+        inputValue: '',
+        keepRatio: false,
+        locked: 0,
+        mixBlendMode: 'normal',
+        name: 'Box 1',
+        opacity: 100,
+        paddingBottom: 0,
+        paddingLeft: 0,
+        paddingLock: true,
+        paddingRight: 0,
+        paddingTop: 0,
+        radiusLock: true,
+        sketchReadOnly: 0,
+        stateIa: 'visible',
+        textAlign: 'center',
+        textDecoration: '',
+        width: 200,
+        x: 10,
+        y: 20,
+      }, type: 'Box', v: '2.0',
+    },
     canvas: {
       props: {
         storedElements: [
-          '46a48bee71ce4c20bbc1d1ee97b3891f',
+          '46a48bee',
+          '83ty393l',
         ],
       }, type: 'Canvas', v: '2.0',
     },
