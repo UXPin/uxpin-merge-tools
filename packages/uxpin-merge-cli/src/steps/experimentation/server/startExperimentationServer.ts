@@ -11,6 +11,7 @@ import { GetLibrariesIndexHandler } from './handler/libraries/GetLibrariesIndexH
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
 import { SetActivePageHandler } from './handler/page/set/SetActivePageHandler';
 import { RequestHandler } from './handler/RequestHandler';
+import { PrepareUploadHandler } from './handler/upload/PrepareUploadHandler';
 import { ServerRouter } from './router/ServerRouter';
 
 export interface ExperimentationServerOptions extends ExperimentationServerContext {
@@ -41,6 +42,7 @@ export async function startExperimentationServer(options:ExperimentationServerOp
 function registerHandlers(router:ServerRouter, context:ExperimentationServerContext):void {
   router.register('/ajax/dmsDPPage/Save/', new PageSaveHandler(context));
   router.register('/ajax/dmsDPPage/SetActivePage/', new SetActivePageHandler(context));
+  router.register('/ajax/dmsFileManager/PrepareUpload/', new PrepareUploadHandler(context));
   router.register('/code/categories', new GetCategoriesHandler(context));
   router.register('/code/library.js', createLibraryBundleHandler(context));
   router.register('/code/previews', new GetPreviewsHandler(context));
