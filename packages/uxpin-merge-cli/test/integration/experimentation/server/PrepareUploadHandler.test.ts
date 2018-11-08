@@ -63,7 +63,7 @@ describe('Experimentation server – handling upload preparation', () => {
           file_data: {
             extension: 'png',
             id_stored_file: '1',
-            id_tree: '712551',
+            id_tree: expect.any(String),
             name: 'uploaded_file_name',
             original_name: 'uploaded_file_name.png',
             path: '1/',
@@ -117,7 +117,7 @@ describe('Experimentation server – handling upload preparation', () => {
             file_data: {
               extension: 'png',
               id_stored_file: '2',
-              id_tree: '712551',
+              id_tree: expect.any(String),
               name: 'uploaded_file_name',
               original_name: 'uploaded_file_name.png',
               path: '2/',
