@@ -32,10 +32,12 @@ describe('Experimentation server – handling set active page request', () => {
   describe('when no page data is stored', () => {
     beforeAll(async () => {
       // given
+      const origin:string = 'https://app.uxpin.com';
       const requestOptions:RequestPromiseOptions = {
         form: {
           json: '{"id_page":"112","id_project":456}',
         },
+        headers: { origin },
         method: 'POST',
         resolveWithFullResponse: true,
       };

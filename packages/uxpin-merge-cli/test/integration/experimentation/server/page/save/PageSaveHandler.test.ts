@@ -184,8 +184,10 @@ describe('Experimentation server – handling save page request', () => {
   });
 
   function performSaveRequestWith(payload:PageIncrementalUpdate):RequestPromise {
+    const origin:string = 'https://app.uxpin.com';
     const options:RequestPromiseOptions = {
       form: { json: JSON.stringify(payload) },
+      headers: { origin },
       method: 'POST',
       resolveWithFullResponse: true,
     };

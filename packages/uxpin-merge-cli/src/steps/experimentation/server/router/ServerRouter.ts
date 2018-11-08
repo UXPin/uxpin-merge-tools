@@ -3,7 +3,6 @@ import { parse, Url } from 'url';
 import { NotFoundHandler } from '../handler/error/NotFoundHandler';
 import { OptionsRequestHandler } from '../handler/preflight/OptionsRequestHandler';
 import { RequestHandler } from '../handler/RequestHandler';
-import { ExperimentationServerContext } from '../startExperimentationServer';
 
 export class ServerRouter {
 
@@ -11,9 +10,9 @@ export class ServerRouter {
   private readonly notFoundHandler:NotFoundHandler;
   private handlers:Map<string, RequestHandler> = new Map();
 
-  constructor(context:ExperimentationServerContext) {
+  constructor() {
     this.notFoundHandler = new NotFoundHandler();
-    this.optionsHandler = new OptionsRequestHandler(context);
+    this.optionsHandler = new OptionsRequestHandler();
   }
 
   public register(uri:string, handler:RequestHandler):void {

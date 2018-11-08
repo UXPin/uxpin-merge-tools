@@ -28,7 +28,7 @@ export interface ExperimentationServerContext {
 }
 
 export async function startExperimentationServer(options:ExperimentationServerOptions):Promise<void> {
-  const router:ServerRouter = new ServerRouter(options);
+  const router:ServerRouter = new ServerRouter();
   registerHandlers(router, options);
   const server:Server = createServer((request, response) => {
     const handler:RequestHandler = router.route(request);
@@ -45,8 +45,8 @@ function registerHandlers(router:ServerRouter, context:ExperimentationServerCont
   router.register('/code/categories', new GetCategoriesHandler(context));
   router.register('/code/library.js', createLibraryBundleHandler(context));
   router.register('/code/previews', new GetPreviewsHandler(context));
-  router.register('/code/repositoryPointer', new GetRepositoryPointerHandler(context));
+  router.register('/code/repositoryPointer', new GetRepositoryPointerHandler());
   router.register('/libraries/', new GetLibrariesHandler(context));
-  router.register('/libraries/items/index/', new GetLibrariesIndexHandler(context));
+  router.register('/libraries/items/index/', new GetLibrariesIndexHandler());
   router.register('/preview/all', new GetPreviewAllDataHandler(context));
 }

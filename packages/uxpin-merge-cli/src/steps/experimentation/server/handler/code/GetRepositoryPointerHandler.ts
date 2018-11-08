@@ -1,15 +1,13 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { NO_CONTENT } from 'http-status-codes';
 import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
-import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { RequestHandler } from '../RequestHandler';
 
+// tslint:disable prefer-function-over-method
 export class GetRepositoryPointerHandler implements RequestHandler {
-  constructor(private context:ExperimentationServerContext) {}
-
   public handle(request:IncomingMessage, response:ServerResponse):void {
     response.writeHead(NO_CONTENT, {
-      ...getAccessControlHeaders(this.context.uxpinDomain),
+      ...getAccessControlHeaders(request.headers),
     });
     response.end();
   }

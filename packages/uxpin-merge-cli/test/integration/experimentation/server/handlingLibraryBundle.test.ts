@@ -17,7 +17,8 @@ describe('Experimental server - serving library bundle', () => {
     let response:Response;
     beforeAll(async () => {
       // given
-      const options:RequestPromiseOptions = { method: 'GET', resolveWithFullResponse: true };
+      const origin:string = 'https://app.uxpin.com';
+      const options:RequestPromiseOptions = { method: 'GET', resolveWithFullResponse: true, headers: { origin } };
 
       // when
       response = await request('/code/library.js', options);

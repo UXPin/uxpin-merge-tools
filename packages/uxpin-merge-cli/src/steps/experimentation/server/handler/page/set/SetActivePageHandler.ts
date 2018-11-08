@@ -1,4 +1,4 @@
-import { IncomingMessage, ServerResponse } from 'http';
+import { IncomingHttpHeaders, IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
 import { PageContent, PageData } from '../../../../../../common/types/PageData';
 import { DesignSystemSnapshot } from '../../../../../serialization/DesignSystemSnapshot';
@@ -16,14 +16,14 @@ export class SetActivePageHandler implements RequestHandler {
   }
 
   public handle(request:IncomingMessage, response:ServerResponse):void {
-    this.respondWithPageContent(response).catch((error) => handleImplementationError(response, error));
+    this.respondWithPageContent(response, request.headers).catch((error) => handleImplementationError(response, error));
   }
 
-  private async respondWithPageContent(response:ServerResponse):Promise<void> {
+  private async respondWithPageContent(response:ServerResponse, headers:IncomingHttpHeaders):Promise<void> {
     const body:string = JSON.stringify(await this.getPageData());
     response.writeHead(OK, {
       'Content-Type': 'text/xml; charset=utf-8',
-      ...getAccessControlHeaders(this.context.uxpinDomain),
+      ...getAccessControlHeaders(headers),
     });
     response.write(body);
     response.end();

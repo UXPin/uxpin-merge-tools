@@ -26,7 +26,7 @@ export class PageSaveHandler implements RequestHandler {
     await this.updatePage(requestPayload);
     response.writeHead(OK, {
       'Content-Type': 'application/json',
-      ...getAccessControlHeaders(this.context.uxpinDomain),
+      ...getAccessControlHeaders(request.headers),
     });
     response.write('{}');
     response.end();
