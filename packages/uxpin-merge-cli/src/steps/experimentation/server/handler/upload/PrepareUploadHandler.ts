@@ -9,7 +9,7 @@ import { handleImplementationError } from '../error/handleImplementationError';
 import { ParsedFormData } from '../page/save/PageSaveHandler';
 import { RequestHandler } from '../RequestHandler';
 
-const UPLOAD_DIR_NAME:string = 'user-upload';
+export const UPLOAD_DIR_NAME:string = 'user-upload';
 
 export class PrepareUploadHandler implements RequestHandler {
 
