@@ -4,9 +4,9 @@ import { RequestPromiseOptions } from 'request-promise';
 import {
   PrepareUploadFormData,
   PrepareUploadResponse,
-} from '../../../../src/steps/experimentation/server/handler/upload/PrepareUploadHandler';
-import { getRandomPortNumber } from '../../../utils/e2e/server/getRandomPortNumber';
-import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
+} from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadHandler';
+import { getRandomPortNumber } from '../../../../utils/e2e/server/getRandomPortNumber';
+import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 
 describe('Experimentation server – handling upload preparation', () => {
 
