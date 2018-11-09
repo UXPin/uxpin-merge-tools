@@ -44,7 +44,7 @@ function registerHandlers(router:ServerRouter, context:ExperimentationServerCont
   router.register('/ajax/dmsDPPage/Save/', new PageSaveHandler(context));
   router.register('/ajax/dmsDPPage/SetActivePage/', new SetActivePageHandler(context));
   router.register('/ajax/dmsFileManager/PrepareUpload/', new PrepareUploadHandler(context));
-  router.register('/upload/', new UploadHandler(context));
+  router.register('/upload', new UploadHandler(context));
   router.register('/code/categories', new GetCategoriesHandler(context));
   router.register('/code/library.js', createLibraryBundleHandler(context));
   router.register('/code/previews', new GetPreviewsHandler(context));

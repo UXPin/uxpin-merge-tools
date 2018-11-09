@@ -1,10 +1,11 @@
+import { createReadStream } from 'fs';
+import { ensureDir } from 'fs-extra';
 import { OK } from 'http-status-codes';
 import { join } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { TEMP_DIR_NAME } from '../../../../../src/steps/building/config/getConfig';
 import { UPLOAD_DIR_NAME } from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadHandler';
-import { readFileFromPath } from '../../../../../src/utils/fs/readFileFromPath';
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../../utils/file/getFileChecksum';
 
@@ -15,21 +16,23 @@ describe('UploadHandler', () => {
   it('receives uploaded file and saves in the correct dir based on given path parameter', async () => {
     // given
     const fileName:string = 'uxpin_logo_white_720-1.png';
-    const path:string = `12311/${fileName}`;
+    const fileId:string = `12311`;
     const fixtureFilePath:string = join(__dirname, 'fixtures', fileName);
     const expectedFileChecksum:string = await getFileChecksum(fixtureFilePath);
-    const expectedFileLocation:string = join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, '12311', fileName);
+    const targetDir:string = join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, fileId);
+    const expectedFileLocation:string = join(targetDir, fileName);
     const requestOptions:RequestPromiseOptions = {
       formData: {
-        file: await readFileFromPath(fixtureFilePath),
-        path,
+        file: createReadStream(fixtureFilePath),
+        path: `${fileId}/${fileName}`,
       },
       method: 'POST',
       resolveWithFullResponse: true,
     };
 
     // when
-    const response:Response = await request('/upload/', requestOptions);
+    await ensureDir(targetDir);
+    const response:Response = await request('/upload', requestOptions);
 
     // then
     expect(response.statusCode).toEqual(OK);
