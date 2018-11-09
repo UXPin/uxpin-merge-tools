@@ -1,56 +1,16 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
 import { PageContent, PageData } from '../../../../../common/types/PageData';
+import { PreviewAllData } from '../../../../../common/types/PreviewAllData';
 import { DesignSystemSnapshot } from '../../../../serialization/DesignSystemSnapshot';
 import { getProjectMetadata } from '../../../metadata/getProjectMetadata';
-import { Breakpoint, breakpoints } from '../../common/breakpoints/breakpoints';
+import { breakpoints } from '../../common/breakpoints/breakpoints';
 import { getPageContent } from '../../common/page/content/getPageContent';
 import { getPageData } from '../../common/page/data/getPageData';
 import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
 import { getNoCacheHeaders } from '../../headers/getNoCacheHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { RequestHandler } from '../RequestHandler';
-
-interface Page {
-  documentationExists:boolean;
-  id_page:number;
-  is_active:boolean;
-  main_version:number;
-  name:string;
-  parent:number|null;
-  sort_order:number;
-  version_of:number|null;
-  version_type:number;
-}
-
-interface Size {
-  height:number;
-  scrollx:boolean;
-  scrolly:boolean;
-  width:number;
-}
-
-interface MetaData {
-  content:string;
-  size:Size;
-}
-
-interface PreviewPageData {
-  canvasData:PageData;
-  metaData:MetaData;
-}
-
-interface PreviewPagesData {
-  [id:number]:PreviewPageData;
-}
-
-interface PreviewAllData {
-  breakpoints:Breakpoint[];
-  pageId:number;
-  pages:Page[];
-  pagesData:PreviewPagesData;
-  redirect:boolean;
-}
 
 export class GetPreviewAllDataHandler implements RequestHandler {
   constructor(private context:ExperimentationServerContext) {}
@@ -94,7 +54,7 @@ export class GetPreviewAllDataHandler implements RequestHandler {
         [pageId]: {
           canvasData: pageData,
           metaData: {
-            content: `/api/projects/${this.context.epid}/pages/${pageId}/content`,
+            content: `/api/projects/${this.context.epid.revisionId}/pages/${pageId}/content`,
             size: { width, height, scrollx: false, scrolly: false },
           },
         },
