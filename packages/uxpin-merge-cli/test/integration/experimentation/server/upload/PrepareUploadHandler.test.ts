@@ -1,9 +1,15 @@
+import { readJson } from 'fs-extra';
 import { OK } from 'http-status-codes';
+import { join } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
+import { TEMP_DIR_NAME } from '../../../../../src/steps/building/config/getConfig';
 import {
   PrepareUploadFormData,
   PrepareUploadResponse,
+  UPLOAD_DIR_NAME,
+  UPLOAD_METADATA_FILE_NAME,
+  UploadItemMetadata,
 } from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadHandler';
 import { getRandomPortNumber } from '../../../../utils/e2e/server/getRandomPortNumber';
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
@@ -11,7 +17,7 @@ import { setupExperimentationServerTest } from '../../../../utils/experimentatio
 describe('Experimentation server – handling upload preparation', () => {
 
   const port:number = getRandomPortNumber();
-  const { request } = setupExperimentationServerTest({ port });
+  const { request, getWorkingDir } = setupExperimentationServerTest({ port });
 
   describe('when requesting preparation of the upload', () => {
 
@@ -137,6 +143,19 @@ describe('Experimentation server – handling upload preparation', () => {
 
           // then
           expect(JSON.parse(response.body)).toEqual(expectedResponse);
+        });
+
+        it('creates correct metadata file', async () => {
+          // given
+          const expectedMetadata:UploadItemMetadata = {
+            contentType: 'image/png',
+            fileName: 'uploaded_file_name.png',
+          };
+          const expectedMetadataFilePath:string =
+            join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, '2', UPLOAD_METADATA_FILE_NAME);
+
+          // then
+          expect(await readJson(expectedMetadataFilePath)).toEqual(expectedMetadata);
         });
       });
     });

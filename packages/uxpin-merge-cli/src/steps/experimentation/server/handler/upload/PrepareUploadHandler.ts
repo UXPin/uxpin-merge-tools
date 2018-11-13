@@ -1,4 +1,4 @@
-import { ensureDir, mkdir, readdir } from 'fs-extra';
+import { ensureDir, mkdir, readdir, writeJson } from 'fs-extra';
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
 import { join, parse, ParsedPath } from 'path';
@@ -10,6 +10,7 @@ import { ParsedFormData } from '../page/save/PageSaveHandler';
 import { RequestHandler } from '../RequestHandler';
 
 export const UPLOAD_DIR_NAME:string = 'user-upload';
+export const UPLOAD_METADATA_FILE_NAME:string = 'upload-metadata.json';
 
 export class PrepareUploadHandler implements RequestHandler {
 
@@ -23,7 +24,9 @@ export class PrepareUploadHandler implements RequestHandler {
   private async handlePrepareUpload(request:IncomingMessage, response:ServerResponse):Promise<void> {
     const formData:ParsedFormData = await collectUrlEncodedFormData(request);
     const requestPayload:PrepareUploadFormData = JSON.parse(formData.json);
-    const responseBody:string = JSON.stringify(await this.getResponseData(requestPayload));
+    const fileId:string = await this.createFileId();
+    await this.writeMetadata(fileId, requestPayload);
+    const responseBody:string = JSON.stringify(await this.getResponseData(fileId, requestPayload));
     response.writeHead(OK, {
       'Content-Type': 'text/xml; charset=utf-8',
       ...getAccessControlHeaders(this.context.uxpinDomain),
@@ -31,8 +34,7 @@ export class PrepareUploadHandler implements RequestHandler {
     response.end(responseBody);
   }
 
-  private async getResponseData(uploadDetails:PrepareUploadFormData):Promise<PrepareUploadResponse> {
-    const fileId:string = await this.createFileId();
+  private async getResponseData(fileId:string, uploadDetails:PrepareUploadFormData):Promise<PrepareUploadResponse> {
     const parsedName:ParsedPath = parse(uploadDetails.file_name);
     return {
       file_data: {
@@ -77,6 +79,15 @@ export class PrepareUploadHandler implements RequestHandler {
     return newId;
   }
 
+  private async writeMetadata(fileId:string, uploadDetails:PrepareUploadFormData):Promise<void> {
+    const metadata:UploadItemMetadata = {
+      contentType: uploadDetails.file_type,
+      fileName: uploadDetails.file_name,
+    };
+    const metadataPath:string = join(this.context.uxpinDirPath, UPLOAD_DIR_NAME, fileId, UPLOAD_METADATA_FILE_NAME);
+    await writeJson(metadataPath, metadata);
+  }
+
 }
 
 export type DMSBool = 1 | 0;
@@ -117,4 +128,9 @@ export interface PrepareUploadResponseFileData {
   resolution:string;
   size:number;
   type:string;
+}
+
+export interface UploadItemMetadata {
+  contentType:string;
+  fileName:string;
 }
