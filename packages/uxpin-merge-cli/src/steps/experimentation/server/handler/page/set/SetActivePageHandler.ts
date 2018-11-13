@@ -1,9 +1,6 @@
 import { IncomingHttpHeaders, IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
-import { PageContent, PageData } from '../../../../../../common/types/PageData';
-import { DesignSystemSnapshot } from '../../../../../serialization/DesignSystemSnapshot';
-import { getProjectMetadata } from '../../../../metadata/getProjectMetadata';
-import { getPageContent } from '../../../common/page/content/getPageContent';
+import { PageData } from '../../../../../../common/types/PageData';
 import { getPageData } from '../../../common/page/data/getPageData';
 import { getAccessControlHeaders } from '../../../headers/getAccessControlHeaders';
 import { ExperimentationServerContext } from '../../../startExperimentationServer';
@@ -31,8 +28,6 @@ export class SetActivePageHandler implements RequestHandler {
 
   private async getPageData():Promise<PageData> {
     const { epid, port, uxpinDirPath } = this.context;
-    const metadata:DesignSystemSnapshot = await getProjectMetadata(uxpinDirPath);
-    const pageContent:PageContent = await getPageContent(uxpinDirPath);
-    return getPageData({ metadata, port, revisionId: epid.revisionId, pageContent });
+    return await getPageData({ port, revisionId: epid.revisionId, uxpinDirPath });
   }
 }

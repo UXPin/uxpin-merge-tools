@@ -1,11 +1,8 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
-import { PageContent, PageData } from '../../../../../common/types/PageData';
+import { PageData } from '../../../../../common/types/PageData';
 import { PreviewAllData } from '../../../../../common/types/PreviewAllData';
-import { DesignSystemSnapshot } from '../../../../serialization/DesignSystemSnapshot';
-import { getProjectMetadata } from '../../../metadata/getProjectMetadata';
 import { breakpoints } from '../../common/breakpoints/breakpoints';
-import { getPageContent } from '../../common/page/content/getPageContent';
 import { getPageData } from '../../common/page/data/getPageData';
 import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
 import { getNoCacheHeaders } from '../../headers/getNoCacheHeaders';
@@ -26,10 +23,7 @@ export class GetPreviewAllDataHandler implements RequestHandler {
   }
 
   private async getPreviewAllData():Promise<PreviewAllData> {
-    const { epid, port, uxpinDirPath } = this.context;
-    const metadata:DesignSystemSnapshot = await getProjectMetadata(uxpinDirPath);
-    const pageContent:PageContent = await getPageContent(uxpinDirPath);
-    const pageData:PageData = getPageData({ metadata, pageContent, port, revisionId: epid.revisionId });
+    const pageData:PageData = await this.getPageData();
 
     const breakpointId:number = 0;
     const pageId:number = 1;
@@ -61,5 +55,10 @@ export class GetPreviewAllDataHandler implements RequestHandler {
       },
       redirect: false,
     };
+  }
+
+  private async getPageData():Promise<PageData> {
+    const { epid, port, uxpinDirPath } = this.context;
+    return await getPageData({ port, revisionId: epid.revisionId, uxpinDirPath });
   }
 }
