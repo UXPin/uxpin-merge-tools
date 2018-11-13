@@ -18,6 +18,7 @@ describe('GetUploadedFileHandler', () => {
     const fixtureFilePath:string = join(__dirname, 'fixtures', 'uxpin_logo_white_720-1.png');
     const expectedFileChecksum:string = await getFileChecksum(fixtureFilePath);
     const requestOptions:RequestPromiseOptions = {
+      encoding: null,
       method: 'GET',
       resolveWithFullResponse: true,
     };
@@ -32,8 +33,9 @@ describe('GetUploadedFileHandler', () => {
   });
 
   async function placeFixtureInUploadDir(fixturePath:string, fileId:string):Promise<void> {
+    const fixtureFileName:string = parse(fixturePath).base;
     const uploadedFileLocation:string = join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, fileId);
-    await ensureDir(parse(uploadedFileLocation).dir);
-    await copy(fixturePath, uploadedFileLocation);
+    await ensureDir(uploadedFileLocation);
+    await copy(fixturePath, join(uploadedFileLocation, fixtureFileName));
   }
 });
