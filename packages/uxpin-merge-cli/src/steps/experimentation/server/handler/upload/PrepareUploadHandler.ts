@@ -46,7 +46,7 @@ export class PrepareUploadHandler implements RequestHandler {
         size: uploadDetails.file_size,
         type: uploadDetails.file_type,
       },
-      final_url: this.getFinalFileUrl(fileId, uploadDetails.file_name),
+      final_url: this.getFinalFileUrl(fileId),
       id_stored_file: fileId,
       message: '',
       params: {
@@ -57,9 +57,9 @@ export class PrepareUploadHandler implements RequestHandler {
     };
   }
 
-  private getFinalFileUrl(fileId:string, fileName:string):string {
+  private getFinalFileUrl(fileId:string):string {
     const { port } = this.context;
-    return `http://localhost:${port}/upload/files/${fileId}/${fileName}`;
+    return `http://localhost:${port}/upload/file?id=${fileId}`;
   }
 
   private getUploadUrl():string {

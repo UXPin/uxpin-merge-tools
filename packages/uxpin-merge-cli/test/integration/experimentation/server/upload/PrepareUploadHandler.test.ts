@@ -71,7 +71,7 @@ describe('Experimentation server – handling upload preparation', () => {
             size: 8895,
             type: 'image/png',
           },
-          final_url: `http://localhost:${port}/upload/files/1/uploaded_file_name.png`,
+          final_url: `http://localhost:${port}/upload/file?id=1`,
           id_stored_file: '1',
           message: '',
           params: {
@@ -125,7 +125,7 @@ describe('Experimentation server – handling upload preparation', () => {
               size: 8895,
               type: 'image/png',
             },
-            final_url: `http://localhost:${port}/upload/files/2/uploaded_file_name.png`,
+            final_url: `http://localhost:${port}/upload/file?id=2`,
             id_stored_file: '2',
             message: '',
             params: {
