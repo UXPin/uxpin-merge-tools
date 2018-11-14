@@ -14,7 +14,8 @@ describe('Experimentation mode - handling previews', () => {
   });
 
   beforeAll(async () => {
-    response = await request('/code/previews', { resolveWithFullResponse: true });
+    const origin:string = 'https://app.uxpin.com';
+    response = await request('/code/previews', { resolveWithFullResponse: true, headers: { origin } });
   });
 
   it('should responds with OK status code', async () => {

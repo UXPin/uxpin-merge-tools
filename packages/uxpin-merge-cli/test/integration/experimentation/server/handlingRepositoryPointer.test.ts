@@ -19,6 +19,7 @@ describe('Experimentation server - handling repository pointer', () => {
 
   it('should responds with correct CORS headers', async () => {
     // given
+    const origin:string = 'https://app.uxpin.com';
     const expectedHeaders:any = {
       'access-control-allow-credentials': 'true',
       'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
@@ -26,7 +27,10 @@ describe('Experimentation server - handling repository pointer', () => {
     };
 
     // when
-    const response:Response = await request('/code/repositoryPointer', { resolveWithFullResponse: true });
+    const response:Response = await request('/code/repositoryPointer', {
+      headers: { origin },
+      resolveWithFullResponse: true,
+    });
 
     // then
     expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));

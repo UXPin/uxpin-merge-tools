@@ -1,6 +1,7 @@
 import { IncomingMessage, OutgoingHttpHeaders, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
 import { readFileFromPath } from '../../../../../utils/fs/readFileFromPath';
+import { decorateWithAccessControlAllowOrigin } from '../../headers/decorateWithAccessControlAllowOrigin';
 import { NotFoundHandler } from '../error/NotFoundHandler';
 import { RequestHandler } from '../RequestHandler';
 
@@ -14,7 +15,7 @@ export class StaticFileHandler implements RequestHandler {
   }
 
   public async handle(request:IncomingMessage, response:ServerResponse):Promise<void> {
-    response.writeHead(OK, this.headers);
+    response.writeHead(OK, decorateWithAccessControlAllowOrigin(this.headers, request.headers));
     try {
       const content:Buffer = await this.readFileContent();
       response.end(content, 'utf-8');
