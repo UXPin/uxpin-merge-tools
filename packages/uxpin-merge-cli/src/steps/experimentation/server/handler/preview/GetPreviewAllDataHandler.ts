@@ -7,18 +7,24 @@ import { getPageData } from '../../common/page/data/getPageData';
 import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
 import { getNoCacheHeaders } from '../../headers/getNoCacheHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
+import { handleImplementationError } from '../error/handleImplementationError';
 import { RequestHandler } from '../RequestHandler';
 
 export class GetPreviewAllDataHandler implements RequestHandler {
   constructor(private context:ExperimentationServerContext) {}
 
   public async handle(request:IncomingMessage, response:ServerResponse):Promise<void> {
+    this.respondWithPreviewAllData(request, response).catch((err) => handleImplementationError(response, err));
+  }
+
+  private async respondWithPreviewAllData(request:IncomingMessage, response:ServerResponse):Promise<void> {
+    const body:string = JSON.stringify(await this.getPreviewAllData());
     response.writeHead(OK, {
       'Content-Type': 'application/json',
       ...getAccessControlHeaders(request.headers),
       ...getNoCacheHeaders(),
     });
-    response.write(JSON.stringify(await this.getPreviewAllData()));
+    response.write(body);
     response.end();
   }
 
