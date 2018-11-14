@@ -7,8 +7,8 @@ import { TEMP_DIR_NAME } from '../../../../../src/steps/building/config/getConfi
 import {
   UPLOAD_DIR_NAME,
   UPLOAD_METADATA_FILE_NAME,
-  UploadItemMetadata,
-} from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadHandler';
+  } from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadHandler';
+import { UploadItemMetadata } from '../../../../../src/steps/experimentation/server/handler/upload/UploadItemMetadata';
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 import { getBufferChecksum, getFileChecksum } from '../../../../utils/file/getFileChecksum';
 

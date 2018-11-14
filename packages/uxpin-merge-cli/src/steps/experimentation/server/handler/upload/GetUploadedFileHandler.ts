@@ -8,7 +8,8 @@ import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { handleImplementationError } from '../error/handleImplementationError';
 import { RequestHandler } from '../RequestHandler';
 import { getUploadMetadataPath } from './getUploadMetadataPath';
-import { UPLOAD_DIR_NAME, UploadItemMetadata } from './PrepareUploadHandler';
+import { UPLOAD_DIR_NAME } from './PrepareUploadHandler';
+import { UploadItemMetadata } from './UploadItemMetadata';
 
 export class GetUploadedFileHandler implements RequestHandler {
 

@@ -4,13 +4,13 @@ import { join } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { TEMP_DIR_NAME } from '../../../../../src/steps/building/config/getConfig';
+import { PrepareUploadFormData } from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadFormData';
 import {
-  PrepareUploadFormData,
-  PrepareUploadResponse,
   UPLOAD_DIR_NAME,
   UPLOAD_METADATA_FILE_NAME,
-  UploadItemMetadata,
 } from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadHandler';
+import { PrepareUploadResponse } from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadResponse';
+import { UploadItemMetadata } from '../../../../../src/steps/experimentation/server/handler/upload/UploadItemMetadata';
 import { getRandomPortNumber } from '../../../../utils/e2e/server/getRandomPortNumber';
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 
