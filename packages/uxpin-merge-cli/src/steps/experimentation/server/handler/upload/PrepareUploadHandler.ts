@@ -8,6 +8,7 @@ import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { handleImplementationError } from '../error/handleImplementationError';
 import { ParsedFormData } from '../page/save/PageSaveHandler';
 import { RequestHandler } from '../RequestHandler';
+import { getUploadMetadataPath } from './getUploadMetadataPath';
 
 export const UPLOAD_DIR_NAME:string = 'user-upload';
 export const UPLOAD_METADATA_FILE_NAME:string = 'upload-metadata.json';
@@ -84,7 +85,7 @@ export class PrepareUploadHandler implements RequestHandler {
       contentType: uploadDetails.file_type,
       fileName: uploadDetails.file_name,
     };
-    const metadataPath:string = join(this.context.uxpinDirPath, UPLOAD_DIR_NAME, fileId, UPLOAD_METADATA_FILE_NAME);
+    const metadataPath:string = getUploadMetadataPath(this.context.uxpinDirPath, fileId);
     await writeJson(metadataPath, metadata);
   }
 
