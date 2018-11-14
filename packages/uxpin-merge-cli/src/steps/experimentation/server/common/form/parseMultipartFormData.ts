@@ -1,7 +1,7 @@
 import { Fields, Files, IncomingForm } from 'formidable';
 import { IncomingMessage } from 'http';
 
-export function parseMultipartFormData(request:IncomingMessage,):Promise<ParsedMultipartData> {
+export function parseMultipartFormData(request:IncomingMessage):Promise<ParsedMultipartData> {
   return new Promise<ParsedMultipartData>((resolve, reject) => {
     const form:IncomingForm = new IncomingForm();
     form.parse(request, (err, fields, files) => {
