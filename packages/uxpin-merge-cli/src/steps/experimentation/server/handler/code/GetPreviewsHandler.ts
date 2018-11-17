@@ -18,7 +18,7 @@ export class GetPreviewsHandler implements RequestHandler {
   public async handle(request:IncomingMessage, response:ServerResponse):Promise<void> {
     response.writeHead(OK, {
       'Content-type': 'application/json',
-      ...getAccessControlHeaders(this.context.uxpinDomain),
+      ...getAccessControlHeaders(request.headers),
       ...getNoCacheHeaders(),
     });
     response.write(await this.getPreviewResponse());

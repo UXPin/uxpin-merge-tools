@@ -1,4 +1,4 @@
-import { IncomingMessage, OutgoingHttpHeaders, ServerResponse } from 'http';
+import { IncomingHttpHeaders, IncomingMessage, OutgoingHttpHeaders, ServerResponse } from 'http';
 import { NOT_FOUND, OK } from 'http-status-codes';
 import { readFileFromPath } from '../../../../../../utils/fs/readFileFromPath';
 import { StaticFileHandler } from '../StaticFileHandler';
@@ -35,6 +35,7 @@ describe('StaticFileHandler', () => {
     it('should respond with headers from constructor', async () => {
       // given
       const headers:OutgoingHttpHeaders = {
+        'Access-Control-Allow-Origin': '*',
         'Cache-Control': 'no-cache',
         'Content-Type': 'application/json',
       };
@@ -42,6 +43,23 @@ describe('StaticFileHandler', () => {
 
       // when
       await handler.handle(request, response);
+
+      // then
+      expect(response.writeHead).toHaveBeenCalledWith(OK, headers);
+    });
+
+    it('should respond with specific `Access-Control-Allow-Origin` header', async () => {
+      // given
+      const origin:string = 'http://some.domain';
+      const headers:OutgoingHttpHeaders = {
+        'Access-Control-Allow-Origin': 'http://some.domain',
+        'Cache-Control': 'no-cache',
+        'Content-Type': 'application/json',
+      };
+      const handler:StaticFileHandler = new StaticFileHandler(filePath, headers);
+
+      // when
+      await handler.handle(createFakeRequest({ origin }), response);
 
       // then
       expect(response.writeHead).toHaveBeenCalledWith(OK, headers);
@@ -72,8 +90,8 @@ function mockFile(filePath:string, content:Buffer):void {
   }));
 }
 
-function createFakeRequest():IncomingMessage {
-  return {} as any;
+function createFakeRequest(headers:IncomingHttpHeaders = {}):IncomingMessage {
+  return { headers } as any;
 }
 
 function createFakeResponse():ServerResponse {

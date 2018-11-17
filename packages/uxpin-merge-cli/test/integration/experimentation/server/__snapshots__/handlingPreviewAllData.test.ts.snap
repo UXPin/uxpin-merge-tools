@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Experimentation mode - handling preview all data should respond with proper body 1`] = `
+Object {
+  "breakpoints": Array [
+    Object {
+      "height": 768,
+      "name": "Wide 1440",
+      "version": 0,
+      "width": 1440,
+    },
+    Object {
+      "height": 480,
+      "name": "iPhone (320px)",
+      "version": 1,
+      "width": 320,
+    },
+    Object {
+      "height": 320,
+      "name": "Phone Landscape (480px)",
+      "version": 2,
+      "width": 480,
+    },
+    Object {
+      "height": 768,
+      "name": "Tablets (600px)",
+      "version": 3,
+      "width": 600,
+    },
+    Object {
+      "height": 1024,
+      "name": "iPads (768px)",
+      "version": 4,
+      "width": 768,
+    },
+    Object {
+      "height": 768,
+      "name": "Standard websites (992px)",
+      "version": 5,
+      "width": 992,
+    },
+    Object {
+      "height": 768,
+      "name": "iPad Landscape (1024px)",
+      "version": 6,
+      "width": 1024,
+    },
+    Object {
+      "height": 768,
+      "name": "Wide websites (1224px)",
+      "version": 7,
+      "width": 1224,
+    },
+  ],
+  "pageId": 1,
+  "pages": Array [
+    Object {
+      "documentationExists": false,
+      "id_page": 1,
+      "is_active": true,
+      "main_version": 0,
+      "name": "Experiment",
+      "parent": null,
+      "sort_order": 0,
+      "version_of": null,
+      "version_type": 0,
+    },
+  ],
+  "pagesData": Object {
+    "1": Object {
+      "canvasData": Object {
+        "code_sync": Object {
+          "bundles": Object {
+            "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762": "http://localhost:8888/code/library.js",
+          },
+          "components": Object {
+            "ba14886c-2674-52a3-a147-7b88e725e4ee": Object {
+              "componentId": "ba14886c-2674-52a3-a147-7b88e725e4ee",
+              "info": Object {
+                "dirPath": "src/components/Button",
+                "implementation": Object {
+                  "framework": "reactjs",
+                  "lang": "typescript",
+                  "path": "src/components/Button/Button.tsx",
+                },
+                "presets": Array [
+                  Object {
+                    "path": "src/components/Button/presets/0-default.json",
+                  },
+                ],
+              },
+              "name": "Button",
+              "properties": Array [
+                Object {
+                  "description": "",
+                  "isRequired": true,
+                  "name": "children",
+                  "type": Object {
+                    "name": "node",
+                    "structure": Object {},
+                  },
+                },
+                Object {
+                  "description": "",
+                  "isRequired": false,
+                  "name": "isPrimary",
+                  "type": Object {
+                    "name": "boolean",
+                    "structure": Object {},
+                  },
+                },
+              ],
+              "revisionId": "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762",
+            },
+            "f2dff102-3d25-5174-b733-12c4e58fdd5d": Object {
+              "componentId": "f2dff102-3d25-5174-b733-12c4e58fdd5d",
+              "info": Object {
+                "dirPath": "src/components/Avatar",
+                "implementation": Object {
+                  "framework": "reactjs",
+                  "lang": "typescript",
+                  "path": "src/components/Avatar/Avatar.tsx",
+                },
+                "presets": Array [
+                  Object {
+                    "path": "src/components/Avatar/presets/0-default.json",
+                  },
+                ],
+              },
+              "name": "Avatar",
+              "properties": Array [
+                Object {
+                  "description": "",
+                  "isRequired": false,
+                  "name": "children",
+                  "type": Object {
+                    "name": "node",
+                    "structure": Object {},
+                  },
+                },
+                Object {
+                  "description": "",
+                  "isRequired": true,
+                  "name": "size",
+                  "type": Object {
+                    "name": "string",
+                    "structure": Object {},
+                  },
+                },
+                Object {
+                  "description": "",
+                  "isRequired": true,
+                  "name": "imageUrl",
+                  "type": Object {
+                    "name": "string",
+                    "structure": Object {},
+                  },
+                },
+              ],
+              "revisionId": "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762",
+            },
+          },
+          "presets": Object {
+            "a7b05955-128e-5570-9968-26fa6d8f8705": Object {
+              "componentRevisionId": "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762_f2dff102-3d25-5174-b733-12c4e58fdd5d",
+              "elements": Object {
+                "1": Object {
+                  "name": "Avatar",
+                  "props": Object {
+                    "imageUrl": "https://picsum.photos/100/100?image=1027",
+                    "size": "small",
+                  },
+                },
+              },
+              "name": "default",
+              "presetId": "a7b05955-128e-5570-9968-26fa6d8f8705",
+              "rootId": "1",
+              "sortIndex": 0,
+            },
+            "c383bd8a-caf4-5f90-a6b1-3471c355fc43": Object {
+              "componentRevisionId": "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762_ba14886c-2674-52a3-a147-7b88e725e4ee",
+              "elements": Object {
+                "1": Object {
+                  "name": "Button",
+                  "props": Object {
+                    "children": "Click me",
+                    "isPrimary": true,
+                  },
+                },
+              },
+              "name": "default",
+              "presetId": "c383bd8a-caf4-5f90-a6b1-3471c355fc43",
+              "rootId": "1",
+              "sortIndex": 0,
+            },
+          },
+        },
+        "component_version": null,
+        "components_master_ids": Array [],
+        "components_versions": Array [],
+        "components_versions_map": Array [],
+        "is_component": "0",
+        "last_update": "0",
+        "page": Object {
+          "canvas": Object {
+            "props": Object {
+              "storedElements": Array [],
+            },
+            "type": "Canvas",
+            "v": "2.0",
+          },
+        },
+      },
+      "metaData": Object {
+        "content": "/api/projects/3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762/pages/1/content",
+        "size": Object {
+          "height": 768,
+          "scrollx": false,
+          "scrolly": false,
+          "width": 1440,
+        },
+      },
+    },
+  },
+  "redirect": false,
+}
+`;

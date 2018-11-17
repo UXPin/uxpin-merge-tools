@@ -24,6 +24,7 @@ describe('OptionsRequestHandler', () => {
   using(getEndpoints).describe('responds to OPTIONS (preflight) request for', (uri) => {
     it(`${uri} endpoint with correct headers`, async () => {
       // given
+      const origin:string = 'https://app.uxpin.com';
       const expectedHeaders:any = {
         'access-control-allow-credentials': 'true',
         'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
@@ -31,7 +32,11 @@ describe('OptionsRequestHandler', () => {
       };
 
       // when
-      const response:Response = await request(uri, { method: 'OPTIONS', resolveWithFullResponse: true });
+      const response:Response = await request(uri, {
+        headers: { origin },
+        method: 'OPTIONS',
+        resolveWithFullResponse: true,
+      });
 
       // then
       expect(response.statusCode).toEqual(OK);

@@ -8,7 +8,7 @@ export function createLibraryBundleHandler(context:ExperimentationServerContext)
   const headers:OutgoingHttpHeaders = {
     'Content-Type': 'application/javascript',
     ...getNoCacheHeaders(),
-    ...getAccessControlHeaders(context.uxpinDomain),
+    ...getAccessControlHeaders(),
   };
   return new StaticFileHandler(context.bundlePath, headers);
 }
