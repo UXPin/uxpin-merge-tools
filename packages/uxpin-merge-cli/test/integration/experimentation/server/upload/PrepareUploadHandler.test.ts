@@ -41,6 +41,9 @@ describe('Experimentation server – handling upload preparation', () => {
           form: {
             json: JSON.stringify(firstRequestFormDataJson),
           },
+          headers: {
+            origin: 'https://app.uxpin.com',
+          },
           method: 'POST',
           resolveWithFullResponse: true,
         };

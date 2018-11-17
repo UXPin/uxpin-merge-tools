@@ -33,7 +33,7 @@ export class PrepareUploadHandler implements RequestHandler {
     const responseBody:string = JSON.stringify(await this.getResponseData(fileId, requestPayload));
     response.writeHead(OK, {
       'Content-Type': 'text/xml; charset=utf-8',
-      ...getAccessControlHeaders(this.context.uxpinDomain),
+      ...getAccessControlHeaders(request.headers),
     });
     response.end(responseBody);
   }

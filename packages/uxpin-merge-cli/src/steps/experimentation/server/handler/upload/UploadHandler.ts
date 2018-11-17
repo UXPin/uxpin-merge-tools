@@ -22,7 +22,7 @@ export class UploadHandler implements RequestHandler {
     await this.handleMultipartFormData(request);
     response.writeHead(OK, {
       'Content-Type': 'application/json',
-      ...getAccessControlHeaders(this.context.uxpinDomain),
+      ...getAccessControlHeaders(request.headers),
     });
     response.write('{}');
     response.end();

@@ -17,17 +17,17 @@ export class GetUploadedFileHandler implements RequestHandler {
   }
 
   public handle(request:IncomingMessage, response:ServerResponse):void {
-    this.getUploadedFile(request, response).catch((error) => handleImplementationError(response, error));
+    this.handleGetUploadedFile(request, response).catch((error) => handleImplementationError(response, error));
   }
 
-  private async getUploadedFile(request:IncomingMessage, response:ServerResponse):Promise<void> {
+  private async handleGetUploadedFile(request:IncomingMessage, response:ServerResponse):Promise<void> {
     const fileId:string = parse(request.url!, true).query.id;
     const uploadMetadata:UploadItemMetadata = await this.getUploadFileMetadata(fileId);
-    const filePath:string = await this.getUploadedFilePath(fileId, uploadMetadata.fileName);
+    const filePath:string = this.getUploadedFilePath(fileId, uploadMetadata.fileName);
     const fileBuffer:Buffer = await readFile(filePath);
     response.writeHead(OK, {
       'Content-Type': uploadMetadata.contentType,
-      ...getAccessControlHeaders(this.context.uxpinDomain),
+      ...getAccessControlHeaders(request.headers),
     });
     response.end(fileBuffer);
   }
