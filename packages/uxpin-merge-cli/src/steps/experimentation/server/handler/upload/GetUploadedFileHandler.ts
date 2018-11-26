@@ -2,7 +2,6 @@ import { readFile, readJson } from 'fs-extra';
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
 import { join } from 'path';
-import { parse } from 'url';
 import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { handleImplementationError } from '../error/handleImplementationError';
@@ -16,12 +15,17 @@ export class GetUploadedFileHandler implements RequestHandler {
   constructor(private context:ExperimentationServerContext) {
   }
 
-  public handle(request:IncomingMessage, response:ServerResponse):void {
-    this.handleGetUploadedFile(request, response).catch((error) => handleImplementationError(response, error));
+  public handle(request:IncomingMessage, response:ServerResponse, uriParams:string[]):void {
+    this.handleGetUploadedFile(request, response, uriParams).catch((error) => {
+      handleImplementationError(response, error);
+    });
   }
 
-  private async handleGetUploadedFile(request:IncomingMessage, response:ServerResponse):Promise<void> {
-    const fileId:string = parse(request.url!, true).query.id;
+  private async handleGetUploadedFile(
+    request:IncomingMessage,
+    response:ServerResponse,
+    [fileId]:string[],
+  ):Promise<void> {
     const uploadMetadata:UploadItemMetadata = await this.getUploadFileMetadata(fileId);
     const filePath:string = this.getUploadedFilePath(fileId, uploadMetadata.fileName);
     const fileBuffer:Buffer = await readFile(filePath);

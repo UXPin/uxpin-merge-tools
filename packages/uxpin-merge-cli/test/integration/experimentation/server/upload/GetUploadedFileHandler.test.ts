@@ -7,7 +7,7 @@ import { TEMP_DIR_NAME } from '../../../../../src/steps/building/config/getConfi
 import {
   UPLOAD_DIR_NAME,
   UPLOAD_METADATA_FILE_NAME,
-  } from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadHandler';
+} from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadHandler';
 import { UploadItemMetadata } from '../../../../../src/steps/experimentation/server/handler/upload/UploadItemMetadata';
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 import { getBufferChecksum, getFileChecksum } from '../../../../utils/file/getFileChecksum';
@@ -29,7 +29,7 @@ describe('GetUploadedFileHandler', () => {
     await placeFixtureInUploadDir(fixtureFilePath, fileId);
 
     // when
-    const response:Response = await request('/upload/file?id=12311', requestOptions);
+    const response:Response = await request('/upload/12311/uxpin_logo_white_720-1.png', requestOptions);
 
     // then
     expect(response.statusCode).toEqual(OK);
