@@ -75,7 +75,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "remap-istanbul": "^0.9.5",
-    "terminate": "^2.1.0",
+    "terminate": "^2.1.2",
     "tmp-promise": "^1.0.5",
     "ts-jest": "^23.10.4",
     "ts-loader": "^5.2.2",
