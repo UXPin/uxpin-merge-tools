@@ -11,7 +11,6 @@ import { GetLibrariesIndexHandler } from './handler/libraries/GetLibrariesIndexH
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
 import { SetActivePageHandler } from './handler/page/set/SetActivePageHandler';
 import { GetPreviewAllDataHandler } from './handler/preview/GetPreviewAllDataHandler';
-import { RequestHandler } from './handler/RequestHandler';
 import { GetUploadedFileHandler } from './handler/upload/GetUploadedFileHandler';
 import { PrepareUploadHandler } from './handler/upload/PrepareUploadHandler';
 import { UploadHandler } from './handler/upload/UploadHandler';
@@ -33,10 +32,7 @@ export interface ExperimentationServerContext {
 export async function startExperimentationServer(options:ExperimentationServerOptions):Promise<void> {
   const router:ServerRouter = new ServerRouter();
   registerHandlers(router, options);
-  const server:Server = createServer((request, response) => {
-    const handler:RequestHandler = router.route(request);
-    handler.handle(request, response);
-  });
+  const server:Server = createServer((request, response) => router.handle(request, response));
   server.listen(options.port);
   const experimentationAppURL:string = getAPPExperimentationRemoteURL(options);
   await printServerReadyMessage(experimentationAppURL);
@@ -47,7 +43,7 @@ function registerHandlers(router:ServerRouter, context:ExperimentationServerCont
   router.register('/ajax/dmsDPPage/SetActivePage/', new SetActivePageHandler(context));
   router.register('/ajax/dmsFileManager/PrepareUpload/', new PrepareUploadHandler(context));
   router.register('/upload', new UploadHandler(context));
-  router.register('/upload/file', new GetUploadedFileHandler(context));
+  router.register(/\/upload\/(\d+)\/(.*)/, new GetUploadedFileHandler(context));
   router.register('/code/categories', new GetCategoriesHandler(context));
   router.register('/code/library.js', createLibraryBundleHandler(context));
   router.register('/code/previews', new GetPreviewsHandler(context));
