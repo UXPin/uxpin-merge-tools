@@ -200,6 +200,10 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/p-map-series/-/p-map-series-1.0.1.tgz#2fbd18ac08db2528b57f944e0dee4ba4f2027e4e"
 
+"@types/p-map@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@types/p-map/-/p-map-1.1.0.tgz#0fe9742643bcacf0351b70f75f9f94c036609fa1"
+
 "@types/p-reduce@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/p-reduce/-/p-reduce-1.0.0.tgz#dbf6b33fc8d45ebaba00e202e984d827f184b7ea"
@@ -5739,6 +5743,10 @@ p-map-series@^1.0.0:
 p-map@^1.1.1:
   version "1.2.0"
   resolved "https://registry.npmjs.org/p-map/-/p-map-1.2.0.tgz#e4e94f311eabbc8633a1e79908165fca26241b6b"
+
+p-map@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/p-map/-/p-map-2.0.0.tgz#be18c5a5adeb8e156460651421aceca56c213a50"
 
 p-reduce@^1.0.0:
   version "1.0.0"

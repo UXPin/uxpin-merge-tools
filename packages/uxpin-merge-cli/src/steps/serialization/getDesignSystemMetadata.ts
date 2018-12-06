@@ -1,3 +1,4 @@
+import pMap from 'p-map';
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
 import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
@@ -11,60 +12,50 @@ import { PresetsSerializationResult } from './component/presets/PresetsSerializa
 import { serializePresets } from './component/presets/serializePresets';
 import { DesignSystemSnapshot } from './DesignSystemSnapshot';
 
-export function getDesignSystemMetadata(categoryInfos:ComponentCategoryInfo[]):Promise<Warned<DesignSystemSnapshot>> {
-  return Promise.all(categoryInfos.map(categoryInfoToCategoryMetadata))
-    .then((categories) => ({
-      result: {
-        categorizedComponents: categories.map((category) => category.result),
-        name: '',
-      },
-      warnings: joinWarningLists(categories.map((category) => category.warnings)),
-    }));
+export async function getDesignSystemMetadata(infos:ComponentCategoryInfo[]):Promise<Warned<DesignSystemSnapshot>> {
+  const categories:Array<Warned<ComponentCategory>> = await pMap(infos, categoryInfoToCategoryMetadata);
+  return {
+    result: {
+      categorizedComponents: categories.map((category) => category.result),
+      name: '',
+    },
+    warnings: joinWarningLists(categories.map((category) => category.warnings)),
+  };
 }
 
-function categoryInfoToCategoryMetadata(info:ComponentCategoryInfo):Promise<Warned<ComponentCategory>> {
-  return Promise.all(info.componentInfos.map(componentInfoToDefinition))
-    .then((components) => ({
-      result: {
-        components: components.map((component) => component.result),
-        name: info.name,
-      },
-      warnings: joinWarningLists(components.map((component) => component.warnings)),
-    }));
+async function categoryInfoToCategoryMetadata(info:ComponentCategoryInfo):Promise<Warned<ComponentCategory>> {
+  const components:Array<Warned<ComponentDefinition>> = await pMap(info.componentInfos, componentInfoToDefinition);
+  return {
+    result: {
+      components: components.map((component) => component.result),
+      name: info.name,
+    },
+    warnings: joinWarningLists(components.map((component) => component.warnings)),
+  };
 }
 
-function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentDefinition>> {
-  return Promise.all([
-    getComponentMetadata(info.implementation),
-    serializeOptionalExamples(info),
-    serializeOptionalPresets(info),
-  ]).then(([
-      { result: metadata, warnings: metadataWarnings },
-      { result: examples, warnings: exampleWarnings },
-      { result: presets, warnings: presetWarnings },
-    ]) => ({
-      result: { info, ...metadata, documentation: { examples }, presets },
-      warnings: joinWarningLists([metadataWarnings, exampleWarnings, presetWarnings]),
-    }),
-  );
+async function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentDefinition>> {
+  const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(info.implementation);
+  const { result: examples, warnings: exampleWarnings } = await serializeOptionalExamples(info);
+  const { result: presets, warnings: presetWarnings } = await serializeOptionalPresets(info);
+  return {
+    result: { info, ...metadata, documentation: { examples }, presets },
+    warnings: joinWarningLists([metadataWarnings, exampleWarnings, presetWarnings]),
+  };
 }
 
-function serializeOptionalExamples(info:ComponentInfo):Promise<ExamplesSerializationResult> {
-  return new Promise((resolve) => {
-    if (!info.documentation) {
-      return resolve({ result: [], warnings: [] });
-    }
+async function serializeOptionalExamples(info:ComponentInfo):Promise<ExamplesSerializationResult> {
+  if (!info.documentation) {
+    return { result: [], warnings: [] };
+  }
 
-    serializeExamples(info.documentation.path).then(resolve);
-  });
+  return await serializeExamples(info.documentation.path);
 }
 
-function serializeOptionalPresets(info:ComponentInfo):Promise<PresetsSerializationResult> {
-  return new Promise((resolve) => {
-    if (!info.presets || !info.presets.length) {
-      return resolve({ result: [], warnings: [] });
-    }
+async function serializeOptionalPresets(info:ComponentInfo):Promise<PresetsSerializationResult> {
+  if (!info.presets || !info.presets.length) {
+    return { result: [], warnings: [] };
+  }
 
-    serializePresets(info.presets).then(resolve);
-  });
+  return await serializePresets(info.presets);
 }
