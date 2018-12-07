@@ -149,19 +149,7 @@ describe('serializeTSComponent', () => {
             description: '',
             isRequired: true,
             name: 'item',
-            type: {
-              name: 'shape',
-              structure: {
-                param1: { name: 'string', structure: {} },
-                param2: { name: 'string', structure: {} },
-                param3: {
-                  name: 'shape',
-                  structure: {
-                    name: { name: 'string', structure: {} },
-                  },
-                },
-              },
-            },
+            type: { name: 'shape', structure: {} },
           },
         ],
       };
@@ -190,20 +178,7 @@ describe('serializeTSComponent', () => {
             description: '',
             isRequired: true,
             name: 'item',
-            type: {
-              name: 'shape',
-              structure: {
-                name: { name: 'string', structure: {} },
-                nested: {
-                  name: 'shape',
-                  structure: {
-                    keyA: { name: 'string', structure: {} },
-                    keyB: { name: 'string', structure: {} },
-                  },
-                },
-                value: { name: 'number', structure: {} },
-              },
-            },
+            type: { name: 'shape', structure: {} },
           },
         ],
       };
@@ -238,13 +213,7 @@ describe('serializeTSComponent', () => {
             description: '',
             isRequired: true,
             name: 'nested',
-            type: {
-              name: 'shape',
-              structure: {
-                keyA: { name: 'string', structure: {} },
-                keyB: { name: 'string', structure: {} },
-              },
-            },
+            type: { name: 'shape', structure: {} },
           },
         ],
       };

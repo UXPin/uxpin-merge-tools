@@ -89,7 +89,7 @@ describe('getComponentMetadata – integration', () => {
             description: '',
             isRequired: true,
             name: 'dictionaryProp',
-            type: { name: 'dictionary', structure: { valueType: { name: 'number', structure: {} } } },
+            type: { name: 'shape', structure: {} },
           },
           {
             description: '',
