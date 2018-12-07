@@ -1,4 +1,3 @@
-import { isArray } from 'lodash';
 import { parse } from 'path';
 import * as ts from 'typescript';
 import { WarningDetails } from '../../../../../common/warning/WarningDetails';
@@ -51,55 +50,42 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
     },
     warnings: [],
   };
-}
 
-function convertTypeSymbolToPropertyDefinition(
-  typeSymbol:ts.Symbol,
-  propName:ts.__String,
-):ComponentPropertyDefinition | undefined {
-  if (!ts.isPropertyDeclaration(typeSymbol.valueDeclaration) && !ts.isPropertySignature(typeSymbol.valueDeclaration)) {
-    return;
+  function convertTypeSymbolToPropertyDefinition(
+    typeSymbol:ts.Symbol,
+    propName:ts.__String,
+  ):ComponentPropertyDefinition | undefined {
+    if (!ts.isPropertyDeclaration(typeSymbol.valueDeclaration)
+      && !ts.isPropertySignature(typeSymbol.valueDeclaration)) {
+      return;
+    }
+    const valueType:ts.Type = checker.getTypeOfSymbolAtLocation(typeSymbol, typeSymbol.valueDeclaration);
+    return {
+      description: ts.displayPartsToString(typeSymbol.getDocumentationComment(checker)),
+      isRequired: isPropertyRequired(typeSymbol.valueDeclaration),
+      name: propName.toString(),
+      type: convertTypeNodeToPropertyType(valueType),
+    };
   }
-  const definition:ComponentPropertyDefinition = {
-    description: getJSDocComment(typeSymbol.valueDeclaration as any),
-    isRequired: isPropertyRequired(typeSymbol.valueDeclaration),
-    name: propName.toString(),
-  };
-  if (typeSymbol.valueDeclaration.type) {
-    definition.type = convertTypeNodeToPropertyType(typeSymbol.valueDeclaration.type);
+
+  function convertTypeNodeToPropertyType(type:ts.Type):PropertyType {
+    switch (type.flags) {
+      case ts.TypeFlags.String:
+        return { name: 'string', structure: {} };
+      case ts.TypeFlags.Number:
+        return { name: 'number', structure: {} };
+      case ts.TypeFlags.Boolean:
+        return { name: 'boolean', structure: {} };
+      default:
+        return { name: 'unsupported', structure: { raw: checker.typeToString(type) } };
+    }
   }
-  return definition;
 }
 
 type TSProperty = ts.PropertySignature | ts.PropertyDeclaration;
 
 function isPropertyRequired(declaration:TSProperty):boolean {
   return !declaration.questionToken;
-}
-
-interface JSDocCommentNode {
-  kind:ts.SyntaxKind.JSDocComment;
-  comment?:string;
-}
-
-function getJSDocComment(declaration:{ jsDoc?:JSDocCommentNode[] }):string {
-  if (!isArray(declaration.jsDoc) || !declaration.jsDoc[0] || !declaration.jsDoc[0].comment) {
-    return '';
-  }
-  return declaration.jsDoc[0].comment;
-}
-
-function convertTypeNodeToPropertyType(typeNode:ts.TypeNode):PropertyType {
-  switch (typeNode.kind) {
-    case ts.SyntaxKind.StringKeyword:
-      return { name: 'string', structure: {} };
-    case ts.SyntaxKind.NumberKeyword:
-      return { name: 'number', structure: {} };
-    case ts.SyntaxKind.BooleanKeyword:
-      return { name: 'boolean', structure: {} };
-    default:
-      return { name: 'unsupported', structure: { raw: typeNode.getText() } };
-  }
 }
 
 function getEmptySerializationResult(componentName:string, warning?:WarningDetails):ImplSerializationResult {
