@@ -5,6 +5,11 @@ import { ComponentImplementationInfo } from '../../../../discovery/component/Com
 import { ComponentPropertyDefinition, PropertyType } from '../ComponentPropertyDefinition';
 import { ImplSerializationResult } from '../ImplSerializationResult';
 
+const REACT_COMPONENT_TYPES:string[] = [
+  'React.Component',
+  'React.PureComponent',
+];
+
 export async function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   const componentName:string = parse(component.path).name;
 
@@ -96,10 +101,15 @@ function getPropsType(
   sourceFile:ts.SourceFile,
   componentName:string,
 ):ts.TypeNode | undefined {
-  const func:ts.FunctionDeclaration | undefined = findDefaultExportedFunction(sourceFile) ||
+  const componentFunc:ts.FunctionDeclaration | undefined = findDefaultExportedFunction(sourceFile) ||
     findExportedFunctionWithName(sourceFile, componentName);
-  if (func) {
-    return getPropsTypeOfFunctionalComponent(func);
+  if (componentFunc) {
+    return getPropsTypeOfFunctionalComponent(componentFunc);
+  }
+  const componentClass:ClassComponentDeclaration | undefined = findDefaultExportedClass(sourceFile) ||
+    findExportedClassWithName(sourceFile, componentName);
+  if (componentClass) {
+    return getPropsTypeOfClassComponent(componentClass);
   }
 }
 
@@ -109,6 +119,28 @@ function findComponentFile(program:ts.Program, path:string):ts.SourceFile | unde
       return sourceFile;
     }
   }
+}
+
+function getPropsTypeOfClassComponent(componentClass:ClassComponentDeclaration):ts.TypeNode | undefined {
+  if (!componentClass.heritageClauses) {
+    return;
+  }
+  return getPropsTypeNodeFromHeritageClauses(componentClass.heritageClauses);
+}
+
+function getPropsTypeNodeFromHeritageClauses(heritageClauses:ts.NodeArray<ts.HeritageClause>):ts.TypeNode | undefined {
+  for (const clause of heritageClauses) {
+    if (clause.token === ts.SyntaxKind.ExtendsKeyword) {
+      for (const type of clause.types) {
+        if (ts.isExpressionWithTypeArguments(type)
+          && REACT_COMPONENT_TYPES.includes(type.expression.getText())
+          && type.typeArguments) {
+          return type.typeArguments[0];
+        }
+      }
+    }
+  }
+  return;
 }
 
 function getPropsTypeOfFunctionalComponent(func:ts.FunctionDeclaration):ts.TypeNode | undefined {
@@ -134,14 +166,38 @@ function findExportedFunctionWithName(
 ):ts.FunctionDeclaration | undefined {
   let result:ts.FunctionDeclaration | undefined;
   ts.forEachChild(sourceFile, (node) => {
-    if (ts.isFunctionDeclaration(node) && isExported(node) && getFunctionName(node) === functionName) {
+    if (ts.isFunctionDeclaration(node) && isExported(node) && getNodeName(node) === functionName) {
       result = node;
     }
   });
   return result;
 }
 
-function isDefaultExported(node:ts.FunctionDeclaration):boolean {
+type ComponentDeclaration = ts.FunctionDeclaration | ClassComponentDeclaration;
+
+type ClassComponentDeclaration = ts.ClassDeclaration | ts.ClassExpression;
+
+function findDefaultExportedClass(sourceFile:ts.SourceFile):ClassComponentDeclaration | undefined {
+  let result:ts.ClassDeclaration | ts.ClassExpression | undefined;
+  ts.forEachChild(sourceFile, (node) => {
+    if ((ts.isClassDeclaration(node) || ts.isClassExpression(node)) && isDefaultExported(node)) {
+      result = node;
+    }
+  });
+  return result;
+}
+
+function findExportedClassWithName(sourceFile:ts.SourceFile, className:string):ClassComponentDeclaration | undefined {
+  let result:ts.ClassDeclaration | ts.ClassExpression | undefined;
+  ts.forEachChild(sourceFile, (node) => {
+    if (ts.isClassDeclaration(node) && isExported(node) && getNodeName(node) === className) {
+      result = node;
+    }
+  });
+  return result;
+}
+
+function isDefaultExported(node:ComponentDeclaration):boolean {
   if (!node.modifiers) {
     return false;
   }
@@ -149,14 +205,14 @@ function isDefaultExported(node:ts.FunctionDeclaration):boolean {
   return isExported(node) && isDefault;
 }
 
-function isExported(node:ts.FunctionDeclaration):boolean {
+function isExported(node:ComponentDeclaration):boolean {
   if (!node.modifiers) {
     return false;
   }
   return !!node.modifiers.find((m) => m.kind === ts.SyntaxKind.ExportKeyword);
 }
 
-function getFunctionName(node:ts.FunctionDeclaration):ts.__String | undefined {
+function getNodeName(node:{ name?:ts.Identifier }):ts.__String | undefined {
   if (!node.name) {
     return;
   }
