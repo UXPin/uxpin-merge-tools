@@ -46,18 +46,17 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    // @todo Implement support for union types in TypeScript
-    xit('serializes class component with enum property types', () => {
+    it('serializes class component with enum property types', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassEnumTypes');
       const expectedProps:ComponentMetadata = {
         name: 'ClassEnumTypes',
         properties: [
           {
-            description: '',
+            description: 'String only',
             isRequired: false,
             name: 'children',
-            type: { name: 'node', structure: {} },
+            type: { name: 'string', structure: {} },
           },
           {
             description: '',
@@ -66,11 +65,26 @@ describe('serializeTSComponent', () => {
             type: {
               name: 'union',
               structure: {
-                elements: [
+                elements: expect.arrayContaining([
                   { name: 'literal', structure: { value: 'secondary' } },
                   { name: 'literal', structure: { value: 'primary' } },
                   { name: 'literal', structure: { value: 'link' } },
-                ],
+                ]),
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'size',
+            type: {
+              name: 'union',
+              structure: {
+                elements: expect.arrayContaining([
+                  { name: 'literal', structure: { value: 'large' } },
+                  { name: 'literal', structure: { value: 'medium' } },
+                  { name: 'literal', structure: { value: 'small' } },
+                ]),
               },
             },
           },
@@ -85,8 +99,7 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    // @todo Implement support for default property values in TypeScript
-    xit('serializes class component with default property values', () => {
+    it('serializes class component with default property values', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithDefaults');
       const expectedProps:ComponentMetadata = {
@@ -107,11 +120,11 @@ describe('serializeTSComponent', () => {
             type: {
               name: 'union',
               structure: {
-                elements: [
+                elements: expect.arrayContaining([
                   { name: 'literal', structure: { value: 'secondary' } },
                   { name: 'literal', structure: { value: 'primary' } },
                   { name: 'literal', structure: { value: 'link' } },
-                ],
+                ]),
               },
             },
           },
@@ -126,8 +139,7 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    // @todo Implement support for shape property values in TypeScript
-    xit('component with interface property type', () => {
+    it('serializes component with interface property type', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassInterfaceTypes');
       const expectedProps:ComponentMetadata = {
@@ -148,6 +160,89 @@ describe('serializeTSComponent', () => {
                     name: { name: 'string', structure: {} },
                   },
                 },
+              },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes component with imported interface property type', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithImportedTypes');
+      const expectedProps:ComponentMetadata = {
+        name: 'FunctionWithImportedTypes',
+        properties: [
+          {
+            description: '',
+            isRequired: false,
+            name: 'children',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'item',
+            type: {
+              name: 'shape',
+              structure: {
+                name: { name: 'string', structure: {} },
+                nested: {
+                  name: 'shape',
+                  structure: {
+                    keyA: { name: 'string', structure: {} },
+                    keyB: { name: 'string', structure: {} },
+                  },
+                },
+                value: { name: 'number', structure: {} },
+              },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes component with imported type of properties object', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithImportedPropertiesType');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithImportedPropertiesType',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'name',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'value',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'nested',
+            type: {
+              name: 'shape',
+              structure: {
+                keyA: { name: 'string', structure: {} },
+                keyB: { name: 'string', structure: {} },
               },
             },
           },

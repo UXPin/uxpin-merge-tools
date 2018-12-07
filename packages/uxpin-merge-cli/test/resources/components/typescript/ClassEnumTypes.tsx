@@ -1,8 +1,12 @@
 import * as React from 'react';
 
 export interface Props {
-  children?:React.ReactNode;
+  /**
+   * String only
+   */
+  children?:string;
   appearance:'secondary' | 'primary' | 'link';
+  size?:PropSizeEnum;
 }
 
 export default class ClassEnumTypes extends React.PureComponent<Props> {
@@ -17,4 +21,10 @@ export default class ClassEnumTypes extends React.PureComponent<Props> {
       </div>
     );
   }
+}
+
+enum PropSizeEnum {
+  Large = 'large',
+  Medium = 'medium',
+  Small = 'small',
 }

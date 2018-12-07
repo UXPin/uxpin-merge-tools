@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { StatelessComponent } from '../../../../node_modules/@shopify/react-utilities/node_modules/@types/react';
 
 export interface Props {
   children?:React.ReactNode;
@@ -13,7 +12,7 @@ function labelID(id:string):string {
   return `${id}Label`;
 }
 
-const FunctionWithDefaults:StatelessComponent<Props> = ({ children, id, appearance, modifier, hidden }) => {
+const FunctionWithDefaults:React.StatelessComponent<Props> = ({ children, id, appearance, modifier, hidden }) => {
   return (
     <div>
       <button id={labelID(id)}
