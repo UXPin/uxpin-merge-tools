@@ -59,27 +59,60 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
       && !ts.isPropertySignature(typeSymbol.valueDeclaration)) {
       return;
     }
-    const valueType:ts.Type = checker.getTypeOfSymbolAtLocation(typeSymbol, typeSymbol.valueDeclaration);
     return {
       description: ts.displayPartsToString(typeSymbol.getDocumentationComment(checker)),
       isRequired: isPropertyRequired(typeSymbol.valueDeclaration),
       name: propName.toString(),
-      type: convertTypeNodeToPropertyType(valueType),
+      type: convertTypeNodeToPropertyType(typeSymbol.valueDeclaration.type!),
     };
   }
 
-  function convertTypeNodeToPropertyType(type:ts.Type):PropertyType {
-    switch (type.flags) {
-      case ts.TypeFlags.String:
+  function convertTypeNodeToPropertyType(typeNode:ts.TypeNode):PropertyType {
+    switch (typeNode.kind) {
+      case ts.SyntaxKind.StringKeyword:
         return { name: 'string', structure: {} };
-      case ts.TypeFlags.Number:
+      case ts.SyntaxKind.NumberKeyword:
         return { name: 'number', structure: {} };
-      case ts.TypeFlags.Boolean:
+      case ts.SyntaxKind.BooleanKeyword:
         return { name: 'boolean', structure: {} };
+      case ts.SyntaxKind.UnionType:
+        return serializeUnionType(typeNode as ts.UnionTypeNode);
+      case ts.SyntaxKind.LiteralType:
+        return serializeLiteralType(typeNode as ts.LiteralTypeNode);
       default:
-        return { name: 'unsupported', structure: { raw: checker.typeToString(type) } };
+        return { name: 'unsupported', structure: { raw: typeNode.getText() } };
     }
   }
+
+  function serializeUnionType(typeNode:ts.UnionTypeNode):PropertyType<'union'> {
+    return {
+      name: 'union',
+      structure: {
+        elements: typeNode.types.map(convertTypeNodeToPropertyType),
+      },
+    };
+  }
+
+  function serializeLiteralType(typeNode:ts.LiteralTypeNode):PropertyType<'literal'> {
+    return {
+      name: 'literal',
+      structure: {
+        value: getLiteralTypeNodeValue(typeNode),
+      },
+    };
+  }
+
+  function getLiteralTypeNodeValue(typeNode:ts.LiteralTypeNode):any {
+    switch (typeNode.literal.kind) {
+      case ts.SyntaxKind.TrueKeyword:
+        return true;
+      case ts.SyntaxKind.FalseKeyword:
+        return false;
+      case ts.SyntaxKind.StringLiteral:
+        return typeNode.literal.text;
+    }
+  }
+
 }
 
 type TSProperty = ts.PropertySignature | ts.PropertyDeclaration;
