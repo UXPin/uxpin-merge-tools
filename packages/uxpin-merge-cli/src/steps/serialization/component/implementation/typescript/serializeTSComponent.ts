@@ -1,3 +1,4 @@
+import { isArray } from 'lodash';
 import { parse } from 'path';
 import * as ts from 'typescript';
 import { WarningDetails } from '../../../../../common/warning/WarningDetails';
@@ -60,7 +61,7 @@ function convertTypeSymbolToPropertyDefinition(
     return;
   }
   const definition:ComponentPropertyDefinition = {
-    description: '',
+    description: getJSDocComment(typeSymbol.valueDeclaration as any),
     isRequired: isPropertyRequired(typeSymbol.valueDeclaration),
     name: propName.toString(),
   };
@@ -70,8 +71,22 @@ function convertTypeSymbolToPropertyDefinition(
   return definition;
 }
 
-function isPropertyRequired(declaration:ts.PropertySignature | ts.PropertyDeclaration):boolean {
+type TSProperty = ts.PropertySignature | ts.PropertyDeclaration;
+
+function isPropertyRequired(declaration:TSProperty):boolean {
   return !declaration.questionToken;
+}
+
+interface JSDocCommentNode {
+  kind:ts.SyntaxKind.JSDocComment;
+  comment?:string;
+}
+
+function getJSDocComment(declaration:{ jsDoc?:JSDocCommentNode[] }):string {
+  if (!isArray(declaration.jsDoc) || !declaration.jsDoc[0] || !declaration.jsDoc[0].comment) {
+    return '';
+  }
+  return declaration.jsDoc[0].comment;
 }
 
 function convertTypeNodeToPropertyType(typeNode:ts.TypeNode):PropertyType {
