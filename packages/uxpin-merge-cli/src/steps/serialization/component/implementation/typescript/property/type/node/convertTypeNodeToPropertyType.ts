@@ -13,6 +13,12 @@ export function convertTypeNodeToPropertyType(env:TSComponentSerializationEnv, t
       return { name: 'number', structure: {} };
     case ts.SyntaxKind.BooleanKeyword:
       return { name: 'boolean', structure: {} };
+    case ts.SyntaxKind.AnyKeyword:
+      return { name: 'any', structure: {} };
+    case ts.SyntaxKind.ArrayType:
+      return { name: 'array', structure: {} };
+    case ts.SyntaxKind.FunctionType:
+      return { name: 'func', structure: {} };
     case ts.SyntaxKind.UnionType:
       return serializeUnionType(env, typeNode as ts.UnionTypeNode);
     case ts.SyntaxKind.LiteralType:
