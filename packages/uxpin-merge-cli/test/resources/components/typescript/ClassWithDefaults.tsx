@@ -3,9 +3,21 @@ import * as React from 'react';
 export interface Props {
   value?:string;
   appearance:'secondary' | 'primary' | 'link';
+  /**
+   * Default value from JSDoc comment is overridden by value from `defaultProps`
+   * @default 4455
+   */
   width:number;
   isOpen:boolean;
   isDisabled:boolean;
+  /**
+   * @default 'JSDoc default value'
+   */
+  otherValue:string;
+  /**
+   * @default "JSDoc default value double quoted"
+   */
+  yetAnotherValue:string;
 }
 
 const DEFAULT_VALUE:string = 'Submit';

@@ -149,6 +149,20 @@ describe('serializeTSComponent', () => {
             name: 'isDisabled',
             type: { name: 'boolean', structure: {} },
           },
+          {
+            defaultValue: { value: 'JSDoc default value' },
+            description: '',
+            isRequired: true,
+            name: 'otherValue',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            defaultValue: { value: 'JSDoc default value double quoted' },
+            description: '',
+            isRequired: true,
+            name: 'yetAnotherValue',
+            type: { name: 'string', structure: {} },
+          },
         ],
       };
 
