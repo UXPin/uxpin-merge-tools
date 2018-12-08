@@ -349,6 +349,47 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes component with extended type of properties object', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithExtendedPropertiesType');
+      const expectedProps:ComponentMetadata = {
+        name: 'FunctionWithExtendedPropertiesType',
+        properties: [
+          {
+            description: '',
+            isRequired: false,
+            name: 'children',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: 'Documentation of inherited property',
+            isRequired: false,
+            name: 'action',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'hidden',
+            type: { name: 'boolean', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'id',
+            type: { name: 'string', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('rejects returned promise when there is no React component in the given file', (done) => {
       // given
       const component:ComponentImplementationInfo = getImplementation('FileWithoutComponent');
