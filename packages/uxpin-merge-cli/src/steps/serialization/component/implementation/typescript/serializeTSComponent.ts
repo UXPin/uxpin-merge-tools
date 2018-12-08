@@ -1,3 +1,4 @@
+import { every } from 'lodash';
 import { parse } from 'path';
 import * as ts from 'typescript';
 import { WarningDetails } from '../../../../../common/warning/WarningDetails';
@@ -79,9 +80,39 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
         return serializeUnionType(typeNode as ts.UnionTypeNode);
       case ts.SyntaxKind.LiteralType:
         return serializeLiteralType(typeNode as ts.LiteralTypeNode);
+      case ts.SyntaxKind.TypeReference:
+        return serializeTypeReference(typeNode as ts.TypeReferenceNode);
       default:
         return { name: 'unsupported', structure: { raw: typeNode.getText() } };
     }
+  }
+
+  function convertDeclarationNodeToPropertyType(declaration:ts.Declaration):PropertyType {
+    switch (declaration.kind) {
+      case ts.SyntaxKind.EnumDeclaration:
+        return serializeEnumType(declaration as ts.EnumDeclaration);
+      default:
+        return { name: 'unsupported', structure: { raw: declaration.getText() } };
+    }
+  }
+
+  function serializeTypeReference(typeNode:ts.TypeReferenceNode):PropertyType {
+    const typeSymbol:ts.Symbol = checker.getTypeFromTypeNode(typeNode).symbol;
+    return convertDeclarationNodeToPropertyType(typeSymbol.valueDeclaration);
+  }
+
+  function serializeEnumType(declaration:ts.EnumDeclaration):PropertyType {
+    if (haveAllEnumMembersInitialized(declaration)) {
+      return {
+        name: 'union',
+        structure: {
+          elements: declaration.members.map<PropertyType>((member) => {
+            return { name: 'literal', structure: { value: (member.initializer as ts.LiteralExpression)!.text } };
+          }),
+        },
+      };
+    }
+    return { name: 'unsupported', structure: { raw: declaration.getText() } };
   }
 
   function serializeUnionType(typeNode:ts.UnionTypeNode):PropertyType<'union'> {
@@ -113,6 +144,10 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
     }
   }
 
+}
+
+function haveAllEnumMembersInitialized(declaration:ts.EnumDeclaration):boolean {
+  return every(declaration.members, (m) => !!m.initializer && !!(m.initializer as ts.LiteralExpression).text);
 }
 
 type TSProperty = ts.PropertySignature | ts.PropertyDeclaration;
