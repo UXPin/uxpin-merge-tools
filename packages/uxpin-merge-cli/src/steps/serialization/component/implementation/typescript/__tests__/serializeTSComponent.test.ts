@@ -308,6 +308,47 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes component with combined type of properties object', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithCombinedPropertiesType');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithCombinedPropertiesType',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'name',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'value',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'nested',
+            type: { name: 'shape', structure: {} },
+          },
+          {
+            description: 'Local property',
+            isRequired: true,
+            name: 'id',
+            type: { name: 'string', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('rejects returned promise when there is no React component in the given file', (done) => {
       // given
       const component:ComponentImplementationInfo = getImplementation('FileWithoutComponent');

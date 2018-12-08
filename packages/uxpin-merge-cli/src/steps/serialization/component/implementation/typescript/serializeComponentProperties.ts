@@ -3,6 +3,7 @@ import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { findComponentFile } from './component/findComponentFile';
 import { getPropsTypeAndDefaultProps } from './component/getPropsTypeAndDefaultProps';
+import { isPropertySymbol } from './property/isPropertySymbol';
 import { convertTypeSymbolToPropertyDefinition } from './property/type/symbol/convertTypeSymbolToPropertyDefinition';
 import { TSComponentSerializationEnv } from './serializeTSComponent';
 
@@ -26,27 +27,16 @@ export function serializeComponentProperties(env:TSComponentSerializationEnv):Wa
       }],
     };
   }
-  const propsTypeSymbol:ts.Symbol = env.checker.getTypeFromTypeNode(propsTypeNode).symbol;
-  if (!propsTypeSymbol || propsTypeSymbol.flags !== ts.SymbolFlags.Interface || !propsTypeSymbol.members) {
-    return {
-      result: [], warnings: [{
-        message: 'Unsupported type of properties object – use interface declaration',
-        sourcePath: componentPath,
-      }],
-    };
-  }
-
-  const serializedProps:ComponentPropertyDefinition[] = [];
-  propsTypeSymbol.members.forEach((typeSymbol, propName) => {
-    const propertyDefinition:ComponentPropertyDefinition | undefined =
-      convertTypeSymbolToPropertyDefinition(env, typeSymbol, propName);
-    if (propertyDefinition) {
-      if (propName.toString() in defaultProps) {
-        propertyDefinition.defaultValue = { value: defaultProps[propName.toString()] };
+  const typeFromTypeNode:ts.Type = env.checker.getTypeFromTypeNode(propsTypeNode);
+  const props:ts.Symbol[] = typeFromTypeNode.getProperties();
+  const serializedProps:ComponentPropertyDefinition[] = props
+    .filter(isPropertySymbol)
+    .map((propSymbol) => {
+      const definition:ComponentPropertyDefinition = convertTypeSymbolToPropertyDefinition(env, propSymbol);
+      if (definition.name in defaultProps) {
+        definition.defaultValue = { value: defaultProps[definition.name] };
       }
-      serializedProps.push(propertyDefinition);
-    }
-  });
-
+      return definition;
+    });
   return { result: serializedProps, warnings: [] };
 }

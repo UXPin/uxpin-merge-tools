@@ -1,21 +1,19 @@
 import * as ts from 'typescript';
 import { ComponentPropertyDefinition } from '../../../../ComponentPropertyDefinition';
+import { getNodeName } from '../../../node/getNodeName';
 import { TSComponentSerializationEnv } from '../../../serializeTSComponent';
+import { PropertySymbol } from '../../isPropertySymbol';
 import { convertTypeNodeToPropertyType } from '../node/convertTypeNodeToPropertyType';
 
 export function convertTypeSymbolToPropertyDefinition(
   env:TSComponentSerializationEnv,
-  typeSymbol:ts.Symbol,
-  propName:ts.__String,
-):ComponentPropertyDefinition | undefined {
-  if (!ts.isPropertySignature(typeSymbol.valueDeclaration)) {
-    return;
-  }
+  propertySymbol:PropertySymbol,
+):ComponentPropertyDefinition {
   return {
-    description: ts.displayPartsToString(typeSymbol.getDocumentationComment(env.checker)),
-    isRequired: isPropertyRequired(typeSymbol.valueDeclaration),
-    name: propName.toString(),
-    type: convertTypeNodeToPropertyType(env, typeSymbol.valueDeclaration.type!),
+    description: ts.displayPartsToString(propertySymbol.getDocumentationComment(env.checker)),
+    isRequired: isPropertyRequired(propertySymbol.valueDeclaration),
+    name: getNodeName(propertySymbol.valueDeclaration)!.toString(),
+    type: convertTypeNodeToPropertyType(env, propertySymbol.valueDeclaration.type!),
   };
 }
 
