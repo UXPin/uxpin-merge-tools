@@ -1,6 +1,7 @@
 import { every } from 'lodash';
 import { parse } from 'path';
 import * as ts from 'typescript';
+import { Warned } from '../../../../../common/warning/Warned';
 import { WarningDetails } from '../../../../../common/warning/WarningDetails';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { ComponentPropertyDefinition, PropertyType } from '../ComponentPropertyDefinition';
@@ -15,33 +16,59 @@ export interface TSComponentSerializationEnv {
   checker:ts.TypeChecker;
 }
 
-export async function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
-  const componentName:string = parse(component.path).name;
-  const program:ts.Program = ts.createProgram([component.path], {
-    module: ts.ModuleKind.ES2015,
-    target: ts.ScriptTarget.ES2015,
-  });
-  const checker:ts.TypeChecker = program.getTypeChecker();
-  const env:TSComponentSerializationEnv = {
-    checker,
-    componentName,
-    componentPath: component.path,
-    program,
-  };
-  const componentFile:ts.SourceFile | undefined = findComponentFile(env, component.path);
-  if (!componentFile) {
-    return getEmptySerializationResult(componentName, {
-      message: 'TypeScript compiler couldn\'t find component file',
-      sourcePath: component.path,
+export function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
+  return new Promise((resolve) => {
+    const componentName:string = parse(component.path).name;
+    const program:ts.Program = ts.createProgram([component.path], {
+      module: ts.ModuleKind.ES2015,
+      target: ts.ScriptTarget.ES2015,
     });
+    const env:TSComponentSerializationEnv = {
+      checker: program.getTypeChecker(),
+      componentName,
+      componentPath: component.path,
+      program,
+    };
+
+    const serializedProps:Warned<ComponentPropertyDefinition[]> = serializeComponentProperties(env);
+    resolve({
+      result: {
+        name: componentName,
+        properties: serializedProps.result,
+      },
+      warnings: serializedProps.warnings,
+    });
+  });
+}
+
+function serializeComponentProperties(env:TSComponentSerializationEnv):Warned<ComponentPropertyDefinition[]> {
+  const { componentPath, componentName } = env;
+  const componentFile:ts.SourceFile | undefined = findComponentFile(env, componentPath);
+  if (!componentFile) {
+    return {
+      result: [], warnings: [{
+        message: 'TypeScript compiler couldn\'t find component file',
+        sourcePath: componentPath,
+      }],
+    };
   }
   const { propsTypeNode, defaultProps } = getPropsTypeAndDefaultProps(env, componentFile, componentName);
   if (!propsTypeNode) {
-    return getEmptySerializationResult(componentName);
+    return {
+      result: [], warnings: [{
+        message: 'Cannot find type of component properties',
+        sourcePath: componentPath,
+      }],
+    };
   }
-  const propsTypeSymbol:ts.Symbol = checker.getTypeFromTypeNode(propsTypeNode).symbol;
+  const propsTypeSymbol:ts.Symbol = env.checker.getTypeFromTypeNode(propsTypeNode).symbol;
   if (!propsTypeSymbol || propsTypeSymbol.flags !== ts.SymbolFlags.Interface || !propsTypeSymbol.members) {
-    return getEmptySerializationResult(componentName);
+    return {
+      result: [], warnings: [{
+        message: 'Unsupported type of properties object – use interface declaration',
+        sourcePath: componentPath,
+      }],
+    };
   }
 
   const serializedProps:ComponentPropertyDefinition[] = [];
@@ -56,13 +83,7 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
     }
   });
 
-  return {
-    result: {
-      name: componentName,
-      properties: serializedProps,
-    },
-    warnings: [],
-  };
+  return { result: serializedProps, warnings: [] };
 }
 
 export function convertTypeSymbolToPropertyDefinition(
@@ -171,14 +192,4 @@ type TSProperty = ts.PropertySignature | ts.PropertyDeclaration;
 
 export function isPropertyRequired(declaration:TSProperty):boolean {
   return !declaration.questionToken;
-}
-
-export function getEmptySerializationResult(componentName1:string, warning?:WarningDetails):ImplSerializationResult {
-  return {
-    result: {
-      name: componentName1,
-      properties: [],
-    },
-    warnings: warning ? [warning] : [],
-  };
 }
