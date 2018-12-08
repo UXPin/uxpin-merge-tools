@@ -11,6 +11,8 @@ const REACT_COMPONENT_TYPES:string[] = [
   'React.PureComponent',
 ];
 
+const REACT_DEFAULT_PROPS_PROPERTY_NAME:string = 'defaultProps';
+
 export async function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   const componentName:string = parse(component.path).name;
 
@@ -26,7 +28,7 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
       sourcePath: component.path,
     });
   }
-  const propsTypeNode:ts.TypeNode | undefined = getPropsType(componentFile, componentName);
+  const { propsTypeNode, defaultProps } = getPropsTypeAndDefaultProps(componentFile, componentName);
   if (!propsTypeNode) {
     return getEmptySerializationResult(componentName);
   }
@@ -40,6 +42,9 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
     const propertyDefinition:ComponentPropertyDefinition | undefined =
       convertTypeSymbolToPropertyDefinition(typeSymbol, propName);
     if (propertyDefinition) {
+      if (propName.toString() in defaultProps) {
+        propertyDefinition.defaultValue = { value: defaultProps[propName.toString()] };
+      }
       serializedProps.push(propertyDefinition);
     }
   });
@@ -144,146 +149,226 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
     }
   }
 
-}
-
-function haveAllEnumMembersInitialized(declaration:ts.EnumDeclaration):boolean {
-  return every(declaration.members, (m) => !!m.initializer && !!(m.initializer as ts.LiteralExpression).text);
-}
-
-type TSProperty = ts.PropertySignature | ts.PropertyDeclaration;
-
-function isPropertyRequired(declaration:TSProperty):boolean {
-  return !declaration.questionToken;
-}
-
-function getEmptySerializationResult(componentName:string, warning?:WarningDetails):ImplSerializationResult {
-  return {
-    result: {
-      name: componentName,
-      properties: [],
-    },
-    warnings: warning ? [warning] : [],
-  };
-}
-
-function getPropsType(
-  sourceFile:ts.SourceFile,
-  componentName:string,
-):ts.TypeNode | undefined {
-  const componentFunc:ts.FunctionDeclaration | undefined = findDefaultExportedFunction(sourceFile) ||
-    findExportedFunctionWithName(sourceFile, componentName);
-  if (componentFunc) {
-    return getPropsTypeOfFunctionalComponent(componentFunc);
+  function haveAllEnumMembersInitialized(declaration:ts.EnumDeclaration):boolean {
+    return every(declaration.members, (m) => !!m.initializer && !!(m.initializer as ts.LiteralExpression).text);
   }
-  const componentClass:ClassComponentDeclaration | undefined = findDefaultExportedClass(sourceFile) ||
-    findExportedClassWithName(sourceFile, componentName);
-  if (componentClass) {
-    return getPropsTypeOfClassComponent(componentClass);
-  }
-}
 
-function findComponentFile(program:ts.Program, path:string):ts.SourceFile | undefined {
-  for (const sourceFile of program.getSourceFiles()) {
-    if (sourceFile.fileName === path) {
-      return sourceFile;
+  type TSProperty = ts.PropertySignature | ts.PropertyDeclaration;
+
+  function isPropertyRequired(declaration:TSProperty):boolean {
+    return !declaration.questionToken;
+  }
+
+  function getEmptySerializationResult(componentName1:string, warning?:WarningDetails):ImplSerializationResult {
+    return {
+      result: {
+        name: componentName1,
+        properties: [],
+      },
+      warnings: warning ? [warning] : [],
+    };
+  }
+
+  interface DefaultProps {
+    [propName:string]:any;
+  }
+
+  interface ComponentDeclarationData {
+    propsTypeNode:ts.TypeNode | undefined;
+    defaultProps:DefaultProps;
+  }
+
+  function getPropsTypeAndDefaultProps(
+    sourceFile:ts.SourceFile,
+    componentFileName:string,
+  ):ComponentDeclarationData {
+    const componentFunc:ts.FunctionDeclaration | undefined = findDefaultExportedFunction(sourceFile) ||
+      findExportedFunctionWithName(sourceFile, componentFileName);
+    if (componentFunc) {
+      return {
+        defaultProps: {},
+        propsTypeNode: getPropsTypeOfFunctionalComponent(componentFunc),
+      };
+    }
+    const componentClass:ClassComponentDeclaration | undefined = findDefaultExportedClass(sourceFile) ||
+      findExportedClassWithName(sourceFile, componentFileName);
+    if (componentClass) {
+      return {
+        defaultProps: getDefaultPropsOfClassComponent(componentClass),
+        propsTypeNode: getPropsTypeOfClassComponent(componentClass),
+      };
+    }
+    return { defaultProps: {}, propsTypeNode: undefined };
+  }
+
+  function getDefaultPropsOfClassComponent(componentClass:ClassComponentDeclaration):DefaultProps {
+    const defaultsProp:ts.PropertyDeclaration | undefined =
+      componentClass.members.find(isDefaultPropertiesStaticProperty);
+    if (defaultsProp && defaultsProp.initializer && ts.isObjectLiteralExpression(defaultsProp.initializer)) {
+      return defaultsProp.initializer.properties.reduce<DefaultProps>((defaults, property) => {
+        if (ts.isPropertyAssignment(property)) {
+          const defaultValue:SupportedDefaultValue | undefined = getDefaultPropertyValue(property.initializer);
+          if (typeof defaultValue !== 'undefined') {
+            defaults[getNodeName(property)!.toString()] = defaultValue;
+          }
+        }
+        return defaults;
+      }, {});
+    }
+    return {};
+  }
+
+  type SupportedDefaultValue = number | string | boolean;
+
+  function getDefaultPropertyValue(valueInitializer:ts.Expression):SupportedDefaultValue | undefined {
+    switch (valueInitializer.kind) {
+      case ts.SyntaxKind.StringLiteral:
+        return (valueInitializer as ts.StringLiteral).text;
+      case ts.SyntaxKind.NumericLiteral:
+        return parseInt((valueInitializer as ts.NumericLiteral).text, 10);
+      case ts.SyntaxKind.TrueKeyword:
+        return true;
+      case ts.SyntaxKind.FalseKeyword:
+        return false;
+      case ts.SyntaxKind.Identifier:
+        return getDefaultValueFromIdentifier(valueInitializer as ts.Identifier);
+      default:
+        return;
     }
   }
-}
 
-function getPropsTypeOfClassComponent(componentClass:ClassComponentDeclaration):ts.TypeNode | undefined {
-  if (!componentClass.heritageClauses) {
-    return;
+  function getDefaultValueFromIdentifier(propertyInitializer:ts.Identifier):SupportedDefaultValue | undefined {
+    const symbol:ts.Symbol | undefined = checker.getSymbolAtLocation(propertyInitializer);
+    if (symbol && ts.isVariableDeclaration(symbol.valueDeclaration) && symbol.valueDeclaration.initializer) {
+      return getDefaultPropertyValue(symbol.valueDeclaration.initializer);
+    }
   }
-  return getPropsTypeNodeFromHeritageClauses(componentClass.heritageClauses);
-}
 
-function getPropsTypeNodeFromHeritageClauses(heritageClauses:ts.NodeArray<ts.HeritageClause>):ts.TypeNode | undefined {
-  for (const clause of heritageClauses) {
-    if (clause.token === ts.SyntaxKind.ExtendsKeyword) {
-      for (const type of clause.types) {
-        if (ts.isExpressionWithTypeArguments(type)
-          && REACT_COMPONENT_TYPES.includes(type.expression.getText())
-          && type.typeArguments) {
-          return type.typeArguments[0];
-        }
+  function isDefaultPropertiesStaticProperty(member:ts.ClassElement):member is ts.PropertyDeclaration {
+    return ts.isPropertyDeclaration(member)
+      && isStaticProperty(member)
+      && !isPrivateProperty(member)
+      && getNodeName(member) === REACT_DEFAULT_PROPS_PROPERTY_NAME;
+  }
+
+  function findComponentFile(program1:ts.Program, path:string):ts.SourceFile | undefined {
+    for (const sourceFile of program1.getSourceFiles()) {
+      if (sourceFile.fileName === path) {
+        return sourceFile;
       }
     }
   }
-  return;
-}
 
-function getPropsTypeOfFunctionalComponent(func:ts.FunctionDeclaration):ts.TypeNode | undefined {
-  if (!func.parameters || !func.parameters[0] || !func.parameters[0].type) {
+  function getPropsTypeOfClassComponent(componentClass:ClassComponentDeclaration):ts.TypeNode | undefined {
+    if (!componentClass.heritageClauses) {
+      return;
+    }
+    return getPropsTypeNodeFromHeritageClauses(componentClass.heritageClauses);
+  }
+
+  function getPropsTypeNodeFromHeritageClauses(
+    heritageClauses:ts.NodeArray<ts.HeritageClause>,
+  ):ts.TypeNode | undefined {
+    for (const clause of heritageClauses) {
+      if (clause.token === ts.SyntaxKind.ExtendsKeyword) {
+        for (const type of clause.types) {
+          if (ts.isExpressionWithTypeArguments(type)
+            && REACT_COMPONENT_TYPES.includes(type.expression.getText())
+            && type.typeArguments) {
+            return type.typeArguments[0];
+          }
+        }
+      }
+    }
     return;
   }
-  return func.parameters[0].type;
-}
 
-function findDefaultExportedFunction(sourceFile:ts.SourceFile):ts.FunctionDeclaration | undefined {
-  let result:ts.FunctionDeclaration | undefined;
-  ts.forEachChild(sourceFile, (node) => {
-    if (ts.isFunctionDeclaration(node) && isDefaultExported(node)) {
-      result = node;
+  function getPropsTypeOfFunctionalComponent(func:ts.FunctionDeclaration):ts.TypeNode | undefined {
+    if (!func.parameters || !func.parameters[0] || !func.parameters[0].type) {
+      return;
     }
-  });
-  return result;
-}
-
-function findExportedFunctionWithName(
-  sourceFile:ts.SourceFile,
-  functionName:string,
-):ts.FunctionDeclaration | undefined {
-  let result:ts.FunctionDeclaration | undefined;
-  ts.forEachChild(sourceFile, (node) => {
-    if (ts.isFunctionDeclaration(node) && isExported(node) && getNodeName(node) === functionName) {
-      result = node;
-    }
-  });
-  return result;
-}
-
-type ComponentDeclaration = ts.FunctionDeclaration | ClassComponentDeclaration;
-
-type ClassComponentDeclaration = ts.ClassDeclaration | ts.ClassExpression;
-
-function findDefaultExportedClass(sourceFile:ts.SourceFile):ClassComponentDeclaration | undefined {
-  let result:ts.ClassDeclaration | ts.ClassExpression | undefined;
-  ts.forEachChild(sourceFile, (node) => {
-    if ((ts.isClassDeclaration(node) || ts.isClassExpression(node)) && isDefaultExported(node)) {
-      result = node;
-    }
-  });
-  return result;
-}
-
-function findExportedClassWithName(sourceFile:ts.SourceFile, className:string):ClassComponentDeclaration | undefined {
-  let result:ts.ClassDeclaration | ts.ClassExpression | undefined;
-  ts.forEachChild(sourceFile, (node) => {
-    if (ts.isClassDeclaration(node) && isExported(node) && getNodeName(node) === className) {
-      result = node;
-    }
-  });
-  return result;
-}
-
-function isDefaultExported(node:ComponentDeclaration):boolean {
-  if (!node.modifiers) {
-    return false;
+    return func.parameters[0].type;
   }
-  const isDefault:boolean = !!node.modifiers.find((m) => m.kind === ts.SyntaxKind.DefaultKeyword);
-  return isExported(node) && isDefault;
-}
 
-function isExported(node:ComponentDeclaration):boolean {
-  if (!node.modifiers) {
-    return false;
+  function findDefaultExportedFunction(sourceFile:ts.SourceFile):ts.FunctionDeclaration | undefined {
+    let result:ts.FunctionDeclaration | undefined;
+    ts.forEachChild(sourceFile, (node) => {
+      if (ts.isFunctionDeclaration(node) && isDefaultExported(node)) {
+        result = node;
+      }
+    });
+    return result;
   }
-  return !!node.modifiers.find((m) => m.kind === ts.SyntaxKind.ExportKeyword);
-}
 
-function getNodeName(node:{ name?:ts.Identifier }):ts.__String | undefined {
-  if (!node.name) {
-    return;
+  function findExportedFunctionWithName(
+    sourceFile:ts.SourceFile,
+    functionName:string,
+  ):ts.FunctionDeclaration | undefined {
+    let result:ts.FunctionDeclaration | undefined;
+    ts.forEachChild(sourceFile, (node) => {
+      if (ts.isFunctionDeclaration(node) && isExported(node) && getNodeName(node) === functionName) {
+        result = node;
+      }
+    });
+    return result;
   }
-  return node.name.escapedText;
+
+  type ComponentDeclaration = ts.FunctionDeclaration | ClassComponentDeclaration;
+
+  type ClassComponentDeclaration = ts.ClassDeclaration | ts.ClassExpression;
+
+  function findDefaultExportedClass(sourceFile:ts.SourceFile):ClassComponentDeclaration | undefined {
+    let result:ts.ClassDeclaration | ts.ClassExpression | undefined;
+    ts.forEachChild(sourceFile, (node) => {
+      if ((ts.isClassDeclaration(node) || ts.isClassExpression(node)) && isDefaultExported(node)) {
+        result = node;
+      }
+    });
+    return result;
+  }
+
+  function isStaticProperty(declaration:ts.PropertyDeclaration):boolean {
+    if (!declaration.modifiers) {
+      return false;
+    }
+    return !!declaration.modifiers.find((m) => m.kind === ts.SyntaxKind.StaticKeyword);
+  }
+
+  function isPrivateProperty(declaration:ts.PropertyDeclaration):boolean {
+    if (!declaration.modifiers) {
+      return false;
+    }
+    return !!declaration.modifiers.find((m) => m.kind === ts.SyntaxKind.PrivateKeyword);
+  }
+
+  function findExportedClassWithName(sourceFile:ts.SourceFile, className:string):ClassComponentDeclaration | undefined {
+    let result:ts.ClassDeclaration | ts.ClassExpression | undefined;
+    ts.forEachChild(sourceFile, (node) => {
+      if (ts.isClassDeclaration(node) && isExported(node) && getNodeName(node) === className) {
+        result = node;
+      }
+    });
+    return result;
+  }
+
+  function isDefaultExported(node:ComponentDeclaration):boolean {
+    if (!node.modifiers) {
+      return false;
+    }
+    const isDefault:boolean = !!node.modifiers.find((m) => m.kind === ts.SyntaxKind.DefaultKeyword);
+    return isExported(node) && isDefault;
+  }
+
+  function isExported(node:ComponentDeclaration):boolean {
+    if (!node.modifiers) {
+      return false;
+    }
+    return !!node.modifiers.find((m) => m.kind === ts.SyntaxKind.ExportKeyword);
+  }
+
+  function getNodeName(node:{ name?:ts.Identifier | ts.PropertyName }):ts.__String | undefined {
+    if (node.name && ts.isIdentifier(node.name)) {
+      return node.name.escapedText;
+    }
+  }
 }
