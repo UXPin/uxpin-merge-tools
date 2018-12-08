@@ -261,6 +261,53 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes component with function property types', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithFunctionTypes');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithFunctionTypes',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'value',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            description: 'Inline function type',
+            isRequired: true,
+            name: 'onClick',
+            type: { name: 'func', structure: {} },
+          },
+          {
+            description: 'Type alias reference',
+            isRequired: true,
+            name: 'onOpen',
+            type: { name: 'func', structure: {} },
+          },
+          {
+            description: 'Method signature',
+            isRequired: true,
+            name: 'onResize',
+            type: { name: 'func', structure: {} },
+          },
+          {
+            description: 'Optional method signature',
+            isRequired: false,
+            name: 'onMouseEnter',
+            type: { name: 'func', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('rejects returned promise when there is no React component in the given file', (done) => {
       // given
       const component:ComponentImplementationInfo = getImplementation('FileWithoutComponent');
