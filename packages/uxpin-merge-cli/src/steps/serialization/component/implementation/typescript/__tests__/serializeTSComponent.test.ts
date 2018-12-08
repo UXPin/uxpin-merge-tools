@@ -128,6 +128,27 @@ describe('serializeTSComponent', () => {
               },
             },
           },
+          {
+            defaultValue: { value: 1223 },
+            description: '',
+            isRequired: true,
+            name: 'width',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            defaultValue: { value: true },
+            description: '',
+            isRequired: true,
+            name: 'isOpen',
+            type: { name: 'boolean', structure: {} },
+          },
+          {
+            defaultValue: { value: false },
+            description: '',
+            isRequired: true,
+            name: 'isDisabled',
+            type: { name: 'boolean', structure: {} },
+          },
         ],
       };
 
