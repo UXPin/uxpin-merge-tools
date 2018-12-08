@@ -103,7 +103,12 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
 
   function serializeTypeReference(typeNode:ts.TypeReferenceNode):PropertyType {
     const typeSymbol:ts.Symbol = checker.getTypeFromTypeNode(typeNode).symbol;
-    return convertDeclarationNodeToPropertyType(typeSymbol.valueDeclaration);
+    switch (typeSymbol.flags) {
+      case ts.SymbolFlags.Interface:
+        return { name: 'shape', structure: {} };
+      default:
+        return convertDeclarationNodeToPropertyType(typeSymbol.valueDeclaration);
+    }
   }
 
   function serializeEnumType(declaration:ts.EnumDeclaration):PropertyType {
