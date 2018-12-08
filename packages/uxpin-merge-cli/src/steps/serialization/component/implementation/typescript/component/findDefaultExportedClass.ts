@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
-import { isDefaultExported } from './isDefaultExported';
 import { ClassComponentDeclaration } from './getPropsTypeAndDefaultProps';
+import { isDefaultExported } from './isDefaultExported';
 
 export function findDefaultExportedClass(sourceFile:ts.SourceFile):ClassComponentDeclaration | undefined {
   let result:ts.ClassDeclaration | ts.ClassExpression | undefined;

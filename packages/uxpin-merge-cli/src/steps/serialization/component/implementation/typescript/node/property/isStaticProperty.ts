@@ -6,4 +6,3 @@ export function isStaticProperty(declaration:ts.PropertyDeclaration):boolean {
   }
   return !!declaration.modifiers.find((m) => m.kind === ts.SyntaxKind.StaticKeyword);
 }
-

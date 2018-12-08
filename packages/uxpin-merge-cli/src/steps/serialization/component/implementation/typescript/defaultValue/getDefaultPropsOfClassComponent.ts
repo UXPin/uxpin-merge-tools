@@ -55,4 +55,3 @@ export function getDefaultValueFromIdentifier(
     return getDefaultPropertyValue(env, symbol.valueDeclaration.initializer);
   }
 }
-

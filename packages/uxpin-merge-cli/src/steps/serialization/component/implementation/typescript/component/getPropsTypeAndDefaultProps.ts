@@ -1,10 +1,8 @@
 import * as ts from 'typescript';
 import { getDefaultPropsOfClassComponent } from '../defaultValue/getDefaultPropsOfClassComponent';
-import { getPropsTypeOfFunctionalComponent } from '../getPropsTypeOfFunctionalComponent';
 import { getPropsTypeOfClassComponent } from '../property/getPropsTypeOfClassComponent';
-import {
-  TSComponentSerializationEnv,
-} from '../serializeTSComponent';
+import { getPropsTypeOfFunctionalComponent } from '../property/getPropsTypeOfFunctionalComponent';
+import { TSComponentSerializationEnv } from '../serializeTSComponent';
 import { findDefaultExportedClass } from './findDefaultExportedClass';
 import { findDefaultExportedFunction } from './findDefaultExportedFunction';
 import { findExportedClassWithName } from './findExportedClassWithName';
