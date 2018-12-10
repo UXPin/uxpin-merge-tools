@@ -2,6 +2,7 @@ import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
 import { TSComponentSerializationEnv } from '../../../serializeTSComponent';
 import { serializeLiteralType } from './serializeLiteralType';
+import { serializeTypeLiteral } from './serializeTypeLiteral';
 import { serializeTypeReference } from './serializeTypeReference';
 import { serializeUnionType } from './serializeUnionType';
 
@@ -19,12 +20,16 @@ export function convertTypeNodeToPropertyType(env:TSComponentSerializationEnv, t
       return { name: 'array', structure: {} };
     case ts.SyntaxKind.FunctionType:
       return { name: 'func', structure: {} };
+    case ts.SyntaxKind.ObjectKeyword:
+      return { name: 'shape', structure: {} };
     case ts.SyntaxKind.UnionType:
       return serializeUnionType(env, typeNode as ts.UnionTypeNode);
     case ts.SyntaxKind.LiteralType:
       return serializeLiteralType(typeNode as ts.LiteralTypeNode);
     case ts.SyntaxKind.TypeReference:
       return serializeTypeReference(env, typeNode as ts.TypeReferenceNode);
+    case ts.SyntaxKind.TypeLiteral:
+      return serializeTypeLiteral(typeNode as ts.TypeLiteralNode);
     default:
       return { name: 'unsupported', structure: { raw: typeNode.getText() } };
   }

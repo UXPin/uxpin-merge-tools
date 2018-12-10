@@ -95,7 +95,7 @@ describe('getComponentMetadata – integration', () => {
             description: '',
             isRequired: true,
             name: 'empty',
-            type: { name: 'unsupported', structure: { raw: '{"type":"undefined"}' } },
+            type: { name: 'unsupported', structure: { raw: 'undefined' } },
           },
           {
             description: '',
