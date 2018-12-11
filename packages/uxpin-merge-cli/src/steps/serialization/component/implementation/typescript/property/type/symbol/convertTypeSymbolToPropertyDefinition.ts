@@ -4,6 +4,7 @@ import { getNodeName } from '../../../node/getNodeName';
 import { TSComponentSerializationEnv } from '../../../serializeTSComponent';
 import { PropertySymbol } from '../../isPropertySymbol';
 import { convertTypeNodeToPropertyType } from '../node/convertTypeNodeToPropertyType';
+import { getDefaultValueFromJSDoc } from './getDefaultValueFromJSDoc';
 
 export function convertTypeSymbolToPropertyDefinition(
   env:TSComponentSerializationEnv,
@@ -14,6 +15,7 @@ export function convertTypeSymbolToPropertyDefinition(
     isRequired: isPropertyRequired(propertySymbol.valueDeclaration),
     name: getNodeName(propertySymbol.valueDeclaration)!.toString(),
     type: convertTypeNodeToPropertyType(env, propertySymbol.valueDeclaration.type!),
+    ...getDefaultValueFromJSDoc(propertySymbol),
   };
 }
 

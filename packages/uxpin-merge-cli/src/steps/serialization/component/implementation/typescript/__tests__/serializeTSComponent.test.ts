@@ -130,9 +130,16 @@ describe('serializeTSComponent', () => {
           },
           {
             defaultValue: { value: 1223 },
-            description: '',
+            description: 'Default value from JSDoc comment is overridden by value from `defaultProps`',
             isRequired: true,
             name: 'width',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            defaultValue: { value: 233 },
+            description: 'Number default value from JSDoc',
+            isRequired: true,
+            name: 'height',
             type: { name: 'number', structure: {} },
           },
           {
@@ -141,6 +148,13 @@ describe('serializeTSComponent', () => {
             isRequired: true,
             name: 'isOpen',
             type: { name: 'boolean', structure: {} },
+          },
+          {
+            defaultValue: { value: { name: 'Untitled' } },
+            description: 'Object JSDoc default value',
+            isRequired: false,
+            name: 'item',
+            type: { name: 'shape', structure: {} },
           },
           {
             defaultValue: { value: false },

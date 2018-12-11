@@ -8,7 +8,17 @@ export interface Props {
    * @default 4455
    */
   width:number;
+  /**
+   * Number default value from JSDoc
+   * @default 233
+   */
+  height:number;
   isOpen:boolean;
+  /**
+   * Object JSDoc default value
+   * @default {"name": "Untitled"}
+   */
+  item?:{ name:string };
   isDisabled:boolean;
   /**
    * @default 'JSDoc default value'
