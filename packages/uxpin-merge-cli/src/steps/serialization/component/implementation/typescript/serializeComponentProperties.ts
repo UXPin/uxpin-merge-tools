@@ -2,9 +2,11 @@ import * as ts from 'typescript';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { findComponentFile } from './component/findComponentFile';
-import { getPropsTypeAndDefaultProps } from './component/getPropsTypeAndDefaultProps';
-import { isPropertySymbol } from './property/isPropertySymbol';
-import { convertTypeSymbolToPropertyDefinition } from './property/type/symbol/convertTypeSymbolToPropertyDefinition';
+import { DefaultProps, getPropsTypeAndDefaultProps } from './component/getPropsTypeAndDefaultProps';
+import { convertMethodSignatureSymbolToPropertyDefinition } from './property/symbol/convertMethodSignatureSymbolToPropertyDefinition';
+import { convertPropertySignatureSymbolToPropertyDefinition } from './property/symbol/convertPropertySignatureSymbolToPropertyDefinition';
+import { isMethodSignatureSymbol } from './property/symbol/isMethodSignatureSymbol';
+import { isPropertySignatureSymbol, PropertySymbol } from './property/symbol/isPropertySignatureSymbol';
 import { TSComponentSerializationEnv } from './serializeTSComponent';
 
 export function serializeComponentProperties(env:TSComponentSerializationEnv):Warned<ComponentPropertyDefinition[]> {
@@ -29,14 +31,26 @@ export function serializeComponentProperties(env:TSComponentSerializationEnv):Wa
   }
   const typeFromTypeNode:ts.Type = env.checker.getTypeFromTypeNode(propsTypeNode);
   const props:ts.Symbol[] = typeFromTypeNode.getProperties();
-  const serializedProps:ComponentPropertyDefinition[] = props
-    .filter(isPropertySymbol)
-    .map((propSymbol) => {
-      const definition:ComponentPropertyDefinition = convertTypeSymbolToPropertyDefinition(env, propSymbol);
-      if (definition.name in defaultProps) {
-        definition.defaultValue = { value: defaultProps[definition.name] };
-      }
-      return definition;
-    });
+  const serializedProps:ComponentPropertyDefinition[] = props.reduce((properties, propSymbol) => {
+    if (isPropertySignatureSymbol(propSymbol)) {
+      properties.push(propertySignatureToPropertyDefinition(env, propSymbol, defaultProps));
+    }
+    if (isMethodSignatureSymbol(propSymbol)) {
+      properties.push(convertMethodSignatureSymbolToPropertyDefinition(env, propSymbol));
+    }
+    return properties;
+  }, [] as ComponentPropertyDefinition[]);
   return { result: serializedProps, warnings: [] };
+}
+
+function propertySignatureToPropertyDefinition(
+  env:TSComponentSerializationEnv,
+  propSymbol:PropertySymbol,
+  defaultProps:DefaultProps,
+):ComponentPropertyDefinition {
+  const prop:ComponentPropertyDefinition = convertPropertySignatureSymbolToPropertyDefinition(env, propSymbol);
+  if (prop.name in defaultProps) {
+    prop.defaultValue = { value: defaultProps[prop.name] };
+  }
+  return prop;
 }

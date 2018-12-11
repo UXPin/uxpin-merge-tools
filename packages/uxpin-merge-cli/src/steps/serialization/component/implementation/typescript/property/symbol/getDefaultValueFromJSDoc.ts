@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
-import { ComponentPropertyDefinition } from '../../../../ComponentPropertyDefinition';
-import { PropertySymbol } from '../../isPropertySymbol';
+import { ComponentPropertyDefinition } from '../../../ComponentPropertyDefinition';
+import { PropertySymbol } from './isPropertySignatureSymbol';
 
 const JSDOC_TAG_NAME:string = 'default';
 
