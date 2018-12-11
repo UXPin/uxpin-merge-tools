@@ -6,6 +6,8 @@ export function serializeTypeDeclaration(declaration:ts.Declaration):PropertyTyp
   switch (declaration.kind) {
     case ts.SyntaxKind.EnumDeclaration:
       return serializeEnumDeclaration(declaration as ts.EnumDeclaration);
+    case ts.SyntaxKind.FunctionType:
+      return { name: 'func', structure: {} };
     default:
       return { name: 'unsupported', structure: { raw: declaration.getText() } };
   }

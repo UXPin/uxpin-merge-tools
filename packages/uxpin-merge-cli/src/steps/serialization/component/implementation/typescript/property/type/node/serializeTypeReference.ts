@@ -19,6 +19,14 @@ export function serializeTypeReference(env:TSComponentSerializationEnv, typeNode
     case ts.SymbolFlags.Interface:
       return { name: 'shape', structure: {} };
     default:
-      return serializeTypeDeclaration(typeSymbol.valueDeclaration);
+      return getTypeByDeclaration(typeSymbol, typeNode);
   }
+}
+
+function getTypeByDeclaration(typeSymbol:ts.Symbol, typeNode:ts.TypeReferenceNode):PropertyType {
+  const declaration:ts.Declaration | undefined = typeSymbol.valueDeclaration || typeSymbol.declarations[0];
+  if (!declaration) {
+    return { name: 'unsupported', structure: { raw: typeNode.getText() } };
+  }
+  return serializeTypeDeclaration(declaration);
 }
