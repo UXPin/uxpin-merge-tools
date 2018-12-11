@@ -8,7 +8,7 @@ import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { RequestHandler } from '../RequestHandler';
 
 export const EXPERIMENTAL_LIBRARY_ID:number = -1;
-export const LIBRARY_DEFAULT_NAME:string = 'UXPin Merge - Experiment Mode';
+export const LIBRARY_DEFAULT_NAME:string = 'Library from Code';
 
 export class GetLibrariesHandler implements RequestHandler {
   constructor(private context:ExperimentationServerContext) {}

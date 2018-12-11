@@ -11,12 +11,15 @@ import { PresetsSerializationResult } from './component/presets/PresetsSerializa
 import { serializePresets } from './component/presets/serializePresets';
 import { DesignSystemSnapshot } from './DesignSystemSnapshot';
 
-export function getDesignSystemMetadata(categoryInfos:ComponentCategoryInfo[]):Promise<Warned<DesignSystemSnapshot>> {
+export function getDesignSystemMetadata(
+  categoryInfos:ComponentCategoryInfo[],
+  projectName:string,
+):Promise<Warned<DesignSystemSnapshot>> {
   return Promise.all(categoryInfos.map(categoryInfoToCategoryMetadata))
     .then((categories) => ({
       result: {
         categorizedComponents: categories.map((category) => category.result),
-        name: '',
+        name: projectName,
       },
       warnings: joinWarningLists(categories.map((category) => category.warnings)),
     }));
