@@ -1,8 +1,8 @@
 import pMapSeries = require('p-map-series');
 import { ComponentCategoryInfo } from '../steps/discovery/component/category/ComponentCategoryInfo';
 import { getComponentCategoryInfos } from '../steps/discovery/component/category/getComponentCategoryInfos';
-import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getLibraryName } from '../steps/discovery/library/getLibraryName';
+import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './args/getProgramArgs';

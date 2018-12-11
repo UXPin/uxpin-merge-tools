@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 import { LIBRARY_DEFAULT_NAME } from '../../../experimentation/server/handler/libraries/GetLibrariesHandler';
-import { ProjectPaths } from "../../paths/ProjectPaths";
+import { ProjectPaths } from '../../paths/ProjectPaths';
 import { getLibraryName } from '../getLibraryName';
 
 describe('getLibraryName', () => {
@@ -31,7 +31,7 @@ describe('getLibraryName', () => {
         configPath: resolve(__dirname, '../../../../../test/resources/configs/without-name-uxpin.config.js'),
         projectRoot: __dirname,
       };
-    })
+    });
 
     it('should fallback to default library name if not provided in config', () => {
       // when
