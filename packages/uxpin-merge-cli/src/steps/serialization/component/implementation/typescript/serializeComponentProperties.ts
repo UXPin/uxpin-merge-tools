@@ -7,11 +7,11 @@ import { convertMethodSignatureSymbolToPropertyDefinition } from './property/sym
 import { convertPropertySignatureSymbolToPropertyDefinition } from './property/symbol/convertPropertySignatureSymbolToPropertyDefinition';
 import { isMethodSignatureSymbol } from './property/symbol/isMethodSignatureSymbol';
 import { isPropertySignatureSymbol, PropertySymbol } from './property/symbol/isPropertySignatureSymbol';
-import { TSComponentSerializationEnv } from './serializeTSComponent';
+import { TSSerializationContext } from './serializeTSComponent';
 
-export function serializeComponentProperties(env:TSComponentSerializationEnv):Warned<ComponentPropertyDefinition[]> {
-  const { componentPath, componentName } = env;
-  const componentFile:ts.SourceFile | undefined = findComponentFile(env, componentPath);
+export function serializeComponentProperties(context:TSSerializationContext):Warned<ComponentPropertyDefinition[]> {
+  const { componentPath, componentName } = context;
+  const componentFile:ts.SourceFile | undefined = findComponentFile(context, componentPath);
   if (!componentFile) {
     return {
       result: [], warnings: [{
@@ -20,7 +20,7 @@ export function serializeComponentProperties(env:TSComponentSerializationEnv):Wa
       }],
     };
   }
-  const { propsTypeNode, defaultProps } = getPropsTypeAndDefaultProps(env, componentFile, componentName);
+  const { propsTypeNode, defaultProps } = getPropsTypeAndDefaultProps(context, componentFile, componentName);
   if (!propsTypeNode) {
     return {
       result: [], warnings: [{
@@ -29,14 +29,14 @@ export function serializeComponentProperties(env:TSComponentSerializationEnv):Wa
       }],
     };
   }
-  const typeFromTypeNode:ts.Type = env.checker.getTypeFromTypeNode(propsTypeNode);
+  const typeFromTypeNode:ts.Type = context.checker.getTypeFromTypeNode(propsTypeNode);
   const props:ts.Symbol[] = typeFromTypeNode.getProperties();
   const serializedProps:ComponentPropertyDefinition[] = props.reduce((properties, propSymbol) => {
     if (isPropertySignatureSymbol(propSymbol)) {
-      properties.push(propertySignatureToPropertyDefinition(env, propSymbol, defaultProps));
+      properties.push(propertySignatureToPropertyDefinition(context, propSymbol, defaultProps));
     }
     if (isMethodSignatureSymbol(propSymbol)) {
-      properties.push(convertMethodSignatureSymbolToPropertyDefinition(env, propSymbol));
+      properties.push(convertMethodSignatureSymbolToPropertyDefinition(context, propSymbol));
     }
     return properties;
   }, [] as ComponentPropertyDefinition[]);
@@ -44,7 +44,7 @@ export function serializeComponentProperties(env:TSComponentSerializationEnv):Wa
 }
 
 function propertySignatureToPropertyDefinition(
-  env:TSComponentSerializationEnv,
+  env:TSSerializationContext,
   propSymbol:PropertySymbol,
   defaultProps:DefaultProps,
 ):ComponentPropertyDefinition {

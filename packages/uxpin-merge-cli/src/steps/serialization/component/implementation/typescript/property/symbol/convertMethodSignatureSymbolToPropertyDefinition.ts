@@ -1,12 +1,12 @@
 import { ComponentPropertyDefinition } from '../../../ComponentPropertyDefinition';
-import { TSComponentSerializationEnv } from '../../serializeTSComponent';
+import { TSSerializationContext } from '../../serializeTSComponent';
 import { getJSDocDocumentation } from './getJSDocDocumentation';
 import { getPropertyName } from './getPropertyName';
 import { MethodSymbol } from './isMethodSignatureSymbol';
 import { isPropertyRequired } from './isPropertyRequired';
 
 export function convertMethodSignatureSymbolToPropertyDefinition(
-  context:TSComponentSerializationEnv,
+  context:TSSerializationContext,
   methodSymbol:MethodSymbol,
 ):ComponentPropertyDefinition {
   return {

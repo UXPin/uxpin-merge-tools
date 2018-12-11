@@ -2,10 +2,10 @@ import * as ts from 'typescript';
 import { ClassComponentDeclaration, DefaultProps } from '../component/getPropsTypeAndDefaultProps';
 import { getNodeName } from '../node/getNodeName';
 import { isDefaultPropertiesStaticProperty } from '../node/property/isDefaultPropertiesStaticProperty';
-import { TSComponentSerializationEnv } from '../serializeTSComponent';
+import { TSSerializationContext } from '../serializeTSComponent';
 
 export function getDefaultPropsOfClassComponent(
-  env:TSComponentSerializationEnv,
+  env:TSSerializationContext,
   componentClass:ClassComponentDeclaration,
 ):DefaultProps {
   const defaultsProp:ts.PropertyDeclaration | undefined =
@@ -27,7 +27,7 @@ export function getDefaultPropsOfClassComponent(
 type SupportedDefaultValue = number | string | boolean;
 
 export function getDefaultPropertyValue(
-  env:TSComponentSerializationEnv,
+  env:TSSerializationContext,
   valueInitializer:ts.Expression,
 ):SupportedDefaultValue | undefined {
   switch (valueInitializer.kind) {
@@ -47,7 +47,7 @@ export function getDefaultPropertyValue(
 }
 
 export function getDefaultValueFromIdentifier(
-  env:TSComponentSerializationEnv,
+  env:TSSerializationContext,
   propertyInitializer:ts.Identifier,
 ):SupportedDefaultValue | undefined {
   const symbol:ts.Symbol | undefined = env.checker.getSymbolAtLocation(propertyInitializer);

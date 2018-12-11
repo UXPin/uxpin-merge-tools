@@ -1,12 +1,12 @@
 import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
-import { TSComponentSerializationEnv } from '../../../serializeTSComponent';
+import { TSSerializationContext } from '../../../serializeTSComponent';
 import { serializeLiteralType } from './serializeLiteralType';
 import { serializeTypeLiteral } from './serializeTypeLiteral';
 import { serializeTypeReference } from './serializeTypeReference';
 import { serializeUnionType } from './serializeUnionType';
 
-export function convertTypeNodeToPropertyType(env:TSComponentSerializationEnv, typeNode:ts.TypeNode):PropertyType {
+export function convertTypeNodeToPropertyType(context:TSSerializationContext, typeNode:ts.TypeNode):PropertyType {
   switch (typeNode.kind) {
     case ts.SyntaxKind.StringKeyword:
       return { name: 'string', structure: {} };
@@ -23,11 +23,11 @@ export function convertTypeNodeToPropertyType(env:TSComponentSerializationEnv, t
     case ts.SyntaxKind.ObjectKeyword:
       return { name: 'shape', structure: {} };
     case ts.SyntaxKind.UnionType:
-      return serializeUnionType(env, typeNode as ts.UnionTypeNode);
+      return serializeUnionType(context, typeNode as ts.UnionTypeNode);
     case ts.SyntaxKind.LiteralType:
       return serializeLiteralType(typeNode as ts.LiteralTypeNode);
     case ts.SyntaxKind.TypeReference:
-      return serializeTypeReference(env, typeNode as ts.TypeReferenceNode);
+      return serializeTypeReference(context, typeNode as ts.TypeReferenceNode);
     case ts.SyntaxKind.TypeLiteral:
       return serializeTypeLiteral(typeNode as ts.TypeLiteralNode);
     default:

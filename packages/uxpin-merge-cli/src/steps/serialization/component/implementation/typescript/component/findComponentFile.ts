@@ -1,7 +1,7 @@
 import * as ts from 'typescript';
-import { TSComponentSerializationEnv } from '../serializeTSComponent';
+import { TSSerializationContext } from '../serializeTSComponent';
 
-export function findComponentFile({ program }:TSComponentSerializationEnv, path:string):ts.SourceFile | undefined {
+export function findComponentFile({ program }:TSSerializationContext, path:string):ts.SourceFile | undefined {
   for (const sourceFile of program.getSourceFiles()) {
     if (sourceFile.fileName === path) {
       return sourceFile;

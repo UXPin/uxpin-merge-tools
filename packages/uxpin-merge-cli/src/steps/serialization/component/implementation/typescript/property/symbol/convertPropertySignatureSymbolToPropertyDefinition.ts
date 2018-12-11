@@ -1,5 +1,5 @@
 import { ComponentPropertyDefinition } from '../../../ComponentPropertyDefinition';
-import { TSComponentSerializationEnv } from '../../serializeTSComponent';
+import { TSSerializationContext } from '../../serializeTSComponent';
 import { convertTypeNodeToPropertyType } from '../type/node/convertTypeNodeToPropertyType';
 import { getDefaultValueFromJSDoc } from './getDefaultValueFromJSDoc';
 import { getJSDocDocumentation } from './getJSDocDocumentation';
@@ -8,7 +8,7 @@ import { isPropertyRequired } from './isPropertyRequired';
 import { PropertySymbol } from './isPropertySignatureSymbol';
 
 export function convertPropertySignatureSymbolToPropertyDefinition(
-  context:TSComponentSerializationEnv,
+  context:TSSerializationContext,
   propertySymbol:PropertySymbol,
 ):ComponentPropertyDefinition {
   return {

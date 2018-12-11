@@ -2,7 +2,7 @@ import * as ts from 'typescript';
 import { getDefaultPropsOfClassComponent } from '../defaultValue/getDefaultPropsOfClassComponent';
 import { getPropsTypeOfClassComponent } from '../property/getPropsTypeOfClassComponent';
 import { getPropsTypeOfFunctionalComponent } from '../property/getPropsTypeOfFunctionalComponent';
-import { TSComponentSerializationEnv } from '../serializeTSComponent';
+import { TSSerializationContext } from '../serializeTSComponent';
 import { findDefaultExportedClass } from './findDefaultExportedClass';
 import { findDefaultExportedFunction } from './findDefaultExportedFunction';
 import { findExportedClassWithName } from './findExportedClassWithName';
@@ -22,7 +22,7 @@ export type ClassComponentDeclaration = ts.ClassDeclaration | ts.ClassExpression
 export type ComponentDeclaration = ts.FunctionDeclaration | ClassComponentDeclaration;
 
 export function getPropsTypeAndDefaultProps(
-  env:TSComponentSerializationEnv,
+  env:TSSerializationContext,
   sourceFile:ts.SourceFile,
   componentFileName:string,
 ):ComponentDeclarationData {

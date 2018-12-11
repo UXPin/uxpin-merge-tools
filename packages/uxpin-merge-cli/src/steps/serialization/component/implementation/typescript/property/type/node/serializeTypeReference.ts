@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
-import { TSComponentSerializationEnv } from '../../../serializeTSComponent';
+import { TSSerializationContext } from '../../../serializeTSComponent';
 import { serializeTypeDeclaration } from '../declaration/serializeTypeDeclaration';
 
 const TYPES_MAP:{ [typeName:string]:PropertyType } = {
@@ -9,8 +9,8 @@ const TYPES_MAP:{ [typeName:string]:PropertyType } = {
   ReactNode: { name: 'node', structure: {} },
 };
 
-export function serializeTypeReference(env:TSComponentSerializationEnv, typeNode:ts.TypeReferenceNode):PropertyType {
-  const typeFromTypeNode:ts.Type = env.checker.getTypeFromTypeNode(typeNode);
+export function serializeTypeReference(context:TSSerializationContext, typeNode:ts.TypeReferenceNode):PropertyType {
+  const typeFromTypeNode:ts.Type = context.checker.getTypeFromTypeNode(typeNode);
   const typeSymbol:ts.Symbol = typeFromTypeNode.symbol || typeFromTypeNode.aliasSymbol;
   if (typeSymbol.escapedName.toString() in TYPES_MAP) {
     return TYPES_MAP[typeSymbol.escapedName.toString()];

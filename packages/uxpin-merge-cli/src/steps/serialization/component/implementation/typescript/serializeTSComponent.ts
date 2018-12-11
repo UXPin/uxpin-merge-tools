@@ -6,7 +6,7 @@ import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { ImplSerializationResult } from '../ImplSerializationResult';
 import { serializeComponentProperties } from './serializeComponentProperties';
 
-export interface TSComponentSerializationEnv {
+export interface TSSerializationContext {
   componentName:string;
   componentPath:string;
   program:ts.Program;
@@ -20,14 +20,14 @@ export function serializeTSComponent(component:ComponentImplementationInfo):Prom
       module: ts.ModuleKind.ES2015,
       target: ts.ScriptTarget.ES2015,
     });
-    const env:TSComponentSerializationEnv = {
+    const context:TSSerializationContext = {
       checker: program.getTypeChecker(),
       componentName,
       componentPath: component.path,
       program,
     };
 
-    const serializedProps:Warned<ComponentPropertyDefinition[]> = serializeComponentProperties(env);
+    const serializedProps:Warned<ComponentPropertyDefinition[]> = serializeComponentProperties(context);
     resolve({
       result: {
         name: componentName,
