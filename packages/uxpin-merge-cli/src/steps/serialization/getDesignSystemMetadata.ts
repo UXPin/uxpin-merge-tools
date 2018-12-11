@@ -13,13 +13,13 @@ import { DesignSystemSnapshot } from './DesignSystemSnapshot';
 
 export function getDesignSystemMetadata(
   categoryInfos:ComponentCategoryInfo[],
-  projectName:string,
+  libraryName:string,
 ):Promise<Warned<DesignSystemSnapshot>> {
   return Promise.all(categoryInfos.map(categoryInfoToCategoryMetadata))
     .then((categories) => ({
       result: {
         categorizedComponents: categories.map((category) => category.result),
-        name: projectName,
+        name: libraryName,
       },
       warnings: joinWarningLists(categories.map((category) => category.warnings)),
     }));
