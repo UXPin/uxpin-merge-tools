@@ -3,9 +3,10 @@ import { ClassComponentDeclaration, DefaultProps } from '../component/getPropsTy
 import { getNodeName } from '../node/getNodeName';
 import { isDefaultPropertiesStaticProperty } from '../node/property/isDefaultPropertiesStaticProperty';
 import { TSSerializationContext } from '../serializeTSComponent';
+import { getDefaultPropertyValue, SupportedDefaultValue } from './getDefaultPropertyValue';
 
 export function getDefaultPropsOfClassComponent(
-  env:TSSerializationContext,
+  context:TSSerializationContext,
   componentClass:ClassComponentDeclaration,
 ):DefaultProps {
   const defaultsProp:ts.PropertyDeclaration | undefined =
@@ -13,7 +14,7 @@ export function getDefaultPropsOfClassComponent(
   if (defaultsProp && defaultsProp.initializer && ts.isObjectLiteralExpression(defaultsProp.initializer)) {
     return defaultsProp.initializer.properties.reduce<DefaultProps>((defaults, property) => {
       if (ts.isPropertyAssignment(property)) {
-        const defaultValue:SupportedDefaultValue | undefined = getDefaultPropertyValue(env, property.initializer);
+        const defaultValue:SupportedDefaultValue | undefined = getDefaultPropertyValue(context, property.initializer);
         if (typeof defaultValue !== 'undefined') {
           defaults[getNodeName(property)!.toString()] = defaultValue;
         }
@@ -22,36 +23,4 @@ export function getDefaultPropsOfClassComponent(
     }, {});
   }
   return {};
-}
-
-type SupportedDefaultValue = number | string | boolean;
-
-export function getDefaultPropertyValue(
-  env:TSSerializationContext,
-  valueInitializer:ts.Expression,
-):SupportedDefaultValue | undefined {
-  switch (valueInitializer.kind) {
-    case ts.SyntaxKind.StringLiteral:
-      return (valueInitializer as ts.StringLiteral).text;
-    case ts.SyntaxKind.NumericLiteral:
-      return parseInt((valueInitializer as ts.NumericLiteral).text, 10);
-    case ts.SyntaxKind.TrueKeyword:
-      return true;
-    case ts.SyntaxKind.FalseKeyword:
-      return false;
-    case ts.SyntaxKind.Identifier:
-      return getDefaultValueFromIdentifier(env, valueInitializer as ts.Identifier);
-    default:
-      return;
-  }
-}
-
-export function getDefaultValueFromIdentifier(
-  env:TSSerializationContext,
-  propertyInitializer:ts.Identifier,
-):SupportedDefaultValue | undefined {
-  const symbol:ts.Symbol | undefined = env.checker.getSymbolAtLocation(propertyInitializer);
-  if (symbol && ts.isVariableDeclaration(symbol.valueDeclaration) && symbol.valueDeclaration.initializer) {
-    return getDefaultPropertyValue(env, symbol.valueDeclaration.initializer);
-  }
 }

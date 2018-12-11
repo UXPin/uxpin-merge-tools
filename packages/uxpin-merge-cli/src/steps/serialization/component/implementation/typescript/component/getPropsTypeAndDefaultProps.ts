@@ -1,4 +1,5 @@
 import * as ts from 'typescript';
+import { getDefaultPropsFromParamDestructuring } from '../defaultValue/getDefaultPropsFromParamDestructuring';
 import { getDefaultPropsOfClassComponent } from '../defaultValue/getDefaultPropsOfClassComponent';
 import { getPropsTypeOfClassComponent } from '../property/getPropsTypeOfClassComponent';
 import { getPropsTypeOfFunctionalComponent } from '../property/getPropsTypeOfFunctionalComponent';
@@ -22,7 +23,7 @@ export type ClassComponentDeclaration = ts.ClassDeclaration | ts.ClassExpression
 export type ComponentDeclaration = ts.FunctionDeclaration | ClassComponentDeclaration;
 
 export function getPropsTypeAndDefaultProps(
-  env:TSSerializationContext,
+  context:TSSerializationContext,
   sourceFile:ts.SourceFile,
   componentFileName:string,
 ):ComponentDeclarationData {
@@ -30,7 +31,7 @@ export function getPropsTypeAndDefaultProps(
     findExportedFunctionWithName(sourceFile, componentFileName);
   if (componentFunc) {
     return {
-      defaultProps: {},
+      defaultProps: getDefaultPropsFromParamDestructuring(context, componentFunc),
       propsTypeNode: getPropsTypeOfFunctionalComponent(componentFunc),
     };
   }
@@ -38,7 +39,7 @@ export function getPropsTypeAndDefaultProps(
     findExportedClassWithName(sourceFile, componentFileName);
   if (componentClass) {
     return {
-      defaultProps: getDefaultPropsOfClassComponent(env, componentClass),
+      defaultProps: getDefaultPropsOfClassComponent(context, componentClass),
       propsTypeNode: getPropsTypeOfClassComponent(componentClass),
     };
   }

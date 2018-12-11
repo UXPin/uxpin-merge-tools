@@ -512,7 +512,7 @@ describe('serializeTSComponent', () => {
             description: '',
             isRequired: false,
             name: 'children',
-            type: { name: 'string', structure: {} },
+            type: { name: 'node', structure: {} },
           },
           {
             description: '',
@@ -536,7 +536,7 @@ describe('serializeTSComponent', () => {
           {
             defaultValue: { value: false },
             description: '',
-            isRequired: false,
+            isRequired: true,
             name: 'hidden',
             type: { name: 'boolean', structure: {} },
           },
