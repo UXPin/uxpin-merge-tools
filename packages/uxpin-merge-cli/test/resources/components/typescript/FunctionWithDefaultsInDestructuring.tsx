@@ -3,8 +3,8 @@ import * as React from 'react';
 export interface Props {
   children?:React.ReactNode;
   id:string;
-  appearance:'secondary' | 'primary' | 'link';
-  modifier?:'neutral' | 'danger' | 'positive';
+  appearance:string;
+  modifier?:string;
   hidden:boolean;
 }
 
@@ -12,7 +12,15 @@ function labelID(id:string):string {
   return `${id}Label`;
 }
 
-const FunctionWithDefaults:React.StatelessComponent<Props> = ({ children, id, appearance, modifier, hidden }) => {
+const DEFAULT_MODIFIER:string = 'neutral';
+
+export default function FunctionWithDefaultsInDestructuring({
+  children,
+  id,
+  appearance,
+  modifier = DEFAULT_MODIFIER,
+  hidden = false,
+}:Props):JSX.Element {
   return (
     <div>
       <button id={labelID(id)}
@@ -21,11 +29,4 @@ const FunctionWithDefaults:React.StatelessComponent<Props> = ({ children, id, ap
       </button>
     </div>
   );
-};
-
-FunctionWithDefaults.defaultProps = {
-  hidden: false,
-  modifier: 'neutral',
-};
-
-export default FunctionWithDefaults;
+}

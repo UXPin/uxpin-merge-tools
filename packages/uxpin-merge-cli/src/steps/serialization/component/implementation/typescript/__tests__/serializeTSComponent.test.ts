@@ -390,6 +390,153 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes arrow function component with defaults declared as static property', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ArrowFunctionWithDefaultsAsStaticProperty');
+      const expectedProps:ComponentMetadata = {
+        name: 'ArrowFunctionWithDefaultsAsStaticProperty',
+        properties: [
+          {
+            description: '',
+            isRequired: false,
+            name: 'children',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'id',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'appearance',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            defaultValue: { value: 'neutral' },
+            description: '',
+            isRequired: false,
+            name: 'modifier',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            defaultValue: { value: false },
+            description: '',
+            isRequired: false,
+            name: 'hidden',
+            type: { name: 'boolean', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes arrow function component with defaults declared in destructuring assignment', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ArrowFunctionWithDefaultsInDestructuring');
+      const expectedProps:ComponentMetadata = {
+        name: 'ArrowFunctionWithDefaultsInDestructuring',
+        properties: [
+          {
+            description: '',
+            isRequired: false,
+            name: 'children',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'id',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'appearance',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            defaultValue: { value: 'neutral' },
+            description: '',
+            isRequired: false,
+            name: 'modifier',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            defaultValue: { value: false },
+            description: '',
+            isRequired: false,
+            name: 'hidden',
+            type: { name: 'boolean', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes functional component with defaults declared in destructuring assignment', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithDefaultsInDestructuring');
+      const expectedProps:ComponentMetadata = {
+        name: 'FunctionWithDefaultsInDestructuring',
+        properties: [
+          {
+            description: '',
+            isRequired: false,
+            name: 'children',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'id',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'appearance',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            defaultValue: { value: 'neutral' },
+            description: '',
+            isRequired: false,
+            name: 'modifier',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            defaultValue: { value: false },
+            description: '',
+            isRequired: false,
+            name: 'hidden',
+            type: { name: 'boolean', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('rejects returned promise when there is no React component in the given file', (done) => {
       // given
       const component:ComponentImplementationInfo = getImplementation('FileWithoutComponent');
