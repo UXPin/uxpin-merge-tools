@@ -155,5 +155,5 @@ export const expectedDSWatchingChangesMetadata:DesignSystemSnapshot = {
       name: 'Forms',
     },
   ],
-  name: '',
+  name: 'Example Design System',
 };

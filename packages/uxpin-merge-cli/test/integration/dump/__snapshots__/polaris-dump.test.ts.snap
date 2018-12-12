@@ -4660,7 +4660,7 @@ exports[`The dump command run for the polaris repository, prints the JSON descri
       \\"name\\": \\"Uncategorized\\"
     }
   ],
-  \\"name\\": \\"\\"
+  \\"name\\": \\"Library from Code\\"
 }
 "
 `;

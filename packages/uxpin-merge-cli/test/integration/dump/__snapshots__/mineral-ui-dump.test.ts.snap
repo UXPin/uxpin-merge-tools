@@ -16207,7 +16207,7 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
       \\"name\\": \\"Layout\\"
     }
   ],
-  \\"name\\": \\"\\"
+  \\"name\\": \\"Library from Code\\"
 }
 "
 `;
