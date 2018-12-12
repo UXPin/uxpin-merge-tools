@@ -1,5 +1,6 @@
 export interface CliConfig {
   components:ComponentsConfig;
+  name?:string;
 }
 
 export interface ComponentsConfig {
