@@ -2,10 +2,10 @@
 
 const program = require('commander');
 
-const { runProgram, Command } = require('../src/index');
+const { getToolVersion, runProgram, Command } = require('../src/index');
 
 program
-  .version(require('../package.json').version)
+  .version(getToolVersion(), '-v, --version')
   .description('`uxpin-merge` starts up an experimentation mode for the project in the CWD. See more commands below.')
   .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
   .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
