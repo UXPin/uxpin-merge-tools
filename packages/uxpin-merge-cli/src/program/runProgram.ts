@@ -12,6 +12,7 @@ import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
 import { getStepsForWatcher } from './command/getStepsForWatcher';
 import { Step } from './command/Step';
+import { applyVersionCommandSteps } from './command/version/applyVersionCommandSteps';
 import { DSMetadata } from './DSMeta';
 import { setupWatcher } from './watcher/setupWatcher';
 
@@ -26,7 +27,7 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
 }
 
 async function runCommand(programArgs:ProgramArgs):Promise<any> {
-  await executeCommandSteps(programArgs, getSteps(programArgs));
+  await executeCommandSteps(programArgs, applyVersionCommandSteps(getSteps(programArgs)));
 }
 
 async function setupProjectWatcher(programArgs:ProgramArgs):Promise<void> {
