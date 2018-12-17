@@ -6,45 +6,25 @@ import { getPushCommandSteps } from './push/getPushCommandSteps';
 import { getServerCommandSteps } from './server/getServerCommandSteps';
 import { Step } from './Step';
 import { getSummaryCommandSteps } from './summary/getSummaryCommandSteps';
-import { getVersionCommandSteps } from './version/getVersionCommandSteps';
 
 export function getSteps(args:ProgramArgs):Step[] {
-  let steps:Step[] = [
-    ...getVersionCommandSteps(),
-  ];
-
   switch (args.command) {
     case Command.SERVER:
-      return [
-        ...steps,
-        ...getServerCommandSteps(args),
-      ];
+      return getServerCommandSteps(args);
 
     case Command.PUSH:
-      return [
-        ...steps,
-        ...getPushCommandSteps(args),
-      ];
+      return getPushCommandSteps(args);
 
     case Command.DUMP:
-      return [
-        ...steps,
-        ...getDumpCommandSteps(),
-      ];
+      return getDumpCommandSteps();
 
     case Command.SUMMARY:
-      return [
-        ...steps,
-        ...getSummaryCommandSteps(),
-      ];
+      return getSummaryCommandSteps();
 
     case Command.EXPERIMENT:
-      return [
-        ...steps,
-        ...getExperimentationCommandSteps(args),
-      ];
+      return getExperimentationCommandSteps(args);
 
     default:
-      return steps;
+      return [];
   }
 }
