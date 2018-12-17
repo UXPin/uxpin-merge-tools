@@ -2,7 +2,7 @@ import { ComponentImplementationInfo } from '../../../discovery/component/Compon
 import { ComponentDefinition } from '../../../serialization/component/ComponentDefinition';
 import { getFileString } from '../getFileString';
 
-describe('getFileString', () => {
+describe('getSourceFileContentToBundle', () => {
 
   const commonImplementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
   const commonProps:Pick<ComponentDefinition, 'properties' | 'documentation' | 'presets'> = {

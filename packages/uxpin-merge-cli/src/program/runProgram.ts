@@ -50,7 +50,7 @@ async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promis
     .filter((step) => step.shouldRun)
     .map((step) => tapPromise(step.exec));
   const infos:ComponentCategoryInfo[] = await getComponentCategoryInfos(getProjectPaths(programArgs));
-  const designSystem:DSMetadata = await getDesignSystemMetadata(infos);
+  const designSystem:DSMetadata = await getDesignSystemMetadata(programArgs, infos);
   await pMapSeries(stepFunctions, (step) => step(designSystem));
 }
 
