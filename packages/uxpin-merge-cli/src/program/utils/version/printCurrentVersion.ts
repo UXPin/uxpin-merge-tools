@@ -1,6 +1,6 @@
 import * as safe from 'colors/safe';
-import { getToolVersion } from './getToolVersion';
 import { printLine } from '../../../utils/console/printLine';
+import { getToolVersion } from './getToolVersion';
 
 export function printCurrentVersionInfo():void {
   printLine('');

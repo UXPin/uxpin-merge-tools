@@ -12,9 +12,9 @@ import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
 import { getStepsForWatcher } from './command/getStepsForWatcher';
 import { Step } from './command/Step';
+import { applyVersionCommandSteps } from './command/version/applyVersionCommandSteps';
 import { DSMetadata } from './DSMeta';
 import { setupWatcher } from './watcher/setupWatcher';
-import { applyVersionCommandSteps } from './command/version/applyVersionCommandSteps';
 
 export async function runProgram(program:RawProgramArgs):Promise<any> {
   try {
