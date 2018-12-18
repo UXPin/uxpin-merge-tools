@@ -1,6 +1,6 @@
 import { basename } from 'path';
 
-const PRESET_FILENAME_REGEX:RegExp = /^(\d+)-(.+)\.json$/i;
+const PRESET_FILENAME_REGEX:RegExp = /^(\d+)-(.+)\.jsx$/i;
 const PRESET_NAME_INDEX_IN_MATCH_RESULT:number = 2;
 
 export function getPresetName(path:string):string {
