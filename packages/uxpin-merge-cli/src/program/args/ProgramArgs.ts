@@ -18,10 +18,11 @@ export type ProgramArgs = PushProgramArgs
 
 export interface PushProgramArgs {
   command:Command.PUSH;
+  config:string;
   cwd:string;
+  token?:string;
   webpackConfig?:string;
   wrapper?:string;
-  config:string;
 }
 
 export interface ServerProgramArgs {
