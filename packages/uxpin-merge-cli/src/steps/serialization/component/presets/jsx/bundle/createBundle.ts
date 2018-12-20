@@ -9,9 +9,9 @@ import { getSourceFileContentToBundle } from './getSourceFileContentToBundle';
 const BUNDLE_SOURCE_FILE:string = 'presets.jsx';
 
 export async function createBundle(programArgs:ProgramArgs, infos:ComponentPresetInfo[]):Promise<string> {
-  const uxpinDirPath:string = getTempDirPath(programArgs);
-  await ensureDir(uxpinDirPath);
-  const bundlePath:string = resolve(uxpinDirPath, BUNDLE_SOURCE_FILE);
-  await writeToFile(bundlePath, getSourceFileContentToBundle(infos));
+  const tempDirPath:string = getTempDirPath(programArgs);
+  await ensureDir(tempDirPath);
+  const bundlePath:string = resolve(tempDirPath, BUNDLE_SOURCE_FILE);
+  await writeToFile(bundlePath, getSourceFileContentToBundle(tempDirPath, infos));
   return bundlePath;
 }

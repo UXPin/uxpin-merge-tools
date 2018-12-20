@@ -1,3 +1,4 @@
+import { relative } from 'path';
 import { ComponentPresetInfo } from '../../../../../discovery/component/ComponentInfo';
 import { getUniqPresetImportName } from './getUniqPresetImportName';
 
@@ -15,16 +16,16 @@ function __uxpinParsePreset(type, props, ...children) {
 }
 `;
 
-export function getSourceFileContentToBundle(infos:ComponentPresetInfo[]):string {
+export function getSourceFileContentToBundle(tempDirPath:string, infos:ComponentPresetInfo[]):string {
   return `${fileHead}
 
-${getFileBody(infos)}
+${getFileBody(tempDirPath, infos)}
 
 ${fileTail}`;
 }
 
-function getFileBody(infos:ComponentPresetInfo[]):string {
-  const imports:string = infos.map(getImport).join('\n');
+function getFileBody(tempDirPath:string, infos:ComponentPresetInfo[]):string {
+  const imports:string = infos.map(thunkGetImport(tempDirPath)).join('\n');
   const exports:string = infos.map(getExport).join('\n');
 
   return `${imports}
@@ -35,8 +36,10 @@ ${exports}
 `;
 }
 
-function getImport({ path }:ComponentPresetInfo):string {
-  return `import ${getUniqPresetImportName(path)} from '${path}';`;
+function thunkGetImport(tempDirPath:string):({ path }:ComponentPresetInfo) => string {
+  return ({ path }) => (
+    `import ${getUniqPresetImportName(path)} from '${relative(tempDirPath, path)}';`
+  );
 }
 
 function getExport({ path }:ComponentPresetInfo):string {

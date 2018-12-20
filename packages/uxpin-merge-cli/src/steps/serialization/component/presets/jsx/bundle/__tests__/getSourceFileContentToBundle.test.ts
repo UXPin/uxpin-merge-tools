@@ -11,7 +11,7 @@ describe('getSourceFileContentToBundle', () => {
     ];
 
     // when
-    const result:string = getSourceFileContentToBundle(infos);
+    const result:string = getSourceFileContentToBundle('./', infos);
 
     // then
     expect(result).toMatchSnapshot();
@@ -22,7 +22,7 @@ describe('getSourceFileContentToBundle', () => {
     const infos:ComponentPresetInfo[] = [];
 
     // when
-    const result:string = getSourceFileContentToBundle(infos);
+    const result:string = getSourceFileContentToBundle('./', infos);
 
     // then
     expect(result).toMatchSnapshot();

@@ -27,9 +27,9 @@ function __uxpinParsePreset(type, props, ...children) {
 exports[`getSourceFileContentToBundle should get file content for given presets 1`] = `
 "/* @jsx __uxpinParsePreset */
 
-import Preset65aaa443fa205a06ad85aaa3edf78068 from './src/components/Component1/presets/0-default.jsx';
-import Preset630e58ad10445b0fa1f85852c4cd6bdf from './src/components/Component1/presets/1-alternative.jsx';
-import Preset3dc3c7e21456554b87f2a933e5a3b691 from './src/components/Component2/presets/0-default.jsx';
+import Preset65aaa443fa205a06ad85aaa3edf78068 from 'src/components/Component1/presets/0-default.jsx';
+import Preset630e58ad10445b0fa1f85852c4cd6bdf from 'src/components/Component1/presets/1-alternative.jsx';
+import Preset3dc3c7e21456554b87f2a933e5a3b691 from 'src/components/Component2/presets/0-default.jsx';
 
 export {
   Preset65aaa443fa205a06ad85aaa3edf78068,
