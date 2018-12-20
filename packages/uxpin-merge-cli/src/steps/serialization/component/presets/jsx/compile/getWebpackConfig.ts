@@ -33,7 +33,7 @@ export function getWebpackConfig({ bundlePath, sourcePath }:WebpackConfigPaths):
               '@babel/preset-flow',
             ],
           },
-          test: /\.js$/,
+          test: /\.jsx?$/,
         },
       ],
     },
