@@ -1,4 +1,4 @@
-import { execAsync } from "../execAsync";
+import { execAsync } from '../execAsync';
 
 describe('execAsync', () => {
   it('should execute command', async () => {
