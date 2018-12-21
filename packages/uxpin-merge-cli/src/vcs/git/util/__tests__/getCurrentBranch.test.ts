@@ -5,10 +5,10 @@ import { getCurrentBranch } from '../getCurrentBranch';
 describe('getCurrentBranch', () => {
   let path:string;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     // having
     path = resolve(__dirname, '../../../../../test/resources/repos/git-repo');
-    execAsync('git checkout master', { cwd: path });
+    await execAsync('git checkout master', { cwd: path });
   });
 
   it('should return current branch name', async () => {

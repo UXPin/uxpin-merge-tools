@@ -9,7 +9,7 @@ describe('execAsync', () => {
     const result:string = await execAsync(command);
 
     // then
-    expect(result).toContain('uxpin-code-tools/packages/uxpin-merge-cli');
+    expect(result).toContain('uxpin-merge-cli');
   });
 
   it('should reject on error', async () => {
@@ -21,7 +21,7 @@ describe('execAsync', () => {
       await execAsync(command);
     } catch (error) {
       // then
-      expect(error.toString()).toContain('command not found');
+      expect(error.toString()).toContain('not found');
     }
   });
 });
