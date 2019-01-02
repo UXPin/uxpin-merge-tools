@@ -27,6 +27,9 @@ test:
 test-unit:
 	jest --testMatch="**/__tests__/*.test.ts"
 
+watch-test-unit:
+	jest --watchAll --testMatch="**/__tests__/*.test.ts"
+
 test-integration:
 	jest --testMatch="**/test/integration/**/*.test.ts"
 
