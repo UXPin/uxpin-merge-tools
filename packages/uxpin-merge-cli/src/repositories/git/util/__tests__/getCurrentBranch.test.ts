@@ -6,7 +6,7 @@ describe('getCurrentBranch', () => {
   let path:string;
 
   beforeEach(async () => {
-    // having
+    // given
     path = resolve(__dirname, '../../../../../test/resources/repos/git-repo');
     await execAsync('git checkout master', { cwd: path });
   });
@@ -21,6 +21,7 @@ describe('getCurrentBranch', () => {
 
   describe('new branch', () => {
     beforeEach(async () => {
+      // given
       await execAsync('git checkout -b test', { cwd: path });
     });
 

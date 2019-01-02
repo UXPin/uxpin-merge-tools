@@ -1,12 +1,12 @@
 import { ExecOptions } from 'child_process';
 import { execAsync } from '../../../utils/child_process/execAsync';
-import { Commit } from '../../VersionControlSystem';
+import { CommitMetadata } from '../../RepositoryAdapter';
 
 function removeNewLines(data:string):string {
   return data.replace(/\n/gm, '');
 }
 
-export async function getLatestCommit(cwd:string):Promise<Commit> {
+export async function getLatestCommit(cwd:string):Promise<CommitMetadata> {
   const options:ExecOptions = { cwd };
 
   const author:string = removeNewLines(await execAsync('git log -n 1 --pretty=format:\'%an\'', options));
