@@ -113,4 +113,13 @@ export const expectedMetadata:DesignSystemSnapshot = {
     },
   ],
   name: 'Example Design System',
+  repositoryPointer: {
+    branchName: 'master',
+    commit: {
+      author: 'Foo',
+      date: 'Fri Dec 21 10:00:00 2018 +0100',
+      hash: '123abc',
+      message: 'Message',
+    },
+  },
 };

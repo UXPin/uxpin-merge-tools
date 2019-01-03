@@ -1,17 +1,16 @@
 import { ComponentCategory } from './component/categories/ComponentCategory';
+import { RepositoryPointer } from '../../repositories/RepositoryAdapter';
 
 export interface DesignSystemSnapshot {
   name:string;
   categorizedComponents:ComponentCategory[];
-  // @todo: make `vcs` property required after implementation of files tracking
-  vcs?:VCSDetails;
+  repositoryPointer:VCSDetails;
 }
 
-export interface VCSDetails {
-  commitHash:string;
-  branchName:string;
-  movedObjects:MovedObjects;
-  tags:VCSTag[];
+export interface VCSDetails extends RepositoryPointer {
+  // @todo: make `movedObjects` and `tags` properties required after implementation of files tracking
+  movedObjects?:MovedObjects;
+  tags?:VCSTag[];
 }
 
 export interface MovedObjects {

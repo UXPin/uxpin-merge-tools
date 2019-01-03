@@ -1,7 +1,10 @@
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
+import { getRepositoryAdapter } from '../../repositories/getRepositoryAdapter';
+import { RepositoryAdapter, CommitMetadata, RepositoryPointer } from '../../repositories/RepositoryAdapter';
 import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
 import { ComponentInfo } from '../discovery/component/ComponentInfo';
+import { ProjectPaths } from '../discovery/paths/ProjectPaths';
 import { ComponentCategory } from './component/categories/ComponentCategory';
 import { ComponentDefinition } from './component/ComponentDefinition';
 import { ExamplesSerializationResult } from './component/examples/ExamplesSerializationResult';
@@ -11,15 +14,20 @@ import { PresetsSerializationResult } from './component/presets/PresetsSerializa
 import { serializePresets } from './component/presets/serializePresets';
 import { DesignSystemSnapshot } from './DesignSystemSnapshot';
 
-export function getDesignSystemMetadata(
+export async function getDesignSystemMetadata(
   categoryInfos:ComponentCategoryInfo[],
   libraryName:string,
+  paths:ProjectPaths,
 ):Promise<Warned<DesignSystemSnapshot>> {
+  const repositoryAdapter:RepositoryAdapter = await getRepositoryAdapter(paths.projectRoot);
+  const repositoryPointer:RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
+
   return Promise.all(categoryInfos.map(categoryInfoToCategoryMetadata))
     .then((categories) => ({
       result: {
         categorizedComponents: categories.map((category) => category.result),
         name: libraryName,
+        repositoryPointer,
       },
       warnings: joinWarningLists(categories.map((category) => category.warnings)),
     }));
