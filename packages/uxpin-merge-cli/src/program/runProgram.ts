@@ -19,6 +19,7 @@ import { setupWatcher } from './watcher/setupWatcher';
 export async function runProgram(program:RawProgramArgs):Promise<any> {
   try {
     const programArgs:ProgramArgs = getProgramArgs(program);
+    setNodeEnv(programArgs.dev);
     await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
   } catch (error) {
@@ -57,6 +58,12 @@ async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promis
   const name:string = getLibraryName(paths);
   const designSystem:DSMetadata = await getDesignSystemMetadata(infos, name, paths);
   await pMapSeries(stepFunctions, (step) => step(designSystem));
+}
+
+function setNodeEnv(development:boolean|undefined):void {
+  if (development) {
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+  }
 }
 
 function isWatchChangesCommand(programArgs:ProgramArgs):boolean {
