@@ -1,7 +1,5 @@
 import pMapSeries = require('p-map-series');
-import { ComponentCategoryInfo } from '../steps/discovery/component/category/ComponentCategoryInfo';
-import { getComponentCategoryInfos } from '../steps/discovery/component/category/getComponentCategoryInfos';
-import { getLibraryName } from '../steps/discovery/library/getLibraryName';
+import { BuildOptions } from '../steps/building/BuildOptions';
 import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
@@ -11,6 +9,7 @@ import { getProjectPaths } from './args/providers/paths/getProjectPaths';
 import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
 import { getStepsForWatcher } from './command/getStepsForWatcher';
+import { getBuildOptions } from './command/push/getBuildOptions';
 import { Step } from './command/Step';
 import { applyVersionCommandSteps } from './command/version/applyVersionCommandSteps';
 import { DSMetadata } from './DSMeta';
@@ -50,13 +49,14 @@ function thunkRunCommandWhenFilesChanged(programArgs:ProgramArgs):(path:string) 
 }
 
 async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promise<void> {
-  const paths:ProjectPaths = getProjectPaths(programArgs);
   const stepFunctions:StepExecutor[] = steps
     .filter((step) => step.shouldRun)
     .map((step) => tapPromise(step.exec));
-  const infos:ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
-  const name:string = getLibraryName(paths);
-  const designSystem:DSMetadata = await getDesignSystemMetadata(infos, name, paths);
+
+  const paths:ProjectPaths = getProjectPaths(programArgs);
+  const buildOptions:BuildOptions = getBuildOptions(programArgs);
+  const designSystem:DSMetadata = await getDesignSystemMetadata(paths, buildOptions);
+
   await pMapSeries(stepFunctions, (step) => step(designSystem));
 }
 

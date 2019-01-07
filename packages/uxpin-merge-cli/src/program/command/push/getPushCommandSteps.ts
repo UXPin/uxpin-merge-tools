@@ -7,6 +7,7 @@ import { getBuildOptions } from './getBuildOptions';
 
 export function getPushCommandSteps(args:PushProgramArgs):Step[] {
   const buildOptions:BuildOptions = getBuildOptions(args);
+
   return [
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
     { exec: printSerializationWarnings, shouldRun: true },

@@ -1,9 +1,14 @@
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
 import { getRepositoryAdapter } from '../../repositories/getRepositoryAdapter';
-import { RepositoryAdapter, CommitMetadata, RepositoryPointer } from '../../repositories/RepositoryAdapter';
+import { RepositoryAdapter, RepositoryPointer } from '../../repositories/RepositoryAdapter';
+import { getApiDomain } from '../../services/UXPin/getApiDomain';
+import { getLatestCommitHash } from '../../services/UXPin/getLatestCommitHash';
+import { BuildOptions } from '../building/BuildOptions';
 import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
+import { getComponentCategoryInfos } from '../discovery/component/category/getComponentCategoryInfos';
 import { ComponentInfo } from '../discovery/component/ComponentInfo';
+import { getLibraryName } from '../discovery/library/getLibraryName';
 import { ProjectPaths } from '../discovery/paths/ProjectPaths';
 import { ComponentCategory } from './component/categories/ComponentCategory';
 import { ComponentDefinition } from './component/ComponentDefinition';
@@ -12,25 +17,51 @@ import { serializeExamples } from './component/examples/serializeExamples';
 import { getComponentMetadata } from './component/implementation/getComponentMetadata';
 import { PresetsSerializationResult } from './component/presets/PresetsSerializationResult';
 import { serializePresets } from './component/presets/serializePresets';
-import { DesignSystemSnapshot } from './DesignSystemSnapshot';
+import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
 
 export async function getDesignSystemMetadata(
-  categoryInfos:ComponentCategoryInfo[],
-  libraryName:string,
   paths:ProjectPaths,
+  buildOptions:BuildOptions,
 ):Promise<Warned<DesignSystemSnapshot>> {
-  const repositoryAdapter:RepositoryAdapter = await getRepositoryAdapter(paths.projectRoot);
-  const repositoryPointer:RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
+  const categoryInfos:ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
+  const libraryName:string = getLibraryName(paths);
+  const vcs:VCSDetails = await getVscDetails(paths, buildOptions);
 
   return Promise.all(categoryInfos.map(categoryInfoToCategoryMetadata))
-    .then((categories) => ({
-      result: {
-        categorizedComponents: categories.map((category) => category.result),
-        name: libraryName,
-        repositoryPointer,
-      },
-      warnings: joinWarningLists(categories.map((category) => category.warnings)),
-    }));
+    .then((categories) => {
+      return {
+        result: {
+          categorizedComponents: categories.map((category) => category.result),
+          name: libraryName,
+          vcs,
+        },
+        warnings: joinWarningLists(categories.map((category) => category.warnings)),
+      };
+    });
+}
+
+async function getVscDetails(paths:ProjectPaths, buildOptions:BuildOptions):Promise<VCSDetails> {
+  const repositoryAdapter:RepositoryAdapter = await getRepositoryAdapter(paths.projectRoot);
+  const repositoryPointer:RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
+  const latestCommitHash:string|null = await getLatestCommitHash(
+    getApiDomain(buildOptions.uxpinDomain || ''),
+    repositoryPointer.branchName,
+    buildOptions.token || '',
+  );
+
+  const vcs:VCSDetails = {
+    branchName: repositoryPointer.branchName,
+    commitHash: repositoryPointer.commit.hash,
+  };
+
+  if (latestCommitHash) {
+    vcs.movedObjects = {
+      components: {},
+      diffSourceCommitHash: latestCommitHash,
+    };
+  }
+
+  return vcs;
 }
 
 function categoryInfoToCategoryMetadata(info:ComponentCategoryInfo):Promise<Warned<ComponentCategory>> {

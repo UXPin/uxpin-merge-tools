@@ -1,5 +1,6 @@
-import { RepositoryAdapter, RepositoryPointer, CommitMetadata } from './RepositoryAdapter';
+import { CommitMetadata, RepositoryAdapter, RepositoryPointer } from './RepositoryAdapter';
 
+// tslint:disable prefer-function-over-method
 export abstract class AbstractRepositoryAdapter implements RepositoryAdapter {
   public async getRepositoryPointer():Promise<RepositoryPointer> {
     return {

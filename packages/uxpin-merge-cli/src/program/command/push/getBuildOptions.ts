@@ -4,15 +4,16 @@ import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../args/providers/paths/getTempDirPath';
 
 export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
-  const { token, webpackConfig, wrapper } = args;
+  const { token, uxpinDomain, webpackConfig, wrapper } = args;
 
   return {
     projectRoot: getProjectRoot(args),
     token,
     uxpinDirPath: getTempDirPath(args),
+    uxpinDomain,
     webpackConfigPath: webpackConfig,
     wrapperPath: wrapper,
   };
 }
 
-export type BuildProgramArgs = Pick<PushProgramArgs, 'cwd' | 'token' | 'webpackConfig' | 'wrapper'>;
+export type BuildProgramArgs = Pick<PushProgramArgs, 'cwd' | 'token' | 'uxpinDomain' | 'webpackConfig' | 'wrapper'>;
