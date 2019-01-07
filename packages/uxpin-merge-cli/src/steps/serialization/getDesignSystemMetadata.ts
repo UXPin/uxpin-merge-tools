@@ -9,6 +9,8 @@ import { ComponentDefinition } from './component/ComponentDefinition';
 import { ExamplesSerializationResult } from './component/examples/ExamplesSerializationResult';
 import { serializeExamples } from './component/examples/serializeExamples';
 import { getComponentMetadata } from './component/implementation/getComponentMetadata';
+import { getBundle } from './component/presets/jsx/bundle/getBundle';
+import { PresetsBundle } from './component/presets/jsx/bundle/PresetsBundle';
 import { PresetsSerializationResult } from './component/presets/PresetsSerializationResult';
 import { serializePresets } from './component/presets/serializePresets';
 import { DesignSystemSnapshot } from './DesignSystemSnapshot';
@@ -17,7 +19,8 @@ export async function getDesignSystemMetadata(
   programArgs:ProgramArgs,
   infos:ComponentCategoryInfo[],
 ):Promise<Warned<DesignSystemSnapshot>> {
-  const categories:Array<Warned<ComponentCategory>> = await pMap(infos, thunkCategoryInfoToMetadata(programArgs));
+  const bundle:PresetsBundle = await getBundle(programArgs, infos);
+  const categories:Array<Warned<ComponentCategory>> = await pMap(infos, thunkCategoryInfoToMetadata(bundle));
   return {
     result: {
       categorizedComponents: categories.map((category) => category.result),
@@ -28,11 +31,11 @@ export async function getDesignSystemMetadata(
 }
 
 function thunkCategoryInfoToMetadata(
-  programArgs:ProgramArgs,
+  bundle:PresetsBundle,
 ):(info:ComponentCategoryInfo) => Promise<Warned<ComponentCategory>> {
   return async ({ componentInfos, name }:ComponentCategoryInfo) => {
     const components:Array<Warned<ComponentDefinition>> = await pMap(componentInfos,
-      thunkComponentInfoToDefinition(programArgs));
+      thunkComponentInfoToDefinition(bundle));
 
     return {
       result: {
@@ -45,12 +48,12 @@ function thunkCategoryInfoToMetadata(
 }
 
 function thunkComponentInfoToDefinition(
-  programArgs:ProgramArgs,
+  bundle:PresetsBundle,
 ):(info:ComponentInfo) => Promise<Warned<ComponentDefinition>> {
   return async (info:ComponentInfo) => {
     const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(info.implementation);
     const { result: examples, warnings: exampleWarnings } = await serializeOptionalExamples(info);
-    const { result: presets, warnings: presetWarnings } = await serializeOptionalPresets(programArgs, info);
+    const { result: presets, warnings: presetWarnings } = await serializeOptionalPresets(bundle, info);
     return {
       result: { info, ...metadata, documentation: { examples }, presets },
       warnings: joinWarningLists([metadataWarnings, exampleWarnings, presetWarnings]),
@@ -67,12 +70,12 @@ async function serializeOptionalExamples(info:ComponentInfo):Promise<ExamplesSer
 }
 
 async function serializeOptionalPresets(
-  programArgs:ProgramArgs,
+  bundle:PresetsBundle,
   info:ComponentInfo,
 ):Promise<PresetsSerializationResult> {
   if (!info.presets || !info.presets.length) {
     return { result: [], warnings: [] };
   }
 
-  return await serializePresets(programArgs, info.presets);
+  return await serializePresets(bundle, info.presets);
 }

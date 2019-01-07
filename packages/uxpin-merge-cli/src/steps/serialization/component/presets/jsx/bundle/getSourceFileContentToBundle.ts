@@ -1,27 +1,11 @@
+import { reduce } from 'lodash';
 import { relative } from 'path';
-import { ComponentPresetInfo } from '../../../../../discovery/component/ComponentInfo';
+import { ComponentCategoryInfo } from '../../../../../discovery/component/category/ComponentCategoryInfo';
+import { ComponentInfo, ComponentPresetInfo } from '../../../../../discovery/component/ComponentInfo';
 import { getUniqPresetImportName } from './getUniqPresetImportName';
 
-const fileHead:string = '/* @jsx __uxpinParsePreset */';
-const fileTail:string = `
-function __uxpinParsePreset(type, props, ...children) {
-  const displayName = typeof type === 'function'
-        ? type.displayName || type.name || 'Unknown'
-        : type;
-   return {
-    name: displayName,
-    props: JSON.parse(JSON.stringify(props)),
-    children: children,
-  };
-}
-`;
-
-export function getSourceFileContentToBundle(tempDirPath:string, infos:ComponentPresetInfo[]):string {
-  return `${fileHead}
-
-${getFileBody(tempDirPath, infos)}
-
-${fileTail}`;
+export function getSourceFileContentToBundle(tempDirPath:string, infos:ComponentCategoryInfo[]):string {
+  return getFileBody(tempDirPath, flattenComponentPresetInfos(infos));
 }
 
 function getFileBody(tempDirPath:string, infos:ComponentPresetInfo[]):string {
@@ -44,4 +28,16 @@ function thunkGetImport(tempDirPath:string):({ path }:ComponentPresetInfo) => st
 
 function getExport({ path }:ComponentPresetInfo):string {
   return `  ${getUniqPresetImportName(path)},`;
+}
+
+function flattenComponentPresetInfos(categoryInfos:ComponentCategoryInfo[]):ComponentPresetInfo[] {
+  return reduce<ComponentCategoryInfo, ComponentPresetInfo[]>(categoryInfos, (flattenInfos, categoryInfo) => {
+    flattenInfos.push(...reduce<ComponentInfo, ComponentPresetInfo[]>(categoryInfo.componentInfos, (infos, info) => {
+      if (info.presets) {
+        infos.push(...info.presets);
+      }
+      return infos;
+    }, []));
+    return flattenInfos;
+  }, []);
 }

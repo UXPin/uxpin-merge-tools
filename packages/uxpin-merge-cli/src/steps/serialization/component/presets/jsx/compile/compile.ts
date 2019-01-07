@@ -1,14 +1,15 @@
 import { unlink } from 'fs-extra';
 import { join, parse } from 'path';
 import * as webpack from 'webpack';
-import { ProgramArgs } from '../../../../../../program/args/ProgramArgs';
+import { ProgramArgs, RawProgramArgs } from '../../../../../../program/args/ProgramArgs';
+import { getProjectRoot } from '../../../../../../program/args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../../../../../program/args/providers/paths/getTempDirPath';
-import { ComponentPresetInfo } from '../../../../../discovery/component/ComponentInfo';
-import { createBundle } from '../bundle/createBundle';
+import { ComponentCategoryInfo } from '../../../../../discovery/component/category/ComponentCategoryInfo';
+import { createBundleSource } from '../bundle/createBundleSource';
 import { getWebpackConfig } from './getWebpackConfig';
 
-export async function compile(programArgs:ProgramArgs, infos:ComponentPresetInfo[]):Promise<string> {
-  const sourcePath:string = await createBundle(programArgs, infos);
+export async function compile(programArgs:ProgramArgs, infos:ComponentCategoryInfo[]):Promise<string> {
+  const sourcePath:string = await createBundleSource(programArgs, infos);
   const bundlePath:string = await compileWithWebpack(programArgs, sourcePath);
   await unlink(sourcePath);
 
@@ -19,8 +20,10 @@ async function compileWithWebpack(programArgs:ProgramArgs, sourcePath:string):Pr
   const { base } = parse(sourcePath);
   const uxpinDirPath:string = getTempDirPath(programArgs);
   const bundlePath:string = join(uxpinDirPath, `__bundle__${base}`);
+  const { webpackConfig } = programArgs as RawProgramArgs;
+  const projectRoot:string = getProjectRoot(programArgs);
 
-  await run(getWebpackConfig({ bundlePath, sourcePath }));
+  await run(getWebpackConfig({ bundlePath, projectRoot, sourcePath, webpackConfig }));
 
   return bundlePath;
 }

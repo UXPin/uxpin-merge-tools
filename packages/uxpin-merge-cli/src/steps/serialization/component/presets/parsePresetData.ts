@@ -1,4 +1,4 @@
-import { isArray } from 'lodash';
+import { isArray, isEmpty } from 'lodash';
 import { ComponentPresetElement, PresetElementReference } from './ComponentPreset';
 import { AnySerializedElement, JSXSerializedElement } from './jsx/JSXSerializationResult';
 
@@ -32,7 +32,7 @@ export function parsePresetData(element:AnySerializedElement, elements:ParsePres
 }
 
 function mapChildren(element:AnySerializedElement):MapChildrenResult {
-  if (!isJSXSerializedElement(element) || !isArray(element.children)) {
+  if (!isJSXSerializedElement(element) || !isArray(element.children) || isEmpty(element.children)) {
     return {};
   }
 

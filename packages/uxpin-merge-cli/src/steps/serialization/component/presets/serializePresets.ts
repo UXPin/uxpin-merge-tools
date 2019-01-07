@@ -1,24 +1,16 @@
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
-import { ProgramArgs } from '../../../../program/args/ProgramArgs';
 import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
 import { getPresetName } from '../../../discovery/component/presets/presetFileNameParser';
 import { getUniqPresetImportName } from './jsx/bundle/getUniqPresetImportName';
-import { compile } from './jsx/compile/compile';
+import { PresetsBundle } from './jsx/bundle/PresetsBundle';
 import { JSXSerializedElement } from './jsx/JSXSerializationResult';
 import { parsePresetData } from './parsePresetData';
 import { PresetsSerializationResult } from './PresetsSerializationResult';
 
-interface Presets {
-  [importName:string]:JSXSerializedElement;
-}
-
 export async function serializePresets(
-  programArgs:ProgramArgs,
+  bundle:PresetsBundle,
   infos:ComponentPresetInfo[],
 ):Promise<PresetsSerializationResult> {
-  const bundlePath:string = await compile(programArgs, infos);
-  const bundle:Presets = require(bundlePath);
-
   const aggregator:PresetsSerializationResult = { result: [], warnings: [] };
   return infos
     .map(thunkSerializePreset(bundle))
@@ -29,7 +21,7 @@ export async function serializePresets(
     }, aggregator);
 }
 
-function thunkSerializePreset(bundle:Presets):(info:ComponentPresetInfo) => PresetsSerializationResult {
+function thunkSerializePreset(bundle:PresetsBundle):(info:ComponentPresetInfo) => PresetsSerializationResult {
   return ({ path }) => {
     try {
       const presetData:JSXSerializedElement = bundle[getUniqPresetImportName(path)];
