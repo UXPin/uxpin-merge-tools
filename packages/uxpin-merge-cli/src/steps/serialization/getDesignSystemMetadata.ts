@@ -44,9 +44,9 @@ async function getVscDetails(paths:ProjectPaths, buildOptions:BuildOptions):Prom
   const repositoryAdapter:RepositoryAdapter = await getRepositoryAdapter(paths.projectRoot);
   const repositoryPointer:RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
   const latestCommitHash:string|null = await getLatestCommitHash(
-    getApiDomain(buildOptions.uxpinDomain || ''),
+    getApiDomain(buildOptions.uxpinDomain!),
     repositoryPointer.branchName,
-    buildOptions.token || '',
+    buildOptions.token!,
   );
 
   const vcs:VCSDetails = {

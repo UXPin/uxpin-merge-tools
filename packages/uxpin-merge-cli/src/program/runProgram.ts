@@ -10,7 +10,7 @@ import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
 import { getStepsForWatcher } from './command/getStepsForWatcher';
 import { getBuildOptions } from './command/push/getBuildOptions';
-import { Step } from './command/Step';
+import { Step, StepExecutor } from './command/Step';
 import { applyVersionCommandSteps } from './command/version/applyVersionCommandSteps';
 import { DSMetadata } from './DSMeta';
 import { setupWatcher } from './watcher/setupWatcher';
@@ -78,5 +78,3 @@ function endWithError(errorMessage:string):void {
 function logError(errorMessage:string):void {
   console.error('ERROR:', errorMessage);
 }
-
-type StepExecutor = (designSystem:DSMetadata) => Promise<DSMetadata>;
