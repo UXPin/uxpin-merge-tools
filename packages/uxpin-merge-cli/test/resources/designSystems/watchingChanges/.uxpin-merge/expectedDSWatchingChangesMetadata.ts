@@ -14,7 +14,7 @@ export const expectedAvatarDefinition:ComponentDefinition = {
     },
     presets: [
       {
-        path: 'src/components/Avatar/presets/0-default.json',
+        path: 'src/components/Avatar/presets/0-default.jsx',
       },
     ],
   },
@@ -98,7 +98,7 @@ export const expectedButtonDefinition:ComponentDefinition = {
     },
     presets: [
       {
-        path: 'src/components/Button/presets/0-default.json',
+        path: 'src/components/Button/presets/0-default.jsx',
       },
     ],
   },
