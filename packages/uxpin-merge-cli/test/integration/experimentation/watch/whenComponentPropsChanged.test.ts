@@ -24,7 +24,7 @@ describe('Experimental - watch - change file content (changed prop types)', () =
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
-      '--webpack-config "node_modules/react-scripts/config/webpack.config.dev.js"',
+      '--webpack-config "./webpack.config.js"',
     ],
   });
 
