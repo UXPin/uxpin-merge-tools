@@ -1,6 +1,8 @@
 import pMapSeries = require('p-map-series');
 import { ComponentCategoryInfo } from '../steps/discovery/component/category/ComponentCategoryInfo';
 import { getComponentCategoryInfos } from '../steps/discovery/component/category/getComponentCategoryInfos';
+import { getLibraryName } from '../steps/discovery/library/getLibraryName';
+import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './args/getProgramArgs';
@@ -10,6 +12,7 @@ import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
 import { getStepsForWatcher } from './command/getStepsForWatcher';
 import { Step } from './command/Step';
+import { applyVersionCommandSteps } from './command/version/applyVersionCommandSteps';
 import { DSMetadata } from './DSMeta';
 import { setupWatcher } from './watcher/setupWatcher';
 
@@ -24,7 +27,7 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
 }
 
 async function runCommand(programArgs:ProgramArgs):Promise<any> {
-  await executeCommandSteps(programArgs, getSteps(programArgs));
+  await executeCommandSteps(programArgs, applyVersionCommandSteps(getSteps(programArgs)));
 }
 
 async function setupProjectWatcher(programArgs:ProgramArgs):Promise<void> {
@@ -46,11 +49,13 @@ function thunkRunCommandWhenFilesChanged(programArgs:ProgramArgs):(path:string) 
 }
 
 async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promise<void> {
+  const paths:ProjectPaths = getProjectPaths(programArgs);
   const stepFunctions:StepExecutor[] = steps
     .filter((step) => step.shouldRun)
     .map((step) => tapPromise(step.exec));
-  const infos:ComponentCategoryInfo[] = await getComponentCategoryInfos(getProjectPaths(programArgs));
-  const designSystem:DSMetadata = await getDesignSystemMetadata(programArgs, infos);
+  const infos:ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
+  const name:string = getLibraryName(paths);
+  const designSystem:DSMetadata = await getDesignSystemMetadata(programArgs, infos, name);
   await pMapSeries(stepFunctions, (step) => step(designSystem));
 }
 

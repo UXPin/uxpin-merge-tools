@@ -1,3 +1,4 @@
+import { LIBRARY_DEFAULT_NAME } from '../../experimentation/server/handler/libraries/GetLibrariesHandler';
 import { CliConfig } from './CliConfig';
 
 export function getDefaultConfiguration():CliConfig {
@@ -13,5 +14,6 @@ export function getDefaultConfiguration():CliConfig {
         },
       ],
     },
+    name: LIBRARY_DEFAULT_NAME,
   };
 }

@@ -112,5 +112,5 @@ export const expectedMetadata:DesignSystemSnapshot = {
       name: 'Forms',
     },
   ],
-  name: '',
+  name: 'Example Design System',
 };

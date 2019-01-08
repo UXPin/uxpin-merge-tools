@@ -18,13 +18,14 @@ import { DesignSystemSnapshot } from './DesignSystemSnapshot';
 export async function getDesignSystemMetadata(
   programArgs:ProgramArgs,
   infos:ComponentCategoryInfo[],
+  libraryName:string,
 ):Promise<Warned<DesignSystemSnapshot>> {
   const bundle:PresetsBundle = await getBundle(programArgs, infos);
   const categories:Array<Warned<ComponentCategory>> = await pMap(infos, thunkCategoryInfoToMetadata(bundle));
   return {
     result: {
       categorizedComponents: categories.map((category) => category.result),
-      name: '',
+      name: libraryName,
     },
     warnings: joinWarningLists(categories.map((category) => category.warnings)),
   };
