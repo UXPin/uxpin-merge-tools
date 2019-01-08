@@ -28,13 +28,13 @@ export function getWebpackConfig({
     module: {
       rules: [
         {
-          loader: 'babel-loader',
+          loader: require.resolve('babel-loader'),
           options: {
             plugins: [
-              '@babel/plugin-proposal-class-properties',
+              require.resolve('@babel/plugin-proposal-class-properties'),
             ],
             presets: [
-              ['@babel/react', {
+              [require.resolve('@babel/preset-react'), {
                 pragma: '__uxpinParsePreset',
               }],
             ],
@@ -42,7 +42,7 @@ export function getWebpackConfig({
           test: /\.jsx?$/,
         },
         {
-          loader: 'ignore-loader',
+          loader: require.resolve('ignore-loader'),
           test: /\.css$/,
         },
       ],

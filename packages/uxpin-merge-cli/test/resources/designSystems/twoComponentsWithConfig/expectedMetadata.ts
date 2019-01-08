@@ -11,26 +11,24 @@ export const expectedAvatarMetadata:ComponentDefinition = {
       path: 'src/components/Avatar/Avatar.tsx',
     },
     presets: [
-      // @todo uncomment when tsx presets are supported
-      // { path: 'src/components/Avatar/presets/0-default.json' },
+      { path: 'src/components/Avatar/presets/0-default.jsx' },
     ],
   },
   name: 'Avatar',
   presets: [
-    // @todo uncomment when tsx presets are supported
-    // {
-    //   elements: {
-    //     ['1']: {
-    //       name: 'Avatar',
-    //       props: {
-    //         imageUrl: 'https://picsum.photos/100/100?image=1027',
-    //         size: 'small',
-    //       },
-    //     },
-    //   },
-    //   name: 'default',
-    //   rootId: '1',
-    // },
+    {
+      elements: {
+        ['1']: {
+          name: 'Avatar',
+          props: {
+            imageUrl: 'https://picsum.photos/100/100?image=1027',
+            size: 'small',
+          },
+        },
+      },
+      name: 'default',
+      rootId: '1',
+    },
   ],
   properties: [
     {
@@ -64,26 +62,24 @@ export const expectedButtonMetadata:ComponentDefinition = {
       path: 'src/components/Button/Button.tsx',
     },
     presets: [
-      // @todo uncomment when tsx presets are supported
-      // { path: 'src/components/Button/presets/0-default.json' },
+      { path: 'src/components/Button/presets/0-default.jsx' },
     ],
   },
   name: 'Button',
   presets: [
-    // @todo uncomment when tsx presets are supported
-    // {
-    //   elements: {
-    //     ['1']: {
-    //       name: 'Button',
-    //       props: {
-    //         children: 'Click me',
-    //         isPrimary: true,
-    //       },
-    //     },
-    //   },
-    //   name: 'default',
-    //   rootId: '1',
-    // },
+    {
+      elements: {
+        ['1']: {
+          name: 'Button',
+          props: {
+            children: 'Click me',
+            isPrimary: true,
+          },
+        },
+      },
+      name: 'default',
+      rootId: '1',
+    },
   ],
   properties: [
     {

@@ -85,7 +85,7 @@ Object {
                 },
                 "presets": Array [
                   Object {
-                    "path": "src/components/Button/presets/0-default.json",
+                    "path": "src/components/Button/presets/0-default.jsx",
                   },
                 ],
               },
@@ -123,7 +123,7 @@ Object {
                 },
                 "presets": Array [
                   Object {
-                    "path": "src/components/Avatar/presets/0-default.json",
+                    "path": "src/components/Avatar/presets/0-default.jsx",
                   },
                 ],
               },
@@ -161,7 +161,7 @@ Object {
             },
           },
           "presets": Object {
-            "a7b05955-128e-5570-9968-26fa6d8f8705": Object {
+            "02943eee-ab9a-57c6-adf8-d5c4978cd0b1": Object {
               "componentRevisionId": "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762_f2dff102-3d25-5174-b733-12c4e58fdd5d",
               "elements": Object {
                 "1": Object {
@@ -173,11 +173,11 @@ Object {
                 },
               },
               "name": "default",
-              "presetId": "a7b05955-128e-5570-9968-26fa6d8f8705",
+              "presetId": "02943eee-ab9a-57c6-adf8-d5c4978cd0b1",
               "rootId": "1",
               "sortIndex": 0,
             },
-            "c383bd8a-caf4-5f90-a6b1-3471c355fc43": Object {
+            "364b2288-4144-5962-8ad2-7c5ebc0ab2ae": Object {
               "componentRevisionId": "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762_ba14886c-2674-52a3-a147-7b88e725e4ee",
               "elements": Object {
                 "1": Object {
@@ -189,7 +189,7 @@ Object {
                 },
               },
               "name": "default",
-              "presetId": "c383bd8a-caf4-5f90-a6b1-3471c355fc43",
+              "presetId": "364b2288-4144-5962-8ad2-7c5ebc0ab2ae",
               "rootId": "1",
               "sortIndex": 0,
             },

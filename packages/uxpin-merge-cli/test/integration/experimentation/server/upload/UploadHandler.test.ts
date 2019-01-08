@@ -9,6 +9,9 @@ import { UPLOAD_DIR_NAME } from '../../../../../src/steps/experimentation/server
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../../utils/file/getFileChecksum';
 
+const TIMEOUT:number = 120000;
+jest.setTimeout(TIMEOUT);
+
 describe('UploadHandler', () => {
 
   const { request, getWorkingDir } = setupExperimentationServerTest();
