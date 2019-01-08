@@ -1,3 +1,5 @@
+import { MovedFilePathsMap } from '../steps/serialization/DesignSystemSnapshot';
+
 export interface CommitMetadata {
   author:string;
   date:string;
@@ -13,6 +15,7 @@ export interface RepositoryPointer {
 export interface RepositoryAdapter {
   getCurrentBranch():Promise<string>;
   getLatestCommit():Promise<CommitMetadata>;
+  getMovedFiles(r1:string, r2:string):Promise<MovedFilePathsMap>;
   getRepositoryPointer():Promise<RepositoryPointer>;
 }
 

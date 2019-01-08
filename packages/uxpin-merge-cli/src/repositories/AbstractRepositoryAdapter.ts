@@ -1,3 +1,4 @@
+import { MovedFilePathsMap } from '../steps/serialization/DesignSystemSnapshot';
 import { CommitMetadata, RepositoryAdapter, RepositoryPointer } from './RepositoryAdapter';
 
 // tslint:disable prefer-function-over-method
@@ -10,6 +11,10 @@ export abstract class AbstractRepositoryAdapter implements RepositoryAdapter {
   }
 
   public getCurrentBranch():Promise<string> {
+    throw new Error('Not implemented');
+  }
+
+  public getMovedFiles(r1:string, r2:string):Promise<MovedFilePathsMap> {
     throw new Error('Not implemented');
   }
 

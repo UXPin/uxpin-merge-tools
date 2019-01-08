@@ -51,3 +51,18 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& git config user.name test \
 	&& git config user.email test@test.dev \
 	&& git commit -m "Initial commit"
+
+
+../../test/resources/repos/git-repo-rename:
+	cd ../../test/resources/repos \
+	&& mkdir git-repo-rename \
+	&& cd git-repo-rename \
+	&& touch Component.js \
+	&& git init \
+	&& git add . \
+	&& git config user.name test \
+	&& git config user.email test@test.dev \
+	&& git commit -m "Initial commit" \
+	&& mv Component.js RenamedComponent.js \
+	&& git add . \
+	&& git commit -m "Renamed Component"

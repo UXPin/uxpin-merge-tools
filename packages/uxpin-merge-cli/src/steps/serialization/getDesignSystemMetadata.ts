@@ -1,9 +1,5 @@
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
-import { getRepositoryAdapter } from '../../repositories/getRepositoryAdapter';
-import { RepositoryAdapter, RepositoryPointer } from '../../repositories/RepositoryAdapter';
-import { getApiDomain } from '../../services/UXPin/getApiDomain';
-import { getLatestCommitHash } from '../../services/UXPin/getLatestCommitHash';
 import { BuildOptions } from '../building/BuildOptions';
 import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
 import { getComponentCategoryInfos } from '../discovery/component/category/getComponentCategoryInfos';
@@ -18,6 +14,7 @@ import { getComponentMetadata } from './component/implementation/getComponentMet
 import { PresetsSerializationResult } from './component/presets/PresetsSerializationResult';
 import { serializePresets } from './component/presets/serializePresets';
 import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
+import { getVscDetails } from './vcs/getVcsDetails';
 
 export async function getDesignSystemMetadata(
   paths:ProjectPaths,
@@ -25,43 +22,21 @@ export async function getDesignSystemMetadata(
 ):Promise<Warned<DesignSystemSnapshot>> {
   const categoryInfos:ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
   const libraryName:string = getLibraryName(paths);
-  const vcs:VCSDetails = await getVscDetails(paths, buildOptions);
 
   return Promise.all(categoryInfos.map(categoryInfoToCategoryMetadata))
-    .then((categories) => {
+    .then(async (categories) => {
+      const categorizedComponents:ComponentCategory[] = categories.map((category) => category.result);
+      const vcs:VCSDetails = await getVscDetails(paths, buildOptions, categorizedComponents);
+
       return {
         result: {
-          categorizedComponents: categories.map((category) => category.result),
+          categorizedComponents,
           name: libraryName,
           vcs,
         },
         warnings: joinWarningLists(categories.map((category) => category.warnings)),
       };
     });
-}
-
-async function getVscDetails(paths:ProjectPaths, buildOptions:BuildOptions):Promise<VCSDetails> {
-  const repositoryAdapter:RepositoryAdapter = await getRepositoryAdapter(paths.projectRoot);
-  const repositoryPointer:RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
-  const latestCommitHash:string|null = await getLatestCommitHash(
-    getApiDomain(buildOptions.uxpinDomain!),
-    repositoryPointer.branchName,
-    buildOptions.token!,
-  );
-
-  const vcs:VCSDetails = {
-    branchName: repositoryPointer.branchName,
-    commitHash: repositoryPointer.commit.hash,
-  };
-
-  if (latestCommitHash) {
-    vcs.movedObjects = {
-      components: {},
-      diffSourceCommitHash: latestCommitHash,
-    };
-  }
-
-  return vcs;
 }
 
 function categoryInfoToCategoryMetadata(info:ComponentCategoryInfo):Promise<Warned<ComponentCategory>> {
