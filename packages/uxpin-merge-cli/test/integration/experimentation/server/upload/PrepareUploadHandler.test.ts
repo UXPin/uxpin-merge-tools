@@ -14,6 +14,9 @@ import { UploadItemMetadata } from '../../../../../src/steps/experimentation/ser
 import { getRandomPortNumber } from '../../../../utils/e2e/server/getRandomPortNumber';
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 
+const TIMEOUT:number = 120000;
+jest.setTimeout(TIMEOUT);
+
 describe('Experimentation server – handling upload preparation', () => {
 
   const port:number = getRandomPortNumber();
