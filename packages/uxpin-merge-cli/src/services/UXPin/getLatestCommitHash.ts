@@ -1,4 +1,4 @@
-import * as fetch from 'isomorphic-fetch';
+import fetch from 'cross-fetch';
 import { parseJson } from '../../utils/fetch/parseJson';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';

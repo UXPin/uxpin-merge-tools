@@ -1,10 +1,10 @@
-import * as fetch from 'isomorphic-fetch';
+import fetch from 'cross-fetch';
 import { DSMetadata } from '../../program/DSMeta';
 import { parseJson } from '../../utils/fetch/parseJson';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
-interface PushMetadataResponse {
+export interface PushMetadataResponse {
   message:string;
 }
 
