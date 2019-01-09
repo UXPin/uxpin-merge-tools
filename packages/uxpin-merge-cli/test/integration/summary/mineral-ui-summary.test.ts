@@ -12,7 +12,10 @@ describe('summary command integration', () => {
       // when
       const output:string = await runUXPinMergeCommand({
         cwd: 'resources/repos/mineral-ui',
-        params: [Command.SUMMARY],
+        params: [
+          Command.SUMMARY,
+          '--webpack-config "./webpack.config.js"',
+        ],
       });
 
       // then
@@ -22,82 +25,82 @@ describe('summary command integration', () => {
     Avatar
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Button
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     ButtonGroup
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Dropdown
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Link
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Pagination
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Popover
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Select
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Table
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Text
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     TextArea
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     TextInput
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Tooltip
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Checkbox
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     CheckboxGroup
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     FormField
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     FormFieldDivider
         📜 documentation: ✘
@@ -107,12 +110,12 @@ describe('summary command integration', () => {
     FormFieldset
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Menu
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     MenuDivider
         📜 documentation: ✘
@@ -122,49 +125,49 @@ describe('summary command integration', () => {
     MenuGroup
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     MenuItem
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Radio
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     RadioGroup
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Tab
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Tabs
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
 Card
 
     Card
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     CardActions
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     CardBlock
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     CardDivider
         📜 documentation: ✘
@@ -174,27 +177,27 @@ Card
     CardFooter
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     CardImage
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     CardStatus
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     CardTitle
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     CardTitleMenu
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
 Icons
 
@@ -293,32 +296,32 @@ Layout
     Box
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     StartEnd
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Flex
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     FlexItem
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Grid
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     GridItem
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 `);
     });
   });

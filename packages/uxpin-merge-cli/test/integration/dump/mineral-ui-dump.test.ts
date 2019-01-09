@@ -13,7 +13,10 @@ describe('The dump command', () => {
       // when
       const output:string = await runUXPinMergeCommand({
         cwd: 'resources/repos/mineral-ui',
-        params: [Command.DUMP],
+        params: [
+          Command.DUMP,
+          '--webpack-config "./webpack.config.js"',
+        ],
       });
 
       // then

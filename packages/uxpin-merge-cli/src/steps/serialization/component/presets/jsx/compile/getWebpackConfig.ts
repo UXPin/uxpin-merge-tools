@@ -35,6 +35,7 @@ export function getWebpackConfig({
               require.resolve('@babel/plugin-proposal-class-properties'),
             ],
             presets: [
+              require.resolve('@babel/preset-flow'),
               [require.resolve('@babel/preset-react'), {
                 pragma: '__uxpinParsePreset',
               }],
