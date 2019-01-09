@@ -1,12 +1,15 @@
 import { Stats } from 'webpack';
 
 export function formatWebpackErrorMessages(stats:Stats):string {
-  const errors:any = stats.toJson({ errors: true });
-  return errors.errors
-    .filter(withoutModuleBuildFailed)
-    .join('\n');
-}
-
-function withoutModuleBuildFailed(error:string):boolean {
-  return error.indexOf('Module build failed') === -1;
+  return stats.toString({
+    assets: false,
+    chunkModules: false,
+    colors: true,
+    entrypoints: false,
+    errors: true,
+    hash: false,
+    modules: false,
+    timings: false,
+    version: false,
+  });
 }
