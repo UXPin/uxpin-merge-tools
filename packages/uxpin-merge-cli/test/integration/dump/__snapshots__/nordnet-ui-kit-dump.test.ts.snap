@@ -2,7 +2,7 @@
 
 exports[`The dump command run for the nordnet-ui-kit repository prints the JSON describing the full repository 1`] = `
 "
-You are using @uxpin/merge-cli version: 0.0.19
+You are using @uxpin/merge-cli version: 0.0.20
 
 {
   \\"categorizedComponents\\": [
