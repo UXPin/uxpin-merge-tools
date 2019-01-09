@@ -22,67 +22,82 @@ describe('summary command integration', () => {
     Avatar
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     Button
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✔
+        🎛  presets: ✘
+
+    ButtonGroup
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
 
     Dropdown
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     Link
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✔
+        🎛  presets: ✘
+
+    Pagination
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
 
     Popover
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     Select
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
+
+    Table
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
 
     Text
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     TextArea
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     TextInput
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     Tooltip
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     Checkbox
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     CheckboxGroup
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     FormField
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     FormFieldDivider
         📜 documentation: ✘
@@ -92,12 +107,12 @@ describe('summary command integration', () => {
     FormFieldset
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     Menu
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     MenuDivider
         📜 documentation: ✘
@@ -107,39 +122,49 @@ describe('summary command integration', () => {
     MenuGroup
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     MenuItem
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     Radio
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     RadioGroup
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
+
+    Tab
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    Tabs
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
 
 Card
 
     Card
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     CardActions
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     CardBlock
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     CardDivider
         📜 documentation: ✘
@@ -149,27 +174,27 @@ Card
     CardFooter
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     CardImage
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     CardStatus
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     CardTitle
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     CardTitleMenu
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
 Icons
 
@@ -194,6 +219,21 @@ Icons
         🎛  presets: ✘
 
     IconCheckBoxIndeterminate
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconChevronLeft
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconChevronRight
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconClose
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✘
@@ -253,32 +293,32 @@ Layout
     Box
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     StartEnd
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     Flex
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     FlexItem
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     Grid
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 
     GridItem
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✔
+        🎛  presets: ✘
 `);
     });
   });
