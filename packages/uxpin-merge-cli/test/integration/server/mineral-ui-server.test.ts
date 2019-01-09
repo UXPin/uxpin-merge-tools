@@ -4,7 +4,7 @@ import { getComponentByName } from '../../utils/dom/getComponentByName';
 import { waitForComponent } from '../../utils/e2e/chromeless/waitForComponent';
 import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 
-const CURRENT_TIMEOUT:number = 300000;
+const CURRENT_TIMEOUT:number = 600000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('server run in mineral-ui', () => {
