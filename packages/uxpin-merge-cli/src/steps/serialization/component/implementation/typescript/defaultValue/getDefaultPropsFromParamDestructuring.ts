@@ -1,12 +1,12 @@
 import * as ts from 'typescript';
-import { DefaultProps } from '../component/getPropsTypeAndDefaultProps';
+import { DefaultProps, FunctionalComponentDeclaration } from '../component/getPropsTypeAndDefaultProps';
 import { getNodeName } from '../node/getNodeName';
 import { TSSerializationContext } from '../serializeTSComponent';
 import { getDefaultPropertyValue, SupportedDefaultValue } from './getDefaultPropertyValue';
 
 export function getDefaultPropsFromParamDestructuring(
   context:TSSerializationContext,
-  func:ts.FunctionDeclaration,
+  func:FunctionalComponentDeclaration,
 ):DefaultProps {
   if (!func.parameters || !func.parameters[0] || !ts.isObjectBindingPattern(func.parameters[0].name)) {
     return {};

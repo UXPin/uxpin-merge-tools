@@ -453,29 +453,18 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    it('serializes arrow function component with defaults declared in destructuring assignment', () => {
+    it('serializes default-exported arrow function with defaults declared in destructuring assignment', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ArrowFunctionWithDefaultsInDestructuring');
+      const component:ComponentImplementationInfo =
+        getImplementation('DefaultExportedArrowFunctionWithDefaultsInDestructuring');
       const expectedProps:ComponentMetadata = {
-        name: 'ArrowFunctionWithDefaultsInDestructuring',
+        name: 'DefaultExportedArrowFunctionWithDefaultsInDestructuring',
         properties: [
           {
             description: '',
             isRequired: false,
             name: 'children',
-            type: { name: 'string', structure: {} },
-          },
-          {
-            description: '',
-            isRequired: true,
-            name: 'id',
-            type: { name: 'string', structure: {} },
-          },
-          {
-            description: '',
-            isRequired: true,
-            name: 'appearance',
-            type: { name: 'string', structure: {} },
+            type: { name: 'node', structure: {} },
           },
           {
             defaultValue: { value: 'neutral' },
@@ -487,7 +476,7 @@ describe('serializeTSComponent', () => {
           {
             defaultValue: { value: false },
             description: '',
-            isRequired: false,
+            isRequired: true,
             name: 'hidden',
             type: { name: 'boolean', structure: {} },
           },

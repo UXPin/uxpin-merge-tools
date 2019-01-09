@@ -2,8 +2,6 @@ import * as React from 'react';
 
 export interface Props {
   children?:React.ReactNode;
-  id:string;
-  appearance:string;
   modifier?:string;
   hidden:boolean;
 }
@@ -14,21 +12,16 @@ function labelID(id:string):string {
 
 const DEFAULT_MODIFIER:string = 'neutral';
 
-const ArrowFunctionWithDefaultsInDestructuring:React.StatelessComponent<Props> = ({
+export default ({
   children,
-  id,
-  appearance,
   modifier = DEFAULT_MODIFIER,
   hidden = false,
-}) => {
+}:Props) => {
   return (
     <div>
-      <button id={labelID(id)}
-              className={`${(hidden ? 'hidden' : '')} ${appearance} ${modifier}`}>
+      <button className={`${(hidden ? 'hidden' : '')} ${modifier}`}>
         {children}
       </button>
     </div>
   );
 };
-
-export default ArrowFunctionWithDefaultsInDestructuring;
