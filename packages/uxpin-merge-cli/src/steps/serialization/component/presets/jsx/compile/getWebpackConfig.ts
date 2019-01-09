@@ -30,6 +30,7 @@ export function getWebpackConfig({
         {
           loader: require.resolve('babel-loader'),
           options: {
+            babelrc: false,
             plugins: [
               require.resolve('@babel/plugin-proposal-class-properties'),
             ],
@@ -58,6 +59,16 @@ export function getWebpackConfig({
     },
     resolve: {
       extensions: ['.js', '.jsx'],
+      modules: [
+        'node_modules',
+        resolve('../../../../../../../node_modules'),
+      ],
+    },
+    resolveLoader: {
+      modules: [
+        'node_modules',
+        resolve('../../../../../../../node_modules'),
+      ],
     },
   };
 
