@@ -7631,6 +7631,46 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
               },
               \\"name\\": \\"default\\",
               \\"rootId\\": \\"77XCO8EASMVIM7H8KF7OY57YU0Q90EMH\\"
+            },
+            {
+              \\"elements\\": {
+                \\"2SUHVXZXHDX8S8BBQMFAWXQ6SZPKPCCM\\": {
+                  \\"name\\": \\"Button\\",
+                  \\"props\\": {
+                    \\"children\\": \\"Primary action\\",
+                    \\"primary\\": true
+                  }
+                },
+                \\"77XCO8EASMVIM7H8KF7OY57YU0Q90EMH\\": {
+                  \\"name\\": \\"CardActions\\",
+                  \\"props\\": {
+                    \\"children\\": [
+                      {
+                        \\"uxpinPresetElementId\\": \\"9XI3KDGOF0H05837DAG2M9EUUUQIMAO3\\"
+                      },
+                      {
+                        \\"uxpinPresetElementId\\": \\"2SUHVXZXHDX8S8BBQMFAWXQ6SZPKPCCM\\"
+                      },
+                      {
+                        \\"uxpinPresetElementId\\": \\"9G1JWCM5J271V0D9A6Z5M2A4EY58UUSC\\"
+                      }
+                    ]
+                  }
+                },
+                \\"9G1JWCM5J271V0D9A6Z5M2A4EY58UUSC\\": {
+                  \\"name\\": \\"IconCloud\\",
+                  \\"props\\": {}
+                },
+                \\"9XI3KDGOF0H05837DAG2M9EUUUQIMAO3\\": {
+                  \\"name\\": \\"Button\\",
+                  \\"props\\": {
+                    \\"children\\": \\"Secondary action\\",
+                    \\"minimal\\": true
+                  }
+                }
+              },
+              \\"name\\": \\"with-icon\\",
+              \\"rootId\\": \\"77XCO8EASMVIM7H8KF7OY57YU0Q90EMH\\"
             }
           ],
           \\"properties\\": [
