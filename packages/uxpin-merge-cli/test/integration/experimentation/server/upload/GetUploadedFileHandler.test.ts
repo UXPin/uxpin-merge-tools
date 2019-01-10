@@ -11,6 +11,10 @@ import {
 import { UploadItemMetadata } from '../../../../../src/steps/experimentation/server/handler/upload/UploadItemMetadata';
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 import { getBufferChecksum, getFileChecksum } from '../../../../utils/file/getFileChecksum';
+import { setTimeoutBeforeAll } from '../../../../utils/command/setTimeoutBeforeAll';
+
+const CURRENT_TIMEOUT:number = 10000;
+setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('GetUploadedFileHandler', () => {
 
