@@ -26,7 +26,7 @@ describe('server run in mineral-ui', () => {
     };
 
     const getComponentDetails:() => typeof expectedDetails = () => {
-      const dangerItemContentSelector:string = '#dropdown-1-item-2 > span > span > span:first-child';
+      const dangerItemContentSelector:string = '#dropdown-1-item-4 > span > span > span:first-child';
       const dropdownContentItem:HTMLElement = document.querySelector(dangerItemContentSelector) as HTMLElement;
       const dropdownItemStyles:CSSStyleDeclaration = getComputedStyle(dropdownContentItem);
       const itemContents:string = dropdownContentItem.innerText as string;
