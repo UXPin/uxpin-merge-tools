@@ -2,7 +2,7 @@ import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT:number = 60000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
