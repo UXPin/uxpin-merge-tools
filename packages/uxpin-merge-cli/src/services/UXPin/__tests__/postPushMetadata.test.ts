@@ -11,7 +11,7 @@ describe('postPushMetadata', () => {
       vcs: {
         branchName: 'master',
         commitHash: '123abc',
-      }
+      },
     },
     warnings: [],
   };
@@ -74,9 +74,9 @@ describe('postPushMetadata', () => {
       fetchMock.mockResponseOnce(() => {
         return Promise.resolve({
           body: JSON.stringify({
-            statusCode: 401,
             error: 'Unauthorized',
             message: 'Incorrect authorization token',
+            statusCode: 401,
           }),
           init: {
             status: 401,

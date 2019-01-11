@@ -1,3 +1,4 @@
+// tslint:disable-next-line:import-name
 import fetch from 'cross-fetch';
 import { DSMetadata } from '../../program/DSMeta';
 import { parseJson } from '../../utils/fetch/parseJson';

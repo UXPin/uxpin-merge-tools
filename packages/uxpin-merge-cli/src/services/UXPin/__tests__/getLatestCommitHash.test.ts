@@ -62,9 +62,9 @@ describe('getLatestCommitHash', () => {
       fetchMock.mockResponseOnce(() => {
         return Promise.resolve({
           body: JSON.stringify({
-            statusCode: 401,
             error: 'Unauthorized',
             message: 'Incorrect authorization token',
+            statusCode: 401,
           }),
           init: {
             status: 401,
@@ -96,7 +96,7 @@ describe('getLatestCommitHash', () => {
 
     it('should return null on empty content', async () => {
       // when
-      const commitHash = await getLatestCommitHash(domain, branch, token);
+      const commitHash:string|null = await getLatestCommitHash(domain, branch, token);
 
       // then
       expect(commitHash).toEqual(null);

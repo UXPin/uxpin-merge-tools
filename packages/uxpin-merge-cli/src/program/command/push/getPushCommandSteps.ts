@@ -5,6 +5,7 @@ import { thunkBuildComponentsLibrary } from '../../utils/thunkBuildComponentsLib
 import { Step } from '../Step';
 import { getBuildOptions } from './getBuildOptions';
 import { pushMetadata } from './steps/pushMetadata';
+import { uploadBundle } from './steps/uploadBundle';
 
 export function getPushCommandSteps(args:PushProgramArgs):Step[] {
   const buildOptions:BuildOptions = getBuildOptions(args);
@@ -13,5 +14,6 @@ export function getPushCommandSteps(args:PushProgramArgs):Step[] {
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
     { exec: printSerializationWarnings, shouldRun: true },
     { exec: pushMetadata(buildOptions), shouldRun: true },
+    { exec: uploadBundle(buildOptions), shouldRun: true },
   ];
 }
