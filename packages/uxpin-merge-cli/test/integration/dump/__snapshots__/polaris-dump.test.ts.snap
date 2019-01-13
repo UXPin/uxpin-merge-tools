@@ -36,9 +36,28 @@ Object {
               "isRequired": false,
               "name": "size",
               "type": Object {
-                "name": "unsupported",
+                "name": "union",
                 "structure": Object {
-                  "raw": "export type Size = 'small' | 'medium' | 'large' ;",
+                  "values": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "small",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "medium",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "large",
+                      },
+                    },
+                  ],
                 },
               },
             },
@@ -162,11 +181,24 @@ Object {
               "isRequired": false,
               "name": "size",
               "type": Object {
-                "name": "unsupported",
-                "structure": Object {
-                  "raw": "export type Size = 'slim' | 'large';",
-                },
-              },
+	            "name": "union",
+	            "structure": Object {
+	              "values": Array [
+	                Object {
+	                  "name": "literal",
+	                  "structure": Object {
+	                    "value": "slim",
+	                  },
+	                },
+	                Object {
+	                  "name": "literal",
+	                  "structure": Object {
+	                    "value": "large",
+	                  },
+	                },
+	              ],
+	            },
+	          },
             },
             Object {
               "description": "",

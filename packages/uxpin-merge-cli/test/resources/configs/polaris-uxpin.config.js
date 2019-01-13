@@ -6,23 +6,23 @@ module.exports = {
         include: [
           // 'src/components/AccountConnection/AccountConnection.tsx',
           // 'src/components/ActionList/ActionList.tsx',
-          'src/components/Avatar/Avatar.tsx', // functional, defaults in destructuring
+          'src/components/Avatar/Avatar.tsx', // export default, functional, defaults in destructuring
           // 'src/components/Badge/Badge.tsx',
           // 'src/components/Banner/Banner.tsx',
           // 'src/components/Breadcrumbs/Breadcrumbs.tsx',
-          'src/components/Button/Button.tsx', // functional, callback props
+          'src/components/Button/Button.tsx', // export default, functional, callback props, index type in props
           // 'src/components/ButtonGroup/ButtonGroup.tsx',
           // 'src/components/CalloutCard/CalloutCard.tsx',
           // 'src/components/Caption/Caption.tsx',
-          'src/components/Card/Card.tsx', // class, pure component
+          'src/components/Card/Card.tsx', // export default, class, pure component
           // 'src/components/Checkbox/Checkbox.tsx',
-          'src/components/Choice/Choice.tsx', // functional, non-children ReactNode property
+          'src/components/Choice/Choice.tsx', // export default, functional, non-children ReactNode property
           // 'src/components/ChoiceList/ChoiceList.tsx',
-          'src/components/Collapsible/Collapsible.tsx', // class, classic, stateful component
+          'src/components/Collapsible/Collapsible.tsx', // export default, class, classic, stateful component
           // 'src/components/ColorPicker/ColorPicker.tsx',
           // 'src/components/Connected/Connected.tsx',
           // 'src/components/DatePicker/DatePicker.tsx',
-          'src/components/DescriptionList/DescriptionList.tsx', // functional, ReactNode value in data structure
+          'src/components/DescriptionList/DescriptionList.tsx', // export default, functional, ReactNode value in data structure
           // 'src/components/DisplayText/DisplayText.tsx',
           // 'src/components/EmptyState/EmptyState.tsx',
           // 'src/components/FooterHelp/FooterHelp.tsx',
