@@ -1,4 +1,4 @@
-import { reduce } from 'lodash';
+import { flatMap } from 'lodash';
 import { relative } from 'path';
 import { ComponentCategoryInfo } from '../../../../../discovery/component/category/ComponentCategoryInfo';
 import { ComponentInfo, ComponentPresetInfo } from '../../../../../discovery/component/ComponentInfo';
@@ -31,13 +31,6 @@ function getExport({ path }:ComponentPresetInfo):string {
 }
 
 function flattenComponentPresetInfos(categoryInfos:ComponentCategoryInfo[]):ComponentPresetInfo[] {
-  return reduce<ComponentCategoryInfo, ComponentPresetInfo[]>(categoryInfos, (flattenInfos, categoryInfo) => {
-    flattenInfos.push(...reduce<ComponentInfo, ComponentPresetInfo[]>(categoryInfo.componentInfos, (infos, info) => {
-      if (info.presets) {
-        infos.push(...info.presets);
-      }
-      return infos;
-    }, []));
-    return flattenInfos;
-  }, []);
+  const componentInfos:ComponentInfo[] = flatMap(categoryInfos, (category) => category.componentInfos);
+  return flatMap(componentInfos, (info) => (info.presets || []));
 }
