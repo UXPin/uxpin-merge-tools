@@ -8,7 +8,7 @@ import { ComponentCategoryInfo } from '../../../../../discovery/component/catego
 import { createBundleSource } from '../bundle/createBundleSource';
 import { getWebpackConfig } from './getWebpackConfig';
 
-export async function compile(programArgs:ProgramArgs, infos:ComponentCategoryInfo[]):Promise<string> {
+export async function compilePresets(programArgs:ProgramArgs, infos:ComponentCategoryInfo[]):Promise<string> {
   const sourcePath:string = await createBundleSource(programArgs, infos);
   const bundlePath:string = await compileWithWebpack(programArgs, sourcePath);
   await unlink(sourcePath);
