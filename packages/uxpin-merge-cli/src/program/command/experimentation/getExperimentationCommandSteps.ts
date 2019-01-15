@@ -5,12 +5,14 @@ import { experimentationCreateEpidStep } from './steps/experimentationCreateEpid
 import { experimentationOpenBrowserStep } from './steps/experimentationOpenBrowserStep';
 import { experimentationPrepareMetadataStep } from './steps/experimentationPrepareMetadataStep';
 import { experimentationRunServerStep } from './steps/experimentationRunServerStep';
+import { experimentationRunNgrok } from './steps/experimentationRunNgrok';
 
 export function getExperimentationCommandSteps(args:ExperimentProgramArgs):Step[] {
   return [
     experimentationBuildLibraryStep(args),
     experimentationCreateEpidStep(args),
     experimentationPrepareMetadataStep(args),
+    experimentationRunNgrok(args),
     experimentationRunServerStep(args),
     experimentationOpenBrowserStep(args),
   ];
