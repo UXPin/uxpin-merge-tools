@@ -5,7 +5,7 @@ export interface JSXSerializedElement {
 }
 
 interface ElementProps {
-  key:string;
+  uxpId:string;
   [propertyName:string]:any;
 }
 

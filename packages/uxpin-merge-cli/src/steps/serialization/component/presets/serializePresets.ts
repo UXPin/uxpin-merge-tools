@@ -29,7 +29,7 @@ function thunkSerializePreset(bundle:PresetsBundle):(info:ComponentPresetInfo) =
         result: [{
           elements: parsePresetData(presetData, {}),
           name: getPresetName(path),
-          rootId: presetData.props.key,
+          rootId: presetData.props.uxpId,
         }],
         warnings: [],
       };

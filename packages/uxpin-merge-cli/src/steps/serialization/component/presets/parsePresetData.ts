@@ -15,8 +15,8 @@ export function parsePresetData(element:AnySerializedElement, elements:ParsePres
     return elements;
   }
 
-  const { key, ...props } = element.props;
-  elements[key] = {
+  const { uxpId, ...props } = element.props;
+  elements[uxpId] = {
     name: element.name,
     props: {
       ...props,
@@ -45,8 +45,8 @@ function mapChildren(element:AnySerializedElement):MapChildrenResult {
   };
 }
 
-function getPresetElementReference({ props: { key } }:JSXSerializedElement):PresetElementReference {
-  return { uxpinPresetElementId: key };
+function getPresetElementReference({ props: { uxpId } }:JSXSerializedElement):PresetElementReference {
+  return { uxpinPresetElementId: uxpId };
 }
 
 function isJSXSerializedElement(element:AnySerializedElement):element is JSXSerializedElement {
