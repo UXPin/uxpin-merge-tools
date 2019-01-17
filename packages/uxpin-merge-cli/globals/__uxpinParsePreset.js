@@ -3,10 +3,12 @@ function __uxpinParsePreset(type, props, ...children) {
     ? type.displayName || type.name || 'Unknown'
     : type;
 
+
   return {
+    children: children,
     name: displayName,
     props: JSON.parse(JSON.stringify(props)),
-    children: children,
+    uxpinPresetElementType: 'CodeComponent',
   };
 }
 

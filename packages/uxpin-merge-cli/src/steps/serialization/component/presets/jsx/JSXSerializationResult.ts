@@ -1,12 +1,15 @@
 export interface JSXSerializedElement {
   children?:AnySerializedElement[];
   name:string;
-  props:ElementProps;
+  props:JSXSerializedElementProps;
+  uxpinPresetElementType:'CodeComponent';
 }
 
-interface ElementProps {
+export interface JSXSerializedElementProps {
   uxpId:string;
-  [propertyName:string]:any;
+  [propertyName:string]:JSXSerializedElementProp;
 }
 
 export type AnySerializedElement = JSXSerializedElement | string;
+
+export type JSXSerializedElementProp = JSXSerializedElement | any;

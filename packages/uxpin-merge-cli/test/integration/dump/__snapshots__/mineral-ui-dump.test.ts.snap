@@ -1683,17 +1683,17 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                       }
                     ],
                     \\"content\\": {
-                      \\"children\\": [
-                        \\"Light years star stuff harvesting star light citizens of distant epochs encyclopaedia galactica.\\"
-                      ],
-                      \\"name\\": \\"Text\\",
-                      \\"props\\": {
-                        \\"key\\": \\"RQDQUVHEPJVDUX2WRMM6AUOAE0VRZR8M\\"
-                      }
+                      \\"uxpinPresetElementId\\": \\"RQDQUVHEPJVDUX2WRMM6AUOAE0VRZR8M\\"
                     },
                     \\"isOpen\\": true,
                     \\"subtitle\\": \\"Subtitle\\",
                     \\"title\\": \\"Title\\"
+                  }
+                },
+                \\"RQDQUVHEPJVDUX2WRMM6AUOAE0VRZR8M\\": {
+                  \\"name\\": \\"Text\\",
+                  \\"props\\": {
+                    \\"children\\": \\"Light years star stuff harvesting star light citizens of distant epochs encyclopaedia galactica.\\"
                   }
                 },
                 \\"Y6EEY8JC96RZZ0ZJ7R3P7B80Q93WBIR3\\": {
@@ -2139,8 +2139,9 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                           \\"children\\": [],
                           \\"name\\": \\"IconCloud\\",
                           \\"props\\": {
-                            \\"key\\": \\"NP4Z1C9PJW9Z4J36NY6BUFI0JRFT1WCF\\"
-                          }
+                            \\"uxpId\\": \\"NP4Z1C9PJW9Z4J36NY6BUFI0JRFT1WCF\\"
+                          },
+                          \\"uxpinPresetElementType\\": \\"CodeComponent\\"
                         },
                         \\"text\\": \\"Icon at start\\",
                         \\"value\\": \\"iconStart\\"
@@ -2150,8 +2151,9 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                           \\"children\\": [],
                           \\"name\\": \\"IconWbSunny\\",
                           \\"props\\": {
-                            \\"key\\": \\"CEFQWE4EMYU45HRQNVJCHX3FQ6QY8JO8\\"
-                          }
+                            \\"uxpId\\": \\"CEFQWE4EMYU45HRQNVJCHX3FQ6QY8JO8\\"
+                          },
+                          \\"uxpinPresetElementType\\": \\"CodeComponent\\"
                         },
                         \\"text\\": \\"Icon at end\\",
                         \\"value\\": \\"iconEnd\\"
@@ -3504,9 +3506,11 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                   \\"name\\": \\"Text\\",
                   \\"props\\": {
                     \\"children\\": [
+                      \\"Lorem ipsum\\",
                       {
                         \\"uxpinPresetElementId\\": \\"ZRL6QZCWKOYDKMLSN1GK7I5PAAD43IM6\\"
-                      }
+                      },
+                      \\"dolor sit amet, consectetur adipiscing elit. Sed non purus id dolor maximus eleifend nec in nunc. Integer quis lacinia leo, in suscipit orci. Donec enim augue, vehicula vel enim a, vestibulum tempus nunc.\\"
                     ]
                   }
                 },
@@ -3539,9 +3543,11 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                   \\"name\\": \\"Text\\",
                   \\"props\\": {
                     \\"children\\": [
+                      \\"Lorem ipsum dolor sit amet,\\",
                       {
                         \\"uxpinPresetElementId\\": \\"5QNQV48AUD4VQKAG0PWEEF9BSKU55UAR\\"
                       },
+                      \\"adipiscing elit. Sed non purus id dolor maximus eleifend nec in nunc.\\",
                       {
                         \\"uxpinPresetElementId\\": \\"E2FHJ7T5CNDOKC408FMZNVJSH06NQB5D\\"
                       }
@@ -4511,9 +4517,11 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                   \\"name\\": \\"Text\\",
                   \\"props\\": {
                     \\"children\\": [
+                      \\"Here's some prose with a \\",
                       {
                         \\"uxpinPresetElementId\\": \\"IUR6EPRYZLA2XRUHSS2SN9BQLGV2429R\\"
-                      }
+                      },
+                      \\" in the middle of it.\\"
                     ]
                   }
                 }
@@ -5840,6 +5848,10 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                     \\"children\\": \\"Menu Item 2\\"
                   }
                 },
+                \\"CEFQWE4EMYU45HRQNVJCHX3FQ6QY8JO8\\": {
+                  \\"name\\": \\"IconWbSunny\\",
+                  \\"props\\": {}
+                },
                 \\"F85995B051CF1B9DAE5B74E20509B335\\": {
                   \\"name\\": \\"Menu\\",
                   \\"props\\": {
@@ -5861,11 +5873,7 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                   \\"props\\": {
                     \\"children\\": \\"Icon at end\\",
                     \\"iconEnd\\": {
-                      \\"children\\": [],
-                      \\"name\\": \\"IconWbSunny\\",
-                      \\"props\\": {
-                        \\"key\\": \\"CEFQWE4EMYU45HRQNVJCHX3FQ6QY8JO8\\"
-                      }
+                      \\"uxpinPresetElementId\\": \\"CEFQWE4EMYU45HRQNVJCHX3FQ6QY8JO8\\"
                     },
                     \\"secondaryText\\": \\"Secondary text\\"
                   }
@@ -5876,6 +5884,10 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                     \\"children\\": \\"Danger variant\\",
                     \\"variant\\": \\"danger\\"
                   }
+                },
+                \\"NP4Z1C9PJW9Z4J36NY6BUFI0JRFT1WCF\\": {
+                  \\"name\\": \\"IconCloud\\",
+                  \\"props\\": {}
                 },
                 \\"ZU22SAKIOQBY5WD86WWOXECG4BB83QR4\\": {
                   \\"name\\": \\"MenuGroup\\",
@@ -5902,11 +5914,7 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                   \\"props\\": {
                     \\"children\\": \\"Icon at start\\",
                     \\"iconStart\\": {
-                      \\"children\\": [],
-                      \\"name\\": \\"IconCloud\\",
-                      \\"props\\": {
-                        \\"key\\": \\"NP4Z1C9PJW9Z4J36NY6BUFI0JRFT1WCF\\"
-                      }
+                      \\"uxpinPresetElementId\\": \\"NP4Z1C9PJW9Z4J36NY6BUFI0JRFT1WCF\\"
                     }
                   }
                 }
@@ -8149,36 +8157,37 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
             },
             {
               \\"elements\\": {
+                \\"NH4JFP2A69U6GHFL7YLIMI9EZIM72IZR\\": {
+                  \\"name\\": \\"CardTitleMenu\\",
+                  \\"props\\": {
+                    \\"data\\": [
+                      {
+                        \\"items\\": [
+                          {
+                            \\"onClick\\": \\"() => { console.log('Clicked 1') }\\",
+                            \\"text\\": \\"MenuItem 1\\"
+                          },
+                          {
+                            \\"onClick\\": \\"() => { console.log('Clicked 2') }\\",
+                            \\"text\\": \\"MenuItem 2\\"
+                          },
+                          {
+                            \\"divider\\": true
+                          },
+                          {
+                            \\"onClick\\": \\"() => { console.log('Clicked 3') }\\",
+                            \\"text\\": \\"MenuItem 3\\"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 \\"VQ0Z5S02EDHJFHP55YLJR4LFP4WBUMOK\\": {
                   \\"name\\": \\"CardTitle\\",
                   \\"props\\": {
                     \\"actions\\": {
-                      \\"children\\": [],
-                      \\"name\\": \\"CardTitleMenu\\",
-                      \\"props\\": {
-                        \\"data\\": [
-                          {
-                            \\"items\\": [
-                              {
-                                \\"onClick\\": \\"() => { console.log('Clicked 1') }\\",
-                                \\"text\\": \\"MenuItem 1\\"
-                              },
-                              {
-                                \\"onClick\\": \\"() => { console.log('Clicked 2') }\\",
-                                \\"text\\": \\"MenuItem 2\\"
-                              },
-                              {
-                                \\"divider\\": true
-                              },
-                              {
-                                \\"onClick\\": \\"() => { console.log('Clicked 3') }\\",
-                                \\"text\\": \\"MenuItem 3\\"
-                              }
-                            ]
-                          }
-                        ],
-                        \\"key\\": \\"NH4JFP2A69U6GHFL7YLIMI9EZIM72IZR\\"
-                      }
+                      \\"uxpinPresetElementId\\": \\"NH4JFP2A69U6GHFL7YLIMI9EZIM72IZR\\"
                     },
                     \\"children\\": \\"Card Title\\"
                   }
