@@ -10,8 +10,8 @@ interface Component extends Function {
 function __uxpinParsePreset(
   type:Component,
   props:JSXSerializedElementProps,
-  ...children:AnySerializedElement[],
-):JSXSerializedElement {
+  ...children:AnySerializedElement[]):JSXSerializedElement {
+
   const displayName:string = typeof type === 'function'
     ? type.displayName || type.name || 'Unknown'
     : type;
