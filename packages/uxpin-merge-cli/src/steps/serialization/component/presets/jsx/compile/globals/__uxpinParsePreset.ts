@@ -1,6 +1,10 @@
-import { isFunction, reduce } from 'lodash';
 import { WarningDetails } from '../../../../../../../common/warning/WarningDetails';
-import { AnySerializedElement, JSXSerializedElement, JSXSerializedElementProps } from '../../JSXSerializationResult';
+import {
+  AnySerializedElement,
+  JSXSerializedElement,
+  JSXSerializedElementProp,
+  JSXSerializedElementProps
+} from '../../JSXSerializationResult';
 
 interface Component extends Function {
   displayName?:string;
@@ -9,7 +13,7 @@ interface Component extends Function {
 // tslint:disable-next-line:function-name
 function __uxpinParsePreset(
   type:Component,
-  props:JSXSerializedElementProps,
+  props?:JSXSerializedElementProps,
   ...children:AnySerializedElement[]):JSXSerializedElement {
 
   const displayName:string = typeof type === 'function'
@@ -25,9 +29,14 @@ function __uxpinParsePreset(
   };
 }
 
-function getPropertySerializationWarnings(props:JSXSerializedElementProps):WarningDetails[] {
-  return reduce<JSXSerializedElementProps, WarningDetails[]>(props, (warninigs, propValue, propName) => {
-    if (isFunction(propValue)) {
+function getPropertySerializationWarnings(props:JSXSerializedElementProps|undefined):WarningDetails[] {
+  if (!props) {
+    return [];
+  }
+
+  return Object.keys(props).reduce<WarningDetails[]>((warninigs, propName) => {
+    const propValue:JSXSerializedElementProp = props[propName];
+    if (typeof propValue === 'function') {
       warninigs.push({ message: `Unsupported property \`${propName}\` of a type \`${typeof propValue}\`` });
     }
     return warninigs;
