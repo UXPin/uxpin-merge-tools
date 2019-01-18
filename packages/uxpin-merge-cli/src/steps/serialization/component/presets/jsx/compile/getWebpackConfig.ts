@@ -62,12 +62,14 @@ export function getWebpackConfig({
       extensions: ['.js', '.jsx'],
       modules: [
         'node_modules',
+        // @todo remove it after refactoring integration test structure
         resolve('../../../../../../../node_modules'),
       ],
     },
     resolveLoader: {
       modules: [
         'node_modules',
+        // @todo remove it after refactoring integration test structure
         resolve('../../../../../../../node_modules'),
       ],
     },
