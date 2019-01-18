@@ -34,12 +34,12 @@ function getPropertySerializationWarnings(props:JSXSerializedElementProps|undefi
     return [];
   }
 
-  return Object.keys(props).reduce<WarningDetails[]>((warninigs, propName) => {
+  return Object.keys(props).reduce<WarningDetails[]>((warnings, propName) => {
     const propValue:JSXSerializedElementProp = props[propName];
     if (typeof propValue === 'function') {
-      warninigs.push({ message: `Unsupported property \`${propName}\` of a type \`${typeof propValue}\`` });
+      warnings.push({ message: `Unsupported property \`${propName}\` of a type \`${typeof propValue}\`` });
     }
-    return warninigs;
+    return warnings;
   }, []);
 }
 
