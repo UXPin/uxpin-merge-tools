@@ -22,6 +22,9 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
             \\"presets\\": [
               {
                 \\"path\\": \\"src/components/Avatar/presets/0-default.jsx\\"
+              },
+              {
+                \\"path\\": \\"src/components/Avatar/presets/1-with func as property.jsx\\"
               }
             ]
           },
@@ -38,6 +41,18 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                 }
               },
               \\"name\\": \\"default\\",
+              \\"rootId\\": \\"1\\"
+            },
+            {
+              \\"elements\\": {
+                \\"1\\": {
+                  \\"name\\": \\"Avatar\\",
+                  \\"props\\": {
+                    \\"imageUrl\\": \\"https://picsum.photos/100/100?image=1027\\"
+                  }
+                }
+              },
+              \\"name\\": \\"with func as property\\",
               \\"rootId\\": \\"1\\"
             }
           ],
@@ -88,6 +103,15 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
               },
               {
                 \\"path\\": \\"src/components/ButtonWithIconAsProp/presets/1-with icon.jsx\\"
+              },
+              {
+                \\"path\\": \\"src/components/ButtonWithIconAsProp/presets/2-with mixed children.jsx\\"
+              },
+              {
+                \\"path\\": \\"src/components/ButtonWithIconAsProp/presets/3-with missing id.jsx\\"
+              },
+              {
+                \\"path\\": \\"src/components/ButtonWithIconAsProp/presets/4-with dom primitive.jsx\\"
               }
             ]
           },
@@ -127,6 +151,32 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                 }
               },
               \\"name\\": \\"with icon\\",
+              \\"rootId\\": \\"1\\"
+            },
+            {
+              \\"elements\\": {
+                \\"1\\": {
+                  \\"name\\": \\"ButtonWithIconAsProp\\",
+                  \\"props\\": {
+                    \\"children\\": [
+                      \\"Add to\\",
+                      {
+                        \\"uxpinPresetElementId\\": \\"2\\"
+                      },
+                      \\"favourites\\"
+                    ],
+                    \\"isPrimary\\": true
+                  }
+                },
+                \\"2\\": {
+                  \\"name\\": \\"IconStar\\",
+                  \\"props\\": {
+                    \\"stroke\\": \\"gray\\",
+                    \\"strokeWidth\\": 2
+                  }
+                }
+              },
+              \\"name\\": \\"with mixed children\\",
               \\"rootId\\": \\"1\\"
             }
           ],
