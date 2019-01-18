@@ -1,5 +1,7 @@
 import { getLatestCommitHash } from '../getLatestCommitHash';
 
+jest.mock('../../../utils/fetch/fetch');
+
 describe('getLatestCommitHash', () => {
   const domain:string = 'https://uxpin.mock';
   const branch:string = 'master';

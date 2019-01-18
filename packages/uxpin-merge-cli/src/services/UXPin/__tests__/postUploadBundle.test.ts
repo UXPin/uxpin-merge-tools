@@ -1,6 +1,8 @@
 import { resolve } from 'path';
 import { postUploadBundle, UploadBundleResponse } from '../postUploadBundle';
 
+jest.mock('../../../utils/fetch/fetch');
+
 describe('postUploadBundle', () => {
   const domain:string = 'https://uxpin.mock';
   const token:string = 'token';
@@ -57,11 +59,11 @@ describe('postUploadBundle', () => {
     });
   });
 
-  describe.skip('HTTP 401', () => {
+  describe('HTTP 401', () => {
     beforeEach(async () => {
       // given
       fetchMock.mockResponseOnce(() => {
-        return Promise.reject({
+        return Promise.resolve({
           body: JSON.stringify({
             error: 'Unauthorized',
             message: 'Incorrect authorization token',

@@ -1,5 +1,5 @@
-import 'cross-fetch';
 import { DSMetadata } from '../../program/DSMeta';
+import { fetch } from '../../utils/fetch/fetch';
 import { parseJson } from '../../utils/fetch/parseJson';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';

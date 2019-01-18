@@ -1,6 +1,8 @@
 import { DSMetadata } from '../../../program/DSMeta';
 import { postPushMetadata, PushMetadataResponse } from '../postPushMetadata';
 
+jest.mock('../../../utils/fetch/fetch');
+
 describe('postPushMetadata', () => {
   const domain:string = 'https://uxpin.mock';
   const token:string = 'token';
