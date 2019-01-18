@@ -21,7 +21,7 @@ export function getWebpackConfig({
 
   const config:Configuration = {
     entry: [
-      resolve(__dirname, '../../../../../../../globals/__uxpinParsePreset.js'),
+      resolve(__dirname, './globals/__uxpinParsePreset.js'),
       sourcePath,
     ],
     mode: 'development',
