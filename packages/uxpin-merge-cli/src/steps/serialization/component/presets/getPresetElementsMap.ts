@@ -1,4 +1,5 @@
 import { forEach, isArray, isEmpty, isObject, reduce } from 'lodash';
+import { Warned } from '../../../../common/warning/Warned';
 import { ComponentPresetElement, ComponentPresetElementProps, PresetElementReference } from './ComponentPreset';
 import {
   AnySerializedElement,
@@ -11,25 +12,30 @@ interface MapChildrenResult {
   children?:Array<PresetElementReference | string> | string;
 }
 
-interface PresetElementsMap {
+export interface PresetElementsMap {
   [id:string]:ComponentPresetElement;
 }
 
 type PartialProps = Pick<JSXSerializedElementProps, Exclude<keyof JSXSerializedElementProps, 'uxpId'>>;
 
-export function getPresetElementsMap(element:AnySerializedElement, elements:PresetElementsMap):PresetElementsMap {
+export function getPresetElementsMap(
+  element:AnySerializedElement,
+  elements:Warned<PresetElementsMap>,
+):Warned<PresetElementsMap> {
   if (!isJSXSerializedElement(element)) {
     return elements;
   }
 
   const { children, name, props: { uxpId, ...props } } = element;
-  elements[uxpId] = {
+  elements.result[uxpId] = {
     name,
     props: {
       ...replaceElementsWithReferencesInProps(props),
       ...replaceElementsWithReferencesInChildren(element),
     },
   };
+
+  elements.warnings.push(...element.warnings);
 
   if (isArray(children)) {
     forEach(children, (child) => getPresetElementsMap(child, elements));
@@ -66,6 +72,9 @@ function replaceElementsWithReferencesInChildren(element:AnySerializedElement):M
 
 function getPresetElementReference(child:AnySerializedElement):PresetElementReference | string {
   if (isJSXSerializedElement(child)) {
+    if (typeof child.props.uxpId === 'undefined') {
+      throw new Error('Missing `uxpId` property');
+    }
     const { props: { uxpId } } = child;
     return { uxpinPresetElementId: uxpId };
   }

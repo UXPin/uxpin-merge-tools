@@ -1,7 +1,8 @@
+import { Warned } from '../../../../common/warning/Warned';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
 import { getPresetName } from '../../../discovery/component/presets/presetFileNameParser';
-import { getPresetElementsMap } from './getPresetElementsMap';
+import { getPresetElementsMap, PresetElementsMap } from './getPresetElementsMap';
 import { getUniqPresetImportName } from './jsx/bundle/getUniqPresetImportName';
 import { PresetsBundle } from './jsx/bundle/PresetsBundle';
 import { JSXSerializedElement } from './jsx/JSXSerializationResult';
@@ -25,18 +26,26 @@ function thunkSerializePreset(bundle:PresetsBundle):(info:ComponentPresetInfo) =
   return ({ path }) => {
     try {
       const presetData:JSXSerializedElement = bundle[getUniqPresetImportName(path)];
+      const elementsMap:Warned<PresetElementsMap> = getPresetElementsMap(presetData, { result: {}, warnings: [] });
       return {
         result: [{
-          elements: getPresetElementsMap(presetData, {}),
+          elements: elementsMap.result,
           name: getPresetName(path),
           rootId: presetData.props.uxpId,
         }],
-        warnings: [],
+        warnings: decorateWithSourcePath(elementsMap.warnings, path),
       };
     } catch (error) {
       return getResultForInvalidPreset(path, error);
     }
   };
+}
+
+function decorateWithSourcePath(warnings:WarningDetails[], sourcePath:string):WarningDetails[] {
+  warnings.forEach((warning) => {
+    warning.sourcePath = sourcePath;
+  });
+  return warnings;
 }
 
 function getResultForInvalidPreset(sourcePath:string, originalError:Error):PresetsSerializationResult {

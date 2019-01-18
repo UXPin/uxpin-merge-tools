@@ -1,3 +1,5 @@
+import { isFunction, reduce } from 'lodash';
+import { WarningDetails } from '../../../../../../../common/warning/WarningDetails';
 import { AnySerializedElement, JSXSerializedElement, JSXSerializedElementProps } from '../../JSXSerializationResult';
 
 interface Component extends Function {
@@ -17,9 +19,19 @@ function __uxpinParsePreset(
   return {
     children,
     name: displayName,
-    props: JSON.parse(JSON.stringify(props)),
+    props: JSON.parse(JSON.stringify(props)) || {},
     uxpinPresetElementType: 'CodeComponent',
+    warnings: getPropertySerializationWarnings(props),
   };
+}
+
+function getPropertySerializationWarnings(props:JSXSerializedElementProps):WarningDetails[] {
+  return reduce<JSXSerializedElementProps, WarningDetails[]>(props, (warninigs, propValue, propName) => {
+    if (isFunction(propValue)) {
+      warninigs.push({ message: `Unsupported property \`${propName}\` of a type \`${typeof propValue}\`` });
+    }
+    return warninigs;
+  }, []);
 }
 
 (global as any).__uxpinParsePreset = __uxpinParsePreset;
