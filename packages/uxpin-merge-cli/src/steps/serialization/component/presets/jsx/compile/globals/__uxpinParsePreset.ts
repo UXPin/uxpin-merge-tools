@@ -3,7 +3,7 @@ import {
   AnySerializedElement,
   JSXSerializedElement,
   JSXSerializedElementProp,
-  JSXSerializedElementProps
+  JSXSerializedElementProps,
 } from '../../JSXSerializationResult';
 
 interface Component extends Function {
