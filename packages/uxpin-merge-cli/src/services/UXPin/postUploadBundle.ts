@@ -1,5 +1,4 @@
-// tslint:disable-next-line:import-name
-import fetch from 'cross-fetch';
+import 'cross-fetch';
 import * as FormData from 'form-data';
 import { createReadStream } from 'fs';
 import { parseJson } from '../../utils/fetch/parseJson';

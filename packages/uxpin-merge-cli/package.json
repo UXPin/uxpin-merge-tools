@@ -30,7 +30,7 @@
       "/node_modules/"
     ],
     "setupFiles": [
-      "./test/setup.ts"
+      "./test/setup.js"
     ],
     "testMatch": [
       "**/test/**/*.test.ts",

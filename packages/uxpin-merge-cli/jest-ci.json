@@ -1,4 +1,5 @@
 {
+  "automock": false,
   "collectCoverage": true,
   "collectCoverageFrom": [
     "src/**/*.js"
@@ -9,6 +10,9 @@
   ],
   "coverageReporters": [
     "json"
+  ],
+  "setupFiles": [
+    "./test/setup.js"
   ],
   "testMatch": [
     "**/test/**/*.test.js",
