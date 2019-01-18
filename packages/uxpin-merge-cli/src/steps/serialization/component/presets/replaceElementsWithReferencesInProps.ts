@@ -1,4 +1,4 @@
-import { reduce } from 'lodash';
+import { forEachRight, isArray, isObject, reduce } from 'lodash';
 import { ComponentPresetElementProps } from './ComponentPreset';
 import { getPresetElementReference } from './getPresetElementReference';
 import { isJSXSerializedElement } from './isJSXSerializedElement';
@@ -12,7 +12,24 @@ export function replaceElementsWithReferencesInProps(props:PartialProps):Compone
       mappedProps[propName] = getPresetElementReference(propValue);
     } else {
       mappedProps[propName] = propValue;
+      removeUnsupportedElements(propValue);
     }
     return mappedProps;
   }, {});
+}
+
+function removeUnsupportedElements(prop:ComponentPresetElementProps | any):void {
+  if (isArray(prop) || isObject(prop)) {
+    forEachRight(prop, (subProp, key) => {
+      if (isJSXSerializedElement(subProp)) {
+        if (isArray(prop)) {
+          prop.splice(key, 1);
+        } else {
+          delete prop[key];
+        }
+      } else {
+        removeUnsupportedElements(subProp);
+      }
+    });
+  }
 }

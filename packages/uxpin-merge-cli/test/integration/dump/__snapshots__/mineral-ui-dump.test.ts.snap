@@ -2135,26 +2135,10 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                         \\"divider\\": true
                       },
                       {
-                        \\"iconStart\\": {
-                          \\"children\\": [],
-                          \\"name\\": \\"IconCloud\\",
-                          \\"props\\": {
-                            \\"uxpId\\": \\"NP4Z1C9PJW9Z4J36NY6BUFI0JRFT1WCF\\"
-                          },
-                          \\"uxpinPresetElementType\\": \\"CodeComponent\\"
-                        },
                         \\"text\\": \\"Icon at start\\",
                         \\"value\\": \\"iconStart\\"
                       },
                       {
-                        \\"iconEnd\\": {
-                          \\"children\\": [],
-                          \\"name\\": \\"IconWbSunny\\",
-                          \\"props\\": {
-                            \\"uxpId\\": \\"CEFQWE4EMYU45HRQNVJCHX3FQ6QY8JO8\\"
-                          },
-                          \\"uxpinPresetElementType\\": \\"CodeComponent\\"
-                        },
                         \\"text\\": \\"Icon at end\\",
                         \\"value\\": \\"iconEnd\\"
                       }

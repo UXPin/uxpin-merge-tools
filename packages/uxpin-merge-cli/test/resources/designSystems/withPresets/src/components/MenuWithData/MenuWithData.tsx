@@ -3,6 +3,7 @@ import * as React from 'react';
 interface MenuItem {
   title:string;
   subtitle:string;
+  icon?:React.ReactNode;
 }
 
 export interface Props {
@@ -15,8 +16,8 @@ export default class MenuWithData extends React.PureComponent<Props> {
     const { data } = this.props;
     return (
       <ul>
-        {data.map(({ title, subtitle }) => (
-          <li><span>{title}</span><span>{subtitle}</span></li>
+        {data.map(({ icon, title, subtitle }) => (
+          <li><span>{icon}{title}</span><span>{subtitle}</span></li>
         ))}
       </ul>
     );

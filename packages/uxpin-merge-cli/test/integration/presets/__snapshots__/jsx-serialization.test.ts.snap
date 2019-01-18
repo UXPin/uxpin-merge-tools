@@ -227,6 +227,9 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
               },
               {
                 \\"path\\": \\"src/components/MenuWithData/presets/1-external data.jsx\\"
+              },
+              {
+                \\"path\\": \\"src/components/MenuWithData/presets/2-with icon in data object.jsx\\"
               }
             ]
           },
@@ -276,6 +279,32 @@ You are using @uxpin/merge-cli version: 1.0.0-dev.3
                 }
               },
               \\"name\\": \\"external data\\",
+              \\"rootId\\": \\"1\\"
+            },
+            {
+              \\"elements\\": {
+                \\"1\\": {
+                  \\"name\\": \\"MenuWithData\\",
+                  \\"props\\": {
+                    \\"data\\": [
+                      {
+                        \\"subtitle\\": \\"this is item 1\\",
+                        \\"title\\": \\"item 1\\"
+                      },
+                      {
+                        \\"subtitle\\": \\"this is item 2\\",
+                        \\"title\\": \\"item 2\\"
+                      },
+                      {
+                        \\"icon\\": [],
+                        \\"subtitle\\": \\"this is item 3\\",
+                        \\"title\\": \\"item 3\\"
+                      }
+                    ]
+                  }
+                }
+              },
+              \\"name\\": \\"with icon in data object\\",
               \\"rootId\\": \\"1\\"
             }
           ],

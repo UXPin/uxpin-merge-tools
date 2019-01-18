@@ -1,8 +1,7 @@
-import { Warned } from '../../../../common/warning/Warned';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
 import { getPresetName } from '../../../discovery/component/presets/presetFileNameParser';
-import { getPresetElementsMap, PresetElementsMap } from './getPresetElementsMap';
+import { getPresetElementsMap } from './getPresetElementsMap';
 import { getUniqPresetImportName } from './jsx/bundle/getUniqPresetImportName';
 import { PresetsBundle } from './jsx/bundle/PresetsBundle';
 import { JSXSerializedElement } from './jsx/JSXSerializationResult';
@@ -26,14 +25,14 @@ function thunkSerializePreset(bundle:PresetsBundle):(info:ComponentPresetInfo) =
   return ({ path }) => {
     try {
       const presetData:JSXSerializedElement = bundle[getUniqPresetImportName(path)];
-      const elementsMap:Warned<PresetElementsMap> = getPresetElementsMap(presetData, { result: {}, warnings: [] });
+      const { result: elements, warnings } = getPresetElementsMap(presetData, { result: {}, warnings: [] });
       return {
         result: [{
-          elements: elementsMap.result,
+          elements,
           name: getPresetName(path),
           rootId: presetData.props.uxpId,
         }],
-        warnings: decorateWithSourcePath(elementsMap.warnings, path),
+        warnings: decorateWithSourcePath(warnings, path),
       };
     } catch (error) {
       return getResultForInvalidPreset(path, error);
