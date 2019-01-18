@@ -1,7 +1,7 @@
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
 import { getPresetName } from '../../../discovery/component/presets/presetFileNameParser';
-import { getPresetElementsMap } from './getPresetElementsMap';
+import { collectPresetElements } from './collectPresetElements';
 import { getUniqPresetImportName } from './jsx/bundle/getUniqPresetImportName';
 import { PresetsBundle } from './jsx/bundle/PresetsBundle';
 import { JSXSerializedElement } from './jsx/JSXSerializationResult';
@@ -25,7 +25,7 @@ function thunkSerializePreset(bundle:PresetsBundle):(info:ComponentPresetInfo) =
   return ({ path }) => {
     try {
       const presetData:JSXSerializedElement = bundle[getUniqPresetImportName(path)];
-      const { result: elements, warnings } = getPresetElementsMap(presetData, { result: {}, warnings: [] });
+      const { result: elements, warnings } = collectPresetElements(presetData, { result: {}, warnings: [] });
       return {
         result: [{
           elements,

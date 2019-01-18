@@ -10,16 +10,16 @@ export interface PresetElementsMap {
   [id:string]:ComponentPresetElement;
 }
 
-export function getPresetElementsMap(
+export function collectPresetElements(
   element:AnySerializedElement,
-  elements:Warned<PresetElementsMap>,
+  elementsCollector:Warned<PresetElementsMap>,
 ):Warned<PresetElementsMap> {
   if (!isJSXSerializedElement(element)) {
-    return elements;
+    return elementsCollector;
   }
 
   const { children, name, props: { uxpId, ...props } } = element;
-  elements.result[uxpId] = {
+  elementsCollector.result[uxpId] = {
     name,
     props: {
       ...replaceElementsWithReferencesInProps(props),
@@ -27,12 +27,13 @@ export function getPresetElementsMap(
     },
   };
 
-  elements.warnings.push(...element.warnings);
+  elementsCollector.warnings.push(...element.warnings);
 
   if (isArray(children)) {
-    forEach(children, (child) => getPresetElementsMap(child, elements));
+    forEach(children, (child) => collectPresetElements(child, elementsCollector));
   }
-  forEach(props, (prop) => isJSXSerializedElement(prop) && getPresetElementsMap(prop, elements));
 
-  return elements;
+  forEach(props, (prop) => collectPresetElements(prop, elementsCollector));
+
+  return elementsCollector;
 }
