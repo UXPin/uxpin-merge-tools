@@ -6,20 +6,28 @@ import { parseJson } from '../../utils/fetch/parseJson';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
-export async function postUploadBundle(domain:string, token:string, commitHash:string, path:string):Promise<any> {
+export interface UploadBundleResponse {
+  url:string;
+}
+
+export async function postUploadBundle(
+  domain:string,
+  token:string,
+  commitHash:string,
+  path:string,
+):Promise<UploadBundleResponse|null> {
   const body:FormData = new FormData();
 
   body.append('commitHash', commitHash);
   body.append('bundle', createReadStream(path));
 
   return fetch(`${domain}/code/v/1.0/push/bundle`, {
-    body: body as unknown as ReadableStream, // TODO: figure out what's wrong with types
+    body: body as unknown as ReadableStream,
     headers: {
       ...getAuthHeaders(token),
       ...await getUserAgentHeaders(),
-      'Content-Type': 'multipart/form-data',
     },
     method: 'POST',
   })
-    .then((response:Response) => parseJson(response));
+    .then((response:Response) => parseJson<UploadBundleResponse>(response));
 }

@@ -10,7 +10,7 @@ import { StepExecutor } from '../../Step';
 export function pushMetadata(buildOptions:BuildOptions):StepExecutor {
   return async (designSystem:DSMetadata) => {
     if (isSameVersion(designSystem.result)) {
-      printLine('✅ Your library is up-to-date!', { color: PrintColor.GREEN });
+      printLine('✅ Library metadata is up-to-date!', { color: PrintColor.GREEN });
 
       return designSystem;
     }
