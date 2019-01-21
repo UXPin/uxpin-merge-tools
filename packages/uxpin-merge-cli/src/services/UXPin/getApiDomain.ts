@@ -1,6 +1,3 @@
-const PROTOCOL:string = 'https';
-const SUBDOMAIN:string = 'api';
-
-export function getApiDomain(mergeDomain:string):string {
-  return `${PROTOCOL}://${SUBDOMAIN}.${mergeDomain}`;
+export function getApiDomain(apiDomain:string, protocol:string = 'https'):string {
+  return `${protocol}://${apiDomain}`;
 }

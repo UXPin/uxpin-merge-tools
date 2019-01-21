@@ -3,6 +3,7 @@ export interface BuildOptions {
   projectRoot:string;
   token?:string;
   uxpinDirPath:string;
+  uxpinApiDomain?:string;
   uxpinDomain?:string;
   webpackConfigPath?:string;
   wrapperPath?:string;

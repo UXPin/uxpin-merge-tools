@@ -9,6 +9,18 @@ describe('getApiDomain', () => {
     const apiDomain:string = getApiDomain(domain);
 
     // then
-    expect(apiDomain).toEqual('https://api.uxpin.com');
+    expect(apiDomain).toEqual('https://uxpin.com');
+  });
+
+  it('should be able to specify protocol', () => {
+    // given
+    const domain:string = 'uxpin.com';
+    const protocol:string = 'http';
+
+    // when
+    const apiDomain:string = getApiDomain(domain, protocol);
+
+    // then
+    expect(apiDomain).toEqual('http://uxpin.com');
   });
 });

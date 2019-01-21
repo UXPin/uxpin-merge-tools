@@ -13,6 +13,7 @@ program
   .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
   .option('--port <number>', 'port number on which the local server will listen. Default: 8877')
   .option('--uxpin-domain <domain>', 'Can be used to set a UXPin private cloud domain. Default: `uxpin.com`')
+  .option('--uxpin-api-domain <domain>', 'Can be used to set a specific UXPin API domain. Default: `api.uxpin.com`')
   .option('--dev', 'turns on dev environment')
   .option('--skip-browser', 'Don\'t open browser on start');
 

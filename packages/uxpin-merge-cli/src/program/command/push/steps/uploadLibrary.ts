@@ -18,7 +18,7 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
       return designSystem;
     }
 
-    const apiDomain:string = getApiDomain(buildOptions.uxpinDomain!);
+    const apiDomain:string = getApiDomain(buildOptions.uxpinApiDomain!);
     const commitHash:string = designSystem.result.vcs.commitHash;
     const path:string = resolve(buildOptions.uxpinDirPath, LIBRARY_OUTPUT_FILENAME);
 

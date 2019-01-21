@@ -23,6 +23,7 @@ export interface PushProgramArgs {
   cwd:string;
   dev?:boolean;
   token?:string;
+  uxpinApiDomain?:string;
   uxpinDomain?:string;
   webpackConfig?:string;
   wrapper?:string;

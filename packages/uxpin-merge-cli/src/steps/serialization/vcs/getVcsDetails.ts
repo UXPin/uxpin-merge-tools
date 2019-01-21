@@ -16,7 +16,7 @@ export async function getVscDetails(
   const repositoryAdapter:RepositoryAdapter = await getRepositoryAdapter(paths.projectRoot);
   const repositoryPointer:RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
   const latestCommitHash:string|null = await getLatestCommitHash(
-    getApiDomain(buildOptions.uxpinDomain!),
+    getApiDomain(buildOptions.uxpinApiDomain!),
     repositoryPointer.branchName,
     buildOptions.token!,
   );
