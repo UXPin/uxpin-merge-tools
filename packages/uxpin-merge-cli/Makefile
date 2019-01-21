@@ -31,7 +31,7 @@ watch-test-unit:
 	jest --watchAll --testMatch="**/__tests__/*.test.ts"
 
 test-integration:
-	jest --testMatch="**/test/integration/**/*.test.ts"
+	NODE_TLS_REJECT_UNAUTHORIZED=0 jest --testMatch="**/test/integration/**/*.test.ts" --runInBand
 
 test-ci:
 	make test-rename-snapshots
