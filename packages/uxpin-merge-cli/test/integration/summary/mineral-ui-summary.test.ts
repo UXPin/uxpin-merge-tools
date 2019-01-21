@@ -1,18 +1,38 @@
 import { Command } from '../../../src';
+import { mineralUiSummaryStub } from '../../resources/stubs/mineralUi';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
+import { startStubbyServer } from '../../utils/stubby/startStubbyServer';
+import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT:number = 30000;
+const STUBBY_PORT:number = 7445;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('summary command integration', () => {
+  let server: any;
+
+  beforeAll(async () => {
+    server = await startStubbyServer({
+      data: mineralUiSummaryStub.requests,
+      tls: STUBBY_PORT,
+    });
+  });
+
+  afterAll(async () => {
+    await stopStubbyServer(server);
+  });
+
   describe('summary command prints ', () => {
     it('prints the list of components found in mineral-ui example', async () => {
       // when
       const output:string = await runUXPinMergeCommand({
         cwd: 'resources/repos/mineral-ui',
-        params: [Command.SUMMARY],
+        params: [
+          Command.SUMMARY,
+          `--uxpin-api-domain="0.0.0.0:${STUBBY_PORT}"`,
+        ],
       });
 
       // then
