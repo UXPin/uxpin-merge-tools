@@ -1,18 +1,40 @@
 import { Command } from '../../../src';
+import { polarisSummaryStub } from '../../resources/stubs/polaris';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
+import { startStubbyServer } from '../../utils/stubby/startStubbyServer';
+import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT:number = 150000;
+const STUBBY_PORT:number = 7443;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('summary command integration', () => {
+  let server:any;
+
+  beforeAll(async () => {
+    server = await startStubbyServer({
+      data: polarisSummaryStub.requests,
+      tls: STUBBY_PORT,
+    });
+  });
+
+  afterAll(async () => {
+    await stopStubbyServer(server);
+  });
+
   describe('summary command prints ', () => {
     it('prints the list of components found in polaris example', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/repos/polaris',
-        params: [Command.SUMMARY, '--config="../../configs/polaris-uxpin.config.js"'],
+        params: [
+          Command.SUMMARY,
+          '--config="../../configs/polaris-uxpin.config.js"',
+          '--uxpin-domain="uxpin.mock"',
+          `--uxpin-api-domain="0.0.0.0:${STUBBY_PORT}"`,
+        ],
       })
         .then((output) => {
           // then
