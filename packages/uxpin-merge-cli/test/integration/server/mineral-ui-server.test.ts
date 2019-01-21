@@ -14,7 +14,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('server run in mineral-ui', () => {
   let chromeless:Chromeless<any>;
-  let server: any;
+  let server:any;
 
   beforeAll(async () => {
     server = await startStubbyServer({

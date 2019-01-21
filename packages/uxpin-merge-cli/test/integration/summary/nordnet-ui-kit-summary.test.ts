@@ -11,7 +11,7 @@ const STUBBY_PORT:number = 7446;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('summary command integration', () => {
-  let server: any;
+  let server:any;
 
   beforeAll(async () => {
     server = await startStubbyServer({
