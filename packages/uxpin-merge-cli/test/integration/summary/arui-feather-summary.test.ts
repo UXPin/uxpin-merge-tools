@@ -32,7 +32,6 @@ describe('summary command integration', () => {
         params: [
           Command.SUMMARY,
           '--config="../../configs/arui-feather-uxpin.config.js"',
-          '--uxpin-domain="uxpin.mock"',
           `--uxpin-api-domain="0.0.0.0:${STUBBY_PORT}"`,
         ],
       }).then((output) => {

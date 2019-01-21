@@ -1,12 +1,29 @@
 import { Command } from '../../../src';
+import { nordnetUiKitSummaryStub } from '../../resources/stubs/nordnetUiKit';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
+import { startStubbyServer } from '../../utils/stubby/startStubbyServer';
+import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT:number = 300000;
+const STUBBY_PORT:number = 7446;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('summary command integration', () => {
+  let server: any;
+
+  beforeAll(async () => {
+    server = await startStubbyServer({
+      data: nordnetUiKitSummaryStub.requests,
+      tls: STUBBY_PORT,
+    });
+  });
+
+  afterAll(async () => {
+    await stopStubbyServer(server);
+  });
+
   describe('summary command prints ', () => {
     it('prints the list of components found in nordnet-ui-kit example', () => {
       // when
@@ -14,6 +31,7 @@ describe('summary command integration', () => {
         cwd: 'resources/repos/nordnet-ui-kit', params: [
           Command.SUMMARY,
           '--config="../../configs/nordnet-ui-kit-uxpin.config.js"',
+          `--uxpin-api-domain="0.0.0.0:${STUBBY_PORT}"`,
         ],
       })
         .then((output) => {
