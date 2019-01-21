@@ -15,3 +15,5 @@ export const mineralUiSummaryStub:any = {
     },
   ],
 };
+
+export const mineralUiServerStub:any = mineralUiSummaryStub;
