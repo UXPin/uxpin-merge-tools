@@ -4,6 +4,8 @@ import * as webpack from 'webpack';
 import { ProgramArgs, RawProgramArgs } from '../../../../../../program/args/ProgramArgs';
 import { getProjectRoot } from '../../../../../../program/args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../../../../../program/args/providers/paths/getTempDirPath';
+import { Compiler } from '../../../../../building/compiler/Compiler';
+import { WebpackCompiler } from '../../../../../building/compiler/webpack/WebpackCompiler';
 import { ComponentCategoryInfo } from '../../../../../discovery/component/category/ComponentCategoryInfo';
 import { createBundleSource } from '../bundle/createBundleSource';
 import { getWebpackConfig } from './getWebpackConfig';
@@ -23,24 +25,9 @@ async function compileWithWebpack(programArgs:ProgramArgs, sourcePath:string):Pr
   const { webpackConfig } = programArgs as RawProgramArgs;
   const projectRoot:string = getProjectRoot(programArgs);
 
-  await run(getWebpackConfig({ bundlePath, projectRoot, sourcePath, webpackConfig }));
+  const config:webpack.Configuration = getWebpackConfig({ bundlePath, projectRoot, sourcePath, webpackConfig });
+  const compiler:Compiler = new WebpackCompiler(config);
+  await compiler.compile();
 
   return bundlePath;
-}
-
-function run(webpackConfig:webpack.Configuration):Promise<void> {
-  return new Promise((resolve, reject) => {
-    const compiler:webpack.Compiler = webpack(webpackConfig);
-    compiler.run((err, stats) => {
-      if (err) {
-        return reject(err);
-      }
-
-      if (stats.hasErrors()) {
-        return reject(new Error(stats.toString({ errors: true })));
-      }
-
-      resolve();
-    });
-  });
 }
