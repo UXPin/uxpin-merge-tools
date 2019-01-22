@@ -11,5 +11,6 @@ SyntaxError: Unexpected token :
  in:
 src/library/Card/CardFooter/CardFooter.js
 
-"
+[32m✅ Library is up-to-date!
+[0m"
 `;
