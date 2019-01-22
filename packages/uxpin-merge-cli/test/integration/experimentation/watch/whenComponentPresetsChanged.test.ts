@@ -8,6 +8,7 @@ import { expectedButtonDefinition, expectedDSWatchingChangesMetadata } from '../
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../utils/file/getFileChecksum';
+import { getLatestCommit } from '../../../../src/repositories/git/util/getLatestCommit';
 
 const CURRENT_TIMEOUT:number = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
@@ -20,6 +21,7 @@ describe('Experimental - watch - when component presets has changed', () => {
     serverCmdArgs: [
       '--config "uxpin.config.js"',
       '--webpack-config "node_modules/react-scripts/config/webpack.config.dev.js"',
+      '--uxpin-api-domain "0.0.0.0:7448"',
     ],
   });
 
@@ -59,6 +61,7 @@ describe('Experimental - watch - when component presets has changed', () => {
 
   it('should update metadata file with new presets', async () => {
     // given
+    const commitHash:string = (await getLatestCommit(getWorkingDir())).hash;
     const expectedMetadata:DesignSystemSnapshot = {
       ...expectedDSWatchingChangesMetadata,
       categorizedComponents: [
@@ -87,6 +90,10 @@ describe('Experimental - watch - when component presets has changed', () => {
           ],
         },
       ],
+      vcs: {
+        ...expectedDSWatchingChangesMetadata.vcs,
+        commitHash: commitHash,
+      },
     };
 
     // when

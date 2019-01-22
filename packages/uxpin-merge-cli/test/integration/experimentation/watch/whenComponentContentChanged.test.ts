@@ -17,6 +17,7 @@ describe('Experimental - watch - change file content', () => {
     serverCmdArgs: [
       '--config "uxpin.config.js"',
       '--webpack-config "node_modules/react-scripts/config/webpack.config.dev.js"',
+      '--uxpin-api-domain "0.0.0.0:7448"',
     ],
   });
 

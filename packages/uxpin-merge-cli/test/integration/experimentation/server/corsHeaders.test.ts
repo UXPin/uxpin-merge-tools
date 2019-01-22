@@ -8,7 +8,11 @@ const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('CORS Headers', () => {
-  const { request } = setupExperimentationServerTest();
+  const { request } = setupExperimentationServerTest({
+    serverCmdArgs: [
+      '--uxpin-api-domain "0.0.0.0:7448"',
+    ],
+  });
 
   describe('when `origin` header is set', () => {
     it('responds headers containing the correct domain', async () => {

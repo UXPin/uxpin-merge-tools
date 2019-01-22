@@ -7,7 +7,11 @@ const CURRENT_TIMEOUT:number = 20_000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server - handling repository pointer', () => {
-  const { request } = setupExperimentationServerTest();
+  const { request } = setupExperimentationServerTest({
+    serverCmdArgs: [
+      '--uxpin-api-domain "0.0.0.0:7448"',
+    ],
+  });
 
   it('should responds with NO_CONTENT status code', async () => {
     // when

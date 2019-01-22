@@ -24,7 +24,10 @@ describe('Experimentation server – handling set active page request', () => {
   const { request, getWorkingDir } = setupExperimentationServerTest({
     port,
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
-    serverCmdArgs: ['--webpack-config="./webpack.config.js"'],
+    serverCmdArgs: [
+      '--webpack-config="./webpack.config.js"',
+      '--uxpin-api-domain "0.0.0.0:7448"',
+    ],
   });
 
   let response:Response;

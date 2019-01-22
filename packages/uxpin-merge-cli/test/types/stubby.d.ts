@@ -13,6 +13,19 @@ declare module 'stubby' {
     _httpsOptions?:any;
   };
 
+  interface StubbyStub {
+    request:StubbyRequest;
+    response:StubbyResponse;
+  }
+
+  interface StubbyRequest {
+    [key:string]:any;
+  }
+
+  interface StubbyResponse {
+    [key:string]:any;
+  }
+
   declare class Stubby {
     constructor();
     start(options:StubbyOptions, callback:(error:any) => void):void;

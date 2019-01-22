@@ -10,6 +10,9 @@ import { MergeServerResponse, startUXPinMergeServer, TestServerOptions } from '.
 import { changeWatchingFileContent } from '../file/changeWatchingFileContent';
 import { ExperimentationServerTestSetupOptions } from './experimentationServerTestSetupOptions';
 import { ExperimentationServerConfiguration, getServerConfiguration } from './getServerConfiguration';
+import { stopStubbyServer } from '../stubby/stopStubbyServer';
+import { startStubbyServer } from '../stubby/startStubbyServer';
+import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
 
 export interface ExperimentationServerTestContext {
   request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
@@ -26,16 +29,22 @@ export function setupExperimentationServerTest(
 
   let mergeServerResponse:MergeServerResponse;
   let cleanupTemp:() => void;
+  let server:any;
 
   beforeAll(async () => {
     const config:ExperimentationServerConfiguration = await getServerConfiguration(options);
     cleanupTemp = config.cleanupTemp;
+    server = await startStubbyServer({
+      data: emptyLatestCommitStub.requests,
+      tls: 7448,
+    });
     mergeServerResponse = await startUXPinMergeServer(config.cmdOptions, serverOptions);
     deferredContext.setTarget(getTestContext(config, mergeServerResponse));
   });
 
   afterAll(async () => {
     await mergeServerResponse.close();
+    await stopStubbyServer(server);
     cleanupTemp();
   });
 

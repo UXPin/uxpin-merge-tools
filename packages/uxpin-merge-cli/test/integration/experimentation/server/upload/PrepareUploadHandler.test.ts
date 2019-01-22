@@ -17,7 +17,12 @@ import { setupExperimentationServerTest } from '../../../../utils/experimentatio
 describe('Experimentation server – handling upload preparation', () => {
 
   const port:number = getRandomPortNumber();
-  const { request, getWorkingDir } = setupExperimentationServerTest({ port });
+  const { request, getWorkingDir } = setupExperimentationServerTest({
+    port,
+    serverCmdArgs: [
+      '--uxpin-api-domain "0.0.0.0:7448"',
+    ],
+  });
 
   describe('when requesting preparation of the upload', () => {
 

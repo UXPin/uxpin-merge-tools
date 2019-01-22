@@ -7,7 +7,11 @@ const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server – handling not found path', () => {
-  const { request } = setupExperimentationServerTest();
+  const { request } = setupExperimentationServerTest({
+    serverCmdArgs: [
+      '--uxpin-api-domain "0.0.0.0:7448"',
+    ],
+  });
 
   it('Responds with NOT_FOUND status code', async () => {
     // when
