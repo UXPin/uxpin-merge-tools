@@ -2,9 +2,7 @@ import { isArray, isObject, reduce } from 'lodash';
 import { ComponentPresetElementProps } from './ComponentPreset';
 import { getPresetElementReference } from './getPresetElementReference';
 import { isJSXSerializedElement } from './isJSXSerializedElement';
-import { JSXSerializedElementProps } from './jsx/JSXSerializationResult';
-
-export type PartialProps = Pick<JSXSerializedElementProps, Exclude<keyof JSXSerializedElementProps, 'uxpId'>>;
+import { PartialProps } from './jsx/JSXSerializationResult';
 
 export function replaceElementsWithReferencesInProps(props:PartialProps):ComponentPresetElementProps {
   return reduce<ComponentPresetElementProps, PartialProps>(props, (mappedProps, propValue, propName) => {

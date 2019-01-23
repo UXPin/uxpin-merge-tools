@@ -8,9 +8,12 @@ export interface JSXSerializedElement {
   warnings:WarningDetails[];
 }
 
-export interface JSXSerializedElementProps {
-  uxpId:string;
+export interface PartialProps {
   [propertyName:string]:JSXSerializedElementProp;
+}
+
+export interface JSXSerializedElementProps extends PartialProps {
+  uxpId:string;
 }
 
 export type AnySerializedElement = JSXSerializedElement | string;

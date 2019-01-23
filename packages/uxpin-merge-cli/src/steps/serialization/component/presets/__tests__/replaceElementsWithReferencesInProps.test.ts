@@ -1,5 +1,6 @@
 import { ComponentPresetElementProps } from '../ComponentPreset';
-import { PartialProps, replaceElementsWithReferencesInProps } from '../replaceElementsWithReferencesInProps';
+import { PartialProps } from '../jsx/JSXSerializationResult';
+import { replaceElementsWithReferencesInProps } from '../replaceElementsWithReferencesInProps';
 
 describe('replaceElementsWithReferencesInProps', () => {
   it('should replace single element with reference', () => {
