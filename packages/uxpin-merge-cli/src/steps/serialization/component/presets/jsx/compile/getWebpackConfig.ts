@@ -1,5 +1,6 @@
 import { join, parse, resolve } from 'path';
 import { Configuration } from 'webpack';
+import { smartStrategy } from 'webpack-merge';
 
 export interface WebpackConfigPaths {
   bundlePath:string;
@@ -77,7 +78,7 @@ export function getWebpackConfig({
   if (webpackConfig) {
     const configProvider:Configuration|ConfigurationFunction = require(join(projectRoot, webpackConfig));
     const userWebpackConfig:Configuration = isConfigurationFunction(configProvider) ? configProvider() : configProvider;
-    return { ...userWebpackConfig, ...config };
+    return smartStrategy({ entry: 'replace' })(userWebpackConfig, config);
   }
 
   return config;
