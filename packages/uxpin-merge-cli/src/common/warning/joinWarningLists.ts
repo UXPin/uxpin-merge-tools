@@ -1,3 +1,4 @@
+import { thunkFillSourcePath } from './thunkFillSourcePath';
 import { WarningDetails } from './WarningDetails';
 
 export function joinWarningLists(warningLists:WarningDetails[][], componentPath?:string):WarningDetails[] {
@@ -9,8 +10,4 @@ export function joinWarningLists(warningLists:WarningDetails[][], componentPath?
     [].push.apply(warningList, warningsToJoin);
     return warningList;
   }, [] as WarningDetails[]);
-}
-
-function thunkFillSourcePath(sourcePath:string):(warning:WarningDetails) => WarningDetails {
-  return (warning:WarningDetails) => ({ sourcePath, ...warning });
 }

@@ -1,3 +1,4 @@
+import { thunkFillSourcePath } from '../../../../common/warning/thunkFillSourcePath';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
 import { getPresetName } from '../../../discovery/component/presets/presetFileNameParser';
@@ -32,19 +33,12 @@ function thunkSerializePreset(bundle:PresetsBundle):(info:ComponentPresetInfo) =
           name: getPresetName(path),
           rootId: presetData.props.uxpId,
         }],
-        warnings: decorateWithSourcePath(warnings, path),
+        warnings: warnings.map(thunkFillSourcePath(path)),
       };
     } catch (error) {
       return getResultForInvalidPreset(path, error);
     }
   };
-}
-
-function decorateWithSourcePath(warnings:WarningDetails[], sourcePath:string):WarningDetails[] {
-  warnings.forEach((warning) => {
-    warning.sourcePath = sourcePath;
-  });
-  return warnings;
 }
 
 function getResultForInvalidPreset(sourcePath:string, originalError:Error):PresetsSerializationResult {
