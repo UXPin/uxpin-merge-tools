@@ -1,40 +1,47 @@
 import Chromeless from 'chromeless';
+import { Environment } from '../../../src/program/env/Environment';
 import { mineralUiServerStub } from '../../resources/stubs/mineralUi';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
 import { waitForComponent } from '../../utils/e2e/chromeless/waitForComponent';
+import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber';
 import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 import { startStubbyServer } from '../../utils/stubby/startStubbyServer';
 import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT:number = 300000;
-const STUBBY_PORT:number = 7447;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('server run in mineral-ui', () => {
   let chromeless:Chromeless<any>;
   let server:any;
+  let tlsPort:number = getRandomPortNumber();;
 
   beforeAll(async () => {
     server = await startStubbyServer({
+      admin: getRandomPortNumber(),
       data: mineralUiServerStub.requests,
-      tls: STUBBY_PORT,
+      stubs: getRandomPortNumber(),
+      tls: tlsPort,
     });
-  });
-
-  afterAll(async () => {
-    await stopStubbyServer(server);
   });
 
   setupDebugServerTest({
     projectPath: 'resources/repos/mineral-ui',
+    env: {
+      NODE_ENV: Environment.TEST,
+      UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+    },
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
       '--wrapper "./src/library/themes/UXPinWrapper.js"',
-      `--uxpin-api-domain "0.0.0.0:${STUBBY_PORT}"`,
     ],
   }, (c) => chromeless = c);
+
+  afterAll(async () => {
+    await stopStubbyServer(server);
+  });
 
   it('opens `Dropdown` with correct styling on click', async () => {
     // given

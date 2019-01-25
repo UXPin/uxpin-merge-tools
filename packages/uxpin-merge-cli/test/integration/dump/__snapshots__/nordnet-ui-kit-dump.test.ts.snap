@@ -1962,7 +1962,11 @@ You are using @uxpin/merge-cli version: 0.0.19
       \\"name\\": \\"Uncategorized\\"
     }
   ],
-  \\"name\\": \\"Library from Code\\"
+  \\"name\\": \\"Library from Code\\",
+  \\"vcs\\": {
+    \\"branchName\\": \\"HEAD\\",
+    \\"commitHash\\": \\"d914edd5f97cadb284f7f47b783106c86fe430d9\\"
+  }
 }
 "
 `;

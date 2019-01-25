@@ -14,11 +14,7 @@ import { getBufferChecksum, getFileChecksum } from '../../../../utils/file/getFi
 
 describe('GetUploadedFileHandler', () => {
 
-  const { request, getWorkingDir } = setupExperimentationServerTest({
-    serverCmdArgs: [
-      '--uxpin-api-domain "0.0.0.0:7448"',
-    ],
-  });
+  const { request, getWorkingDir } = setupExperimentationServerTest();
 
   it('responds with a file for given id', async () => {
     // given

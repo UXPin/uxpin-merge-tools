@@ -14,7 +14,6 @@ describe('Experimentation mode - handling preview all data', () => {
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
-      '--uxpin-api-domain "0.0.0.0:7448"',
     ],
   });
 

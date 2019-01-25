@@ -19,11 +19,7 @@ const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server – handling save page request', () => {
-  const { request, getWorkingDir } = setupExperimentationServerTest({
-    serverCmdArgs: [
-      '--uxpin-api-domain "0.0.0.0:7448"',
-    ],
-  });
+  const { request, getWorkingDir } = setupExperimentationServerTest();
 
   describe('saving the first elements', () => {
     let response:Response;

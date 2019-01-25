@@ -11,9 +11,6 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('handlingGetLibraries', () => {
   const { request } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/withEpidFile',
-    serverCmdArgs: [
-      '--uxpin-api-domain "0.0.0.0:7448"',
-    ],
   });
 
   describe('should serve library bundle', () => {

@@ -13,6 +13,8 @@ import { ExperimentationServerConfiguration, getServerConfiguration } from './ge
 import { stopStubbyServer } from '../stubby/stopStubbyServer';
 import { startStubbyServer } from '../stubby/startStubbyServer';
 import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
+import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
+import { Environment } from '../../../src/program/env/Environment';
 
 export interface ExperimentationServerTestContext {
   request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
@@ -30,14 +32,27 @@ export function setupExperimentationServerTest(
   let mergeServerResponse:MergeServerResponse;
   let cleanupTemp:() => void;
   let server:any;
+  let tlsPort:number;
 
   beforeAll(async () => {
-    const config:ExperimentationServerConfiguration = await getServerConfiguration(options);
-    cleanupTemp = config.cleanupTemp;
+    tlsPort = getRandomPortNumber();
     server = await startStubbyServer({
+      admin: getRandomPortNumber(),
       data: emptyLatestCommitStub.requests,
-      tls: 7448,
+      stubs: getRandomPortNumber(),
+      tls: tlsPort,
     });
+
+    const config: ExperimentationServerConfiguration = await getServerConfiguration({
+      ...options,
+      env: {
+        ...options.env,
+        NODE_ENV: Environment.TEST,
+        UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+      },
+    });
+
+    cleanupTemp = config.cleanupTemp;
     mergeServerResponse = await startUXPinMergeServer(config.cmdOptions, serverOptions);
     deferredContext.setTarget(getTestContext(config, mergeServerResponse));
   });

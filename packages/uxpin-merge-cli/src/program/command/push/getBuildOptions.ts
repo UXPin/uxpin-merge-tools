@@ -1,19 +1,24 @@
+import { isTestEnv } from '../../../program/env/isTestEnv';
 import { BuildOptions } from '../../../steps/building/BuildOptions';
 import { PushProgramArgs } from '../../args/ProgramArgs';
 import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../args/providers/paths/getTempDirPath';
 
+const TEST_UXPIN_API_DOMAIN:string = '0.0.0.0';
+
 function getDefaultApiDomain(domain:string):string {
-  return `api.${domain}`;
+  return isTestEnv()
+    ? process.env.UXPIN_API_DOMAIN || TEST_UXPIN_API_DOMAIN
+    : `api.${domain}`;
 }
 
 export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
-  const { token, uxpinApiDomain, uxpinDomain, webpackConfig, wrapper } = args;
+  const { token, uxpinDomain, webpackConfig, wrapper } = args;
 
   return {
     projectRoot: getProjectRoot(args),
     token,
-    uxpinApiDomain: uxpinApiDomain ? uxpinApiDomain : getDefaultApiDomain(uxpinDomain!),
+    uxpinApiDomain: getDefaultApiDomain(uxpinDomain!),
     uxpinDirPath: getTempDirPath(args),
     uxpinDomain,
     webpackConfigPath: webpackConfig,
@@ -22,4 +27,4 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
 }
 
 export type BuildProgramArgs = Pick<PushProgramArgs, 'cwd' | 'token'
-  | 'uxpinApiDomain' | 'uxpinDomain' | 'webpackConfig' | 'wrapper'>;
+  | 'uxpinDomain' | 'webpackConfig' | 'wrapper'>;

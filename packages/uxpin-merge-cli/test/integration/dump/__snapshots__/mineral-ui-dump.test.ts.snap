@@ -16210,7 +16210,11 @@ You are using @uxpin/merge-cli version: 0.0.19
       \\"name\\": \\"Layout\\"
     }
   ],
-  \\"name\\": \\"Library from Code\\"
+  \\"name\\": \\"Library from Code\\",
+  \\"vcs\\": {
+    \\"branchName\\": \\"HEAD\\",
+    \\"commitHash\\": \\"b825842aeb4244e56977af1a4afc3559caed94f3\\"
+  }
 }
 "
 `;

@@ -1,23 +1,27 @@
 import { Command } from '../../../src';
+import { Environment } from '../../../src/program/env/Environment';
 import { mineralUiServerStub } from '../../resources/stubs/mineralUi';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
+import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber';
 import { startStubbyServer } from '../../utils/stubby/startStubbyServer';
 import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT:number = 75000;
-const STUBBY_PORT:number = 7448;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-jest.mock('../../../src/program/utils/version/getToolVersion');
+setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Pushing mineral-ui design system', () => {
   let server:any;
+  let tlsPort:number;
 
   beforeAll(async () => {
+    tlsPort = getRandomPortNumber();
     server = await startStubbyServer({
+      admin: getRandomPortNumber(),
       data: mineralUiServerStub.requests,
-      tls: STUBBY_PORT,
+      tls: tlsPort,
+      stubs: getRandomPortNumber(),
     });
   });
 
@@ -33,11 +37,17 @@ describe('Pushing mineral-ui design system', () => {
         Command.PUSH,
         '--webpack-config "./webpack.config.js"',
         '--wrapper "./src/library/themes/UXPinWrapper.js"',
-        `--uxpin-domain "0.0.0.0:${STUBBY_PORT}"`,
-        `--uxpin-api-domain "0.0.0.0:${STUBBY_PORT}"`,
+        `--uxpin-domain "0.0.0.0:${tlsPort}"`,
       ];
 
-      consoleOutput = await runUXPinMergeCommand({ cwd: 'resources/repos/mineral-ui', params });
+      consoleOutput = await runUXPinMergeCommand({
+        cwd: 'resources/repos/mineral-ui',
+        env: {
+          NODE_ENV: Environment.TEST,
+          UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+        },
+        params,
+      });
     });
 
     it('prints warnings without stack traces to the console', () => {
@@ -50,11 +60,19 @@ describe('Pushing mineral-ui design system', () => {
     it('throws an error', async () => {
       const params:string[] = [
         Command.PUSH,
-        `--uxpin-domain "0.0.0.0:${STUBBY_PORT}"`,
-        `--uxpin-api-domain "0.0.0.0:${STUBBY_PORT}"`,
+        `--uxpin-domain "0.0.0.0:${tlsPort}"`,
       ];
 
-      await expect(runUXPinMergeCommand({ cwd: 'resources/repos/mineral-ui', params }))
+      const consoleOutput:Promise<string> = runUXPinMergeCommand({
+        cwd: 'resources/repos/mineral-ui',
+        env: {
+          NODE_ENV: Environment.TEST,
+          UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+        },
+        params,
+      });
+
+      await expect(consoleOutput)
         .rejects.toMatch('Module parse failed: Unexpected token');
     });
   });

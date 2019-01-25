@@ -11,11 +11,7 @@ import { getFileChecksum } from '../../../../utils/file/getFileChecksum';
 
 describe('UploadHandler', () => {
 
-  const { request, getWorkingDir } = setupExperimentationServerTest({
-    serverCmdArgs: [
-      '--uxpin-api-domain "0.0.0.0:7448"',
-    ],
-  });
+  const { request, getWorkingDir } = setupExperimentationServerTest();
 
   it('receives uploaded file and saves in the correct dir based on given path parameter', async () => {
     // given

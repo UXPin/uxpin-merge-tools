@@ -14,11 +14,12 @@ import { Step, StepExecutor } from './command/Step';
 import { applyVersionCommandSteps } from './command/version/applyVersionCommandSteps';
 import { DSMetadata } from './DSMeta';
 import { setupWatcher } from './watcher/setupWatcher';
+import { setNodeEnv } from './env/setNodeEnv';
 
 export async function runProgram(program:RawProgramArgs):Promise<any> {
   try {
+    setNodeEnv(process.env.NODE_ENV);
     const programArgs:ProgramArgs = getProgramArgs(program);
-    setNodeEnv(programArgs.dev);
     await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
   } catch (error) {
@@ -58,12 +59,6 @@ async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promis
   const designSystem:DSMetadata = await getDesignSystemMetadata(paths, buildOptions);
 
   await pMapSeries(stepFunctions, (step) => step(designSystem));
-}
-
-function setNodeEnv(development:boolean|undefined):void {
-  if (development) {
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-  }
 }
 
 function isWatchChangesCommand(programArgs:ProgramArgs):boolean {

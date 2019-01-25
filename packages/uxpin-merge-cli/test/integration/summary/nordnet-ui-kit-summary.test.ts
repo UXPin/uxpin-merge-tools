@@ -1,22 +1,27 @@
 import { Command } from '../../../src';
+import { Environment } from '../../../src/program/env/Environment';
 import { nordnetUiKitSummaryStub } from '../../resources/stubs/nordnetUiKit';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
+import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber';
 import { startStubbyServer } from '../../utils/stubby/startStubbyServer';
 import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT:number = 300000;
-const STUBBY_PORT:number = 7446;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('summary command integration', () => {
   let server:any;
+  let tlsPort:number;
 
   beforeAll(async () => {
+    tlsPort = getRandomPortNumber();
     server = await startStubbyServer({
+      admin: getRandomPortNumber(),
       data: nordnetUiKitSummaryStub.requests,
-      tls: STUBBY_PORT,
+      stubs: getRandomPortNumber(),
+      tls: tlsPort,
     });
   });
 
@@ -28,10 +33,14 @@ describe('summary command integration', () => {
     it('prints the list of components found in nordnet-ui-kit example', () => {
       // when
       return runUXPinMergeCommand({
-        cwd: 'resources/repos/nordnet-ui-kit', params: [
+        cwd: 'resources/repos/nordnet-ui-kit',
+        env: {
+          NODE_ENV: Environment.TEST,
+          UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+        },
+        params: [
           Command.SUMMARY,
           '--config="../../configs/nordnet-ui-kit-uxpin.config.js"',
-          `--uxpin-api-domain="0.0.0.0:${STUBBY_PORT}"`,
         ],
       })
         .then((output) => {

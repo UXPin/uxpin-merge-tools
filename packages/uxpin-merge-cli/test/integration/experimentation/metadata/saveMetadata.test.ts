@@ -27,7 +27,13 @@ describe('Experimentation mode - save library metadata', () => {
     const metadataFile:DesignSystemSnapshot = await readJson(getMetadataPath());
 
     // then
-    expect(metadataFile).toEqual(expectedMetadata);
+    expect(metadataFile).toEqual(expect.objectContaining({
+      ...expectedMetadata,
+      vcs: expect.objectContaining({
+        branchName: 'master',
+        commitHash: expect.stringMatching(/[a-z0-9]+/),
+      }),
+    }));
   });
 
   function getMetadataPath():string {

@@ -9,11 +9,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server - handling libraries index', () => {
   let response:Response;
-  const { request } = setupExperimentationServerTest({
-    serverCmdArgs: [
-      '--uxpin-api-domain "0.0.0.0:7448"',
-    ],
-  });
+  const { request } = setupExperimentationServerTest();
 
   beforeAll(async () => {
     // given
