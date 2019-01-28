@@ -37,6 +37,7 @@ describe('Pushing mineral-ui design system', () => {
         Command.PUSH,
         '--webpack-config "./webpack.config.js"',
         '--wrapper "./src/library/themes/UXPinWrapper.js"',
+        '--token DUMMY_TOKEN',
       ];
 
       consoleOutput = await runUXPinMergeCommand({

@@ -31,7 +31,7 @@ watch-test-unit:
 	jest --watchAll --testMatch="**/__tests__/*.test.ts"
 
 test-integration:
-	jest --testMatch="**/test/integration/**/*.test.ts"
+	NODE_ENV=test jest --testMatch="**/test/integration/**/*.test.ts"
 
 test-ci:
 	make test-rename-snapshots
