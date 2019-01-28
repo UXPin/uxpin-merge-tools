@@ -9,7 +9,7 @@ export async function prepareTempDir(sourceDir:string, initialiseGit:boolean = f
   await copy(sourceDir, result.path, { errorOnExist: true });
 
   if (initialiseGit) {
-    const gitCommands: string[] = [
+    const gitCommands:string[] = [
       'git init',
       'git add .',
       'git config user.name test',

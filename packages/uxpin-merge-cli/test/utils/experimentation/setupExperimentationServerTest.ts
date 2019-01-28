@@ -5,16 +5,16 @@ import * as requestPromise from 'request-promise';
 import { RequestPromise, RequestPromiseOptions } from 'request-promise';
 import { URL } from 'url';
 import { COMPILATION_SUCCESS_MESSAGE } from '../../../src/program/command/experimentation/getExperimentationWatchCommandSteps';
+import { Environment } from '../../../src/program/env/Environment';
 import { SERVER_READY_OUTPUT } from '../../../src/steps/experimentation/server/console/printServerReadyMessage';
+import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
 import { MergeServerResponse, startUXPinMergeServer, TestServerOptions } from '../command/startUXPinMergeServer';
+import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
 import { changeWatchingFileContent } from '../file/changeWatchingFileContent';
+import { ADMIN_PORT_RANGE, startStubbyServer, STUBS_PORT_RANGE, TLS_PORT_RANGE } from '../stubby/startStubbyServer';
+import { stopStubbyServer } from '../stubby/stopStubbyServer';
 import { ExperimentationServerTestSetupOptions } from './experimentationServerTestSetupOptions';
 import { ExperimentationServerConfiguration, getServerConfiguration } from './getServerConfiguration';
-import { stopStubbyServer } from '../stubby/stopStubbyServer';
-import { startStubbyServer, TLS_PORT_RANGE, ADMIN_PORT_RANGE, STUBS_PORT_RANGE } from '../stubby/startStubbyServer';
-import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
-import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
-import { Environment } from '../../../src/program/env/Environment';
 
 export interface ExperimentationServerTestContext {
   request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
@@ -43,7 +43,7 @@ export function setupExperimentationServerTest(
       tls: tlsPort,
     });
 
-    const config: ExperimentationServerConfiguration = await getServerConfiguration({
+    const config:ExperimentationServerConfiguration = await getServerConfiguration({
       ...options,
       env: {
         ...options.env,

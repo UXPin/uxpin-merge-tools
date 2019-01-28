@@ -1,23 +1,23 @@
 import { Stubby, StubbyOptions } from 'stubby';
 
 interface PortRange {
-  min:number;
   max:number;
+  min:number;
 }
 
 export const ADMIN_PORT_RANGE:PortRange = {
-  min: 10000,
   max: 10999,
+  min: 10000,
 };
 
 export const STUBS_PORT_RANGE:PortRange = {
-  min: 11000,
   max: 11999,
+  min: 11000,
 };
 
 export const TLS_PORT_RANGE:PortRange = {
-  min: 12000,
   max: 12999,
+  min: 12000,
 };
 
 export function startStubbyServer(options:StubbyOptions):Promise<Stubby> {

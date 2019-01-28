@@ -8,7 +8,6 @@ import { expectedButtonDefinition, expectedDSWatchingChangesMetadata } from '../
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../utils/file/getFileChecksum';
-import { getLatestCommit } from '../../../../src/repositories/git/util/getLatestCommit';
 
 const CURRENT_TIMEOUT:number = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);

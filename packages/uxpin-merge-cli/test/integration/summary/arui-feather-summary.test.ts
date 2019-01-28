@@ -4,7 +4,7 @@ import { aruiFeatherSummaryStub } from '../../resources/stubs/aruiFeather';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber';
-import { startStubbyServer, TLS_PORT_RANGE, ADMIN_PORT_RANGE, STUBS_PORT_RANGE } from '../../utils/stubby/startStubbyServer';
+import { ADMIN_PORT_RANGE, startStubbyServer, STUBS_PORT_RANGE, TLS_PORT_RANGE } from '../../utils/stubby/startStubbyServer';
 import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT:number = 30000;
@@ -13,7 +13,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('summary command integration', () => {
   let server:any;
-  let tlsPort:number = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
+  const tlsPort:number = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
 
   beforeAll(async () => {
     server = await startStubbyServer({

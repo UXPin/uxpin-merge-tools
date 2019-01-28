@@ -13,8 +13,8 @@ import { getBuildOptions } from './command/push/getBuildOptions';
 import { Step, StepExecutor } from './command/Step';
 import { applyVersionCommandSteps } from './command/version/applyVersionCommandSteps';
 import { DSMetadata } from './DSMeta';
-import { setupWatcher } from './watcher/setupWatcher';
 import { setNodeEnv } from './env/setNodeEnv';
+import { setupWatcher } from './watcher/setupWatcher';
 
 export async function runProgram(program:RawProgramArgs):Promise<any> {
   try {

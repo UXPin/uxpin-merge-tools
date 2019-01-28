@@ -1,10 +1,10 @@
 import { Command } from '../../../src';
 import { Environment } from '../../../src/program/env/Environment';
+import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber';
 import { startStubbyServer } from '../../utils/stubby/startStubbyServer';
-import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
 import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT:number = 120000;

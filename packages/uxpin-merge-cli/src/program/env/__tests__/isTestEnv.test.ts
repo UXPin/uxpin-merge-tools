@@ -1,4 +1,4 @@
-import { Environment } from "../Environment";
+import { Environment } from '../Environment';
 import { isTestEnv } from '../isTestEnv';
 
 describe('isTestEnv', () => {
