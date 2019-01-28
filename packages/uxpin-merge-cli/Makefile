@@ -35,7 +35,7 @@ test-integration:
 
 test-ci:
 	make test-rename-snapshots
-	TEST_REPORT_PATH=./reports jest --config="jest-ci.json" --maxWorkers=6
+	NODE_ENV=test TEST_REPORT_PATH=./reports jest --config="jest-ci.json" --maxWorkers=6
 	make test-remap-coverage
 
 clean:
