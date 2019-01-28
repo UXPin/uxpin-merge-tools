@@ -6,7 +6,7 @@ import { getComponentByName } from '../../utils/dom/getComponentByName';
 import { waitForComponent } from '../../utils/e2e/chromeless/waitForComponent';
 import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber';
 import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
-import { startStubbyServer } from '../../utils/stubby/startStubbyServer';
+import { startStubbyServer, TLS_PORT_RANGE, ADMIN_PORT_RANGE, STUBS_PORT_RANGE } from '../../utils/stubby/startStubbyServer';
 import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT:number = 300000;
@@ -16,13 +16,13 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('server run in mineral-ui', () => {
   let chromeless:Chromeless<any>;
   let server:any;
-  let tlsPort:number = getRandomPortNumber();;
+  let tlsPort:number = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
 
   beforeAll(async () => {
     server = await startStubbyServer({
-      admin: getRandomPortNumber(),
+      admin: getRandomPortNumber(ADMIN_PORT_RANGE.min, ADMIN_PORT_RANGE.max),
       data: mineralUiServerStub.requests,
-      stubs: getRandomPortNumber(),
+      stubs: getRandomPortNumber(STUBS_PORT_RANGE.min, STUBS_PORT_RANGE.max),
       tls: tlsPort,
     });
   });

@@ -113,8 +113,8 @@ export const expectedMetadata:DesignSystemSnapshot = {
     },
   ],
   name: 'Example Design System',
-  vcs: {
+  vcs: expect.objectContaining({
     branchName: 'master',
-    commitHash: '123abc',
-  },
+    commitHash: expect.stringMatching(/[a-z0-9]+/),
+  }),
 };

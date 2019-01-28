@@ -153,9 +153,9 @@ exports.expectedDSWatchingChangesMetadata = {
         },
     ],
     name: 'Example Design System',
-    vcs: {
+    vcs: expect.objectContaining({
         branchName: 'master',
-        commitHash: '123abc',
-    },
+        commitHash: expect.stringMatching(/[a-z0-9]+/),
+    }),
 };
 //# sourceMappingURL=expectedDSWatchingChangesMetadata.js.map

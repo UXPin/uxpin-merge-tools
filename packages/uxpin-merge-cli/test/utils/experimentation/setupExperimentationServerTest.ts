@@ -11,7 +11,7 @@ import { changeWatchingFileContent } from '../file/changeWatchingFileContent';
 import { ExperimentationServerTestSetupOptions } from './experimentationServerTestSetupOptions';
 import { ExperimentationServerConfiguration, getServerConfiguration } from './getServerConfiguration';
 import { stopStubbyServer } from '../stubby/stopStubbyServer';
-import { startStubbyServer } from '../stubby/startStubbyServer';
+import { startStubbyServer, TLS_PORT_RANGE, ADMIN_PORT_RANGE, STUBS_PORT_RANGE } from '../stubby/startStubbyServer';
 import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
 import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
 import { Environment } from '../../../src/program/env/Environment';
@@ -35,11 +35,11 @@ export function setupExperimentationServerTest(
   let tlsPort:number;
 
   beforeAll(async () => {
-    tlsPort = getRandomPortNumber();
+    tlsPort = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
     server = await startStubbyServer({
-      admin: getRandomPortNumber(),
+      admin: getRandomPortNumber(ADMIN_PORT_RANGE.min, ADMIN_PORT_RANGE.max),
       data: emptyLatestCommitStub.requests,
-      stubs: getRandomPortNumber(),
+      stubs: getRandomPortNumber(STUBS_PORT_RANGE.min, STUBS_PORT_RANGE.max),
       tls: tlsPort,
     });
 
@@ -60,7 +60,7 @@ export function setupExperimentationServerTest(
   afterAll(async () => {
     await mergeServerResponse.close();
     await stopStubbyServer(server);
-    cleanupTemp();
+    await cleanupTemp();
   });
 
   return deferredContext.getProxy();

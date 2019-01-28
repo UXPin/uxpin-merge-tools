@@ -6,7 +6,7 @@ import { runCommand } from '../../utils/command/runCommand';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber';
-import { startStubbyServer } from '../../utils/stubby/startStubbyServer';
+import { startStubbyServer, TLS_PORT_RANGE, STUBS_PORT_RANGE, ADMIN_PORT_RANGE } from '../../utils/stubby/startStubbyServer';
 import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT:number = 60000;
@@ -19,13 +19,13 @@ describe('Building designSystems/cantWriteToUxpinTemp design system', () => {
   const workingDir:string = 'resources/designSystems/cantWriteToUxpinTemp';
   const uxpinTempPath:string = `test/${workingDir}/${TEMP_DIR_NAME}`;
   let server:any;
-  let tlsPort:number = getRandomPortNumber();
+  let tlsPort:number = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
 
   beforeAll(async () => {
     server = await startStubbyServer({
-      admin: getRandomPortNumber(),
+      admin: getRandomPortNumber(ADMIN_PORT_RANGE.min, ADMIN_PORT_RANGE.max),
       data: emptyLatestCommitStub.requests,
-      stubs: getRandomPortNumber(),
+      stubs: getRandomPortNumber(STUBS_PORT_RANGE.min, STUBS_PORT_RANGE.max),
       tls: tlsPort,
     });
   });

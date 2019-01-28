@@ -11,6 +11,7 @@ export interface ExperimentationServerOptionsWithDefaults {
   silent:boolean;
   useTempDir:boolean;
   useExistingServer?:ExistingServerConfiguration;
+  filename?:string;
 }
 
 export function getDefaultOptions():ExperimentationServerOptionsWithDefaults {

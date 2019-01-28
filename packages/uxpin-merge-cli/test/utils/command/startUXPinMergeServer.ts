@@ -1,8 +1,8 @@
-import { ChildProcess, exec } from 'child_process';
+import { ChildProcess, spawn } from 'child_process';
 import { buildCommand } from './buildCommand';
 import { CmdOptions } from './CmdOptions';
 import { getAllCmdOptions } from './getAllCmdOptions';
-import { getExecOptions } from './getExecOptions';
+import { getSpawnOptions } from './getSpawnOptions';
 
 export interface TestServerOptions {
   serverReadyOutput:RegExp;
@@ -17,10 +17,13 @@ export interface MergeServerResponse {
 export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerOptions):Promise<MergeServerResponse> {
   return new Promise((resolve, reject) => {
     const command:string = buildCommand(getAllCmdOptions(cmdOptions));
-    const subprocess:ChildProcess = exec(command, getExecOptions());
+    const subprocess:ChildProcess = spawn(command, [], getSpawnOptions());
     onServerReady(subprocess, options.serverReadyOutput, () => {
       return resolve({
-        close: () => subprocess.kill(),
+        close: () => {
+          // Kill subprocess together with it's subprocesses
+          process.kill(-subprocess.pid);
+        },
         subprocess,
       });
     });
@@ -40,7 +43,7 @@ function onFailure(subprocess:ChildProcess, silent:boolean, callback:(error:any)
   let errorOut:string = '';
   subprocess.stderr.on('data', (data) => {
     if (!silent) {
-      console.error(data);
+      console.error(data.toString());
     }
     errorOut += data;
   });

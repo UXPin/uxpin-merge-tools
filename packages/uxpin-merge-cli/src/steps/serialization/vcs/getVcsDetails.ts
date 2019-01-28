@@ -15,11 +15,15 @@ export async function getVscDetails(
 ):Promise<VCSDetails> {
   const repositoryAdapter:RepositoryAdapter = await getRepositoryAdapter(paths.projectRoot);
   const repositoryPointer:RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
-  const latestCommitHash:string|null = await getLatestCommitHash(
-    getApiDomain(buildOptions.uxpinApiDomain!),
-    repositoryPointer.branchName,
-    buildOptions.token!,
-  );
+  let latestCommitHash:string|null = null;
+
+  if (buildOptions.token) {
+    latestCommitHash = await getLatestCommitHash(
+      getApiDomain(buildOptions.uxpinApiDomain!),
+      repositoryPointer.branchName,
+      buildOptions.token,
+    );
+  }
 
   const vcs:VCSDetails = {
     branchName: repositoryPointer.branchName,

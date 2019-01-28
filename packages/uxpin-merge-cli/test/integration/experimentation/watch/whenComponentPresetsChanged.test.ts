@@ -60,7 +60,6 @@ describe('Experimental - watch - when component presets has changed', () => {
 
   it('should update metadata file with new presets', async () => {
     // given
-    const commitHash:string = (await getLatestCommit(getWorkingDir())).hash;
     const expectedMetadata:DesignSystemSnapshot = {
       ...expectedDSWatchingChangesMetadata,
       categorizedComponents: [
@@ -89,10 +88,6 @@ describe('Experimental - watch - when component presets has changed', () => {
           ],
         },
       ],
-      vcs: {
-        ...expectedDSWatchingChangesMetadata.vcs,
-        commitHash: commitHash,
-      },
     };
 
     // when
