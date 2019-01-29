@@ -12,7 +12,7 @@ const serverCmdArgs:string[] = [
   '--config="../../configs/nordnet-ui-kit-uxpin.config.js"',
 ];
 
-describe('server run in nordnet-ui-kit', () => {
+xdescribe('server run in nordnet-ui-kit', () => {
   let chromeless:Chromeless<any>;
 
   setupDebugServerTest({

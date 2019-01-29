@@ -5,19 +5,20 @@ describe('filterPresets', () => {
     // having
     const paths:string[] = [
       './test/resources/directories/directoryWithPresets/presets/notPresetDir',
-      './test/resources/directories/directoryWithPresets/presets/0-default.json',
-      './test/resources/directories/directoryWithPresets/presets/1-basic.json',
-      './test/resources/directories/directoryWithPresets/presets/2-advanced.json',
-      './test/resources/directories/directoryWithPresets/presets/3-notPreset1.json',
-      './test/resources/directories/directoryWithPresets/presets/9notPreset2.json',
+      './test/resources/directories/directoryWithPresets/presets/0-default.jsx',
+      './test/resources/directories/directoryWithPresets/presets/1-basic.jsx',
+      './test/resources/directories/directoryWithPresets/presets/2-advanced.jsx',
+      './test/resources/directories/directoryWithPresets/presets/3-notPreset1.jsx',
+      './test/resources/directories/directoryWithPresets/presets/4-notPreset1.json',
+      './test/resources/directories/directoryWithPresets/presets/9notPreset2.jsx',
       './test/resources/directories/directoryWithPresets/presets/notPreset2.txt',
     ];
 
     const expectedPaths:string[] = [
-      './test/resources/directories/directoryWithPresets/presets/0-default.json',
-      './test/resources/directories/directoryWithPresets/presets/1-basic.json',
-      './test/resources/directories/directoryWithPresets/presets/2-advanced.json',
-      './test/resources/directories/directoryWithPresets/presets/3-notPreset1.json',
+      './test/resources/directories/directoryWithPresets/presets/0-default.jsx',
+      './test/resources/directories/directoryWithPresets/presets/1-basic.jsx',
+      './test/resources/directories/directoryWithPresets/presets/2-advanced.jsx',
+      './test/resources/directories/directoryWithPresets/presets/3-notPreset1.jsx',
     ];
 
     // when

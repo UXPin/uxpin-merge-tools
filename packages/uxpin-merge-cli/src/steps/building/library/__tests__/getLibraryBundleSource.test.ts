@@ -1,8 +1,8 @@
 import { ComponentImplementationInfo } from '../../../discovery/component/ComponentInfo';
 import { ComponentDefinition } from '../../../serialization/component/ComponentDefinition';
-import { getFileString } from '../getFileString';
+import { getLibraryBundleSource } from '../getLibraryBundleSource';
 
-describe('getFileString', () => {
+describe('getLibraryBundleSource', () => {
 
   const commonImplementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
   const commonProps:Pick<ComponentDefinition, 'properties' | 'documentation' | 'presets'> = {
@@ -49,7 +49,7 @@ export {
 };`;
 
     // when
-    const result:string = getFileString(components);
+    const result:string = getLibraryBundleSource(components);
 
     // then
     expect(result).toEqual(expectedFileString);
@@ -97,7 +97,7 @@ export {
 };`;
 
     // when
-    const result:string = getFileString(components, wrapperPath);
+    const result:string = getLibraryBundleSource(components, wrapperPath);
 
     // then
     expect(result).toEqual(expectedFileString);

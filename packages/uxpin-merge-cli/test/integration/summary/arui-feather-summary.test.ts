@@ -6,7 +6,7 @@ const CURRENT_TIMEOUT:number = 30000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('summary command integration', () => {
+xdescribe('summary command integration', () => {
   describe('summary command prints ', () => {
     it('prints the list of components found in arui-feather example', () => {
       // when

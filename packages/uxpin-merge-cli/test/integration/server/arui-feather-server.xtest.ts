@@ -7,7 +7,7 @@ import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('server run in arui-feather', () => {
+xdescribe('server run in arui-feather', () => {
   let chromeless:Chromeless<any>;
 
   setupDebugServerTest({

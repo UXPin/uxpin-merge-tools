@@ -144,16 +144,16 @@ describe('Experimentation server – handling set active page request', () => {
         },
       },
       presets: {
-        'a7b05955-128e-5570-9968-26fa6d8f8705': {
+        '02943eee-ab9a-57c6-adf8-d5c4978cd0b1': {
           componentRevisionId: `${revisionId}_f2dff102-3d25-5174-b733-12c4e58fdd5d`,
           ...expectedAvatarMetadata.presets[0],
-          presetId: 'a7b05955-128e-5570-9968-26fa6d8f8705',
+          presetId: '02943eee-ab9a-57c6-adf8-d5c4978cd0b1',
           sortIndex: 0,
         },
-        'c383bd8a-caf4-5f90-a6b1-3471c355fc43': {
+        '364b2288-4144-5962-8ad2-7c5ebc0ab2ae': {
           componentRevisionId: `${revisionId}_ba14886c-2674-52a3-a147-7b88e725e4ee`,
           ...expectedButtonMetadata.presets[0],
-          presetId: 'c383bd8a-caf4-5f90-a6b1-3471c355fc43',
+          presetId: '364b2288-4144-5962-8ad2-7c5ebc0ab2ae',
           sortIndex: 0,
         },
       },

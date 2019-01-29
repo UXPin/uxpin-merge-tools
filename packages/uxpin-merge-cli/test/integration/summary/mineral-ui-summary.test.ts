@@ -2,7 +2,7 @@ import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT:number = 60000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
@@ -12,7 +12,10 @@ describe('summary command integration', () => {
       // when
       const output:string = await runUXPinMergeCommand({
         cwd: 'resources/repos/mineral-ui',
-        params: [Command.SUMMARY],
+        params: [
+          Command.SUMMARY,
+          '--webpack-config "./webpack.config.js"',
+        ],
       });
 
       // then
@@ -29,12 +32,22 @@ describe('summary command integration', () => {
         💡 examples: ✔
         🎛  presets: ✔
 
+    ButtonGroup
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
     Dropdown
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✔
 
     Link
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
+    Pagination
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✔
@@ -47,6 +60,11 @@ describe('summary command integration', () => {
     Select
         📜 documentation: ✘
         💡 examples: ✘
+        🎛  presets: ✔
+
+    Table
+        📜 documentation: ✔
+        💡 examples: ✔
         🎛  presets: ✔
 
     Text
@@ -124,6 +142,16 @@ describe('summary command integration', () => {
         💡 examples: ✘
         🎛  presets: ✔
 
+    Tab
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
+    Tabs
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
 Card
 
     Card
@@ -194,6 +222,21 @@ Icons
         🎛  presets: ✘
 
     IconCheckBoxIndeterminate
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconChevronLeft
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconChevronRight
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconClose
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✘

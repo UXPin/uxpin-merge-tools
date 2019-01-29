@@ -1,15 +1,11 @@
 import * as webpack from 'webpack';
 import { formatWebpackErrorMessages } from '../../../../utils/webpack/formatWebpackErrorMessages';
-import { BuildOptions } from '../../BuildOptions';
-import { getConfig } from '../../config/getConfig';
 import { Compiler } from '../Compiler';
 
 export class WebpackCompiler implements Compiler {
-  private readonly config:webpack.Configuration;
   private compiler:webpack.Compiler;
 
-  constructor(options:BuildOptions) {
-    this.config = getConfig(options);
+  constructor(private readonly config:webpack.Configuration) {
     this.compiler = webpack(this.config);
   }
 
