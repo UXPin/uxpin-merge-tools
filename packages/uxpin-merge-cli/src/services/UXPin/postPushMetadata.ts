@@ -1,6 +1,5 @@
+import * as requestPromise from 'request-promise';
 import { DSMetadata } from '../../program/DSMeta';
-import { fetch } from '../../utils/fetch/fetch';
-import { parseJson } from '../../utils/fetch/parseJson';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
@@ -13,14 +12,14 @@ export async function postPushMetadata(
   token:string,
   metadata:DSMetadata,
 ):Promise<PushMetadataResponse|null> {
-  return fetch(`${domain}/code/push/v/0.0`, {
+  return requestPromise(`${domain}/code/push/v/0.0`, {
     body: JSON.stringify(metadata.result),
     headers: {
       ...getAuthHeaders(token),
       ...await getUserAgentHeaders(),
     },
+    json: true,
     method: 'POST',
   })
-    .then((response:Response) => parseJson<PushMetadataResponse>(response))
     .then((data:PushMetadataResponse|null) => data ? data : null);
 }

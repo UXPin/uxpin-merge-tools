@@ -1,7 +1,10 @@
+import * as requestPromise from 'request-promise';
 import { resolve } from 'path';
 import { postUploadBundle, UploadBundleResponse } from '../postUploadBundle';
 
-jest.mock('../../../utils/fetch/fetch');
+jest.mock('request-promise');
+
+const requestPromiseMock = requestPromise as unknown as jest.Mock<typeof requestPromise>;
 
 describe('postUploadBundle', () => {
   const domain:string = 'https://uxpin.mock';
@@ -10,35 +13,35 @@ describe('postUploadBundle', () => {
   const commitHash:string = '123abc';
 
   beforeEach(() => {
-    fetchMock.resetMocks();
+    requestPromiseMock.mockRestore();
   });
 
   describe('request', () => {
     beforeEach(async () => {
       // given
-      fetchMock.mockResponseOnce(JSON.stringify({ url: 'https://s3.mock/bundle.js' }));
+      requestPromiseMock.mockImplementation(() => Promise.resolve({ url: 'https://s3.mock/bundle.js' }));
 
       // when
       await postUploadBundle(domain, token, commitHash, path);
     });
 
     it('should call proper url', () => {
-      const [url] = fetchMock.mock.calls[0];
+      const [url] = requestPromiseMock.mock.calls[0];
       expect(url).toEqual('https://uxpin.mock/code/v/1.0/push/bundle');
     });
 
     it('should use proper HTTP method', () => {
-      const [, options] = fetchMock.mock.calls[0];
+      const [, options] = requestPromiseMock.mock.calls[0];
       expect(options.method).toEqual('POST');
     });
 
     it('should use proper auth-token', () => {
-      const [, options] = fetchMock.mock.calls[0];
+      const [, options] = requestPromiseMock.mock.calls[0];
       expect(options.headers['auth-token']).toEqual('token');
     });
 
     it('should have User-Agent header', () => {
-      const [, options] = fetchMock.mock.calls[0];
+      const [, options] = requestPromiseMock.mock.calls[0];
       expect(options.headers['User-Agent']).not.toEqual('');
     });
   });
@@ -48,7 +51,7 @@ describe('postUploadBundle', () => {
 
     beforeEach(async () => {
       // given
-      fetchMock.mockResponseOnce(JSON.stringify({ url: 'https://s3.mock/bundle.js' }));
+      requestPromiseMock.mockImplementation(() => Promise.resolve({ url: 'https://s3.mock/bundle.js' }));
 
       // when
       response = await postUploadBundle(domain, token, commitHash, path);
@@ -62,16 +65,11 @@ describe('postUploadBundle', () => {
   describe('HTTP 401', () => {
     beforeEach(async () => {
       // given
-      fetchMock.mockResponseOnce(() => {
-        return Promise.resolve({
-          body: JSON.stringify({
-            error: 'Unauthorized',
-            message: 'Incorrect authorization token',
-            statusCode: 401,
-          }),
-          init: {
-            status: 401,
-          },
+      requestPromiseMock.mockImplementation(() => {
+        return Promise.reject({
+          error: 'Unauthorized',
+          message: 'Incorrect authorization token',
+          statusCode: 401,
         });
       });
     });

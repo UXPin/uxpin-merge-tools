@@ -1,7 +1,6 @@
+import * as requestPromise from 'request-promise';
 import * as FormData from 'form-data';
 import { createReadStream } from 'fs';
-import { fetch } from '../../utils/fetch/fetch';
-import { parseJson } from '../../utils/fetch/parseJson';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
@@ -20,13 +19,12 @@ export async function postUploadBundle(
   body.append('commitHash', commitHash);
   body.append('bundle', createReadStream(path));
 
-  return fetch(`${domain}/code/v/1.0/push/bundle`, {
+  return requestPromise(`${domain}/code/v/1.0/push/bundle`, {
     body: body as unknown as ReadableStream,
     headers: {
       ...getAuthHeaders(token),
       ...await getUserAgentHeaders(),
     },
     method: 'POST',
-  })
-    .then((response:Response) => parseJson<UploadBundleResponse>(response));
+  });
 }

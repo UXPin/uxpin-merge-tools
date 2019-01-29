@@ -1,7 +1,10 @@
+import * as requestPromise from 'request-promise';
 import { DSMetadata } from '../../../program/DSMeta';
 import { postPushMetadata, PushMetadataResponse } from '../postPushMetadata';
 
-jest.mock('../../../utils/fetch/fetch');
+jest.mock('request-promise');
+
+const requestPromiseMock = requestPromise as unknown as jest.Mock<typeof requestPromise>;
 
 describe('postPushMetadata', () => {
   const domain:string = 'https://uxpin.mock';
@@ -19,35 +22,35 @@ describe('postPushMetadata', () => {
   };
 
   beforeEach(() => {
-    fetchMock.resetMocks();
+    requestPromiseMock.mockRestore();
   });
 
   describe('request', () => {
     beforeEach(async () => {
       // given
-      fetchMock.mockResponseOnce(JSON.stringify({}));
+      requestPromiseMock.mockImplementation(() => Promise.resolve({}));
 
       // when
       await postPushMetadata(domain, token, metadata);
     });
 
     it('should call proper url', () => {
-      const [url] = fetchMock.mock.calls[0];
+      const [url] = requestPromiseMock.mock.calls[0];
       expect(url).toEqual('https://uxpin.mock/code/push/v/0.0');
     });
 
     it('should use proper HTTP method', () => {
-      const [, options] = fetchMock.mock.calls[0];
+      const [, options] = requestPromiseMock.mock.calls[0];
       expect(options.method).toEqual('POST');
     });
 
     it('should use proper auth-token', () => {
-      const [, options] = fetchMock.mock.calls[0];
+      const [, options] = requestPromiseMock.mock.calls[0];
       expect(options.headers['auth-token']).toEqual('token');
     });
 
     it('should have User-Agent header', () => {
-      const [, options] = fetchMock.mock.calls[0];
+      const [, options] = requestPromiseMock.mock.calls[0];
       expect(options.headers['User-Agent']).not.toEqual('');
     });
   });
@@ -57,7 +60,7 @@ describe('postPushMetadata', () => {
 
     beforeEach(async () => {
       // given
-      fetchMock.mockResponseOnce(JSON.stringify({
+      requestPromiseMock.mockImplementation(() => Promise.resolve({
         message: 'Design System snapshot has been uploaded successfully',
       }));
 
@@ -73,16 +76,11 @@ describe('postPushMetadata', () => {
   describe('HTTP 401', () => {
     beforeEach(() => {
       // given
-      fetchMock.mockResponseOnce(() => {
-        return Promise.resolve({
-          body: JSON.stringify({
-            error: 'Unauthorized',
-            message: 'Incorrect authorization token',
-            statusCode: 401,
-          }),
-          init: {
-            status: 401,
-          },
+      requestPromiseMock.mockImplementation(() => {
+        return Promise.reject({
+          error: 'Unauthorized',
+          message: 'Incorrect authorization token',
+          statusCode: 401,
         });
       });
     });

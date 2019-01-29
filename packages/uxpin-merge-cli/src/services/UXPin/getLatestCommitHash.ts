@@ -1,5 +1,4 @@
-import { fetch } from '../../utils/fetch/fetch';
-import { parseJson } from '../../utils/fetch/parseJson';
+import * as requestPromise from 'request-promise';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
@@ -8,13 +7,13 @@ interface LatestCommitResponse {
 }
 
 export async function getLatestCommitHash(domain:string, branch:string, token:string):Promise<string|null> {
-  return fetch(`${domain}/code/v/1.0/branch/${branch}/latestCommit`, {
+  return requestPromise(`${domain}/code/v/1.0/branch/${branch}/latestCommit`, {
     headers: {
       ...getAuthHeaders(token),
       ...await getUserAgentHeaders(),
     },
+    json: true,
     method: 'GET',
   })
-    .then((response:Response) => parseJson<LatestCommitResponse>(response))
     .then((data:LatestCommitResponse|null) => data ? data.commitHash : null);
 }
