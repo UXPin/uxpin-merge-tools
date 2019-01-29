@@ -1,6 +1,6 @@
-import * as requestPromise from 'request-promise';
 import * as FormData from 'form-data';
 import { createReadStream } from 'fs';
+import * as requestPromise from 'request-promise';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 

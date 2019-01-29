@@ -4,7 +4,8 @@ import { postPushMetadata, PushMetadataResponse } from '../postPushMetadata';
 
 jest.mock('request-promise');
 
-const requestPromiseMock = requestPromise as unknown as jest.Mock<typeof requestPromise>;
+const requestPromiseMock:jest.Mock<typeof requestPromise> =
+  requestPromise as unknown as jest.Mock<typeof requestPromise>;
 
 describe('postPushMetadata', () => {
   const domain:string = 'https://uxpin.mock';

@@ -1,3 +1,6 @@
-const requestPromise = jest.genMockFromModule('request-promise');
+import * as requestPromise from 'request-promise';
 
-export default requestPromise;
+const requestPromiseMock:jest.Mock<typeof requestPromise> = jest.genMockFromModule('request-promise');
+
+// tslint:disable-next-line:no-default-export
+export default requestPromiseMock;

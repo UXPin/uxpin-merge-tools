@@ -3,7 +3,8 @@ import { getLatestCommitHash } from '../getLatestCommitHash';
 
 jest.mock('request-promise');
 
-const requestPromiseMock = requestPromise as unknown as jest.Mock<typeof requestPromise>;
+const requestPromiseMock:jest.Mock<typeof requestPromise> =
+  requestPromise as unknown as jest.Mock<typeof requestPromise>;
 
 describe('getLatestCommitHash', () => {
   const domain:string = 'https://uxpin.mock';

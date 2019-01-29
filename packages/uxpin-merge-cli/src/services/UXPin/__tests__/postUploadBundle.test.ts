@@ -1,10 +1,11 @@
-import * as requestPromise from 'request-promise';
 import { resolve } from 'path';
+import * as requestPromise from 'request-promise';
 import { postUploadBundle, UploadBundleResponse } from '../postUploadBundle';
 
 jest.mock('request-promise');
 
-const requestPromiseMock = requestPromise as unknown as jest.Mock<typeof requestPromise>;
+const requestPromiseMock:jest.Mock<typeof requestPromise> =
+  requestPromise as unknown as jest.Mock<typeof requestPromise>;
 
 describe('postUploadBundle', () => {
   const domain:string = 'https://uxpin.mock';
