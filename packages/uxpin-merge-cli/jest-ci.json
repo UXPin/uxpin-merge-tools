@@ -11,9 +11,6 @@
   "coverageReporters": [
     "json"
   ],
-  "setupFiles": [
-    "./test/setup.js"
-  ],
   "testMatch": [
     "**/test/**/*.test.js",
     "**/__tests__/*.test.js"
