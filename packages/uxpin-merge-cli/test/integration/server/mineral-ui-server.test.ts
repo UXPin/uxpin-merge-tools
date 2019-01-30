@@ -29,8 +29,8 @@ describe('server run in mineral-ui', () => {
 
   setupDebugServerTest({
     env: {
-      NODE_ENV: Environment.TEST,
       UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+      UXPIN_ENV: Environment.TEST,
     },
     projectPath: 'resources/repos/mineral-ui',
     serverCmdArgs: [

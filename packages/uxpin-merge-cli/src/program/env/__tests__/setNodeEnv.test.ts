@@ -5,11 +5,11 @@ describe('setNodeEnv', () => {
   let initialEnv:any;
 
   beforeEach(() => {
-    initialEnv = process.env.NODE_ENV;
+    initialEnv = process.env.UXPIN_ENV;
   });
 
   afterEach(() => {
-    process.env.NODE_ENV = initialEnv;
+    process.env.UXPIN_ENV = initialEnv;
   });
 
   it('should set correct environment', () => {
@@ -17,6 +17,6 @@ describe('setNodeEnv', () => {
     setNodeEnv(Environment.TEST);
 
     // then
-    expect(process.env.NODE_ENV).toEqual(Environment.TEST);
+    expect(process.env.UXPIN_ENV).toEqual(Environment.TEST);
   });
 });

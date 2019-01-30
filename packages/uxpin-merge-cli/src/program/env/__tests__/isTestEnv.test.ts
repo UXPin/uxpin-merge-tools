@@ -6,14 +6,14 @@ describe('isTestEnv', () => {
     let initialEnv:any;
 
     beforeEach(() => {
-      initialEnv = process.env.NODE_ENV;
+      initialEnv = process.env.UXPIN_ENV;
 
       // when
-      process.env.NODE_ENV = Environment.TEST;
+      process.env.UXPIN_ENV = Environment.TEST;
     });
 
     afterEach(() => {
-      process.env.NODE_ENV = initialEnv;
+      process.env.UXPIN_ENV = initialEnv;
     });
 
     it('should return true for test environment', () => {
@@ -26,14 +26,14 @@ describe('isTestEnv', () => {
     let initialEnv:any;
 
     beforeEach(() => {
-      initialEnv = process.env.NODE_ENV;
+      initialEnv = process.env.UXPIN_ENV;
 
       // when
-      process.env.NODE_ENV = Environment.PRODUCTION;
+      process.env.UXPIN_ENV = Environment.PRODUCTION;
     });
 
     afterEach(() => {
-      process.env.NODE_ENV = initialEnv;
+      process.env.UXPIN_ENV = initialEnv;
     });
 
     it('should return false for different environment', () => {

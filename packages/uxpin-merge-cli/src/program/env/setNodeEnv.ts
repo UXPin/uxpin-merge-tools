@@ -1,7 +1,7 @@
 import { DEFAULT_ENVIRONMENT, Environment } from './Environment';
 
 export function setNodeEnv(env:string | undefined = DEFAULT_ENVIRONMENT):void {
-  process.env.NODE_ENV = env;
+  process.env.UXPIN_ENV = env;
 
   setEnvironmentOptions(env as Environment);
 }

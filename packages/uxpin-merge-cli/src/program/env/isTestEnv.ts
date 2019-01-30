@@ -1,5 +1,5 @@
 import { Environment } from './Environment';
 
 export function isTestEnv():boolean {
-  return process.env.NODE_ENV === Environment.TEST;
+  return process.env.UXPIN_ENV === Environment.TEST;
 }

@@ -43,8 +43,8 @@ describe('Pushing mineral-ui design system', () => {
       consoleOutput = await runUXPinMergeCommand({
         cwd: 'resources/repos/mineral-ui',
         env: {
-          NODE_ENV: Environment.TEST,
           UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+          UXPIN_ENV: Environment.TEST,
         },
         params,
       });
@@ -65,8 +65,8 @@ describe('Pushing mineral-ui design system', () => {
       const consoleOutput:Promise<string> = runUXPinMergeCommand({
         cwd: 'resources/repos/mineral-ui',
         env: {
-          NODE_ENV: Environment.TEST,
           UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+          UXPIN_ENV: Environment.TEST,
         },
         params,
       });

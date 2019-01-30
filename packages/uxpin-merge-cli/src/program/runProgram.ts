@@ -18,7 +18,7 @@ import { setupWatcher } from './watcher/setupWatcher';
 
 export async function runProgram(program:RawProgramArgs):Promise<any> {
   try {
-    setNodeEnv(process.env.NODE_ENV);
+    setNodeEnv(process.env.UXPIN_ENV);
     const programArgs:ProgramArgs = getProgramArgs(program);
     await setupProjectWatcher(programArgs);
     await runCommand(programArgs);

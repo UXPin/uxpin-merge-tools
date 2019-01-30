@@ -45,8 +45,8 @@ describe('Building designSystems/cantWriteToUxpinTemp design system', () => {
     await expect(runUXPinMergeCommand({
       cwd: workingDir,
       env: {
-        NODE_ENV: Environment.TEST,
         UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+        UXPIN_ENV: Environment.TEST,
       },
       params: [
         Command.PUSH,
