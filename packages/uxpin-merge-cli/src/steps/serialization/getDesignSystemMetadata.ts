@@ -21,7 +21,6 @@ import { serializePresets } from './component/presets/serializePresets';
 import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
 import { getVscDetails } from './vcs/getVcsDetails';
 
-
 export async function getDesignSystemMetadata(
   programArgs:ProgramArgs,
   paths:ProjectPaths,
