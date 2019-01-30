@@ -2,7 +2,7 @@ import { getLatestCommit } from './common/getLatestCommit';
 
 export const mineralUiSummaryStub:any = {
   requests: [
-    getLatestCommit('b825842aeb4244e56977af1a4afc3559caed94f3'),
+    getLatestCommit('6a18faefe3d8339b066c92f1a10b27872f15729b'),
   ],
 };
 
