@@ -14,7 +14,7 @@ describe('Experimental - watch - imported file from component changed', () => {
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
-      '--webpack-config "node_modules/react-scripts/config/webpack.config.dev.js"',
+      '--webpack-config "./webpack.config.js"',
     ],
   });
 

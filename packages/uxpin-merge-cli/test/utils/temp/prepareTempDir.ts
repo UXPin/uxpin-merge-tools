@@ -3,9 +3,7 @@ import { dir, DirectoryResult } from 'tmp-promise';
 import { execAsync } from '../../../src/utils/child_process/execAsync';
 
 export async function prepareTempDir(sourceDir:string, initialiseGit:boolean = false):Promise<DirectoryResult> {
-  const result:DirectoryResult = await dir({
-    unsafeCleanup: true,
-  });
+  const result:DirectoryResult = await dir({ unsafeCleanup: true });
   await copy(sourceDir, result.path, { errorOnExist: true });
 
   if (initialiseGit) {

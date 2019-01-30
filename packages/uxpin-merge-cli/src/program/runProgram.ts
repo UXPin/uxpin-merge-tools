@@ -1,5 +1,4 @@
 import pMapSeries = require('p-map-series');
-import { BuildOptions } from '../steps/building/BuildOptions';
 import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
@@ -9,7 +8,6 @@ import { getProjectPaths } from './args/providers/paths/getProjectPaths';
 import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
 import { getStepsForWatcher } from './command/getStepsForWatcher';
-import { getBuildOptions } from './command/push/getBuildOptions';
 import { Step, StepExecutor } from './command/Step';
 import { applyVersionCommandSteps } from './command/version/applyVersionCommandSteps';
 import { DSMetadata } from './DSMeta';
@@ -55,8 +53,7 @@ async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promis
     .map((step) => tapPromise(step.exec));
 
   const paths:ProjectPaths = getProjectPaths(programArgs);
-  const buildOptions:BuildOptions = getBuildOptions(programArgs);
-  const designSystem:DSMetadata = await getDesignSystemMetadata(paths, buildOptions);
+  const designSystem:DSMetadata = await getDesignSystemMetadata(programArgs, paths);
 
   await pMapSeries(stepFunctions, (step) => step(designSystem));
 }

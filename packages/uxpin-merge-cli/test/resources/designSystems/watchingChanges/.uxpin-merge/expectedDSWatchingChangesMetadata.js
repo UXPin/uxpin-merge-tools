@@ -13,7 +13,7 @@ exports.expectedAvatarDefinition = {
         },
         presets: [
             {
-                path: 'src/components/Avatar/presets/0-default.json',
+                path: 'src/components/Avatar/presets/0-default.jsx',
             },
         ],
     },
@@ -96,7 +96,7 @@ exports.expectedButtonDefinition = {
         },
         presets: [
             {
-                path: 'src/components/Button/presets/0-default.json',
+                path: 'src/components/Button/presets/0-default.jsx',
             },
         ],
     },

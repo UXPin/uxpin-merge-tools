@@ -11,7 +11,7 @@ export const expectedAvatarMetadata:ComponentDefinition = {
       path: 'src/components/Avatar/Avatar.tsx',
     },
     presets: [
-      { path: 'src/components/Avatar/presets/0-default.json' },
+      { path: 'src/components/Avatar/presets/0-default.jsx' },
     ],
   },
   name: 'Avatar',
@@ -62,7 +62,7 @@ export const expectedButtonMetadata:ComponentDefinition = {
       path: 'src/components/Button/Button.tsx',
     },
     presets: [
-      { path: 'src/components/Button/presets/0-default.json' },
+      { path: 'src/components/Button/presets/0-default.jsx' },
     ],
   },
   name: 'Button',

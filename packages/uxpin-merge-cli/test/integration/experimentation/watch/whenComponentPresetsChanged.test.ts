@@ -19,31 +19,24 @@ describe('Experimental - watch - when component presets has changed', () => {
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
-      '--webpack-config "node_modules/react-scripts/config/webpack.config.dev.js"',
+      '--webpack-config "./webpack.config.js"',
     ],
   });
 
   const changedFileContent:string = `
-{
-  "rootId": "1",
-  "elements": {
-    "1": {
-      "name": "Button",
-      "props": {
-        "children": "Click me",
-        "primary": false
-      }
-    }
-  }
-}
+import React from 'react';
+import Button from '../Button';
 
+export default (
+  <Button uxpId="1" primary={false}>Click me</Button>
+);
 `;
 
   beforeAll(async () => {
     // given
     initialBundleChecksum = await getBundleChecksum();
     initialMetadata = await getMetadataChecksum();
-    const buttonPresetsPath:string = './src/components/Button/presets/0-default.json';
+    const buttonPresetsPath:string = './src/components/Button/presets/0-default.jsx';
 
     // when
     await changeProjectFile(buttonPresetsPath, changedFileContent);

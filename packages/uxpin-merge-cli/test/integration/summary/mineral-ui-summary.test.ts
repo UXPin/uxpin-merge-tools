@@ -7,7 +7,7 @@ import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber'
 import { ADMIN_PORT_RANGE, startStubbyServer, STUBS_PORT_RANGE, TLS_PORT_RANGE } from '../../utils/stubby/startStubbyServer';
 import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT:number = 60000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
@@ -40,6 +40,7 @@ describe('summary command integration', () => {
         },
         params: [
           Command.SUMMARY,
+          '--webpack-config "./webpack.config.js"',
         ],
       });
 
@@ -57,12 +58,22 @@ describe('summary command integration', () => {
         💡 examples: ✔
         🎛  presets: ✔
 
+    ButtonGroup
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
     Dropdown
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✔
 
     Link
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
+    Pagination
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✔
@@ -75,6 +86,11 @@ describe('summary command integration', () => {
     Select
         📜 documentation: ✘
         💡 examples: ✘
+        🎛  presets: ✔
+
+    Table
+        📜 documentation: ✔
+        💡 examples: ✔
         🎛  presets: ✔
 
     Text
@@ -152,6 +168,16 @@ describe('summary command integration', () => {
         💡 examples: ✘
         🎛  presets: ✔
 
+    Tab
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
+    Tabs
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
 Card
 
     Card
@@ -222,6 +248,21 @@ Icons
         🎛  presets: ✘
 
     IconCheckBoxIndeterminate
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconChevronLeft
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconChevronRight
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✘
+
+    IconClose
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✘

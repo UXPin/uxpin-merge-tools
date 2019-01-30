@@ -11,6 +11,7 @@ const CURRENT_TIMEOUT:number = 30000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
+// TODO: eventually turn off
 describe('summary command integration', () => {
   let server:any;
   const tlsPort:number = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);

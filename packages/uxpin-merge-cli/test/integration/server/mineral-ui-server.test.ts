@@ -9,8 +9,7 @@ import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 import { ADMIN_PORT_RANGE, startStubbyServer, STUBS_PORT_RANGE, TLS_PORT_RANGE } from '../../utils/stubby/startStubbyServer';
 import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
-const CURRENT_TIMEOUT:number = 300000;
-
+const CURRENT_TIMEOUT:number = 600000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('server run in mineral-ui', () => {
@@ -51,7 +50,7 @@ describe('server run in mineral-ui', () => {
     };
 
     const getComponentDetails:() => typeof expectedDetails = () => {
-      const dangerItemContentSelector:string = '#dropdown-1-item-2 > span > span > span:first-child';
+      const dangerItemContentSelector:string = '#dropdown-1-item-4 > span > span > span:first-child';
       const dropdownContentItem:HTMLElement = document.querySelector(dangerItemContentSelector) as HTMLElement;
       const dropdownItemStyles:CSSStyleDeclaration = getComputedStyle(dropdownContentItem);
       const itemContents:string = dropdownContentItem.innerText as string;

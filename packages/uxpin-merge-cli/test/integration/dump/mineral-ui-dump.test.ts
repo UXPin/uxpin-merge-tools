@@ -7,7 +7,7 @@ import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber'
 import { startStubbyServer } from '../../utils/stubby/startStubbyServer';
 import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT:number = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
@@ -39,7 +39,10 @@ describe('The dump command', () => {
           UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
           UXPIN_ENV: Environment.TEST,
         },
-        params: [Command.DUMP],
+        params: [
+          Command.DUMP,
+          '--webpack-config "./webpack.config.js"',
+        ],
       });
 
       // then

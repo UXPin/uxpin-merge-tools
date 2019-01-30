@@ -12,6 +12,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
 
+// TODO: eventually turn off
 describe('The dump command', () => {
   let tlsPort:number;
   let server:any;

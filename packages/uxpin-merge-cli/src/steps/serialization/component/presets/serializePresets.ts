@@ -1,41 +1,51 @@
-import pReduce = require('p-reduce');
-
-import { readFile } from 'fs-extra';
+import { thunkFillSourcePath } from '../../../../common/warning/thunkFillSourcePath';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
 import { getPresetName } from '../../../discovery/component/presets/presetFileNameParser';
-import { ComponentPresetData } from './ComponentPreset';
+import { collectPresetElements } from './collectPresetElements';
+import { getUniqPresetImportName } from './jsx/bundle/getUniqPresetImportName';
+import { PresetsBundle } from './jsx/bundle/PresetsBundle';
+import { JSXSerializedElement } from './jsx/JSXSerializationResult';
 import { PresetsSerializationResult } from './PresetsSerializationResult';
 
-export function serializePresets(infos:ComponentPresetInfo[]):Promise<PresetsSerializationResult> {
+export async function serializePresets(
+  bundle:PresetsBundle,
+  infos:ComponentPresetInfo[],
+):Promise<PresetsSerializationResult> {
   const aggregator:PresetsSerializationResult = { result: [], warnings: [] };
-  return pReduce(infos.map(serializePreset), (result, presetSerializationResult) => {
-    [].push.apply(result.result, presetSerializationResult.result);
-    [].push.apply(result.warnings, presetSerializationResult.warnings);
-    return result;
-  }, aggregator);
+  return infos
+    .map(thunkSerializePreset(bundle))
+    .reduce((result, presetSerializationResult) => {
+      [].push.apply(result.result, presetSerializationResult.result);
+      [].push.apply(result.warnings, presetSerializationResult.warnings);
+      return result;
+    }, aggregator);
 }
 
-function serializePreset(info:ComponentPresetInfo):Promise<PresetsSerializationResult> {
-  return readFile(info.path, { encoding: 'utf8' })
-    .then((content) => JSON.parse(content))
-    .then((presetData:ComponentPresetData) => ({
-      result: [{
-        name: getPresetName(info.path),
-        ...presetData,
-      }],
-      warnings: [],
-    }))
-    .catch(thunkGetResultForInvalidPreset(info.path));
-}
-
-function thunkGetResultForInvalidPreset(sourcePath:string):(e:Error) => PresetsSerializationResult {
-  return (originalError) => {
-    const warning:WarningDetails = {
-      message: 'Cannot serialize component preset',
-      originalError,
-      sourcePath,
-    };
-    return { result: [], warnings: [warning] };
+function thunkSerializePreset(bundle:PresetsBundle):(info:ComponentPresetInfo) => PresetsSerializationResult {
+  return ({ path }) => {
+    try {
+      const presetData:JSXSerializedElement = bundle[getUniqPresetImportName(path)];
+      const { result: elements, warnings } = collectPresetElements(presetData, { result: {}, warnings: [] });
+      return {
+        result: [{
+          elements,
+          name: getPresetName(path),
+          rootId: presetData.props.uxpId,
+        }],
+        warnings: warnings.map(thunkFillSourcePath(path)),
+      };
+    } catch (error) {
+      return getResultForInvalidPreset(path, error);
+    }
   };
+}
+
+function getResultForInvalidPreset(sourcePath:string, originalError:Error):PresetsSerializationResult {
+  const warning:WarningDetails = {
+    message: 'Cannot serialize component preset',
+    originalError,
+    sourcePath,
+  };
+  return { result: [], warnings: [warning] };
 }
