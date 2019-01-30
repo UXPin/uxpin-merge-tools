@@ -1,5 +1,7 @@
+import pMap from 'p-map';
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
+import { ProgramArgs } from '../../program/args/ProgramArgs';
 import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
 import { ComponentInfo } from '../discovery/component/ComponentInfo';
 import { ComponentCategory } from './component/categories/ComponentCategory';
@@ -7,64 +9,74 @@ import { ComponentDefinition } from './component/ComponentDefinition';
 import { ExamplesSerializationResult } from './component/examples/ExamplesSerializationResult';
 import { serializeExamples } from './component/examples/serializeExamples';
 import { getComponentMetadata } from './component/implementation/getComponentMetadata';
+import { getBundle } from './component/presets/jsx/bundle/getBundle';
+import { PresetsBundle } from './component/presets/jsx/bundle/PresetsBundle';
 import { PresetsSerializationResult } from './component/presets/PresetsSerializationResult';
 import { serializePresets } from './component/presets/serializePresets';
 import { DesignSystemSnapshot } from './DesignSystemSnapshot';
 
-export function getDesignSystemMetadata(categoryInfos:ComponentCategoryInfo[]):Promise<Warned<DesignSystemSnapshot>> {
-  return Promise.all(categoryInfos.map(categoryInfoToCategoryMetadata))
-    .then((categories) => ({
-      result: {
-        categorizedComponents: categories.map((category) => category.result),
-        name: '',
-      },
-      warnings: joinWarningLists(categories.map((category) => category.warnings)),
-    }));
+export async function getDesignSystemMetadata(
+  programArgs:ProgramArgs,
+  infos:ComponentCategoryInfo[],
+  libraryName:string,
+):Promise<Warned<DesignSystemSnapshot>> {
+  const bundle:PresetsBundle = await getBundle(programArgs, infos);
+  const categories:Array<Warned<ComponentCategory>> = await pMap(infos, thunkCategoryInfoToMetadata(bundle));
+  return {
+    result: {
+      categorizedComponents: categories.map((category) => category.result),
+      name: libraryName,
+    },
+    warnings: joinWarningLists(categories.map((category) => category.warnings)),
+  };
 }
 
-function categoryInfoToCategoryMetadata(info:ComponentCategoryInfo):Promise<Warned<ComponentCategory>> {
-  return Promise.all(info.componentInfos.map(componentInfoToDefinition))
-    .then((components) => ({
+function thunkCategoryInfoToMetadata(
+  bundle:PresetsBundle,
+):(info:ComponentCategoryInfo) => Promise<Warned<ComponentCategory>> {
+  return async ({ componentInfos, name }:ComponentCategoryInfo) => {
+    const components:Array<Warned<ComponentDefinition>> = await pMap(componentInfos,
+      thunkComponentInfoToDefinition(bundle));
+
+    return {
       result: {
         components: components.map((component) => component.result),
-        name: info.name,
+        name,
       },
       warnings: joinWarningLists(components.map((component) => component.warnings)),
-    }));
+    };
+  };
 }
 
-function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentDefinition>> {
-  return Promise.all([
-    getComponentMetadata(info.implementation),
-    serializeOptionalExamples(info),
-    serializeOptionalPresets(info),
-  ]).then(([
-      { result: metadata, warnings: metadataWarnings },
-      { result: examples, warnings: exampleWarnings },
-      { result: presets, warnings: presetWarnings },
-    ]) => ({
+function thunkComponentInfoToDefinition(
+  bundle:PresetsBundle,
+):(info:ComponentInfo) => Promise<Warned<ComponentDefinition>> {
+  return async (info:ComponentInfo) => {
+    const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(info.implementation);
+    const { result: examples, warnings: exampleWarnings } = await serializeOptionalExamples(info);
+    const { result: presets, warnings: presetWarnings } = await serializeOptionalPresets(bundle, info);
+    return {
       result: { info, ...metadata, documentation: { examples }, presets },
       warnings: joinWarningLists([metadataWarnings, exampleWarnings, presetWarnings]),
-    }),
-  );
+    };
+  };
 }
 
-function serializeOptionalExamples(info:ComponentInfo):Promise<ExamplesSerializationResult> {
-  return new Promise((resolve) => {
-    if (!info.documentation) {
-      return resolve({ result: [], warnings: [] });
-    }
+async function serializeOptionalExamples(info:ComponentInfo):Promise<ExamplesSerializationResult> {
+  if (!info.documentation) {
+    return { result: [], warnings: [] };
+  }
 
-    serializeExamples(info.documentation.path).then(resolve);
-  });
+  return await serializeExamples(info.documentation.path);
 }
 
-function serializeOptionalPresets(info:ComponentInfo):Promise<PresetsSerializationResult> {
-  return new Promise((resolve) => {
-    if (!info.presets || !info.presets.length) {
-      return resolve({ result: [], warnings: [] });
-    }
+async function serializeOptionalPresets(
+  bundle:PresetsBundle,
+  info:ComponentInfo,
+):Promise<PresetsSerializationResult> {
+  if (!info.presets || !info.presets.length) {
+    return { result: [], warnings: [] };
+  }
 
-    serializePresets(info.presets).then(resolve);
-  });
+  return await serializePresets(bundle, info.presets);
 }

@@ -5,6 +5,8 @@ import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 const CURRENT_TIMEOUT:number = 75000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
+jest.mock('../../../src/program/utils/version/getToolVersion');
+
 describe('Pushing mineral-ui design system', () => {
   describe('with required user webpack config', () => {
     let consoleOutput:string;

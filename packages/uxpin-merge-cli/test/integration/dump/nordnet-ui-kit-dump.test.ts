@@ -5,7 +5,9 @@ import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('The dump command', () => {
+jest.mock('../../../src/program/utils/version/getToolVersion');
+
+xdescribe('The dump command', () => {
   describe('run for the nordnet-ui-kit repository', () => {
     it('prints the JSON describing the full repository', () => {
       // when

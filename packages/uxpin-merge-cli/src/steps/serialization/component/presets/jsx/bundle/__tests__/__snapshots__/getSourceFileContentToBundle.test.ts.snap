@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getSourceFileContentToBundle should get file content for empty presets list 1`] = `
+"
+
+export {
+
+};
+"
+`;
+
+exports[`getSourceFileContentToBundle should get file content for given presets 1`] = `
+"import Preset65aaa443fa205a06ad85aaa3edf78068 from 'src/components/Component1/presets/0-default.jsx';
+import Preset630e58ad10445b0fa1f85852c4cd6bdf from 'src/components/Component1/presets/1-alternative.jsx';
+import Preset3dc3c7e21456554b87f2a933e5a3b691 from 'src/components/Component2/presets/0-default.jsx';
+
+export {
+  Preset65aaa443fa205a06ad85aaa3edf78068,
+  Preset630e58ad10445b0fa1f85852c4cd6bdf,
+  Preset3dc3c7e21456554b87f2a933e5a3b691,
+};
+"
+`;
