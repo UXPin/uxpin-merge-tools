@@ -25,6 +25,7 @@ export async function postUploadBundle(
       ...getAuthHeaders(token),
       ...await getUserAgentHeaders(),
     },
+    json: true,
     method: 'POST',
   });
 }
