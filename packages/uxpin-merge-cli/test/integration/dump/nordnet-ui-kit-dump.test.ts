@@ -10,7 +10,6 @@ import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-// TODO: eventually turn off
 describe('The dump command', () => {
   let tlsPort:number;
   let server:any;
