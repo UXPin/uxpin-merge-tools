@@ -29,6 +29,7 @@
     "modulePathIgnorePatterns": [
       "/node_modules/"
     ],
+    "resetModules": true,
     "testMatch": [
       "**/test/**/*.test.ts",
       "**/__tests__/*.test.ts"
