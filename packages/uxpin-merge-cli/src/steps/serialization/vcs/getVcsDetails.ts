@@ -1,5 +1,5 @@
-import { getApiDomain } from '../../../services/UXPin/getApiDomain';
-import { getLatestCommitHash } from '../../../services/UXPin/getLatestCommitHash';
+import { getApiDomain } from '../../../common/services/UXPin/getApiDomain';
+import { getLatestCommitHash } from '../../../common/services/UXPin/getLatestCommitHash';
 import { BuildOptions } from '../../../steps/building/BuildOptions';
 import { ProjectPaths } from '../../../steps/discovery/paths/ProjectPaths';
 import { ComponentCategory } from '../component/categories/ComponentCategory';

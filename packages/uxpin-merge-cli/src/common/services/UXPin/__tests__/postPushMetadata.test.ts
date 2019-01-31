@@ -1,5 +1,5 @@
 import * as requestPromise from 'request-promise';
-import { DSMetadata } from '../../../program/DSMeta';
+import { DSMetadata } from '../../../../program/DSMeta';
 import { postPushMetadata, PushMetadataResponse } from '../postPushMetadata';
 
 jest.mock('request-promise');

@@ -1,5 +1,5 @@
 import * as requestPromise from 'request-promise';
-import { DSMetadata } from '../../program/DSMeta';
+import { DSMetadata } from '../../../program/DSMeta';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 

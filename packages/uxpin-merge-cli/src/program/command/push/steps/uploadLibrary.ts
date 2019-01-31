@@ -1,8 +1,8 @@
 import { resolve } from 'path';
+import { getApiDomain } from '../../../../common/services/UXPin/getApiDomain';
+import { postPushMetadata } from '../../../../common/services/UXPin/postPushMetadata';
+import { postUploadBundle } from '../../../../common/services/UXPin/postUploadBundle';
 import { DSMetadata } from '../../../../program/DSMeta';
-import { getApiDomain } from '../../../../services/UXPin/getApiDomain';
-import { postPushMetadata } from '../../../../services/UXPin/postPushMetadata';
-import { postUploadBundle } from '../../../../services/UXPin/postUploadBundle';
 import { BuildOptions } from '../../../../steps/building/BuildOptions';
 import { LIBRARY_OUTPUT_FILENAME } from '../../../../steps/building/config/getConfig';
 import { isSameVersion } from '../../../../steps/serialization/vcs/isSameVersion';

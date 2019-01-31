@@ -1,4 +1,4 @@
-import { getToolVersion } from '../../../program/utils/version/getToolVersion';
+import { getToolVersion } from '../../../../program/utils/version/getToolVersion';
 
 interface UXPinUserAgentHeaders {
   'User-Agent':string;
