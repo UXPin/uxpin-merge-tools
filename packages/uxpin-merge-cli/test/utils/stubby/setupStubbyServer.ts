@@ -1,8 +1,8 @@
+import { DeferredChain } from 'deferred-proxy-chain';
 import { Stubby, StubbyStub } from 'stubby';
 import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
-import { ADMIN_PORT_RANGE, STUBS_PORT_RANGE, TLS_PORT_RANGE, startStubbyServer } from './startStubbyServer';
+import { ADMIN_PORT_RANGE, startStubbyServer, STUBS_PORT_RANGE, TLS_PORT_RANGE } from './startStubbyServer';
 import { stopStubbyServer } from './stopStubbyServer';
-import { DeferredChain } from 'deferred-proxy-chain';
 
 export interface StubbyServerContext {
   getAdminPort():number;
