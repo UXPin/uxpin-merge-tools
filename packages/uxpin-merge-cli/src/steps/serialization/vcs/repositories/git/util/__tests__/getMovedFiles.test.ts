@@ -1,12 +1,12 @@
 import { resolve } from 'path';
-import { MovedFilePathsMap } from '../../../../steps/serialization/DesignSystemSnapshot';
-import { execAsync } from '../../../../utils/child_process/execAsync';
+import { execAsync } from '../../../../../../../utils/child_process/execAsync';
+import { MovedFilePathsMap } from '../../../../../DesignSystemSnapshot';
 import { getMovedFiles } from '../getMovedFiles';
 
 describe('getMovedFiles', () => {
   it('should get map of moved files', async () => {
     // given
-    const cwd:string = resolve(__dirname, '../../../../../test/resources/repos/git-repo-rename');
+    const cwd:string = resolve(__dirname, '../../../../../../../../test/resources/repos/git-repo-rename');
     const hashes:string = await execAsync('git log -n 2 --pretty="format:%H"', { cwd });
     const [revision2, revision1] = hashes.split('\n');
 

@@ -1,4 +1,4 @@
-import { MovedFilePathsMap } from '../steps/serialization/DesignSystemSnapshot';
+import { MovedFilePathsMap } from '../../DesignSystemSnapshot';
 import { CommitMetadata, RepositoryAdapter, RepositoryPointer } from './RepositoryAdapter';
 
 // tslint:disable prefer-function-over-method

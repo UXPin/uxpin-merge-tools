@@ -1,5 +1,5 @@
 import { resolve } from 'path';
-import { execAsync } from '../../../../utils/child_process/execAsync';
+import { execAsync } from '../../../../../../../utils/child_process/execAsync';
 import { getCurrentBranch } from '../getCurrentBranch';
 
 describe('getCurrentBranch', () => {
@@ -7,7 +7,7 @@ describe('getCurrentBranch', () => {
 
   beforeEach(async () => {
     // given
-    path = resolve(__dirname, '../../../../../test/resources/repos/git-repo');
+    path = resolve(__dirname, '../../../../../../../../test/resources/repos/git-repo');
     await execAsync('git checkout master', { cwd: path });
   });
 

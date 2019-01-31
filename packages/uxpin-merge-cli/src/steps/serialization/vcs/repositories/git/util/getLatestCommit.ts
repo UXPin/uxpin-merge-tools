@@ -1,5 +1,5 @@
 import { ExecOptions } from 'child_process';
-import { execAsync } from '../../../utils/child_process/execAsync';
+import { execAsync } from '../../../../../../utils/child_process/execAsync';
 import { CommitMetadata } from '../../RepositoryAdapter';
 
 function removeNewLines(data:string):string {

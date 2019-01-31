@@ -1,4 +1,4 @@
-import { MovedFilePathsMap } from '../../steps/serialization/DesignSystemSnapshot';
+import { MovedFilePathsMap } from '../../../DesignSystemSnapshot';
 import { AbstractRepositoryAdapter } from '../AbstractRepositoryAdapter';
 import { CommitMetadata, RepositoryAdapter, RepositoryAdapterOptions } from '../RepositoryAdapter';
 import { getCurrentBranch } from './util/getCurrentBranch';

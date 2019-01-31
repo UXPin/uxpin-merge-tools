@@ -1,5 +1,3 @@
-import { getRepositoryAdapter } from '../../../repositories/getRepositoryAdapter';
-import { RepositoryAdapter, RepositoryPointer } from '../../../repositories/RepositoryAdapter';
 import { getApiDomain } from '../../../services/UXPin/getApiDomain';
 import { getLatestCommitHash } from '../../../services/UXPin/getLatestCommitHash';
 import { BuildOptions } from '../../../steps/building/BuildOptions';
@@ -7,6 +5,8 @@ import { ProjectPaths } from '../../../steps/discovery/paths/ProjectPaths';
 import { ComponentCategory } from '../component/categories/ComponentCategory';
 import { MovedFilePathsMap, VCSDetails } from '../DesignSystemSnapshot';
 import { filterMovedFiles } from './filterMovedFiles';
+import { getRepositoryAdapter } from './repositories/getRepositoryAdapter';
+import { RepositoryAdapter, RepositoryPointer } from './repositories/RepositoryAdapter';
 
 export async function getVscDetails(
   paths:ProjectPaths,

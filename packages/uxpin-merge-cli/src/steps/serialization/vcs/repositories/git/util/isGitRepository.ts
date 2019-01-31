@@ -1,4 +1,4 @@
-import { execAsync } from '../../../utils/child_process/execAsync';
+import { execAsync } from '../../../../../../utils/child_process/execAsync';
 
 export async function isGitRepository(cwd:string):Promise<boolean> {
   try {

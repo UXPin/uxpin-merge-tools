@@ -1,4 +1,4 @@
-import { MovedFilePathsMap } from '../steps/serialization/DesignSystemSnapshot';
+import { MovedFilePathsMap } from '../../DesignSystemSnapshot';
 
 export interface CommitMetadata {
   author:string;

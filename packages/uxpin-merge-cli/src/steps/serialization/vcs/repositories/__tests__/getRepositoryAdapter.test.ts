@@ -6,7 +6,7 @@ import { RepositoryAdapter } from '../RepositoryAdapter';
 describe('getRepositoryAdapter', () => {
   it('should throw an error when version control system will not be determined for given directory', () => {
     // given
-    const cwd:string = resolve(__dirname, '../../../../../../');
+    const cwd:string = resolve(__dirname, '../../../../../../../../../');
 
     // then
     expect(getRepositoryAdapter(cwd)).rejects.toThrow();
@@ -14,7 +14,7 @@ describe('getRepositoryAdapter', () => {
 
   it('should return GitRepositoryAdapter for git repository', async () => {
     // given
-    const cwd:string = resolve(__dirname, '../../../test/resources/repos/git-repo');
+    const cwd:string = resolve(__dirname, '../../../../../../test/resources/repos/git-repo');
 
     // when
     const adapter:RepositoryAdapter = await getRepositoryAdapter(cwd);
