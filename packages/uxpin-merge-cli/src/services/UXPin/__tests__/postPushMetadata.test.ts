@@ -37,7 +37,7 @@ describe('postPushMetadata', () => {
 
     it('should call proper url', () => {
       const [url] = requestPromiseMock.mock.calls[0];
-      expect(url).toEqual('https://uxpin.mock/code/push/v/0.0');
+      expect(url).toEqual('https://uxpin.mock/code/v/1.0/push');
     });
 
     it('should use proper HTTP method', () => {

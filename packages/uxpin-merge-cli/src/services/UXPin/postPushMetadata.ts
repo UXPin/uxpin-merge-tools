@@ -12,7 +12,7 @@ export async function postPushMetadata(
   token:string,
   metadata:DSMetadata,
 ):Promise<PushMetadataResponse|null> {
-  return requestPromise(`${domain}/code/push/v/0.0`, {
+  return requestPromise(`${domain}/code/v/1.0/push`, {
     body: JSON.stringify(metadata.result),
     headers: {
       ...getAuthHeaders(token),
