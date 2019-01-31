@@ -8,7 +8,11 @@ export function collectUrlEncodedFormData(request:IncomingMessage):Promise<any> 
       body += chunk.toString();
     });
     request.on('end', () => {
-      resolve(parse(body));
+      if (body.substring(0, 4) == "json") {
+        resolve(JSON.parse(parse(body)).json);
+      } else {
+        resolve(JSON.parse(body));
+      }
     });
     request.on('error', (error) => {
     	reject(error);

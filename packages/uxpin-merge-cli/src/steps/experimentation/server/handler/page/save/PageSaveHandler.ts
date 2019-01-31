@@ -21,8 +21,7 @@ export class PageSaveHandler implements RequestHandler {
   }
 
   private async handleSaveRequest(request:IncomingMessage, response:ServerResponse):Promise<void> {
-    const formData:ParsedFormData = await collectUrlEncodedFormData(request);
-    const requestPayload:PageIncrementalUpdate = JSON.parse(formData.json);
+    const requestPayload:PageIncrementalUpdate = await collectUrlEncodedFormData(request);
     await this.updatePage(requestPayload);
     response.writeHead(OK, {
       'Content-Type': 'application/json',

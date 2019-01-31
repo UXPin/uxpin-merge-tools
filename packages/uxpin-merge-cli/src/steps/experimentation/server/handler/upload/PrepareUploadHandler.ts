@@ -26,8 +26,7 @@ export class PrepareUploadHandler implements RequestHandler {
   }
 
   private async handlePrepareUpload(request:IncomingMessage, response:ServerResponse):Promise<void> {
-    const formData:ParsedFormData = await collectUrlEncodedFormData(request);
-    const requestPayload:PrepareUploadFormData = JSON.parse(formData.json);
+    const requestPayload:PrepareUploadFormData = await collectUrlEncodedFormData(request);
     const fileId:string = await this.createFileId();
     await this.writeMetadata(fileId, requestPayload);
     const responseBody:string = JSON.stringify(await this.getResponseData(fileId, requestPayload));
