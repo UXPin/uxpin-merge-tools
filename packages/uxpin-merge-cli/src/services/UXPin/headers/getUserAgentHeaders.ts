@@ -4,8 +4,8 @@ interface UXPinUserAgentHeaders {
   'User-Agent':string;
 }
 
-export async function getUserAgentHeaders():Promise<UXPinUserAgentHeaders> {
-  const toolVersion:string = await getToolVersion();
+export function getUserAgentHeaders():UXPinUserAgentHeaders {
+  const toolVersion:string = getToolVersion();
 
   return {
     'User-Agent': `uxpin-merge-cli-${toolVersion}`,

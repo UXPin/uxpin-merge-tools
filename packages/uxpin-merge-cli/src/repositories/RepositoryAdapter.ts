@@ -15,7 +15,7 @@ export interface RepositoryPointer {
 export interface RepositoryAdapter {
   getCurrentBranch():Promise<string>;
   getLatestCommit():Promise<CommitMetadata>;
-  getMovedFiles(r1:string, r2:string):Promise<MovedFilePathsMap>;
+  getMovedFiles(revision1:string, revision2:string):Promise<MovedFilePathsMap>;
   getRepositoryPointer():Promise<RepositoryPointer>;
 }
 

@@ -11,11 +11,11 @@ export function keepChromelessWhileTestsRunning(port:number,
 
   if (process.env.CI) {
     beforeAll(async () => {
-      urlToOpenByChromeless = await (ngrok as any).connect(port);
+      urlToOpenByChromeless = await ngrok.connect(port);
     });
 
     afterAll(async () => {
-      await (ngrok as any).disconnect(urlToOpenByChromeless);
+      await ngrok.disconnect(urlToOpenByChromeless);
     });
   }
 

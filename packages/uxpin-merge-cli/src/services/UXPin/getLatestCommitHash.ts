@@ -10,7 +10,7 @@ export async function getLatestCommitHash(domain:string, branch:string, token:st
   return requestPromise(`${domain}/code/v/1.0/branch/${branch}/latestCommit`, {
     headers: {
       ...getAuthHeaders(token),
-      ...await getUserAgentHeaders(),
+      ...getUserAgentHeaders(),
     },
     json: true,
     method: 'GET',

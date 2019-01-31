@@ -18,8 +18,8 @@ export class GitRepositoryAdapter extends AbstractRepositoryAdapter implements R
     return getCurrentBranch(this.path);
   }
 
-  public async getMovedFiles(r1:string, r2:string):Promise<MovedFilePathsMap> {
-    return getMovedFiles(this.path, r1, r2);
+  public async getMovedFiles(revision1:string, revision2:string):Promise<MovedFilePathsMap> {
+    return getMovedFiles(this.path, revision1, revision2);
   }
 
   public async getLatestCommit():Promise<CommitMetadata> {

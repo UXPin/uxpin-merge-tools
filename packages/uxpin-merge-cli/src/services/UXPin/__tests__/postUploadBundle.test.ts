@@ -43,7 +43,7 @@ describe('postUploadBundle', () => {
 
     it('should have User-Agent header', () => {
       const [, options] = requestPromiseMock.mock.calls[0];
-      expect(options.headers['User-Agent']).not.toEqual('');
+      expect(options.headers['User-Agent']).toContain('uxpin-merge-cli');
     });
   });
 

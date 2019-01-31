@@ -14,7 +14,7 @@ export abstract class AbstractRepositoryAdapter implements RepositoryAdapter {
     throw new Error('Not implemented');
   }
 
-  public getMovedFiles(r1:string, r2:string):Promise<MovedFilePathsMap> {
+  public getMovedFiles(revision1:string, revision2:string):Promise<MovedFilePathsMap> {
     throw new Error('Not implemented');
   }
 

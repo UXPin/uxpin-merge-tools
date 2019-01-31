@@ -9,8 +9,8 @@ export interface DesignSystemSnapshot {
 export interface VCSDetails {
   branchName:string;
   commitHash:string;
-  // @todo: make `movedObjects` and `tags` properties required
   movedObjects?:MovedObjects;
+  // @todo: make `tags` property required after implementation of git tags
   tags?:VCSTag[];
 }
 

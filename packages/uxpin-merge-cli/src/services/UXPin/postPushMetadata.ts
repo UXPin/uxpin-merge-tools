@@ -16,7 +16,7 @@ export async function postPushMetadata(
     body: JSON.stringify(metadata.result),
     headers: {
       ...getAuthHeaders(token),
-      ...await getUserAgentHeaders(),
+      ...getUserAgentHeaders(),
     },
     json: true,
     method: 'POST',

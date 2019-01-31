@@ -60,7 +60,7 @@ export function setupExperimentationServerTest(
   afterAll(async () => {
     await mergeServerResponse.close();
     await stopStubbyServer(server);
-    await cleanupTemp();
+    cleanupTemp();
   });
 
   return deferredContext.getProxy();

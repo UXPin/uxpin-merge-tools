@@ -11,7 +11,6 @@ const CURRENT_TIMEOUT:number = 300000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-// TODO: eventually turn off
 describe('summary command integration', () => {
   let server:any;
   let tlsPort:number;

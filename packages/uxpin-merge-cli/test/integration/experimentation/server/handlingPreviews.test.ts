@@ -10,9 +10,7 @@ describe('Experimentation mode - handling previews', () => {
   let response:Response;
   const { request } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
-    serverCmdArgs: [
-      '--webpack-config "./webpack.config.js"',
-    ],
+    serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
   });
 
   beforeAll(async () => {

@@ -20,9 +20,7 @@ jest.setTimeout(TIMEOUT);
 describe('Experimentation server – handling upload preparation', () => {
 
   const port:number = getRandomPortNumber();
-  const { request, getWorkingDir } = setupExperimentationServerTest({
-    port,
-  });
+  const { request, getWorkingDir } = setupExperimentationServerTest({ port });
 
   describe('when requesting preparation of the upload', () => {
 

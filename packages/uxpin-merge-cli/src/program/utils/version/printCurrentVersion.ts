@@ -1,10 +1,10 @@
 import * as safe from 'colors/safe';
-import { Environment } from '../../../program/env/Environment';
+import { isTestEnv } from '../../../program/env/isTestEnv';
 import { printLine } from '../../../utils/console/printLine';
 import { getToolVersion } from './getToolVersion';
 
 export function printCurrentVersionInfo():void {
-  if (process.env.UXPIN_ENV === Environment.TEST) {
+  if (isTestEnv()) {
     return;
   }
 

@@ -13,7 +13,6 @@
 /src/types.d.ts
 /test/resources/repos/*
 !/test/resources/repos/.gitkeep
-/test/resources/designSystems/watchingChanges/.uxpin-merge/*.js
 /reports/*
 !/reports/.gitkeep
 

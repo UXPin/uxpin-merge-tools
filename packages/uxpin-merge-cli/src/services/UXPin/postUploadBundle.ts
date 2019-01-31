@@ -23,7 +23,7 @@ export async function postUploadBundle(
     body: body as unknown as ReadableStream,
     headers: {
       ...getAuthHeaders(token),
-      ...await getUserAgentHeaders(),
+      ...getUserAgentHeaders(),
     },
     json: true,
     method: 'POST',

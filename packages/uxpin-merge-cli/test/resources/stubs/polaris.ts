@@ -1,7 +1,7 @@
-import { getLatestCommit } from './common/getLatestCommit';
+import { getStubGetLatestCommitRequest } from './common/getStubGetLatestCommitRequest';
 
 export const polarisSummaryStub:any = {
   requests: [
-    getLatestCommit('adf58fa0faa9aab994a8e9379f8b78da9da9719b'),
+    getStubGetLatestCommitRequest('adf58fa0faa9aab994a8e9379f8b78da9da9719b'),
   ],
 };

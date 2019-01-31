@@ -8,10 +8,10 @@ describe('getMovedFiles', () => {
     // given
     const cwd:string = resolve(__dirname, '../../../../../test/resources/repos/git-repo-rename');
     const hashes:string = await execAsync('git log -n 2 --pretty="format:%H"', { cwd });
-    const [r2, r1] = hashes.split('\n');
+    const [revision2, revision1] = hashes.split('\n');
 
     // when
-    const files:MovedFilePathsMap = await getMovedFiles(cwd, r1, r2);
+    const files:MovedFilePathsMap = await getMovedFiles(cwd, revision1, revision2);
 
     // then
     expect(files).toEqual({
