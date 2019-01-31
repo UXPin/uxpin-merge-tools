@@ -1,7 +1,6 @@
+import { StubbyStub } from 'stubby';
 import { getStubGetLatestCommitRequest } from './common/getStubGetLatestCommitRequest';
 
-export const emptyLatestCommitStub:any = {
-  requests: [
-    getStubGetLatestCommitRequest(),
-  ],
-};
+export const emptyLatestCommitStub:StubbyStub[] = [
+  getStubGetLatestCommitRequest(),
+];

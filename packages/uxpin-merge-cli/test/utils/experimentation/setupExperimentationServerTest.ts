@@ -38,7 +38,7 @@ export function setupExperimentationServerTest(
     tlsPort = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
     server = await startStubbyServer({
       admin: getRandomPortNumber(ADMIN_PORT_RANGE.min, ADMIN_PORT_RANGE.max),
-      data: emptyLatestCommitStub.requests,
+      data: emptyLatestCommitStub,
       stubs: getRandomPortNumber(STUBS_PORT_RANGE.min, STUBS_PORT_RANGE.max),
       tls: tlsPort,
     });

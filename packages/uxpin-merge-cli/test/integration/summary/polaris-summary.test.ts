@@ -3,31 +3,14 @@ import { Environment } from '../../../src/program/env/Environment';
 import { polarisSummaryStub } from '../../resources/stubs/polaris';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
-import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber';
-import { ADMIN_PORT_RANGE, startStubbyServer, STUBS_PORT_RANGE, TLS_PORT_RANGE } from '../../utils/stubby/startStubbyServer';
-import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
+import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
 const CURRENT_TIMEOUT:number = 150000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('summary command integration', () => {
-  let server:any;
-  let tlsPort:number;
-
-  beforeAll(async () => {
-    tlsPort = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
-    server = await startStubbyServer({
-      admin: getRandomPortNumber(ADMIN_PORT_RANGE.min, ADMIN_PORT_RANGE.max),
-      data: polarisSummaryStub.requests,
-      stubs: getRandomPortNumber(STUBS_PORT_RANGE.min, STUBS_PORT_RANGE.max),
-      tls: tlsPort,
-    });
-  });
-
-  afterAll(async () => {
-    await stopStubbyServer(server);
-  });
+  const { getTlsPort } = setupStubbyServer(polarisSummaryStub);
 
   describe('summary command prints ', () => {
     it('prints the list of components found in polaris example', () => {
@@ -35,7 +18,7 @@ describe('summary command integration', () => {
       return runUXPinMergeCommand({
         cwd: 'resources/repos/polaris',
         env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
           UXPIN_ENV: Environment.TEST,
         },
         params: [

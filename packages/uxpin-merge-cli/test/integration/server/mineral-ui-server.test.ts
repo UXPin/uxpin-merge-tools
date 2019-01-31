@@ -20,7 +20,7 @@ describe('server run in mineral-ui', () => {
   beforeAll(async () => {
     server = await startStubbyServer({
       admin: getRandomPortNumber(ADMIN_PORT_RANGE.min, ADMIN_PORT_RANGE.max),
-      data: mineralUiServerStub.requests,
+      data: mineralUiServerStub,
       stubs: getRandomPortNumber(STUBS_PORT_RANGE.min, STUBS_PORT_RANGE.max),
       tls: tlsPort,
     });

@@ -3,31 +3,14 @@ import { Environment } from '../../../src/program/env/Environment';
 import { mineralUiServerStub } from '../../resources/stubs/mineralUi';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
-import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber';
-import { ADMIN_PORT_RANGE, startStubbyServer, STUBS_PORT_RANGE, TLS_PORT_RANGE } from '../../utils/stubby/startStubbyServer';
-import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
+import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
 const CURRENT_TIMEOUT:number = 75000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Pushing mineral-ui design system', () => {
-  let server:any;
-  let tlsPort:number;
-
-  beforeAll(async () => {
-    tlsPort = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
-    server = await startStubbyServer({
-      admin: getRandomPortNumber(ADMIN_PORT_RANGE.min, ADMIN_PORT_RANGE.max),
-      data: mineralUiServerStub.requests,
-      stubs: getRandomPortNumber(STUBS_PORT_RANGE.min, STUBS_PORT_RANGE.max),
-      tls: tlsPort,
-    });
-  });
-
-  afterAll(async () => {
-    await stopStubbyServer(server);
-  });
+  const { getTlsPort } = setupStubbyServer(mineralUiServerStub);
 
   describe('with required user webpack config', () => {
     let consoleOutput:string;
@@ -43,7 +26,7 @@ describe('Pushing mineral-ui design system', () => {
       consoleOutput = await runUXPinMergeCommand({
         cwd: 'resources/repos/mineral-ui',
         env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
           UXPIN_ENV: Environment.TEST,
         },
         params,
@@ -65,7 +48,7 @@ describe('Pushing mineral-ui design system', () => {
       const consoleOutput:Promise<string> = runUXPinMergeCommand({
         cwd: 'resources/repos/mineral-ui',
         env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
           UXPIN_ENV: Environment.TEST,
         },
         params,
