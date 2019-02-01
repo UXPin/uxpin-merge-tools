@@ -2,7 +2,7 @@ import { ensureDir, mkdir, readdir, writeJson } from 'fs-extra';
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
 import { join, parse, ParsedPath } from 'path';
-import { collectUrlEncodedFormData } from '../../common/form/collectUrlEncodedFormData';
+import { prepareDataFromPayload } from '../../common/payload/prepareDataFromPayload';
 import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { handleImplementationError } from '../error/handleImplementationError';
@@ -26,7 +26,7 @@ export class PrepareUploadHandler implements RequestHandler {
   }
 
   private async handlePrepareUpload(request:IncomingMessage, response:ServerResponse):Promise<void> {
-    const requestPayload:PrepareUploadFormData = await collectUrlEncodedFormData(request);
+    const requestPayload:PrepareUploadFormData = await prepareDataFromPayload(request);
     const fileId:string = await this.createFileId();
     await this.writeMetadata(fileId, requestPayload);
     const responseBody:string = JSON.stringify(await this.getResponseData(fileId, requestPayload));

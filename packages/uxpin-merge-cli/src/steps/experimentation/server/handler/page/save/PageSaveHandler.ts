@@ -1,7 +1,7 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
 import { PageIncrementalUpdate } from '../../../../../../common/types/PageIncrementalUpdate';
-import { collectUrlEncodedFormData } from '../../../common/form/collectUrlEncodedFormData';
+import { prepareDataFromPayload } from '../../../common/payload/prepareDataFromPayload';
 import { getAccessControlHeaders } from '../../../headers/getAccessControlHeaders';
 import { ExperimentationServerContext } from '../../../startExperimentationServer';
 import { handleImplementationError } from '../../error/handleImplementationError';
@@ -21,7 +21,7 @@ export class PageSaveHandler implements RequestHandler {
   }
 
   private async handleSaveRequest(request:IncomingMessage, response:ServerResponse):Promise<void> {
-    const requestPayload:PageIncrementalUpdate = await collectUrlEncodedFormData(request);
+    const requestPayload:PageIncrementalUpdate = await prepareDataFromPayload(request);
     await this.updatePage(requestPayload);
     response.writeHead(OK, {
       'Content-Type': 'application/json',
