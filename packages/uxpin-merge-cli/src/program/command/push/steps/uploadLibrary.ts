@@ -26,15 +26,16 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
       await postUploadBundle(apiDomain, buildOptions.token!, commitHash, path);
       printLine('✅ Library bundle uploaded successfully!', { color: PrintColor.GREEN });
     } catch (error) {
-      printLine('🛑 There was an error while uploading library bundle!', { color: PrintColor.RED });
-      return Promise.reject(error);
+      printLine('🛑 There was an error while uploading library bundle! Please try again.', { color: PrintColor.RED });
+      return Promise.reject(error.message);
     }
 
     try {
       await postPushMetadata(apiDomain, buildOptions.token!, designSystem);
       printLine('✅ Library metadata uploaded successfully!', { color: PrintColor.GREEN });
     } catch (error) {
-      return Promise.reject(error);
+      printLine('🛑 There was an error while uploading library metadata! Please try again.', { color: PrintColor.RED });
+      return Promise.reject(error.message);
     }
 
     return designSystem;
