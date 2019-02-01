@@ -6,7 +6,6 @@ import { prepareDataFromPayload } from '../../common/payload/prepareDataFromPayl
 import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { handleImplementationError } from '../error/handleImplementationError';
-import { ParsedFormData } from '../page/save/PageSaveHandler';
 import { RequestHandler } from '../RequestHandler';
 import { getUploadMetadataPath } from './getUploadMetadataPath';
 import { PrepareUploadFormData } from './PrepareUploadFormData';

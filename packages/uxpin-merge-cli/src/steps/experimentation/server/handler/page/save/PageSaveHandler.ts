@@ -35,7 +35,3 @@ export class PageSaveHandler implements RequestHandler {
     return updatePage(this.context.uxpinDirPath, changes);
   }
 }
-
-export interface ParsedFormData {
-  json:string;
-}
