@@ -1,2 +1,11 @@
 codecov:
   branch: master
+
+coverage:
+  status:
+    project:
+      default:
+        enabled: true
+        threshold: 0.1
+    patch: off
+    changes: off
