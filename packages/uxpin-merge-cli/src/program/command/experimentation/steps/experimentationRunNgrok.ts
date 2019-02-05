@@ -1,18 +1,22 @@
 import * as ngrok from 'ngrok';
 import { ExperimentProgramArgs } from '../../../../program/args/ProgramArgs';
 import { DSMetadata } from '../../../../program/DSMeta';
-import { Step } from '../../Step';
+import { Store } from '../../../../program/utils/store/Store';
+import { Step, StepExecutor } from '../../Step';
+import { ExperimentationState } from '../getExperimentationCommandSteps';
 
-export function experimentationRunNgrok(args:ExperimentProgramArgs):Step {
-  return { exec: startNgrok(args), shouldRun: true };
+export function experimentationRunNgrok(args:ExperimentProgramArgs, store:Store<ExperimentationState>):Step {
+  return { exec: startNgrok(args, store), shouldRun: true };
 }
 
-function startNgrok(args:ExperimentProgramArgs):(ds:DSMetadata) => Promise<any> {
+function startNgrok(args:ExperimentProgramArgs, store:Store<ExperimentationState>):StepExecutor {
   return async (ds:DSMetadata) => {
-    const url = ngrok.connect(args.port);
+    const url = await ngrok.connect(args.port);
 
-    console.log('ngrok', url, args);
+    store.setState({
+      ngrokUrl: url,
+    });
 
     return ds;
-  }
+  };
 }

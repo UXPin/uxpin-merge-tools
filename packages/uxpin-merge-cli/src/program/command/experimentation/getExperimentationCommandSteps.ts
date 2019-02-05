@@ -1,3 +1,4 @@
+import { Store } from '../../../program/utils/store/Store';
 import { ExperimentProgramArgs } from '../../args/ProgramArgs';
 import { Step } from '../Step';
 import { experimentationBuildLibraryStep } from './steps/experimentationBuildLibraryStep';
@@ -7,13 +8,23 @@ import { experimentationPrepareMetadataStep } from './steps/experimentationPrepa
 import { experimentationRunServerStep } from './steps/experimentationRunServerStep';
 import { experimentationRunNgrok } from './steps/experimentationRunNgrok';
 
+export interface ExperimentationState {
+  ngrokUrl:string|null,
+}
+
+const defaultState:ExperimentationState = {
+  ngrokUrl: null,
+};
+
 export function getExperimentationCommandSteps(args:ExperimentProgramArgs):Step[] {
+  const store:Store<ExperimentationState> = new Store(defaultState);
+
   return [
-    experimentationBuildLibraryStep(args),
-    experimentationCreateEpidStep(args),
-    experimentationPrepareMetadataStep(args),
-    experimentationRunNgrok(args),
-    experimentationRunServerStep(args),
-    experimentationOpenBrowserStep(args),
+    experimentationBuildLibraryStep(args, store),
+    experimentationCreateEpidStep(args, store),
+    experimentationPrepareMetadataStep(args, store),
+    experimentationRunNgrok(args, store),
+    experimentationRunServerStep(args, store),
+    experimentationOpenBrowserStep(args, store),
   ];
 }

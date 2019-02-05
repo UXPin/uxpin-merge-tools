@@ -18,6 +18,7 @@ import { ServerRouter } from './router/ServerRouter';
 import { GetVariablesHandler } from './handler/document/GetVariablesHandler';
 
 export interface ExperimentationServerOptions extends ExperimentationServerContext {
+  ngrokSessionId:string;
   projectRoot:string;
   skipBrowser:boolean;
 }
