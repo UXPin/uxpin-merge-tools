@@ -16,7 +16,7 @@ export function thunkCreateEPID(buildOptions:BuildOptions, store:Store<Experimen
     const epidExists:boolean = await isFile(epidFilePath);
 
     if (epidExists) {
-      await updateEPID(projectRoot, {
+      await updateEPID(epidFilePath, {
         ngrokSessionId: getNgrokSessionId(store.state.ngrokUrl!),
       });
     } else {

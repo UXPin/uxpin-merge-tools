@@ -1,5 +1,6 @@
 import { getLibraryBundleFilePath } from '../../../../../steps/building/library/getLibraryBundleFilePath';
 import { getProjectEPID } from '../../../../../steps/experimentation/epid/getProjectEPID';
+import { getEPIDFilePath } from '../../../../../steps/experimentation/epid/getEPIDFilePath';
 import { ExperimentationServerOptions } from '../../../../../steps/experimentation/server/startExperimentationServer';
 import { ExperimentProgramArgs } from '../../../../args/ProgramArgs';
 import { getProjectRoot } from '../../../../args/providers/paths/getProjectRoot';
@@ -19,7 +20,7 @@ export async function getExperimentServerOptions(args:ExperimentProgramArgs, sta
 
   return {
     bundlePath: getLibraryBundleFilePath(uxpinDirPath),
-    epid: await getProjectEPID(projectRoot),
+    epid: await getProjectEPID(getEPIDFilePath(projectRoot)),
     ngrokSessionId,
     port,
     projectRoot,

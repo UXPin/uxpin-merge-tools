@@ -3,8 +3,8 @@ import { getEPIDFilePath } from './getEPIDFilePath';
 import { getProjectEPID } from './getProjectEPID';
 import { saveEPID } from './saveEPID';
 
-export async function updateEPID(projectRoot:string, data:Partial<EPID>):Promise<void> {
-  const epid:EPID = await getProjectEPID(projectRoot);
+export async function updateEPID(filePath:string, data:Partial<EPID>):Promise<void> {
+  const epid:EPID = await getProjectEPID(filePath);
 
-  return saveEPID(getEPIDFilePath(projectRoot), Object.assign(epid, data));
+  return saveEPID(filePath, Object.assign(epid, data));
 }
