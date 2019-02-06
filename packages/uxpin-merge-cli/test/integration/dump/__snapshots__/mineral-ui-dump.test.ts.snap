@@ -2,7 +2,7 @@
 
 exports[`The dump command run for the mineral-ui repository prints the JSON describing the full repository 1`] = `
 "
-You are using @uxpin/merge-cli version: 1.0.0
+You are using @uxpin/merge-cli version: 1.1.0
 
 {
   \\"categorizedComponents\\": [
