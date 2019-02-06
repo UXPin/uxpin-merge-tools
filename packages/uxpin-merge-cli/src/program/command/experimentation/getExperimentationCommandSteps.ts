@@ -21,9 +21,9 @@ export function getExperimentationCommandSteps(args:ExperimentProgramArgs):Step[
 
   return [
     experimentationBuildLibraryStep(args, store),
+    experimentationRunNgrok(args, store),
     experimentationCreateEpidStep(args, store),
     experimentationPrepareMetadataStep(args, store),
-    experimentationRunNgrok(args, store),
     experimentationRunServerStep(args, store),
     experimentationOpenBrowserStep(args, store),
   ];

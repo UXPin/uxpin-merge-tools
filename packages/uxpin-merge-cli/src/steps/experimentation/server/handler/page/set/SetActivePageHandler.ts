@@ -28,6 +28,6 @@ export class SetActivePageHandler implements RequestHandler {
 
   private async getPageData():Promise<PageData> {
     const { epid, port, uxpinDirPath } = this.context;
-    return await getPageData({ port, revisionId: epid.revisionId, uxpinDirPath });
+    return await getPageData({ ngrokSessionId: epid.ngrokSessionId!, port, revisionId: epid.revisionId, uxpinDirPath });
   }
 }

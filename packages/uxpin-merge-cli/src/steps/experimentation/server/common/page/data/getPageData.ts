@@ -5,12 +5,12 @@ import { getPageContent } from '../content/getPageContent';
 import { getCodeSyncMetadata } from './codeSync/getCodeSyncMetadata';
 
 export async function getPageData(input:PageDataInput):Promise<PageData> {
-  const { port, revisionId, uxpinDirPath } = input;
+  const { ngrokSessionId, port, revisionId, uxpinDirPath } = input;
   const metadata:DesignSystemSnapshot = await getProjectMetadata(uxpinDirPath);
   const pageContent:PageContent = await getPageContent(uxpinDirPath);
 
   return {
-    code_sync: getCodeSyncMetadata({ metadata, port, revisionId }),
+    code_sync: getCodeSyncMetadata({ ngrokSessionId, metadata, port, revisionId }),
     component_version: null,
     components_master_ids: [],
     components_versions: [],
@@ -22,6 +22,7 @@ export async function getPageData(input:PageDataInput):Promise<PageData> {
 }
 
 export interface PageDataInput {
+  ngrokSessionId?:string;
   port:number;
   revisionId:string;
   uxpinDirPath:string;

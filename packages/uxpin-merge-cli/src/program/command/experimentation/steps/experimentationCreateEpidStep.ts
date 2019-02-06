@@ -6,5 +6,5 @@ import { getBuildOptions } from './experimentationBuildLibraryStep';
 import { ExperimentationState } from '../getExperimentationCommandSteps';
 
 export function experimentationCreateEpidStep(args:ExperimentProgramArgs, store:Store<ExperimentationState>):Step {
-  return { exec: thunkCreateEPID(getBuildOptions(args)), shouldRun: true };
+  return { exec: thunkCreateEPID(getBuildOptions(args), store), shouldRun: true };
 }
