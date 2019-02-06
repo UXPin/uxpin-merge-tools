@@ -20,10 +20,10 @@ export function getExperimentationCommandSteps(args:ExperimentProgramArgs):Step[
   const store:Store<ExperimentationState> = new Store(defaultState);
 
   return [
-    experimentationBuildLibraryStep(args, store),
+    experimentationBuildLibraryStep(args),
     experimentationRunNgrok(args, store),
     experimentationCreateEpidStep(args, store),
-    experimentationPrepareMetadataStep(args, store),
+    experimentationPrepareMetadataStep(args),
     experimentationRunServerStep(args, store),
     experimentationOpenBrowserStep(args, store),
   ];
