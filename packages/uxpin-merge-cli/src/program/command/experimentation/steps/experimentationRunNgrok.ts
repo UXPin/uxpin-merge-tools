@@ -1,4 +1,3 @@
-import * as ngrok from 'ngrok';
 import { ExperimentProgramArgs } from '../../../../program/args/ProgramArgs';
 import { DSMetadata } from '../../../../program/DSMeta';
 import { isTestEnv } from '../../../../program/env/isTestEnv';
@@ -14,9 +13,17 @@ const TEST_SESSION_ID:string = 'https://sessionId.ngrok.io';
 
 function startNgrok(args:ExperimentProgramArgs, store:Store<ExperimentationState>):StepExecutor {
   return async (ds:DSMetadata) => {
-    const url:string = isTestEnv()
-      ? TEST_SESSION_ID
-      : await ngrok.connect(args.port);
+    let url:string;
+
+    // Import ngrok only in production environment because of request-promise, ngrok and jest clash
+    // https://github.com/request/request-promise/issues/247
+    if (isTestEnv()) {
+      url = TEST_SESSION_ID;
+    } else {
+      // tslint:disable-next-line:typedef
+      const ngrok = require('ngrok');
+      url = await ngrok.connect(args.port);
+    }
 
     store.setState({
       ngrokUrl: url,
