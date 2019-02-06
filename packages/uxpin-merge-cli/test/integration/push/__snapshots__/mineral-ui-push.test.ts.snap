@@ -2,7 +2,7 @@
 
 exports[`Pushing mineral-ui design system with required user webpack config prints warnings without stack traces to the console 1`] = `
 "
-You are using @uxpin/merge-cli version: 1.0.0
+You are using @uxpin/merge-cli version: 1.1.0
 
 warning Cannot compute default value for property \`triggerTitle\`
 
