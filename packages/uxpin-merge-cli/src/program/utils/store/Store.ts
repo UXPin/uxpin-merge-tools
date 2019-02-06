@@ -1,11 +1,11 @@
-export class Store<T extends Object> {
+export class Store<T extends object> {
   public state:T;
 
   constructor(defaultState:T = {} as T) {
     this.state = defaultState;
   }
 
-  setState(props:Partial<T>) {
+  public setState(props:Partial<T>):void {
     this.state = Object.assign({}, this.state, props);
   }
 }

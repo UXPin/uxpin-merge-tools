@@ -1,5 +1,4 @@
 import { EPID } from './EPID';
-import { getEPIDFilePath } from './getEPIDFilePath';
 import { getProjectEPID } from './getProjectEPID';
 import { saveEPID } from './saveEPID';
 

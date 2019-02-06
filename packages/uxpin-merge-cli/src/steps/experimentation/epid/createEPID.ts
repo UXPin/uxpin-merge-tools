@@ -1,7 +1,7 @@
-import { EPID } from './EPID';
-import { saveEPID } from './saveEPID';
 import { createHash } from 'crypto';
 import { v4 } from 'uuid';
+import { EPID } from './EPID';
+import { saveEPID } from './saveEPID';
 
 export function createEPID(filePath:string, epid:Partial<EPID>):Promise<void> {
   return saveEPID(filePath, Object.assign({}, epid, { revisionId: generateRevisionId() }));

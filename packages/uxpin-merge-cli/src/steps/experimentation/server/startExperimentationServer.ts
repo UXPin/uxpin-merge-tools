@@ -6,6 +6,7 @@ import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundle
 import { GetCategoriesHandler } from './handler/code/GetCategoriesHandler';
 import { GetPreviewsHandler } from './handler/code/GetPreviewsHandler';
 import { GetRepositoryPointerHandler } from './handler/code/GetRepositoryPointerHandler';
+import { GetVariablesHandler } from './handler/document/GetVariablesHandler';
 import { GetLibrariesHandler } from './handler/libraries/GetLibrariesHandler';
 import { GetLibrariesIndexHandler } from './handler/libraries/GetLibrariesIndexHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
@@ -15,7 +16,6 @@ import { GetUploadedFileHandler } from './handler/upload/GetUploadedFileHandler'
 import { PrepareUploadHandler } from './handler/upload/PrepareUploadHandler';
 import { UploadHandler } from './handler/upload/UploadHandler';
 import { ServerRouter } from './router/ServerRouter';
-import { GetVariablesHandler } from './handler/document/GetVariablesHandler';
 
 export interface ExperimentationServerOptions extends ExperimentationServerContext {
   ngrokSessionId:string;
