@@ -1,4 +1,5 @@
 import pMapSeries = require('p-map-series');
+import { InvalidPatternError } from '../steps/discovery/component/category/paths/getComponentCategoryPaths';
 import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
@@ -42,6 +43,10 @@ function thunkRunCommandWhenFilesChanged(programArgs:ProgramArgs):(path:string) 
     try {
       await executeCommandSteps(programArgs, getStepsForWatcher(programArgs));
     } catch (error) {
+      if (error instanceof InvalidPatternError) {
+        process.exit();
+      }
+
       logError(error);
     }
   };
@@ -62,8 +67,11 @@ function isWatchChangesCommand(programArgs:ProgramArgs):boolean {
   return programArgs.command === Command.EXPERIMENT;
 }
 
-function endWithError(errorMessage:string):void {
-  logError(errorMessage);
+function endWithError(error:Error):void {
+  if (!(error instanceof InvalidPatternError)) {
+    logError(error.message);
+  }
+
   process.exit(1);
 }
 

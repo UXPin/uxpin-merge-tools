@@ -5,6 +5,7 @@ export function runCommand(command:string, options?:ExecOptions):Promise<string>
   return exec(command, options).then((result) => {
     return result.stdout;
   }).catch((err) => {
+    console.log(err.toString());
     throw err.toString();
   });
 }

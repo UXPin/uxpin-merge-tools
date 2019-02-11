@@ -19,14 +19,20 @@ import { ExperimentationServerConfiguration, getServerConfiguration } from './ge
 export interface ExperimentationServerTestContext {
   request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
   changeProjectFile:(filePath:string, content:string) => Promise<void>;
-
+  getServerReady():boolean;
   getWorkingDir():string;
 }
 
 export function setupExperimentationServerTest(
   options:ExperimentationServerTestSetupOptions = {},
 ):ExperimentationServerTestContext {
-  const serverOptions:TestServerOptions = { serverReadyOutput: SERVER_READY_OUTPUT, silent: options.silent };
+  let isServerReady:boolean = false;
+  const serverOptions:TestServerOptions = {
+    onServerReady: () => isServerReady = true,
+    serverFailOutput: options.serverFailOutput,
+    serverReadyOutput: options.serverReadyOutput || SERVER_READY_OUTPUT,
+    silent: options.silent,
+  };
   const deferredContext:DeferredChain<ExperimentationServerTestContext> = new DeferredChain();
 
   let mergeServerResponse:MergeServerResponse;
@@ -54,7 +60,7 @@ export function setupExperimentationServerTest(
 
     cleanupTemp = config.cleanupTemp;
     mergeServerResponse = await startUXPinMergeServer(config.cmdOptions, serverOptions);
-    deferredContext.setTarget(getTestContext(config, mergeServerResponse));
+    deferredContext.setTarget(getTestContext(config, mergeServerResponse, () => isServerReady));
   });
 
   afterAll(async () => {
@@ -69,6 +75,7 @@ export function setupExperimentationServerTest(
 function getTestContext(
   { port, workingDir }:ExperimentationServerConfiguration,
   { subprocess }:MergeServerResponse,
+  getServerReady:() => boolean,
 ):ExperimentationServerTestContext {
   return {
     changeProjectFile(relativeFilePath:string, content:string):Promise<void> {
@@ -82,6 +89,7 @@ function getTestContext(
     getWorkingDir():string {
       return workingDir;
     },
+    getServerReady,
     request(uri:string, options:RequestPromiseOptions = {}):RequestPromise {
       const url:URL = new URL(uri, `http://localhost:${port}`);
       return requestPromise({ url, ...options });

@@ -5,6 +5,8 @@ export type ExperimentationServerTestSetupOptions = Partial<ExperimentationServe
 
 export interface ExperimentationServerOptionsWithDefaults {
   serverCmdArgs?:string[];
+  serverReadyOutput?:string|RegExp;
+  serverFailOutput?:string|RegExp;
   projectPath:string;
   env?:CmdOptions['env'];
   port:number;

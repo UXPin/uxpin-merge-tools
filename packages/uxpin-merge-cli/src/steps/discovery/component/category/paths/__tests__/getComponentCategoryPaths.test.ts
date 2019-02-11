@@ -1,17 +1,10 @@
 import { join } from 'path';
 import { using } from '../../../../../../../test/utils/using';
 import { CategoryConfig } from '../../../../config/CliConfig';
-import { getComponentCategoryPaths } from '../getComponentCategoryPaths';
+import { getComponentCategoryPaths, InvalidPatternError } from '../getComponentCategoryPaths';
 
 describe('getComponentCategoryPaths', () => {
   describe('returning list of component file paths for given category configuration', () => {
-
-    interface TestCase {
-      caseName:string;
-      config:CategoryConfig;
-      projectRoot:string;
-      expectedPaths:string[];
-    }
 
     const testProjectPath:string = join(__dirname, 'resources', 'jsProjectWithSrcDir');
     const cases:TestCase[] = [
@@ -83,6 +76,7 @@ describe('getComponentCategoryPaths', () => {
           name: 'Category Name',
         },
         expectedPaths: [],
+        expectedToThrow: InvalidPatternError,
         projectRoot: testProjectPath,
       },
       {
@@ -95,6 +89,7 @@ describe('getComponentCategoryPaths', () => {
           name: 'Category Name',
         },
         expectedPaths: [],
+        expectedToThrow: InvalidPatternError,
         projectRoot: testProjectPath,
       },
       {
@@ -107,10 +102,8 @@ describe('getComponentCategoryPaths', () => {
           ],
           name: 'Category Name',
         },
-        expectedPaths: [
-          'src/FirstComponent/FirstComponent.js',
-          'src/SecondComponent/SecondComponent.js',
-        ],
+        expectedPaths: [],
+        expectedToThrow: InvalidPatternError,
         projectRoot: testProjectPath,
       },
       {
@@ -136,21 +129,45 @@ describe('getComponentCategoryPaths', () => {
           ],
           name: 'Category Name',
         },
-        expectedPaths: [
-          'src/Icons/Play/Play.js',
-        ],
+        expectedPaths: [],
+        expectedToThrow: InvalidPatternError,
         projectRoot: testProjectPath,
       },
     ];
 
-    using(cases).describe('correctly returns paths for', ({ caseName, config, expectedPaths, projectRoot }) => {
-      it(caseName, async () => {
-        // when
-        const result:string[] = await getComponentCategoryPaths(projectRoot, config);
+    using(cases).describe(
+      'correctly returns paths for',
+      (testCase:TestCase) => {
+        const { caseName, expectedToThrow } = testCase;
 
-        // then
-        expect(result.sort()).toEqual(expectedPaths);
-      });
-    });
+        it(caseName, expectedToThrow ? assertThrowableTestCase(testCase) : assertTestCase(testCase));
+      },
+    );
   });
 });
+
+interface TestCase {
+  caseName:string;
+  config:CategoryConfig;
+  expectedPaths:string[];
+  expectedToThrow?:any;
+  projectRoot:string;
+}
+
+function assertTestCase({ projectRoot, config, expectedPaths }:TestCase):() => Promise<void> {
+  return async () => {
+    // when
+    const result:string[] = await getComponentCategoryPaths(projectRoot, config);
+
+    // then
+    expect(result.sort()).toEqual(expectedPaths);
+  };
+}
+
+function assertThrowableTestCase({ projectRoot, config, expectedToThrow }:TestCase):() => Promise<void> {
+  return async () => {
+    // when
+    // then
+    await expect(getComponentCategoryPaths(projectRoot, config)).rejects.toThrow(expectedToThrow);
+  };
+}
