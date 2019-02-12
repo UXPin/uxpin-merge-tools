@@ -14,7 +14,7 @@ export async function getComponentCategoryPaths(projectRoot:string, categoryConf
   const paths:string[][] = await pMap(patterns, async (pattern:string):Promise<string[]> => {
     const newPaths:string[] = await globby(pattern, { cwd: projectRoot });
 
-    if (newPaths.length === 0) {
+    if (newPaths.length === 0 && !pattern.startsWith('!')) {
       hasInvalidPatterns = true;
       printWarning(`👉 Pattern ${safe.bold(pattern)} didn't match any files.`);
     }
