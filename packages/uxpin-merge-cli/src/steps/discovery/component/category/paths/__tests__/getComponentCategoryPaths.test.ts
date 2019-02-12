@@ -129,8 +129,9 @@ describe('getComponentCategoryPaths', () => {
           ],
           name: 'Category Name',
         },
-        expectedPaths: [],
-        expectedToThrow: InvalidPatternError,
+        expectedPaths: [
+          'src/Icons/Play/Play.js',
+        ],
         projectRoot: testProjectPath,
       },
     ];
