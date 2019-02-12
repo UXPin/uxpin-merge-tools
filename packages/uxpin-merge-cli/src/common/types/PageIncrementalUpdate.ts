@@ -6,10 +6,11 @@ export interface PageIncrementalUpdate {
   can_break_cohesion?:boolean;
   changed_elements:Partial<PageContent>;
   comet_thread_id?:string;
+  components_used?:any;
   deleted_elements:DeletedElements;
+  design_system_used?:any;
   id_page:number | string;
   id_project:number | string;
+  id_save:string;
   is_component?:'0' | '1';
-  design_system_used?:any;
-  components_used?:any;
 }
