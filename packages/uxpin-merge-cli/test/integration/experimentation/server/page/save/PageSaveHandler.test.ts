@@ -42,7 +42,7 @@ describe('Experimentation server – handling save page request', () => {
 
       // then
       expect(response.statusCode).toEqual(OK);
-      expect(response.body).toEqual(expectedResponse);
+      expect(JSON.parse(response.body)).toEqual(expectedResponse);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
 
