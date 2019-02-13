@@ -4,6 +4,7 @@
     "packages": [
       "cantWriteToUxpinTemp",
       "noSrcDir",
+      "noUxpinConfig",
       "twoComponentsWithConfig",
       "withEpidFile",
       "watchingChanges"
