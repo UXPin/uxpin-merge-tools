@@ -19,7 +19,6 @@ import { setupWatcher } from './watcher/setupWatcher';
 export async function runProgram(program:RawProgramArgs):Promise<any> {
   try {
     const programArgs:ProgramArgs = getProgramArgs(program);
-    await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
   } catch (error) {
     endWithError(error);
@@ -30,7 +29,7 @@ async function runCommand(programArgs:ProgramArgs):Promise<any> {
   await executeCommandSteps(programArgs, applyVersionCommandSteps(getSteps(programArgs)));
 }
 
-async function setupProjectWatcher(programArgs:ProgramArgs):Promise<void> {
+async function setupProjectWatcher(programArgs:ProgramArgs):Promise<void> { // tslint:disable-line no-unused-variable
   if (!isWatchChangesCommand(programArgs)) {
     return;
   }
