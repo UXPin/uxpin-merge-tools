@@ -13,21 +13,23 @@ describe('summary command integration', () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
 
   describe('summary command prints ', () => {
-    it('prints a info when there`s no config file in the project', () => {
-      // when
-      return runUXPinMergeCommand({
-        cwd: 'resources/designSystems/noSrcDir',
-        env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-          UXPIN_ENV: Environment.TEST,
-        },
-        params: [
-          Command.SUMMARY,
-        ],
-      }).then((output) => {
+    it('prints a info when there`s no config file in the project', async () => {
+      try {
+        // when
+        await runUXPinMergeCommand({
+          cwd: 'resources/designSystems/noUxpinConfig',
+          env: {
+            UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+            UXPIN_ENV: Environment.TEST,
+          },
+          params: [
+            Command.SUMMARY,
+          ],
+        });
+      } catch (error) {
         // then
-        expect(output).toContain('uxpin.config.js\' not found. Using default configuration.');
-      });
+        expect(error.stdout).toContain('uxpin.config.js\' not found. Using default configuration.');
+      }
     });
   });
 });

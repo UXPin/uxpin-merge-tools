@@ -67,14 +67,18 @@ function isWatchChangesCommand(programArgs:ProgramArgs):boolean {
   return programArgs.command === Command.EXPERIMENT;
 }
 
-function endWithError(error:Error):void {
+function endWithError(error:Error|string):void {
   if (!(error instanceof InvalidPatternError)) {
-    logError(error.message);
+    logError(error);
   }
 
   process.exit(1);
 }
 
-function logError(errorMessage:string):void {
-  console.error('ERROR:', errorMessage);
+function logError(error:Error|string):void {
+  let message:string = typeof error === 'string'
+    ? error
+    : error.message;
+
+  console.error('ERROR:', message);
 }
