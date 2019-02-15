@@ -76,7 +76,7 @@ function endWithError(error:Error|string):void {
 }
 
 function logError(error:Error|string):void {
-  let message:string = typeof error === 'string'
+  const message:string = typeof error === 'string'
     ? error
     : error.message;
 
