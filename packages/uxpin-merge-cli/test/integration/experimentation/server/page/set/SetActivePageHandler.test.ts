@@ -24,7 +24,9 @@ describe('Experimentation server – handling set active page request', () => {
   const { request, getWorkingDir } = setupExperimentationServerTest({
     port,
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
-    serverCmdArgs: ['--webpack-config="./webpack.config.js"'],
+    serverCmdArgs: [
+      '--webpack-config="./webpack.config.js"',
+    ],
   });
 
   let response:Response;

@@ -1,6 +1,6 @@
 {
   "name": "@uxpin/merge-cli",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Command-line tool integrating Design System repository with http://code.uxpin.com",
   "main": "src/index.js",
   "bin": {
@@ -20,6 +20,7 @@
     "UI components"
   ],
   "jest": {
+    "automock": false,
     "moduleFileExtensions": [
       "js",
       "ts",
@@ -76,6 +77,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "remap-istanbul": "^0.9.5",
+    "stubby": "^4.0.0",
     "terminate": "^2.1.2",
     "tmp-promise": "^1.0.5",
     "ts-jest": "^23.10.4",

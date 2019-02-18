@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The dump command run for the polaris repository, prints the JSON describing the full repository 1`] = `
-"
-You are using @uxpin/merge-cli version: 0.0.20
-
-{
+"{
   \\"categorizedComponents\\": [
     {
       \\"components\\": [
@@ -4663,7 +4660,11 @@ You are using @uxpin/merge-cli version: 0.0.20
       \\"name\\": \\"Uncategorized\\"
     }
   ],
-  \\"name\\": \\"Library from Code\\"
+  \\"name\\": \\"Library from Code\\",
+  \\"vcs\\": {
+    \\"branchName\\": \\"HEAD\\",
+    \\"commitHash\\": \\"b8326b7704ac97564f730f7a7a11696c54e5d95e\\"
+  }
 }
 "
 `;

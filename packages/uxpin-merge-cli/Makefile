@@ -27,12 +27,15 @@ test:
 test-unit:
 	jest --testMatch="**/__tests__/*.test.ts"
 
+watch-test-unit:
+	jest --watchAll --testMatch="**/__tests__/*.test.ts"
+
 test-integration:
-	jest --testMatch="**/test/integration/**/*.test.ts"
+	UXPIN_ENV=test jest --testMatch="**/test/integration/**/*.test.ts"
 
 test-ci:
 	make test-rename-snapshots
-	TEST_REPORT_PATH=./reports jest --config="jest-ci.json" --maxWorkers=6
+	UXPIN_ENV=test TEST_REPORT_PATH=./reports jest --config="jest-ci.json" --maxWorkers=6
 	make test-remap-coverage
 
 clean:

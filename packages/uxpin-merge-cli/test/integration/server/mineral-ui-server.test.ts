@@ -1,22 +1,46 @@
 import Chromeless from 'chromeless';
+import { Environment } from '../../../src/program/env/Environment';
+import { mineralUiServerStub } from '../../resources/stubs/mineralUi';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
 import { waitForComponent } from '../../utils/e2e/chromeless/waitForComponent';
+import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber';
 import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
+import { ADMIN_PORT_RANGE, startStubbyServer, STUBS_PORT_RANGE, TLS_PORT_RANGE } from '../../utils/stubby/startStubbyServer';
+import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT:number = 600000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('server run in mineral-ui', () => {
   let chromeless:Chromeless<any>;
+  let server:any;
+  const tlsPort:number = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
+
+  beforeAll(async () => {
+    server = await startStubbyServer({
+      admin: getRandomPortNumber(ADMIN_PORT_RANGE.min, ADMIN_PORT_RANGE.max),
+      data: mineralUiServerStub,
+      stubs: getRandomPortNumber(STUBS_PORT_RANGE.min, STUBS_PORT_RANGE.max),
+      tls: tlsPort,
+    });
+  });
 
   setupDebugServerTest({
+    env: {
+      UXPIN_API_DOMAIN: `0.0.0.0:${tlsPort}`,
+      UXPIN_ENV: Environment.TEST,
+    },
     projectPath: 'resources/repos/mineral-ui',
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
       '--wrapper "./src/library/themes/UXPinWrapper.js"',
     ],
   }, (c) => chromeless = c);
+
+  afterAll(async () => {
+    await stopStubbyServer(server);
+  });
 
   it('opens `Dropdown` with correct styling on click', async () => {
     // given

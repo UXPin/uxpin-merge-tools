@@ -31,6 +31,7 @@ program
   .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
   .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
+  .option('--token <token>', 'auth token for the library. Default: `UXPIN_AUTH_TOKEN` env variable')
   .action(() => {});
 
 program

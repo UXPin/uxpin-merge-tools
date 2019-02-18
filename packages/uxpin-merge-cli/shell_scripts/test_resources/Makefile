@@ -1,7 +1,7 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 
-test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/repos/arui-feather ../../test/resources/repos/polaris ../../test/resources/repos/mineral-ui
+test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/repos/arui-feather ../../test/resources/repos/polaris ../../test/resources/repos/mineral-ui ../../test/resources/repos/git-repo ../../test/resources/repos/git-repo-rename
 
 ../../test/resources/repos/nordnet-ui-kit:
 	cd ../../test/resources/repos \
@@ -40,3 +40,29 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& mkdir ./npm-cache \
 	&& npm install --cache=./npm-cache \
 	&& rm -rf ./npm-cache
+
+../../test/resources/repos/git-repo:
+	cd ../../test/resources/repos \
+	&& mkdir git-repo \
+	&& cd git-repo \
+	&& touch README.md \
+	&& git init \
+	&& git add . \
+	&& git config user.name test \
+	&& git config user.email test@test.dev \
+	&& git commit -m "Initial commit"
+
+
+../../test/resources/repos/git-repo-rename:
+	cd ../../test/resources/repos \
+	&& mkdir git-repo-rename \
+	&& cd git-repo-rename \
+	&& touch Component.js \
+	&& git init \
+	&& git add . \
+	&& git config user.name test \
+	&& git config user.email test@test.dev \
+	&& git commit -m "Initial commit" \
+	&& mv Component.js RenamedComponent.js \
+	&& git add . \
+	&& git commit -m "Renamed Component"

@@ -3,11 +3,11 @@ import { Command } from '../..';
 
 export interface RawProgramArgs {
   args?:Arg[];
+  config?:string;
   cwd:string;
   port?:number;
   webpackConfig?:string;
   wrapper?:string;
-  config?:string;
 }
 
 export type ProgramArgs = PushProgramArgs
@@ -18,10 +18,12 @@ export type ProgramArgs = PushProgramArgs
 
 export interface PushProgramArgs {
   command:Command.PUSH;
+  config:string;
   cwd:string;
+  token?:string;
+  uxpinDomain?:string;
   webpackConfig?:string;
   wrapper?:string;
-  config:string;
 }
 
 export interface ServerProgramArgs {

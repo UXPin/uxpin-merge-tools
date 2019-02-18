@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The dump command run for the nordnet-ui-kit repository prints the JSON describing the full repository 1`] = `
-"
-You are using @uxpin/merge-cli version: 0.0.20
-
-{
+"{
   \\"categorizedComponents\\": [
     {
       \\"components\\": [
@@ -1962,7 +1959,11 @@ You are using @uxpin/merge-cli version: 0.0.20
       \\"name\\": \\"Uncategorized\\"
     }
   ],
-  \\"name\\": \\"Library from Code\\"
+  \\"name\\": \\"Library from Code\\",
+  \\"vcs\\": {
+    \\"branchName\\": \\"HEAD\\",
+    \\"commitHash\\": \\"d914edd5f97cadb284f7f47b783106c86fe430d9\\"
+  }
 }
 "
 `;

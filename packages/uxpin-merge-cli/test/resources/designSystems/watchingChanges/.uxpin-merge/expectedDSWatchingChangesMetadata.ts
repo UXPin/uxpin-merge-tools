@@ -156,4 +156,8 @@ export const expectedDSWatchingChangesMetadata:DesignSystemSnapshot = {
     },
   ],
   name: 'Example Design System',
+  vcs: expect.objectContaining({
+    branchName: 'master',
+    commitHash: expect.stringMatching(/[a-z0-9]+/),
+  }),
 };
