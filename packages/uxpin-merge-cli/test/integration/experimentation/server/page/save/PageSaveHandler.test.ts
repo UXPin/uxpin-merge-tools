@@ -36,10 +36,13 @@ describe('Experimentation server – handling save page request', () => {
         'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
         'access-control-allow-origin': 'https://app.uxpin.com',
       };
+      const expectedResponse:Pick<PageIncrementalUpdate, 'id_save'> = {
+        id_save: createFirstElementsRequestPayload.id_save,
+      };
 
       // then
       expect(response.statusCode).toEqual(OK);
-      expect(response.body).toEqual('{}');
+      expect(JSON.parse(response.body)).toEqual(expectedResponse);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
 
