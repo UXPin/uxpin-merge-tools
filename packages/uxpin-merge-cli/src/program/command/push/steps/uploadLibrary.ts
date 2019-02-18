@@ -1,11 +1,13 @@
 import { resolve } from 'path';
 import { getApiDomain } from '../../../../common/services/UXPin/getApiDomain';
+import { getLatestCommitHash } from '../../../../common/services/UXPin/getLatestCommitHash';
 import { postPushMetadata } from '../../../../common/services/UXPin/postPushMetadata';
 import { postUploadBundle } from '../../../../common/services/UXPin/postUploadBundle';
 import { DSMetadata } from '../../../../program/DSMeta';
 import { BuildOptions } from '../../../../steps/building/BuildOptions';
 import { LIBRARY_OUTPUT_FILENAME } from '../../../../steps/building/config/getConfig';
 import { isSameVersion } from '../../../../steps/serialization/vcs/isSameVersion';
+import { VCSDetails } from '../../../../steps/serialization/DesignSystemSnapshot';
 import { printLine } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
 import { StepExecutor } from '../../Step';
@@ -19,11 +21,19 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     }
 
     const apiDomain:string = getApiDomain(buildOptions.uxpinApiDomain!);
-    const commitHash:string = designSystem.result.vcs.commitHash;
+    const token:string = buildOptions.token!;
+    const vcsDetails:VCSDetails = designSystem.result.vcs;
+    const commitHash:string = vcsDetails.commitHash;
     const path:string = resolve(buildOptions.uxpinDirPath, LIBRARY_OUTPUT_FILENAME);
 
+    const latestCommitHash:string|null = await getLatestCommitHash(apiDomain, vcsDetails.branchName, token);
+    if (latestCommitHash && commitHash !== latestCommitHash) {
+      printLine('🛑 There was new version deployed during your build. Please try again.', { color: PrintColor.RED });
+      return Promise.reject();
+    }
+
     try {
-      await postUploadBundle(apiDomain, buildOptions.token!, commitHash, path);
+      await postUploadBundle(apiDomain, token, commitHash, path);
       printLine('✅ Library bundle uploaded successfully!', { color: PrintColor.GREEN });
     } catch (error) {
       printLine('🛑 There was an error while uploading library bundle! Please try again.', { color: PrintColor.RED });
@@ -31,7 +41,7 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     }
 
     try {
-      await postPushMetadata(apiDomain, buildOptions.token!, designSystem);
+      await postPushMetadata(apiDomain, token, designSystem);
       printLine('✅ Library metadata uploaded successfully!', { color: PrintColor.GREEN });
     } catch (error) {
       printLine('🛑 There was an error while uploading library metadata! Please try again.', { color: PrintColor.RED });
