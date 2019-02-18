@@ -1,8 +1,8 @@
-import { ChildProcess, exec } from 'child_process';
+import { ChildProcess, spawn } from 'child_process';
 import { buildCommand } from './buildCommand';
 import { CmdOptions } from './CmdOptions';
 import { getAllCmdOptions } from './getAllCmdOptions';
-import { getExecOptions } from './getExecOptions';
+import { getSpawnOptions } from './getSpawnOptions';
 
 export interface TestServerOptions {
   serverReadyOutput:RegExp;
@@ -17,14 +17,19 @@ export interface MergeServerResponse {
 export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerOptions):Promise<MergeServerResponse> {
   return new Promise((resolve, reject) => {
     const command:string = buildCommand(getAllCmdOptions(cmdOptions));
-    const subprocess:ChildProcess = exec(command, getExecOptions());
+    const subprocess:ChildProcess = spawn(command, [], getSpawnOptions());
+    const kill:() => void = () => process.kill(-subprocess.pid);
     onServerReady(subprocess, options.serverReadyOutput, () => {
       return resolve({
-        close: () => subprocess.kill(),
+        close: kill,
         subprocess,
       });
     });
-    onFailure(subprocess, Boolean(options.silent), (error) => reject(error));
+    onClose(subprocess, Boolean(options.silent), () => null);
+    onError(subprocess, (error) => {
+      kill();
+      reject(error);
+    });
   });
 }
 
@@ -36,14 +41,17 @@ function onServerReady(subprocess:ChildProcess, serverReadyOutput:RegExp, onRead
   });
 }
 
-function onFailure(subprocess:ChildProcess, silent:boolean, callback:(error:any) => void):void {
+function onError(subprocess:ChildProcess, callback:(error:any) => void):void {
+  subprocess.on('error', (data) => callback(data));
+}
+
+function onClose(subprocess:ChildProcess, silent:boolean, callback:(error:any) => void):void {
   let errorOut:string = '';
   subprocess.stderr.on('data', (data) => {
     if (!silent) {
-      console.error(data);
+      console.error(data.toString());
     }
     errorOut += data;
   });
   subprocess.on('close', () => callback(errorOut));
-  subprocess.on('error', (data) => callback(data));
 }

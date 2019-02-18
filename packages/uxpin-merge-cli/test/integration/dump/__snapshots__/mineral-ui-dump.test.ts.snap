@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The dump command run for the mineral-ui repository prints the JSON describing the full repository 1`] = `
-"
-You are using @uxpin/merge-cli version: 1.1.1
-
-{
+"{
   \\"categorizedComponents\\": [
     {
       \\"components\\": [
@@ -13663,7 +13660,11 @@ You are using @uxpin/merge-cli version: 1.1.1
       \\"name\\": \\"Layout\\"
     }
   ],
-  \\"name\\": \\"Library from Code\\"
+  \\"name\\": \\"Library from Code\\",
+  \\"vcs\\": {
+    \\"branchName\\": \\"HEAD\\",
+    \\"commitHash\\": \\"6a18faefe3d8339b066c92f1a10b27872f15729b\\"
+  }
 }
 "
 `;

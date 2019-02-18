@@ -22,7 +22,12 @@ describe('The dump command', () => {
       });
 
       // then
-      expect(output).toMatchSnapshot();
+      expect(JSON.parse(output)).toMatchSnapshot({
+        vcs: expect.objectContaining({
+          branchName: expect.any(String),
+          commitHash: expect.stringMatching(/[a-z0-9]+/),
+        }),
+      });
     });
   });
 });

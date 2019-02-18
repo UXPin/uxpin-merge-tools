@@ -3,6 +3,7 @@ import { Command, DEFAULT_COMMAND } from '../command/Command';
 import { Arg, ProgramArgs, RawProgramArgs } from './ProgramArgs';
 
 export const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
+const DEFAULT_UXPIN_DOMAIN:string = 'uxpin.com';
 
 const defaultArgs:{ [key in Command]:ProgramArgs } = {
   [Command.DUMP]: {
@@ -16,12 +17,14 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     cwd: process.cwd(),
     port: 8877,
     skipBrowser: false,
-    uxpinDomain: 'uxpin.com',
+    uxpinDomain: DEFAULT_UXPIN_DOMAIN,
   },
   [Command.PUSH]: {
     command: Command.PUSH,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
+    token: process.env.UXPIN_AUTH_TOKEN,
+    uxpinDomain: DEFAULT_UXPIN_DOMAIN,
   },
   [Command.SERVER]: {
     command: Command.SERVER,

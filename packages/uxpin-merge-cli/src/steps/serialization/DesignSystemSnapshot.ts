@@ -3,15 +3,15 @@ import { ComponentCategory } from './component/categories/ComponentCategory';
 export interface DesignSystemSnapshot {
   name:string;
   categorizedComponents:ComponentCategory[];
-  // @todo: make `vcs` property required after implementation of files tracking
-  vcs?:VCSDetails;
+  vcs:VCSDetails;
 }
 
 export interface VCSDetails {
-  commitHash:string;
   branchName:string;
-  movedObjects:MovedObjects;
-  tags:VCSTag[];
+  commitHash:string;
+  movedObjects?:MovedObjects;
+  // @todo: make `tags` property required after implementation of git tags
+  tags?:VCSTag[];
 }
 
 export interface MovedObjects {
