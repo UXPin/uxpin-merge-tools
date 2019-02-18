@@ -67,6 +67,6 @@ function endWithError(errorMessage:string):void {
   process.exit(1);
 }
 
-function logError(errorMessage:string):void {
-  console.error('ERROR:', errorMessage);
+function logError(error:Error|string):void {
+  console.error('ERROR:', error instanceof Error ? error.message : error);
 }
