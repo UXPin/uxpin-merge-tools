@@ -14,7 +14,7 @@ export async function getMovedFiles(cwd:string, revision1:string, revision2:stri
     );
 
     const files:MovedFilePathsMap = diff.split('\n')
-      .filter((line) => line !== '')
+      .filter(Boolean)
       .reduce((pathsMap:MovedFilePathsMap, line:string) => {
         const [, sourcePath, newPath] = line.split('\t');
 
