@@ -25,7 +25,7 @@ export function keepChromelessWhileTestsRunning(port:number,
     done();
   });
 
-  afterAll(() => {
-    chromeless.end();
+  afterAll(async () => {
+    await chromeless.end();
   });
 }
