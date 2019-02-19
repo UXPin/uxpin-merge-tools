@@ -6,8 +6,8 @@ import { postUploadBundle } from '../../../../common/services/UXPin/postUploadBu
 import { DSMetadata } from '../../../../program/DSMeta';
 import { BuildOptions } from '../../../../steps/building/BuildOptions';
 import { LIBRARY_OUTPUT_FILENAME } from '../../../../steps/building/config/getConfig';
-import { isSameVersion } from '../../../../steps/serialization/vcs/isSameVersion';
 import { VCSDetails } from '../../../../steps/serialization/DesignSystemSnapshot';
+import { isSameVersion } from '../../../../steps/serialization/vcs/isSameVersion';
 import { printLine } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
 import { StepExecutor } from '../../Step';

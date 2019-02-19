@@ -32,7 +32,7 @@ describe('Push command with latest commit which doesnt exist in tree', () => {
       params: [
         Command.PUSH,
         '--webpack-config "./webpack.config.js"',
-        '--token DUMMY_TOKEN'
+        '--token DUMMY_TOKEN',
       ],
     }))
       .rejects.toMatch('Unknown revision');
