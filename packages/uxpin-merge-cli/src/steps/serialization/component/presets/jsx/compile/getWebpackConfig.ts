@@ -30,9 +30,10 @@ export function getWebpackConfig({
         {
           loader: require.resolve('babel-loader'),
           options: {
-            babelrc: true,
+            babelrc: false,
             plugins: [
               require.resolve('@babel/plugin-proposal-class-properties'),
+              require.resolve('@babel/plugin-proposal-export-default-from'),
             ],
             presets: [
               require.resolve('@babel/preset-flow'),
