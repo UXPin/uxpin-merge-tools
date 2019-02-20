@@ -28,8 +28,16 @@ export class GetLibrariesHandler implements RequestHandler {
     return JSON.stringify([
       {
         _links: {
+          authToken: {
+            href: '/code/authToken',
+            templated: false,
+          },
           categories: {
             href: '/code/categories',
+            templated: false,
+          },
+          info: {
+            href: '/code/info',
             templated: false,
           },
           items: {
