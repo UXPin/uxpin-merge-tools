@@ -1,7 +1,9 @@
 import { join } from 'path';
 import { using } from '../../../../../../../test/utils/using';
 import { CategoryConfig } from '../../../../config/CliConfig';
-import { getComponentCategoryPaths, InvalidPatternError } from '../getComponentCategoryPaths';
+import { getComponentCategoryPaths } from '../getComponentCategoryPaths';
+
+const INVALID_PATTERN_REGEXP:RegExp = /Please check your config file and fix wrong patterns\./;
 
 describe('getComponentCategoryPaths', () => {
   describe('returning list of component file paths for given category configuration', () => {
@@ -76,7 +78,7 @@ describe('getComponentCategoryPaths', () => {
           name: 'Category Name',
         },
         expectedPaths: [],
-        expectedToThrow: InvalidPatternError,
+        expectedToThrow: INVALID_PATTERN_REGEXP,
         projectRoot: testProjectPath,
       },
       {
@@ -89,7 +91,7 @@ describe('getComponentCategoryPaths', () => {
           name: 'Category Name',
         },
         expectedPaths: [],
-        expectedToThrow: InvalidPatternError,
+        expectedToThrow: INVALID_PATTERN_REGEXP,
         projectRoot: testProjectPath,
       },
       {
@@ -103,7 +105,7 @@ describe('getComponentCategoryPaths', () => {
           name: 'Category Name',
         },
         expectedPaths: [],
-        expectedToThrow: InvalidPatternError,
+        expectedToThrow: INVALID_PATTERN_REGEXP,
         projectRoot: testProjectPath,
       },
       {
@@ -136,14 +138,12 @@ describe('getComponentCategoryPaths', () => {
       },
     ];
 
-    using(cases).describe(
-      'correctly returns paths for',
-      (testCase:TestCase) => {
+    using(cases)
+      .describe('correctly returns paths for', (testCase:TestCase) => {
         const { caseName, expectedToThrow } = testCase;
 
         it(caseName, expectedToThrow ? assertThrowableTestCase(testCase) : assertTestCase(testCase));
-      },
-    );
+      });
   });
 });
 
@@ -151,7 +151,7 @@ interface TestCase {
   caseName:string;
   config:CategoryConfig;
   expectedPaths:string[];
-  expectedToThrow?:any;
+  expectedToThrow?:Error|RegExp|string;
   projectRoot:string;
 }
 

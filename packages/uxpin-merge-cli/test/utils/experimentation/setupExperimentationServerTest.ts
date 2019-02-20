@@ -16,19 +16,26 @@ import { stopStubbyServer } from '../stubby/stopStubbyServer';
 import { ExperimentationServerTestSetupOptions } from './experimentationServerTestSetupOptions';
 import { ExperimentationServerConfiguration, getServerConfiguration } from './getServerConfiguration';
 
+export enum TestServerStatus {
+  STARTING = 'starting',
+  READY = 'ready',
+  FAILED = 'failed',
+}
+
 export interface ExperimentationServerTestContext {
   request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
   changeProjectFile:(filePath:string, content:string) => Promise<void>;
-  getServerReady():boolean;
+  getServerStatus():TestServerStatus;
   getWorkingDir():string;
 }
 
 export function setupExperimentationServerTest(
   options:ExperimentationServerTestSetupOptions = {},
 ):ExperimentationServerTestContext {
-  let isServerReady:boolean = false;
+  let testServerStatus:TestServerStatus = TestServerStatus.STARTING;
   const serverOptions:TestServerOptions = {
-    onServerReady: () => isServerReady = true,
+    onServerFailed: () => testServerStatus = TestServerStatus.FAILED,
+    onServerReady: () => testServerStatus = TestServerStatus.READY,
     serverFailOutput: options.serverFailOutput,
     serverReadyOutput: options.serverReadyOutput || SERVER_READY_OUTPUT,
     silent: options.silent,
@@ -60,7 +67,7 @@ export function setupExperimentationServerTest(
 
     cleanupTemp = config.cleanupTemp;
     mergeServerResponse = await startUXPinMergeServer(config.cmdOptions, serverOptions);
-    deferredContext.setTarget(getTestContext(config, mergeServerResponse, () => isServerReady));
+    deferredContext.setTarget(getTestContext(config, mergeServerResponse, () => testServerStatus));
   });
 
   afterAll(async () => {
@@ -75,7 +82,7 @@ export function setupExperimentationServerTest(
 function getTestContext(
   { port, workingDir }:ExperimentationServerConfiguration,
   { subprocess }:MergeServerResponse,
-  getServerReady:() => boolean,
+  getServerStatus:() => TestServerStatus,
 ):ExperimentationServerTestContext {
   return {
     changeProjectFile(relativeFilePath:string, content:string):Promise<void> {
@@ -89,7 +96,7 @@ function getTestContext(
     getWorkingDir():string {
       return workingDir;
     },
-    getServerReady,
+    getServerStatus,
     request(uri:string, options:RequestPromiseOptions = {}):RequestPromise {
       const url:URL = new URL(uri, `http://localhost:${port}`);
       return requestPromise({ url, ...options });

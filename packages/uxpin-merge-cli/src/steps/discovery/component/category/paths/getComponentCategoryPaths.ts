@@ -2,10 +2,8 @@ import * as safe from 'colors/safe';
 import globby = require('globby');
 import pMap from 'p-map';
 import { isArray } from 'util';
-import { printError, printLine, printWarning } from '../../../../../utils/console/printLine';
+import { printWarning } from '../../../../../utils/console/printLine';
 import { CategoryConfig } from '../../../config/CliConfig';
-
-export class InvalidPatternError extends Error {}
 
 const NEGATED_PATTERN_MATCH:string = '!';
 
@@ -29,10 +27,7 @@ export async function getComponentCategoryPaths(projectRoot:string, categoryConf
   // If some pattern doesn't provide some files, throw an error as this may result to broken library to be pushed
   // (e.g. when some files won't be commited to the repository)
   if (hasInvalidPatterns) {
-    printLine('');
-    printError(`🚫 Please check your ${safe.bold('uxpin.config.js')} file and fix wrong patterns.`);
-
-    throw new InvalidPatternError();
+    throw new Error(`🚫 Please check your config file and fix wrong patterns.`);
   }
 
   // Finally return paths for all patterns, as this may produce different results than
