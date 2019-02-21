@@ -1,7 +1,7 @@
 import { ExperimentProgramArgs } from '../../../../program/args/ProgramArgs';
 import { DSMetadata } from '../../../../program/DSMeta';
 import { isTestEnv } from '../../../../program/env/isTestEnv';
-import { Store } from '../../../../program/utils/store/Store';
+import { Store } from '../../../../utils/store/Store';
 import { Step, StepExecutor } from '../../Step';
 import { ExperimentationState } from '../getExperimentationCommandSteps';
 

@@ -1,5 +1,5 @@
 import { DSMetadata } from '../../../../program/DSMeta';
-import { Store } from '../../../../program/utils/store/Store';
+import { Store } from '../../../../utils/store/Store';
 import { getAPPExperimentationRemoteURL } from '../../../../steps/experimentation/app/getAPPExperimentationRemoteURL';
 import { openUserBrowserOnSpecificUrl } from '../../../../utils/browser/openUserBrowserOnSpecificUrl';
 import { ExperimentProgramArgs } from '../../../args/ProgramArgs';

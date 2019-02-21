@@ -1,5 +1,5 @@
-import { Store } from '../../../program/utils/store/Store';
 import { ExperimentProgramArgs } from '../../args/ProgramArgs';
+import { Store } from '../../../utils/store/Store';
 import { Step } from '../Step';
 import { experimentationBuildLibraryStep } from './steps/experimentationBuildLibraryStep';
 import { experimentationCreateEpidStep } from './steps/experimentationCreateEpidStep';
@@ -22,7 +22,7 @@ export function getExperimentationCommandSteps(args:ExperimentProgramArgs):Step[
   return [
     experimentationBuildLibraryStep(args),
     experimentationRunNgrok(args, store),
-    experimentationCreateEpidStep(args, store),
+    experimentationCreateEpidStep(args),
     experimentationPrepareMetadataStep(args),
     experimentationRunServerStep(args, store),
     experimentationOpenBrowserStep(args, store),

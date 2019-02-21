@@ -22,8 +22,8 @@ function getBundleUrl(port:number, ngrokSessionId?:string):string {
 }
 
 export interface CodeSyncMetadataInput {
-  ngrokSessionId?:string;
   metadata:DesignSystemSnapshot;
+  ngrokSessionId?:string;
   port:number;
   revisionId:string;
 }
