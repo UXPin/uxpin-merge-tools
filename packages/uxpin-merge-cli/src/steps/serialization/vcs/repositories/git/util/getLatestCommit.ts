@@ -1,10 +1,7 @@
 import { ExecOptions } from 'child_process';
 import { execAsync } from '../../../../../../utils/child_process/execAsync';
 import { CommitMetadata } from '../../RepositoryAdapter';
-
-function removeNewLines(data:string):string {
-  return data.replace(/\n/gm, '');
-}
+import { removeNewLines } from './removeNewLines';
 
 export async function getLatestCommit(cwd:string):Promise<CommitMetadata> {
   const options:ExecOptions = { cwd };

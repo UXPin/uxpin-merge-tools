@@ -27,9 +27,12 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     const path:string = resolve(buildOptions.uxpinDirPath, LIBRARY_OUTPUT_FILENAME);
 
     const latestCommitHash:string|null = await getLatestCommitHash(apiDomain, vcsDetails.branchName, token);
-    if (latestCommitHash && commitHash !== latestCommitHash) {
-      printLine('🛑 There was new version deployed during your build. Please try again.', { color: PrintColor.RED });
-      return Promise.reject();
+    const diffSourceCommitHash:string|null = vcsDetails.movedObjects && vcsDetails.movedObjects.diffSourceCommitHash
+      ? vcsDetails.movedObjects.diffSourceCommitHash
+      : null;
+
+    if (diffSourceCommitHash && diffSourceCommitHash !== latestCommitHash) {
+      throw new Error('🛑 There was new version deployed during your build. Please try again.');
     }
 
     try {
@@ -37,7 +40,7 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
       printLine('✅ Library bundle uploaded successfully!', { color: PrintColor.GREEN });
     } catch (error) {
       printLine('🛑 There was an error while uploading library bundle! Please try again.', { color: PrintColor.RED });
-      return Promise.reject(error.message);
+      throw new Error(error.message);
     }
 
     try {
@@ -45,7 +48,7 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
       printLine('✅ Library metadata uploaded successfully!', { color: PrintColor.GREEN });
     } catch (error) {
       printLine('🛑 There was an error while uploading library metadata! Please try again.', { color: PrintColor.RED });
-      return Promise.reject(error.message);
+      throw new Error(error.message);
     }
 
     return designSystem;
