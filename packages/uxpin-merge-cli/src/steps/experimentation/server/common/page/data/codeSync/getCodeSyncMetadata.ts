@@ -4,18 +4,26 @@ import { getComponentsCollection } from './component/getComponentsCollection';
 import { getPresetsCollection } from './preset/getPresetsCollection';
 
 export function getCodeSyncMetadata(input:CodeSyncMetadataInput):CodeSyncMetadata {
-  const { revisionId, port } = input;
+  const { ngrokSessionId, port, revisionId } = input;
+
   return {
     bundles: {
-      [revisionId]: `http://localhost:${port}/code/library.js`,
+      [revisionId]: getBundleUrl(port, ngrokSessionId),
     },
     components: getComponentsCollection(input),
     presets: getPresetsCollection(input),
   };
 }
 
+function getBundleUrl(port:number, ngrokSessionId?:string):string {
+  return ngrokSessionId
+    ? `https://${ngrokSessionId}.ngrok.io/code/library.js`
+    : `http://localhost:${port}/code/library.js`;
+}
+
 export interface CodeSyncMetadataInput {
   metadata:DesignSystemSnapshot;
+  ngrokSessionId?:string;
   port:number;
   revisionId:string;
 }

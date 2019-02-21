@@ -6,6 +6,7 @@ import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundle
 import { GetCategoriesHandler } from './handler/code/GetCategoriesHandler';
 import { GetPreviewsHandler } from './handler/code/GetPreviewsHandler';
 import { GetRepositoryPointerHandler } from './handler/code/GetRepositoryPointerHandler';
+import { GetVariablesHandler } from './handler/document/GetVariablesHandler';
 import { GetLibrariesHandler } from './handler/libraries/GetLibrariesHandler';
 import { GetLibrariesIndexHandler } from './handler/libraries/GetLibrariesIndexHandler';
 import { PageSaveHandler } from './handler/page/save/PageSaveHandler';
@@ -22,6 +23,7 @@ export interface ExperimentationServerOptions extends ExperimentationServerConte
 }
 
 export interface ExperimentationServerContext {
+  ngrokSessionId:string;
   port:number;
   bundlePath:string;
   epid:EPID;
@@ -48,6 +50,7 @@ function registerHandlers(router:ServerRouter, context:ExperimentationServerCont
   router.register('/code/library.js', createLibraryBundleHandler(context));
   router.register('/code/previews', new GetPreviewsHandler(context));
   router.register('/code/repositoryPointer', new GetRepositoryPointerHandler());
+  router.register(/^\/documents\/([a-z0-9-_]+)\/variables$/, new GetVariablesHandler(context));
   router.register('/libraries/', new GetLibrariesHandler(context));
   router.register('/libraries/items/index/', new GetLibrariesIndexHandler());
   router.register('/preview/all', new GetPreviewAllDataHandler(context));
