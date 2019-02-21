@@ -62,8 +62,9 @@ function isWatchChangesCommand(programArgs:ProgramArgs):boolean {
   return programArgs.command === Command.EXPERIMENT;
 }
 
-function endWithError(errorMessage:string):void {
-  logError(errorMessage);
+function endWithError(error:Error|string):void {
+  logError(error);
+
   process.exit(1);
 }
 

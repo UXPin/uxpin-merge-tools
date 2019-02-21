@@ -5,7 +5,10 @@ import { getAllCmdOptions } from './getAllCmdOptions';
 import { getSpawnOptions } from './getSpawnOptions';
 
 export interface TestServerOptions {
-  serverReadyOutput:RegExp;
+  onServerFailed?:() => void;
+  onServerReady?:() => void;
+  serverReadyOutput:string|RegExp;
+  serverFailOutput?:string|RegExp;
   silent?:boolean;
 }
 
@@ -19,12 +22,33 @@ export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerO
     const command:string = buildCommand(getAllCmdOptions(cmdOptions));
     const subprocess:ChildProcess = spawn(command, [], getSpawnOptions());
     const kill:() => void = () => process.kill(-subprocess.pid);
-    onServerReady(subprocess, options.serverReadyOutput, () => {
+
+    onServerOutput(subprocess, options.serverReadyOutput, () => {
+      if (options.onServerReady) {
+        options.onServerReady();
+      }
+
       return resolve({
         close: kill,
         subprocess,
       });
     });
+
+    if (options.serverFailOutput) {
+      onServerOutput(subprocess, options.serverFailOutput, (data) => {
+        if (options.onServerFailed) {
+          options.onServerFailed();
+        }
+
+        kill();
+
+        return resolve({
+          close: kill,
+          subprocess,
+        });
+      });
+    }
+
     onClose(subprocess, Boolean(options.silent), () => null);
     onError(subprocess, (error) => {
       kill();
@@ -33,12 +57,18 @@ export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerO
   });
 }
 
-function onServerReady(subprocess:ChildProcess, serverReadyOutput:RegExp, onReady:() => void):void {
-  subprocess.stdout.on('data', (data) => {
-    if (data.toString().match(serverReadyOutput)) {
-      onReady();
+function onServerOutput(subprocess:ChildProcess, output:string|RegExp, callback:(data:string) => void):void {
+  const listener:(data:Buffer|string) => void = (data) => {
+    if (data.toString().match(output)) {
+      callback(data.toString());
+
+      subprocess.stdout.removeListener('data', listener);
+      subprocess.stderr.removeListener('data', listener);
     }
-  });
+  };
+
+  subprocess.stdout.on('data', listener);
+  subprocess.stderr.on('data', listener);
 }
 
 function onError(subprocess:ChildProcess, callback:(error:any) => void):void {

@@ -1,5 +1,6 @@
 {
   "automock": false,
+  "ci": true,
   "collectCoverage": true,
   "collectCoverageFrom": [
     "src/**/*.js"

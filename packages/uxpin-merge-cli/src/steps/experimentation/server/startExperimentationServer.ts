@@ -18,12 +18,12 @@ import { UploadHandler } from './handler/upload/UploadHandler';
 import { ServerRouter } from './router/ServerRouter';
 
 export interface ExperimentationServerOptions extends ExperimentationServerContext {
-  ngrokSessionId:string;
   projectRoot:string;
   skipBrowser:boolean;
 }
 
 export interface ExperimentationServerContext {
+  ngrokSessionId:string;
   port:number;
   bundlePath:string;
   epid:EPID;

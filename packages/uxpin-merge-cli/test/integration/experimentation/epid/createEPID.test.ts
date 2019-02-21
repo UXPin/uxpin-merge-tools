@@ -27,7 +27,6 @@ describe('createEPID', () => {
     it('should epid file has specific format', async () => {
       // given
       const expectedEPID:EPID = {
-        ngrokSessionId: expect.stringContaining('sessionId'),
         revisionId: expect.stringMatching(/^[0-9a-f-]{36}_[0-9a-f]{40}/),
       };
 

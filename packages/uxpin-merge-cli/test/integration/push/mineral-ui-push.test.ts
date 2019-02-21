@@ -45,17 +45,18 @@ describe('Pushing mineral-ui design system', () => {
         Command.PUSH,
       ];
 
-      const consoleOutput:Promise<string> = runUXPinMergeCommand({
-        cwd: 'resources/repos/mineral-ui',
-        env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-          UXPIN_ENV: Environment.TEST,
-        },
-        params,
-      });
-
-      await expect(consoleOutput)
-        .rejects.toMatch('Module parse failed: Unexpected token');
+      try {
+        await  runUXPinMergeCommand({
+          cwd: 'resources/repos/mineral-ui',
+          env: {
+            UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+            UXPIN_ENV: Environment.TEST,
+          },
+          params,
+        });
+      } catch (error) {
+        expect(error.stderr).toMatch('Module parse failed: Unexpected token');
+      }
     });
   });
 });
