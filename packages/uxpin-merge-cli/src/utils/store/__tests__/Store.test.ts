@@ -1,4 +1,4 @@
-import { Store } from "../Store";
+import { Store } from '../Store';
 
 interface SimpleState {
   foo:boolean;
@@ -11,8 +11,8 @@ describe('Store', () => {
   beforeEach(() => {
     // having
     store = new Store({
-      foo: true,
       bar: 'test',
+      foo: true,
     });
   });
 
@@ -29,7 +29,7 @@ describe('Store', () => {
   describe('set state', () => {
     it('should not mutate current state', () => {
       // having
-      const { state } = store
+      const { state } = store;
 
       // when
       store.setState({
@@ -54,8 +54,8 @@ describe('Store', () => {
     it('should change full state', () => {
       // when
       store.setState({
-        foo: false,
         bar: 'new_test',
+        foo: false,
       });
 
       // then

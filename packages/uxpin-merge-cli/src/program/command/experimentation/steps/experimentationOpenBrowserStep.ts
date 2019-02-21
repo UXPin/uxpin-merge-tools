@@ -1,7 +1,7 @@
 import { DSMetadata } from '../../../../program/DSMeta';
-import { Store } from '../../../../utils/store/Store';
 import { getAPPExperimentationRemoteURL } from '../../../../steps/experimentation/app/getAPPExperimentationRemoteURL';
 import { openUserBrowserOnSpecificUrl } from '../../../../utils/browser/openUserBrowserOnSpecificUrl';
+import { Store } from '../../../../utils/store/Store';
 import { ExperimentProgramArgs } from '../../../args/ProgramArgs';
 import { Step, StepExecutor } from '../../Step';
 import { ExperimentationState } from '../getExperimentationCommandSteps';
