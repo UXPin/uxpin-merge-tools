@@ -2,7 +2,7 @@ import { ExecOptions } from 'child_process';
 import { execAsync } from '../../../../../../utils/child_process/execAsync';
 import { removeNewLines } from './removeNewLines';
 
-const VALID_RESPONSE = 'commit';
+const VALID_RESPONSE:string = 'commit';
 
 export async function isCommit(cwd:string, revision:string):Promise<boolean> {
   const options:ExecOptions = { cwd };

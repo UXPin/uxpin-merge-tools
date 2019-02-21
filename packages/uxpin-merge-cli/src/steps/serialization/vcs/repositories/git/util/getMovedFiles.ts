@@ -14,7 +14,7 @@ export async function getMovedFiles(cwd:string, revision1:string, revision2:stri
   const revs:RevisionsMap = {
     [`${revision1}`]: await isCommit(cwd, revision1),
     [`${revision2}`]: await isCommit(cwd, revision2),
-  }
+  };
 
   forEach(revs, (isValidCommit, revision) => {
     if (!isValidCommit) {
