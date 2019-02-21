@@ -23,18 +23,21 @@ describe('Push command with latest commit which doesnt exist in tree', () => {
 
     // when
     // then
-    await expect(runUXPinMergeCommand({
-      cwd: dir.path,
-      env: {
-        UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-        UXPIN_ENV: Environment.TEST,
-      },
-      params: [
-        Command.PUSH,
-        '--webpack-config "./webpack.config.js"',
-        '--token DUMMY_TOKEN',
-      ],
-    }))
-      .rejects.toMatch('Unknown revision');
+    try {
+      await runUXPinMergeCommand({
+        cwd: dir.path,
+        env: {
+          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+          UXPIN_ENV: Environment.TEST,
+        },
+        params: [
+          Command.PUSH,
+          '--webpack-config "./webpack.config.js"',
+          '--token DUMMY_TOKEN',
+        ],
+      });
+    } catch (error) {
+      expect(error.stderr).toMatch('Unknown revision');
+    }
   });
 });
