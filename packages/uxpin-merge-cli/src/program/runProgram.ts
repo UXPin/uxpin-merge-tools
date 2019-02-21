@@ -69,9 +69,5 @@ function endWithError(error:Error|string):void {
 }
 
 function logError(error:Error|string):void {
-  const message:string = typeof error === 'string'
-    ? error
-    : error.message;
-
-  console.error('ERROR:', message);
+  console.error('ERROR:', error instanceof Error ? error.message : error);
 }
