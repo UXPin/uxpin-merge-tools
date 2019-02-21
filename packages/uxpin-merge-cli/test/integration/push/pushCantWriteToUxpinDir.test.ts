@@ -24,17 +24,23 @@ describe('Building designSystems/cantWriteToUxpinTemp design system', () => {
   });
 
   it('shows permission denied Error when can not write to temporary directory', async () => {
+    // when
     await chmod(uxpinTempPath, READONLY_PERMISSIONS);
-    await expect(runUXPinMergeCommand({
-      cwd: workingDir,
-      env: {
-        UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-        UXPIN_ENV: Environment.TEST,
-      },
-      params: [
-        Command.PUSH,
-      ],
-    }))
-      .rejects.toMatch('EACCES: permission denied');
+
+    // then
+    try {
+      await runUXPinMergeCommand({
+        cwd: workingDir,
+        env: {
+          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+          UXPIN_ENV: Environment.TEST,
+        },
+        params: [
+          Command.PUSH,
+        ],
+      });
+    } catch (error) {
+      expect(error.message!).toMatch('EACCES: permission denied');
+    }
   });
 });
