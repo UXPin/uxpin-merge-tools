@@ -64,7 +64,7 @@ export class GetPreviewAllDataHandler implements RequestHandler {
   }
 
   private async getPageData():Promise<PageData> {
-    const { epid, port, uxpinDirPath } = this.context;
-    return await getPageData({ ngrokSessionId: epid.ngrokSessionId!, port, revisionId: epid.revisionId, uxpinDirPath });
+    const { epid, ngrokSessionId, port, uxpinDirPath } = this.context;
+    return await getPageData({ ngrokSessionId, port, revisionId: epid.revisionId, uxpinDirPath });
   }
 }
