@@ -36,7 +36,7 @@ describe('Push command from branch other than master', () => {
       ],
     });
 
-    expect(result).toMatchSnapshot();
+    expect(result).toEqual(expect.stringMatching(/branch different than master are currently not supported/));
   });
 });
 
@@ -64,6 +64,6 @@ describe('Push command from master branch', () => {
       ],
     });
 
-    expect(result).toMatchSnapshot();
+    expect(result).not.toEqual(expect.stringMatching(/branch different than master are currently not supported/));
   });
 });
