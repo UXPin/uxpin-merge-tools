@@ -23,7 +23,7 @@ export async function getServerConfiguration(
     workingDir = resolveTestProjectPath(useExistingServer.projectPath);
     serverPort = useExistingServer.port;
   } else if (useTempDir) {
-    const tempDir:DirectoryResult = await prepareTempDir(workingDir, true);
+    const tempDir:DirectoryResult = await prepareTempDir(workingDir, { initialise: true });
     workingDir = tempDir.path;
     cleanupTemp = tempDir.cleanup;
   }
