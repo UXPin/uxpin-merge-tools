@@ -10,7 +10,7 @@
   "author": "UXPin Inc.",
   "license": "MIT",
   "engines": {
-    "node": ">=6.5.0"
+    "node": ">=8.10.0"
   },
   "keywords": [
     "UXPin",
