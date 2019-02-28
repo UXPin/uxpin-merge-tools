@@ -11,5 +11,5 @@ UXPin solution will allow designers and developers to work on the same UI patter
 
 ## multi-package repository
 
-This repository consists of multiple tools allowing better integration of your Design System repository with [code.uxpin.com](http://code.uxpin.com) services. Look at the Readme file for each of them for more detailed description:
+This repository consists of multiple tools allowing better integration of your Design System repository with [UXPin app](https://uxpin.com/merge). Look at the Readme file for each of them for more detailed description:
 * [uxpin-merge-cli](packages/uxpin-merge-cli/Readme.md) – command-line tool building and serializing DS on the user's CI server
