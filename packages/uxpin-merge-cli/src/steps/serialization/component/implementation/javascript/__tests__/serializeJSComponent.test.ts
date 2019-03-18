@@ -477,9 +477,9 @@ ReferenceError: some is not defined
         name: 'PropTypesOneOfNumber',
         properties: [
           {
-            name: 'typeIndex',
-            isRequired: true,
             description: '',
+            isRequired: true,
+            name: 'typeIndex',
             type: {
               name: 'union',
               structure: {
@@ -489,7 +489,7 @@ ReferenceError: some is not defined
                   { name: 'literal', structure: { value: 3 } },
                 ],
               },
-            }
+            },
           },
         ],
       };
