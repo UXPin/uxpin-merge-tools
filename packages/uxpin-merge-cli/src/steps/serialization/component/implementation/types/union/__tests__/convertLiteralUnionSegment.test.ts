@@ -30,20 +30,6 @@ describe('convertLiteralUnionSegment', () => {
     });
   });
 
-  it('should parse numbers correctly', () => {
-    // having
-    const value:string = '123';
-
-    // when
-    const converted:PropertyType<'literal'>|null = convertLiteralUnionSegment(value);
-
-    // then
-    expect(converted).toEqual({
-      name: 'literal',
-      structure: { value: 123 },
-    });
-  });
-
   it('should return null when value can not be parsed', () => {
     // having
     const value:string = '"without closing quote';
@@ -64,5 +50,63 @@ describe('convertLiteralUnionSegment', () => {
 
     // then
     expect(converted).toBe(null);
+  });
+
+  describe('numbers', () => {
+    it('should parse numbers correctly', () => {
+      // having
+      const value:string = '123';
+
+      // when
+      const converted:PropertyType<'literal'> | null = convertLiteralUnionSegment(value);
+
+      // then
+      expect(converted).toEqual({
+        name: 'literal',
+        structure: { value: 123 },
+      });
+    });
+
+    it('should parse negative numbers correctly', () => {
+      // having
+      const value:string = '-123';
+
+      // when
+      const converted:PropertyType<'literal'> | null = convertLiteralUnionSegment(value);
+
+      // then
+      expect(converted).toEqual({
+        name: 'literal',
+        structure: { value: -123 },
+      });
+    });
+
+    it('should parse float numbers correctly', () => {
+      // having
+      const value:string = '-123.4205403';
+
+      // when
+      const converted:PropertyType<'literal'> | null = convertLiteralUnionSegment(value);
+
+      // then
+      expect(converted).toEqual({
+        name: 'literal',
+        structure: { value: -123.4205403 },
+      });
+    });
+
+    it('should parse zero correctly', () => {
+      // having
+      const value:string = '0';
+
+      // when
+      const converted:PropertyType<'literal'> | null = convertLiteralUnionSegment(value);
+
+      // then
+      expect(converted).toEqual({
+        name: 'literal',
+        structure: { value: 0 },
+      });
+    });
   });
 });

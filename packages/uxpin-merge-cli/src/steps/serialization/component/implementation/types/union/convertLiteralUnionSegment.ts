@@ -1,19 +1,18 @@
 import { toNumber } from 'lodash';
 import { PropertyType } from '../../ComponentPropertyDefinition';
 
-const LITERAL_TYPE_REGEX:RegExp = /(^['"]([^"']+)['"]$)|(\d+)/;
+const LITERAL_TYPE_REGEX:RegExp = /(^['"]([^"']+)['"]$)|(\-?\d+(\.\d+)?)/;
 const NUMBER_GROUP_ID:number = 3;
 const STRING_GROUP_ID:number = 2;
 
 export function convertLiteralUnionSegment(value:string):PropertyType<'literal'> | null {
   const literalMatch:RegExpMatchArray | null = value.match(LITERAL_TYPE_REGEX);
-
   if (!literalMatch) {
     return null;
   }
 
   const literalValue:string|number|null = getValue(literalMatch);
-  if (!literalValue) {
+  if (literalValue === null) {
     return null;
   }
 
