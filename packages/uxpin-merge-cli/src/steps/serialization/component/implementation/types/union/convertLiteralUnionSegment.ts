@@ -1,11 +1,30 @@
+import { toNumber } from 'lodash';
 import { PropertyType } from '../../ComponentPropertyDefinition';
 
-const LITERAL_TYPE_REGEX:RegExp = /^['"]([^"']+)['"]$/;
+const LITERAL_TYPE_REGEX:RegExp = /(^['"]([^"']+)['"]$)|(\d+)/;
 
 export function convertLiteralUnionSegment(value:string):PropertyType<'literal'> | null {
-  const literalValue:RegExpMatchArray | null = value.match(LITERAL_TYPE_REGEX);
-  if (literalValue && literalValue[1]) {
-    return { name: 'literal', structure: { value: literalValue[1] } };
+  const literalMatch:RegExpMatchArray | null = value.match(LITERAL_TYPE_REGEX);
+
+  if (!literalMatch) {
+    return null;
   }
-  return null;
+
+  const literalValue:string|number|null = getValue(literalMatch);
+  if (!literalValue) {
+    return null;
+  }
+
+  return { name: 'literal', structure: { value: literalValue } };
+}
+
+function getValue(match:RegExpMatchArray):string|number|null {
+  if (match[3] === undefined) {
+    return match[2];
+  }
+
+  const numberValue:number = toNumber(match[3]);
+  return isNaN(numberValue)
+    ? null
+    : numberValue;
 }
