@@ -1,112 +1,75 @@
+import { using } from '../../../../../../../../test/utils/using';
 import { PropertyType } from '../../../ComponentPropertyDefinition';
 import { convertLiteralUnionSegment } from '../convertLiteralUnionSegment';
 
 describe('convertLiteralUnionSegment', () => {
-  it('should parse literals with double quotes correctly', () => {
-    // having
-    const value:string = '"someValue"';
+  describe('strings', () => {
+    const cases:TestCase[] = [
+      {
+        expected: { name: 'literal', structure: { value: 'someValue' } },
+        having: '"someValue"',
+        title: 'parse literals with double quotes correctly',
+      },
+      {
+        expected: { name: 'literal', structure: { value: 'someValue' } },
+        having: `'someValue'`,
+        title: 'parse literals with single quotes correctly',
+      },
+      {
+        expected: null,
+        having: '"without closing quote',
+        title: 'return null when value can not be parsed',
+      },
+      {
+        expected: null,
+        having: '""',
+        title: 'return null when value is empty',
+      },
+    ];
 
-    // when
-    const converted:PropertyType<'literal'>|null = convertLiteralUnionSegment(value);
-
-    // then
-    expect(converted).toEqual({
-      name: 'literal',
-      structure: { value: 'someValue' },
-    });
-  });
-
-  it('should parse literals with single quotes correctly', () => {
-    // having
-    const value:string = `'someValue'`;
-
-    // when
-    const converted:PropertyType<'literal'>|null = convertLiteralUnionSegment(value);
-
-    // then
-    expect(converted).toEqual({
-      name: 'literal',
-      structure: { value: 'someValue' },
-    });
-  });
-
-  it('should return null when value can not be parsed', () => {
-    // having
-    const value:string = '"without closing quote';
-
-    // when
-    const converted:PropertyType<'literal'>|null = convertLiteralUnionSegment(value);
-
-    // then
-    expect(converted).toBe(null);
-  });
-
-  it('should return null when value is empty', () => {
-    // having
-    const value:string = '""';
-
-    // when
-    const converted:PropertyType<'literal'>|null = convertLiteralUnionSegment(value);
-
-    // then
-    expect(converted).toBe(null);
+    using(cases)
+      .describe('should', (testCase:TestCase) => {
+        it(testCase.title, () => {
+          expect(convertLiteralUnionSegment(testCase.having)).toEqual(testCase.expected);
+        });
+      });
   });
 
   describe('numbers', () => {
-    it('should parse numbers correctly', () => {
-      // having
-      const value:string = '123';
+    const cases:TestCase[] = [
+      {
+        expected: { name: 'literal', structure: { value: 123 } },
+        having: '123',
+        title: 'parse numbers correctly',
+      },
+      {
+        expected: { name: 'literal', structure: { value: -123 } },
+        having: '-123',
+        title: 'parse negative numbers correctly',
+      },
+      {
+        expected: { name: 'literal', structure: { value: -123.4205403 } },
+        having: '-123.4205403',
+        title: 'parse float numbers correctly',
+      },
+      {
+        expected: { name: 'literal', structure: { value: 0 } },
+        having: '0',
+        title: 'parse zero correctly',
+      },
+    ];
 
-      // when
-      const converted:PropertyType<'literal'> | null = convertLiteralUnionSegment(value);
-
-      // then
-      expect(converted).toEqual({
-        name: 'literal',
-        structure: { value: 123 },
+    using(cases)
+      .describe('should', (testCase:TestCase) => {
+        it(testCase.title, () => {
+          expect(convertLiteralUnionSegment(testCase.having)).toEqual(testCase.expected);
+        });
       });
-    });
-
-    it('should parse negative numbers correctly', () => {
-      // having
-      const value:string = '-123';
-
-      // when
-      const converted:PropertyType<'literal'> | null = convertLiteralUnionSegment(value);
-
-      // then
-      expect(converted).toEqual({
-        name: 'literal',
-        structure: { value: -123 },
-      });
-    });
-
-    it('should parse float numbers correctly', () => {
-      // having
-      const value:string = '-123.4205403';
-
-      // when
-      const converted:PropertyType<'literal'> | null = convertLiteralUnionSegment(value);
-
-      // then
-      expect(converted).toEqual({
-        name: 'literal',
-        structure: { value: -123.4205403 },
-      });
-    });
-
-    it('should parse zero correctly', () => {
-      // having
-      const value:string = '0';
-
-      // when
-      const converted:PropertyType<'literal'> | null = convertLiteralUnionSegment(value);
-
-      // then
-      expect(converted).toEqual({
-        name: 'literal',
-        structure: { value: 0 },
-      });
-    });
   });
 });
+
+interface TestCase {
+  title:string;
+  having:string;
+  expected:PropertyType<'literal'> | null;
+}
