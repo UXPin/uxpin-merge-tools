@@ -9,7 +9,6 @@ dependencies:
 	cd ./test/resources/designSystems && yarn install || npx yarn@1.7.0 install
 
 build:
-	make check
 	tsc
 	make build-server-app
 	dts-bundle-generator -o src/types.d.ts src/types.ts
