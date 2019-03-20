@@ -2876,21 +2876,21 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
                             \\"structure\\": {
                               \\"elements\\": [
                                 {
-                                  \\"name\\": \\"unsupported\\",
+                                  \\"name\\": \\"literal\\",
                                   \\"structure\\": {
-                                    \\"raw\\": \\"-1\\"
+                                    \\"value\\": -1
                                   }
                                 },
                                 {
-                                  \\"name\\": \\"unsupported\\",
+                                  \\"name\\": \\"literal\\",
                                   \\"structure\\": {
-                                    \\"raw\\": \\"1\\"
+                                    \\"value\\": 1
                                   }
                                 },
                                 {
-                                  \\"name\\": \\"unsupported\\",
+                                  \\"name\\": \\"literal\\",
                                   \\"structure\\": {
-                                    \\"raw\\": \\"0\\"
+                                    \\"value\\": 0
                                   }
                                 }
                               ]
@@ -3302,21 +3302,21 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
                     \\"structure\\": {
                       \\"elements\\": [
                         {
-                          \\"name\\": \\"unsupported\\",
+                          \\"name\\": \\"literal\\",
                           \\"structure\\": {
-                            \\"raw\\": \\"-1\\"
+                            \\"value\\": -1
                           }
                         },
                         {
-                          \\"name\\": \\"unsupported\\",
+                          \\"name\\": \\"literal\\",
                           \\"structure\\": {
-                            \\"raw\\": \\"0\\"
+                            \\"value\\": 0
                           }
                         },
                         {
-                          \\"name\\": \\"unsupported\\",
+                          \\"name\\": \\"literal\\",
                           \\"structure\\": {
-                            \\"raw\\": \\"1\\"
+                            \\"value\\": 1
                           }
                         }
                       ]
