@@ -4,3 +4,4 @@
 !**/presets/*.jsx
 .uxpin-merge/*
 !.uxpin-merge/epid
+node_modules
