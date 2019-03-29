@@ -21,8 +21,9 @@ function startNgrok(args:ExperimentProgramArgs, store:Store<ExperimentationState
       url = TEST_SESSION_ID;
     } else {
       // tslint:disable-next-line:typedef
-      const ngrok = require('ngrok');
-      url = await ngrok.connect(args.port);
+      const { connectAsync } = require('../../../../utils/ngrok/connectAsync');
+
+      url = await connectAsync(args.port);
     }
 
     store.setState({

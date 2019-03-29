@@ -1,5 +1,6 @@
 import Chromeless from 'chromeless';
 import { SERVER_URL } from '../../../../src/debug/server/serverConfig';
+import { connectAsync } from '../../../../src/utils/ngrok/connectAsync';
 import { ngrok } from '../ngrok/ngrok';
 import { createChromeless } from './createChromeless';
 
@@ -11,11 +12,11 @@ export function keepChromelessWhileTestsRunning(port:number,
 
   if (process.env.CI) {
     beforeAll(async () => {
-      urlToOpenByChromeless = await ngrok.connect(port);
+      urlToOpenByChromeless = await connectAsync(port);
     });
 
-    afterAll(async () => {
-      await ngrok.disconnect(urlToOpenByChromeless);
+    afterAll(() => {
+      ngrok.disconnect(urlToOpenByChromeless);
     });
   }
 
