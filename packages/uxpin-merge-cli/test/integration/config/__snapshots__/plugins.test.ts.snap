@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plugins support it should be possible to serialize component using custom plugin 1`] = `
+Object {
+  "categorizedComponents": Array [
+    Object {
+      "components": Array [
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/Avatar",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "typescript",
+              "path": "src/components/Avatar/Avatar.tsx",
+            },
+            "presets": Array [
+              Object {
+                "path": "src/components/Avatar/presets/0-default.jsx",
+              },
+            ],
+          },
+          "name": "Avatar",
+          "presets": Array [
+            Object {
+              "elements": Object {
+                "1": Object {
+                  "name": "Avatar",
+                  "props": Object {
+                    "imageUrl": "https://picsum.photos/100/100?image=1027",
+                    "size": "small",
+                  },
+                },
+              },
+              "name": "default",
+              "rootId": "1",
+            },
+          ],
+          "properties": Array [
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "nerdlihc",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "ezis",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "lrUegami",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+          ],
+        },
+      ],
+      "name": "General",
+    },
+    Object {
+      "components": Array [
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/Button",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "typescript",
+              "path": "src/components/Button/Button.tsx",
+            },
+            "presets": Array [
+              Object {
+                "path": "src/components/Button/presets/0-default.jsx",
+              },
+            ],
+          },
+          "name": "Button",
+          "presets": Array [
+            Object {
+              "elements": Object {
+                "1": Object {
+                  "name": "Button",
+                  "props": Object {
+                    "children": "Click me",
+                    "isPrimary": true,
+                  },
+                },
+              },
+              "name": "default",
+              "rootId": "1",
+            },
+          ],
+          "properties": Array [
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "nerdlihc",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "yramirPsi",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+          ],
+        },
+      ],
+      "name": "Forms",
+    },
+  ],
+  "name": "Example Design System",
+  "vcs": ObjectContaining {
+    "branchName": Any<String>,
+    "commitHash": StringMatching /\\[a-z0-9\\]\\+/,
+  },
+}
+`;

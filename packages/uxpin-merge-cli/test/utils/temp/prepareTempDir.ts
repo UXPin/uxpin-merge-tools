@@ -12,7 +12,12 @@ const defaultGitOptions:GitOptions = {
   initialise: false,
 };
 
-export async function prepareTempDir(sourceDir:string, gitOptions:Partial<GitOptions> = {}):Promise<DirectoryResult> {
+export async function prepareTempDir(
+  sourceDir:string,
+  gitOptions:Partial<GitOptions> = {},
+  linkPackage:boolean = false,
+  projectPath?:string,
+):Promise<DirectoryResult> {
   const { branch, initialise } = { ...defaultGitOptions, ...gitOptions };
   const result:DirectoryResult = await dir({ unsafeCleanup: true });
   await copy(sourceDir, result.path, { errorOnExist: true });
@@ -28,6 +33,11 @@ export async function prepareTempDir(sourceDir:string, gitOptions:Partial<GitOpt
     ];
 
     await execAsync(gitCommands.join(' && '), { cwd: result.path });
+  }
+
+  if (linkPackage && projectPath) {
+    await execAsync('yarn link', { cwd: projectPath });
+    await execAsync('yarn link @uxpin/merge-cli', { cwd: result.path });
   }
 
   return result;

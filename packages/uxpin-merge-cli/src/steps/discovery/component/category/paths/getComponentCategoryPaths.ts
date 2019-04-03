@@ -11,7 +11,6 @@ export async function getComponentCategoryPaths(projectRoot:string, categoryConf
   let hasInvalidPatterns:boolean = false;
   const patterns:string[] = isArray(categoryConfig.include) ? categoryConfig.include : [categoryConfig.include];
   const positivePatterns:string [] = patterns.filter((pattern) => !pattern.startsWith(NEGATED_PATTERN_MATCH));
-
   // First check if each non negated pattern produces any paths
   await pMap(positivePatterns, async (pattern:string):Promise<string[]> => {
     const newPaths:string[] = await globby(pattern, { cwd: projectRoot });
