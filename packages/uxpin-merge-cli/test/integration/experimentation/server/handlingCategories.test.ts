@@ -9,10 +9,10 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('Experimentation mode - handling categories', () => {
   let response:Response;
   const { request } = setupExperimentationServerTest({
-    projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
     ],
+    sourceDir: 'resources/designSystems/twoComponentsWithConfig',
   });
 
   beforeAll(async () => {

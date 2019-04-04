@@ -14,8 +14,14 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Push command with latest commit which doesnt exist in tree', () => {
   const sourceDir:string = resolve(__dirname, '../../resources/designSystems/twoComponentsWithConfig');
+  const projectPath:string = resolve(__dirname, '../../../');
   const { getTlsPort } = setupStubbyServer(nonExistingLatestCommitStub);
-  const { getDirectory } = setupTempProject({ sourceDir, gitOptions: { initialise: true } });
+  const { getDirectory } = setupTempProject({
+    gitOptions: { initialise: true },
+    linkPackage: true,
+    projectPath,
+    sourceDir,
+  });
 
   it('shows error when latest commit retrieved from API doesnt exist in local tree', async () => {
     // having

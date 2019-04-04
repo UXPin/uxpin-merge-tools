@@ -35,7 +35,7 @@ test-integration:
 
 test-ci:
 	make test-rename-snapshots
-	UXPIN_ENV=test TEST_REPORT_PATH=./reports jest --config="jest-ci.json" --maxWorkers=2 --detectOpenHandles --forceExit
+	UXPIN_ENV=test TEST_REPORT_PATH=./reports jest --config="jest-ci.json" --maxWorkers=2 --detectOpenHandles --forceExit --ci
 	make test-remap-coverage
 
 clean:

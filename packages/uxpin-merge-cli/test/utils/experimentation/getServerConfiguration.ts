@@ -15,15 +15,23 @@ export interface ExperimentationServerConfiguration {
 export async function getServerConfiguration(
   opts:ExperimentationServerTestSetupOptions,
 ):Promise<ExperimentationServerConfiguration> {
-  const { useTempDir, projectPath, port, serverCmdArgs, env, useExistingServer } = defaults(opts, getDefaultOptions());
-  let workingDir:string = resolveTestProjectPath(projectPath);
+  const {
+    env,
+    port,
+    projectPath,
+    serverCmdArgs,
+    sourceDir,
+    useExistingServer,
+    useTempDir,
+  } = defaults(opts, getDefaultOptions());
+  let workingDir:string = resolveTestProjectPath(sourceDir);
   let cleanupTemp:() => void = noop;
   let serverPort:number = port;
   if (useExistingServer) {
     workingDir = resolveTestProjectPath(useExistingServer.projectPath);
     serverPort = useExistingServer.port;
   } else if (useTempDir) {
-    const tempDir:DirectoryResult = await prepareTempDir(workingDir, { initialise: true });
+    const tempDir:DirectoryResult = await prepareTempDir(workingDir, { initialise: true }, true, projectPath);
     workingDir = tempDir.path;
     cleanupTemp = tempDir.cleanup;
   }

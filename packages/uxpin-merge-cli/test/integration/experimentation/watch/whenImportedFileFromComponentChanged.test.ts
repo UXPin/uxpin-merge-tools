@@ -11,11 +11,11 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('Experimental - watch - imported file from component changed', () => {
   let initialBundleChecksum:string;
   const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
-    projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
       '--webpack-config "./webpack.config.js"',
     ],
+    sourceDir: 'resources/designSystems/watchingChanges',
   });
 
   beforeAll(async () => {

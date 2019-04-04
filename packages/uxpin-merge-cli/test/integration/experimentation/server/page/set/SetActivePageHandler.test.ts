@@ -23,10 +23,10 @@ describe('Experimentation server – handling set active page request', () => {
   const port:number = getRandomPortNumber();
   const { request, getWorkingDir } = setupExperimentationServerTest({
     port,
-    projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: [
       '--webpack-config="./webpack.config.js"',
     ],
+    sourceDir: 'resources/designSystems/twoComponentsWithConfig',
   });
 
   let response:Response;
