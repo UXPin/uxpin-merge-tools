@@ -8,11 +8,12 @@ import { expectedMetadata } from '../../../resources/designSystems/twoComponents
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT:number = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - save library metadata', () => {
   const { getWorkingDir } = setupExperimentationServerTest({
+    linkPackage: true,
     serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
     sourceDir: 'resources/designSystems/twoComponentsWithConfig',
   });

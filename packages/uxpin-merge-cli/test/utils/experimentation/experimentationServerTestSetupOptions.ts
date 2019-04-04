@@ -6,6 +6,7 @@ export type ExperimentationServerTestSetupOptions = Partial<ExperimentationServe
 
 export interface ExperimentationServerOptionsWithDefaults {
   env?:CmdOptions['env'];
+  linkPackage:boolean;
   port:number;
   projectPath:string;
   serverCmdArgs?:string[];
@@ -19,6 +20,7 @@ export interface ExperimentationServerOptionsWithDefaults {
 
 export function getDefaultOptions():ExperimentationServerOptionsWithDefaults {
   return {
+    linkPackage: true,
     port: getRandomPortNumber(),
     projectPath: resolve(__dirname, '../../../'),
     silent: false,

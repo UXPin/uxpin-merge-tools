@@ -17,6 +17,7 @@ export async function getServerConfiguration(
 ):Promise<ExperimentationServerConfiguration> {
   const {
     env,
+    linkPackage,
     port,
     projectPath,
     serverCmdArgs,
@@ -31,7 +32,7 @@ export async function getServerConfiguration(
     workingDir = resolveTestProjectPath(useExistingServer.projectPath);
     serverPort = useExistingServer.port;
   } else if (useTempDir) {
-    const tempDir:DirectoryResult = await prepareTempDir(workingDir, { initialise: true }, true, projectPath);
+    const tempDir:DirectoryResult = await prepareTempDir(workingDir, { initialise: true }, linkPackage, projectPath);
     workingDir = tempDir.path;
     cleanupTemp = tempDir.cleanup;
   }

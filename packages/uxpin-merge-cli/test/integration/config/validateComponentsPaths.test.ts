@@ -1,7 +1,7 @@
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest, TestServerStatus } from '../../utils/experimentation/setupExperimentationServerTest';
 
-const CURRENT_TIMEOUT:number = 300000;
+const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('validate components paths and globs declared in uxpin.config.js', () => {

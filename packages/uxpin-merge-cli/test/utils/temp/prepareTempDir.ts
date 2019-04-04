@@ -1,4 +1,5 @@
-import { copy } from 'fs-extra';
+import { copy, ensureDir } from 'fs-extra';
+import { resolve } from 'path';
 import { dir, DirectoryResult } from 'tmp-promise';
 import { execAsync } from '../../../src/utils/child_process/execAsync';
 
@@ -36,8 +37,11 @@ export async function prepareTempDir(
   }
 
   if (linkPackage && projectPath) {
-    await execAsync('yarn link', { cwd: projectPath });
-    await execAsync('yarn link @uxpin/merge-cli', { cwd: result.path });
+    const projectSrc:string = resolve(projectPath, 'src');
+    const projectDest:string = resolve(result.path, 'node_modules/@uxpin/merge-cli/src');
+
+    await ensureDir(projectDest);
+    await copy(projectSrc, projectDest);
   }
 
   return result;
