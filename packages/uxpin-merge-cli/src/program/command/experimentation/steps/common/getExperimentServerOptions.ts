@@ -17,10 +17,6 @@ export async function getExperimentServerOptions(
   const projectRoot:string = getProjectRoot(args);
   const ngrokSessionId:string|null = getNgrokSessionId(state.ngrokUrl!);
 
-  if (!ngrokSessionId) {
-    throw new Error('Unknown ngrokSessionId');
-  }
-
   return {
     bundlePath: getLibraryBundleFilePath(uxpinDirPath),
     epid: await getProjectEPID(getEPIDFilePath(projectRoot)),

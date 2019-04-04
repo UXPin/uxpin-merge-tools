@@ -22,7 +22,7 @@ export async function getPageData(input:PageDataInput):Promise<PageData> {
 }
 
 export interface PageDataInput {
-  ngrokSessionId?:string;
+  ngrokSessionId?:string | null;
   port:number;
   revisionId:string;
   uxpinDirPath:string;

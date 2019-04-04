@@ -4,7 +4,11 @@ import { CmdOptions } from './CmdOptions';
 import { getAllCmdOptions } from './getAllCmdOptions';
 import { getSpawnOptions } from './getSpawnOptions';
 
+const EXPERIMENTATION_URL_REGEX:RegExp =
+  /https?\:\/\/app\.uxpin\.com\/experiment\/([a-z0-9\-\_]+)\?(ngrok_session|port)\=(sessionId|[\d]+)/gim;
+
 export interface TestServerOptions {
+  onServerExperimentationUrlFound?:(url:string) => void;
   onServerFailed?:() => void;
   onServerReady?:() => void;
   serverReadyOutput:string|RegExp;
@@ -23,6 +27,19 @@ export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerO
     const subprocess:ChildProcess = spawn(command, [], getSpawnOptions());
     const kill:() => void = () => process.kill(-subprocess.pid);
 
+    onServerOutput(subprocess, EXPERIMENTATION_URL_REGEX, (data) => {
+      if (!options.onServerExperimentationUrlFound) {
+        return;
+      }
+
+      const urlMatch:RegExpMatchArray | null = data.match(EXPERIMENTATION_URL_REGEX);
+      if (!urlMatch) {
+        return;
+      }
+
+      options.onServerExperimentationUrlFound(urlMatch[0]);
+    });
+
     onServerOutput(subprocess, options.serverReadyOutput, () => {
       if (options.onServerReady) {
         options.onServerReady();
@@ -35,7 +52,7 @@ export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerO
     });
 
     if (options.serverFailOutput) {
-      onServerOutput(subprocess, options.serverFailOutput, (data) => {
+      onServerOutput(subprocess, options.serverFailOutput, () => {
         if (options.onServerFailed) {
           options.onServerFailed();
         }

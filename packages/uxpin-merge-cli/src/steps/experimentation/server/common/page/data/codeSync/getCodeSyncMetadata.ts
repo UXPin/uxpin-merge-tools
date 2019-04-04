@@ -15,7 +15,7 @@ export function getCodeSyncMetadata(input:CodeSyncMetadataInput):CodeSyncMetadat
   };
 }
 
-function getBundleUrl(port:number, ngrokSessionId?:string):string {
+function getBundleUrl(port:number, ngrokSessionId?:string | null):string {
   return ngrokSessionId
     ? `https://${ngrokSessionId}.ngrok.io/code/library.js`
     : `http://localhost:${port}/code/library.js`;
@@ -23,7 +23,7 @@ function getBundleUrl(port:number, ngrokSessionId?:string):string {
 
 export interface CodeSyncMetadataInput {
   metadata:DesignSystemSnapshot;
-  ngrokSessionId?:string;
+  ngrokSessionId?:string | null;
   port:number;
   revisionId:string;
 }

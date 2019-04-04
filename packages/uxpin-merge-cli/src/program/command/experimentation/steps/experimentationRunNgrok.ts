@@ -13,6 +13,10 @@ const TEST_SESSION_ID:string = 'https://sessionId.ngrok.io';
 
 function startNgrok(args:ExperimentProgramArgs, store:Store<ExperimentationState>):StepExecutor {
   return async (ds:DSMetadata) => {
+    if (args.disableTunneling) {
+      return ds;
+    }
+
     let url:string;
 
     // Import ngrok only in production environment because of request-promise, ngrok and jest clash
