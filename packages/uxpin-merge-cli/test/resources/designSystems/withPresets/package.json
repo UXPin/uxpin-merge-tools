@@ -1,5 +1,5 @@
 {
-  "name": "two-components-with-config",
+  "name": "with-presets",
   "version": "0.0.0",
   "devDependencies": {
     "react": "^16.0.0",
