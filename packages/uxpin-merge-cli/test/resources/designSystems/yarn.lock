@@ -7409,8 +7409,8 @@ react-dev-utils@^6.0.5:
     text-table "0.2.0"
 
 react-docgen-typescript@^1.0.2:
-  version "1.12.3"
-  resolved "https://registry.npmjs.org/react-docgen-typescript/-/react-docgen-typescript-1.12.3.tgz#fe62a5ce82e93573e316366e53adfe8273121c70"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-docgen-typescript/-/react-docgen-typescript-1.0.2.tgz#be2f96d751cbf53ab0802e1b943938f346eb3494"
 
 react-docgen@^3.0.0-beta9:
   version "3.0.0"
