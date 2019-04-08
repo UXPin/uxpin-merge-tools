@@ -12,7 +12,7 @@ export function experimentationRunServerStep(args:ExperimentProgramArgs, store:S
 
 function thunkStartExperimentationServer(args:ExperimentProgramArgs, store:Store<ExperimentationState>):StepExecutor {
   return async (ds:DSMetadata) => {
-    if (!args.disableTunneling && store.state.ngrokUrl === null) {
+    if (!args.disableTunneling && !store.state.ngrokUrl) {
       return ds;
     }
 
