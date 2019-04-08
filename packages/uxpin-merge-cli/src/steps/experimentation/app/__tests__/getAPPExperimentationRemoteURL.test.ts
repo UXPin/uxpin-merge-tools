@@ -31,7 +31,6 @@ describe('getAPPExperimentationRemoteURL', () => {
       epid: {
         revisionId: 'abc_123',
       },
-      ngrokSessionId: null,
       port: 1234,
       projectRoot: '',
       skipBrowser: true,

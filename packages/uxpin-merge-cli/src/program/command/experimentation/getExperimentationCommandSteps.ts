@@ -9,11 +9,10 @@ import { experimentationRunNgrok } from './steps/experimentationRunNgrok';
 import { experimentationRunServerStep } from './steps/experimentationRunServerStep';
 
 export interface ExperimentationState {
-  ngrokUrl:string|null;
+  ngrokUrl?:string;
 }
 
 const defaultState:ExperimentationState = {
-  ngrokUrl: null,
 };
 
 export function getExperimentationCommandSteps(args:ExperimentProgramArgs):Step[] {
