@@ -51,6 +51,7 @@ export interface ExperimentProgramArgs {
   command:Command.EXPERIMENT;
   config:string;
   cwd:string;
+  disableTunneling?:boolean;
   port:number;
   webpackConfig?:string;
   wrapper?:string;

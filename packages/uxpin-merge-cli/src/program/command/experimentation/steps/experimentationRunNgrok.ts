@@ -6,7 +6,7 @@ import { Step, StepExecutor } from '../../Step';
 import { ExperimentationState } from '../getExperimentationCommandSteps';
 
 export function experimentationRunNgrok(args:ExperimentProgramArgs, store:Store<ExperimentationState>):Step {
-  return { exec: startNgrok(args, store), shouldRun: true };
+  return { exec: startNgrok(args, store), shouldRun: !args.disableTunneling };
 }
 
 const TEST_SESSION_ID:string = 'https://sessionId.ngrok.io';

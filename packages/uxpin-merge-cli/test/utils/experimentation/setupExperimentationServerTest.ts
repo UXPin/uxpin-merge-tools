@@ -25,17 +25,28 @@ export enum TestServerStatus {
 export interface ExperimentationServerTestContext {
   request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
   changeProjectFile:(filePath:string, content:string) => Promise<void>;
+  getExperimentationUrl():string;
   getServerStatus():TestServerStatus;
   getWorkingDir():string;
+}
+
+interface ExperimentationServerState {
+  experimentationUrl:string;
+  status:TestServerStatus;
 }
 
 export function setupExperimentationServerTest(
   options:ExperimentationServerTestSetupOptions = {},
 ):ExperimentationServerTestContext {
-  let testServerStatus:TestServerStatus = TestServerStatus.STARTING;
+  const state:ExperimentationServerState = {
+    experimentationUrl: '',
+    status: TestServerStatus.STARTING,
+  };
+
   const serverOptions:TestServerOptions = {
-    onServerFailed: () => testServerStatus = TestServerStatus.FAILED,
-    onServerReady: () => testServerStatus = TestServerStatus.READY,
+    onServerExperimentationUrlFound: (url:string) => state.experimentationUrl = url,
+    onServerFailed: () => state.status = TestServerStatus.FAILED,
+    onServerReady: () => state.status = TestServerStatus.READY,
     serverFailOutput: options.serverFailOutput,
     serverReadyOutput: options.serverReadyOutput || SERVER_READY_OUTPUT,
     silent: options.silent,
@@ -67,7 +78,7 @@ export function setupExperimentationServerTest(
 
     cleanupTemp = config.cleanupTemp;
     mergeServerResponse = await startUXPinMergeServer(config.cmdOptions, serverOptions);
-    deferredContext.setTarget(getTestContext(config, mergeServerResponse, () => testServerStatus));
+    deferredContext.setTarget(getTestContext(config, mergeServerResponse, state));
   });
 
   afterAll(async () => {
@@ -82,7 +93,7 @@ export function setupExperimentationServerTest(
 function getTestContext(
   { port, workingDir }:ExperimentationServerConfiguration,
   { subprocess }:MergeServerResponse,
-  getServerStatus:() => TestServerStatus,
+  { experimentationUrl, status }:ExperimentationServerState,
 ):ExperimentationServerTestContext {
   return {
     changeProjectFile(relativeFilePath:string, content:string):Promise<void> {
@@ -93,10 +104,15 @@ function getTestContext(
         successMatcher: COMPILATION_SUCCESS_MESSAGE,
       });
     },
+    getExperimentationUrl():string {
+      return experimentationUrl;
+    },
+    getServerStatus():TestServerStatus {
+      return status;
+    },
     getWorkingDir():string {
       return workingDir;
     },
-    getServerStatus,
     request(uri:string, options:RequestPromiseOptions = {}):RequestPromise {
       const url:URL = new URL(uri, `http://localhost:${port}`);
       return requestPromise({ url, ...options });
