@@ -1,7 +1,10 @@
 export interface BuildOptions {
   development?:boolean;
+  projectRoot:string;
+  token?:string;
+  uxpinDirPath:string;
+  uxpinApiDomain?:string;
+  uxpinDomain?:string;
   webpackConfigPath?:string;
   wrapperPath?:string;
-  projectRoot:string;
-  uxpinDirPath:string;
 }

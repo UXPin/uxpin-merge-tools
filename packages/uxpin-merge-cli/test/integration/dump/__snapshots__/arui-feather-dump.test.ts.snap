@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The dump command run for the arui-feather repository prints the JSON describing the full repository 1`] = `
-"
-You are using @uxpin/merge-cli version: 0.0.20
-
-{
+"{
   \\"categorizedComponents\\": [
     {
       \\"components\\": [
@@ -10280,7 +10277,11 @@ You are using @uxpin/merge-cli version: 0.0.20
       \\"name\\": \\"Uncategorized\\"
     }
   ],
-  \\"name\\": \\"Library from Code\\"
+  \\"name\\": \\"Library from Code\\",
+  \\"vcs\\": {
+    \\"branchName\\": \\"HEAD\\",
+    \\"commitHash\\": \\"14546410449fdaa2014d3f32cf404291cca41c50\\"
+  }
 }
 "
 `;

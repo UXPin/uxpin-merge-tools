@@ -80,7 +80,6 @@ describe('convertOneOfTypeStructure', () => {
       // given
       const inputTypeStructure:any = [
         { computed: false, value: '{"secondary": true}' },
-        { computed: false, value: '122' },
         { computed: false, value: '"link"' },
       ];
       const expectedOutputStructure:UnionTypeStructure = {

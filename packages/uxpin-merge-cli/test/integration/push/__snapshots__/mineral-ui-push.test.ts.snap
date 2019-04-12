@@ -1,15 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pushing mineral-ui design system with required user webpack config prints warnings without stack traces to the console 1`] = `
-"
-You are using @uxpin/merge-cli version: 1.0.0
-
-warning Cannot compute default value for property \`triggerTitle\`
+"[33m⚠️ Libraries pushed from branch different than master are currently not supported by UXPin Editor!
+[0mwarning Cannot compute default value for property \`triggerTitle\`
 
 SyntaxError: Unexpected token :
 
  in:
 src/library/Card/CardFooter/CardFooter.js
 
-"
+[32m✅ Library is up-to-date!
+[0m"
 `;

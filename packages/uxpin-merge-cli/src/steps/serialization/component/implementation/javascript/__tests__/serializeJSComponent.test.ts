@@ -469,6 +469,38 @@ ReferenceError: some is not defined
         done();
       });
     });
+
+    it('serializes component with number as oneOf', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('PropTypesOneOfNumber');
+      const expectedMetadata:ComponentMetadata = {
+        name: 'PropTypesOneOfNumber',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'typeIndex',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 1 } },
+                  { name: 'literal', structure: { value: 'test' } },
+                  { name: 'literal', structure: { value: 3 } },
+                ],
+              },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeJSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
   });
 
   function getImplementation(componentName:string):ComponentImplementationInfo {

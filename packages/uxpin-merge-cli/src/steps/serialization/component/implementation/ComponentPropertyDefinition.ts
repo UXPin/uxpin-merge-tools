@@ -24,7 +24,7 @@ export interface PropertyTypeStructureMap {
   custom:{};
   element:{};
   func:FunctionStructure;
-  literal:{ value:string };
+  literal:{ value:string|number };
   node:{};
   number:{};
   object:{};

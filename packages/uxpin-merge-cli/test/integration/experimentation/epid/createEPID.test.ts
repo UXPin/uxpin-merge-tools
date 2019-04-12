@@ -32,7 +32,7 @@ describe('createEPID', () => {
 
       // when
       // then
-      expect(await getProjectEPID(getWorkingDir())).toEqual(expectedEPID);
+      expect(await getProjectEPID(getEPIDFilePath(getWorkingDir()))).toEqual(expectedEPID);
     });
   });
 

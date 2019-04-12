@@ -10,7 +10,9 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 describe('Experimental server - serving library bundle', () => {
   const { request } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
-    serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
+    serverCmdArgs: [
+      '--webpack-config "./webpack.config.js"',
+    ],
   });
 
   describe('should serve library bundle', () => {

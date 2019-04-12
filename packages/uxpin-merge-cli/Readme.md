@@ -1,6 +1,6 @@
 # UXPin Merge
 
-Command-line tool integrating Design System repository with https://www.uxpin.com/design-from-code
+The Command-line tool integrates the Design System repository with [UXPin Merge](https://www.uxpin.com/merge)
 
 ## Installation
 Add `uxpin-merge` to your package.json:
@@ -14,7 +14,7 @@ yarn add @uxpin/merge-cli --dev
 
 ## Usage
 
-This tool recognizes components available in your repository of component library, analyze them and uploads results to code.uxpin.com in order to further integration with UXPin Design System services.
+This tool recognizes components available in your repository of component library, analyze them and uploads results to [UXPin app](https://uxpin.com/merge) in order to further integration with UXPin Design System services.
 
 ## Limitations
 

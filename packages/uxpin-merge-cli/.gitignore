@@ -1,3 +1,4 @@
+/.vscode
 /node_modules
 /dist
 /coverage
@@ -5,6 +6,8 @@
 .nyc_output
 /test/**/*.js
 /test/**/*.js.map
+/__mocks__/**/*.js
+/__mocks__/**/*.js.map
 /src/**/*.js
 /src/**/*.js.map
 /src/types.d.ts

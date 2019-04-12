@@ -2,8 +2,13 @@ import pMap from 'p-map';
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
 import { ProgramArgs } from '../../program/args/ProgramArgs';
+import { getBuildOptions } from '../../program/command/push/getBuildOptions';
+import { BuildOptions } from '../building/BuildOptions';
 import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
+import { getComponentCategoryInfos } from '../discovery/component/category/getComponentCategoryInfos';
 import { ComponentInfo } from '../discovery/component/ComponentInfo';
+import { getLibraryName } from '../discovery/library/getLibraryName';
+import { ProjectPaths } from '../discovery/paths/ProjectPaths';
 import { ComponentCategory } from './component/categories/ComponentCategory';
 import { ComponentDefinition } from './component/ComponentDefinition';
 import { ExamplesSerializationResult } from './component/examples/ExamplesSerializationResult';
@@ -13,19 +18,28 @@ import { getBundle } from './component/presets/jsx/bundle/getBundle';
 import { PresetsBundle } from './component/presets/jsx/bundle/PresetsBundle';
 import { PresetsSerializationResult } from './component/presets/PresetsSerializationResult';
 import { serializePresets } from './component/presets/serializePresets';
-import { DesignSystemSnapshot } from './DesignSystemSnapshot';
+import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
+import { getVscDetails } from './vcs/getVcsDetails';
 
 export async function getDesignSystemMetadata(
   programArgs:ProgramArgs,
-  infos:ComponentCategoryInfo[],
-  libraryName:string,
+  paths:ProjectPaths,
 ):Promise<Warned<DesignSystemSnapshot>> {
-  const bundle:PresetsBundle = await getBundle(programArgs, infos);
-  const categories:Array<Warned<ComponentCategory>> = await pMap(infos, thunkCategoryInfoToMetadata(bundle));
+  const buildOptions:BuildOptions = getBuildOptions(programArgs);
+  const libraryName:string = getLibraryName(paths);
+
+  const categoryInfos:ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
+  const bundle:PresetsBundle = await getBundle(programArgs, categoryInfos);
+  const categories:Array<Warned<ComponentCategory>> = await pMap(categoryInfos, thunkCategoryInfoToMetadata(bundle));
+
+  const categorizedComponents:ComponentCategory[] = categories.map((category) => category.result);
+  const vcs:VCSDetails = await getVscDetails(paths, buildOptions, categorizedComponents);
+
   return {
     result: {
-      categorizedComponents: categories.map((category) => category.result),
+      categorizedComponents,
       name: libraryName,
+      vcs,
     },
     warnings: joinWarningLists(categories.map((category) => category.warnings)),
   };

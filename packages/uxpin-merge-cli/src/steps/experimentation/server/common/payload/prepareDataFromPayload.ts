@@ -1,14 +1,23 @@
 import { IncomingMessage } from 'http';
 import { parse } from 'querystring';
 
-export function collectUrlEncodedFormData(request:IncomingMessage):Promise<any> {
+interface ParsedFormData {
+  json:string;
+}
+
+export function prepareDataFromPayload(request:IncomingMessage):Promise<any> {
   return new Promise((resolve, reject) => {
     let body:string = '';
     request.on('data', (chunk) => {
       body += chunk.toString();
     });
     request.on('end', () => {
-      resolve(parse(body));
+      if (body.startsWith('json')) {
+        const data:ParsedFormData = parse(body);
+        resolve(JSON.parse(data.json));
+      } else {
+        resolve(JSON.parse(body));
+      }
     });
     request.on('error', (error) => {
     	reject(error);

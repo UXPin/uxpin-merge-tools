@@ -1,7 +1,7 @@
 {
   "name": "@uxpin/merge-cli",
-  "version": "1.0.0-typescript.1",
-  "description": "Command-line tool integrating Design System repository with http://code.uxpin.com",
+  "version": "1.3.4",
+  "description": "The Command-line tool integrates the Design System repository with: https://www.uxpin.com/merge",
   "main": "src/index.js",
   "bin": {
     "uxpin-merge": "bin/uxpin-merge"
@@ -10,7 +10,7 @@
   "author": "UXPin Inc.",
   "license": "MIT",
   "engines": {
-    "node": ">=6.5.0"
+    "node": ">=8.10.0"
   },
   "keywords": [
     "UXPin",
@@ -20,6 +20,7 @@
     "UI components"
   ],
   "jest": {
+    "automock": false,
     "moduleFileExtensions": [
       "js",
       "ts",
@@ -64,18 +65,17 @@
     "@types/uuid": "^3.4.4",
     "@types/webpack": "^4.1.4",
     "@types/webpack-merge": "^4.1.3",
-    "child-process-promise": "^2.2.1",
     "chromeless": "^1.5.2",
     "codecov": "^2.3.0",
     "deferred-proxy-chain": "^0.0.1",
     "dts-bundle-generator": "^1.6.1",
     "jest": "^23.6.0",
     "jest-junit-reporter": "^1.1.0",
-    "ngrok": "^3.0.1",
     "nyc": "^11.2.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "remap-istanbul": "^0.9.5",
+    "stubby": "^4.0.0",
     "terminate": "^2.1.2",
     "tmp-promise": "^1.0.5",
     "ts-jest": "^23.10.4",
@@ -104,6 +104,7 @@
     "locate-path": "^2.0.0",
     "lodash": "^4.17.4",
     "markdown-to-ast": "^4.0.0",
+    "ngrok": "^3.0.1",
     "opn": "^5.4.0",
     "p-any": "^1.1.0",
     "p-map": "^2.0.0",

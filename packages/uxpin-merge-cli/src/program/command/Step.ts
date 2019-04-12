@@ -4,3 +4,5 @@ export interface Step {
   shouldRun:boolean;
   exec:(infos:DSMetadata) => any;
 }
+
+export type StepExecutor = (designSystem:DSMetadata) => Promise<DSMetadata>;
