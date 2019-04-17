@@ -1,6 +1,7 @@
 import * as safe from 'colors/safe';
-import { isTestEnv } from '../../../program/env/isTestEnv';
 import { printLine } from '../../../utils/console/printLine';
+import { PrintOptions } from '../../../utils/console/PrintOptions';
+import { isTestEnv } from '../../env/isTestEnv';
 import { getToolVersion } from './getToolVersion';
 
 export function printCurrentVersionInfo():void {
@@ -8,9 +9,10 @@ export function printCurrentVersionInfo():void {
     return;
   }
 
-  printLine('');
-  printLine(getCurrentVersionInfo());
-  printLine('');
+  const options:PrintOptions = { channel: 'stderr' };
+  printLine('', options);
+  printLine(getCurrentVersionInfo(), options);
+  printLine('', options);
 }
 
 function getCurrentVersionInfo():string {
