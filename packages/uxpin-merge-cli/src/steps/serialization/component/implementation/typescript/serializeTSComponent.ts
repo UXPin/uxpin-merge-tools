@@ -1,51 +1,39 @@
-import { toPairs } from 'lodash';
-import { parse as parsePath } from 'path';
-import { ComponentDoc, parse, PropItem } from 'react-docgen-typescript/lib';
+import { parse } from 'path';
+import * as ts from 'typescript';
+import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
-import { ComponentPropertyDefinition, PropertyTypeName } from '../ComponentPropertyDefinition';
+import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { ImplSerializationResult } from '../ImplSerializationResult';
-import { convertTypeName } from './type/convertTypeName';
+import { serializeComponentProperties } from './serializeComponentProperties';
+
+export interface TSSerializationContext {
+  componentName:string;
+  componentPath:string;
+  program:ts.Program;
+  checker:ts.TypeChecker;
+}
 
 export function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   return new Promise((resolve) => {
-    const componentDoc:ComponentDoc = getDefaultComponentFrom(component.path);
-    const result:ComponentPropertyDefinition[] = toPairs(componentDoc.props)
-      .map(([propName, propType]) => propItemToPropDefinition(propName, propType));
+    const componentName:string = parse(component.path).name;
+    const program:ts.Program = ts.createProgram([component.path], {
+      module: ts.ModuleKind.ES2015,
+      target: ts.ScriptTarget.ES2015,
+    });
+    const context:TSSerializationContext = {
+      checker: program.getTypeChecker(),
+      componentName,
+      componentPath: component.path,
+      program,
+    };
+
+    const serializedProps:Warned<ComponentPropertyDefinition[]> = serializeComponentProperties(context);
     resolve({
       result: {
-        name: componentDoc.displayName,
-        properties: result,
+        name: componentName,
+        properties: serializedProps.result,
       },
-      warnings: [],
+      warnings: serializedProps.warnings,
     });
   });
-}
-
-function propItemToPropDefinition(propName:string, propType:PropItem):ComponentPropertyDefinition {
-  const propTypeName:PropertyTypeName = convertTypeName(propType.type.name);
-  return {
-    description: propType.description,
-    isRequired: propType.required,
-    name: propName,
-    type: {
-      name: propTypeName,
-      structure: {},
-    },
-  };
-}
-
-function getDefaultComponentFrom(filePath:string):ComponentDoc {
-  let components:ComponentDoc[];
-  try {
-    components = parse(filePath);
-  } catch (e) {
-    components = [];
-  }
-  const expectedComponentName:string = parsePath(filePath).name;
-  const nameRegex:RegExp = new RegExp(expectedComponentName, 'i');
-  const component:ComponentDoc | undefined = components.find((c) => nameRegex.test(c.displayName));
-  if (component) {
-    return component;
-  }
-  throw new Error(`No \`${expectedComponentName}\` component found in ${filePath}`);
 }
