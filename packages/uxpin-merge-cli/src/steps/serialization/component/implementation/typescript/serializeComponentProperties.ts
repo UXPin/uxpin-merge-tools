@@ -1,16 +1,18 @@
+import { parse } from 'path';
 import * as ts from 'typescript';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { findComponentFile } from './component/findComponentFile';
 import { DefaultProps, getPropsTypeAndDefaultProps } from './component/getPropsTypeAndDefaultProps';
+import { TSSerializationContext } from './context/getSerializationContext';
 import { convertMethodSignatureSymbolToPropertyDefinition } from './property/symbol/convertMethodSignatureSymbolToPropertyDefinition';
 import { convertPropertySignatureSymbolToPropertyDefinition } from './property/symbol/convertPropertySignatureSymbolToPropertyDefinition';
 import { isMethodSignatureSymbol } from './property/symbol/isMethodSignatureSymbol';
 import { isPropertySignatureSymbol, PropertySymbol } from './property/symbol/isPropertySignatureSymbol';
-import { TSSerializationContext } from './serializeTSComponent';
 
 export function serializeComponentProperties(context:TSSerializationContext):Warned<ComponentPropertyDefinition[]> {
-  const { componentPath, componentName } = context;
+  const { componentPath } = context;
+  const componentName:string = parse(componentPath).name;
   const componentFile:ts.SourceFile | undefined = findComponentFile(context, componentPath);
   if (!componentFile) {
     throw new Error('TypeScript compiler couldn\'t find component file');

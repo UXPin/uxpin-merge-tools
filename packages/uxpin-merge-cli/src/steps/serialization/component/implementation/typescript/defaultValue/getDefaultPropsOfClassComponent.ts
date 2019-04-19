@@ -1,8 +1,8 @@
 import * as ts from 'typescript';
 import { ClassComponentDeclaration, DefaultProps } from '../component/getPropsTypeAndDefaultProps';
+import { TSSerializationContext } from '../context/getSerializationContext';
 import { getNodeName } from '../node/getNodeName';
 import { isDefaultPropertiesStaticProperty } from '../node/property/isDefaultPropertiesStaticProperty';
-import { TSSerializationContext } from '../serializeTSComponent';
 import { getDefaultPropertyValue, SupportedDefaultValue } from './getDefaultPropertyValue';
 
 export function getDefaultPropsOfClassComponent(

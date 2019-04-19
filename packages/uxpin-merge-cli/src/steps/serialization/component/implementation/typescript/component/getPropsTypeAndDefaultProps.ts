@@ -1,9 +1,9 @@
 import * as ts from 'typescript';
+import { TSSerializationContext } from '../context/getSerializationContext';
 import { getDefaultPropsFromParamDestructuring } from '../defaultValue/getDefaultPropsFromParamDestructuring';
 import { getDefaultPropsOfClassComponent } from '../defaultValue/getDefaultPropsOfClassComponent';
 import { getPropsTypeOfClassComponent } from '../property/getPropsTypeOfClassComponent';
 import { getPropsTypeOfFunctionalComponent } from '../property/getPropsTypeOfFunctionalComponent';
-import { TSSerializationContext } from '../serializeTSComponent';
 import { findDefaultExportedArrowFunction } from './findDefaultExportedArrowFunction';
 import { findDefaultExportedClass } from './findDefaultExportedClass';
 import { findDefaultExportedFunction } from './findDefaultExportedFunction';
