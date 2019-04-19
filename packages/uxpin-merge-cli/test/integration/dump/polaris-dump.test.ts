@@ -10,7 +10,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
 
-describe('The dump command', () => {
+xdescribe('The dump command', () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
 
   it('run for the polaris repository, prints the JSON describing the full repository', () => {
