@@ -14,7 +14,7 @@ import { ComponentDefinition } from './component/ComponentDefinition';
 import { ExamplesSerializationResult } from './component/examples/ExamplesSerializationResult';
 import { serializeExamples } from './component/examples/serializeExamples';
 import { getComponentMetadata } from './component/implementation/getComponentMetadata';
-import { getBundle } from './component/presets/jsx/bundle/getBundle';
+import { getPresetsBundle } from './component/presets/jsx/bundle/getPresetsBundle';
 import { PresetsBundle } from './component/presets/jsx/bundle/PresetsBundle';
 import { PresetsSerializationResult } from './component/presets/PresetsSerializationResult';
 import { serializePresets } from './component/presets/serializePresets';
@@ -29,7 +29,7 @@ export async function getDesignSystemMetadata(
   const libraryName:string = getLibraryName(paths);
 
   const categoryInfos:ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
-  const bundle:PresetsBundle = await getBundle(programArgs, categoryInfos);
+  const bundle:PresetsBundle = await getPresetsBundle(programArgs, categoryInfos);
   const categories:Array<Warned<ComponentCategory>> = await pMap(categoryInfos, thunkCategoryInfoToMetadata(bundle));
 
   const categorizedComponents:ComponentCategory[] = categories.map((category) => category.result);
