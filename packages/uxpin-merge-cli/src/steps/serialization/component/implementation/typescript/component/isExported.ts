@@ -5,5 +5,5 @@ export function isExported(node:ComponentDeclaration):boolean {
   if (!node.modifiers) {
     return false;
   }
-  return !!node.modifiers.find((m) => m.kind === ts.SyntaxKind.ExportKeyword);
+  return node.modifiers.some((m) => m.kind === ts.SyntaxKind.ExportKeyword);
 }

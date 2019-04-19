@@ -414,7 +414,7 @@ describe('serializeTSComponent', () => {
             description: '',
             isRequired: false,
             name: 'children',
-            type: { name: 'string', structure: {} },
+            type: { name: 'node', structure: {} },
           },
           {
             description: '',

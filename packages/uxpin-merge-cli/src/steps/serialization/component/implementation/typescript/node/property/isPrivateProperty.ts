@@ -4,5 +4,5 @@ export function isPrivateProperty(declaration:ts.PropertyDeclaration):boolean {
   if (!declaration.modifiers) {
     return false;
   }
-  return !!declaration.modifiers.find((m) => m.kind === ts.SyntaxKind.PrivateKeyword);
+  return declaration.modifiers.some((m) => m.kind === ts.SyntaxKind.PrivateKeyword);
 }

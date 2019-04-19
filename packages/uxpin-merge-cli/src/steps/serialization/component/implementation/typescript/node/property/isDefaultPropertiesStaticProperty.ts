@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
 import { getNodeName } from '../getNodeName';
-import { isPrivateProperty } from './isPirvateProperty';
+import { isPrivateProperty } from './isPrivateProperty';
 import { isStaticProperty } from './isStaticProperty';
 
 const REACT_DEFAULT_PROPS_PROPERTY_NAME:string = 'defaultProps';

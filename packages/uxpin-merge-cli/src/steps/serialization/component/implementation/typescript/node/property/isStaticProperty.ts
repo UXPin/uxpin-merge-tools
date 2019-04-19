@@ -4,5 +4,5 @@ export function isStaticProperty(declaration:ts.PropertyDeclaration):boolean {
   if (!declaration.modifiers) {
     return false;
   }
-  return !!declaration.modifiers.find((m) => m.kind === ts.SyntaxKind.StaticKeyword);
+  return declaration.modifiers.some((m) => m.kind === ts.SyntaxKind.StaticKeyword);
 }
