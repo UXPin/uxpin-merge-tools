@@ -1,6 +1,7 @@
 import { every } from 'lodash';
 import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
+import { serializeAsUnsupportedType } from '../node/serializeAsUnsupportedType';
 
 export function serializeEnumDeclaration(declaration:ts.EnumDeclaration):PropertyType {
   if (haveAllEnumMembersInitialized(declaration)) {
@@ -13,7 +14,7 @@ export function serializeEnumDeclaration(declaration:ts.EnumDeclaration):Propert
       },
     };
   }
-  return { name: 'unsupported', structure: { raw: declaration.getText() } };
+  return serializeAsUnsupportedType(declaration);
 }
 
 function haveAllEnumMembersInitialized(declaration:ts.EnumDeclaration):boolean {

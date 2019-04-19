@@ -1,5 +1,6 @@
 import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
+import { serializeAsUnsupportedType } from '../node/serializeAsUnsupportedType';
 import { serializeEnumDeclaration } from './serializeEnumDeclaration';
 
 export function serializeTypeDeclaration(declaration:ts.Declaration):PropertyType {
@@ -9,6 +10,6 @@ export function serializeTypeDeclaration(declaration:ts.Declaration):PropertyTyp
     case ts.SyntaxKind.FunctionType:
       return { name: 'func', structure: {} };
     default:
-      return { name: 'unsupported', structure: { raw: declaration.getText() } };
+      return serializeAsUnsupportedType(declaration);
   }
 }

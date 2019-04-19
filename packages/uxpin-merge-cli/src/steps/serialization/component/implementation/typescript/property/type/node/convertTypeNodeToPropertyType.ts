@@ -1,6 +1,7 @@
 import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
 import { TSSerializationContext } from '../../../serializeTSComponent';
+import { serializeAsUnsupportedType } from './serializeAsUnsupportedType';
 import { serializeLiteralType } from './serializeLiteralType';
 import { serializeTypeLiteral } from './serializeTypeLiteral';
 import { serializeTypeReference } from './serializeTypeReference';
@@ -31,6 +32,6 @@ export function convertTypeNodeToPropertyType(context:TSSerializationContext, ty
     case ts.SyntaxKind.TypeLiteral:
       return serializeTypeLiteral(typeNode as ts.TypeLiteralNode);
     default:
-      return { name: 'unsupported', structure: { raw: typeNode.getText() } };
+      return serializeAsUnsupportedType(typeNode);
   }
 }

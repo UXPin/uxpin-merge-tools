@@ -2,6 +2,7 @@ import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
 import { TSSerializationContext } from '../../../serializeTSComponent';
 import { serializeTypeDeclaration } from '../declaration/serializeTypeDeclaration';
+import { serializeAsUnsupportedType } from './serializeAsUnsupportedType';
 
 const TYPES_MAP:{ [typeName:string]:PropertyType } = {
   Array: { name: 'array', structure: {} },
@@ -26,7 +27,7 @@ export function serializeTypeReference(context:TSSerializationContext, typeNode:
 function getTypeByDeclaration(typeSymbol:ts.Symbol, typeNode:ts.TypeReferenceNode):PropertyType {
   const declaration:ts.Declaration | undefined = typeSymbol.valueDeclaration || typeSymbol.declarations[0];
   if (!declaration) {
-    return { name: 'unsupported', structure: { raw: typeNode.getText() } };
+    return serializeAsUnsupportedType(typeNode);
   }
   return serializeTypeDeclaration(declaration);
 }
