@@ -13,21 +13,11 @@ export function serializeComponentProperties(context:TSSerializationContext):War
   const { componentPath, componentName } = context;
   const componentFile:ts.SourceFile | undefined = findComponentFile(context, componentPath);
   if (!componentFile) {
-    return {
-      result: [], warnings: [{
-        message: 'TypeScript compiler couldn\'t find component file',
-        sourcePath: componentPath,
-      }],
-    };
+    throw new Error('TypeScript compiler couldn\'t find component file');
   }
   const { propsTypeNode, defaultProps } = getPropsTypeAndDefaultProps(context, componentFile, componentName);
   if (!propsTypeNode) {
-    return {
-      result: [], warnings: [{
-        message: 'Cannot find type of component properties',
-        sourcePath: componentPath,
-      }],
-    };
+    throw new Error('No component properties found');
   }
   const typeFromTypeNode:ts.Type = context.checker.getTypeFromTypeNode(propsTypeNode);
   const props:ts.Symbol[] = typeFromTypeNode.getProperties();
