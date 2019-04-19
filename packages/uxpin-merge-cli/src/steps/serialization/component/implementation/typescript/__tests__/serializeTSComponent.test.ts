@@ -540,6 +540,27 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('doesn\'t support imported Component type in other way than `React.Component`', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithoutImportedReactComponent');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithoutImportedReactComponent',
+        properties: [],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([
+          {
+            message: 'Cannot find type of component properties',
+            sourcePath: expect.stringContaining('/ClassWithoutImportedReactComponent.tsx'),
+          },
+        ]);
+      });
+    });
+
     it('rejects returned promise when there is no React component in the given file', (done) => {
       // given
       const component:ComponentImplementationInfo = getImplementation('FileWithoutComponent');
