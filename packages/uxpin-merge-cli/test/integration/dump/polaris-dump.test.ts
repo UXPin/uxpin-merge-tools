@@ -10,6 +10,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
 
+// @todo #20210: Fix this test after finish of TypeScript support implementation
 xdescribe('The dump command', () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
 
