@@ -1,4 +1,3 @@
-import { every } from 'lodash';
 import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
 import { serializeAsUnsupportedType } from '../node/serializeAsUnsupportedType';
@@ -18,5 +17,5 @@ export function serializeEnumDeclaration(declaration:ts.EnumDeclaration):Propert
 }
 
 function haveAllEnumMembersInitialized(declaration:ts.EnumDeclaration):boolean {
-  return every(declaration.members, (m) => !!m.initializer && !!(m.initializer as ts.LiteralExpression).text);
+  return declaration.members.every((m) => !!m.initializer && !!(m.initializer as ts.LiteralExpression).text);
 }

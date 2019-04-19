@@ -27,24 +27,37 @@ export type ComponentDeclaration = FunctionalComponentDeclaration | ClassCompone
 export function getPropsTypeAndDefaultProps(
   context:TSSerializationContext,
   sourceFile:ts.SourceFile,
-  componentFileName:string,
+  fileName:string,
 ):ComponentDeclarationData {
-  const componentFunc:FunctionalComponentDeclaration | undefined = findDefaultExportedFunction(sourceFile)
-    || findExportedFunctionWithName(sourceFile, componentFileName)
-    || findDefaultExportedArrowFunction(sourceFile);
+  const componentFunc:FunctionalComponentDeclaration | undefined = findFunctionalComponent(sourceFile, fileName);
   if (componentFunc) {
     return {
       defaultProps: getDefaultPropsFromParamDestructuring(context, componentFunc),
       propsTypeNode: getPropsTypeOfFunctionalComponent(componentFunc),
     };
   }
-  const componentClass:ClassComponentDeclaration | undefined = findDefaultExportedClass(sourceFile) ||
-    findExportedClassWithName(sourceFile, componentFileName);
+
+  const componentClass:ClassComponentDeclaration | undefined = findClassComponent(sourceFile, fileName);
   if (componentClass) {
     return {
       defaultProps: getDefaultPropsOfClassComponent(context, componentClass),
       propsTypeNode: getPropsTypeOfClassComponent(componentClass),
     };
   }
+
   return { defaultProps: {}, propsTypeNode: undefined };
+}
+
+function findFunctionalComponent(
+  sourceFile:ts.SourceFile,
+  componentFileName:string,
+):FunctionalComponentDeclaration | undefined {
+  return findDefaultExportedFunction(sourceFile)
+    || findExportedFunctionWithName(sourceFile, componentFileName)
+    || findDefaultExportedArrowFunction(sourceFile);
+}
+
+function findClassComponent(sourceFile:ts.SourceFile, componentFileName:string):ClassComponentDeclaration | undefined {
+  return findDefaultExportedClass(sourceFile) ||
+    findExportedClassWithName(sourceFile, componentFileName);
 }
