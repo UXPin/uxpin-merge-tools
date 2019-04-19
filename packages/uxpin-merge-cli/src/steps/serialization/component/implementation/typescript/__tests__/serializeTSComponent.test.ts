@@ -404,7 +404,8 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    it('serializes arrow function component with defaults declared as static property', () => {
+    // @todo #20211: Support for arrow function component with static default props
+    it.skip('serializes arrow function component with defaults declared as static property', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ArrowFunctionWithDefaultsAsStaticProperty');
       const expectedProps:ComponentMetadata = {
