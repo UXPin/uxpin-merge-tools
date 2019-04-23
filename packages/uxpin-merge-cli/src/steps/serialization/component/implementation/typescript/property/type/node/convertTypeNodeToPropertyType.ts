@@ -31,6 +31,10 @@ export function convertTypeNodeToPropertyType(context:TSSerializationContext, ty
       return serializeTypeReference(context, typeNode as ts.TypeReferenceNode);
     case ts.SyntaxKind.TypeLiteral:
       return serializeTypeLiteral(typeNode as ts.TypeLiteralNode);
+    case ts.SyntaxKind.IndexedAccessType:
+      const objectType:ts.TypeNode = (typeNode as ts.IndexedAccessTypeNode).objectType;
+      const typeFromTypeNode:ts.Type = context.checker.getTypeFromTypeNode(typeNode);
+      const typeSymbol:ts.Symbol = typeFromTypeNode.symbol || typeFromTypeNode.aliasSymbol;
     default:
       return serializeAsUnsupportedType(typeNode);
   }
