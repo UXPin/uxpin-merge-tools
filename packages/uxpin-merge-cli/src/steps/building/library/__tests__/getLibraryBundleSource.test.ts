@@ -102,4 +102,65 @@ export {
     // then
     expect(result).toEqual(expectedFileString);
   });
+
+  it('returns content of library file for list of components including namespaced components', () => {
+    const components:ComponentDefinition[] = [
+      {
+        info: {
+          dirPath: 'src/components/card',
+          implementation: {
+            ...commonImplementation,
+            path: 'src/components/card/card.jsx',
+          },
+        },
+        name: 'Card',
+        ...commonProps,
+      },
+      {
+        info: {
+          dirPath: 'src/components/card/components/header',
+          implementation: {
+            ...commonImplementation,
+            path: 'src/components/card/components/header/header.jsx',
+          },
+          importSlug: 'Card_Header',
+        },
+        name: 'Header',
+        namespace: 'Card',
+        ...commonProps,
+      },
+      {
+        info: {
+          dirPath: 'src/components/card/components/header/components/menu',
+          implementation: {
+            ...commonImplementation,
+            path: 'src/components/card/components/header/components/menu/menu.jsx',
+          },
+          importSlug: 'Card_Header_Menu',
+        },
+        name: 'Menu',
+        namespace: 'Card.Header',
+        ...commonProps,
+      },
+    ];
+
+    const expectedFileString:string = `import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import Card from '../src/components/card/card';
+const Card_Header = Card.Header;
+const Card_Header_Menu = Card.Header.Menu;
+export {
+  Card,
+  Card_Header,
+  Card_Header_Menu,
+  React,
+  ReactDOM,
+};`;
+
+    // when
+    const result:string = getLibraryBundleSource(components);
+
+    // then
+    expect(result).toEqual(expectedFileString);
+  });
 });

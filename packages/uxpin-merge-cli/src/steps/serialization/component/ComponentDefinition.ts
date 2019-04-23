@@ -6,6 +6,7 @@ import { ComponentPreset } from './presets/ComponentPreset';
 export interface ComponentMetadata {
   name:string;
   properties:ComponentPropertyDefinition[];
+  namespace?:string;
 }
 
 export interface ComponentDefinition extends ComponentMetadata {

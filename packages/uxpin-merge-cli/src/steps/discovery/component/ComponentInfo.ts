@@ -3,6 +3,7 @@ export interface ComponentInfo {
   implementation:ComponentImplementationInfo;
   documentation?:ComponentDocumenationInfo;
   presets?:ComponentPresetInfo[];
+  importSlug?:string;
 }
 
 export interface ComponentImplementationInfo {

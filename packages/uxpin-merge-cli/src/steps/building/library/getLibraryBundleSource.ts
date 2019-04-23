@@ -10,20 +10,38 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
     'import * as ReactDOM from \'react-dom\';',
   ];
 
-  const imports:string[] = components.map((comp) => `import ${comp.name} from '${getImportPath(comp)}';`);
+  const imports:string[] = components
+    .filter((comp) => !comp.namespace)
+    .map((comp) => `import ${getImportName(comp)} from '${getImportPath(comp)}';`);
 
   const wrapperImport:string[] = getWrapperImport(wrapperPath);
 
+  const namespacedComponents:string[] = getNamespacedComponents(components);
+
   const exports:string[] = [
     `export {`,
-    ...components.map((component) => `  ${component.name},`),
+    ...components.map((component) => `  ${getImportName(component)},`),
     ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER},`] : []),
     '  React,',
     '  ReactDOM,',
     `};`,
   ];
 
-  return [...libImports, ...imports, ...wrapperImport, ...exports].join('\n');
+  return [
+    ...libImports,
+    ...imports,
+    ...wrapperImport,
+    ...namespacedComponents,
+    ...exports,
+  ].join('\n');
+}
+
+function getImportName({ name, info: { importSlug } }:ComponentDefinition):string {
+  if (importSlug) {
+    return importSlug;
+  }
+
+  return name;
 }
 
 function getImportPath({ info }:ComponentDefinition):string {
@@ -37,4 +55,14 @@ function getWrapperImport(wrapperPath?:string):string[] {
     return [];
   }
   return [`import ${CLASS_NAME_WRAPPER} from '${relative(TEMP_DIR_PATH, wrapperPath)}';`];
+}
+
+function getNamespacedComponents(components:ComponentDefinition[]):string[] {
+  return components
+    .filter((comp) => comp.namespace)
+    .map(getNamespacedComponentDeclaration);
+}
+
+function getNamespacedComponentDeclaration(comp:ComponentDefinition):string {
+  return `const ${comp.info.importSlug} = ${comp.namespace}.${comp.name};`;
 }
