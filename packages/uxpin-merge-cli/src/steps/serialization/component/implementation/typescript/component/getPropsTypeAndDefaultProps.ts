@@ -4,11 +4,8 @@ import { getDefaultPropsFromParamDestructuring } from '../defaultValue/getDefaul
 import { getDefaultPropsOfClassComponent } from '../defaultValue/getDefaultPropsOfClassComponent';
 import { getPropsTypeOfClassComponent } from '../property/getPropsTypeOfClassComponent';
 import { getPropsTypeOfFunctionalComponent } from '../property/getPropsTypeOfFunctionalComponent';
-import { findDefaultExportedArrowFunction } from './findDefaultExportedArrowFunction';
-import { findDefaultExportedClass } from './findDefaultExportedClass';
-import { findDefaultExportedFunction } from './findDefaultExportedFunction';
-import { findExportedClassWithName } from './findExportedClassWithName';
-import { findExportedFunctionWithName } from './findExportedFunctionWithName';
+import { isClassComponentDeclaration } from './isClassComponentDeclaration';
+import { isFunctionalComponentDeclaration } from './isFunctionalComponentDeclaration';
 
 export interface DefaultProps {
   [propName:string]:any;
@@ -26,38 +23,21 @@ export type ComponentDeclaration = FunctionalComponentDeclaration | ClassCompone
 
 export function getPropsTypeAndDefaultProps(
   context:TSSerializationContext,
-  sourceFile:ts.SourceFile,
-  fileName:string,
+  component:ComponentDeclaration,
 ):ComponentDeclarationData {
-  const componentFunc:FunctionalComponentDeclaration | undefined = findFunctionalComponent(sourceFile, fileName);
-  if (componentFunc) {
+  if (isFunctionalComponentDeclaration(component)) {
     return {
-      defaultProps: getDefaultPropsFromParamDestructuring(context, componentFunc),
-      propsTypeNode: getPropsTypeOfFunctionalComponent(componentFunc),
+      defaultProps: getDefaultPropsFromParamDestructuring(context, component),
+      propsTypeNode: getPropsTypeOfFunctionalComponent(component),
     };
   }
 
-  const componentClass:ClassComponentDeclaration | undefined = findClassComponent(sourceFile, fileName);
-  if (componentClass) {
+  if (isClassComponentDeclaration(component)) {
     return {
-      defaultProps: getDefaultPropsOfClassComponent(context, componentClass),
-      propsTypeNode: getPropsTypeOfClassComponent(componentClass),
+      defaultProps: getDefaultPropsOfClassComponent(context, component),
+      propsTypeNode: getPropsTypeOfClassComponent(component),
     };
   }
 
   return { defaultProps: {}, propsTypeNode: undefined };
-}
-
-function findFunctionalComponent(
-  sourceFile:ts.SourceFile,
-  componentFileName:string,
-):FunctionalComponentDeclaration | undefined {
-  return findDefaultExportedFunction(sourceFile)
-    || findExportedFunctionWithName(sourceFile, componentFileName)
-    || findDefaultExportedArrowFunction(sourceFile);
-}
-
-function findClassComponent(sourceFile:ts.SourceFile, componentFileName:string):ClassComponentDeclaration | undefined {
-  return findDefaultExportedClass(sourceFile) ||
-    findExportedClassWithName(sourceFile, componentFileName);
 }
