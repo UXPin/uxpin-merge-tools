@@ -13662,8 +13662,8 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
   ],
   \\"name\\": \\"Library from Code\\",
   \\"vcs\\": {
-    \\"branchName\\": \\"master\\",
-    \\"commitHash\\": \\"1737df2071a3e7407aafa2187cde494dd02536c6\\"
+    \\"branchName\\": \\"HEAD\\",
+    \\"commitHash\\": \\"6a18faefe3d8339b066c92f1a10b27872f15729b\\"
   }
 }
 "
