@@ -573,12 +573,10 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    describe.only('file with default exported component composed with HOC is given', () => {
-      let expectedMetadata:ComponentMetadata;
-
-      beforeEach(() => {
-        expectedMetadata = {
-          name: 'ClassPrependedWithCommentToBeComposedWithHOC',
+    describe('file with default exported component composed with HOC is given', () => {
+      const getI18nComponentMetadata:(expectedName:string) => ComponentMetadata = (expectedName:string) => {
+        return {
+          name: expectedName,
           properties: [
             {
               description: '',
@@ -609,9 +607,13 @@ describe('serializeTSComponent', () => {
             },
           ],
         };
-      });
+      };
 
-      it('serializes component specified by a comment', async () => {
+      it('serializes class component specified by a comment', async () => {
+        // when
+        const expectedMetadata:ComponentMetadata =
+          getI18nComponentMetadata('ClassPrependedWithCommentToBeComposedWithHOC');
+
         // given
         const component:ComponentImplementationInfo =
           getImplementation('DefaultExportedClassComposedWithHOCAndComment');
@@ -624,9 +626,46 @@ describe('serializeTSComponent', () => {
         expect(serializedProps.result).toEqual(expectedMetadata);
       });
 
-      it('serializes component matching file name', async () => {
+      it('serializes functional component specified by a comment', async () => {
+        // when
+        const expectedMetadata:ComponentMetadata =
+          getI18nComponentMetadata('FunctionalComponentPrependedWithCommentToBeComposedWithHOC');
+
+        // given
+        const component:ComponentImplementationInfo =
+          getImplementation('DefaultExportedFunctionalComponentComposedWithHOCAndComment');
+
+        // when
+        const serializedProps:Warned<ComponentMetadata> = await serializeTSComponent(component);
+
+        // then
+        expect(serializedProps.warnings).toEqual([]);
+        expect(serializedProps.result).toEqual(expectedMetadata);
+      });
+
+      it('serializes class component matching file name', async () => {
+        // when
+        const expectedMetadata:ComponentMetadata =
+          getI18nComponentMetadata('DefaultExportedClassMatchingFilenameComposedWithHOC');
+
         const component:ComponentImplementationInfo =
           getImplementation('DefaultExportedClassMatchingFilenameComposedWithHOC');
+
+        // when
+        const serializedProps:Warned<ComponentMetadata> = await serializeTSComponent(component);
+
+        // then
+        expect(serializedProps.warnings).toEqual([]);
+        expect(serializedProps.result).toEqual(expectedMetadata);
+      });
+
+      it('serializes functional component matching file name', async () => {
+        // when
+        const expectedMetadata:ComponentMetadata =
+          getI18nComponentMetadata('DefaultExportedFunctionalComponentMatchingFilenameComposedWithHOC');
+
+        const component:ComponentImplementationInfo =
+          getImplementation('DefaultExportedFunctionalComponentMatchingFilenameComposedWithHOC');
 
         // when
         const serializedProps:Warned<ComponentMetadata> = await serializeTSComponent(component);

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { I18nProps, withI18n } from './hoc/withI18n';
+import { withI18n } from './hoc/withI18n';
 
 export interface Props {
   appearance:'secondary' | 'primary' | 'link';
@@ -10,20 +10,15 @@ export interface Props {
 /**
  * @uxpincomponent
  */
-export class ClassPrependedWithCommentToBeComposedWithHOC
-  extends React.Component<Props> {
-  public render():JSX.Element {
-    const { appearance, children, i18n } = this.props;
-
-    return (
-      <div>
-        <button className={appearance}>
-          {children} {i18n}
-        </button>
-      </div>
-    );
-  }
-}
+export function FunctionalComponentPrependedWithCommentToBeComposedWithHOC({ appearance, children, i18n }:Props):JSX.Element {
+  return (
+    <div>
+      <button className={appearance}>
+        {children} {i18n}
+      </button>
+    </div>
+  );
+};
 
 export class DummyComponent extends React.Component<Props> {
   public render():JSX.Element {
@@ -39,4 +34,4 @@ export class DummyComponent extends React.Component<Props> {
   }
 }
 
-export default withI18n(ClassPrependedWithCommentToBeComposedWithHOC);
+export default withI18n(FunctionalComponentPrependedWithCommentToBeComposedWithHOC);

@@ -1,13 +1,14 @@
 import * as React from 'react';
-import { I18nProps, withI18n } from './hoc/withI18n';
+import { withI18n } from './hoc/withI18n';
 
 export interface Props {
   appearance:'secondary' | 'primary' | 'link';
   children?:string;
+  i18n:string;
 }
 
 export class DefaultExportedClassMatchingFilenameComposedWithHOC
-  extends React.Component<Props & I18nProps> {
+  extends React.Component<Props> {
   public render():JSX.Element {
     const { appearance, children, i18n } = this.props;
 
