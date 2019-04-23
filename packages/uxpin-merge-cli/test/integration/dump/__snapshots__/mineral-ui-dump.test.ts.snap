@@ -1290,7 +1290,7 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
             {
               \\"elements\\": {
                 \\"4FF2529F73C5705D246A68986904647D\\": {
-                  \\"name\\": \\"WithTheme(Pagination)\\",
+                  \\"name\\": \\"Pagination\\",
                   \\"props\\": {
                     \\"currentPage\\": 1,
                     \\"pageSize\\": 10,
@@ -7162,7 +7162,7 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
             {
               \\"elements\\": {
                 \\"1CA6D97F5C771BD1CB33A0B795ED474F\\": {
-                  \\"name\\": \\"WithTheme(Tabs)\\",
+                  \\"name\\": \\"Tabs\\",
                   \\"props\\": {
                     \\"children\\": [
                       {
@@ -9961,7 +9961,7 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
             {
               \\"elements\\": {
                 \\"0CC175b9C0F1B6A831C399E269772661\\": {
-                  \\"name\\": \\"Flex\\",
+                  \\"name\\": \\"Box\\",
                   \\"props\\": {
                     \\"children\\": \\"Put Box contents here\\"
                   }
@@ -12464,7 +12464,7 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
             {
               \\"elements\\": {
                 \\"9I7N66RVKQODV9PA0D34VCBY5H0IPJ2M\\": {
-                  \\"name\\": \\"Flex\\",
+                  \\"name\\": \\"Box\\",
                   \\"props\\": {
                     \\"children\\": \\"Start\\"
                   }
@@ -12483,7 +12483,7 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
                   }
                 },
                 \\"KIWRK6UAO0TFQT1OGS4AAR5ED6CQQ1Z1\\": {
-                  \\"name\\": \\"Flex\\",
+                  \\"name\\": \\"Box\\",
                   \\"props\\": {
                     \\"children\\": \\"End\\"
                   }
@@ -13662,8 +13662,8 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
   ],
   \\"name\\": \\"Library from Code\\",
   \\"vcs\\": {
-    \\"branchName\\": \\"HEAD\\",
-    \\"commitHash\\": \\"6a18faefe3d8339b066c92f1a10b27872f15729b\\"
+    \\"branchName\\": \\"master\\",
+    \\"commitHash\\": \\"1737df2071a3e7407aafa2187cde494dd02536c6\\"
   }
 }
 "
