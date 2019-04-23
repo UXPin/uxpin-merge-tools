@@ -28,11 +28,15 @@ describe('generateVirtualModules', () => {
 
     const expectedResult:VirtualComponentModule[] = [
       {
-        moduleSource: 'module.exports = {"name":"Avatar"};',
+        moduleSource: `
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {"name":"Avatar"};`,
         path: 'src/components/Avatar/Avatar',
       },
       {
-        moduleSource: 'module.exports = {"name":"Menu"};',
+        moduleSource: `
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {"name":"Menu"};`,
         path: 'src/packages/navigation/Menu/Menu',
       },
     ];
