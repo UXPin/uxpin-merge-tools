@@ -17,7 +17,9 @@ export function generateVirtualModules(components:ComponentInfo[]):VirtualCompon
 
 function createVirtualModule(info:ComponentInfo):VirtualComponentModule {
   return ({
-    moduleSource: `module.exports = ${JSON.stringify(createComponentPlaceholder(info))};`,
+    moduleSource: `
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = ${JSON.stringify(createComponentPlaceholder(info))};`,
     path: removeExtensionFromPath(info.implementation.path),
   });
 }
