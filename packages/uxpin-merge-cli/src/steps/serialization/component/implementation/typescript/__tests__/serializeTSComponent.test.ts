@@ -541,6 +541,41 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes component props with index type', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithIndexedType');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithIndexedType',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'propLocal',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'propAliasShape',
+            type: { name: 'shape', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'propAliasNumber',
+            type: { name: 'number', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('doesn\'t support imported Component type in other way than `React.Component`', async () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithoutImportedReactComponent');
