@@ -16,7 +16,7 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
 
   const wrapperImport:string[] = getWrapperImport(wrapperPath);
 
-  const namespacedComponents:string[] = getNamespacedComponents(components);
+  const namespacedComponentDeclarations:string[] = getNamespacedComponentDeclarations(components);
 
   const exports:string[] = [
     `export {`,
@@ -31,7 +31,7 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
     ...libImports,
     ...imports,
     ...wrapperImport,
-    ...namespacedComponents,
+    ...namespacedComponentDeclarations,
     ...exports,
   ].join('\n');
 }
@@ -57,7 +57,7 @@ function getWrapperImport(wrapperPath?:string):string[] {
   return [`import ${CLASS_NAME_WRAPPER} from '${relative(TEMP_DIR_PATH, wrapperPath)}';`];
 }
 
-function getNamespacedComponents(components:ComponentDefinition[]):string[] {
+function getNamespacedComponentDeclarations(components:ComponentDefinition[]):string[] {
   return components
     .filter((comp) => comp.namespace)
     .map(getNamespacedComponentDeclaration);
