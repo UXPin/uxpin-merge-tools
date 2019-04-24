@@ -5,8 +5,10 @@ import { findDefaultExportedClass } from './findDefaultExportedClass';
 import { findDefaultExportedFunction } from './findDefaultExportedFunction';
 import { findExportedClassWithName } from './findExportedClassWithName';
 import { findExportedFunctionWithName } from './findExportedFunctionWithName';
-import { findSpecifiedClassComponent } from './findSpecifiedClassComponent';
-import { findSpecifiedFunctionComponent } from './findSpecifiedFunctionComponent';
+import {
+  findSpecifiedClassComponent,
+  findSpecifiedFunctionComponent,
+} from './findSpecifiedComponent';
 import { getComponentFileName } from './getComponentFileName';
 import {
   ClassComponentDeclaration,
