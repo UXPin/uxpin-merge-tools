@@ -11,7 +11,10 @@ describe('serializeTSComponent-Namespaces', () => {
       const component:ComponentImplementationInfo = getImplementation('ClassWithNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {
         name: 'ClassWithNamespaceDeclaration',
-        namespace: 'Namespace',
+        namespace: {
+          importSlug: 'Namespace_ClassWithNamespaceDeclaration',
+          name: 'Namespace',
+        },
         properties: [
           {
             description: '',
@@ -35,7 +38,10 @@ describe('serializeTSComponent-Namespaces', () => {
       const component: ComponentImplementationInfo = getImplementation('ClassWithMultilevelNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {
         name: 'ClassWithMultilevelNamespaceDeclaration',
-        namespace: 'Some.Nested.Namespace',
+        namespace: {
+          importSlug: 'Some_Nested_Namespace_ClassWithMultilevelNamespaceDeclaration',
+          name: 'Some.Nested.Namespace',
+        },
         properties: [
           {
             description: '',
@@ -61,7 +67,10 @@ describe('serializeTSComponent-Namespaces', () => {
       const component:ComponentImplementationInfo = getImplementation('FunctionWithNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {
         name: 'FunctionWithNamespaceDeclaration',
-        namespace: 'Namespace',
+        namespace: {
+          importSlug: 'Namespace_FunctionWithNamespaceDeclaration',
+          name: 'Namespace',
+        },
         properties: [
           {
             description: '',
@@ -85,7 +94,10 @@ describe('serializeTSComponent-Namespaces', () => {
       const component: ComponentImplementationInfo = getImplementation('FunctionWithMultilevelNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {
         name: 'FunctionWithMultilevelNamespaceDeclaration',
-        namespace: 'Some.Nested.Namespace',
+        namespace: {
+          importSlug: 'Some_Nested_Namespace_FunctionWithMultilevelNamespaceDeclaration',
+          name: 'Some.Nested.Namespace',
+        },
         properties: [
           {
             description: '',
