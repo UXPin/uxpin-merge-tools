@@ -5,8 +5,8 @@ import { ComponentPreset } from './presets/ComponentPreset';
 
 export interface ComponentMetadata {
   name:string;
+  namespace?:ComponentNamespace;
   properties:ComponentPropertyDefinition[];
-  namespace?:string;
 }
 
 export interface ComponentDefinition extends ComponentMetadata {
@@ -14,4 +14,9 @@ export interface ComponentDefinition extends ComponentMetadata {
   documentation:{ examples:ComponentExample[] };
   info:ComponentInfo;
   presets:ComponentPreset[];
+}
+
+export interface ComponentNamespace {
+  importSlug:string;
+  name:string;
 }
