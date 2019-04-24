@@ -1,39 +1,30 @@
-import { parse } from 'path';
-import * as ts from 'typescript';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { ImplSerializationResult } from '../ImplSerializationResult';
+import { getComponentDeclaration } from './component/getComponentDeclaration';
+import { getComponentName } from './component/getComponentName';
+import { ComponentDeclaration } from './component/getPropsTypeAndDefaultProps';
+import { getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
 import { serializeComponentProperties } from './serializeComponentProperties';
 
-export interface TSSerializationContext {
-  componentName:string;
-  componentPath:string;
-  program:ts.Program;
-  checker:ts.TypeChecker;
-}
+export async function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
+  const context:TSSerializationContext = getSerializationContext(component);
 
-export function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
-  return new Promise((resolve) => {
-    const componentName:string = parse(component.path).name;
-    const program:ts.Program = ts.createProgram([component.path], {
-      module: ts.ModuleKind.ES2015,
-      target: ts.ScriptTarget.ES2015,
-    });
-    const context:TSSerializationContext = {
-      checker: program.getTypeChecker(),
-      componentName,
-      componentPath: component.path,
-      program,
-    };
+  const componentDeclaration:ComponentDeclaration | undefined = getComponentDeclaration(context);
+  if (!componentDeclaration) {
+    throw new Error('No component found!');
+  }
 
-    const serializedProps:Warned<ComponentPropertyDefinition[]> = serializeComponentProperties(context);
-    resolve({
-      result: {
-        name: componentName,
-        properties: serializedProps.result,
-      },
-      warnings: serializedProps.warnings,
-    });
-  });
+  const componentName:string = getComponentName(context, componentDeclaration);
+  const serializedProps:Warned<ComponentPropertyDefinition[]> =
+    serializeComponentProperties(context, componentDeclaration);
+
+  return {
+    result: {
+      name: componentName,
+      properties: serializedProps.result,
+    },
+    warnings: serializedProps.warnings,
+  };
 }

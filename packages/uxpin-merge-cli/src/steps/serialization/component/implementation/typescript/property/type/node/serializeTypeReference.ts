@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
-import { TSSerializationContext } from '../../../serializeTSComponent';
+import { TSSerializationContext } from '../../../context/getSerializationContext';
 import { serializeTypeDeclaration } from '../declaration/serializeTypeDeclaration';
 import { serializeAsUnsupportedType } from './serializeAsUnsupportedType';
 
