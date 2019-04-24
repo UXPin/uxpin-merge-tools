@@ -36,9 +36,9 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
   ].join('\n');
 }
 
-function getImportName({ name, info: { importSlug } }:ComponentDefinition):string {
-  if (importSlug) {
-    return importSlug;
+function getImportName({ name, namespace }:ComponentDefinition):string {
+  if (namespace) {
+    return namespace.importSlug;
   }
 
   return name;
@@ -63,6 +63,11 @@ function getNamespacedComponentDeclarations(components:ComponentDefinition[]):st
     .map(getNamespacedComponentDeclaration);
 }
 
-function getNamespacedComponentDeclaration(comp:ComponentDefinition):string {
-  return `const ${comp.info.importSlug} = ${comp.namespace}.${comp.name};`;
+function getNamespacedComponentDeclaration(component:ComponentDefinition):string {
+  const { name, namespace } = component;
+  if (!namespace) {
+    throw new Error('Namespace not found!');
+  }
+
+  return `const ${namespace.importSlug} = ${namespace.name}.${name};`;
 }
