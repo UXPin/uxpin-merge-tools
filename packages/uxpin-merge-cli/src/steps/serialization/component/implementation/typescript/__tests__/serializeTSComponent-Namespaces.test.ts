@@ -1,8 +1,8 @@
 import { Warned } from '../../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../ComponentDefinition';
-import { getImplementation } from './serializeTSComponent.test';
 import { serializeTSComponent } from '../serializeTSComponent';
+import { getImplementation } from './serializeTSComponent.test';
 
 describe('serializeTSComponent-Namespaces', () => {
   describe('class component', () => {
@@ -35,7 +35,7 @@ describe('serializeTSComponent-Namespaces', () => {
 
     it('is serialized correctly with multilevel namespace', async () => {
       // having
-      const component: ComponentImplementationInfo = getImplementation('ClassWithMultilevelNamespaceDeclaration');
+      const component:ComponentImplementationInfo = getImplementation('ClassWithMultilevelNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {
         name: 'ClassWithMultilevelNamespaceDeclaration',
         namespace: {
@@ -91,7 +91,7 @@ describe('serializeTSComponent-Namespaces', () => {
 
     it('is serialized correctly with multilevel namespace', async () => {
       // having
-      const component: ComponentImplementationInfo = getImplementation('FunctionWithMultilevelNamespaceDeclaration');
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithMultilevelNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {
         name: 'FunctionWithMultilevelNamespaceDeclaration',
         namespace: {
