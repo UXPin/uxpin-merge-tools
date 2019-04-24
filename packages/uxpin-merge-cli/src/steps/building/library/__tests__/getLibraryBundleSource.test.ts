@@ -123,10 +123,12 @@ export {
             ...commonImplementation,
             path: 'src/components/card/components/header/header.jsx',
           },
-          importSlug: 'Card_Header',
         },
         name: 'Header',
-        namespace: 'Card',
+        namespace: {
+          importSlug: 'Card_Header',
+          name: 'Card',
+        },
         ...commonProps,
       },
       {
@@ -136,10 +138,12 @@ export {
             ...commonImplementation,
             path: 'src/components/card/components/header/components/menu/menu.jsx',
           },
-          importSlug: 'Card_Header_Menu',
         },
         name: 'Menu',
-        namespace: 'Card.Header',
+        namespace: {
+          importSlug: 'Card_Header_Menu',
+          name: 'Card.Header',
+        },
         ...commonProps,
       },
     ];
