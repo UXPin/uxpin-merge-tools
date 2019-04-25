@@ -37,4 +37,25 @@ describe('The dump command', () => {
       });
     });
   });
+
+  describe('run for the namespacedComponents repository with invalid components', () => {
+    it('prints an error when invalid namespaces are used', async () => {
+      // when
+      const output: string = await runUXPinMergeCommand({
+        cwd: 'resources/designSystems/namespacedComponents',
+        env: {
+          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+          UXPIN_ENV: Environment.TEST,
+        },
+        params: [
+          Command.DUMP,
+          '--webpack-config "./webpack.config.js"',
+          '--config "./uxpin.invalid.config.js"'
+        ],
+      });
+
+      // then
+      expect(output).toMatch(/ERROR\:/);
+    });
+  });
 });
