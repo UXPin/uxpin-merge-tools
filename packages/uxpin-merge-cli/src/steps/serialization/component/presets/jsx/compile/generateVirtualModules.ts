@@ -1,5 +1,6 @@
 import { join, parse } from 'path';
 import { ComponentInfo } from '../../../../../discovery/component/ComponentInfo';
+import { ComponentDefinition } from '../../../ComponentDefinition';
 import { getComponentNameFromPath } from '../../../name/getComponentNameFromPath';
 
 export interface VirtualComponentModule {
@@ -11,16 +12,16 @@ export interface ComponentPlaceholder {
   name:string;
 }
 
-export function generateVirtualModules(components:ComponentInfo[]):VirtualComponentModule[] {
+export function generateVirtualModules(components:ComponentDefinition[]):VirtualComponentModule[] {
   return components.map(createVirtualModule);
 }
 
-function createVirtualModule(info:ComponentInfo):VirtualComponentModule {
+function createVirtualModule(component:ComponentDefinition):VirtualComponentModule {
   return ({
     moduleSource: `
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ${JSON.stringify(createComponentPlaceholder(info))};`,
-    path: removeExtensionFromPath(info.implementation.path),
+exports.default = ${JSON.stringify(createComponentPlaceholder(component.info))};`,
+    path: removeExtensionFromPath(component.info.implementation.path),
   });
 }
 
