@@ -9,14 +9,6 @@ module.exports = {
           'src/components/Card/*.tsx',
         ],
       },
-      {
-        name: 'Other',
-        include: [
-          'src/components/**/*.tsx',
-          '!src/components/Card/**/*.tsx',
-          '!src/components/Card/*.tsx',
-        ],
-      },
     ]
   }
 };
