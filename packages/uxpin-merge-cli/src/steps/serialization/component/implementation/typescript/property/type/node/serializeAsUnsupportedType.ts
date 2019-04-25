@@ -11,7 +11,7 @@ export function serializeAsUnsupportedType(declaration:ts.Type):PropertyType<'un
 }
 
 function getUnsuportedTypeValue(typeFlag:number):string{
-  const nameOfUnsuportedType = Object.keys(ts.TypeFlags).find(key => ts.TypeFlags[key] === typeFlag);
+  const nameOfUnsuportedType = Object.keys(ts.TypeFlags).find((key:string) => ts.TypeFlags[key as keyof typeof ts.TypeFlags] === typeFlag);
   if(nameOfUnsuportedType){
     return nameOfUnsuportedType;
   }

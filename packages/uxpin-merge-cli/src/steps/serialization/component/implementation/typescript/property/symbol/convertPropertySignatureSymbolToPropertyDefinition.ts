@@ -1,6 +1,6 @@
 import { ComponentPropertyDefinition } from '../../../ComponentPropertyDefinition';
 import { TSSerializationContext } from '../../serializeTSComponent';
-import {convertTypeNodeToPropertyType, convertTypeToPropertyType} from '../type/node/convertTypeNodeToPropertyType';
+import {convertTypeToPropertyType} from '../type/node/convertTypeNodeToPropertyType';
 import { getDefaultValueFromJSDoc } from './getDefaultValueFromJSDoc';
 import { getJSDocDocumentation } from './getJSDocDocumentation';
 import { getPropertyName } from './getPropertyName';

@@ -1,14 +1,11 @@
-import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
-import { TSSerializationContext } from '../../../serializeTSComponent';
-import { serializeTypeDeclaration } from '../declaration/serializeTypeDeclaration';
-import { serializeAsUnsupportedType } from './serializeAsUnsupportedType';
 
 export const TYPES_MAP:{ [typeName:string]:PropertyType } = {
   Array: { name: 'array', structure: {} },
   ReactElement: { name: 'element', structure: {} },
   ReactNode: { name: 'node', structure: {} },
 };
+/*
 
 export function serializeTypeReference(context:TSSerializationContext, type:ts.Type):PropertyType {
   //const typeFromTypeNode:ts.Type = context.checker.getTypeFromTypeNode(typeNode);
@@ -20,12 +17,12 @@ export function serializeTypeReference(context:TSSerializationContext, type:ts.T
 
   return serializeAsUnsupportedType(type);
 
- /* switch (typeSymbol.flags) {
+ /!* switch (typeSymbol.flags) {
     case ts.SymbolFlags.Interface:
       return { name: 'shape', structure: {} };
     default:
       return getTypeByDeclaration(typeSymbol, typeNode);
-  }*/
+  }*!/
 }
 
 export function getTypeByDeclaration(typeSymbol:ts.Symbol, typeNode:ts.TypeReferenceNode|ts.IndexedAccessTypeNode):PropertyType {
@@ -35,3 +32,4 @@ export function getTypeByDeclaration(typeSymbol:ts.Symbol, typeNode:ts.TypeRefer
   }
   return serializeTypeDeclaration(declaration);
 }
+*/
