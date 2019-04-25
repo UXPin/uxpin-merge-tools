@@ -5,7 +5,15 @@ export function serializeAsUnsupportedType(declaration:ts.Type):PropertyType<'un
   return {
     name: 'unsupported',
     structure: {
-      raw: declaration.flags.toString(),
+      raw: getUnsuportedTypeValue(declaration.flags).toLowerCase()
     },
   };
+}
+
+function getUnsuportedTypeValue(typeFlag:number):string{
+  const nameOfUnsuportedType = Object.keys(ts.TypeFlags).find(key => ts.TypeFlags[key] === typeFlag);
+  if(nameOfUnsuportedType){
+    return nameOfUnsuportedType;
+  }
+  return 'unknown type'
 }
