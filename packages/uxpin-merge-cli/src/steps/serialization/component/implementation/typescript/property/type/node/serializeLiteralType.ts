@@ -9,4 +9,3 @@ export function serializeLiteralType(typeNode:ts.LiteralType):PropertyType<'lite
     },
   };
 }
-
