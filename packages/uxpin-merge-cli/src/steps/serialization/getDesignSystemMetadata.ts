@@ -1,3 +1,4 @@
+import { flatMap } from 'lodash';
 import pMap from 'p-map';
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
@@ -14,6 +15,8 @@ import { ComponentDefinition } from './component/ComponentDefinition';
 import { ExamplesSerializationResult } from './component/examples/ExamplesSerializationResult';
 import { serializeExamples } from './component/examples/serializeExamples';
 import { getComponentMetadata } from './component/implementation/getComponentMetadata';
+import { getComponentNamespacedName } from './component/name/getComponentNamespacedName';
+import { getComponentNamespaceParents } from './component/name/getComponentNamespaceParents';
 import { getBundle } from './component/presets/jsx/bundle/getBundle';
 import { PresetsBundle } from './component/presets/jsx/bundle/PresetsBundle';
 import { PresetsSerializationResult } from './component/presets/PresetsSerializationResult';
@@ -35,6 +38,8 @@ export async function getDesignSystemMetadata(
   const categorizedComponents:ComponentCategory[] = categories.map((category) => category.result);
   const vcs:VCSDetails = await getVscDetails(paths, buildOptions, categorizedComponents);
 
+  validateComponentNamespaces(categorizedComponents);
+
   return {
     result: {
       categorizedComponents,
@@ -43,6 +48,37 @@ export async function getDesignSystemMetadata(
     },
     warnings: joinWarningLists(categories.map((category) => category.warnings)),
   };
+}
+
+function validateComponentNamespaces(categories:ComponentCategory[]):void {
+  const components:ComponentDefinition[] = flatMap(categories, (category) => category.components);
+
+  const componentsMap:ComponentsMap = components.reduce((map:ComponentsMap, component:ComponentDefinition) => {
+    const name:string = getComponentNamespacedName(component);
+    const path:string = map[name];
+
+    if (path && path !== component.info.dirPath) {
+      throw new Error(`Component "${name}" already exists in ${path}!`);
+    }
+
+    map[name] = component.info.dirPath;
+
+    return map;
+  }, {});
+
+  components.forEach((component:ComponentDefinition) => {
+    const name:string = getComponentNamespacedName(component);
+    const parents:string[] = getComponentNamespaceParents(name);
+
+    const invalidParent:string | undefined = parents.find((parent:string) => !componentsMap[parent]);
+    if (invalidParent) {
+      throw new Error(`Namespace "${invalidParent}" does not exist!`);
+    }
+  });
+}
+
+interface ComponentsMap {
+  [name:string]:string;
 }
 
 function thunkCategoryInfoToMetadata(

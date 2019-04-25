@@ -39,23 +39,50 @@ describe('The dump command', () => {
   });
 
   describe('run for the namespacedComponents repository with invalid components', () => {
-    it('prints an error when invalid namespaces are used', async () => {
-      // when
-      const output: string = await runUXPinMergeCommand({
-        cwd: 'resources/designSystems/namespacedComponents',
-        env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-          UXPIN_ENV: Environment.TEST,
-        },
-        params: [
-          Command.DUMP,
-          '--webpack-config "./webpack.config.js"',
-          '--config "./uxpin.invalid.config.js"'
-        ],
-      });
+    it('prints an error when namespace is duplicated for two components with the same name', async () => {
+      expect.assertions(1);
 
-      // then
-      expect(output).toMatch(/ERROR\:/);
+      try {
+        // when
+        await runUXPinMergeCommand({
+          cwd: 'resources/designSystems/namespacedComponents',
+          env: {
+            UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+            UXPIN_ENV: Environment.TEST,
+          },
+          params: [
+            Command.DUMP,
+            '--webpack-config "./webpack.config.js"',
+            '--config "./uxpin.invalid.config.js"',
+          ],
+        });
+      } catch (error) {
+        // then
+        expect(error.stderr).toMatch(/Component \"Card\.Header\.Button\" already exists/);
+      }
+    });
+
+    it('prints an error when component uses not existing namespace', async () => {
+      expect.assertions(1);
+
+      try {
+        // when
+        await runUXPinMergeCommand({
+          cwd: 'resources/designSystems/namespacedComponents',
+          env: {
+            UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+            UXPIN_ENV: Environment.TEST,
+          },
+          params: [
+            Command.DUMP,
+            '--webpack-config "./webpack.config.js"',
+            '--config "./uxpin.invalid2.config.js"',
+          ],
+        });
+      } catch (error) {
+        // then
+        expect(error.stderr).toMatch(/Namespace \"Some\" does not exist/);
+      }
     });
   });
 });

@@ -3,8 +3,8 @@ import { ComponentNamespace } from '../../../ComponentDefinition';
 import { getUXpinNamespaceComment } from '../comments/getUXPinNamespaceComment';
 import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
 
-const NAMESPACE_NAME_DELIMITER:string = '.';
-const NAMESPACE_IMPORT_SLUG_DELIMITER:string = '_';
+export const NAMESPACE_NAME_DELIMITER:string = '.';
+export const NAMESPACE_IMPORT_SLUG_DELIMITER:string = '_';
 
 export function getComponentNamespace(component:ComponentDeclaration, name:string):ComponentNamespace | undefined {
   const namespace:ts.JSDocTag | undefined = getUXpinNamespaceComment(component);
