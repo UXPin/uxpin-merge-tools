@@ -6,7 +6,8 @@
     "import-name": [
       true,
       {
-        "chromeless": "Chromeless"
+        "chromeless": "Chromeless",
+        "webpackVirtualModules": "VirtualModulesPlugin"
       }
     ]
   }
