@@ -1,3 +1,5 @@
+import {PseudoBigInt} from "typescript";
+
 export interface ComponentPropertyDefinition {
   name:string;
   isRequired:boolean;
@@ -24,7 +26,7 @@ export interface PropertyTypeStructureMap {
   custom:{};
   element:{};
   func:FunctionStructure;
-  literal:{ value:string|number };
+  literal:{ value:string|number|PseudoBigInt };
   node:{};
   number:{};
   object:{};

@@ -1,13 +1,15 @@
 import * as ts from 'typescript';
-import { PropertyType } from '../../../../ComponentPropertyDefinition';
-import { TSSerializationContext } from '../../../serializeTSComponent';
-import { serializeAsUnsupportedType } from './serializeAsUnsupportedType';
-import { serializeLiteralType } from './serializeLiteralType';
-import { serializeTypeLiteral } from './serializeTypeLiteral';
-import { serializeTypeReference } from './serializeTypeReference';
-import { serializeUnionType } from './serializeUnionType';
+import {PropertyType} from '../../../../ComponentPropertyDefinition';
+import {TSSerializationContext} from '../../../serializeTSComponent';
+import {serializeAsUnsupportedType} from './serializeAsUnsupportedType';
+import {serializeLiteralType} from './serializeLiteralType';
+import {serializeTypeLiteral} from './serializeTypeLiteral';
+import {serializeTypeReference, TYPES_MAP} from './serializeTypeReference';
+import {serializeUnionType} from './serializeUnionType';
+import {serializeIndexedAccessType} from "./serializeIndexedAccessType";
 
 export function convertTypeNodeToPropertyType(context:TSSerializationContext, typeNode:ts.TypeNode):PropertyType {
+  const type = context.checker.getTypeFromTypeNode(typeNode)
   switch (typeNode.kind) {
     case ts.SyntaxKind.StringKeyword:
       return { name: 'string', structure: {} };
@@ -32,10 +34,53 @@ export function convertTypeNodeToPropertyType(context:TSSerializationContext, ty
     case ts.SyntaxKind.TypeLiteral:
       return serializeTypeLiteral(typeNode as ts.TypeLiteralNode);
     case ts.SyntaxKind.IndexedAccessType:
-      const objectType:ts.TypeNode = (typeNode as ts.IndexedAccessTypeNode).objectType;
-      const typeFromTypeNode:ts.Type = context.checker.getTypeFromTypeNode(typeNode);
-      const typeSymbol:ts.Symbol = typeFromTypeNode.symbol || typeFromTypeNode.aliasSymbol;
+      return {}//serializeIndexedAccessType(context, typeNode as ts.IndexedAccessTypeNode);
     default:
       return serializeAsUnsupportedType(typeNode);
   }
+}
+
+export function convertTypeToPropertyType(context:TSSerializationContext, type:ts.Type):PropertyType {
+  if(type.flags & ts.TypeFlags.String){
+    return  { name: 'string', structure: {}}
+  }
+
+  if(type.flags & ts.TypeFlags.Number){
+    return  { name: 'number', structure: {} }
+  }
+
+  if(type.flags & ts.TypeFlags.Boolean){
+    return  { name: 'boolean', structure: {} }
+  }
+
+  if(type.flags & ts.TypeFlags.Any){
+    return  { name: 'any', structure: {} }
+  }
+
+  if(type.flags & ts.TypeFlags.Object || type.flags & ts.TypeFlags.NonPrimitive){
+    if(!!type.getCallSignatures().length){ //functions are object, so we have to check if object is stg callable
+      return { name: 'func', structure: {} }
+    }
+
+    const typeSymbol:ts.Symbol = type.symbol || type.aliasSymbol;
+    if (typeSymbol && typeSymbol.escapedName.toString() in TYPES_MAP) {
+      return TYPES_MAP[typeSymbol.escapedName.toString()];
+    }
+
+    return  { name: 'shape', structure: {} }
+  }
+
+  if(type.flags & ts.TypeFlags.Union){
+    const typeSymbol:ts.Symbol = type.symbol || type.aliasSymbol;
+    if (typeSymbol && typeSymbol.escapedName.toString() in TYPES_MAP) {
+      return TYPES_MAP[typeSymbol.escapedName.toString()];
+    }
+    return serializeUnionType(context, type as ts.UnionType)
+  }
+
+  if(type.flags & ts.TypeFlags.Literal){
+    return  serializeLiteralType(type as ts.LiteralType)
+  }
+
+  return serializeAsUnsupportedType(type);
 }
