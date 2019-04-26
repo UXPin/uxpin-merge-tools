@@ -20,6 +20,9 @@ Object {
               Object {
                 "path": "src/components/Card/presets/0-with direct imports.jsx",
               },
+              Object {
+                "path": "src/components/Card/presets/1-using namespaces.jsx",
+              },
             ],
           },
           "name": "Card",
@@ -56,6 +59,40 @@ Object {
                 },
               },
               "name": "with direct imports",
+              "rootId": "1",
+            },
+            Object {
+              "elements": Object {
+                "1": Object {
+                  "name": "Card",
+                  "props": Object {
+                    "children": Array [
+                      Object {
+                        "uxpinPresetElementId": "2",
+                      },
+                    ],
+                  },
+                },
+                "2": Object {
+                  "name": "Card.Header",
+                  "props": Object {
+                    "children": Array [
+                      Object {
+                        "uxpinPresetElementId": "3",
+                      },
+                    ],
+                    "title": "Card title",
+                  },
+                },
+                "3": Object {
+                  "name": "Card.Header.Button",
+                  "props": Object {
+                    "children": "Click me!",
+                    "isPrimary": true,
+                  },
+                },
+              },
+              "name": "using namespaces",
               "rootId": "1",
             },
           ],
