@@ -1,6 +1,6 @@
-import { ComponentDefinition } from '../ComponentDefinition';
+import { ComponentMetadata } from '../ComponentDefinition';
 
-export function getComponentNamespacedName({ name, namespace }:ComponentDefinition):string {
+export function getComponentNamespacedName({ name, namespace }:ComponentMetadata):string {
   if (namespace) {
     return `${namespace.name}.${name}`;
   }

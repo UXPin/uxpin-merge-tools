@@ -16,6 +16,7 @@ import { serializeExamples } from './component/examples/serializeExamples';
 import { getComponentMetadata } from './component/implementation/getComponentMetadata';
 import { decorateWithPresets } from './component/presets/decorateWithPresets';
 import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
+import { validateComponentNamespaces } from './validation/validateComponentNamespaces';
 import { getVscDetails } from './vcs/getVcsDetails';
 
 export async function getDesignSystemMetadata(
@@ -31,6 +32,8 @@ export async function getDesignSystemMetadata(
 
   const categorizedComponents:ComponentCategory[] = categoriesWithPresets.map((category) => category.result);
   const vcs:VCSDetails = await getVscDetails(paths, buildOptions, categorizedComponents);
+
+  validateComponentNamespaces(categorizedComponents);
 
   return {
     result: {
