@@ -41,7 +41,7 @@ export async function getDesignSystemMetadata(
       name: libraryName,
       vcs,
     },
-    warnings: joinWarningLists(categories.map((category) => category.warnings)),
+    warnings: joinWarningLists(categoriesWithPresets.map((category) => category.warnings)),
   };
 }
 
