@@ -577,6 +577,55 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes component props with union type in type alias', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithUnionTypeInAliasType');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithUnionTypeInAliasType',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'aliasedUnionProp',
+            type: {
+              name: 'union',
+              structure: {
+                elements: expect.arrayContaining([
+                  { name: 'literal', structure: { value: 'slim' } },
+                  { name: 'literal', structure: { value: 'medium' } },
+                  { name: 'literal', structure: { value: 'large' } },
+                ]),
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'nestedUnionProp',
+            type: {
+              name: 'union',
+              structure: {
+                elements: expect.arrayContaining([
+                  { name: 'literal', structure: { value: 'some' } },
+                  { name: 'literal', structure: { value: 1 } },
+                  { name: 'literal', structure: { value: 'slim' } },
+                  { name: 'literal', structure: { value: 'medium' } },
+                  { name: 'literal', structure: { value: 'large' } },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('doesn\'t support imported Component type in other way than `React.Component`', async () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithoutImportedReactComponent');
