@@ -4,7 +4,7 @@ import { ComponentCategoryInfo } from '../../../../../discovery/component/catego
 import { compilePresets } from '../compile/compilePresets';
 import { PresetsBundle } from './PresetsBundle';
 
-export async function getBundle(programArgs:ProgramArgs, infos:ComponentCategoryInfo[]):Promise<PresetsBundle> {
+export async function getPresetsBundle(programArgs:ProgramArgs, infos:ComponentCategoryInfo[]):Promise<PresetsBundle> {
   const bundlePath:string = await compilePresets(programArgs, infos);
   const bundle:PresetsBundle = require(bundlePath);
   unRequire(bundlePath);

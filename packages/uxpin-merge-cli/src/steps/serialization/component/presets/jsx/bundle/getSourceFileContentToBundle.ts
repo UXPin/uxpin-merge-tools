@@ -2,6 +2,7 @@ import { flatMap } from 'lodash';
 import { relative } from 'path';
 import { ComponentCategoryInfo } from '../../../../../discovery/component/category/ComponentCategoryInfo';
 import { ComponentInfo, ComponentPresetInfo } from '../../../../../discovery/component/ComponentInfo';
+import { getAllComponentInfosFromCategories } from '../../../categories/getAllComponentInfosFromCategories';
 import { getUniqPresetImportName } from './getUniqPresetImportName';
 
 export function getSourceFileContentToBundle(tempDirPath:string, infos:ComponentCategoryInfo[]):string {
@@ -31,6 +32,6 @@ function getExport({ path }:ComponentPresetInfo):string {
 }
 
 function flattenComponentPresetInfos(categoryInfos:ComponentCategoryInfo[]):ComponentPresetInfo[] {
-  const componentInfos:ComponentInfo[] = flatMap(categoryInfos, (category) => category.componentInfos);
+  const componentInfos:ComponentInfo[] = getAllComponentInfosFromCategories(categoryInfos);
   return flatMap(componentInfos, (info) => (info.presets || []));
 }

@@ -101,6 +101,9 @@ Object {
               Object {
                 "path": "src/components/ButtonWithIconAsProp/presets/4-with dom primitive.jsx",
               },
+              Object {
+                "path": "src/components/ButtonWithIconAsProp/presets/5-with renaming import.jsx",
+              },
             ],
           },
           "name": "ButtonWithIconAsProp",
@@ -165,6 +168,19 @@ Object {
                 },
               },
               "name": "with mixed children",
+              "rootId": "1",
+            },
+            Object {
+              "elements": Object {
+                "1": Object {
+                  "name": "ButtonWithIconAsProp",
+                  "props": Object {
+                    "children": "Add to favourites",
+                    "isPrimary": true,
+                  },
+                },
+              },
+              "name": "with renaming import",
               "rootId": "1",
             },
           ],
