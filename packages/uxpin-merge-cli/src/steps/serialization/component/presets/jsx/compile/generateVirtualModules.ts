@@ -1,7 +1,8 @@
+import { get } from 'lodash';
 import { join, parse } from 'path';
-import { ComponentInfo } from '../../../../../discovery/component/ComponentInfo';
 import { ComponentDefinition } from '../../../ComponentDefinition';
-import { getComponentNameFromPath } from '../../../name/getComponentNameFromPath';
+import { getComponentNamespacedName } from '../../../name/getComponentNamespacedName';
+import { getNamespacedComponentsTree, NamespacedComponentsTree } from './getNamespacedComponentsTree';
 
 export interface VirtualComponentModule {
   path:string;
@@ -10,25 +11,25 @@ export interface VirtualComponentModule {
 
 export interface ComponentPlaceholder {
   name:string;
+  [key:string]:ComponentPlaceholder | string;
 }
 
 export function generateVirtualModules(components:ComponentDefinition[]):VirtualComponentModule[] {
-  return components.map(createVirtualModule);
+  const tree:NamespacedComponentsTree = getNamespacedComponentsTree(components);
+  return components.map((component) => createVirtualModule(component, tree));
 }
 
-function createVirtualModule(component:ComponentDefinition):VirtualComponentModule {
+function createVirtualModule(component:ComponentDefinition, tree:NamespacedComponentsTree):VirtualComponentModule {
   return ({
     moduleSource: `
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ${JSON.stringify(createComponentPlaceholder(component.info))};`,
+exports.default = ${JSON.stringify(createComponentPlaceholder(component, tree))};`,
     path: removeExtensionFromPath(component.info.implementation.path),
   });
 }
 
-function createComponentPlaceholder(componentInfo:ComponentInfo):ComponentPlaceholder {
-  return {
-    name: getComponentNameFromPath(componentInfo.implementation.path),
-  };
+function createComponentPlaceholder(component:ComponentDefinition, tree:NamespacedComponentsTree):ComponentPlaceholder {
+  return get(tree, getComponentNamespacedName(component));
 }
 
 function removeExtensionFromPath(path:string):string {
