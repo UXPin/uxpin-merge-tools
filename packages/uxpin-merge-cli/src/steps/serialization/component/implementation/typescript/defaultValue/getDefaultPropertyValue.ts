@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { TSSerializationContext } from '../serializeTSComponent';
+import { TSSerializationContext } from '../context/getSerializationContext';
 
 export type SupportedDefaultValue = number | string | boolean;
 

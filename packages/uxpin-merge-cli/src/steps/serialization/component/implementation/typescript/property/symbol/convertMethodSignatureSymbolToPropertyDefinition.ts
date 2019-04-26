@@ -1,5 +1,5 @@
 import { ComponentPropertyDefinition } from '../../../ComponentPropertyDefinition';
-import { TSSerializationContext } from '../../serializeTSComponent';
+import { TSSerializationContext } from '../../context/getSerializationContext';
 import { getJSDocDocumentation } from './getJSDocDocumentation';
 import { getPropertyName } from './getPropertyName';
 import { MethodSymbol } from './isMethodSignatureSymbol';

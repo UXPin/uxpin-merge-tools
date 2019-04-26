@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
-import { TSSerializationContext } from '../../../serializeTSComponent';
+import { TSSerializationContext } from '../../../context/getSerializationContext';
 import { convertTypeToPropertyType } from './convertTypeNodeToPropertyType';
 
 export function serializeUnionType(context:TSSerializationContext, type:ts.UnionType):PropertyType<'union'> {

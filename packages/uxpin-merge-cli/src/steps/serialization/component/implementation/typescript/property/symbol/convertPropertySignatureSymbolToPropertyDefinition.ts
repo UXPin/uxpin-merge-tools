@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
 import { ComponentPropertyDefinition } from '../../../ComponentPropertyDefinition';
-import { TSSerializationContext } from '../../serializeTSComponent';
+import { TSSerializationContext } from '../../context/getSerializationContext';
 import { convertTypeToPropertyType } from '../type/node/convertTypeNodeToPropertyType';
 import { getDefaultValueFromJSDoc } from './getDefaultValueFromJSDoc';
 import { getJSDocDocumentation } from './getJSDocDocumentation';
