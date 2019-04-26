@@ -16,10 +16,49 @@ Object {
               "lang": "typescript",
               "path": "src/components/Card/Card.tsx",
             },
-            "presets": Array [],
+            "presets": Array [
+              Object {
+                "path": "src/components/Card/presets/0-with direct imports.jsx",
+              },
+            ],
           },
           "name": "Card",
-          "presets": Array [],
+          "presets": Array [
+            Object {
+              "elements": Object {
+                "1": Object {
+                  "name": "Card",
+                  "props": Object {
+                    "children": Array [
+                      Object {
+                        "uxpinPresetElementId": "2",
+                      },
+                    ],
+                  },
+                },
+                "2": Object {
+                  "name": "Card.Header",
+                  "props": Object {
+                    "children": Array [
+                      Object {
+                        "uxpinPresetElementId": "3",
+                      },
+                    ],
+                    "title": "Card title",
+                  },
+                },
+                "3": Object {
+                  "name": "Card.Header.Button",
+                  "props": Object {
+                    "children": "Click me!",
+                    "isPrimary": true,
+                  },
+                },
+              },
+              "name": "with direct imports",
+              "rootId": "1",
+            },
+          ],
           "properties": Array [
             Object {
               "description": "",
