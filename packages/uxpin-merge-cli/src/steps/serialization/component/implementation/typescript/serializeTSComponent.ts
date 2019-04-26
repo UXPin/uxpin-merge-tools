@@ -1,9 +1,11 @@
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
+import { ComponentMetadata, ComponentNamespace } from '../../ComponentDefinition';
 import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { ImplSerializationResult } from '../ImplSerializationResult';
 import { getComponentDeclaration } from './component/getComponentDeclaration';
 import { getComponentName } from './component/getComponentName';
+import { getComponentNamespace } from './component/getComponentNamespace';
 import { ComponentDeclaration } from './component/getPropsTypeAndDefaultProps';
 import { getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
 import { serializeComponentProperties } from './serializeComponentProperties';
@@ -11,20 +13,30 @@ import { serializeComponentProperties } from './serializeComponentProperties';
 export async function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   const context:TSSerializationContext = getSerializationContext(component);
 
-  const componentDeclaration:ComponentDeclaration | undefined = getComponentDeclaration(context);
-  if (!componentDeclaration) {
+  const declaration:ComponentDeclaration | undefined = getComponentDeclaration(context);
+  if (!declaration) {
     throw new Error('No component found!');
   }
 
-  const componentName:string = getComponentName(context, componentDeclaration);
+  const name:string = getComponentName(context, declaration);
   const serializedProps:Warned<ComponentPropertyDefinition[]> =
-    serializeComponentProperties(context, componentDeclaration);
+    serializeComponentProperties(context, declaration);
+
+  let componentMetadata:ComponentMetadata = {
+    name,
+    properties: serializedProps.result,
+  };
+
+  const namespace:ComponentNamespace | undefined = getComponentNamespace(declaration, name);
+  if (namespace) {
+    componentMetadata = {
+      ...componentMetadata,
+      namespace,
+    };
+  }
 
   return {
-    result: {
-      name: componentName,
-      properties: serializedProps.result,
-    },
+    result: componentMetadata,
     warnings: serializedProps.warnings,
   };
 }

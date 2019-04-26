@@ -19,6 +19,7 @@ import { PresetsBundle } from './component/presets/jsx/bundle/PresetsBundle';
 import { PresetsSerializationResult } from './component/presets/PresetsSerializationResult';
 import { serializePresets } from './component/presets/serializePresets';
 import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
+import { validateComponentNamespaces } from './validation/validateComponentNamespaces';
 import { getVscDetails } from './vcs/getVcsDetails';
 
 export async function getDesignSystemMetadata(
@@ -34,6 +35,8 @@ export async function getDesignSystemMetadata(
 
   const categorizedComponents:ComponentCategory[] = categories.map((category) => category.result);
   const vcs:VCSDetails = await getVscDetails(paths, buildOptions, categorizedComponents);
+
+  validateComponentNamespaces(categorizedComponents);
 
   return {
     result: {

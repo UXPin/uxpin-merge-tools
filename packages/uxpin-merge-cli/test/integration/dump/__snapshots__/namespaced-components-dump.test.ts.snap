@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The dump command run for the namespacedComponents repository prints the JSON describing the full repository 1`] = `
+Object {
+  "categorizedComponents": Array [
+    Object {
+      "components": Array [
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/Card",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "typescript",
+              "path": "src/components/Card/Card.tsx",
+            },
+            "presets": Array [],
+          },
+          "name": "Card",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+          ],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/Card/components/Header",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "typescript",
+              "path": "src/components/Card/components/Header/Header.tsx",
+            },
+            "presets": Array [],
+          },
+          "name": "Header",
+          "namespace": Object {
+            "importSlug": "Card_Header",
+            "name": "Card",
+          },
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "title",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+          ],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/Card/components/Header/components/Button",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "typescript",
+              "path": "src/components/Card/components/Header/components/Button/Button.tsx",
+            },
+            "presets": Array [],
+          },
+          "name": "Button",
+          "namespace": Object {
+            "importSlug": "Card_Header_Button",
+            "name": "Card.Header",
+          },
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "isPrimary",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+          ],
+        },
+      ],
+      "name": "Card",
+    },
+  ],
+  "name": "Example Design System",
+  "vcs": ObjectContaining {
+    "branchName": Any<String>,
+    "commitHash": StringMatching /\\[a-z0-9\\]\\+/,
+  },
+}
+`;

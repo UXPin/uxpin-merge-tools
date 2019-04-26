@@ -677,11 +677,12 @@ describe('serializeTSComponent', () => {
     });
   });
 
-  function getImplementation(componentName:string):ComponentImplementationInfo {
-    return {
-      framework: 'reactjs',
-      lang: 'typescript',
-      path: getTypeScriptComponentPath(componentName),
-    };
-  }
 });
+
+export function getImplementation(componentName:string):ComponentImplementationInfo {
+  return {
+    framework: 'reactjs',
+    lang: 'typescript',
+    path: getTypeScriptComponentPath(componentName),
+  };
+}
