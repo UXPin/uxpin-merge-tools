@@ -4,14 +4,14 @@ import { v4 } from 'uuid';
 import { ProgramArgs } from '../../../../../../program/args/ProgramArgs';
 import { getTempDirPath } from '../../../../../../program/args/providers/paths/getTempDirPath';
 import { writeToFile } from '../../../../../../utils/fs/writeToFile';
-import { ComponentCategoryInfo } from '../../../../../discovery/component/category/ComponentCategoryInfo';
+import { ComponentDefinition } from '../../../ComponentDefinition';
 import { getSourceFileContentToBundle } from './getSourceFileContentToBundle';
 
-export async function createBundleSource(programArgs:ProgramArgs, infos:ComponentCategoryInfo[]):Promise<string> {
+export async function createBundleSource(programArgs:ProgramArgs, components:ComponentDefinition[]):Promise<string> {
   const tempDirPath:string = getTempDirPath(programArgs);
   await ensureDir(tempDirPath);
   const bundleSourcePath:string = resolve(tempDirPath, getUniqueFileName());
-  await writeToFile(bundleSourcePath, getSourceFileContentToBundle(tempDirPath, infos));
+  await writeToFile(bundleSourcePath, getSourceFileContentToBundle(tempDirPath, components));
   return bundleSourcePath;
 }
 

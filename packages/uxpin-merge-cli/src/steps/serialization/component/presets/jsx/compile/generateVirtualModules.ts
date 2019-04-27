@@ -1,6 +1,8 @@
+import { get } from 'lodash';
 import { join, parse } from 'path';
-import { ComponentInfo } from '../../../../../discovery/component/ComponentInfo';
-import { getComponentNameFromPath } from '../../../name/getComponentNameFromPath';
+import { ComponentDefinition } from '../../../ComponentDefinition';
+import { getComponentNamespacedName } from '../../../name/getComponentNamespacedName';
+import { getNamespacedComponentsTree, NamespacedComponentsTree } from './getNamespacedComponentsTree';
 
 export interface VirtualComponentModule {
   path:string;
@@ -9,25 +11,25 @@ export interface VirtualComponentModule {
 
 export interface ComponentPlaceholder {
   name:string;
+  [key:string]:ComponentPlaceholder | string;
 }
 
-export function generateVirtualModules(components:ComponentInfo[]):VirtualComponentModule[] {
-  return components.map(createVirtualModule);
+export function generateVirtualModules(components:ComponentDefinition[]):VirtualComponentModule[] {
+  const tree:NamespacedComponentsTree = getNamespacedComponentsTree(components);
+  return components.map((component) => createVirtualModule(component, tree));
 }
 
-function createVirtualModule(info:ComponentInfo):VirtualComponentModule {
+function createVirtualModule(component:ComponentDefinition, tree:NamespacedComponentsTree):VirtualComponentModule {
   return ({
     moduleSource: `
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ${JSON.stringify(createComponentPlaceholder(info))};`,
-    path: removeExtensionFromPath(info.implementation.path),
+exports.default = ${JSON.stringify(createComponentPlaceholder(component, tree))};`,
+    path: removeExtensionFromPath(component.info.implementation.path),
   });
 }
 
-function createComponentPlaceholder(componentInfo:ComponentInfo):ComponentPlaceholder {
-  return {
-    name: getComponentNameFromPath(componentInfo.implementation.path),
-  };
+function createComponentPlaceholder(component:ComponentDefinition, tree:NamespacedComponentsTree):ComponentPlaceholder {
+  return get(tree, getComponentNamespacedName(component));
 }
 
 function removeExtensionFromPath(path:string):string {

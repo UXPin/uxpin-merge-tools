@@ -4,6 +4,5 @@ export function getComponentNamespacedName({ name, namespace }:ComponentMetadata
   if (namespace) {
     return `${namespace.name}.${name}`;
   }
-
   return name;
 }

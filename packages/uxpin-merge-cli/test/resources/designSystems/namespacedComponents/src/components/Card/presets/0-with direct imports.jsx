@@ -1,12 +1,12 @@
 import * as React from 'react';
+import Card from '../Card';
 import Button from '../components/Header/components/Button/Button';
 import Header from '../components/Header/Header';
-import Card from '../Card';
 
 export default (
   <Card uxpId="1">
-    <Header title="Card title">
-      <Button isPrimary>Click me!</Button>
+    <Header uxpId="2" title="Card title">
+      <Button uxpId="3" isPrimary>Click me!</Button>
     </Header>
   </Card>
 );
