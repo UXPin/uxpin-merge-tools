@@ -17,7 +17,7 @@ export class WebpackCompiler implements Compiler {
         }
 
         if (stats.hasErrors()) {
-          return reject(formatWebpackErrorMessages(stats));
+          return reject(new Error(formatWebpackErrorMessages(stats)));
         }
 
         resolve();

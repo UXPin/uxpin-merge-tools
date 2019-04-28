@@ -60,7 +60,7 @@ function getCategoriesWithPresetBundlingError(
       ...firstCategory,
       warnings: [
         {
-          message: 'Cannot bundle presets!',
+          message: 'Cannot bundle presets',
           originalError,
         },
         ...firstCategory.warnings,
