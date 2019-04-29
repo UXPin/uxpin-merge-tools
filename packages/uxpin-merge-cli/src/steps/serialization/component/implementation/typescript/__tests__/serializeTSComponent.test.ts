@@ -542,6 +542,141 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes component props with index type', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithIndexedType');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithIndexedType',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'propLocal',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'propAliasShape',
+            type: { name: 'shape', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'propAliasNumber',
+            type: { name: 'number', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes component props with union type in type alias', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithUnionTypeInAliasType');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithUnionTypeInAliasType',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'aliasedUnionProp',
+            type: {
+              name: 'union',
+              structure: {
+                elements: expect.arrayContaining([
+                  { name: 'literal', structure: { value: 'slim' } },
+                  { name: 'literal', structure: { value: 'medium' } },
+                  { name: 'literal', structure: { value: 'large' } },
+                ]),
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'nestedUnionProp',
+            type: {
+              name: 'union',
+              structure: {
+                elements: expect.arrayContaining([
+                  { name: 'literal', structure: { value: 'some' } },
+                  { name: 'literal', structure: { value: 1 } },
+                  { name: 'literal', structure: { value: 'slim' } },
+                  { name: 'literal', structure: { value: 'medium' } },
+                  { name: 'literal', structure: { value: 'large' } },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes component props with typeof/keyof operators', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithKeyOfTypeOfOperatorInType');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithKeyOfTypeOfOperatorInType',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'typeOfProp',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'keyOfProp',
+            type: { name: 'union',
+              structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 'name' } },
+                  { name: 'literal', structure: { value: 'value' } },
+                  { name: 'literal', structure: { value: 'nested' } },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'keyOfTypeOfProp',
+            type: { name: 'union',
+              structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 'name' } },
+                  { name: 'literal', structure: { value: 'value' } },
+                  { name: 'literal', structure: { value: 'nested' } },
+                ],
+              },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('doesn\'t support imported Component type in other way than `React.Component`', async () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithoutImportedReactComponent');
