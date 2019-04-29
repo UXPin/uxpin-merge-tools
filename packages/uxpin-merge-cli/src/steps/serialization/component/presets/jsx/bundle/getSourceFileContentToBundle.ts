@@ -1,11 +1,11 @@
 import { flatMap } from 'lodash';
 import { relative } from 'path';
-import { ComponentCategoryInfo } from '../../../../../discovery/component/category/ComponentCategoryInfo';
-import { ComponentInfo, ComponentPresetInfo } from '../../../../../discovery/component/ComponentInfo';
+import { ComponentPresetInfo } from '../../../../../discovery/component/ComponentInfo';
+import { ComponentDefinition } from '../../../ComponentDefinition';
 import { getUniqPresetImportName } from './getUniqPresetImportName';
 
-export function getSourceFileContentToBundle(tempDirPath:string, infos:ComponentCategoryInfo[]):string {
-  return getFileBody(tempDirPath, flattenComponentPresetInfos(infos));
+export function getSourceFileContentToBundle(tempDirPath:string, components:ComponentDefinition[]):string {
+  return getFileBody(tempDirPath, flattenComponentPresetInfos(components));
 }
 
 function getFileBody(tempDirPath:string, infos:ComponentPresetInfo[]):string {
@@ -30,7 +30,6 @@ function getExport({ path }:ComponentPresetInfo):string {
   return `  ${getUniqPresetImportName(path)},`;
 }
 
-function flattenComponentPresetInfos(categoryInfos:ComponentCategoryInfo[]):ComponentPresetInfo[] {
-  const componentInfos:ComponentInfo[] = flatMap(categoryInfos, (category) => category.componentInfos);
-  return flatMap(componentInfos, (info) => (info.presets || []));
+function flattenComponentPresetInfos(components:ComponentDefinition[]):ComponentPresetInfo[] {
+  return flatMap(components, ({ info }) => (info.presets || []));
 }

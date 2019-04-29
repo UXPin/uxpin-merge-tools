@@ -56,15 +56,6 @@ Object {
           "properties": Array [
             Object {
               "description": "",
-              "isRequired": false,
-              "name": "children",
-              "type": Object {
-                "name": "node",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
               "isRequired": true,
               "name": "size",
               "type": Object {
@@ -109,6 +100,9 @@ Object {
               },
               Object {
                 "path": "src/components/ButtonWithIconAsProp/presets/4-with dom primitive.jsx",
+              },
+              Object {
+                "path": "src/components/ButtonWithIconAsProp/presets/5-with renaming import.jsx",
               },
             ],
           },
@@ -174,6 +168,19 @@ Object {
                 },
               },
               "name": "with mixed children",
+              "rootId": "1",
+            },
+            Object {
+              "elements": Object {
+                "1": Object {
+                  "name": "ButtonWithIconAsProp",
+                  "props": Object {
+                    "children": "Add to favourites",
+                    "isPrimary": true,
+                  },
+                },
+              },
+              "name": "with renaming import",
               "rootId": "1",
             },
           ],
@@ -308,19 +315,10 @@ Object {
           "properties": Array [
             Object {
               "description": "",
-              "isRequired": false,
-              "name": "children",
-              "type": Object {
-                "name": "node",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
               "isRequired": true,
               "name": "data",
               "type": Object {
-                "name": "MenuItem[]",
+                "name": "array",
                 "structure": Object {},
               },
             },

@@ -1,20 +1,24 @@
 import { join, parse, resolve } from 'path';
 import { Configuration } from 'webpack';
 import { smartStrategy } from 'webpack-merge';
+import * as VirtualModulesPlugin from 'webpack-virtual-modules';
+import { VirtualComponentModule } from './generateVirtualModules';
 
 export interface WebpackConfigPaths {
   bundlePath:string;
   projectRoot:string;
   sourcePath:string;
+  virtualModules:VirtualComponentModule[];
   webpackConfig?:string;
 }
 
 type ConfigurationFunction = () => Configuration;
 
-export function getWebpackConfig({
+export function getPresetsBundleWebpackConfig({
   bundlePath,
   projectRoot,
   sourcePath,
+  virtualModules,
   webpackConfig,
 }:WebpackConfigPaths):Configuration {
   const { base, dir } = parse(bundlePath);
@@ -58,6 +62,9 @@ export function getWebpackConfig({
       libraryTarget: 'commonjs',
       path: dir,
     },
+    plugins: [
+      getVirtualModulesPlugin(virtualModules),
+    ],
     resolve: {
       extensions: ['.js', '.jsx'],
       modules: [
@@ -82,6 +89,12 @@ export function getWebpackConfig({
   }
 
   return config;
+}
+
+function getVirtualModulesPlugin(virtualModules:VirtualComponentModule[]):any {
+  return new VirtualModulesPlugin(
+    virtualModules.reduce((result, { moduleSource, path }) => ({ ...result, [path]: moduleSource }), {}),
+  );
 }
 
 function isConfigurationFunction(conf:Configuration|ConfigurationFunction):conf is ConfigurationFunction {

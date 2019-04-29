@@ -33,12 +33,6 @@ export const expectedAvatarMetadata:ComponentDefinition = {
   properties: [
     {
       description: '',
-      isRequired: false,
-      name: 'children',
-      type: { name: 'node', structure: {} },
-    },
-    {
-      description: '',
       isRequired: true,
       name: 'size',
       type: { name: 'string', structure: {} },

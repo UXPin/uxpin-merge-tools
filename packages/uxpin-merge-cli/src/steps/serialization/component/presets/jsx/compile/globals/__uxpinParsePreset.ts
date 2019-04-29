@@ -5,24 +5,19 @@ import {
   JSXSerializedElementProp,
   JSXSerializedElementProps,
 } from '../../JSXSerializationResult';
-
-interface Component extends Function {
-  displayName?:string;
-}
+import { ComponentPlaceholder } from '../generateVirtualModules';
 
 // tslint:disable-next-line:function-name
 function __uxpinParsePreset(
-  type:Component,
+  component:ComponentPlaceholder | string | any,
   props?:JSXSerializedElementProps,
   ...children:AnySerializedElement[]):JSXSerializedElement {
 
-  const displayName:string = typeof type === 'function'
-    ? type.displayName || type.name || 'Unknown'
-    : type;
+  const componentName:string = !!component.name ? component.name : 'Unknown';
 
   return {
     children,
-    name: displayName,
+    name: componentName,
     props: JSON.parse(JSON.stringify(props)) || {},
     uxpinPresetElementType: 'CodeComponent',
     warnings: getPropertySerializationWarnings(props),

@@ -1,0 +1,1 @@
+module 'webpack-virtual-modules';

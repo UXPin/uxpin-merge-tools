@@ -131,15 +131,6 @@ Object {
               "properties": Array [
                 Object {
                   "description": "",
-                  "isRequired": false,
-                  "name": "children",
-                  "type": Object {
-                    "name": "node",
-                    "structure": Object {},
-                  },
-                },
-                Object {
-                  "description": "",
                   "isRequired": true,
                   "name": "size",
                   "type": Object {

@@ -20,6 +20,85 @@ describe('getComponentMetadata – integration', () => {
         properties: [
           {
             description: '',
+            isRequired: true,
+            name: 'anyProp',
+            type: { name: 'any', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'arrayProp',
+            type: { name: 'array', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'unionTypeArrayProp',
+            type: { name: 'array', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'booleanProp',
+            type: { name: 'boolean', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'elementProp',
+            type: { name: 'element', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'functionProp',
+            type: { name: 'func', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'stringLiteralUnion',
+            type: {
+              name: 'union', structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 'a' } },
+                  { name: 'literal', structure: { value: 'b' } },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'nodeProp',
+            type: { name: 'node', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'objectProp',
+            type: { name: 'shape', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'typedArray',
+            type: { name: 'array', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'dictionaryProp',
+            type: { name: 'shape', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'empty',
+            type: { name: 'unsupported', structure: { raw: 'undefined' } },
+          },
+          {
+            description: '',
             isRequired: false,
             name: 'children',
             type: { name: 'node', structure: {} },
@@ -42,8 +121,8 @@ describe('getComponentMetadata – integration', () => {
       // when
       return getComponentMetadata(component).then((serializedProps) => {
         // then
-        expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
+        expect(serializedProps.result).toEqual(expectedProps);
       });
     });
 

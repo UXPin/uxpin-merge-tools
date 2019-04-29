@@ -6,26 +6,38 @@ import { getProjectRoot } from '../../../../../../program/args/providers/paths/g
 import { getTempDirPath } from '../../../../../../program/args/providers/paths/getTempDirPath';
 import { Compiler } from '../../../../../building/compiler/Compiler';
 import { WebpackCompiler } from '../../../../../building/compiler/webpack/WebpackCompiler';
-import { ComponentCategoryInfo } from '../../../../../discovery/component/category/ComponentCategoryInfo';
+import { ComponentDefinition } from '../../../ComponentDefinition';
 import { createBundleSource } from '../bundle/createBundleSource';
-import { getWebpackConfig } from './getWebpackConfig';
+import { generateVirtualModules, VirtualComponentModule } from './generateVirtualModules';
+import { getPresetsBundleWebpackConfig } from './getPresetsBundleWebpackConfig';
 
-export async function compilePresets(programArgs:ProgramArgs, infos:ComponentCategoryInfo[]):Promise<string> {
-  const sourcePath:string = await createBundleSource(programArgs, infos);
-  const bundlePath:string = await compileWithWebpack(programArgs, sourcePath);
+export async function compilePresets(programArgs:ProgramArgs, components:ComponentDefinition[]):Promise<string> {
+  const sourcePath:string = await createBundleSource(programArgs, components);
+  const bundlePath:string = await compileWithWebpack(programArgs, components, sourcePath);
   await unlink(sourcePath);
 
   return bundlePath;
 }
 
-async function compileWithWebpack(programArgs:ProgramArgs, sourcePath:string):Promise<string> {
+async function compileWithWebpack(
+  programArgs:ProgramArgs,
+  components:ComponentDefinition[],
+  sourcePath:string,
+):Promise<string> {
   const { base } = parse(sourcePath);
   const uxpinDirPath:string = getTempDirPath(programArgs);
   const bundlePath:string = join(uxpinDirPath, `__bundle__${base}`);
   const { webpackConfig } = programArgs as RawProgramArgs;
   const projectRoot:string = getProjectRoot(programArgs);
+  const virtualModules:VirtualComponentModule[] = generateVirtualModules(components);
 
-  const config:webpack.Configuration = getWebpackConfig({ bundlePath, projectRoot, sourcePath, webpackConfig });
+  const config:webpack.Configuration = getPresetsBundleWebpackConfig({
+    bundlePath,
+    projectRoot,
+    sourcePath,
+    virtualModules,
+    webpackConfig,
+  });
   const compiler:Compiler = new WebpackCompiler(config);
   await compiler.compile();
 
