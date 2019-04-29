@@ -16,6 +16,7 @@ export function getComponentsCollection(
       componentId,
       info: component.info,
       name: component.name,
+      namespace: component.namespace,
       properties: component.properties,
       revisionId,
     };
