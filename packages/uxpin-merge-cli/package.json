@@ -1,6 +1,6 @@
 {
   "name": "@uxpin/merge-cli",
-  "version": "1.3.5-release.2",
+  "version": "1.3.5-release.4",
   "description": "The Command-line tool integrates the Design System repository with: https://www.uxpin.com/merge",
   "main": "src/index.js",
   "bin": {
@@ -73,6 +73,7 @@
     "jest-junit-reporter": "^1.1.0",
     "nyc": "^11.2.1",
     "react": "^16.0.0",
+    "react-docgen-typescript": "^1.0.2",
     "react-dom": "^16.0.0",
     "remap-istanbul": "^0.9.5",
     "stubby": "^4.0.0",
@@ -112,7 +113,6 @@
     "p-reduce": "^1.0.0",
     "path-sort": "^0.1.0",
     "react-docgen": "^3.0.0-beta9",
-    "react-docgen-typescript": "^1.0.2",
     "request-promise": "^4.2.2",
     "require1k": "^1.0.1",
     "sortobject": "^1.1.1",
