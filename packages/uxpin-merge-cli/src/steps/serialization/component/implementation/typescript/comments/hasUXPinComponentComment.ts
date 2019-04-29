@@ -6,5 +6,5 @@ const UXPIN_COMPONENT:string = '@uxpincomponent';
 export function hasUXPinComponentComment(node:ts.Node):boolean {
   const comments:ts.JSDocTag[] = getNodeJsDocTags(node);
 
-  return comments.some((comment) => comment.getText() === UXPIN_COMPONENT);
+  return comments.some((comment) => comment.getText().trim() === UXPIN_COMPONENT);
 }
