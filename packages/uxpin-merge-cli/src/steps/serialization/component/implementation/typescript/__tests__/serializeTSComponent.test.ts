@@ -577,6 +577,57 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes component props with typeof/keyof operators', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithKeyOfTypeOfOperatorInType');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithKeyOfTypeOfOperatorInType',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'typeOfProp',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'keyOfProp',
+            type: { name: 'union',
+              structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 'name' } },
+                  { name: 'literal', structure: { value: 'value' } },
+                  { name: 'literal', structure: { value: 'nested' } },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'keyOfTypeOfProp',
+            type: { name: 'union',
+              structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 'name' } },
+                  { name: 'literal', structure: { value: 'value' } },
+                  { name: 'literal', structure: { value: 'nested' } },
+                ],
+              },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('doesn\'t support imported Component type in other way than `React.Component`', async () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithoutImportedReactComponent');
