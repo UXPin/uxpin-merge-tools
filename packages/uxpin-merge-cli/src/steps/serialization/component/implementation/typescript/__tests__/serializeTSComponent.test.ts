@@ -813,6 +813,33 @@ describe('serializeTSComponent', () => {
       }
     );
 
+    it('serializes component props with two dimensional array', () => {
+        // given
+        const component:ComponentImplementationInfo = getImplementation('ClassWithTwoDimensionalArray');
+        const expectedProps:ComponentMetadata = {
+          name: 'ClassWithTwoDimensionalArray',
+          properties: [
+            {
+              description: '',
+              isRequired: true,
+              name: 'rows',
+              type: {
+                name: 'array',
+                structure: {}
+              },
+            },
+          ],
+        };
+
+        // when
+        return serializeTSComponent(component).then((serializedProps) => {
+          // then
+          expect(serializedProps.result).toEqual(expectedProps);
+          expect(serializedProps.warnings).toEqual([]);
+        });
+      }
+    );
+
     it('doesn\'t support imported Component type in other way than `React.Component`', async () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithoutImportedReactComponent');
