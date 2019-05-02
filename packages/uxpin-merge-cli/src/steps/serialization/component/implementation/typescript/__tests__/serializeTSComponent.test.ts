@@ -595,6 +595,59 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes functional component with intersection type of properties object', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithCombinedPropertiesType');
+      const expectedProps:ComponentMetadata = {
+        name: 'FunctionWithCombinedPropertiesType',
+        properties: [
+          {
+            description: 'Local property',
+            isRequired: true,
+            name: 'id',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'hidden',
+            type: { name: 'boolean', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'children',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'name',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'value',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'nested',
+            type: { name: 'shape', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('serializes component props with union type in type alias', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithUnionTypeInAliasType');
