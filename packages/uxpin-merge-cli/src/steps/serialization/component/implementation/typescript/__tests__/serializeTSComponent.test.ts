@@ -677,6 +677,39 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes component props with array of union type', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithArrayOfUnionType');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithArrayOfUnionType',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'propWithArrayOfUnion',
+            type: {
+              name: 'union',
+              structure: {
+                elements: expect.arrayContaining([
+                  {name: 'string', structure: {}},
+                  {name: 'element', structure: {}},
+                  {name: 'array', structure: {}},
+                ])
+              }
+              },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+
     it('doesn\'t support imported Component type in other way than `React.Component`', async () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithoutImportedReactComponent');
