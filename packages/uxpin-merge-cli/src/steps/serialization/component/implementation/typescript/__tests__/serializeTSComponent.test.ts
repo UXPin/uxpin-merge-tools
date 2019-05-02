@@ -544,27 +544,45 @@ describe('serializeTSComponent', () => {
 
     it('serializes component props with index type', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithIndexedType');
+      const component:ComponentImplementationInfo = getImplementation('ClassWithExtendedInterface');
       const expectedProps:ComponentMetadata = {
-        name: 'ClassWithIndexedType',
+        name: 'ClassWithExtendedInterface',
         properties: [
           {
             description: '',
-            isRequired: true,
-            name: 'propLocal',
+            isRequired: false,
+            name: 'helpText',
             type: { name: 'string', structure: {} },
           },
           {
             description: '',
             isRequired: true,
-            name: 'propAliasShape',
-            type: { name: 'shape', structure: {} },
+            name: 'image',
+            type: { name: 'string', structure: {} },
           },
           {
             description: '',
             isRequired: true,
-            name: 'propAliasNumber',
+            name: 'iconType',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'size',
             type: { name: 'number', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'disabled',
+            type: { name: 'boolean', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'actionType',
+            type: { name: 'string', structure: {} },
           },
         ],
       };
@@ -709,6 +727,38 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes component props with interface extending another interface', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithArrayOfUnionType');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithArrayOfUnionType',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'propWithArrayOfUnion',
+            type: {
+              name: 'union',
+              structure: {
+                elements: expect.arrayContaining([
+                  {name: 'string', structure: {}},
+                  {name: 'element', structure: {}},
+                  {name: 'array', structure: {}},
+                ])
+              }
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+      }
+    );
 
     it('doesn\'t support imported Component type in other way than `React.Component`', async () => {
       // given
