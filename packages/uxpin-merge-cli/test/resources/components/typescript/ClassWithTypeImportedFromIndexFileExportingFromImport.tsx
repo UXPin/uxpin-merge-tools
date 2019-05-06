@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {WithAppProviderProps} from './shorthandedImportExportingFromTsx/AppProvider/utilities/withAppProvider';
+import { WithAppProviderProps } from './shorthandedImportExportingFromTsx/AppProvider/utilities/withAppProvider';
 
 interface Props {
   propLocal:WithAppProviderProps;
