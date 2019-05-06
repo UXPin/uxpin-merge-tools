@@ -577,9 +577,11 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    it('serializes component props imported from shorthanded file exporting directly from import from index file', () => {
+    it('serializes component props imported from shorthanded file ' +
+      'exporting directly from import from index file', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithTypeImportedFromIndexFileExportingFromImport');
+      const component:ComponentImplementationInfo =
+        getImplementation('ClassWithTypeImportedFromIndexFileExportingFromImport');
       const expectedProps:ComponentMetadata = {
         name: 'ClassWithTypeImportedFromIndexFileExportingFromImport',
         properties: [
@@ -587,8 +589,11 @@ describe('serializeTSComponent', () => {
             description: '',
             isRequired: true,
             name: 'propLocal',
-            type: { name: 'shape', structure: {} },
-          }
+            type: {
+              name: 'shape',
+              structure: {},
+            },
+          },
         ],
       };
 
