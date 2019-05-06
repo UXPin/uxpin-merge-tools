@@ -577,6 +577,112 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes component props with extended interface type', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithExtendedInterface');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithExtendedInterface',
+        properties: [
+          {
+            description: '',
+            isRequired: false,
+            name: 'helpText',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'image',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'iconType',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'size',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'disabled',
+            type: { name: 'boolean', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'actionType',
+            type: { name: 'string', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes functional component with intersection type of properties object', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithCombinedPropertiesType');
+      const expectedProps:ComponentMetadata = {
+        name: 'FunctionWithCombinedPropertiesType',
+        properties: [
+          {
+            description: 'Local property',
+            isRequired: true,
+            name: 'id',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'hidden',
+            type: { name: 'boolean', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'children',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'name',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'value',
+            type: { name: 'number', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'nested',
+            type: { name: 'shape', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('serializes component props imported from shorthanded file ' +
       'exporting directly from import from index file', () => {
       // given
@@ -692,6 +798,64 @@ describe('serializeTSComponent', () => {
                   { name: 'literal', structure: { value: 'nested' } },
                 ],
               },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes component props with array of union type', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithArrayOfUnionType');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithArrayOfUnionType',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'propWithArrayOfUnion',
+            type: {
+              name: 'union',
+              structure: {
+                elements: expect.arrayContaining([
+                  { name: 'string', structure: {} },
+                  { name: 'element', structure: {} },
+                  { name: 'array', structure: {} },
+                ]),
+              },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes component props with two dimensional array', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithTwoDimensionalArray');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithTwoDimensionalArray',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'rows',
+            type: {
+              name: 'array',
+              structure: {},
             },
           },
         ],
