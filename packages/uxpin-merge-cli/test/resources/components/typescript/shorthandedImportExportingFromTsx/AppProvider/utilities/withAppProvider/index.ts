@@ -1,1 +1,1 @@
-export {WithAppProviderProps} from './withAppProvider';
+export { WithAppProviderProps } from './withAppProvider';

@@ -1,1 +1,1 @@
-export {WithAppProviderProps} from './utilities';
+export { WithAppProviderProps } from './utilities';
