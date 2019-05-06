@@ -815,38 +815,6 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    it('serializes component props with interface extending another interface', () => {
-      // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithArrayOfUnionType');
-      const expectedProps:ComponentMetadata = {
-        name: 'ClassWithArrayOfUnionType',
-        properties: [
-          {
-            description: '',
-            isRequired: true,
-            name: 'propWithArrayOfUnion',
-            type: {
-              name: 'union',
-              structure: {
-                elements: expect.arrayContaining([
-                  { name: 'string', structure: {} },
-                  { name: 'element', structure: {} },
-                  { name: 'array', structure: {} },
-                ]),
-              },
-            },
-          },
-        ],
-      };
-
-      // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedProps);
-        expect(serializedProps.warnings).toEqual([]);
-      });
-    });
-
     it('serializes component props with two dimensional array', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithTwoDimensionalArray');
