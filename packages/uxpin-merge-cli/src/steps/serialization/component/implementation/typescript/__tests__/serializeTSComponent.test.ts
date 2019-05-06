@@ -797,12 +797,12 @@ describe('serializeTSComponent', () => {
               name: 'union',
               structure: {
                 elements: expect.arrayContaining([
-                  {name: 'string', structure: {}},
-                  {name: 'element', structure: {}},
-                  {name: 'array', structure: {}},
-                ])
-              }
+                  { name: 'string', structure: {} },
+                  { name: 'element', structure: {} },
+                  { name: 'array', structure: {} },
+                ]),
               },
+            },
           },
         ],
       };
@@ -829,11 +829,11 @@ describe('serializeTSComponent', () => {
               name: 'union',
               structure: {
                 elements: expect.arrayContaining([
-                  {name: 'string', structure: {}},
-                  {name: 'element', structure: {}},
-                  {name: 'array', structure: {}},
-                ])
-              }
+                  { name: 'string', structure: {} },
+                  { name: 'element', structure: {} },
+                  { name: 'array', structure: {} },
+                ]),
+              },
             },
           },
         ],
@@ -845,35 +845,33 @@ describe('serializeTSComponent', () => {
         expect(serializedProps.result).toEqual(expectedProps);
         expect(serializedProps.warnings).toEqual([]);
       });
-      }
-    );
+    });
 
     it('serializes component props with two dimensional array', () => {
-        // given
-        const component:ComponentImplementationInfo = getImplementation('ClassWithTwoDimensionalArray');
-        const expectedProps:ComponentMetadata = {
-          name: 'ClassWithTwoDimensionalArray',
-          properties: [
-            {
-              description: '',
-              isRequired: true,
-              name: 'rows',
-              type: {
-                name: 'array',
-                structure: {}
-              },
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithTwoDimensionalArray');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithTwoDimensionalArray',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'rows',
+            type: {
+              name: 'array',
+              structure: {},
             },
-          ],
-        };
+          },
+        ],
+      };
 
-        // when
-        return serializeTSComponent(component).then((serializedProps) => {
-          // then
-          expect(serializedProps.result).toEqual(expectedProps);
-          expect(serializedProps.warnings).toEqual([]);
-        });
-      }
-    );
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
 
     it('doesn\'t support imported Component type in other way than `React.Component`', async () => {
       // given
