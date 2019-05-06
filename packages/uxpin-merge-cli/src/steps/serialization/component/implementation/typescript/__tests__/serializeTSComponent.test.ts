@@ -577,6 +577,29 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes component props imported from shorthanded file exporting directly from import from index file', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithTypeImportedFromIndexFileExportingFromImport');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithTypeImportedFromIndexFileExportingFromImport',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'propLocal',
+            type: { name: 'shape', structure: {} },
+          }
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('serializes component props with union type in type alias', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithUnionTypeInAliasType');

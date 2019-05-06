@@ -12,8 +12,9 @@ export interface TSSerializationContext {
 export function getSerializationContext(component:ComponentImplementationInfo):TSSerializationContext {
   const { path } = component;
   const program:ts.Program = ts.createProgram([path], {
-    module: ts.ModuleKind.ES2015,
+    module: ts.ModuleKind.CommonJS,
     target: ts.ScriptTarget.ES2015,
+    jsx: ts.JsxEmit.React
   });
 
   const file:ts.SourceFile | undefined = findComponentFile(program, path);
