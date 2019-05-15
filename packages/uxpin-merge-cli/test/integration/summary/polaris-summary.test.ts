@@ -27,71 +27,45 @@ describe('summary command integration', () => {
       })
         .then((output) => {
           // then
-          expect(output).toContain(`Uncategorized
-
-    Avatar
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✘
+          expect(output).toContain(`Actions
 
     Button
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✘
 
-    Choice
-        📜 documentation: ✔
-        💡 examples: ✘
-        🎛  presets: ✘
-
-    Collapsible
+    Link
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✘
 
-    DatePicker
+Structure
+
+    Card
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✘
 
-    DescriptionList
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✘
-
-    Icon
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✘
-
-    Page
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✘
-
-    PageActions
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✘
-
-    Popover
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✘
-
-    PositionedOverlay
+    Header
         📜 documentation: ✘
         💡 examples: ✘
         🎛  presets: ✘
 
-    Scrollable
+    Section
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✘
+
+Images and Icons
+
+    Avatar
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✘
 
-    UnstyledLink
-        📜 documentation: ✘
-        💡 examples: ✘
+    Badge
+        📜 documentation: ✔
+        💡 examples: ✔
         🎛  presets: ✘`);
         });
     });
