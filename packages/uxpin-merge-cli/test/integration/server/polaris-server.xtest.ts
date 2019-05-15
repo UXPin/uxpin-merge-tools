@@ -14,7 +14,6 @@ describe('server run in polaris', () => {
     projectPath: 'resources/repos/polaris',
     serverCmdArgs: [
       '--webpack-config "./playground/webpack.config"',
-      '--config="../../configs/polaris-uxpin.config.js"',
     ],
   }, (c) => chromeless = c);
 

@@ -23,7 +23,6 @@ describe('summary command integration', () => {
         },
         params: [
           Command.SUMMARY,
-          '--config="../../configs/polaris-uxpin.config.js"',
         ],
       })
         .then((output) => {
