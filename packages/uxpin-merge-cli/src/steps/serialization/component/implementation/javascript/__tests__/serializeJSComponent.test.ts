@@ -411,6 +411,62 @@ describe('serializeJSComponentProps', () => {
       });
     });
 
+    it('serializes component with imported enum property types', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithImportedEnum');
+      const expectedProps:ComponentMetadata = {
+        name: 'FunctionWithImportedEnum',
+        properties: [
+          {
+            description: '',
+            isRequired: false,
+            name: 'children',
+            type: {
+              name: 'node',
+              structure: {},
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'appearance',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 'secondary' } },
+                  { name: 'literal', structure: { value: 'primary' } },
+                  { name: 'literal', structure: { value: 'link' } },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'modifier',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 'neutral' } },
+                  { name: 'literal', structure: { value: 'danger' } },
+                  { name: 'literal', structure: { value: 'positive' } },
+                ],
+              },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeJSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('provides warning details for corrupted default property values', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('CorruptedDefaultPropertyValue');
