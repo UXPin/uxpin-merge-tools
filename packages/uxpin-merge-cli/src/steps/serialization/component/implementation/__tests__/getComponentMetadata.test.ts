@@ -146,7 +146,7 @@ describe('getComponentMetadata – integration', () => {
           {
             defaultValue: { value: 'secondary' },
             description: 'Select the appearance of the button',
-            isRequired: true,
+            isRequired: false,
             name: 'appearance',
             type: {
               name: 'union',

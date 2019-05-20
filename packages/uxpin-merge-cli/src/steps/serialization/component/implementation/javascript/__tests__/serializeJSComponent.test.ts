@@ -110,7 +110,7 @@ describe('serializeJSComponentProps', () => {
           {
             defaultValue: { value: 'secondary' },
             description: '',
-            isRequired: true,
+            isRequired: false,
             name: 'appearance',
             type: {
               name: 'union',
@@ -475,7 +475,7 @@ describe('serializeJSComponentProps', () => {
         properties: [
           {
             description: '',
-            isRequired: true,
+            isRequired: false,
             name: 'value',
             type: {
               name: 'string',
