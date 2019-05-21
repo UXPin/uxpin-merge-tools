@@ -8,6 +8,12 @@ jobs:
     steps:
       - checkout:
           path: ~/project/
+      - run:
+          name: 'NPM: Set registry'
+          command: npm set @uxpin:registry "https://registry.npmjs.org/"
+      - run:
+          name: 'NPM: Set authentication token'
+          command: npm set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
       # Yarn install with cache
       - restore_cache:
           key: uxpin-merge-cli-dependencies-cache-{{ checksum "package.json" }}
