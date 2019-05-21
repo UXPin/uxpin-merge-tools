@@ -1,6 +1,6 @@
+import { importedPropTypesHandler } from '@uxpin/react-docgen-better-proptypes';
 import { readFile } from 'fs-extra';
 import { defaultHandlers, Handler, parse } from 'react-docgen';
-import { importedPropTypesHandler } from '@uxpin/react-docgen-better-proptypes';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
 
 export async function getDefaultComponentFrom(filePath:string):Promise<ComponentDoc> {
