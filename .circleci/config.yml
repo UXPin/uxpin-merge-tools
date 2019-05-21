@@ -39,11 +39,11 @@ jobs:
             - ./test/resources/repos
       # Build and test
       - run:
-          name: "Build"
-          command: make build
-      - run:
           name: "Check"
           command: make check
+      - run:
+          name: "Build"
+          command: make build
       - run:
           name: "Test"
           command: make test-ci
