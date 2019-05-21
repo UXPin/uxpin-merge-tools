@@ -9,116 +9,32 @@ Object {
           "documentation": Object {
             "examples": Array [
               Object {
-                "code": "<Avatar customer name=\\"Farrah\\" />",
-              },
-            ],
-          },
-          "info": Object {
-            "dirPath": "src/components/Avatar",
-            "documentation": Object {
-              "path": "src/components/Avatar/README.md",
-            },
-            "implementation": Object {
-              "framework": "reactjs",
-              "lang": "typescript",
-              "path": "src/components/Avatar/Avatar.tsx",
-            },
-            "presets": Array [],
-          },
-          "name": "Avatar",
-          "presets": Array [],
-          "properties": Array [
-            Object {
-              "defaultValue": Object {
-                "value": "medium",
-              },
-              "description": "",
-              "isRequired": false,
-              "name": "size",
-              "type": Object {
-                "name": "union",
-                "structure": Object {
-                  "values": Array [
-                    Object {
-                      "name": "literal",
-                      "structure": Object {
-                        "value": "small",
-                      },
-                    },
-                    Object {
-                      "name": "literal",
-                      "structure": Object {
-                        "value": "medium",
-                      },
-                    },
-                    Object {
-                      "name": "literal",
-                      "structure": Object {
-                        "value": "large",
-                      },
-                    },
-                  ],
-                },
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "name",
-              "type": Object {
-                "name": "string",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "initials",
-              "type": Object {
-                "name": "string",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "customer",
-              "type": Object {
-                "name": "boolean",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "source",
-              "type": Object {
-                "name": "string",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "accessibilityLabel",
-              "type": Object {
-                "name": "string",
-                "structure": Object {},
-              },
-            },
-          ],
-        },
-        Object {
-          "documentation": Object {
-            "examples": Array [
-              Object {
                 "code": "<Button>Add product</Button>",
               },
               Object {
                 "code": "<Button outline>Add product</Button>",
               },
               Object {
+                "code": "<div style={{color: '#bf0711'}}>
+  <Button monochrome outline>
+    Retry
+  </Button>
+</div>",
+              },
+              Object {
                 "code": "<Button plain>View shipping settings</Button>",
+              },
+              Object {
+                "code": "<InlineError
+  message={
+    <React.Fragment>
+      An error occurred. &nbsp;
+      <Button plain monochrome>
+        Try again
+      </Button>
+    </React.Fragment>
+  }
+/>",
               },
               Object {
                 "code": "<Button primary>Save theme</Button>",
@@ -141,6 +57,35 @@ Object {
               Object {
                 "code": "<Button loading>Save product</Button>",
               },
+              Object {
+                "code": "<Button>Edit shipping address</Button>",
+              },
+              Object {
+                "code": "<Heading>Shipping address</Heading>
+<Button accessibilityLabel=\\"Edit shipping address\\">Edit</Button>",
+              },
+              Object {
+                "code": "<Button accessibilityLabel=\\"Change your shipping address\\">Edit</Button>",
+              },
+              Object {
+                "code": "<Button accessibilityLabel=\\"Edit\\">Edit</Button>",
+              },
+              Object {
+                "code": "<Button
+  accessibilityLabel=\\"Terms and conditions (opens a new window)\\"
+  icon=\\"external\\"
+  url=\\"http://example.com\\"
+  external
+>
+  Terms and conditions
+</Button>",
+              },
+              Object {
+                "code": "<Button url=\\"http://example.com\\" external>Terms and conditions</Button>
+<Button url=\\"http://example.com\\" external>
+  Terms and conditions
+</Button>",
+              },
             ],
           },
           "info": Object {
@@ -153,13 +98,37 @@ Object {
               "lang": "typescript",
               "path": "src/components/Button/Button.tsx",
             },
-            "presets": Array [],
+            "presets": Array [
+              Object {
+                "path": "src/components/Button/presets/0-default.jsx",
+              },
+            ],
           },
           "name": "Button",
           "presets": Array [],
           "properties": Array [
             Object {
-              "description": "",
+              "description": "The content to display inside the button",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "string",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "array",
+                      "structure": Object {},
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "description": "A destination to link to, rendered in the href attribute of a link",
               "isRequired": false,
               "name": "url",
               "type": Object {
@@ -168,49 +137,16 @@ Object {
               },
             },
             Object {
-              "description": "",
+              "description": "A unique identifier for the button",
               "isRequired": false,
-              "name": "children",
+              "name": "id",
               "type": Object {
                 "name": "string",
                 "structure": Object {},
               },
             },
             Object {
-              "description": "",
-              "isRequired": false,
-              "name": "size",
-              "type": Object {
-	            "name": "union",
-	            "structure": Object {
-	              "values": Array [
-	                Object {
-	                  "name": "literal",
-	                  "structure": Object {
-	                    "value": "slim",
-	                  },
-	                },
-	                Object {
-	                  "name": "literal",
-	                  "structure": Object {
-	                    "value": "large",
-	                  },
-	                },
-	              ],
-	            },
-	          },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "fullWidth",
-              "type": Object {
-                "name": "boolean",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
+              "description": "Provides extra visual weight and identifies the primary action in a set of buttons",
               "isRequired": false,
               "name": "primary",
               "type": Object {
@@ -219,16 +155,7 @@ Object {
               },
             },
             Object {
-              "description": "",
-              "isRequired": false,
-              "name": "outline",
-              "type": Object {
-                "name": "boolean",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
+              "description": "Indicates a dangerous or potentially negative action",
               "isRequired": false,
               "name": "destructive",
               "type": Object {
@@ -237,7 +164,7 @@ Object {
               },
             },
             Object {
-              "description": "",
+              "description": "Disables the button, disallowing merchant interaction",
               "isRequired": false,
               "name": "disabled",
               "type": Object {
@@ -246,7 +173,7 @@ Object {
               },
             },
             Object {
-              "description": "",
+              "description": "Replaces button text with a spinner while a background action is being performed",
               "isRequired": false,
               "name": "loading",
               "type": Object {
@@ -255,34 +182,58 @@ Object {
               },
             },
             Object {
-              "description": "",
+              "defaultValue": Object {
+                "value": "medium",
+              },
+              "description": "Changes the size of the button, giving it more or less padding",
               "isRequired": false,
-              "name": "plain",
+              "name": "size",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "slim",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "medium",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "large",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "description": "Gives the button a subtle alternative to the default button styling, appropriate for certain backdrops",
+              "isRequired": false,
+              "name": "outline",
               "type": Object {
                 "name": "boolean",
                 "structure": Object {},
               },
             },
             Object {
-              "description": "",
+              "description": "Allows the button to grow to the width of its container",
               "isRequired": false,
-              "name": "external",
+              "name": "fullWidth",
               "type": Object {
                 "name": "boolean",
                 "structure": Object {},
               },
             },
             Object {
-              "description": "",
-              "isRequired": false,
-              "name": "submit",
-              "type": Object {
-                "name": "boolean",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
+              "description": "Displays the button with a disclosure icon",
               "isRequired": false,
               "name": "disclosure",
               "type": Object {
@@ -291,7 +242,119 @@ Object {
               },
             },
             Object {
-              "description": "",
+              "description": "Allows the button to submit a form",
+              "isRequired": false,
+              "name": "submit",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Renders a button that looks like a link",
+              "isRequired": false,
+              "name": "plain",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Makes \`plain\` and \`outline\` Button colors (text, borders, icons) the same as the current text color. Also adds an underline to \`plain\` Buttons",
+              "isRequired": false,
+              "name": "monochrome",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Forces url to open in a new tab",
+              "isRequired": false,
+              "name": "external",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Tells the browser to download the url instead of opening it. Provides a hint for the downloaded filename if it is a string value.",
+              "isRequired": false,
+              "name": "download",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "string",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {},
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "description": "Icon to display to the left of the button content",
+              "isRequired": false,
+              "name": "icon",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "string",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "number",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "shape",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "element",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "shape",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "shape",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "func",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "shape",
+                      "structure": Object {},
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "description": "Visually hidden text for screen readers",
               "isRequired": false,
               "name": "accessibilityLabel",
               "type": Object {
@@ -300,18 +363,34 @@ Object {
               },
             },
             Object {
-              "description": "",
+              "description": "Id of the element the button controls",
               "isRequired": false,
-              "name": "icon",
+              "name": "ariaControls",
               "type": Object {
-                "name": "unsupported",
-                "structure": Object {
-                  "raw": "IconProps['source']",
-                },
+                "name": "string",
+                "structure": Object {},
               },
             },
             Object {
-              "description": "",
+              "description": "Tells screen reader the controlled element is expanded",
+              "isRequired": false,
+              "name": "ariaExpanded",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Tells screen reader the element is pressed",
+              "isRequired": false,
+              "name": "ariaPressed",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Callback when clicked",
               "isRequired": false,
               "name": "onClick",
               "type": Object {
@@ -320,7 +399,7 @@ Object {
               },
             },
             Object {
-              "description": "",
+              "description": "Callback when button becomes focussed",
               "isRequired": false,
               "name": "onFocus",
               "type": Object {
@@ -329,11 +408,47 @@ Object {
               },
             },
             Object {
-              "description": "",
+              "description": "Callback when focus leaves button",
               "isRequired": false,
               "name": "onBlur",
               "type": Object {
                 "name": "func",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Callback when a keypress event is registered on the button",
+              "isRequired": false,
+              "name": "onKeyPress",
+              "type": Object {
+                "name": "func",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Callback when a keyup event is registered on the button",
+              "isRequired": false,
+              "name": "onKeyUp",
+              "type": Object {
+                "name": "func",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Callback when a keydown event is registered on the button",
+              "isRequired": false,
+              "name": "onKeyDown",
+              "type": Object {
+                "name": "func",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "polaris",
+              "type": Object {
+                "name": "shape",
                 "structure": Object {},
               },
             },
@@ -343,31 +458,148 @@ Object {
           "documentation": Object {
             "examples": Array [
               Object {
+                "code": "<Link url=\\"https://help.shopify.com/manual\\">fulfilling orders</Link>",
+              },
+              Object {
+                "code": "<Link monochrome url=\\"https://help.shopify.com/manual\\">
+  fulfilling orders
+</Link>",
+              },
+              Object {
+                "code": "<Link url=\\"https://help.shopify.com/manual\\" external>
+  Shopify Help Center
+</Link>",
+              },
+              Object {
+                "code": "<Link url=\\"https://help.shopify.com/manual\\">fulfilling orders</Link>",
+              },
+              Object {
+                "code": "<Link>fulfilling orders</Link>",
+              },
+              Object {
+                "code": "<Link url=\\"https://help.shopify.com/manual\\">fulfilling orders</Link>",
+              },
+              Object {
+                "code": "<Link url=\\"https://help.shopify.com/manual\\">order fulfillment section</Link>",
+              },
+            ],
+          },
+          "info": Object {
+            "dirPath": "src/components/Link",
+            "documentation": Object {
+              "path": "src/components/Link/README.md",
+            },
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "typescript",
+              "path": "src/components/Link/Link.tsx",
+            },
+            "presets": Array [
+              Object {
+                "path": "src/components/Link/presets/0-default.jsx",
+              },
+            ],
+          },
+          "name": "Link",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "ID for the link",
+              "isRequired": false,
+              "name": "id",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "The url to link to",
+              "isRequired": false,
+              "name": "url",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "The content to display inside link",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Use for a links that open a different site",
+              "isRequired": false,
+              "name": "external",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Makes the link color the same as the current text color and adds an underline",
+              "isRequired": false,
+              "name": "monochrome",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Callback when a link is clicked",
+              "isRequired": false,
+              "name": "onClick",
+              "type": Object {
+                "name": "func",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "polaris",
+              "type": Object {
+                "name": "shape",
+                "structure": Object {},
+              },
+            },
+          ],
+        },
+      ],
+      "name": "Actions",
+    },
+    Object {
+      "components": Array [
+        Object {
+          "documentation": Object {
+            "examples": Array [
+              Object {
                 "code": "<Card title=\\"Online store dashboard\\" sectioned>
   <p>View a summary of your online store’s performance.</p>
 </Card>",
               },
               Object {
+                "code": "<Card sectioned title=\\"Variants\\" actions={[{content: 'Add variant'}]}>
+  <p>
+    Add variants if this product comes in multiple versions, like different
+    sizes or colors.
+  </p>
+</Card>",
+              },
+              Object {
                 "code": "<Card
-  title=\\"Online store dashboard\\"
-  primaryFooterAction={{content: 'View dashboard'}}
+  title=\\"Shipment 1234\\"
+  secondaryFooterAction={{content: 'Cancel shipment'}}
+  primaryFooterAction={{content: 'Add tracking number'}}
 >
-  <Card.Section>
-    <p>View a summary of your online store’s performance.</p>
-  </Card.Section>
-</Card>",
-              },
-              Object {
-                "code": "<Card title=\\"Online store dashboard\\" actions={[{content: 'Edit'}]}>
-  <Card.Section>
-    <p>View a summary of your online store’s performance.</p>
-  </Card.Section>
-</Card>",
-              },
-              Object {
-                "code": "<Card title=\\"Online store dashboard\\" actions={[{content: 'Edit'}]}>
-  <Card.Section>
-    <p>View a summary of your online store’s performance.</p>
+  <Card.Section title=\\"Items\\">
+    <List>
+      <List.Item>1 × Isis Glass, 4-Pack</List.Item>
+      <List.Item>1 × Anubis Cup, 2-Pack</List.Item>
+    </List>
   </Card.Section>
 </Card>",
               },
@@ -378,7 +610,10 @@ Object {
   </Card.Section>
 
   <Card.Section>
-    <p>View a summary of your online store’s performance, including sales, visitors, top products, and referrals.</p>
+    <p>
+      View a summary of your online store’s performance, including sales,
+      visitors, top products, and referrals.
+    </p>
   </Card.Section>
 </Card>",
               },
@@ -389,7 +624,10 @@ Object {
   </Card.Section>
 
   <Card.Section title=\\"Summary\\">
-    <p>View a summary of your online store’s performance, including sales, visitors, top products, and referrals.</p>
+    <p>
+      View a summary of your online store’s performance, including sales,
+      visitors, top products, and referrals.
+    </p>
   </Card.Section>
 </Card>",
               },
@@ -418,6 +656,129 @@ Object {
   </List>
 </Card>",
               },
+              Object {
+                "code": "<Card>
+  <Card.Header
+    actions={[
+      {
+        content: 'Preview',
+      },
+    ]}
+    title=\\"Staff accounts\\"
+  >
+    <Popover
+      active
+      activator={
+        <Button disclosure plain>
+          Add account
+        </Button>
+      }
+      onClose={() => {}}
+    >
+      <ActionList items={[{content: 'Member'}, {content: 'Admin'}]} />
+    </Popover>
+  </Card.Header>
+  <Card.Section>
+    <List>
+      <List.Item>Felix Crafford</List.Item>
+      <List.Item>Ezequiel Manno</List.Item>
+    </List>
+  </Card.Section>
+</Card>",
+              },
+              Object {
+                "code": "<Card title=\\"Products\\">
+  <Card.Section
+    title={
+      <Stack>
+        <Icon source=\\"products\\" />
+        <Subheading>New Products</Subheading>
+      </Stack>
+    }
+  >
+    <List>
+      <List.Item>Socks</List.Item>
+      <List.Item>Super Shoes</List.Item>
+    </List>
+  </Card.Section>
+</Card>",
+              },
+              Object {
+                "code": "<Card
+  secondaryFooterAction={{content: 'Dismiss'}}
+  primaryFooterAction={{content: 'Export Report'}}
+>
+  <Card.Header
+    actions={[
+      {
+        content: 'Total Sales',
+      },
+    ]}
+    title=\\"Sales\\"
+  >
+    <Popover
+      active={false}
+      activator={
+        <Button disclosure plain>
+          View Sales
+        </Button>
+      }
+      onClose={() => {}}
+    >
+      <ActionList items={[{content: 'Gross Sales'}, {content: 'Net Sales'}]} />
+    </Popover>
+  </Card.Header>
+  <Card.Section>
+    <TextContainer>
+      You can use sales reports to see information about your customers' orders
+      based on criteria such as sales over time, by channel, or by staff.
+    </TextContainer>
+  </Card.Section>
+  <Card.Section title=\\"Total Sales Breakdown\\">
+    <ResourceList
+      resourceName={{singular: 'sale', plural: 'sales'}}
+      items={[
+        {
+          sales: 'Orders',
+          amount: 'USD$0.00',
+          url: 'reports/orders',
+        },
+        {
+          sales: 'Returns',
+          amount: '-USD$250.00',
+          url: 'reports/returns',
+        },
+      ]}
+      renderItem={(item) => {
+        const {sales, amount, url} = item;
+        return (
+          <ResourceList.Item
+            url={url}
+            accessibilityLabel={\`View Sales for \${sales}\`}
+          >
+            <Stack>
+              <Stack.Item fill>{sales}</Stack.Item>
+              <Stack.Item>{amount}</Stack.Item>
+            </Stack>
+          </ResourceList.Item>
+        );
+      }}
+    />
+  </Card.Section>
+  <Card.Section title=\\"Deactivated reports\\" subdued>
+    <List>
+      <List.Item>Payouts</List.Item>
+      <List.Item>Total Sales By Channel</List.Item>
+    </List>
+  </Card.Section>
+  <Card.Section title=\\"Note\\">
+    <TextContainer>
+      The sales reports are available only if your store is on the Shopify plan
+      or higher.
+    </TextContainer>
+  </Card.Section>
+</Card>",
+              },
             ],
           },
           "info": Object {
@@ -430,9 +791,102 @@ Object {
               "lang": "typescript",
               "path": "src/components/Card/Card.tsx",
             },
-            "presets": Array [],
+            "presets": Array [
+              Object {
+                "path": "src/components/Card/presets/0-default.jsx",
+              },
+            ],
           },
           "name": "Card",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "Title content for the card",
+              "isRequired": false,
+              "name": "title",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Inner content of the card",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "A less prominent card",
+              "isRequired": false,
+              "name": "subdued",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Auto wrap content in section",
+              "isRequired": false,
+              "name": "sectioned",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Card header actions",
+              "isRequired": false,
+              "name": "actions",
+              "type": Object {
+                "name": "array",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Primary action in the card footer",
+              "isRequired": false,
+              "name": "primaryFooterAction",
+              "type": Object {
+                "name": "shape",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Secondary action in the card footer",
+              "isRequired": false,
+              "name": "secondaryFooterAction",
+              "type": Object {
+                "name": "shape",
+                "structure": Object {},
+              },
+            },
+          ],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/Card/components/Header",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "typescript",
+              "path": "src/components/Card/components/Header/Header.tsx",
+            },
+            "presets": Array [
+              Object {
+                "path": "src/components/Card/components/Header/presets/0-default.jsx",
+              },
+            ],
+          },
+          "name": "Header",
+          "namespace": Object {
+            "importSlug": "Card_Header",
+            "name": "Card",
+          },
           "presets": Array [],
           "properties": Array [
             Object {
@@ -440,7 +894,60 @@ Object {
               "isRequired": false,
               "name": "title",
               "type": Object {
-                "name": "string",
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "actions",
+              "type": Object {
+                "name": "array",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+          ],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/Card/components/Section",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "typescript",
+              "path": "src/components/Card/components/Section/Section.tsx",
+            },
+            "presets": Array [
+              Object {
+                "path": "src/components/Card/components/Section/presets/0-default.jsx",
+              },
+            ],
+          },
+          "name": "Section",
+          "namespace": Object {
+            "importSlug": "Card_Section",
+            "name": "Card",
+          },
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "title",
+              "type": Object {
+                "name": "node",
                 "structure": Object {},
               },
             },
@@ -465,218 +972,310 @@ Object {
             Object {
               "description": "",
               "isRequired": false,
-              "name": "sectioned",
+              "name": "fullWidth",
               "type": Object {
                 "name": "boolean",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "actions",
-              "type": Object {
-                "name": "array",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "primaryFooterAction",
-              "type": Object {
-                "name": "shape",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "secondaryFooterAction",
-              "type": Object {
-                "name": "shape",
-                "structure": Object {},
-              },
-            },
-          ],
-        },
-        Object {
-          "documentation": Object {
-            "examples": Array [],
-          },
-          "info": Object {
-            "dirPath": "src/components/Choice",
-            "documentation": Object {
-              "path": "src/components/Choice/README.md",
-            },
-            "implementation": Object {
-              "framework": "reactjs",
-              "lang": "typescript",
-              "path": "src/components/Choice/Choice.tsx",
-            },
-            "presets": Array [],
-          },
-          "name": "Choice",
-          "presets": Array [],
-          "properties": Array [
-            Object {
-              "description": "",
-              "isRequired": true,
-              "name": "id",
-              "type": Object {
-                "name": "string",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": true,
-              "name": "label",
-              "type": Object {
-                "name": "string",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "error",
-              "type": Object {
-                "name": "unsupported",
-                "structure": Object {
-                  "raw": "export type Error = boolean | string;",
-                },
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "labelHidden",
-              "type": Object {
-                "name": "boolean",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "children",
-              "type": Object {
-                "name": "node",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "helpText",
-              "type": Object {
-                "name": "node",
-                "structure": Object {},
-              },
-            },
-          ],
-        },
-        Object {
-          "documentation": Object {
-            "examples": Array [
-              Object {
-                "code": "<Collapsible open>
-  <TextContainer>
-    Your mailing list lets you contact customers or visitors who have shown an interest in your store. Reach out to them with exclusive offers or updates about your products.
-  </TextContainer>
-</Collapsible>",
-              },
-            ],
-          },
-          "info": Object {
-            "dirPath": "src/components/Collapsible",
-            "documentation": Object {
-              "path": "src/components/Collapsible/README.md",
-            },
-            "implementation": Object {
-              "framework": "reactjs",
-              "lang": "typescript",
-              "path": "src/components/Collapsible/Collapsible.tsx",
-            },
-            "presets": Array [],
-          },
-          "name": "Collapsible",
-          "presets": Array [],
-          "properties": Array [
-            Object {
-              "description": "",
-              "isRequired": true,
-              "name": "open",
-              "type": Object {
-                "name": "boolean",
-                "structure": Object {},
-              },
-            },
-            Object {
-              "description": "",
-              "isRequired": false,
-              "name": "children",
-              "type": Object {
-                "name": "node",
-                "structure": Object {},
-              },
-            },
-          ],
-        },
-        Object {
-          "documentation": Object {
-            "examples": Array [
-              Object {
-                "code": "<DescriptionList
-  items={[
-    {
-      term: 'Logistics',
-      description: 'The management of products or other resources as they travel between a point of origin and a destination.',
-    },
-    {
-      term: 'Sole proprietorship',
-      description: 'A business structure where a single individual both owns and runs the company.',
-    },
-    {
-      term: 'Discount code',
-      description: 'A series of numbers and/or letters that an online shopper may enter at checkout to get a discount or special offer.',
-    },
-  ]}
-/>",
-              },
-            ],
-          },
-          "info": Object {
-            "dirPath": "src/components/DescriptionList",
-            "documentation": Object {
-              "path": "src/components/DescriptionList/README.md",
-            },
-            "implementation": Object {
-              "framework": "reactjs",
-              "lang": "typescript",
-              "path": "src/components/DescriptionList/DescriptionList.tsx",
-            },
-            "presets": Array [],
-          },
-          "name": "DescriptionList",
-          "presets": Array [],
-          "properties": Array [
-            Object {
-              "description": "",
-              "isRequired": true,
-              "name": "items",
-              "type": Object {
-                "name": "array",
                 "structure": Object {},
               },
             },
           ],
         },
       ],
-      "name": "Uncategorized",
+      "name": "Structure",
+    },
+    Object {
+      "components": Array [
+        Object {
+          "documentation": Object {
+            "examples": Array [
+              Object {
+                "code": "<Avatar customer name=\\"Farrah\\" />",
+              },
+            ],
+          },
+          "info": Object {
+            "dirPath": "src/components/Avatar",
+            "documentation": Object {
+              "path": "src/components/Avatar/README.md",
+            },
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "typescript",
+              "path": "src/components/Avatar/Avatar.tsx",
+            },
+            "presets": Array [
+              Object {
+                "path": "src/components/Avatar/presets/0-default.jsx",
+              },
+            ],
+          },
+          "name": "Avatar",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "defaultValue": Object {
+                "value": "medium",
+              },
+              "description": "Size of avatar",
+              "isRequired": false,
+              "name": "size",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "small",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "medium",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "large",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "description": "The name of the person",
+              "isRequired": false,
+              "name": "name",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Initials of person to display",
+              "isRequired": false,
+              "name": "initials",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Whether the avatar is for a customer",
+              "isRequired": false,
+              "name": "customer",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "URL of the avatar image which falls back to initials if the image fails to load",
+              "isRequired": false,
+              "name": "source",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Accessible label for the avatar image",
+              "isRequired": false,
+              "name": "accessibilityLabel",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "polaris",
+              "type": Object {
+                "name": "shape",
+                "structure": Object {},
+              },
+            },
+          ],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [
+              Object {
+                "code": "<Badge>Fulfilled</Badge>",
+              },
+              Object {
+                "code": "<Badge status=\\"info\\">Published</Badge>",
+              },
+              Object {
+                "code": "<Badge status=\\"success\\">Funds recovered</Badge>",
+              },
+              Object {
+                "code": "<Badge status=\\"attention\\">Unfulfilled</Badge>",
+              },
+              Object {
+                "code": "<Badge status=\\"warning\\">SSL unavailable</Badge>",
+              },
+              Object {
+                "code": "<Badge progress=\\"incomplete\\">Unfulfilled</Badge>",
+              },
+              Object {
+                "code": "<Badge progress=\\"partiallyComplete\\">Partially fulfilled</Badge>",
+              },
+              Object {
+                "code": "<Badge progress=\\"complete\\">Fulfilled</Badge>",
+              },
+            ],
+          },
+          "info": Object {
+            "dirPath": "src/components/Badge",
+            "documentation": Object {
+              "path": "src/components/Badge/README.md",
+            },
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "typescript",
+              "path": "src/components/Badge/Badge.tsx",
+            },
+            "presets": Array [
+              Object {
+                "path": "src/components/Badge/presets/0-default.jsx",
+              },
+            ],
+          },
+          "name": "Badge",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "The content to display inside the badge.",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Set the color of the badge for the given status.",
+              "isRequired": false,
+              "name": "status",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "success",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "info",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "attention",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "warning",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "new",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "description": "Render a pip showing the progress of a given task.",
+              "isRequired": false,
+              "name": "progress",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "incomplete",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "partiallyComplete",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "complete",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": "medium",
+              },
+              "description": "Medium or small size. Use \`small\` only in the main navigation of an app frame.",
+              "isRequired": false,
+              "name": "size",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "small",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "medium",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "polaris",
+              "type": Object {
+                "name": "shape",
+                "structure": Object {},
+              },
+            },
+          ],
+        },
+      ],
+      "name": "Images and Icons",
     },
   ],
-  "name": "",
+  "name": "Shopify Polaris",
+  "vcs": Object {
+    "branchName": "master",
+    "commitHash": "542e947993425fec876e89d1d4bb3c19fca2b5fe",
+  },
 }
 `;
