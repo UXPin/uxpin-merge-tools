@@ -19,6 +19,11 @@ export function collectPresetElements(
   }
 
   const { children, name, props: { uxpId, ...props } } = element;
+
+  if (!uxpId) {
+    throw new Error('Missing `uxpId` property');
+  }
+
   elementsCollector.result[uxpId] = {
     name,
     props: {
