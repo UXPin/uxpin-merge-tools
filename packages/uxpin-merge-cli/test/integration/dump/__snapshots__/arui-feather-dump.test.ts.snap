@@ -9683,52 +9683,7 @@ exports[`The dump command run for the arui-feather repository prints the JSON de
           },
           \\"name\\": \\"Swipeable\\",
           \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"defaultValue\\": {
-                \\"value\\": 100
-              },
-              \\"description\\": \\"Число пикселей, на которое нужно сместиться, чтобы запустить функцию по свайпу\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"delta\\",
-              \\"type\\": {
-                \\"name\\": \\"number\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"Функция запускаемая по свайпу. Принимает в качестве аргумента направление свайпа ('top', 'right', 'bottom', 'left')\\",
-              \\"isRequired\\": true,
-              \\"name\\": \\"onSwipe\\",
-              \\"type\\": {
-                \\"name\\": \\"func\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"Дочерний компонент представленный в виде единичного элемента\\",
-              \\"isRequired\\": true,
-              \\"name\\": \\"children\\",
-              \\"type\\": {
-                \\"name\\": \\"shape\\",
-                \\"structure\\": {
-                  \\"props\\": {
-                    \\"name\\": \\"shape\\",
-                    \\"structure\\": {
-                      \\"onMouseDown\\": {
-                        \\"name\\": \\"func\\",
-                        \\"structure\\": {}
-                      },
-                      \\"onTouchStart\\": {
-                        \\"name\\": \\"func\\",
-                        \\"structure\\": {}
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ]
+          \\"properties\\": []
         },
         {
           \\"documentation\\": {
@@ -9776,71 +9731,7 @@ exports[`The dump command run for the arui-feather repository prints the JSON de
           },
           \\"name\\": \\"Tabs\\",
           \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"defaultValue\\": {
-                \\"value\\": true
-              },
-              \\"description\\": \\"Управление возможность скроллить компонент по-горизонтали\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"scrollable\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"Дочерние компоненты\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"children\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"Тема компонента\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"theme\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"alfa-on-color\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"alfa-on-white\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              \\"description\\": \\"Дополнительный класс\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"Идентификатор компонента в DOM\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"id\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            }
-          ]
+          \\"properties\\": []
         },
         {
           \\"documentation\\": {
