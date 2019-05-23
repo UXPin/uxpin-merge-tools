@@ -1,9 +1,18 @@
-export interface ComponentPropertyDefinition {
-  name:string;
-  isRequired:boolean;
+export type ComponentPropertyDefinition = ComponentProperty & ComponentPropertyCustomDescriptors;
+
+export interface ComponentProperty {
   defaultValue?:PropertyDefaultValue;
   description:string;
+  isRequired:boolean;
+  name:string;
   type?:PropertyType;
+}
+
+export interface ComponentPropertyCustomDescriptors {
+  customDescription?:string;
+  customName?:string;
+  customType?:PropertyType;
+  hidden?:boolean;
 }
 
 export interface PropertyDefaultValue {
