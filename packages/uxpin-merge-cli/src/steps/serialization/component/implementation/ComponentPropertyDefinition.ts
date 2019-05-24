@@ -15,6 +15,13 @@ export interface ComponentPropertyCustomDescriptors {
   hidden?:boolean;
 }
 
+export enum CustomDescriptorsTags {
+  DESCRIPTION = '@uxpindescription',
+  HIDDEN = '@uxpinignoreproperty',
+  NAME = '@uxpinpropname',
+  TYPE = '@uxpintype',
+}
+
 export interface PropertyDefaultValue {
   value:any;
 }
