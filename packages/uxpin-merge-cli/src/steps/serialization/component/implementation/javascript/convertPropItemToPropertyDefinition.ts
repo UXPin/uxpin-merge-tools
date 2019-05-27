@@ -4,15 +4,17 @@ import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getDefaultValue } from './defaultValue/getDefaultValue';
 import { GeneralPropItem } from './FlowPropItem';
-import { getPropertyCustomDescriptors } from './props/getPropertyCustomDescriptors';
+import { getPropertyCustomDescriptorsWithWarnings } from './props/getPropertyCustomDescriptorsWithWarnings';
 import { getPropertyTypeWithWarnings } from './type/getPropertyTypeWithWarnings';
+import { getPropertyDescriptionWithWarnings } from './props/getPropertyDescriptionWithWarnings';
 
 export function convertPropItemToPropertyDefinition(propName:string,
   propItem:GeneralPropItem):Promise<PropDefinitionSerializationResult> {
   const partialProviders:Array<Promise<Warned<Partial<ComponentPropertyDefinition>>>> = [
     getDefaultValue(propName, propItem),
     getPropertyTypeWithWarnings(propName, propItem),
-    getPropertyCustomDescriptors(propName, propItem),
+    getPropertyCustomDescriptorsWithWarnings(propName, propItem),
+    getPropertyDescriptionWithWarnings(propName, propItem),
   ];
 
   const aggregator:Warned<ComponentPropertyDefinition> = {

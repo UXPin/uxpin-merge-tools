@@ -1,13 +1,13 @@
 import { ComponentPropertyCustomDescriptors } from '../../../ComponentPropertyDefinition';
-import { parsePropertyDescription } from '../parsePropertyDescription';
+import { getPropertyCustomDescriptors } from '../getPropertyCustomDescriptors';
 
-describe('parsePropertyDescription', () => {
+describe('getPropertyCustomDescriptors', () => {
   it('should not add any custom property descriptors if not provided in description', () => {
     // given
     const desc:string = '';
 
     // when
-    const descriptors:ComponentPropertyCustomDescriptors = parsePropertyDescription(desc);
+    const descriptors:ComponentPropertyCustomDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
     expect(descriptors).toEqual({});
@@ -18,7 +18,7 @@ describe('parsePropertyDescription', () => {
     const desc:string = '@uxpinpropname test';
 
     // when
-    const descriptors:ComponentPropertyCustomDescriptors = parsePropertyDescription(desc);
+    const descriptors:ComponentPropertyCustomDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
     expect(descriptors).toEqual({
@@ -32,7 +32,7 @@ describe('parsePropertyDescription', () => {
 @uxpinpropname test`;
 
     // when
-    const descriptors:ComponentPropertyCustomDescriptors = parsePropertyDescription(desc);
+    const descriptors:ComponentPropertyCustomDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
     expect(descriptors).toEqual({
@@ -49,7 +49,7 @@ description.
 @uxpinpropname test`;
 
     // when
-    const descriptors:ComponentPropertyCustomDescriptors = parsePropertyDescription(desc);
+    const descriptors:ComponentPropertyCustomDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
     expect(descriptors).toEqual({
@@ -71,7 +71,7 @@ awesome
     // tslint:enable:no-trailing-whitespace
 
     // when
-    const descriptors:ComponentPropertyCustomDescriptors = parsePropertyDescription(desc);
+    const descriptors:ComponentPropertyCustomDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
     expect(descriptors).toEqual({
