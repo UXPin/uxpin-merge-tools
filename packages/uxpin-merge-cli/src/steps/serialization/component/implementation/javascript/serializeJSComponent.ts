@@ -2,6 +2,7 @@ import { toPairs } from 'lodash';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
+import { validateProps } from '../../../validation/validateProps';
 import { getComponentNameFromPath } from '../../name/getComponentNameFromPath';
 import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
@@ -17,6 +18,7 @@ export function serializeJSComponent(component:ComponentImplementationInfo):Prom
 function thunkGetMetadata(implInfo:ComponentImplementationInfo):(parsed:ComponentDoc) => Promise<PartialResult> {
   return (parsed) => Promise.all(toPairs(parsed.props)
     .map(([propName, propType]) => convertPropItemToPropertyDefinition(propName, propType)))
+    .then(validateProps)
     .then((properties) => ({ name: getComponentNameFromPath(implInfo.path), properties }));
 }
 
