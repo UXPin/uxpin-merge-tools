@@ -27,7 +27,9 @@
       "json"
     ],
     "modulePathIgnorePatterns": [
-      "/node_modules/"
+      "/node_modules/",
+      "npm-cache",
+      ".npm"
     ],
     "testMatch": [
       "**/test/**/*.test.ts",

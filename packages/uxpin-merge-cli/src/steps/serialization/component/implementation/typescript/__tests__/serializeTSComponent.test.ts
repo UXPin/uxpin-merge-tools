@@ -1002,6 +1002,50 @@ describe('serializeTSComponent', () => {
         expect(serializedProps.result).toEqual(expectedMetadata);
       });
     });
+
+    it('serializes component with custom description, name and ignore', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithPropTypesWithComments');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithPropTypesWithComments',
+        properties: [
+          {
+            customDescription: `Multiline
+description
+of
+the
+component.`,
+            customName: 'type',
+            description: '',
+            isRequired: true,
+            name: 'buttonType',
+            type: {
+              name: 'string',
+              structure: {},
+            },
+          },
+          {
+            customDescription: 'Custom description',
+            customName: 'disabled',
+            description: 'This is description of isDisabled property',
+            hidden: true,
+            isRequired: true,
+            name: 'isDisabled',
+            type: {
+              name: 'boolean',
+              structure: {},
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
   });
 
 });
