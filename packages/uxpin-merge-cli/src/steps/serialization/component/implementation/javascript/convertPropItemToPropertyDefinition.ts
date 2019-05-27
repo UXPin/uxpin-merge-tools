@@ -6,6 +6,7 @@ import { getDefaultValue } from './defaultValue/getDefaultValue';
 import { GeneralPropItem } from './FlowPropItem';
 import { getPropertyCustomDescriptorsWithWarnings } from './props/getPropertyCustomDescriptorsWithWarnings';
 import { getPropertyTypeWithWarnings } from './type/getPropertyTypeWithWarnings';
+import { getPropertyDescriptionWithWarnings } from './props/getPropertyDescriptionWithWarnings';
 
 export function convertPropItemToPropertyDefinition(propName:string,
   propItem:GeneralPropItem):Promise<PropDefinitionSerializationResult> {
@@ -13,6 +14,7 @@ export function convertPropItemToPropertyDefinition(propName:string,
     getDefaultValue(propName, propItem),
     getPropertyTypeWithWarnings(propName, propItem),
     getPropertyCustomDescriptorsWithWarnings(propName, propItem),
+    getPropertyDescriptionWithWarnings(propName, propItem),
   ];
 
   const aggregator:Warned<ComponentPropertyDefinition> = {
