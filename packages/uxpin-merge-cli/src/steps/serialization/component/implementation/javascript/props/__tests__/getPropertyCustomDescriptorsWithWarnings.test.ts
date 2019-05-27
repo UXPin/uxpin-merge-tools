@@ -1,9 +1,9 @@
 import { Warned } from '../../../../../../../common/warning/Warned';
 import { ComponentPropertyCustomDescriptors } from '../../../ComponentPropertyDefinition';
 import { GeneralPropItem } from '../../FlowPropItem';
-import { getPropertyCustomDescriptors } from '../getPropertyCustomDescriptors';
+import { getPropertyCustomDescriptorsWithWarnings } from '../getPropertyCustomDescriptorsWithWarnings';
 
-describe('getPropertyCustomDescriptors', () => {
+describe('getPropertyCustomDescriptorsWithWarnings', () => {
   it('should not add any custom property descriptors if not provided in description', async () => {
     // given
     const property:GeneralPropItem = {
@@ -14,7 +14,8 @@ describe('getPropertyCustomDescriptors', () => {
     };
 
     // when
-    const descriptors:Warned<ComponentPropertyCustomDescriptors> = await getPropertyCustomDescriptors('name', property);
+    const descriptors:Warned<ComponentPropertyCustomDescriptors> =
+      await getPropertyCustomDescriptorsWithWarnings('name', property);
 
     // then
     expect(descriptors).toEqual({
@@ -34,7 +35,8 @@ describe('getPropertyCustomDescriptors', () => {
     };
 
     // when
-    const descriptors:Warned<ComponentPropertyCustomDescriptors> = await getPropertyCustomDescriptors('name', property);
+    const descriptors:Warned<ComponentPropertyCustomDescriptors> =
+      await getPropertyCustomDescriptorsWithWarnings('name', property);
 
     // then
     expect(descriptors).toEqual({
