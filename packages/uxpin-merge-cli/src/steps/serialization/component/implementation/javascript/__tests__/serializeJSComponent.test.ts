@@ -546,7 +546,7 @@ component.`,
       });
     });
 
-    it.only('serializes component with invalid custom names and gives proper warnings', () => {
+    it('serializes component with invalid custom names and gives proper warnings', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('PropTypesWithCorruptedComments');
       const expectedMetadata:ComponentMetadata = {
