@@ -4,7 +4,10 @@ import { ComponentPropertyCustomDescriptors } from '../../ComponentPropertyDefin
 import { GeneralPropItem } from '../FlowPropItem';
 import { parsePropertyDescription } from './parsePropertyDescription';
 
-export async function getPropertyCustomDescriptors(propName:string, propItem:GeneralPropItem):Promise<Warned<ComponentPropertyCustomDescriptors>> {
+export async function getPropertyCustomDescriptors(
+  propName:string,
+  propItem:GeneralPropItem,
+):Promise<Warned<ComponentPropertyCustomDescriptors>> {
   const result:ComponentPropertyCustomDescriptors = parsePropertyDescription(propItem.description);
   const warnings:WarningDetails[] = [];
 

@@ -18,7 +18,7 @@ function getLines(desc:string):string[] {
 
 function getTags(lines:string[]):string[] {
   return lines.reduce((result:string[], line:string) => {
-    const isTagLine: boolean = line.startsWith('@');
+    const isTagLine:boolean = line.startsWith('@');
     if (!isTagLine && !result.length) {
       return result;
     }

@@ -62,11 +62,13 @@ description.`,
 
   it('should trim whitespaces', () => {
     // given
+    // tslint:disable:no-trailing-whitespace
     const desc:string = `    @uxpindescription      Multiline
 awesome     
 
      description.
    			@uxpinpropname      test     `;
+    // tslint:enable:no-trailing-whitespace
 
     // when
     const descriptors:ComponentPropertyCustomDescriptors = parsePropertyDescription(desc);
