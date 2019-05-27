@@ -1,4 +1,5 @@
 import { assign } from 'lodash';
+import { isValidDescriptor } from '../../../props/descriptors/isValidDescriptor';
 import { ComponentPropertyCustomDescriptors, CustomDescriptorsTags } from '../../ComponentPropertyDefinition';
 
 export function parseTags(tags:string[]):ComponentPropertyCustomDescriptors {
@@ -62,8 +63,4 @@ function parseNameTag(value:string):Pick<ComponentPropertyCustomDescriptors, 'cu
   return {
     customName: value,
   };
-}
-
-function isValidDescriptor(descriptor:any):descriptor is CustomDescriptorsTags {
-  return Object.values(CustomDescriptorsTags).includes(descriptor);
 }
