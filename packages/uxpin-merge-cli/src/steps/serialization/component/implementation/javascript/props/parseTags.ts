@@ -1,5 +1,8 @@
 import { assign } from 'lodash';
 import { isValidDescriptor } from '../../../props/descriptors/isValidDescriptor';
+import { parseDescriptionTag } from '../../../props/descriptors/parseDescriptionTag';
+import { parseHiddenTag } from '../../../props/descriptors/parseHiddenTag';
+import { parseNameTag } from '../../../props/descriptors/parseNameTag';
 import { ComponentPropertyCustomDescriptors, CustomDescriptorsTags } from '../../ComponentPropertyDefinition';
 
 export function parseTags(tags:string[]):ComponentPropertyCustomDescriptors {
@@ -37,30 +40,4 @@ function parseTag(tag:string):Partial<ComponentPropertyCustomDescriptors> | unde
     default:
       return {};
   }
-}
-
-function parseDescriptionTag(value:string):Pick<ComponentPropertyCustomDescriptors, 'customDescription'> | undefined {
-  if (!value) {
-    return;
-  }
-
-  return {
-    customDescription: value,
-  };
-}
-
-function parseHiddenTag():Pick<ComponentPropertyCustomDescriptors, 'hidden'> {
-  return {
-    hidden: true,
-  };
-}
-
-function parseNameTag(value:string):Pick<ComponentPropertyCustomDescriptors, 'customName'> | undefined {
-  if (!value) {
-    return;
-  }
-
-  return {
-    customName: value,
-  };
 }
