@@ -1,4 +1,5 @@
 const LINES_DELIMETER:string = '\n';
+const UXPIN_JSDOC_TAG_PREFIX:string = '@uxpin';
 
 export function getPropertyDescription(desc:string = ''):string {
   const lines:string[] = getLines(desc);
@@ -8,12 +9,11 @@ export function getPropertyDescription(desc:string = ''):string {
     const prevLine:string = lines[i - 1] || '';
     const line:string = lines[i];
 
-    if (line === '' && prevLine === '') {
+    if (
+      (line === '' && prevLine === '')
+        || line.startsWith(UXPIN_JSDOC_TAG_PREFIX)
+    ) {
       continue;
-    }
-
-    if (line.startsWith('@')) {
-      break;
     }
 
     descLines.push(line);
@@ -22,7 +22,7 @@ export function getPropertyDescription(desc:string = ''):string {
   return descLines.join(LINES_DELIMETER).trim();
 }
 
-function getLines(desc:string):string[] {
+function getLines(desc:string = ''):string[] {
   return desc
     .split(LINES_DELIMETER)
     .map((line:string) => line.trim());

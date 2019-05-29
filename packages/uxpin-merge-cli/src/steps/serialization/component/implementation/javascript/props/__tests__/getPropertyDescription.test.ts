@@ -47,8 +47,8 @@ lines.`);
   describe('with custom descriptors', () => {
     it('should return empty string if only descriptors are provided', () => {
       // having
-      const desc:string = `@foo test
-@bar test2`;
+      const desc:string = `@uxpinfoo test
+@uxpinfoo test2`;
 
       // when
       // then
@@ -59,8 +59,8 @@ lines.`);
       // having
       const desc:string = `Some description
 
-@foo test
-@bar test2`;
+@uxpinfoo test
+@uxpinfoo test2`;
 
       // when
       // then
@@ -81,8 +81,8 @@ lines.
 
 
 
-@foo bar
-@bar baz`;
+@uxpinfoo bar
+@uxpinfoo baz`;
 
       // when
       // then
@@ -93,5 +93,22 @@ description
 with empty
 lines.`);
     });
+  });
+
+  describe('with external jsdoc tags', () => {
+    // having
+    const desc:string = `Some description
+
+@uxpindescription UXPin description
+@ignore
+@private
+@uxpinpropname User friendly name`;
+
+    // when
+    // then
+    expect(getPropertyDescription(desc)).toEqual(`Some description
+
+@ignore
+@private`);
   });
 });
