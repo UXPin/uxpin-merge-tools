@@ -601,6 +601,92 @@ component.`,
         ]);
       });
     });
+
+    it('serializes component with custom property types', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('PropTypesWithCustomTypes');
+      const expectedMetadata:ComponentMetadata = {
+        name: 'PropTypesWithCustomTypes',
+        properties: [
+          {
+            customType: {
+              name: 'textfield',
+              structure: {
+                rows: 1,
+              },
+            },
+            description: '',
+            isRequired: true,
+            name: 'textfield0',
+            type: {
+              name: 'string',
+              structure: {},
+            },
+          },
+          {
+            customType: {
+              name: 'textfield',
+              structure: {
+                rows: 5,
+              },
+            },
+            description: '',
+            isRequired: true,
+            name: 'textfield5',
+            type: {
+              name: 'string',
+              structure: {},
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'textfieldCorrupted',
+            type: {
+              name: 'string',
+              structure: {},
+            },
+          },
+          {
+            customType: {
+              name: 'textfield',
+              structure: {
+                rows: 3,
+              },
+            },
+            description: '',
+            isRequired: true,
+            name: 'textfieldDefault',
+            type: {
+              name: 'string',
+              structure: {},
+            },
+          },
+          {
+            customType: {
+              name: 'textfield',
+              structure: {
+                rows: 3,
+              },
+            },
+            description: '',
+            isRequired: true,
+            name: 'textfieldDefault2',
+            type: {
+              name: 'string',
+              structure: {},
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeJSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
   });
 
   function getImplementation(componentName:string):ComponentImplementationInfo {

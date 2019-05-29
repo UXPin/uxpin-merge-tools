@@ -5,8 +5,8 @@ import { PropDefinitionSerializationResult } from '../PropDefinitionSerializatio
 import { getDefaultValue } from './defaultValue/getDefaultValue';
 import { GeneralPropItem } from './FlowPropItem';
 import { getPropertyCustomDescriptorsWithWarnings } from './props/getPropertyCustomDescriptorsWithWarnings';
-import { getPropertyTypeWithWarnings } from './type/getPropertyTypeWithWarnings';
 import { getPropertyDescriptionWithWarnings } from './props/getPropertyDescriptionWithWarnings';
+import { getPropertyTypeWithWarnings } from './type/getPropertyTypeWithWarnings';
 
 export function convertPropItemToPropertyDefinition(propName:string,
   propItem:GeneralPropItem):Promise<PropDefinitionSerializationResult> {

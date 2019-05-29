@@ -3,6 +3,7 @@ import { isValidDescriptor } from '../../../props/descriptors/isValidDescriptor'
 import { parseDescriptionTag } from '../../../props/descriptors/parseDescriptionTag';
 import { parseHiddenTag } from '../../../props/descriptors/parseHiddenTag';
 import { parseNameTag } from '../../../props/descriptors/parseNameTag';
+import { parseTypeTag } from '../../../props/descriptors/parseTypeTag';
 import { ComponentPropertyCustomDescriptors, CustomDescriptorsTags } from '../../ComponentPropertyDefinition';
 
 export function parseTags(tags:string[]):ComponentPropertyCustomDescriptors {
@@ -34,7 +35,7 @@ function parseTag(tag:string):Partial<ComponentPropertyCustomDescriptors> | unde
     }
 
     case CustomDescriptorsTags.TYPE: {
-      return {};
+      return parseTypeTag(value);
     }
 
     default:
