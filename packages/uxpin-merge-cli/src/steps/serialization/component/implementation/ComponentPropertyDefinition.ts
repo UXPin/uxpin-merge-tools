@@ -11,7 +11,7 @@ export interface ComponentProperty {
 export interface ComponentPropertyCustomDescriptors {
   customDescription?:string;
   customName?:string;
-  customType?:PropertyType;
+  customType?:CustomControlType;
   hidden?:boolean;
 }
 
@@ -19,7 +19,7 @@ export enum CustomDescriptorsTags {
   DESCRIPTION = '@uxpindescription',
   HIDDEN = '@uxpinignoreproperty',
   NAME = '@uxpinpropname',
-  TYPE = '@uxpintype',
+  TYPE = '@uxpincontroltype',
 }
 
 export interface PropertyDefaultValue {
@@ -74,4 +74,21 @@ export interface FunctionStructure {
 export interface FunctionArgumentStructure {
   name:string;
   type:PropertyType;
+}
+
+export interface CustomControlType<T extends CustomControlTypeName = CustomControlTypeName> {
+  name:T;
+  structure:CustomControlTypeStructureMap[T];
+}
+
+export type CustomControlTypeName = keyof CustomControlTypeStructureMap;
+
+export interface CustomControlTypeStructureMap {
+  codeeditor:{};
+  input:{};
+  interactions:{};
+  number:{};
+  select:{};
+  switcher:{};
+  textfield:{ rows?:number };
 }

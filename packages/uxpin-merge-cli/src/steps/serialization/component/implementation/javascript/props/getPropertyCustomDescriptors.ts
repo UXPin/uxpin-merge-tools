@@ -10,7 +10,7 @@ export function getPropertyCustomDescriptors(desc:string):ComponentPropertyCusto
   return parseTags(tags);
 }
 
-function getLines(desc:string):string[] {
+function getLines(desc:string = ''):string[] {
   return desc
     .split(LINES_DELIMETER)
     .map((line:string) => line.trim());
