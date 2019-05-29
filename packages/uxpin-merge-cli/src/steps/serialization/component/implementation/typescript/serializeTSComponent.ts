@@ -1,6 +1,8 @@
+import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
-import { ComponentMetadata, ComponentNamespace } from '../../ComponentDefinition';
+import { validateProps } from '../../../validation/validateProps';
+import { ComponentNamespace } from '../../ComponentDefinition';
 import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { ImplSerializationResult } from '../ImplSerializationResult';
 import { getComponentDeclaration } from './component/getComponentDeclaration';
@@ -19,24 +21,15 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
   }
 
   const name:string = getComponentName(context, declaration);
-  const serializedProps:Warned<ComponentPropertyDefinition[]> =
+  const serializedProps:Array<Warned<ComponentPropertyDefinition>> =
     serializeComponentProperties(context, declaration);
 
-  let componentMetadata:ComponentMetadata = {
-    name,
-    properties: serializedProps.result,
-  };
+  const validatedProps:Array<Warned<ComponentPropertyDefinition>> = validateProps(serializedProps);
 
   const namespace:ComponentNamespace | undefined = getComponentNamespace(declaration, name);
-  if (namespace) {
-    componentMetadata = {
-      ...componentMetadata,
-      namespace,
-    };
-  }
 
   return {
-    result: componentMetadata,
-    warnings: serializedProps.warnings,
+    result: { name, properties:validatedProps.map(({ result }) => result), namespace },
+    warnings: joinWarningLists(validatedProps.map(({ warnings }) => warnings), component.path),
   };
 }

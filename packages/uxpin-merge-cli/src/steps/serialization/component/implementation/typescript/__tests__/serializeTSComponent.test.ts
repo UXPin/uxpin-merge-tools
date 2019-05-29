@@ -1046,6 +1046,62 @@ component.`,
         expect(serializedProps.warnings).toEqual([]);
       });
     });
+
+    it('serializes component with invalid custom names and gives proper warning', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithCorruptedComments');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithCorruptedComments',
+        properties: [
+          {
+            customName: 'duplicatedCustomName',
+            description: '',
+            isRequired: true,
+            name: 'buttonType',
+            type: {
+              name: 'string',
+              structure: {},
+            },
+          },
+          {
+            customName: 'duplicatedCustomName',
+            description: '',
+            isRequired: true,
+            name: 'isDisabled',
+            type: {
+              name: 'boolean',
+              structure: {},
+            },
+          },
+          {
+            customName: 'isDisabled',
+            description: '',
+            isRequired: true,
+            name: 'isDisabledDuplicate',
+            type: {
+              name: 'boolean',
+              structure: {},
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([
+          {
+            message: 'Duplicated custom property name ("duplicatedCustomName") for "isDisabled"',
+            sourcePath: component.path,
+          },
+          {
+            message: 'Custom property name ("isDisabled") for "isDisabledDuplicate" matches existing property name',
+            sourcePath: component.path,
+          },
+        ]);
+      });
+    });
   });
 
 });

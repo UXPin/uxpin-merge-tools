@@ -15,7 +15,7 @@ import { isPropertySignatureSymbol, PropertySymbol } from './property/symbol/isP
 export function serializeComponentProperties(
   context:TSSerializationContext,
   componentDeclaration:ComponentDeclaration,
-):Warned<ComponentPropertyDefinition[]> {
+):Array<Warned<ComponentPropertyDefinition>> {
   const { propsTypeNode, defaultProps } = getPropsTypeAndDefaultProps(context, componentDeclaration);
   if (!propsTypeNode) {
     throw new Error('No component properties found');
@@ -23,7 +23,7 @@ export function serializeComponentProperties(
 
   const typeFromTypeNode:ts.Type = context.checker.getTypeFromTypeNode(propsTypeNode);
   const props:ts.Symbol[] = typeFromTypeNode.getProperties();
-  const serializedProps:ComponentPropertyDefinition[] = props.reduce((properties, propSymbol) => {
+  return props.reduce((properties, propSymbol) => {
     if (isPropertySignatureSymbol(propSymbol)) {
       properties.push(propertySignatureToPropertyDefinition(context, propSymbol, defaultProps));
     }
@@ -33,19 +33,20 @@ export function serializeComponentProperties(
     }
 
     return properties;
-  }, [] as ComponentPropertyDefinition[]);
-
-  return { result: serializedProps, warnings: [] };
+  }, [] as Array<Warned<ComponentPropertyDefinition>>);
 }
 
 function propertySignatureToPropertyDefinition(
   env:TSSerializationContext,
   propSymbol:PropertySymbol,
   defaultProps:DefaultProps,
-):ComponentPropertyDefinition {
+):Warned<ComponentPropertyDefinition> {
   const prop:ComponentPropertyDefinition = convertPropertySignatureSymbolToPropertyDefinition(env, propSymbol);
   if (prop.name in defaultProps) {
     prop.defaultValue = { value: defaultProps[prop.name] };
   }
-  return prop;
+  return {
+    result: prop,
+    warnings: [],
+  };
 }
