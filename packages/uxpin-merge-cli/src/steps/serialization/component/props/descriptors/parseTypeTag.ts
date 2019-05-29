@@ -1,4 +1,4 @@
-import { ComponentPropertyCustomDescriptors } from '../../implementation/ComponentPropertyDefinition';
+import { ComponentPropertyCustomDescriptors, CustomControlTypeName } from '../../implementation/ComponentPropertyDefinition';
 
 type ParseResult = Pick<ComponentPropertyCustomDescriptors, 'customType'> | undefined;
 
@@ -13,8 +13,13 @@ export function parseTypeTag(value:string):ParseResult {
   }
 
   switch (typeMatch[0]) {
-    case 'codeeditor': {
-      return parseCodeEditor();
+    case 'codeeditor':
+    case 'input':
+    case 'interactions':
+    case 'number':
+    case 'select':
+    case 'switcher': {
+      return parseCustomType(typeMatch[0] as CustomControlTypeName);
     }
 
     case 'textfield': {
@@ -51,10 +56,10 @@ function parseTextfieldType(value:string):ParseResult {
   };
 }
 
-function parseCodeEditor():ParseResult {
+function parseCustomType(name:CustomControlTypeName):ParseResult {
   return {
     customType: {
-      name: 'codeeditor',
+      name,
       structure: {},
     },
   };
