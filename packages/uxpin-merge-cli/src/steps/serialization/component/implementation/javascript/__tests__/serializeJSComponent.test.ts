@@ -502,7 +502,7 @@ ReferenceError: some is not defined
       });
     });
 
-    it.only('serializes component with custom description, name and ignore', () => {
+    it('serializes component with custom description, name and ignore', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('PropTypesWithComments');
       const expectedMetadata:ComponentMetadata = {

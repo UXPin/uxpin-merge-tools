@@ -1,21 +1,30 @@
+import { using } from '../../../../../../../test/utils/using';
+import { CustomDescriptorsTags } from '../../../implementation/ComponentPropertyDefinition';
 import { isValidDescriptor } from '../isValidDescriptor';
 
+interface TestCase {
+  descriptor:string;
+  expectedValue:boolean;
+}
+
+const cases:TestCase[] = [
+  ...Object.values(CustomDescriptorsTags).map((descriptor:string) => ({
+    descriptor,
+    expectedValue: true,
+  })),
+  {
+    descriptor: '@somefaketag',
+    expectedValue: false,
+  },
+];
+
 describe('isValidDescriptor', () => {
-  it('should return true if given value is valid custom property descriptor', () => {
-    // given
-    // when
-    const descriptor:any = '@uxpindescription';
+  using(cases)
+    .describe('correctly returns paths for', (testCase:TestCase) => {
+      const { descriptor, expectedValue } = testCase;
 
-    // then
-    expect(isValidDescriptor(descriptor)).toBe(true);
-  });
-
-  it('should return false otherwise', () => {
-    // given
-    // when
-    const descriptor:any = '@somefaketag';
-
-    // then
-    expect(isValidDescriptor(descriptor)).toBe(false);
-  });
+      it(`should return ${expectedValue} for ${descriptor}`, () => {
+        expect(isValidDescriptor(descriptor)).toEqual(expectedValue);
+      });
+    });
 });
