@@ -95,20 +95,24 @@ lines.`);
     });
   });
 
-  describe('with external jsdoc tags', () => {
-    // having
-    const desc:string = `Some description
+  describe('with external JSDoc tags', () => {
+    it('should keep external JSDoc tags', () => {
+      // having
+      const desc:string = `Some description
 
-@uxpindescription UXPin description
+@uxpindescription Multiline
+UXPin
+description
 @ignore
 @private
 @uxpinpropname User friendly name`;
 
-    // when
-    // then
-    expect(getPropertyDescription(desc)).toEqual(`Some description
+      // when
+      // then
+      expect(getPropertyDescription(desc)).toEqual(`Some description
 
 @ignore
 @private`);
+    });
   });
 });
