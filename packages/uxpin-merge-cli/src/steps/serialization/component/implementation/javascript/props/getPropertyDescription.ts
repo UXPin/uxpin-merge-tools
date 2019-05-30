@@ -1,4 +1,5 @@
-const LINES_DELIMETER:string = '\n';
+import { getLines, LINES_DELIMETER } from './getLines';
+
 const GENERAL_JSDOC_TAG_PREFIX:string = '@';
 const UXPIN_JSDOC_TAG_PREFIX:string = '@uxpin';
 
@@ -25,10 +26,4 @@ export function getPropertyDescription(desc:string = ''):string {
   }
 
   return descLines.join(LINES_DELIMETER).trim();
-}
-
-function getLines(desc:string = ''):string[] {
-  return desc
-    .split(LINES_DELIMETER)
-    .map((line:string) => line.trim());
 }

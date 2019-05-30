@@ -1,19 +1,12 @@
 import { ComponentPropertyCustomDescriptors } from '../../ComponentPropertyDefinition';
+import { getLines, LINES_DELIMETER } from './getLines';
 import { parseTags } from './parseTags';
-
-const LINES_DELIMETER:string = '\n';
 
 export function getPropertyCustomDescriptors(desc:string):ComponentPropertyCustomDescriptors {
   const lines:string[] = getLines(desc);
   const tags:string[] = getTags(lines);
 
   return parseTags(tags);
-}
-
-function getLines(desc:string = ''):string[] {
-  return desc
-    .split(LINES_DELIMETER)
-    .map((line:string) => line.trim());
 }
 
 function getTags(lines:string[]):string[] {
