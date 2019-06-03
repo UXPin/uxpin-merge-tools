@@ -39,7 +39,7 @@ export const expectedAvatarDefinition:ComponentDefinition = {
         value: '',
       },
       description: '',
-      isRequired: true,
+      isRequired: false,
       name: 'size',
       type: {
         name: 'union',
