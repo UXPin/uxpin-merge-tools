@@ -1,9 +1,11 @@
 import { Warned } from '../../../common/warning/Warned';
 import { ComponentPropertyDefinition } from '../component/implementation/ComponentPropertyDefinition';
 import { validateCustomNames } from './props/validateCustomNames';
+import { validateCustomTypes } from './props/validateCustomTypes';
 
 const VALIDATORS:ComponentPropertyDefinitionValidator[] = [
   validateCustomNames,
+  validateCustomTypes,
 ];
 
 export type ComponentPropertyDefinitionValidator =
@@ -12,7 +14,8 @@ export type ComponentPropertyDefinitionValidator =
 export function validateProps(
   props:Array<Warned<ComponentPropertyDefinition>>,
 ):Array<Warned<ComponentPropertyDefinition>> {
-  VALIDATORS.forEach((validator) => validator(props));
+  const result:Array<Warned<ComponentPropertyDefinition>> = VALIDATORS
+    .reduce((validated, validator) => validator(validated), props);
 
-  return props;
+  return result;
 }
