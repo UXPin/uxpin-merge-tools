@@ -38,7 +38,7 @@ export function validateCustomNames(
     return {
       ...prop,
       warnings,
-    }
+    };
   });
 
   return result;

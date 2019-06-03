@@ -14,18 +14,18 @@ export function validateCustomTypes(
     }
 
     if (!isCustomTypeAllowedForType(customType.name, type.name)) {
-      const result:ComponentPropertyDefinition = {
+      const propResult:ComponentPropertyDefinition = {
         ...prop.result,
       };
 
-      delete result.customType;
+      delete propResult.customType;
 
       const warnings:WarningDetails[] = [
         { message: `Custom type "${customType.name}" can not be applied to "${type.name}" ("${prop.result.name}").` },
       ];
 
       return {
-        result,
+        result: propResult,
         warnings,
       };
     }
