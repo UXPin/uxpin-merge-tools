@@ -29,7 +29,11 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
   const namespace:ComponentNamespace | undefined = getComponentNamespace(declaration, name);
 
   return {
-    result: { name, properties:validatedProps.map(({ result }) => result), namespace },
+    result: {
+      name,
+      namespace,
+      properties:validatedProps.map(({ result }) => result),
+    },
     warnings: joinWarningLists(validatedProps.map(({ warnings }) => warnings), component.path),
   };
 }
