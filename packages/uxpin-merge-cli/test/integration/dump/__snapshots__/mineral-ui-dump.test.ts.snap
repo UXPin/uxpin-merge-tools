@@ -556,7 +556,7 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
               }
             },
             {
-              \\"description\\": \\"Behavioral mode of [Button](/components/button) children: either\\\\n   [Radio](/components/radio) or [Checkbox](/components/checkbox)\\",
+              \\"description\\": \\"Behavioral mode of [Button](/components/button) children: either\\\\n[Radio](/components/radio) or [Checkbox](/components/checkbox)\\",
               \\"isRequired\\": false,
               \\"name\\": \\"mode\\",
               \\"type\\": {
@@ -13182,7 +13182,7 @@ exports[`The dump command run for the mineral-ui repository prints the JSON desc
               }
             },
             {
-              \\"description\\": \\"When \`true\`, FlexItem composes [Flex](/components/flex); when \`false\`, it\\\\n   composes [Box](/components/box)\\",
+              \\"description\\": \\"When \`true\`, FlexItem composes [Flex](/components/flex); when \`false\`, it\\\\ncomposes [Box](/components/box)\\",
               \\"isRequired\\": false,
               \\"name\\": \\"flex\\",
               \\"type\\": {
