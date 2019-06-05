@@ -220,22 +220,5 @@ component.`,
         expect(serializedProps.warnings).toEqual(expectedWarnings);
       });
     });
-
-    it.skip('serializes and validates component with custom types', () => {
-      // given
-      const component:ComponentImplementationInfo = getImplementation('PropTypesWithCustomTypes');
-      const expectedMetadata:ComponentMetadata = {
-        name: 'PropTypesWithCustomTypes',
-        properties: [],
-      };
-      const expectedWarnings:WarningDetails[] = [];
-
-      // when
-      return serializeJSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual(expectedWarnings);
-      });
-    });
   });
 });
