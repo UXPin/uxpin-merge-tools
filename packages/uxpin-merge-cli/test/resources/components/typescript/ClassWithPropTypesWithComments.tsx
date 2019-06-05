@@ -18,6 +18,12 @@ export interface Props {
    * @uxpinpropname disabled
    */
   isDisabled:boolean;
+  /**
+   * Callback when a link is clicked
+   * @uxpindescription some alternative custom function description
+   * @uxpinignoreproperty
+   */
+  onClick():void;
 }
 
 export default class ClassWithPropTypesWithComments extends React.Component<Props> {

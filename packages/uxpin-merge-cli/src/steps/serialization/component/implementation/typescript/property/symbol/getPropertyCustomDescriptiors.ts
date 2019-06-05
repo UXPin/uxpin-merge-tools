@@ -3,9 +3,9 @@ import {
   ComponentPropertyCustomDescriptors,
 } from '../../../ComponentPropertyDefinition';
 import { parseTags } from '../../../javascript/props/parseTags';
-import { PropertySymbol } from './isPropertySignatureSymbol';
+import { ReactPropertySymbol } from './ReactPropertySymbol';
 
-export function getPropertyCustomDescriptors(propertySymbol:PropertySymbol):ComponentPropertyCustomDescriptors {
+export function getPropertyCustomDescriptors(propertySymbol:ReactPropertySymbol):ComponentPropertyCustomDescriptors {
 
   const uxpinJsDocTags:string[] = propertySymbol
     .getJsDocTags()

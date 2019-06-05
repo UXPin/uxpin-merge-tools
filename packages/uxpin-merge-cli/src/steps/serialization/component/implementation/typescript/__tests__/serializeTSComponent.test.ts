@@ -1036,6 +1036,17 @@ component.`,
               structure: {},
             },
           },
+          {
+            customDescription: 'some alternative custom function description',
+            description: 'Callback when a link is clicked',
+            hidden: true,
+            isRequired: true,
+            name: 'onClick',
+            type: {
+              name: 'func',
+              structure: {},
+            },
+          },
         ],
       };
 
