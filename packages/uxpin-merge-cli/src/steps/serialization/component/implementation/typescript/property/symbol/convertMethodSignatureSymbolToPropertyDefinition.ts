@@ -11,7 +11,6 @@ export function convertMethodSignatureSymbolToPropertyDefinition(
   context:TSSerializationContext,
   methodSymbol:MethodSymbol,
 ):Warned<ComponentPropertyDefinition> {
-  getPropertyCustomDescriptors(methodSymbol);
   return {
     result: {
       description: getJSDocDocumentation(context, methodSymbol),
