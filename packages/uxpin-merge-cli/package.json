@@ -1,6 +1,6 @@
 {
   "name": "@uxpin/merge-cli",
-  "version": "1.5.0-dev.1",
+  "version": "1.5.0-dev.2",
   "description": "The Command-line tool integrates the Design System repository with: https://www.uxpin.com/merge",
   "main": "src/index.js",
   "bin": {
