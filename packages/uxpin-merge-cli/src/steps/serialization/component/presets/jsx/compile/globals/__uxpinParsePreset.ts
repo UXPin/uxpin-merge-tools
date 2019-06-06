@@ -13,6 +13,11 @@ function __uxpinParsePreset(
   props?:JSXSerializedElementProps,
   ...children:AnySerializedElement[]):JSXSerializedElement {
 
+  if (component === undefined) {
+    console.trace();
+    throw new Error('Unknown component!');
+  }
+
   const componentName:string = !!component.name ? component.name : 'Unknown';
 
   return {
