@@ -19,7 +19,7 @@ const CUSTOM_TYPE_ALLOWANCE_MAP:{
   [CustomControlTypeName.Interactions]: ['func'],
   [CustomControlTypeName.Number]: ['number'],
   [CustomControlTypeName.Switcher]: ['boolean'],
-  [CustomControlTypeName.Select]: ['literal'],
+  [CustomControlTypeName.Select]: ['union'],
   [CustomControlTypeName.Textfield]: [
     ...ARRAY_TYPES,
     ...ELEMENT_TYPES,
