@@ -1002,6 +1002,117 @@ describe('serializeTSComponent', () => {
         expect(serializedProps.result).toEqual(expectedMetadata);
       });
     });
+
+    it('serializes component with custom description, name and ignore', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithPropTypesWithComments');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithPropTypesWithComments',
+        properties: [
+          {
+            customDescription: `Multiline
+description
+of
+the
+component.`,
+            customName: 'type',
+            description: '',
+            isRequired: true,
+            name: 'buttonType',
+            type: {
+              name: 'string',
+              structure: {},
+            },
+          },
+          {
+            customDescription: 'Custom description',
+            customName: 'disabled',
+            description: 'This is description of isDisabled property',
+            hidden: true,
+            isRequired: true,
+            name: 'isDisabled',
+            type: {
+              name: 'boolean',
+              structure: {},
+            },
+          },
+          {
+            customDescription: 'some alternative custom function description',
+            description: 'Callback when a link is clicked',
+            hidden: true,
+            isRequired: true,
+            name: 'onClick',
+            type: {
+              name: 'func',
+              structure: {},
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes component with invalid custom names and gives proper warning', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithCorruptedComments');
+      const expectedProps:ComponentMetadata = {
+        name: 'ClassWithCorruptedComments',
+        properties: [
+          {
+            customName: 'duplicatedCustomName',
+            description: '',
+            isRequired: true,
+            name: 'buttonType',
+            type: {
+              name: 'string',
+              structure: {},
+            },
+          },
+          {
+            customName: 'duplicatedCustomName',
+            description: '',
+            isRequired: true,
+            name: 'isDisabled',
+            type: {
+              name: 'boolean',
+              structure: {},
+            },
+          },
+          {
+            customName: 'isDisabled',
+            description: '',
+            isRequired: true,
+            name: 'isDisabledDuplicate',
+            type: {
+              name: 'boolean',
+              structure: {},
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([
+          {
+            message: 'Duplicated custom property name ("duplicatedCustomName") for "isDisabled"',
+            sourcePath: component.path,
+          },
+          {
+            message: 'Custom property name ("isDisabled") for "isDisabledDuplicate" matches existing property name',
+            sourcePath: component.path,
+          },
+        ]);
+      });
+    });
   });
 
 });
