@@ -32,7 +32,7 @@ export function parseTypeTag(value:string):ParseResult {
   }
 }
 
-const TEXTFIELD_REGEX:RegExp = /(^textfield$|^textfield(\(([\d])?\)))/;
+const TEXTFIELD_REGEX:RegExp = /(^textfield$|^textfield(\(([\d]+)?\)))/;
 const TEXTFIELD_DEFAULT_ROWS:number = 3;
 const ROWS_MATCH_ID:number = 3;
 
