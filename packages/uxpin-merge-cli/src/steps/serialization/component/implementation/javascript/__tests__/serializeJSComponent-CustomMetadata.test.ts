@@ -220,5 +220,100 @@ component.`,
         expect(serializedProps.warnings).toEqual(expectedWarnings);
       });
     });
+
+    it('serializes component with unions', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('PropTypesWithSelectCustomType');
+      const expectedMetadata:ComponentMetadata = {
+        name: 'PropTypesWithSelectCustomType',
+        properties: [
+          {
+            customType: {
+              name: CustomControlTypeName.Select,
+              structure: {},
+            },
+            description: '',
+            isRequired: false,
+            name: 'unionLiteral',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  {
+                    name: 'literal',
+                    structure: {
+                      value: 'yes',
+                    },
+                  },
+                  {
+                    name: 'literal',
+                    structure: {
+                      value: 'no',
+                    },
+                  },
+                ],
+              },
+            },
+          },
+          {
+            customType: {
+              name: CustomControlTypeName.Number,
+              structure: {},
+            },
+            description: '',
+            isRequired: false,
+            name: 'unionTypes',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  {
+                    name: 'string',
+                    structure: {},
+                  },
+                  {
+                    name: 'number',
+                    structure: {},
+                  },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'unionTypesWrongCustom',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  {
+                    name: 'string',
+                    structure: {},
+                  },
+                  {
+                    name: 'number',
+                    structure: {},
+                  },
+                ],
+              },
+            },
+          },
+        ],
+      };
+      const expectedWarnings:WarningDetails[] = [
+        {
+          message: 'Custom type "switcher" can not be applied to "union" ("unionTypesWrongCustom").',
+          sourcePath: component.path,
+        },
+      ];
+
+      // when
+      return serializeJSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual(expectedWarnings);
+      });
+    });
   });
 });

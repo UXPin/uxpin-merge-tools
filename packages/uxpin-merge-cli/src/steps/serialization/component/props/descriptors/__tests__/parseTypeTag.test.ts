@@ -1,5 +1,8 @@
 import { using } from '../../../../../../../test/utils/using';
-import { CustomControlTypeName, ComponentPropertyCustomDescriptors } from '../../../implementation/ComponentPropertyDefinition';
+import {
+  ComponentPropertyCustomDescriptors,
+  CustomControlTypeName,
+} from '../../../implementation/ComponentPropertyDefinition';
 import { parseTypeTag } from '../parseTypeTag';
 
 const cases:TestCase[] = [
@@ -7,17 +10,16 @@ const cases:TestCase[] = [
     .filter((customType) => customType !== CustomControlTypeName.Textfield)
     .map((customType) => {
       return {
-        tag: customType,
         expectedValue: {
           customType: {
             name: customType,
             structure: {},
           },
         },
+        tag: customType,
       };
     }),
   {
-    tag: 'textfield',
     expectedValue: {
       customType: {
         name: CustomControlTypeName.Textfield,
@@ -26,9 +28,9 @@ const cases:TestCase[] = [
         },
       },
     },
+    tag: 'textfield',
   },
   {
-    tag: 'textfield(10000)',
     expectedValue: {
       customType: {
         name: CustomControlTypeName.Textfield,
@@ -37,29 +39,30 @@ const cases:TestCase[] = [
         },
       },
     },
+    tag: 'textfield(10000)',
   },
   {
+    expectedValue: undefined,
     tag: 'textfield(Infinity)',
-    expectedValue: undefined,
   },
   {
+    expectedValue: undefined,
     tag: 'textfield(abc)',
-    expectedValue: undefined,
   },
   {
-    tag: 'unknown',
     expectedValue: undefined,
+    tag: 'unknown',
   },
 ];
 
 describe('parseTypeTag', () => {
   using(cases)
     .describe('should parse custom types', ({ tag, expectedValue }) => {
-      it(tag, () => expect(parseTypeTag(tag)).toEqual(expectedValue))
+      it(tag, () => expect(parseTypeTag(tag)).toEqual(expectedValue));
     });
 });
 
 interface TestCase {
-  tag:CustomControlTypeName | string,
-  expectedValue:Pick<ComponentPropertyCustomDescriptors, 'customType'> | undefined,
+  expectedValue:Pick<ComponentPropertyCustomDescriptors, 'customType'> | undefined;
+  tag:CustomControlTypeName | string;
 }

@@ -1,4 +1,10 @@
-import { CustomControlTypeName, PropertyTypeName } from '../../component/implementation/ComponentPropertyDefinition';
+import { uniq } from 'lodash';
+import {
+  CustomControlType,
+  CustomControlTypeName,
+  PropertyType,
+  PropertyTypeName,
+} from '../../component/implementation/ComponentPropertyDefinition';
 
 const ARRAY_TYPES:PropertyTypeName[] = ['array', 'typedArray'];
 const OBJECT_TYPES:PropertyTypeName[] = ['custom', 'object', 'shape'];
@@ -19,7 +25,7 @@ const CUSTOM_TYPE_ALLOWANCE_MAP:{
   [CustomControlTypeName.Interactions]: ['func'],
   [CustomControlTypeName.Number]: ['number'],
   [CustomControlTypeName.Switcher]: ['boolean'],
-  [CustomControlTypeName.Select]: ['union'],
+  [CustomControlTypeName.Select]: ['literal'],
   [CustomControlTypeName.Textfield]: [
     ...ARRAY_TYPES,
     ...ELEMENT_TYPES,
@@ -28,8 +34,30 @@ const CUSTOM_TYPE_ALLOWANCE_MAP:{
   ],
 };
 
-export function isCustomTypeAllowedForType(customTypeName:CustomControlTypeName, typeName:PropertyTypeName):boolean {
+export function isCustomTypeAllowedForType(customType:CustomControlType, baseType:PropertyType):boolean {
+  const { name: customTypeName } = customType;
+  const { name: baseTypeName } = baseType;
+
+  if (baseTypeName === 'union') {
+    return isCustomTypeAllowedForUnionType(customType, baseType as PropertyType<'union'>);
+  }
+
+  return isCustomTypeAllowed(customTypeName, baseTypeName);
+}
+
+function isCustomTypeAllowedForUnionType(customType:CustomControlType, baseType:PropertyType<'union'>):boolean {
+  const elementsTypes:PropertyTypeName[] = baseType.structure.elements.map((type) => type.name);
+  const hasSameElementsTypes:boolean = !!elementsTypes.length && uniq(elementsTypes).length === 1;
+
+  if (hasSameElementsTypes) {
+    return isCustomTypeAllowed(customType.name, elementsTypes[0]);
+  }
+
+  return elementsTypes.some((name) => isCustomTypeAllowed(customType.name, name));
+}
+
+function isCustomTypeAllowed(customTypeName:CustomControlTypeName, baseTypeName:PropertyTypeName):boolean {
   const allowed:PropertyTypeName[] | undefined = CUSTOM_TYPE_ALLOWANCE_MAP[customTypeName];
 
-  return Array.isArray(allowed) && allowed.includes(typeName);
+  return Array.isArray(allowed) && allowed.includes(baseTypeName);
 }

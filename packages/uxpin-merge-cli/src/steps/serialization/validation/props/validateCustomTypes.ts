@@ -13,7 +13,7 @@ export function validateCustomTypes(
       return prop;
     }
 
-    if (!isCustomTypeAllowedForType(customType.name, type.name)) {
+    if (!isCustomTypeAllowedForType(customType, type)) {
       const propResult:ComponentPropertyDefinition = {
         ...prop.result,
       };
