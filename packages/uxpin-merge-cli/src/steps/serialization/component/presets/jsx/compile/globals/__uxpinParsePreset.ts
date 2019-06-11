@@ -1,3 +1,4 @@
+import { take } from 'lodash';
 import { WarningDetails } from '../../../../../../../common/warning/WarningDetails';
 import {
   AnySerializedElement,
@@ -6,7 +7,6 @@ import {
   JSXSerializedElementProps,
 } from '../../JSXSerializationResult';
 import { ComponentPlaceholder } from '../generateVirtualModules';
-import { take } from 'lodash';
 
 // tslint:disable-next-line:function-name
 function __uxpinParsePreset(
@@ -15,7 +15,7 @@ function __uxpinParsePreset(
   ...children:AnySerializedElement[]):JSXSerializedElement {
 
   if (component === undefined) {
-    const error = new Error('Unknown component!');
+    const error:Error = new Error('Unknown component!');
     error.message = parsePresetErrorMessage(error);
     throw error;
   }
@@ -45,6 +45,7 @@ function getPropertySerializationWarnings(props:JSXSerializedElementProps|undefi
   }, []);
 }
 
+const ERROR_LINES:number = 5;
 function parsePresetErrorMessage(error:Error):string {
   if (!error.stack) {
     return error.message;
@@ -52,7 +53,7 @@ function parsePresetErrorMessage(error:Error):string {
 
   const lines:string[] = error.stack.split('\n').filter((line) => !line.match(/at __uxpinParsePreset/gi));
 
-  return take(lines, 5).join('\n');
+  return take(lines, ERROR_LINES).join('\n');
 }
 
 (global as any).__uxpinParsePreset = __uxpinParsePreset;

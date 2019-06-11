@@ -52,6 +52,7 @@ describe('The dump command', () => {
     });
 
     it('prints error about unresolved import', async () => {
+      // tslint:disable-next-line:no-magic-numbers
       expect.assertions(2);
 
       // given
