@@ -52,7 +52,7 @@ describe('The dump command', () => {
     });
 
     it('prints error about unresolved import', async () => {
-      expect.assertions(1);
+      expect.assertions(2);
 
       // given
       // when
@@ -66,7 +66,8 @@ describe('The dump command', () => {
           ],
         });
       } catch (error) {
-        expect(error.stderr).toMatch(/Unknown component\'/gm);
+        expect(error.stderr).toMatch(/Unknown component/gm);
+        expect(error.stderr).toMatch(/src\/components\/Button\/presets\/1-corrupted-import\.jsx/gm);
       }
     });
   });
