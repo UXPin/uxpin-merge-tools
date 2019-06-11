@@ -7,9 +7,7 @@
       "noSrcDir",
       "noUxpinConfig",
       "twoComponentsWithConfig",
-      "withCorruptedPresets",
       "withEpidFile",
-      "withPresets",
       "watchingChanges"
     ],
     "nohoist": [
