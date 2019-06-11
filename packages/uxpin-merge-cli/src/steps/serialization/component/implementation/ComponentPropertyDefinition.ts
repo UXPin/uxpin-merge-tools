@@ -81,14 +81,22 @@ export interface CustomControlType<T extends CustomControlTypeName = CustomContr
   structure:CustomControlTypeStructureMap[T];
 }
 
-export type CustomControlTypeName = keyof CustomControlTypeStructureMap;
+export enum CustomControlTypeName {
+  CodeEditor = 'codeeditor',
+  Input = 'input',
+  Interactions = 'interactions',
+  Number = 'number',
+  Select = 'select',
+  Switcher = 'switcher',
+  Textfield = 'textfield',
+}
 
 export interface CustomControlTypeStructureMap {
-  codeeditor:{};
-  input:{};
-  interactions:{};
-  number:{};
-  select:{};
-  switcher:{};
-  textfield:{ rows?:number };
+  [CustomControlTypeName.CodeEditor]:{};
+  [CustomControlTypeName.Input]:{};
+  [CustomControlTypeName.Interactions]:{};
+  [CustomControlTypeName.Number]:{};
+  [CustomControlTypeName.Select]:{};
+  [CustomControlTypeName.Switcher]:{};
+  [CustomControlTypeName.Textfield]:{ rows?:number };
 }

@@ -13,16 +13,16 @@ export function parseTypeTag(value:string):ParseResult {
   }
 
   switch (typeMatch[0]) {
-    case 'codeeditor':
-    case 'input':
-    case 'interactions':
-    case 'number':
-    case 'select':
-    case 'switcher': {
+    case CustomControlTypeName.CodeEditor:
+    case CustomControlTypeName.Input:
+    case CustomControlTypeName.Interactions:
+    case CustomControlTypeName.Number:
+    case CustomControlTypeName.Select:
+    case CustomControlTypeName.Switcher: {
       return parseCustomType(typeMatch[0] as CustomControlTypeName);
     }
 
-    case 'textfield': {
+    case CustomControlTypeName.Textfield: {
       return parseTextfieldType(value);
     }
 
@@ -32,7 +32,7 @@ export function parseTypeTag(value:string):ParseResult {
   }
 }
 
-const TEXTFIELD_REGEX:RegExp = /(^textfield$|^textfield(\(([\d])?\)))/;
+const TEXTFIELD_REGEX:RegExp = /(^textfield$|^textfield(\(([\d]+)?\)))/;
 const TEXTFIELD_DEFAULT_ROWS:number = 3;
 const ROWS_MATCH_ID:number = 3;
 
@@ -48,7 +48,7 @@ function parseTextfieldType(value:string):ParseResult {
 
   return {
     customType: {
-      name: 'textfield',
+      name: CustomControlTypeName.Textfield,
       structure: {
         rows: Math.max(rows, 1),
       },

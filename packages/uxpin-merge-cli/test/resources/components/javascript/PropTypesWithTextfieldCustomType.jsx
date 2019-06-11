@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PropTypesWithCustomTypes = () => {
+const PropTypesWithTextfieldCustomType = () => {
   return <button>Button</button>;
 };
 
-PropTypesWithCustomTypes.propTypes = {
+PropTypesWithTextfieldCustomType.propTypes = {
   /**
    * @uxpincontroltype textfield(0)
    */
@@ -26,6 +26,18 @@ PropTypesWithCustomTypes.propTypes = {
    * @uxpincontroltype textfield()
    */
   textfieldDefault2: PropTypes.string.isRequired,
+  /**
+   * textfield control type should be ignored for a number
+   *
+   * @uxpincontroltype textfield
+   */
+  numberProp: PropTypes.number.isRequired,
+  /**
+   * textfield control type should be ignored for a boolean
+   *
+   * @uxpincontroltype textfield
+   */
+  boolProp: PropTypes.bool.isRequired,
 };
 
-export default PropTypesWithCustomTypes;
+export default PropTypesWithTextfieldCustomType;
