@@ -1,4 +1,3 @@
-import { take } from 'lodash';
 import { WarningDetails } from '../../../../../../../common/warning/WarningDetails';
 import {
   AnySerializedElement,
@@ -53,7 +52,7 @@ function parsePresetErrorMessage(error:Error):string {
 
   const lines:string[] = error.stack.split('\n').filter((line) => !line.match(/at __uxpinParsePreset/gi));
 
-  return take(lines, ERROR_LINES).join('\n');
+  return lines.slice(0, ERROR_LINES).join('\n');
 }
 
 (global as any).__uxpinParsePreset = __uxpinParsePreset;
