@@ -1,4 +1,4 @@
-import { NAMESPACE_NAME_DELIMITER } from '../implementation/typescript/component/getComponentNamespace';
+import { NAMESPACE_NAME_DELIMITER } from '../implementation/getComponentNamespaceImportSlug';
 
 export function getComponentNamespaceParents(name:string):string[] {
   const parts:string[] = name.split(NAMESPACE_NAME_DELIMITER);
