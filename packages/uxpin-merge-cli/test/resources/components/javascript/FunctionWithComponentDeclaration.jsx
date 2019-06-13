@@ -8,7 +8,7 @@ function labelID(id) {
 /**
  * @uxpincomponent
  */
-const FunctionWithComponentDeclarationAndCustomName = ({ children, id, appearance, modifier, hidden }) => {
+export const FunctionWithComponentDeclarationAndCustomName = ({ children, id, appearance, modifier, hidden }) => {
   return (
     <div>
       <button id={labelID(id)}

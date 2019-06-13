@@ -559,7 +559,7 @@ ReferenceError: some is not defined
       });
     });
 
-    describe('FunctionWithComponentDeclaration', () => {
+    describe.skip('FunctionWithComponentDeclaration', () => {
       let serialized:ImplSerializationResult;
 
       beforeAll(async () => {
@@ -595,6 +595,43 @@ ReferenceError: some is not defined
             },
             isRequired: false,
             name: 'hidden',
+          }),
+        ]);
+      });
+
+      it('returns empty warnings list', () => {
+        expect(serialized.warnings).toEqual([]);
+      });
+    });
+
+    describe.skip('DefaultExportedFunctionalComponentComposedWithHOCAndComment', () => {
+      let serialized:ImplSerializationResult;
+
+      beforeAll(async () => {
+        const component:ComponentImplementationInfo =
+          getImplementation('DefaultExportedFunctionalComponentComposedWithHOCAndComment');
+
+        serialized = await serializeJSComponent(component);
+      });
+
+      it('returns name of annotated component', () => {
+        expect(serialized.result.name).toEqual('ClassPrependedWithCommentToBeComposedWithHOC');
+      });
+
+      it('returns namespace value of annotated component', () => {
+        expect(serialized.result.namespace).toEqual('CustomNamespace');
+      });
+
+      it('returns props of annotated component', () => {
+        expect(serialized.result.properties).toEqual([
+          expect.objectContaining({
+            name: 'appearance',
+          }),
+          expect.objectContaining({
+            name: 'children',
+          }),
+          expect.objectContaining({
+            name: 'i18n',
           }),
         ]);
       });
