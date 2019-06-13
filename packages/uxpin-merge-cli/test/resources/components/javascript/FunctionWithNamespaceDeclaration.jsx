@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react';
 
 /**
+ * Some component description
+ *
  * @uxpinnamespace CustomNamespace
+ * Another description line
  */
 export default function FunctionWithNamespaceDeclaration({ name }) {
   return (

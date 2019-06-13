@@ -3,7 +3,7 @@ import { withI18n } from './hoc/withI18n';
 
 /**
  * @uxpincomponent
- * @uxpinnamespace CustomNamespace
+ * @uxpinnamespace Multi.Level.CustomNamespace
  */
 export class ClassPrependedWithCommentToBeComposedWithHOC extends React.Component {
   render() {
