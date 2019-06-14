@@ -134,7 +134,7 @@ describe('getComponentMetadata – integration', () => {
         path: getJavaScriptComponentPath('IntegrationCombo'),
       };
       const expectedProps:ComponentMetadata = {
-        name: 'IntegrationCombo',
+        name: 'ClassWithDefaults',
         properties: [
           {
             defaultValue: { value: 'Submit' },
