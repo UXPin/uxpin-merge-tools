@@ -49,6 +49,43 @@ describe('SerializeJSComponent - with annotations', () => {
     });
   });
 
+  describe('DefaultExportedFunctionalComponentComposedWithHOCAndComment', () => {
+    let serialized:ImplSerializationResult;
+
+    beforeAll(async () => {
+      const component:ComponentImplementationInfo =
+        getImplementation('DefaultExportedFunctionalComponentComposedWithHOCAndComment');
+
+      serialized = await serializeJSComponent(component);
+    });
+
+    it('returns name of annotated component', () => {
+      expect(serialized.result.name).toEqual('ClassPrependedWithCommentToBeComposedWithHOC');
+    });
+
+    it('returns namespace value of annotated component', () => {
+      expect(serialized.result.namespace!.name).toEqual('Multi.Level.CustomNamespace');
+    });
+
+    it('returns props of annotated component', () => {
+      expect(serialized.result.properties).toEqual([
+        expect.objectContaining({
+          name: 'appearance',
+        }),
+        expect.objectContaining({
+          name: 'children',
+        }),
+        expect.objectContaining({
+          name: 'i18n',
+        }),
+      ]);
+    });
+
+    it('returns empty warnings list', () => {
+      expect(serialized.warnings).toEqual([]);
+    });
+  });
+
   describe('FunctionWithNamespaceDeclaration', () => {
     let serialized:ImplSerializationResult;
 
@@ -76,6 +113,26 @@ describe('SerializeJSComponent - with annotations', () => {
 
     it('returns empty warnings list', () => {
       expect(serialized.warnings).toEqual([]);
+    });
+  });
+
+  describe('MultipleFunctionsWithoutAnnotation', () => {
+    let component:ComponentImplementationInfo;
+
+    beforeAll(() => {
+      component = getImplementation('MultipleFunctionsWithoutAnnotation');
+    });
+
+    it('throws "Multiple exported component definitions" error', async () => {
+      let error:Error = new Error('Error not thrown');
+
+      try {
+        await serializeJSComponent(component);
+      } catch (e) {
+        error = e; // standard .toThrow() assertion doesnt work in this case :dunno:
+      }
+
+      expect(error.message).toMatch('Multiple exported component definitions found.');
     });
   });
 });
