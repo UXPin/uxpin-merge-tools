@@ -5,10 +5,34 @@ function labelID(id) {
   return `${id}Label`;
 }
 
+const DummyFunctionComponent = ({ children, id, appearance, modifier, hidden }) => {
+  return (
+    <div>
+      <button id={labelID(id)}
+              className={`${(hidden ? 'hidden' : '')} ${appearance} ${modifier}`}>
+        {children}
+      </button>
+    </div>
+  );
+};
+
+DummyFunctionComponent.propTypes = {
+  children: PropTypes.node,
+  id: PropTypes.string.isRequired,
+  appearance: PropTypes.oneOf(['secondary', 'primary', 'link']).isRequired,
+  modifier: PropTypes.oneOf(['neutral', 'danger', 'positive']),
+  hidden: PropTypes.bool.isRequired,
+};
+
+DummyFunctionComponent.defaultProps = {
+  hidden: false,
+  modifier: 'neutral',
+};
+
 /**
  * @uxpincomponent
  */
-export const FunctionWithComponentDeclarationAndCustomName = ({ children, id, appearance, modifier, hidden }) => {
+const FunctionWithComponentDeclarationAndCustomName = ({ children, id, appearance, modifier, hidden }) => {
   return (
     <div>
       <button id={labelID(id)}
@@ -33,4 +57,3 @@ FunctionWithComponentDeclarationAndCustomName.defaultProps = {
 };
 
 export default withI18n(FunctionWithComponentDeclarationAndCustomName);
-
