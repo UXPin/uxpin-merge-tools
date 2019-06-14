@@ -1,8 +1,8 @@
-import { getJavaScriptComponentPath } from '../../../../../../../test/utils/resources/getExampleComponentPath';
 import { WarningDetails } from '../../../../../../common/warning/WarningDetails';
 import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../ComponentDefinition';
 import { serializeJSComponent } from '../serializeJSComponent';
+import { getImplementation } from './utils/getImplementation';
 
 describe('serializeJSComponent', () => {
   describe('providing array of objects describing all properties of the JavaScript component', () => {
@@ -559,11 +559,3 @@ ReferenceError: some is not defined
     });
   });
 });
-
-export function getImplementation(componentName:string):ComponentImplementationInfo {
-  return {
-    framework: 'reactjs',
-    lang: 'javascript',
-    path: getJavaScriptComponentPath(componentName),
-  };
-}

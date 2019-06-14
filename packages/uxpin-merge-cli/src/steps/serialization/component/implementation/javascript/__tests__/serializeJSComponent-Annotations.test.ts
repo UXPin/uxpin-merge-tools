@@ -1,7 +1,7 @@
 import { ImplSerializationResult } from '../../ImplSerializationResult';
 import { serializeJSComponent } from '../serializeJSComponent';
 import { ComponentImplementationInfo } from './../../../../../discovery/component/ComponentInfo';
-import { getImplementation } from './serializeJSComponent.test';
+import { getImplementation } from './utils/getImplementation';
 
 describe('SerializeJSComponent - with annotations', () => {
   describe('FunctionWithNamespaceDeclaration', () => {
