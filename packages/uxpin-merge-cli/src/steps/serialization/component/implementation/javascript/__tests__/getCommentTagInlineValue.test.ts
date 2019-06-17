@@ -1,13 +1,13 @@
-import { getCommentTagValue } from '../getCommentTagValue';
+import { getCommentTagInlineValue } from '../getCommentTagInlineValue';
 
-describe('getCommentTagValue', () => {
+describe('getCommentTagInlineValue', () => {
   const tag:string = '@uxpintag';
 
   describe('when comment is empty', () => {
     const comment:string = '';
 
     it('returns undefined', () => {
-      expect(getCommentTagValue(comment, tag)).toBeUndefined();
+      expect(getCommentTagInlineValue(comment, tag)).toBeUndefined();
     });
   });
 
@@ -15,7 +15,7 @@ describe('getCommentTagValue', () => {
     const comment:string = 'Some comment without tags';
 
     it('returns undefined', () => {
-      expect(getCommentTagValue(comment, tag)).toBeUndefined();
+      expect(getCommentTagInlineValue(comment, tag)).toBeUndefined();
     });
   });
 
@@ -23,7 +23,7 @@ describe('getCommentTagValue', () => {
     const comment:string = '@uxpintag tagvalue ';
 
     it('returns tag value', () => {
-      expect(getCommentTagValue(comment, tag)).toEqual('tagvalue');
+      expect(getCommentTagInlineValue(comment, tag)).toEqual('tagvalue');
     });
   });
 
@@ -31,7 +31,7 @@ describe('getCommentTagValue', () => {
     const comment:string = '@uxpintag tag.value_foo-baz ';
 
     it('returns tag value', () => {
-      expect(getCommentTagValue(comment, tag)).toEqual('tag.value_foo-baz');
+      expect(getCommentTagInlineValue(comment, tag)).toEqual('tag.value_foo-baz');
     });
   });
 
@@ -39,7 +39,7 @@ describe('getCommentTagValue', () => {
     const comment:string = '@uxpintag Some multi word text';
 
     it('returns undefined', () => {
-      expect(getCommentTagValue(comment, tag)).toBeUndefined();
+      expect(getCommentTagInlineValue(comment, tag)).toBeUndefined();
     });
   });
 
@@ -50,7 +50,7 @@ describe('getCommentTagValue', () => {
     `;
 
     it('returns tag value', () => {
-      expect(getCommentTagValue(comment, tag)).toEqual('tag.value_foo-baz');
+      expect(getCommentTagInlineValue(comment, tag)).toEqual('tag.value_foo-baz');
     });
   });
 });

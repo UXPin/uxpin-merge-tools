@@ -1,7 +1,7 @@
 import { CommentTags } from '../../CommentTags';
 import { getComponentNamespaceImportSlug } from '../getComponentNamespaceImportSlug';
 import { ComponentNamespace } from './../../ComponentDefinition';
-import { getCommentTagValue } from './getCommentTagValue';
+import { getCommentTagInlineValue } from './getCommentTagInlineValue';
 
 export function getComponentNamespaceFromDescription(
   componentName:string, description:string,
@@ -10,7 +10,7 @@ export function getComponentNamespaceFromDescription(
     return;
   }
 
-  const namespaceName:string | undefined = getCommentTagValue(description, CommentTags.UXPIN_NAMESPACE);
+  const namespaceName:string | undefined = getCommentTagInlineValue(description, CommentTags.UXPIN_NAMESPACE);
 
   if (!namespaceName) {
     return;

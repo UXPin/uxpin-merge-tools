@@ -1,6 +1,6 @@
 import { hasCommentTag } from './hasCommentTag';
 
-export function getCommentTagValue(comment:string, tag:string):string | undefined {
+export function getCommentTagInlineValue(comment:string, tag:string):string | undefined {
   if (!hasCommentTag(comment, tag)) {
     return;
   }
