@@ -7,9 +7,9 @@ import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { ComponentNamespace } from './../../ComponentDefinition';
 import { convertPropItemToPropertyDefinition } from './convertPropItemToPropertyDefinition';
+import { getComponentName } from './getComponentName';
 import { getComponentNamespaceFromDescription } from './getComponentNamespaceFromDescription';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
-import { parseComponentName } from './parseComponentName';
 
 export function serializeJSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   return getDefaultComponentFrom(component.path)
@@ -22,7 +22,7 @@ function thunkGetMetadata(implInfo:ComponentImplementationInfo):(parsed:Componen
     .map(([propName, propType]) => convertPropItemToPropertyDefinition(propName, propType)))
     .then(validateProps)
     .then((properties) => {
-      const name:string = parseComponentName(implInfo.path, parsed);
+      const name:string = getComponentName(implInfo.path, parsed);
       return {
         name,
         namespace: getComponentNamespaceFromDescription(name, parsed.description),

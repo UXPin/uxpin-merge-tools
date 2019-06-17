@@ -1,5 +1,5 @@
 import { ComponentDoc } from 'react-docgen-typescript/lib';
-import { parseComponentName } from '../parseComponentName';
+import { getComponentName } from '../getComponentName';
 
 describe('parseComponentName', () => {
   const componentPath:string = 'path/to/ComponentName.jsx';
@@ -15,7 +15,7 @@ describe('parseComponentName', () => {
         props: {},
       };
 
-      componentName = parseComponentName(componentPath, parsed);
+      componentName = getComponentName(componentPath, parsed);
     });
 
     it('returns component name from path', () => {
@@ -34,7 +34,7 @@ describe('parseComponentName', () => {
         props: {},
       };
 
-      componentName = parseComponentName(componentPath, parsed);
+      componentName = getComponentName(componentPath, parsed);
     });
 
     it('returns component name from component doc displayName', () => {
