@@ -3,13 +3,13 @@ import { ComponentDoc } from 'react-docgen-typescript/lib';
 
 export declare function parse(
   source:string,
-  resolver?:() => void | undefined,
+  resolver?:Resolver,
   handlers?:Handler[] | undefined,
   options?:ReactDocgenOptions | undefined,
-):ComponentDoc;
+):ComponentDoc | ComponentDoc[];
 
 export declare type Handler = (doc:any, path:string) => void;
-export declare type Resolver = () => void | undefined;
+export declare type Resolver = (ast:any) => any;
 
 export declare const defaultHandlers:Handler[];
 

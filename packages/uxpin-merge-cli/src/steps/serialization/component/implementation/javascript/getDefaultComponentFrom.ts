@@ -41,7 +41,7 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
 
 function parseWithAnnotation(file:string, handlers:Handler[]):ComponentDoc | undefined {
   const parsed:ComponentDoc[] =
-    parse(file, resolver.findAllComponentDefinitions, handlers) as unknown as ComponentDoc[];
+    parse(file, resolver.findAllComponentDefinitions, handlers) as ComponentDoc[];
 
   for (const componentDoc of parsed) {
     if (hasCommentTag(componentDoc.description, CommentTags.UXPIN_COMPONENT)) {
@@ -51,5 +51,5 @@ function parseWithAnnotation(file:string, handlers:Handler[]):ComponentDoc | und
 }
 
 function parseDefault(file:string, handlers:Handler[]):ComponentDoc | undefined {
-  return parse(file, undefined, handlers);
+  return parse(file, undefined, handlers) as ComponentDoc;
 }
