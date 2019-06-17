@@ -3,6 +3,11 @@ import { readFile } from 'fs-extra';
 import { defaultHandlers, Handler, parse, resolver } from 'react-docgen';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
 
+const parsers:Array<(file:string, handlers:Handler[]) => ComponentDoc | undefined> = [
+  parseWithAnnotation,
+  parseDefault,
+];
+
 export async function getDefaultComponentFrom(filePath:string):Promise<ComponentDoc> {
   const file:string = await readFile(filePath, { encoding: 'utf8' });
   let componentDoc:ComponentDoc | undefined;
@@ -11,11 +16,6 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
   const handlers:Handler[] = [
     ...defaultHandlers,
     importedPropTypesHandler(filePath),
-  ];
-
-  const parsers:Array<(file:string, handlers:Handler[]) => ComponentDoc | undefined> = [
-    parseWithAnnotation,
-    parseDefault,
   ];
 
   for (const parser of parsers) {

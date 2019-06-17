@@ -124,6 +124,7 @@ describe('SerializeJSComponent - with annotations', () => {
     });
 
     it('throws "Multiple exported component definitions" error', async () => {
+      expect.assertions(1);
       let error:Error = new Error('Error not thrown');
 
       try {
