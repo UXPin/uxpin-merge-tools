@@ -2,6 +2,8 @@ import { importedPropTypesHandler } from '@uxpin/react-docgen-better-proptypes';
 import { readFile } from 'fs-extra';
 import { defaultHandlers, Handler, parse, resolver } from 'react-docgen';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
+import { CommentTags } from '../../CommentTags';
+import { hasCommentTag } from './hasCommentTag';
 
 const parsers:Array<(file:string, handlers:Handler[]) => ComponentDoc | undefined> = [
   parseWithAnnotation,
@@ -42,7 +44,7 @@ function parseWithAnnotation(file:string, handlers:Handler[]):ComponentDoc | und
     parse(file, resolver.findAllComponentDefinitions, handlers) as unknown as ComponentDoc[];
 
   for (const componentDoc of parsed) {
-    if (componentDoc.description.includes('@uxpincomponent')) {
+    if (hasCommentTag(componentDoc.description, CommentTags.UXPIN_COMPONENT)) {
       return componentDoc;
     }
   }

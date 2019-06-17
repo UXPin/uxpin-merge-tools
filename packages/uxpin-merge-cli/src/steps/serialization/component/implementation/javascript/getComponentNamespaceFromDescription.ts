@@ -1,7 +1,7 @@
+import { CommentTags } from '../../CommentTags';
 import { getComponentNamespaceImportSlug } from '../getComponentNamespaceImportSlug';
 import { ComponentNamespace } from './../../ComponentDefinition';
-
-const annotationRegexp:RegExp = /\@uxpinnamespace\s+([a-z0-9\._]+)\s*\t*$/im;
+import { getCommentTagValue } from './getCommentTagValue';
 
 export function getComponentNamespaceFromDescription(
   componentName:string, description:string,
@@ -10,13 +10,11 @@ export function getComponentNamespaceFromDescription(
     return;
   }
 
-  const matches:string[] | null = description.match(annotationRegexp);
+  const namespaceName:string | undefined = getCommentTagValue(description, CommentTags.UXPIN_NAMESPACE);
 
-  if (!matches) {
+  if (!namespaceName) {
     return;
   }
-
-  const namespaceName:string = matches[1];
 
   return {
     importSlug: getComponentNamespaceImportSlug(namespaceName, componentName),
