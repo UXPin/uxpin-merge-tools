@@ -30,4 +30,46 @@ describe('The dump command', () => {
       });
     });
   });
+
+  describe('run for the `withCorruptedPresets` design system', () => {
+    it('prints error about unresolved path', async () => {
+      expect.assertions(1);
+
+      // given
+      // when
+      try {
+        await runUXPinMergeCommand({
+          cwd: 'resources/designSystems/withCorruptedPresets',
+          params: [
+            Command.DUMP,
+            '--config ./uxpin.config.avatar.js',
+            '--webpack-config "./webpack.config.js"',
+          ],
+        });
+      } catch (error) {
+        expect(error.stderr).toMatch(/Can\'t resolve \'\.\.\/NonExistingFileWithAvatarComponent\'/gm);
+      }
+    });
+
+    it('prints error about unresolved import', async () => {
+      // tslint:disable-next-line:no-magic-numbers
+      expect.assertions(2);
+
+      // given
+      // when
+      try {
+        await runUXPinMergeCommand({
+          cwd: 'resources/designSystems/withCorruptedPresets',
+          params: [
+            Command.DUMP,
+            '--config ./uxpin.config.button.js',
+            '--webpack-config "./webpack.config.js"',
+          ],
+        });
+      } catch (error) {
+        expect(error.stderr).toMatch(/Unknown component/gm);
+        expect(error.stderr).toMatch(/src\/components\/Button\/presets\/1-corrupted-import\.jsx/gm);
+      }
+    });
+  });
 });
