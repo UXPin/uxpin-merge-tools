@@ -15,12 +15,9 @@ export async function decorateWithPresets(
   programArgs:ProgramArgs,
 ):Promise<Array<Warned<ComponentCategory>>> {
   const components:ComponentDefinition[] = getAllComponentsFromCategories(flatMap(categories, (cat) => cat.result));
-  try {
-    const bundle:PresetsBundle = await getPresetsBundle(programArgs, components);
-    return categories.map(thunkDecorateComponentsWithPresets(bundle));
-  } catch (error) {
-    return getCategoriesWithPresetBundlingError(error, categories);
-  }
+  const bundle:PresetsBundle = await getPresetsBundle(programArgs, components);
+
+  return categories.map(thunkDecorateComponentsWithPresets(bundle));
 }
 
 function thunkDecorateComponentsWithPresets(
@@ -48,24 +45,4 @@ function serializeOptionalPresets(
   }
 
   return serializePresets(bundle, info.presets);
-}
-
-function getCategoriesWithPresetBundlingError(
-  originalError:Error,
-  categories:Array<Warned<ComponentCategory>>,
-):Array<Warned<ComponentCategory>> {
-  const [firstCategory, ...restCategories] = categories;
-  return [
-    {
-      ...firstCategory,
-      warnings: [
-        {
-          message: 'Cannot bundle presets',
-          originalError,
-        },
-        ...firstCategory.warnings,
-      ],
-    },
-    ...restCategories,
-  ];
 }

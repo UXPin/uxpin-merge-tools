@@ -19,6 +19,7 @@ describe('The dump command', () => {
     return runUXPinMergeCommand({
       cwd: 'resources/repos/polaris',
       env: {
+        NODE_ENV: 'production',
         UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
         UXPIN_ENV: Environment.TEST,
       },

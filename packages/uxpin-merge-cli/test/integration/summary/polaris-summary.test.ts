@@ -18,6 +18,7 @@ describe('summary command integration', () => {
       return runUXPinMergeCommand({
         cwd: 'resources/repos/polaris',
         env: {
+          NODE_ENV: 'production',
           UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
           UXPIN_ENV: Environment.TEST,
         },
@@ -27,46 +28,49 @@ describe('summary command integration', () => {
       })
         .then((output) => {
           // then
-          expect(output).toContain(`Actions
+          expect(output).toEqual(`Actions
 
     Button
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Link
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
 Structure
 
     Card
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Header
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Section
         📜 documentation: ✘
         💡 examples: ✘
-        🎛  presets: ✘
+        🎛  presets: ✔
 
 Images and Icons
 
     Avatar
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘
+        🎛  presets: ✔
 
     Badge
         📜 documentation: ✔
         💡 examples: ✔
-        🎛  presets: ✘`);
+        🎛  presets: ✔
+
+
+`);
         });
     });
   });

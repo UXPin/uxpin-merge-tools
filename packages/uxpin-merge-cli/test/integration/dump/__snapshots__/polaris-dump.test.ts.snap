@@ -105,7 +105,22 @@ Object {
             ],
           },
           "name": "Button",
-          "presets": Array [],
+          "presets": Array [
+            Object {
+              "elements": Object {
+                "button-1": Object {
+                  "name": "Button",
+                  "props": Object {
+                    "children": "Click me",
+                    "primary": true,
+                    "size": "large",
+                  },
+                },
+              },
+              "name": "default",
+              "rootId": "button-1",
+            },
+          ],
           "properties": Array [
             Object {
               "description": "The content to display inside the button",
@@ -501,7 +516,21 @@ Object {
             ],
           },
           "name": "Link",
-          "presets": Array [],
+          "presets": Array [
+            Object {
+              "elements": Object {
+                "link-1": Object {
+                  "name": "Link",
+                  "props": Object {
+                    "children": "fulfilling orders",
+                    "url": "https://help.shopify.com/manual",
+                  },
+                },
+              },
+              "name": "default",
+              "rootId": "link-1",
+            },
+          ],
           "properties": Array [
             Object {
               "description": "ID for the link",
@@ -798,7 +827,49 @@ Object {
             ],
           },
           "name": "Card",
-          "presets": Array [],
+          "presets": Array [
+            Object {
+              "elements": Object {
+                "card-1": Object {
+                  "name": "Card",
+                  "props": Object {
+                    "children": Array [
+                      Object {
+                        "uxpinPresetElementId": "card_section-1",
+                      },
+                      Object {
+                        "uxpinPresetElementId": "card_section-2",
+                      },
+                      Object {
+                        "uxpinPresetElementId": "card_section-3",
+                      },
+                    ],
+                    "title": "Multiple sections card",
+                  },
+                },
+                "card_section-1": Object {
+                  "name": "Card.Section",
+                  "props": Object {
+                    "children": "Section 1",
+                  },
+                },
+                "card_section-2": Object {
+                  "name": "Card.Section",
+                  "props": Object {
+                    "children": "Section 2",
+                  },
+                },
+                "card_section-3": Object {
+                  "name": "Card.Section",
+                  "props": Object {
+                    "children": "Section 3",
+                  },
+                },
+              },
+              "name": "default",
+              "rootId": "card-1",
+            },
+          ],
           "properties": Array [
             Object {
               "description": "Title content for the card",
@@ -887,7 +958,20 @@ Object {
             "importSlug": "Card_Header",
             "name": "Card",
           },
-          "presets": Array [],
+          "presets": Array [
+            Object {
+              "elements": Object {
+                "card_header-1": Object {
+                  "name": "Card.Header",
+                  "props": Object {
+                    "title": "Header title",
+                  },
+                },
+              },
+              "name": "default",
+              "rootId": "card_header-1",
+            },
+          ],
           "properties": Array [
             Object {
               "description": "",
@@ -940,7 +1024,20 @@ Object {
             "importSlug": "Card_Section",
             "name": "Card",
           },
-          "presets": Array [],
+          "presets": Array [
+            Object {
+              "elements": Object {
+                "card_section-1": Object {
+                  "name": "Card.Section",
+                  "props": Object {
+                    "children": "Section 1",
+                  },
+                },
+              },
+              "name": "default",
+              "rootId": "card_section-1",
+            },
+          ],
           "properties": Array [
             Object {
               "description": "",
@@ -1010,7 +1107,21 @@ Object {
             ],
           },
           "name": "Avatar",
-          "presets": Array [],
+          "presets": Array [
+            Object {
+              "elements": Object {
+                "avatar-1": Object {
+                  "name": "Avatar",
+                  "props": Object {
+                    "customer": true,
+                    "name": "Farrah",
+                  },
+                },
+              },
+              "name": "default",
+              "rootId": "avatar-1",
+            },
+          ],
           "properties": Array [
             Object {
               "defaultValue": Object {
@@ -1147,7 +1258,21 @@ Object {
             ],
           },
           "name": "Badge",
-          "presets": Array [],
+          "presets": Array [
+            Object {
+              "elements": Object {
+                "badge-1": Object {
+                  "name": "Badge",
+                  "props": Object {
+                    "children": "UXPin Merge",
+                    "size": "medium",
+                  },
+                },
+              },
+              "name": "default",
+              "rootId": "badge-1",
+            },
+          ],
           "properties": Array [
             Object {
               "description": "The content to display inside the badge.",

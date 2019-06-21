@@ -13,6 +13,12 @@ function __uxpinParsePreset(
   props?:JSXSerializedElementProps,
   ...children:AnySerializedElement[]):JSXSerializedElement {
 
+  if (component === undefined) {
+    const error:Error = new Error('Unknown component!');
+    error.message = parsePresetErrorMessage(error);
+    throw error;
+  }
+
   const componentName:string = !!component.name ? component.name : 'Unknown';
 
   return {
@@ -36,6 +42,17 @@ function getPropertySerializationWarnings(props:JSXSerializedElementProps|undefi
     }
     return warnings;
   }, []);
+}
+
+const ERROR_LINES:number = 5;
+function parsePresetErrorMessage(error:Error):string {
+  if (!error.stack) {
+    return error.message;
+  }
+
+  const lines:string[] = error.stack.split('\n').filter((line) => !line.match(/at __uxpinParsePreset/gi));
+
+  return lines.slice(0, ERROR_LINES).join('\n');
 }
 
 (global as any).__uxpinParsePreset = __uxpinParsePreset;
