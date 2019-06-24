@@ -21,7 +21,7 @@ const CUSTOM_TYPE_ALLOWANCE_MAP:{
     'func',
     'string',
   ],
-  [CustomControlTypeName.Input]: ['string'],
+  [CustomControlTypeName.Input]: [...ELEMENT_TYPES, 'string'],
   [CustomControlTypeName.Interactions]: ['func'],
   [CustomControlTypeName.Number]: ['number'],
   [CustomControlTypeName.Switcher]: ['boolean'],
