@@ -38,6 +38,14 @@ PropTypesWithTextfieldCustomType.propTypes = {
    * @uxpincontroltype textfield
    */
   boolProp: PropTypes.bool.isRequired,
+  /**
+   * @uxpincontroltype input
+   */
+  childrenProp: PropTypes.node,
+  /**
+   * @uxpincontroltype textfield(10)
+   */
+  childrenProp2: PropTypes.node,
 };
 
 export default PropTypesWithTextfieldCustomType;

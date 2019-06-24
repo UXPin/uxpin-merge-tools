@@ -200,6 +200,34 @@ component.`,
               structure: {},
             },
           },
+          {
+            customType: {
+              name: CustomControlTypeName.Input,
+              structure: {},
+            },
+            description: '',
+            isRequired: false,
+            name: 'childrenProp',
+            type:  {
+              name: 'node',
+              structure:  {},
+            },
+          },
+          {
+            customType:  {
+              name: CustomControlTypeName.Textfield,
+              structure:  {
+                rows: 10,
+              },
+            },
+            description: '',
+            isRequired: false,
+            name: 'childrenProp2',
+            type:  {
+              name: 'node',
+              structure:  {},
+            },
+          },
         ],
       };
       const expectedWarnings:WarningDetails[] = [
