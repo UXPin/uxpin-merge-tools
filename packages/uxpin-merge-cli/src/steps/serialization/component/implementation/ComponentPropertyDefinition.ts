@@ -17,7 +17,7 @@ export interface ComponentPropertyCustomDescriptors {
 
 export enum CustomDescriptorsTags {
   DESCRIPTION = '@uxpindescription',
-  HIDDEN = '@uxpinignoreproperty',
+  HIDDEN = '@uxpinignoreprop',
   NAME = '@uxpinpropname',
   TYPE = '@uxpincontroltype',
 }

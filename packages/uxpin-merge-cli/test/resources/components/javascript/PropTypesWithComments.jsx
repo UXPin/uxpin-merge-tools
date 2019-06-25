@@ -19,7 +19,7 @@ PropTypesWithComments.propTypes = {
    * This is description of isDisabled property
    *
    * @uxpindescription Custom description
-   * @uxpinignoreproperty
+   * @uxpinignoreprop
    * @uxpinpropname disabled
    */
   isDisabled: PropTypes.bool.isRequired,
