@@ -14,14 +14,14 @@ export interface Props {
    * This is description of isDisabled property
    *
    * @uxpindescription Custom description
-   * @uxpinignoreproperty
+   * @uxpinignoreprop
    * @uxpinpropname disabled
    */
   isDisabled:boolean;
   /**
    * Callback when a link is clicked
    * @uxpindescription some alternative custom function description
-   * @uxpinignoreproperty
+   * @uxpinignoreprop
    */
   onClick():void;
 }
