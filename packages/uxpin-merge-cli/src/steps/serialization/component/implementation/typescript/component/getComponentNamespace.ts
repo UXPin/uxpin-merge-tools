@@ -1,10 +1,8 @@
 import * as ts from 'typescript';
 import { ComponentNamespace } from '../../../ComponentDefinition';
+import { getComponentNamespaceImportSlug } from '../../getComponentNamespaceImportSlug';
 import { getUXpinNamespaceComment } from '../comments/getUXPinNamespaceComment';
 import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
-
-export const NAMESPACE_NAME_DELIMITER:string = '.';
-export const NAMESPACE_IMPORT_SLUG_DELIMITER:string = '_';
 
 export function getComponentNamespace(component:ComponentDeclaration, name:string):ComponentNamespace | undefined {
   const namespace:ts.JSDocTag | undefined = getUXpinNamespaceComment(component);
@@ -14,14 +12,7 @@ export function getComponentNamespace(component:ComponentDeclaration, name:strin
   }
 
   return {
-    importSlug: getImportSlug(namespace.comment, name),
+    importSlug: getComponentNamespaceImportSlug(namespace.comment, name),
     name: namespace.comment,
   };
-}
-
-function getImportSlug(namespaceName:string, componentName:string):string {
-  return [
-    ...namespaceName.split(NAMESPACE_NAME_DELIMITER),
-    componentName,
-  ].join(NAMESPACE_IMPORT_SLUG_DELIMITER);
 }

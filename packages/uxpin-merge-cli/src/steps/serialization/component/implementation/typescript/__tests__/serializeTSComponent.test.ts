@@ -1113,8 +1113,24 @@ component.`,
         ]);
       });
     });
-  });
 
+    describe('FunctionWithMultilevelNamespaceDeclaration', () => {
+      let serialized:Warned<ComponentMetadata>;
+
+      beforeAll(async () => {
+        const component:ComponentImplementationInfo = getImplementation('FunctionWithMultilevelNamespaceDeclaration');
+        serialized = await serializeTSComponent(component);
+      });
+
+      it('returns correct component name', () => {
+        expect(serialized.result.name).toEqual('FunctionWithMultilevelNamespaceDeclaration');
+      });
+
+      it('returns annotated namespace value', () => {
+        expect(serialized.result.namespace!.name).toEqual('Some.Nested.Namespace');
+      });
+    });
+  });
 });
 
 export function getImplementation(componentName:string):ComponentImplementationInfo {

@@ -3,7 +3,7 @@ import { ComponentImplementationInfo } from '../../../../../discovery/component/
 import { ComponentMetadata } from '../../../ComponentDefinition';
 import { CustomControlTypeName } from '../../ComponentPropertyDefinition';
 import { serializeJSComponent } from '../serializeJSComponent';
-import { getImplementation } from './serializeJSComponent.test';
+import { getImplementation } from './utils/getImplementation';
 
 describe('serializeJSComponent-CustomMetadata', () => {
   describe('providing array of objects describing all properties of the JavaScript component', () => {
