@@ -10,6 +10,13 @@ const ARRAY_TYPES:PropertyTypeName[] = ['array', 'typedArray'];
 const OBJECT_TYPES:PropertyTypeName[] = ['custom', 'object', 'shape'];
 const ELEMENT_TYPES:PropertyTypeName[] = ['element', 'node'];
 
+const TEXT_EDITABLE_TYPES:PropertyTypeName[] = [
+  ...ARRAY_TYPES,
+  ...ELEMENT_TYPES,
+  ...OBJECT_TYPES,
+  'string',
+];
+
 const CUSTOM_TYPE_ALLOWANCE_MAP:{
   [key in CustomControlTypeName]?:PropertyTypeName[];
 } = {
@@ -21,17 +28,12 @@ const CUSTOM_TYPE_ALLOWANCE_MAP:{
     'func',
     'string',
   ],
-  [CustomControlTypeName.Input]: [...ELEMENT_TYPES, 'string'],
+  [CustomControlTypeName.Input]: TEXT_EDITABLE_TYPES,
   [CustomControlTypeName.Interactions]: ['func'],
   [CustomControlTypeName.Number]: ['number'],
   [CustomControlTypeName.Switcher]: ['boolean'],
   [CustomControlTypeName.Select]: ['literal'],
-  [CustomControlTypeName.Textfield]: [
-    ...ARRAY_TYPES,
-    ...ELEMENT_TYPES,
-    ...OBJECT_TYPES,
-    'string',
-  ],
+  [CustomControlTypeName.Textfield]: TEXT_EDITABLE_TYPES,
 };
 
 export function isCustomTypeAllowedForType(customType:CustomControlType, baseType:PropertyType):boolean {
