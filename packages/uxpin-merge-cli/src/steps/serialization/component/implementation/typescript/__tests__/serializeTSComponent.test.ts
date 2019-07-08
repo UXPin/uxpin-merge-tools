@@ -683,6 +683,35 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes functional component with property with intersection type', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithCombinedProperty');
+      const expectedProps:ComponentMetadata = {
+        name: 'FunctionWithCombinedProperty',
+        properties: [
+          {
+            description: 'Local property',
+            isRequired: true,
+            name: 'id',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'user',
+            type: { name: 'shape', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('serializes component props imported from shorthanded file ' +
       'exporting directly from import from index file', () => {
       // given
