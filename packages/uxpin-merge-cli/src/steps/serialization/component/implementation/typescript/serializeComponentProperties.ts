@@ -63,11 +63,19 @@ function getPropertyDefinition(
   defaultProps:DefaultProps,
 ):Warned<ComponentPropertyDefinition> | undefined {
   if (isPropertySignatureSymbol(property)) {
-    return propertySignatureToPropertyDefinition(context, property, defaultProps);
+    try {
+      return propertySignatureToPropertyDefinition(context, property, defaultProps);
+    } catch (e) {
+      return;
+    }
   }
 
   if (isMethodSignatureSymbol(property)) {
-    return convertMethodSignatureSymbolToPropertyDefinition(context, property);
+    try {
+      return convertMethodSignatureSymbolToPropertyDefinition(context, property);
+    } catch (e) {
+      return;
+    }
   }
 }
 
