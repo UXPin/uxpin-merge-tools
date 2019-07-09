@@ -683,6 +683,53 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it.only('serializes functional component with intersection and union type of properties object', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithCombinedUnionPropertiesType');
+      const expectedProps:ComponentMetadata = {
+        name: 'FunctionWithCombinedUnionPropertiesType',
+        properties: [
+          {
+            description: 'Local property',
+            isRequired: true,
+            name: 'id',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'i18n',
+            type: { name: 'string', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'disabled',
+            type: { name: 'boolean', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'readOnly',
+            type: { name: 'boolean', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'onChange',
+            type: { name: 'func', structure: {} },
+          },
+        ],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('serializes functional component with property with intersection type', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('FunctionWithCombinedProperty');
