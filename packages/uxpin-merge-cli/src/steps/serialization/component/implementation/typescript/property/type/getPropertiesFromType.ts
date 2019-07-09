@@ -2,8 +2,8 @@ import { flatMap, uniq } from 'lodash';
 import * as ts from 'typescript';
 
 export interface TypeProps {
-  baseProps:ts.Symbol[],
-  exclusiveProps:ts.Symbol[],
+  baseProps:ts.Symbol[];
+  exclusiveProps:ts.Symbol[];
 }
 
 export function getPropertiesFromType(type:ts.Type):TypeProps {
@@ -23,7 +23,7 @@ function getBasePropertiesFromType(type:ts.Type):ts.Symbol[] {
 
 function getPropertiesFromUnionType(type:ts.UnionType):TypeProps {
   const baseProps:ts.Symbol[] = getBasePropertiesFromType(type);
-  const allProps:ts.Symbol[] = flatMap(type.types, (type) => type.getProperties());
+  const allProps:ts.Symbol[] = flatMap(type.types, (innerType) => innerType.getProperties());
   const exclusiveProps:ts.Symbol[] = uniq(allProps.filter((prop:ts.Symbol) => !baseProps.includes(prop)));
 
   return {

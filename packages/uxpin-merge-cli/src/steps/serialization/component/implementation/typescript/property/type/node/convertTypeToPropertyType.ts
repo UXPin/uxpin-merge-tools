@@ -14,7 +14,7 @@ export function convertTypeToPropertyType(context:TSSerializationContext, type:t
   if (type.flags & ts.TypeFlags.Number) {
     return { name: 'number', structure: {} };
   }
-  if (type.flags & ts.TypeFlags.Boolean) {
+  if (isBooleanLike(type)) {
     return { name: 'boolean', structure: {} };
   }
   if (type.flags & ts.TypeFlags.Any) {
@@ -37,6 +37,10 @@ export function convertTypeToPropertyType(context:TSSerializationContext, type:t
   }
 
   return serializeAsUnsupportedType(type);
+}
+
+function isBooleanLike(type:ts.Type):boolean {
+  return Boolean(type.flags & ts.TypeFlags.BooleanLike);
 }
 
 function isObjectLike(type:ts.Type):boolean {

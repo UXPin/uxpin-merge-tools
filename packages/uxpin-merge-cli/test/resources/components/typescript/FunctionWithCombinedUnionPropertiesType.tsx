@@ -10,7 +10,7 @@ interface BaseProps {
 
 type Props = BaseProps &
   (
-    | { disabled: boolean }
+    | { disabled:boolean }
     | { readOnly: true }
     | { onChange(value:any):void }
   );

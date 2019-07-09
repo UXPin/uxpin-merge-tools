@@ -1,6 +1,7 @@
 import * as ts from 'typescript';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
+import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import {
   ComponentDeclaration,
   DefaultProps,
@@ -12,7 +13,6 @@ import { convertPropertySignatureSymbolToPropertyDefinition } from './property/s
 import { isMethodSignatureSymbol } from './property/symbol/isMethodSignatureSymbol';
 import { isPropertySignatureSymbol, PropertySymbol } from './property/symbol/isPropertySignatureSymbol';
 import { getPropertiesFromType, TypeProps } from './property/type/getPropertiesFromType';
-import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 
 export function serializeComponentProperties(
   context:TSSerializationContext,
@@ -45,13 +45,15 @@ function getComponentPropertiesDefinition(
   context:TSSerializationContext,
   props:ts.Symbol[],
   defaultProps:DefaultProps,
-):Array<PropDefinitionSerializationResult> {
+):PropDefinitionSerializationResult[] {
   return props
     .map((propSymbol:ts.Symbol) => getPropertyDefinition(context, propSymbol, defaultProps))
     .filter(isValidDefinition);
 }
 
-function isValidDefinition(definition:PropDefinitionSerializationResult | undefined):definition is PropDefinitionSerializationResult {
+function isValidDefinition(
+  definition:PropDefinitionSerializationResult | undefined,
+):definition is PropDefinitionSerializationResult {
   return definition !== undefined;
 }
 
@@ -61,7 +63,7 @@ function getPropertyDefinition(
   defaultProps:DefaultProps,
 ):Warned<ComponentPropertyDefinition> | undefined {
   if (isPropertySignatureSymbol(property)) {
-    return propertySignatureToPropertyDefinition(context, property, defaultProps)
+    return propertySignatureToPropertyDefinition(context, property, defaultProps);
   }
 
   if (isMethodSignatureSymbol(property)) {

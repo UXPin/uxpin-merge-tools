@@ -683,7 +683,7 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    it.only('serializes functional component with intersection and union type of properties object', () => {
+    it('serializes functional component with intersection and union type of properties object', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('FunctionWithCombinedUnionPropertiesType');
       const expectedProps:ComponentMetadata = {
