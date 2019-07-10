@@ -1,4 +1,6 @@
 import * as ts from 'typescript';
+import { getWarnedResult } from '../../../../../../common/warning/getWarnedResult';
+import { ComponentPropertyDefinition } from '../../ComponentPropertyDefinition';
 import { PropDefinitionSerializationResult } from '../../PropDefinitionSerializationResult';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import { getPropertyDefinition } from '../property/getPropertyDefinition';
@@ -11,11 +13,12 @@ export function getComponentPropertiesDefinition(
 ):PropDefinitionSerializationResult[] {
   return props
     .map((propSymbol:ts.Symbol) => getPropertyDefinition(context, propSymbol, defaultProps))
-    .filter(isValidDefinition);
+    .filter(isValidDefinition)
+    .map((prop:ComponentPropertyDefinition) => getWarnedResult(prop));
 }
 
 function isValidDefinition(
-  definition:PropDefinitionSerializationResult | undefined,
-):definition is PropDefinitionSerializationResult {
+  definition:ComponentPropertyDefinition | undefined,
+):definition is ComponentPropertyDefinition {
   return definition !== undefined;
 }
