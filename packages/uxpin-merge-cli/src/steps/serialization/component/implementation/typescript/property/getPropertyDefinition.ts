@@ -12,12 +12,16 @@ export function getPropertyDefinition(
   property:ts.Symbol,
   defaultProps:DefaultProps,
 ):ComponentPropertyDefinition | undefined {
-  if (isPropertySignatureSymbol(property)) {
-    return propertySignatureToPropertyDefinition(context, property, defaultProps);
-  }
+  try {
+    if (isPropertySignatureSymbol(property)) {
+      return propertySignatureToPropertyDefinition(context, property, defaultProps);
+    }
 
-  if (isMethodSignatureSymbol(property)) {
-    return convertMethodSignatureSymbolToPropertyDefinition(context, property);
+    if (isMethodSignatureSymbol(property)) {
+      return convertMethodSignatureSymbolToPropertyDefinition(context, property);
+    }
+  } catch (e) {
+    return;
   }
 }
 

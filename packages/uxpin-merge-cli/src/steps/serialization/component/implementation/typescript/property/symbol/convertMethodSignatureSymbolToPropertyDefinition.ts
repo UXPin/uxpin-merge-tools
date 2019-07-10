@@ -10,10 +10,16 @@ export function convertMethodSignatureSymbolToPropertyDefinition(
   context:TSSerializationContext,
   methodSymbol:MethodSymbol,
 ):ComponentPropertyDefinition {
+  const name:string | undefined = getPropertyName(methodSymbol);
+
+  if (!name) {
+    throw new Error('Cannot get name from method symbol');
+  }
+
   return {
     description: getJSDocDocumentation(context, methodSymbol),
     isRequired: isPropertyRequired(methodSymbol),
-    name: getPropertyName(methodSymbol),
+    name,
     type: { name: 'func', structure: {} },
     ...getPropertyCustomDescriptors(methodSymbol),
   };
