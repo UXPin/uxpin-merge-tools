@@ -6,12 +6,13 @@ interface BaseProps {
    * Local property
    */
   id:string;
+  disabled?:boolean;
 }
 
 type Props = BaseProps &
   (
     | { disabled:boolean }
-    | { readOnly: true }
+    | { readOnly:true }
     | { onChange(value:any):void }
   );
 
