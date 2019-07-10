@@ -697,15 +697,15 @@ describe('serializeTSComponent', () => {
           },
           {
             description: '',
-            isRequired: true,
-            name: 'i18n',
-            type: { name: 'string', structure: {} },
-          },
-          {
-            description: '',
             isRequired: false,
             name: 'disabled',
             type: { name: 'boolean', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'i18n',
+            type: { name: 'string', structure: {} },
           },
           {
             description: '',
