@@ -4,6 +4,7 @@ import { DefaultProps } from '../component/getPropsTypeAndDefaultProps';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import { convertMethodSignatureSymbolToPropertyDefinition } from './symbol/convertMethodSignatureSymbolToPropertyDefinition';
 import { convertPropertySignatureSymbolToPropertyDefinition } from './symbol/convertPropertySignatureSymbolToPropertyDefinition';
+import { getValidSymbol } from './symbol/getValidSymbol';
 import { isMethodSignatureSymbol } from './symbol/isMethodSignatureSymbol';
 import { isPropertySignatureSymbol, PropertySymbol } from './symbol/isPropertySignatureSymbol';
 
@@ -13,12 +14,17 @@ export function getPropertyDefinition(
   defaultProps:DefaultProps,
 ):ComponentPropertyDefinition | undefined {
   try {
-    if (isPropertySignatureSymbol(property)) {
-      return propertySignatureToPropertyDefinition(context, property, defaultProps);
+    const propertySymbol:ts.Symbol | undefined = getValidSymbol(property);
+    if (!propertySymbol) {
+      return;
     }
 
-    if (isMethodSignatureSymbol(property)) {
-      return convertMethodSignatureSymbolToPropertyDefinition(context, property);
+    if (isPropertySignatureSymbol(propertySymbol)) {
+      return propertySignatureToPropertyDefinition(context, propertySymbol, defaultProps);
+    }
+
+    if (isMethodSignatureSymbol(propertySymbol)) {
+      return convertMethodSignatureSymbolToPropertyDefinition(context, propertySymbol);
     }
   } catch (e) {
     return;

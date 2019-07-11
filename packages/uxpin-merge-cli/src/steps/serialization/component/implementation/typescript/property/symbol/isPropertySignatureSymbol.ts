@@ -4,7 +4,9 @@ export type PropertySymbol = ts.Symbol & { valueDeclaration:ts.PropertySignature
 
 export function isPropertySignatureSymbol(symbol:ts.Symbol):symbol is PropertySymbol {
   try {
-    return ts.isPropertySignature(symbol.valueDeclaration);
+    const { valueDeclaration } = symbol;
+
+    return !!valueDeclaration && ts.isPropertySignature(valueDeclaration);
   } catch (e) {
     return false;
   }
