@@ -60,12 +60,12 @@ describe('summary command integration', () => {
         💡 examples: ✔
         🎛  presets: ✘
 
-    Checkbox
+    CheckBox
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✘
 
-    CheckboxGroup
+    CheckBoxGroup
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✘

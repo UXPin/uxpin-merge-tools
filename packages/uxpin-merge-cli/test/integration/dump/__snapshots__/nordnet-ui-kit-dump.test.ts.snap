@@ -645,12 +645,14 @@ exports[`The dump command run for the nordnet-ui-kit repository prints the JSON 
               \\"defaultValue\\": {
                 \\"value\\": \\"true\\"
               },
+              \\"isRequired\\": false,
               \\"name\\": \\"aria-hidden\\"
             },
             {
               \\"defaultValue\\": {
                 \\"value\\": \\"false\\"
               },
+              \\"isRequired\\": false,
               \\"name\\": \\"focusable\\"
             }
           ]

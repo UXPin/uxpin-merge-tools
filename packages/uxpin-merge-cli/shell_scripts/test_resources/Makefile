@@ -23,13 +23,11 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 
 ../../test/resources/repos/polaris:
 	cd ../../test/resources/repos \
-	&& git clone https://github.com/Shopify/polaris.git \
+	&& git clone https://github.com/uxpin-merge/polaris-react.git polaris \
 	&& cd polaris \
-	&& git checkout v1.7.0 \
 	&& mkdir ./yarn-cache \
 	&& yarn install --cache-folder ./yarn-cache \
-	&& rm -rf ./yarn-cache \
-	&& ln -s ../../configs/polaris-webpack.config.js ./polaris-webpack.config.js
+	&& rm -rf ./yarn-cache
 
 ../../test/resources/repos/mineral-ui:
 	cd ../../test/resources/repos \

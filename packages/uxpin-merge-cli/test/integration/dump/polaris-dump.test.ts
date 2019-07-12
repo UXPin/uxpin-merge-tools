@@ -10,6 +10,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
 
+// @todo #20210: Fix this test after finish of TypeScript support implementation
 describe('The dump command', () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
 
@@ -18,13 +19,14 @@ describe('The dump command', () => {
     return runUXPinMergeCommand({
       cwd: 'resources/repos/polaris',
       env: {
+        NODE_ENV: 'production',
         UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
         UXPIN_ENV: Environment.TEST,
       },
-      params: [Command.DUMP, '--config="../../configs/polaris-uxpin.config.js"'],
+      params: [Command.DUMP],
     }).then((consoleOutput) => {
       // then
-      expect(consoleOutput).toMatchSnapshot();
+      expect(JSON.parse(consoleOutput)).toMatchSnapshot();
     });
   });
 });

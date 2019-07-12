@@ -13,10 +13,6 @@ export function experimentationOpenBrowserStep(args:ExperimentProgramArgs, store
 
 function openBrowser(args:ExperimentProgramArgs, store:Store<ExperimentationState>):StepExecutor {
   return async (ds:DSMetadata) => {
-    if (store.state.ngrokUrl === null) {
-      return ds;
-    }
-
     const appURL:string = getAPPExperimentationRemoteURL(await getExperimentServerOptions(args, store.state));
     await openUserBrowserOnSpecificUrl(appURL);
 

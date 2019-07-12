@@ -8,10 +8,10 @@ import { PresetsBundle } from './jsx/bundle/PresetsBundle';
 import { JSXSerializedElement } from './jsx/JSXSerializationResult';
 import { PresetsSerializationResult } from './PresetsSerializationResult';
 
-export async function serializePresets(
+export function serializePresets(
   bundle:PresetsBundle,
   infos:ComponentPresetInfo[],
-):Promise<PresetsSerializationResult> {
+):PresetsSerializationResult {
   const aggregator:PresetsSerializationResult = { result: [], warnings: [] };
   return infos
     .map(thunkSerializePreset(bundle))

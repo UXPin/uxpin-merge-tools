@@ -5,24 +5,25 @@ import {
   JSXSerializedElementProp,
   JSXSerializedElementProps,
 } from '../../JSXSerializationResult';
-
-interface Component extends Function {
-  displayName?:string;
-}
+import { ComponentPlaceholder } from '../generateVirtualModules';
 
 // tslint:disable-next-line:function-name
 function __uxpinParsePreset(
-  type:Component,
+  component:ComponentPlaceholder | string | any,
   props?:JSXSerializedElementProps,
   ...children:AnySerializedElement[]):JSXSerializedElement {
 
-  const displayName:string = typeof type === 'function'
-    ? type.displayName || type.name || 'Unknown'
-    : type;
+  if (component === undefined) {
+    const error:Error = new Error('Unknown component!');
+    error.message = parsePresetErrorMessage(error);
+    throw error;
+  }
+
+  const componentName:string = !!component.name ? component.name : 'Unknown';
 
   return {
     children,
-    name: displayName,
+    name: componentName,
     props: JSON.parse(JSON.stringify(props)) || {},
     uxpinPresetElementType: 'CodeComponent',
     warnings: getPropertySerializationWarnings(props),
@@ -41,6 +42,17 @@ function getPropertySerializationWarnings(props:JSXSerializedElementProps|undefi
     }
     return warnings;
   }, []);
+}
+
+const ERROR_LINES:number = 5;
+function parsePresetErrorMessage(error:Error):string {
+  if (!error.stack) {
+    return error.message;
+  }
+
+  const lines:string[] = error.stack.split('\n').filter((line) => !line.match(/at __uxpinParsePreset/gi));
+
+  return lines.slice(0, ERROR_LINES).join('\n');
 }
 
 (global as any).__uxpinParsePreset = __uxpinParsePreset;

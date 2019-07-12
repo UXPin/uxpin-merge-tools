@@ -1,6 +1,7 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
 import { flatMap } from 'lodash';
+import { getComponentNamespacedName } from '../../../../serialization/component/name/getComponentNamespacedName';
 import { DesignSystemSnapshot } from '../../../../serialization/DesignSystemSnapshot';
 import { getProjectMetadata } from '../../../metadata/getProjectMetadata';
 import { getComponentId } from '../../common/page/data/codeSync/component/getComponentId';
@@ -35,7 +36,7 @@ export class GetPreviewsHandler implements RequestHandler {
         id: getComponentId(designSystemId, component.info),
         idCategory,
         idLibrary: EXPERIMENTAL_LIBRARY_ID,
-        name: component.name,
+        name: getComponentNamespacedName(component),
         revisionId: this.context.epid.revisionId,
         type: PREVIEW_ITEM_TYPE,
       }));

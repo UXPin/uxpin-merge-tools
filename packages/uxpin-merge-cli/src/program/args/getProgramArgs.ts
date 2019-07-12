@@ -15,6 +15,7 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     command: Command.EXPERIMENT,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
+    disableTunneling: false,
     port: 8877,
     skipBrowser: false,
     uxpinDomain: DEFAULT_UXPIN_DOMAIN,

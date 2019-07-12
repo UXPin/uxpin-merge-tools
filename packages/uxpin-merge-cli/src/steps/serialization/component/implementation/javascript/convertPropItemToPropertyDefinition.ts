@@ -4,6 +4,8 @@ import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getDefaultValue } from './defaultValue/getDefaultValue';
 import { GeneralPropItem } from './FlowPropItem';
+import { getPropertyCustomDescriptorsWithWarnings } from './props/getPropertyCustomDescriptorsWithWarnings';
+import { getPropertyDescriptionWithWarnings } from './props/getPropertyDescriptionWithWarnings';
 import { getPropertyTypeWithWarnings } from './type/getPropertyTypeWithWarnings';
 
 export function convertPropItemToPropertyDefinition(propName:string,
@@ -11,7 +13,10 @@ export function convertPropItemToPropertyDefinition(propName:string,
   const partialProviders:Array<Promise<Warned<Partial<ComponentPropertyDefinition>>>> = [
     getDefaultValue(propName, propItem),
     getPropertyTypeWithWarnings(propName, propItem),
+    getPropertyCustomDescriptorsWithWarnings(propName, propItem),
+    getPropertyDescriptionWithWarnings(propName, propItem),
   ];
+
   const aggregator:Warned<ComponentPropertyDefinition> = {
     result: {
       description: propItem.description,
@@ -20,6 +25,7 @@ export function convertPropItemToPropertyDefinition(propName:string,
     },
     warnings: [],
   };
+
   return pReduce(partialProviders, (result, partial) => {
     Object.assign(result.result, partial.result);
     Object.assign(result.warnings, partial.warnings);

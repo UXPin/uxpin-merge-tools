@@ -23,7 +23,7 @@ export interface ExperimentationServerOptions extends ExperimentationServerConte
 }
 
 export interface ExperimentationServerContext {
-  ngrokSessionId:string;
+  ngrokSessionId?:string;
   port:number;
   bundlePath:string;
   epid:EPID;

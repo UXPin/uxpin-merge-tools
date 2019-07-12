@@ -2,10 +2,13 @@ import { toPairs } from 'lodash';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
-import { getComponentNameFromPath } from '../../name/getComponentNameFromPath';
+import { validateProps } from '../../../validation/validateProps';
 import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
+import { ComponentNamespace } from './../../ComponentDefinition';
 import { convertPropItemToPropertyDefinition } from './convertPropItemToPropertyDefinition';
+import { getComponentName } from './getComponentName';
+import { getComponentNamespaceFromDescription } from './getComponentNamespaceFromDescription';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 
 export function serializeJSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
@@ -17,17 +20,26 @@ export function serializeJSComponent(component:ComponentImplementationInfo):Prom
 function thunkGetMetadata(implInfo:ComponentImplementationInfo):(parsed:ComponentDoc) => Promise<PartialResult> {
   return (parsed) => Promise.all(toPairs(parsed.props)
     .map(([propName, propType]) => convertPropItemToPropertyDefinition(propName, propType)))
-    .then((properties) => ({ name: getComponentNameFromPath(implInfo.path), properties }));
+    .then(validateProps)
+    .then((properties) => {
+      const name:string = getComponentName(implInfo.path, parsed);
+      return {
+        name,
+        namespace: getComponentNamespaceFromDescription(name, parsed.description),
+        properties,
+      };
+    });
 }
 
 function thunkGetSummaryResult(path:string):(propResults:PartialResult) => ImplSerializationResult {
-  return ({ name, properties }) => ({
-    result: { name, properties: properties.map((p) => p.result) },
+  return ({ name, namespace, properties }) => ({
+    result: { name, namespace, properties: properties.map((p) => p.result) },
     warnings: joinWarningLists(properties.map((p) => p.warnings), path),
   });
 }
 
 interface PartialResult {
   name:string;
+  namespace?:ComponentNamespace;
   properties:PropDefinitionSerializationResult[];
 }

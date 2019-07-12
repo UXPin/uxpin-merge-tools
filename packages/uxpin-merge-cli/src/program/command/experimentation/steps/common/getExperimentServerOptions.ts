@@ -15,11 +15,7 @@ export async function getExperimentServerOptions(
   const { port, uxpinDomain, skipBrowser } = args;
   const uxpinDirPath:string = getTempDirPath(args);
   const projectRoot:string = getProjectRoot(args);
-  const ngrokSessionId:string|null = getNgrokSessionId(state.ngrokUrl!);
-
-  if (!ngrokSessionId) {
-    throw new Error('Unknown ngrokSessionId');
-  }
+  const ngrokSessionId:string | undefined = getNgrokSessionId(state.ngrokUrl);
 
   return {
     bundlePath: getLibraryBundleFilePath(uxpinDirPath),

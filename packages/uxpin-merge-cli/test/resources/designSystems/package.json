@@ -3,6 +3,7 @@
   "workspaces": {
     "packages": [
       "cantWriteToUxpinTemp",
+      "namespacedComponents",
       "noSrcDir",
       "noUxpinConfig",
       "twoComponentsWithConfig",

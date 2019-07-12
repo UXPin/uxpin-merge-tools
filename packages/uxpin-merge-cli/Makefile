@@ -79,7 +79,7 @@ serialize-mineral:
 
 serve-polaris:
 	cd ./test/resources/repos/polaris && \
-	$(UXPIN_CODE) server --webpack-config="./polaris-webpack.config" --config="../../configs/polaris-uxpin.config.js"
+	$(UXPIN_CODE) server --webpack-config="./polaris-webpack.config"
 
 serve-arui:
 	cd ./test/resources/repos/arui-feather && \

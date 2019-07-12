@@ -9,14 +9,15 @@ import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
 import { getStepsForWatcher } from './command/getStepsForWatcher';
 import { Step, StepExecutor } from './command/Step';
-import { applyVersionCommandSteps } from './command/version/applyVersionCommandSteps';
 import { DSMetadata } from './DSMeta';
 import { setNodeEnv } from './env/setNodeEnv';
+import { printCurrentVersionInfo } from './utils/version/printCurrentVersion';
 import { setupWatcher } from './watcher/setupWatcher';
 
 export async function runProgram(program:RawProgramArgs):Promise<any> {
   try {
     setNodeEnv(process.env.UXPIN_ENV);
+    printCurrentVersionInfo();
     const programArgs:ProgramArgs = getProgramArgs(program);
     await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
@@ -26,7 +27,7 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
 }
 
 async function runCommand(programArgs:ProgramArgs):Promise<any> {
-  await executeCommandSteps(programArgs, applyVersionCommandSteps(getSteps(programArgs)));
+  await executeCommandSteps(programArgs, getSteps(programArgs));
 }
 
 async function setupProjectWatcher(programArgs:ProgramArgs):Promise<void> {
@@ -62,12 +63,12 @@ function isWatchChangesCommand(programArgs:ProgramArgs):boolean {
   return programArgs.command === Command.EXPERIMENT;
 }
 
-function endWithError(error:Error|string):void {
+function endWithError(error:Error | string):void {
   logError(error);
 
   process.exit(1);
 }
 
-function logError(error:Error|string):void {
+function logError(error:Error | string):void {
   console.error('ERROR:', error instanceof Error ? error.message : error);
 }

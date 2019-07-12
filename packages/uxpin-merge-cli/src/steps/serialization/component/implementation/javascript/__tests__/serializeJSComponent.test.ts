@@ -1,10 +1,10 @@
-import { getJavaScriptComponentPath } from '../../../../../../../test/utils/resources/getExampleComponentPath';
 import { WarningDetails } from '../../../../../../common/warning/WarningDetails';
 import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../ComponentDefinition';
 import { serializeJSComponent } from '../serializeJSComponent';
+import { getImplementation } from './utils/getImplementation';
 
-describe('serializeJSComponentProps', () => {
+describe('serializeJSComponent', () => {
   describe('providing array of objects describing all properties of the JavaScript component', () => {
     it('serializes functional component with primitive property types', () => {
       // given
@@ -110,7 +110,7 @@ describe('serializeJSComponentProps', () => {
           {
             defaultValue: { value: 'secondary' },
             description: '',
-            isRequired: true,
+            isRequired: false,
             name: 'appearance',
             type: {
               name: 'union',
@@ -411,6 +411,62 @@ describe('serializeJSComponentProps', () => {
       });
     });
 
+    it('serializes component with imported enum property types', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithImportedEnum');
+      const expectedProps:ComponentMetadata = {
+        name: 'FunctionWithImportedEnum',
+        properties: [
+          {
+            description: '',
+            isRequired: false,
+            name: 'children',
+            type: {
+              name: 'node',
+              structure: {},
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'appearance',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 'secondary' } },
+                  { name: 'literal', structure: { value: 'primary' } },
+                  { name: 'literal', structure: { value: 'link' } },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: false,
+            name: 'modifier',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 'neutral' } },
+                  { name: 'literal', structure: { value: 'danger' } },
+                  { name: 'literal', structure: { value: 'positive' } },
+                ],
+              },
+            },
+          },
+        ],
+      };
+
+      // when
+      return serializeJSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('provides warning details for corrupted default property values', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('CorruptedDefaultPropertyValue');
@@ -419,7 +475,7 @@ describe('serializeJSComponentProps', () => {
         properties: [
           {
             description: '',
-            isRequired: true,
+            isRequired: false,
             name: 'value',
             type: {
               name: 'string',
@@ -502,12 +558,4 @@ ReferenceError: some is not defined
       });
     });
   });
-
-  function getImplementation(componentName:string):ComponentImplementationInfo {
-    return {
-      framework: 'reactjs',
-      lang: 'javascript',
-      path: getJavaScriptComponentPath(componentName),
-    };
-  }
 });
