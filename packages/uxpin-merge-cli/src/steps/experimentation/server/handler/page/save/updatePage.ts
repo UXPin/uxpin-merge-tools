@@ -1,11 +1,18 @@
 import { cloneDeep, isArray, reduce } from 'lodash';
 import { PageContent } from '../../../../../../common/types/PageData';
 import { DeletedElements, PageIncrementalUpdate } from '../../../../../../common/types/PageIncrementalUpdate';
-import { getPageContent } from '../../../common/page/content/getPageContent';
+import { DesignSystemSnapshot } from '../../../../../serialization/DesignSystemSnapshot';
+import { getProjectMetadata } from '../../../../metadata/getProjectMetadata';
+import { getPageContent, PageContentContext } from '../../../common/page/content/getPageContent';
 import { writePageContent } from '../../../common/page/content/writePageContent';
 
-export async function updatePage(uxpinDirPath:string, changes:PageIncrementalUpdate):Promise<void> {
-  const oldPage:PageContent = await getPageContent(uxpinDirPath);
+export async function updatePage(
+  context:PageContentContext,
+  changes:PageIncrementalUpdate,
+):Promise<void> {
+  const { uxpinDirPath } = context;
+  const metadata:DesignSystemSnapshot = await getProjectMetadata(uxpinDirPath);
+  const oldPage:PageContent = await getPageContent(context, metadata);
   const updatedPage:PageContent = updateElements(oldPage, changes.changed_elements);
   const remainingUpdated:PageContent = removeElements(updatedPage, changes.deleted_elements);
   await writePageContent(uxpinDirPath, remainingUpdated);

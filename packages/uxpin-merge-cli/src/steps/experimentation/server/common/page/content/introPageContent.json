@@ -1,0 +1,168 @@
+{
+  "canvas": {
+    "props": {
+      "storedElements": [
+        "2da16dd8268c4bbabe40247dd266bbae",
+        "a35af305fe104253aff08621e35aa703"
+      ]
+    },
+    "type": "Canvas",
+    "v": "2.1"
+  },
+  "2da16dd8268c4bbabe40247dd266bbae": {
+    "props": {
+      "name": "Check out more componentsin the library",
+      "width": 300,
+      "height": 48,
+      "x": 118,
+      "y": 347,
+      "opacity": 100,
+      "anchorX": 0,
+      "anchorY": 0,
+      "locked": 0,
+      "stateIa": "visible",
+      "fixed": 0,
+      "elementBlur": 0,
+      "mixBlendMode": "normal",
+      "constraints": {
+        "auto": true,
+        "x": {
+          "type": "stretch"
+        },
+        "y": {
+          "type": "stretch"
+        }
+      },
+      "sketchReadOnly": 0,
+      "flipHorizontal": false,
+      "flipVertical": false,
+      "hasClippingMask": false,
+      "customStyles": [],
+      "inputValue": "<p>Check out more components<br></p><p>in the library<br></p>",
+      "color": "#000000",
+      "fontSize": 20,
+      "fontWeight": "normal",
+      "fontStyle": "normal",
+      "fontFamily": "G-Lato-n3",
+      "textDecoration": "",
+      "textAlign": "left",
+      "autoNamed": true
+    },
+    "type": "TextElement",
+    "v": "2.1"
+  },
+  "a35af305fe104253aff08621e35aa703": {
+    "props": {
+      "name": "Arrow",
+      "width": 138,
+      "height": 28.83471074380168,
+      "keepRatio": false,
+      "x": -16.564930427865807,
+      "y": 288.5154500126659,
+      "opacity": 100,
+      "anchorX": 0,
+      "anchorY": 0,
+      "locked": 0,
+      "stateIa": "visible",
+      "fixed": 0,
+      "elementBlur": 0,
+      "mixBlendMode": "normal",
+      "constraints": {
+        "auto": true,
+        "x": {
+          "type": "stretch"
+        },
+        "y": {
+          "type": "stretch"
+        }
+      },
+      "sketchReadOnly": 0,
+      "flipHorizontal": false,
+      "flipVertical": false,
+      "hasClippingMask": false,
+      "customStyles": [],
+      "maskMode": "alpha",
+      "backgroundImage": "",
+      "bezierPoints": {
+        "point-15629411793067": [
+          {
+            "x": 154.235294117647,
+            "y": 295.5036183328866,
+            "id": "point-156294117933216",
+            "type": "mirrored",
+            "cornerRadius": 0
+          },
+          {
+            "x": 156.26470588235296,
+            "y": 295.5036183328866,
+            "id": "point-156294117933217",
+            "type": "mirrored",
+            "cornerRadius": 0
+          }
+        ],
+        "point-1562941181456592": [
+          {
+            "id": "point-1562941181619596",
+            "x": 17.25,
+            "y": 269.3197534173145
+          },
+          {
+            "id": "point-1562941181619597",
+            "x": 17.25,
+            "y": 269.3197534173145
+          }
+        ],
+        "point-1562941183442761": [
+          {
+            "id": "point-15629411856501251",
+            "x": 41.60294117647057,
+            "y": 262.77378718842135,
+            "type": "mirrored",
+            "cornerRadius": 0
+          },
+          {
+            "id": "point-15629411856501252",
+            "x": 128.8676470588235,
+            "y": 277.7359957116055,
+            "type": "mirrored",
+            "cornerRadius": 0
+          }
+        ]
+      },
+      "isPathClosed": false,
+      "offsetX": 17.25,
+      "offsetY": 266.66890758908494,
+      "points": [
+        {
+          "id": "point-15629411793067",
+          "x": 155.24999999999997,
+          "y": 295.5036183328866,
+          "type": "mirrored",
+          "cornerRadius": 0
+        },
+        {
+          "id": "point-1562941183442761",
+          "x": 85.23529411764703,
+          "y": 270.2548914500136,
+          "type": "mirrored",
+          "cornerRadius": 0
+        },
+        {
+          "id": "point-1562941181456592",
+          "x": 17.25,
+          "y": 269.3197534173145,
+          "type": "straight"
+        }
+      ],
+      "viewBox": "0 0 138 28.83471074380168",
+      "objectFit": "cover",
+      "stroke": "#666666",
+      "strokeWidth": 1,
+      "color": "transparent",
+      "angle": 12.696944109361354,
+      "markerEnd": "filledTriangle"
+    },
+    "type": "SvgArrow",
+    "v": "2.1"
+  }
+}
