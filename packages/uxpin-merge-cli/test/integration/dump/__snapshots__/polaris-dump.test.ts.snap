@@ -305,11 +305,11 @@ Object {
                       "structure": Object {},
                     },
                     Object {
-                      "name": "literal",
+                      "name": "boolean",
                       "structure": Object {},
                     },
                     Object {
-                      "name": "literal",
+                      "name": "boolean",
                       "structure": Object {},
                     },
                   ],
@@ -333,11 +333,11 @@ Object {
                       "structure": Object {},
                     },
                     Object {
-                      "name": "literal",
+                      "name": "boolean",
                       "structure": Object {},
                     },
                     Object {
-                      "name": "literal",
+                      "name": "boolean",
                       "structure": Object {},
                     },
                     Object {
