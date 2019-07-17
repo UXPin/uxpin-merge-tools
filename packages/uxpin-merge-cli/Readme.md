@@ -19,9 +19,9 @@ yarn add @uxpin/merge-cli --dev
 This tool recognizes components available in your repository of component library, analyze them and uploads results to [UXPin app](https://uxpin.com/merge) in order to further integration with UXPin Design System services.
 
 ```
-uxpin-merge --help
+./node_modules/.bin/uxpin-merge --help
 ```
-will print the list of potions options of the default command:
+will print the list of options:
 ```
   Usage: uxpin-merge [options] [command]
 
