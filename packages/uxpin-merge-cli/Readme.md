@@ -2,7 +2,7 @@
 
 The Command-line tool integrates the Design System repository with [UXPin Merge](https://www.uxpin.com/merge)
 
-### **[See UXPin Docs for full documentation](https://www.uxpin.com/docs/merge/merge-cli-tool)** 
+### **[See UXPin Docs for full documentation of Merge](https://www.uxpin.com/docs/merge)** 
 
 ## Installation
 Add `uxpin-merge` to your package.json:
