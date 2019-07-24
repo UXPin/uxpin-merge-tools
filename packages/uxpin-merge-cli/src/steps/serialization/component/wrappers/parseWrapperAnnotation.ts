@@ -1,5 +1,5 @@
 import { CommentTags } from '../CommentTags';
-import { getLines } from '../implementation/javascript/props/getLines';
+import { getLines } from '../comments/getLines';
 import { ComponentWrapper, ComponentWrapperType } from './ComponentWrapper';
 import { getWrapperNameFromPath } from './getWrapperNameFromPath';
 import { isBuiltInWrapper } from './isBuiltInWrapper';
