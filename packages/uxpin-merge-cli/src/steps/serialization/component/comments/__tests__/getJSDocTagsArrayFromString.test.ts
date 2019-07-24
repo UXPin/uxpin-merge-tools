@@ -1,9 +1,10 @@
-import { getJSDocTagsArrayFromString } from "../getJSDocTagsArrayFromString";
+import { getJSDocTagsArrayFromString } from '../getJSDocTagsArrayFromString';
 
 describe('getJSDocTagsArrayFromString', () => {
   describe('when multiline string with multiline tags is provided', () => {
     it('should parse the tags correctly', () => {
       // having
+      // tslint:disable:no-trailing-whitespace
       const value:string = `
 
 @tag1 value
@@ -17,6 +18,7 @@ whitespaces
 
 
 @tag4    `;
+      // tslint:enable:no-trailing-whitespace
 
       // when
       // then
@@ -27,5 +29,5 @@ whitespaces
         '@tag4',
       ]);
     });
-  })
+  });
 });

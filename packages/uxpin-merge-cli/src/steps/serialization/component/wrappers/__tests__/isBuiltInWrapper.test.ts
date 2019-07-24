@@ -1,6 +1,6 @@
 import { using } from '../../../../../../test/utils/using';
-import { isBuiltInWrapper } from '../isBuiltInWrapper';
 import { BuiltInWrappers } from '../ComponentWrapper';
+import { isBuiltInWrapper } from '../isBuiltInWrapper';
 
 describe('isBuiltInWrapper', () => {
   using(Object.values(BuiltInWrappers))

@@ -1,9 +1,10 @@
-import { getLines } from "../getLines";
+import { getLines } from '../getLines';
 
 describe('getLines', () => {
   describe('when string is given', () => {
     it('should return trimmed lines array', () => {
       // having
+      // tslint:disable:no-trailing-whitespace
       const value:string = `
 
 multiline
@@ -14,6 +15,7 @@ text with
     
     
     `;
+      // tslint:enable:no-trailing-whitespace
 
       // when
       const lines:string[] = getLines(value);
@@ -24,7 +26,7 @@ text with
         'text with',
         'whitespaces and',
         'stuff',
-      ])
+      ]);
     });
-  })
+  });
 });

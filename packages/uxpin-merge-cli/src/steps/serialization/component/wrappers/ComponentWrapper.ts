@@ -16,7 +16,7 @@ export type CustomComponentWrapper = GenericComponentWrapper & {
 
 export enum ComponentWrapperType {
   BUILT_IN = 'builtIn',
-  CUSTOM = 'custom,'
+  CUSTOM = 'custom',
 }
 
 export enum BuiltInWrappers {

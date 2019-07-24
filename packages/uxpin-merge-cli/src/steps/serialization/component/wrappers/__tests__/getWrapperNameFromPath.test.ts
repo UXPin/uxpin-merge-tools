@@ -1,4 +1,4 @@
-import { getWrapperNameFromPath } from "../getWrapperNameFromPath";
+import { getWrapperNameFromPath } from '../getWrapperNameFromPath';
 
 describe('getWrapperNameFromPath', () => {
   describe('when path is provided', () => {

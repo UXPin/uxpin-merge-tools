@@ -1,17 +1,20 @@
-import { CommentTags } from '../CommentTags';
 import { getLines } from '../comments/getLines';
+import { CommentTags } from '../CommentTags';
 import { ComponentWrapper, ComponentWrapperType } from './ComponentWrapper';
 import { getWrapperNameFromPath } from './getWrapperNameFromPath';
 import { isBuiltInWrapper } from './isBuiltInWrapper';
 
-export function parseWrapperAnnotation(commentTag:string):ComponentWrapper[] {
+export function parseWrapperAnnotation(commentTag:string):ComponentWrapper[] | undefined {
   if (!commentTag.startsWith(CommentTags.UXPIN_WRAPPERS)) {
-    return [];
+    return undefined;
   }
 
   const wrappersNames:string[] = parseCommentToLines(commentTag);
+  const wrappers:ComponentWrapper[] = wrappersNames.map((name:string) => pathOrNameToWrapper(name));
 
-  return wrappersNames.map((name:string) => pathOrNameToWrapper(name));
+  return wrappers.length === 0
+    ? undefined
+    : wrappers;
 }
 
 function pathOrNameToWrapper(nameOrPath:string):ComponentWrapper {
@@ -26,7 +29,7 @@ function pathOrNameToWrapper(nameOrPath:string):ComponentWrapper {
     name: getWrapperNameFromPath(nameOrPath),
     path: nameOrPath,
     type: ComponentWrapperType.CUSTOM,
-  }
+  };
 }
 
 const STRIP_TAG_REGEX:RegExp = new RegExp(`^(\\s)?\\${CommentTags.UXPIN_WRAPPERS}(\\s+)?`);
@@ -37,7 +40,7 @@ function parseCommentToLines(commentTag:string):string[] {
       return [
         ...lines,
         ...line.split(','),
-      ]
+      ];
     }, [])
     .filter(Boolean);
 }
