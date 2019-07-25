@@ -4,6 +4,7 @@ import { joinWarningLists } from '../../../../../common/warning/joinWarningLists
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { validateProps } from '../../../validation/validateProps';
+import { validateWrappers } from '../../../validation/validateWrappers';
 import { getCommentTag } from '../../comments/getCommentTag';
 import { getJSDocTagsArrayFromString } from '../../comments/getJSDocTagsArrayFromString';
 import { CommentTags } from '../../CommentTags';
@@ -26,32 +27,47 @@ export function serializeJSComponent(component:ComponentImplementationInfo):Prom
 
 function thunkGetMetadata(implInfo:ComponentImplementationInfo):(parsed:ComponentDoc) => Promise<PartialResult> {
   return async (parsed) => {
-    const properties:PropDefinitionSerializationResult[] = await thunkGetComponentProperties(parsed.props);
+    const properties:PropDefinitionSerializationResult[] = await getComponentProperties(parsed.props);
     const name:string = getComponentName(implInfo.path, parsed);
+    const wrappers:Warned<ComponentWrapper[]> = getComponentWrappers(parsed, implInfo);
 
     return {
       name,
       properties,
-      ...thunkGetValuesFromComments(name, parsed),
+      wrappers,
+      ...getValuesFromComments(name, parsed),
     };
   };
 }
 
-async function thunkGetComponentProperties(props:ComponentDoc['props']):Promise<PropDefinitionSerializationResult[]> {
+async function getComponentProperties(props:ComponentDoc['props']):Promise<PropDefinitionSerializationResult[]> {
   const propsDefinition:Array<Promise<Warned<ComponentPropertyDefinition>>> = toPairs(props)
     .map(([propName, propType]) => convertPropItemToPropertyDefinition(propName, propType));
 
   return validateProps(await Promise.all(propsDefinition));
 }
 
-function thunkGetValuesFromComments(name:string, parsed:ComponentDoc):Pick<PartialResult, 'namespace' | 'wrappers'> {
+function getComponentWrappers(
+  parsed:ComponentDoc,
+  implInfo:ComponentImplementationInfo,
+):Warned<ComponentWrapper[]> {
+  const jsDocTags:string[] = getJSDocTagsArrayFromString(parsed.description);
+  const wrappersTag:string = getCommentTag(CommentTags.UXPIN_WRAPPERS, jsDocTags) || '';
+
+  const wrappers:ComponentWrapper[] = parseWrapperAnnotation(wrappersTag);
+
+  return validateWrappers(wrappers, implInfo);
+}
+
+function getValuesFromComments(
+  name:string,
+  parsed:ComponentDoc,
+):Pick<PartialResult, 'namespace'> {
   const jsDocTags:string[] = getJSDocTagsArrayFromString(parsed.description);
   const namespaceTag:string = getCommentTag(CommentTags.UXPIN_NAMESPACE, jsDocTags) || '';
-  const wrappersTag:string = getCommentTag(CommentTags.UXPIN_WRAPPERS, jsDocTags) || '';
 
   return {
     namespace: getComponentNamespaceFromDescription(name, namespaceTag),
-    wrappers: parseWrapperAnnotation(wrappersTag),
   };
 }
 
@@ -61,9 +77,15 @@ function thunkGetSummaryResult(path:string):(propResults:PartialResult) => ImplS
       name,
       namespace,
       properties: properties.map((p) => p.result),
-      wrappers,
+      wrappers: wrappers.result,
     },
-    warnings: joinWarningLists(properties.map((p) => p.warnings), path),
+    warnings: joinWarningLists(
+      [
+        ...properties.map((p) => p.warnings),
+        wrappers.warnings,
+      ],
+      path,
+    ),
   });
 }
 
@@ -71,5 +93,5 @@ interface PartialResult {
   name:string;
   namespace?:ComponentNamespace;
   properties:PropDefinitionSerializationResult[];
-  wrappers:ComponentWrapper[];
+  wrappers:Warned<ComponentWrapper[]>;
 }
