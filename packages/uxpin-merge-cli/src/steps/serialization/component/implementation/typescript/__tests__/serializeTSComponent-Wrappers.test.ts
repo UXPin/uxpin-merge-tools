@@ -86,7 +86,8 @@ describe.only('serializeTSComponent-Wrappers', () => {
     it('gives warning with information about invalid wrapper path', () => {
       expect(metadata.warnings).toEqual([
         {
-          message: 'Invalid wrapper path',
+          message: 'Invalid wrapper path "./invalid/Path/toWrapper.ts"!',
+          sourcePath: expect.stringContaining('ClassWithInvalidWrappersDeclaration.tsx'),
         },
       ]);
     });
