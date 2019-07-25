@@ -4,17 +4,13 @@ import { ComponentWrapper, ComponentWrapperType } from './ComponentWrapper';
 import { getWrapperNameFromPath } from './getWrapperNameFromPath';
 import { isBuiltInWrapper } from './isBuiltInWrapper';
 
-export function parseWrapperAnnotation(commentTag:string):ComponentWrapper[] | undefined {
+export function parseWrapperAnnotation(commentTag:string):ComponentWrapper[] {
   if (!commentTag.startsWith(CommentTags.UXPIN_WRAPPERS)) {
-    return undefined;
+    return [];
   }
 
   const wrappersNames:string[] = parseCommentToLines(commentTag);
-  const wrappers:ComponentWrapper[] = wrappersNames.map((name:string) => pathOrNameToWrapper(name));
-
-  return wrappers.length === 0
-    ? undefined
-    : wrappers;
+  return wrappersNames.map((name:string) => pathOrNameToWrapper(name));
 }
 
 function pathOrNameToWrapper(nameOrPath:string):ComponentWrapper {

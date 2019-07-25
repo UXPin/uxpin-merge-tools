@@ -71,5 +71,5 @@ interface PartialResult {
   name:string;
   namespace?:ComponentNamespace;
   properties:PropDefinitionSerializationResult[];
-  wrappers?:ComponentWrapper[];
+  wrappers:ComponentWrapper[];
 }

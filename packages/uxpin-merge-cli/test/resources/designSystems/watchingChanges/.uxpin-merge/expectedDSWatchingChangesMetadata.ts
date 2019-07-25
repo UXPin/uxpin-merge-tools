@@ -83,6 +83,7 @@ export const expectedAvatarDefinition:ComponentDefinition = {
       },
     },
   ],
+  wrappers: [],
 };
 
 export const expectedButtonDefinition:ComponentDefinition = {
@@ -138,6 +139,7 @@ export const expectedButtonDefinition:ComponentDefinition = {
       },
     },
   ],
+  wrappers: [],
 };
 
 export const expectedDSWatchingChangesMetadata:DesignSystemSnapshot = {

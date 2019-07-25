@@ -27,7 +27,7 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
     serializeComponentProperties(context, declaration);
   const validatedProps:Array<Warned<ComponentPropertyDefinition>> = validateProps(serializedProps);
   const namespace:ComponentNamespace | undefined = getComponentNamespace(declaration, name);
-  const wrappers:ComponentWrapper[] | undefined = getComponentWrappers(declaration);
+  const wrappers:ComponentWrapper[] = getComponentWrappers(declaration);
 
   return {
     result: {

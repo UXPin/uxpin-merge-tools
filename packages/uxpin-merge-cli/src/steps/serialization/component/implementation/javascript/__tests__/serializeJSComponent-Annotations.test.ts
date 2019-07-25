@@ -21,6 +21,10 @@ describe('SerializeJSComponent - with annotations', () => {
       expect(serialized.result.namespace).toBeUndefined();
     });
 
+    it('returns empty list of wrappers', () => {
+      expect(serialized.result.wrappers).toEqual([]);
+    });
+
     it('returns props of annotated component', () => {
       expect(serialized.result.properties).toEqual([
         expect.objectContaining({
@@ -68,6 +72,10 @@ describe('SerializeJSComponent - with annotations', () => {
       expect(serialized.result.namespace!.name).toEqual('Multi.Level.CustomNamespace');
     });
 
+    it('returns empty list of wrappers', () => {
+      expect(serialized.result.wrappers).toEqual([]);
+    });
+
     it('returns props of annotated component', () => {
       expect(serialized.result.properties).toEqual([
         expect.objectContaining({
@@ -101,6 +109,10 @@ describe('SerializeJSComponent - with annotations', () => {
 
     it('returns annotated namespace value', () => {
       expect(serialized.result.namespace!.name).toEqual('CustomNamespace');
+    });
+
+    it('returns empty list of wrappers', () => {
+      expect(serialized.result.wrappers).toEqual([]);
     });
 
     it('returns correct props list of component', () => {
