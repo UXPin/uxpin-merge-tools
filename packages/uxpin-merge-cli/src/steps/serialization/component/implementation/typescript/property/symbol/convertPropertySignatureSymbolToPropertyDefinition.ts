@@ -14,11 +14,16 @@ export function convertPropertySignatureSymbolToPropertyDefinition(
   propertySymbol:PropertySymbol,
 ):ComponentPropertyDefinition {
   const type:ts.Type = context.checker.getTypeFromTypeNode(propertySymbol.valueDeclaration.type!);
+  const name:string | undefined = getPropertyName(propertySymbol);
+
+  if (!name) {
+    throw new Error('Cannot get name from property symbol');
+  }
 
   return {
     description: getJSDocDocumentation(context, propertySymbol),
     isRequired: isPropertyRequired(propertySymbol),
-    name: getPropertyName(propertySymbol),
+    name,
     type: convertTypeToPropertyType(context, type),
     ...getDefaultValueFromJSDoc(propertySymbol),
     ...getPropertyCustomDescriptors(propertySymbol),
