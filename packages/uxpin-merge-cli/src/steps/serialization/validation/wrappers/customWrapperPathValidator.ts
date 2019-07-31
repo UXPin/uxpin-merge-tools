@@ -1,5 +1,5 @@
 import { statSync } from 'fs';
-import { resolve } from 'path';
+import { parse, ParsedPath, resolve } from 'path';
 import { getWarnedResult } from '../../../../common/warning/getWarnedResult';
 import { Warned } from '../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../discovery/component/ComponentInfo';
@@ -18,8 +18,9 @@ export function customWrapperPathValidator(
   });
 }
 
-function wrapperPathExists(basePath:string, pathToResolve:string):boolean {
-  const path:string = resolve(basePath, pathToResolve);
+function wrapperPathExists(baseFilePath:string, pathToResolve:string):boolean {
+  const { dir }:ParsedPath = parse(baseFilePath);
+  const path:string = resolve(dir, pathToResolve);
 
   try {
     statSync(path);
