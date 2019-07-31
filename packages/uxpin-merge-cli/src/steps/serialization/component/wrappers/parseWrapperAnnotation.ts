@@ -33,9 +33,13 @@ const STRIP_TAG_REGEX:RegExp = new RegExp(`^(\\s)?\\${CommentTags.UXPIN_WRAPPERS
 function parseCommentToLines(commentTag:string):string[] {
   return getLines(commentTag.replace(STRIP_TAG_REGEX, ''))
     .reduce((lines:string[], line:string) => {
+      const wrappers:string[] = line
+        .split(',')
+        .map((wrapper:string) => wrapper.trim());
+
       return [
         ...lines,
-        ...line.split(','),
+        ...wrappers,
       ];
     }, [])
     .filter(Boolean);
