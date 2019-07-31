@@ -1,5 +1,5 @@
-import { getRandomString } from '../../../../../../../test/utils/command/getRandomString';
 import { PageContent } from '../../../../../../common/types/PageData';
+import { getRandomString } from '../../../../../../utils/getRandomString';
 import { getAllComponentsFromCategories } from '../../../../../serialization/component/categories/getAllComponentsFromCategories';
 import { ComponentDefinition } from '../../../../../serialization/component/ComponentDefinition';
 import { DesignSystemSnapshot } from '../../../../../serialization/DesignSystemSnapshot';
