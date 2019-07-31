@@ -64,9 +64,13 @@ test-resources:
 test-rename-snapshots:
 	./shell_scripts/test-rename-snapshots.sh
 
-publish:
+publish-prod:
 	make build
-	npm publish
+	npm publish --tag latest
+
+publish-dev:
+	make build
+	npm publish --tag dev
 
 serve-mineral:
 	cd ./test/resources/repos/mineral-ui && \
