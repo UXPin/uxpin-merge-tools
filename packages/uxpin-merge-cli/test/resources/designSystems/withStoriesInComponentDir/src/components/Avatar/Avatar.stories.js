@@ -4,6 +4,10 @@ export const simple = () => (
   <Avatar size="small" imageUrl="https://picsum.photos/100/100?image=1027" />
 );
 
+export const large = () => (
+  <Avatar size="large" imageUrl="https://picsum.photos/100/100?image=1027" />
+);
+
 export const withFunctionAsProperty = () => (
   <Avatar size={() => 'small'} imageUrl="https://picsum.photos/100/100?image=1027" />
 );
