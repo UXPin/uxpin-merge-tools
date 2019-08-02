@@ -1,0 +1,6 @@
+!*.config.js
+*.jsx
+!**.stories.js
+!**.stories.jsx
+.uxpin-merge/*
+!.uxpin-merge/epid
