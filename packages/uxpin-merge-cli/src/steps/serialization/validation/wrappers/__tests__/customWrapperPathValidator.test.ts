@@ -8,7 +8,7 @@ describe('customWrapperPathValidator', () => {
   const implInfo:ComponentImplementationInfo = {
     framework: 'reactjs',
     lang: 'typescript',
-    path: resolve(__dirname, '../../../../../../', 'test/resources/designSystems/withWrappers'),
+    path: resolve(__dirname, '../../../../../../', 'test/resources/designSystems/withWrappers/Button.js'),
   };
 
   describe('when custom wrapper with valid path is provided', () => {

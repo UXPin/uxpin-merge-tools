@@ -69,7 +69,7 @@ describe('parseWrapperAnnotation', () => {
     describe('in a single line comment', () => {
       it('should return array of wrappers', () => {
         // having
-        const tag:string = '@uxpinwrappers ./path/to/customWrapper,NonResizableWrapper';
+        const tag:string = '@uxpinwrappers ./path/to/customWrapper, NonResizableWrapper';
         const expectedWrappers:ComponentWrapper[] = [
           {
             name: 'customWrapper',
