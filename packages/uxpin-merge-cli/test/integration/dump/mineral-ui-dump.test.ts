@@ -29,7 +29,7 @@ describe('The dump command', () => {
       });
 
       // then
-      expect(output).toMatchSnapshot();
+      expect(JSON.parse(output)).toMatchSnapshot();
     });
   });
 });

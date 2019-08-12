@@ -1,1971 +1,1982 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The dump command run for the nordnet-ui-kit repository prints the JSON describing the full repository 1`] = `
-"{
-  \\"categorizedComponents\\": [
-    {
-      \\"components\\": [
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+Object {
+  "categorizedComponents": Array [
+    Object {
+      "components": Array [
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/alert\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/alert/alert.md\\"
+          "info": Object {
+            "dirPath": "src/components/alert",
+            "documentation": Object {
+              "path": "src/components/alert/alert.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/alert/alert.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/alert/alert.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Alert\\",
-          \\"presets\\": [],
-          \\"properties\\": []
+          "name": "Alert",
+          "presets": Array [],
+          "properties": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/animate\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/animate/animate.md\\"
+          "info": Object {
+            "dirPath": "src/components/animate",
+            "documentation": Object {
+              "path": "src/components/animate/animate.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/animate/animate.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/animate/animate.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Animate\\",
-          \\"presets\\": [],
-          \\"properties\\": []
+          "name": "Animate",
+          "presets": Array [],
+          "properties": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/avatar\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/avatar/avatar.md\\"
+          "info": Object {
+            "dirPath": "src/components/avatar",
+            "documentation": Object {
+              "path": "src/components/avatar/avatar.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/avatar/avatar.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/avatar/avatar.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Avatar\\",
-          \\"presets\\": [],
-          \\"properties\\": []
+          "name": "Avatar",
+          "presets": Array [],
+          "properties": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/badge\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/badge/badge.md\\"
+          "info": Object {
+            "dirPath": "src/components/badge",
+            "documentation": Object {
+              "path": "src/components/badge/badge.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/badge/badge.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/badge/badge.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Badge\\",
-          \\"presets\\": [],
-          \\"properties\\": []
+          "name": "Badge",
+          "presets": Array [],
+          "properties": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/button\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/button/button.md\\"
+          "info": Object {
+            "dirPath": "src/components/button",
+            "documentation": Object {
+              "path": "src/components/button/button.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/button/button.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/button/button.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Button\\",
-          \\"presets\\": [],
-          \\"properties\\": []
+          "name": "Button",
+          "presets": Array [],
+          "properties": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/dropdown\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/dropdown/dropdown.md\\"
+          "info": Object {
+            "dirPath": "src/components/dropdown",
+            "documentation": Object {
+              "path": "src/components/dropdown/dropdown.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/dropdown/dropdown.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/dropdown/dropdown.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Dropdown\\",
-          \\"presets\\": [],
-          \\"properties\\": []
+          "name": "Dropdown",
+          "presets": Array [],
+          "properties": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/flag\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/flag/flag.md\\"
+          "info": Object {
+            "dirPath": "src/components/flag",
+            "documentation": Object {
+              "path": "src/components/flag/flag.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/flag/flag.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/flag/flag.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Flag\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": \\"\\"
+          "name": "Flag",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "className",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
               },
-              \\"description\\": \\"A valid 2-character country code\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"countryCode\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"ca\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"de\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"fr\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"ru\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"gb\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"dk\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"fi\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"no\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"se\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"us\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"jp\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"cn\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"eu\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"CA\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"DE\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"FR\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"RU\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"GB\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"DK\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"FI\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"NO\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"SE\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"US\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"JP\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"CN\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"EU\\"
-                      }
-                    }
-                  ]
-                }
-              }
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"secondaryCountryCode\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"ca\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"de\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"fr\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"ru\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"gb\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"dk\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"fi\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"no\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"se\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"us\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"jp\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"cn\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"eu\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"CA\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"DE\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"FR\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"RU\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"GB\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"DK\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"FI\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"NO\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"SE\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"US\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"JP\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"CN\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"EU\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": 32
+            Object {
+              "defaultValue": Object {
+                "value": "",
               },
-              \\"description\\": \\"Unitless pixel value\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"size\\",
-              \\"type\\": {
-                \\"name\\": \\"number\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"style\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": false
+              "description": "A valid 2-character country code",
+              "isRequired": false,
+              "name": "countryCode",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "ca",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "de",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "fr",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "ru",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "gb",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "dk",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "fi",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "no",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "se",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "us",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "jp",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "cn",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "eu",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "CA",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "DE",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "FR",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "RU",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "GB",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "DK",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "FI",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "NO",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "SE",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "US",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "JP",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "CN",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "EU",
+                      },
+                    },
+                  ],
+                },
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"round\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
-            }
-          ]
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "secondaryCountryCode",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "ca",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "de",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "fr",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "ru",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "gb",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "dk",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "fi",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "no",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "se",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "us",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "jp",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "cn",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "eu",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "CA",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "DE",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "FR",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "RU",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "GB",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "DK",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "FI",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "NO",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "SE",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "US",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "JP",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "CN",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "EU",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": 32,
+              },
+              "description": "Unitless pixel value",
+              "isRequired": false,
+              "name": "size",
+              "type": Object {
+                "name": "number",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "style",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": false,
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "round",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+          ],
+          "wrappers": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/icon\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/icon/icon.md\\"
+          "info": Object {
+            "dirPath": "src/components/icon",
+            "documentation": Object {
+              "path": "src/components/icon/icon.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/icon/icon.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/icon/icon.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Icon\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": {
-                  \\"pointerEvents\\": \\"none\\"
-                }
+          "name": "Icon",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "className",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"style\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
             },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": 16
+            Object {
+              "defaultValue": Object {
+                "value": Object {
+                  "pointerEvents": "none",
+                },
               },
-              \\"description\\": \\"Unitless pixel value\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"width\\",
-              \\"type\\": {
-                \\"name\\": \\"number\\",
-                \\"structure\\": {}
-              }
+              "description": "",
+              "isRequired": false,
+              "name": "style",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
+              },
             },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": 16
+            Object {
+              "defaultValue": Object {
+                "value": 16,
               },
-              \\"description\\": \\"Unitless pixel value\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"height\\",
-              \\"type\\": {
-                \\"name\\": \\"number\\",
-                \\"structure\\": {}
-              }
+              "description": "Unitless pixel value",
+              "isRequired": false,
+              "name": "width",
+              "type": Object {
+                "name": "number",
+                "structure": Object {},
+              },
             },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": \\"0 0 16 16\\"
+            Object {
+              "defaultValue": Object {
+                "value": 16,
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"viewBox\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
+              "description": "Unitless pixel value",
+              "isRequired": false,
+              "name": "height",
+              "type": Object {
+                "name": "number",
+                "structure": Object {},
+              },
             },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": \\"#222\\"
+            Object {
+              "defaultValue": Object {
+                "value": "0 0 16 16",
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"fill\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
+              "description": "",
+              "isRequired": false,
+              "name": "viewBox",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
             },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": \\"#222\\"
+            Object {
+              "defaultValue": Object {
+                "value": "#222",
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"stroke\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
+              "description": "",
+              "isRequired": false,
+              "name": "fill",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
             },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": 1
+            Object {
+              "defaultValue": Object {
+                "value": "#222",
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"strokeWidth\\",
-              \\"type\\": {
-                \\"name\\": \\"number\\",
-                \\"structure\\": {}
-              }
+              "description": "",
+              "isRequired": false,
+              "name": "stroke",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
             },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": \\"true\\"
+            Object {
+              "defaultValue": Object {
+                "value": 1,
               },
-              \\"isRequired\\": false,
-              \\"name\\": \\"aria-hidden\\"
+              "description": "",
+              "isRequired": false,
+              "name": "strokeWidth",
+              "type": Object {
+                "name": "number",
+                "structure": Object {},
+              },
             },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": \\"false\\"
+            Object {
+              "defaultValue": Object {
+                "value": "true",
               },
-              \\"isRequired\\": false,
-              \\"name\\": \\"focusable\\"
-            }
-          ]
+              "isRequired": false,
+              "name": "aria-hidden",
+            },
+            Object {
+              "defaultValue": Object {
+                "value": "false",
+              },
+              "isRequired": false,
+              "name": "focusable",
+            },
+          ],
+          "wrappers": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/input\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/input/input.md\\"
+          "info": Object {
+            "dirPath": "src/components/input",
+            "documentation": Object {
+              "path": "src/components/input/input.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/input/input.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/input/input.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Input\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"style\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": \\"text\\"
+          "name": "Input",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "className",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
               },
-              \\"description\\": \\"Needs to be a valid input type\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"type\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
             },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": \\"primary\\"
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "style",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"variant\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"primary\\"
-                      }
+            },
+            Object {
+              "defaultValue": Object {
+                "value": "text",
+              },
+              "description": "Needs to be a valid input type",
+              "isRequired": false,
+              "name": "type",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": "primary",
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "variant",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "primary",
+                      },
                     },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"secondary\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"disabled\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"label\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"placeholder\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"id\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"value\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"string\\",
-                      \\"structure\\": {}
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "secondary",
+                      },
                     },
-                    {
-                      \\"name\\": \\"number\\",
-                      \\"structure\\": {}
+                  ],
+                },
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "disabled",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "label",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "placeholder",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "id",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "value",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "string",
+                      "structure": Object {},
                     },
-                    {
-                      \\"name\\": \\"boolean\\",
-                      \\"structure\\": {}
+                    Object {
+                      "name": "number",
+                      "structure": Object {},
                     },
-                    {
-                      \\"name\\": \\"array\\",
-                      \\"structure\\": {}
+                    Object {
+                      "name": "boolean",
+                      "structure": Object {},
                     },
-                    {
-                      \\"name\\": \\"object\\",
-                      \\"structure\\": {}
-                    }
-                  ]
-                }
-              }
+                    Object {
+                      "name": "array",
+                      "structure": Object {},
+                    },
+                    Object {
+                      "name": "object",
+                      "structure": Object {},
+                    },
+                  ],
+                },
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"onFocus\\",
-              \\"type\\": {
-                \\"name\\": \\"func\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "onFocus",
+              "type": Object {
+                "name": "func",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"onBlur\\",
-              \\"type\\": {
-                \\"name\\": \\"func\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "onBlur",
+              "type": Object {
+                "name": "func",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"onChange\\",
-              \\"type\\": {
-                \\"name\\": \\"func\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "onChange",
+              "type": Object {
+                "name": "func",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"Manipulates the value of the input, eg. removing unsupported characters from number inputs\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"valueFormatter\\",
-              \\"type\\": {
-                \\"name\\": \\"func\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "Manipulates the value of the input, eg. removing unsupported characters from number inputs",
+              "isRequired": false,
+              "name": "valueFormatter",
+              "type": Object {
+                "name": "func",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"hasSuccess\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "hasSuccess",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"hasError\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "hasError",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"hasWarning\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "hasWarning",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"helpText\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "helpText",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"leftAddon\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "leftAddon",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"rightAddon\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
-            }
-          ]
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "rightAddon",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+          ],
+          "wrappers": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/labeled-value\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/labeled-value/labeled-value.md\\"
+          "info": Object {
+            "dirPath": "src/components/labeled-value",
+            "documentation": Object {
+              "path": "src/components/labeled-value/labeled-value.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/labeled-value/labeled-value.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/labeled-value/labeled-value.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"LabeledValue\\",
-          \\"presets\\": [],
-          \\"properties\\": []
+          "name": "LabeledValue",
+          "presets": Array [],
+          "properties": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/li\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/li/li.md\\"
+          "info": Object {
+            "dirPath": "src/components/li",
+            "documentation": Object {
+              "path": "src/components/li/li.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/li/li.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/li/li.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Li\\",
-          \\"presets\\": [],
-          \\"properties\\": []
+          "name": "Li",
+          "presets": Array [],
+          "properties": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/logo\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/logo/logo.md\\"
+          "info": Object {
+            "dirPath": "src/components/logo",
+            "documentation": Object {
+              "path": "src/components/logo/logo.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/logo/logo.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/logo/logo.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Logo\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": false
+          "name": "Logo",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "className",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"onlyIcon\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"style\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": \\"#00A9EC\\"
+            Object {
+              "defaultValue": Object {
+                "value": false,
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"iconColor\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": \\"#222222\\"
+              "description": "",
+              "isRequired": false,
+              "name": "onlyIcon",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"textColor\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
             },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": 27
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "style",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"height\\",
-              \\"type\\": {
-                \\"name\\": \\"number\\",
-                \\"structure\\": {}
-              }
-            }
-          ]
+            },
+            Object {
+              "defaultValue": Object {
+                "value": "#00A9EC",
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "iconColor",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": "#222222",
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "textColor",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": 27,
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "height",
+              "type": Object {
+                "name": "number",
+                "structure": Object {},
+              },
+            },
+          ],
+          "wrappers": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/pane\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/pane/pane.md\\"
+          "info": Object {
+            "dirPath": "src/components/pane",
+            "documentation": Object {
+              "path": "src/components/pane/pane.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/pane/pane.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/pane/pane.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Pane\\",
-          \\"presets\\": [],
-          \\"properties\\": []
+          "name": "Pane",
+          "presets": Array [],
+          "properties": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/radio-group\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/radio-group/radio-group.md\\"
+          "info": Object {
+            "dirPath": "src/components/radio-group",
+            "documentation": Object {
+              "path": "src/components/radio-group/radio-group.md",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/radio-group/radio-group.jsx\\"
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/radio-group/radio-group.jsx",
             },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"RadioGroup\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"The value to be selected\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"selectedValue\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"The name of the checkbox elements, leave blank to set names on child elements\\",
-              \\"isRequired\\": true,
-              \\"name\\": \\"name\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"onChange\\",
-              \\"type\\": {
-                \\"name\\": \\"func\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"Elements of type \`<Input type=\\\\\\"checkbox\\\\\\" />\`\\",
-              \\"isRequired\\": true,
-              \\"name\\": \\"children\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
-            }
-          ]
-        },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
-          },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/segmented-control\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/segmented-control/segmented-control.md\\"
-            },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/segmented-control/segmented-control.jsx\\"
-            },
-            \\"presets\\": []
-          },
-          \\"name\\": \\"SegmentedControl\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"@ignore\\",
-              \\"isRequired\\": true,
-              \\"name\\": \\"classes\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"children\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"onChange\\",
-              \\"type\\": {
-                \\"name\\": \\"func\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"style\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"name\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": true,
-              \\"name\\": \\"type\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"radio\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"checkbox\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"value\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": \\"primary\\"
+          "name": "RadioGroup",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "The value to be selected",
+              "isRequired": false,
+              "name": "selectedValue",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"variant\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"primary\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"secondary\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
-          },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/spinner\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/spinner/spinner.md\\"
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/spinner/spinner.jsx\\"
-            },
-            \\"presets\\": []
-          },
-          \\"name\\": \\"Spinner\\",
-          \\"presets\\": [],
-          \\"properties\\": []
-        },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
-          },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/table\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/table/table.md\\"
-            },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/table/table.jsx\\"
-            },
-            \\"presets\\": []
-          },
-          \\"name\\": \\"Table\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"@ignore\\",
-              \\"isRequired\\": true,
-              \\"name\\": \\"classes\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"children\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"size\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"xs\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"sm\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"md\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"lg\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": 700
+            Object {
+              "description": "The name of the checkbox elements, leave blank to set names on child elements",
+              "isRequired": true,
+              "name": "name",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"minWidth\\",
-              \\"type\\": {
-                \\"name\\": \\"number\\",
-                \\"structure\\": {}
-              }
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"style\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
-            }
-          ]
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "onChange",
+              "type": Object {
+                "name": "func",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Elements of type \`<Input type=\\"checkbox\\" />\`",
+              "isRequired": true,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+          ],
+          "wrappers": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/tbody\\",
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/tbody/tbody.jsx\\"
+          "info": Object {
+            "dirPath": "src/components/segmented-control",
+            "documentation": Object {
+              "path": "src/components/segmented-control/segmented-control.md",
             },
-            \\"presets\\": []
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/segmented-control/segmented-control.jsx",
+            },
+            "presets": Array [],
           },
-          \\"name\\": \\"Tbody\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"@ignore\\",
-              \\"isRequired\\": true,
-              \\"name\\": \\"classes\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
+          "name": "SegmentedControl",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "@ignore",
+              "isRequired": true,
+              "name": "classes",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"children\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "onChange",
+              "type": Object {
+                "name": "func",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"style\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "className",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"size\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"xs\\"
-                      }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "style",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "name",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": true,
+              "name": "type",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "radio",
+                      },
                     },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"sm\\"
-                      }
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "checkbox",
+                      },
                     },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"md\\"
-                      }
+                  ],
+                },
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "value",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": "primary",
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "variant",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "primary",
+                      },
                     },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"lg\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": true
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "secondary",
+                      },
+                    },
+                  ],
+                },
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"colorAlternateRows\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
             },
-            {
-              \\"description\\": \\"Unitless pixel value\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"maxHeight\\",
-              \\"type\\": {
-                \\"name\\": \\"number\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": false
-              },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"border\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": false
-              },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"borderTop\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": false
-              },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"borderRight\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": false
-              },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"borderBottom\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": false
-              },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"borderLeft\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
-            }
-          ]
+          ],
+          "wrappers": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/td\\",
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/td/td.jsx\\"
+          "info": Object {
+            "dirPath": "src/components/spinner",
+            "documentation": Object {
+              "path": "src/components/spinner/spinner.md",
             },
-            \\"presets\\": []
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/spinner/spinner.jsx",
+            },
+            "presets": Array [],
           },
-          \\"name\\": \\"Td\\",
-          \\"presets\\": [],
-          \\"properties\\": []
+          "name": "Spinner",
+          "presets": Array [],
+          "properties": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/tfoot\\",
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/tfoot/tfoot.jsx\\"
+          "info": Object {
+            "dirPath": "src/components/table",
+            "documentation": Object {
+              "path": "src/components/table/table.md",
             },
-            \\"presets\\": []
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/table/table.jsx",
+            },
+            "presets": Array [],
           },
-          \\"name\\": \\"Tfoot\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"@ignore\\",
-              \\"isRequired\\": true,
-              \\"name\\": \\"classes\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"children\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"size\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"xs\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"sm\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"md\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"lg\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
-          },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/th\\",
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/th/th.jsx\\"
-            },
-            \\"presets\\": []
-          },
-          \\"name\\": \\"Th\\",
-          \\"presets\\": [],
-          \\"properties\\": []
-        },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
-          },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/thead\\",
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/thead/thead.jsx\\"
-            },
-            \\"presets\\": []
-          },
-          \\"name\\": \\"Thead\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"@ignore\\",
-              \\"isRequired\\": true,
-              \\"name\\": \\"classes\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"children\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"size\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"xs\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"sm\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"md\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"lg\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"variant\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"primary\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"secondary\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
-          },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/tooltip\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/tooltip/tooltip.md\\"
-            },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/tooltip/tooltip.jsx\\"
-            },
-            \\"presets\\": []
-          },
-          \\"name\\": \\"Tooltip\\",
-          \\"presets\\": [],
-          \\"properties\\": []
-        },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
-          },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/tr\\",
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/tr/tr.jsx\\"
-            },
-            \\"presets\\": []
-          },
-          \\"name\\": \\"Tr\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"@ignore\\",
-              \\"isRequired\\": true,
-              \\"name\\": \\"classes\\",
-              \\"type\\": {
-                \\"name\\": \\"object\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"children\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
-            },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"size\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"xs\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"sm\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"md\\"
-                      }
-                    },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"lg\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": false
+          "name": "Table",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "@ignore",
+              "isRequired": true,
+              "name": "classes",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"border\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"variant\\",
-              \\"type\\": {
-                \\"name\\": \\"union\\",
-                \\"structure\\": {
-                  \\"elements\\": [
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"primary\\"
-                      }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "className",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "size",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "xs",
+                      },
                     },
-                    {
-                      \\"name\\": \\"literal\\",
-                      \\"structure\\": {
-                        \\"value\\": \\"secondary\\"
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": false
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "sm",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "md",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "lg",
+                      },
+                    },
+                  ],
+                },
               },
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"sticky\\",
-              \\"type\\": {
-                \\"name\\": \\"boolean\\",
-                \\"structure\\": {}
-              }
             },
-            {
-              \\"defaultValue\\": {
-                \\"value\\": 0
+            Object {
+              "defaultValue": Object {
+                "value": 700,
               },
-              \\"description\\": \\"Unitless pixel value: if there are other sticky elements at the top of the page, use this to compensate\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"stickyOffset\\",
-              \\"type\\": {
-                \\"name\\": \\"number\\",
-                \\"structure\\": {}
-              }
-            }
-          ]
+              "description": "",
+              "isRequired": false,
+              "name": "minWidth",
+              "type": Object {
+                "name": "number",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "style",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
+              },
+            },
+          ],
+          "wrappers": Array [],
         },
-        {
-          \\"documentation\\": {
-            \\"examples\\": []
+        Object {
+          "documentation": Object {
+            "examples": Array [],
           },
-          \\"info\\": {
-            \\"dirPath\\": \\"src/components/ul\\",
-            \\"documentation\\": {
-              \\"path\\": \\"src/components/ul/ul.md\\"
+          "info": Object {
+            "dirPath": "src/components/tbody",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/tbody/tbody.jsx",
             },
-            \\"implementation\\": {
-              \\"framework\\": \\"reactjs\\",
-              \\"lang\\": \\"javascript\\",
-              \\"path\\": \\"src/components/ul/ul.jsx\\"
-            },
-            \\"presets\\": []
+            "presets": Array [],
           },
-          \\"name\\": \\"Ul\\",
-          \\"presets\\": [],
-          \\"properties\\": [
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"children\\",
-              \\"type\\": {
-                \\"name\\": \\"node\\",
-                \\"structure\\": {}
-              }
+          "name": "Tbody",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "@ignore",
+              "isRequired": true,
+              "name": "classes",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"style\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "className",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
             },
-            {
-              \\"description\\": \\"\\",
-              \\"isRequired\\": false,
-              \\"name\\": \\"className\\",
-              \\"type\\": {
-                \\"name\\": \\"string\\",
-                \\"structure\\": {}
-              }
-            }
-          ]
-        }
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "style",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "size",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "xs",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "sm",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "md",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "lg",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": true,
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "colorAlternateRows",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "Unitless pixel value",
+              "isRequired": false,
+              "name": "maxHeight",
+              "type": Object {
+                "name": "number",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": false,
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "border",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": false,
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "borderTop",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": false,
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "borderRight",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": false,
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "borderBottom",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": false,
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "borderLeft",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+          ],
+          "wrappers": Array [],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/td",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/td/td.jsx",
+            },
+            "presets": Array [],
+          },
+          "name": "Td",
+          "presets": Array [],
+          "properties": Array [],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/tfoot",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/tfoot/tfoot.jsx",
+            },
+            "presets": Array [],
+          },
+          "name": "Tfoot",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "@ignore",
+              "isRequired": true,
+              "name": "classes",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "className",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "size",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "xs",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "sm",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "md",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "lg",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          ],
+          "wrappers": Array [],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/th",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/th/th.jsx",
+            },
+            "presets": Array [],
+          },
+          "name": "Th",
+          "presets": Array [],
+          "properties": Array [],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/thead",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/thead/thead.jsx",
+            },
+            "presets": Array [],
+          },
+          "name": "Thead",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "@ignore",
+              "isRequired": true,
+              "name": "classes",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "className",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "size",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "xs",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "sm",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "md",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "lg",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "variant",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "primary",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "secondary",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          ],
+          "wrappers": Array [],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/tooltip",
+            "documentation": Object {
+              "path": "src/components/tooltip/tooltip.md",
+            },
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/tooltip/tooltip.jsx",
+            },
+            "presets": Array [],
+          },
+          "name": "Tooltip",
+          "presets": Array [],
+          "properties": Array [],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/tr",
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/tr/tr.jsx",
+            },
+            "presets": Array [],
+          },
+          "name": "Tr",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "@ignore",
+              "isRequired": true,
+              "name": "classes",
+              "type": Object {
+                "name": "object",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "className",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "size",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "xs",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "sm",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "md",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "lg",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": false,
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "border",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "variant",
+              "type": Object {
+                "name": "union",
+                "structure": Object {
+                  "elements": Array [
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "primary",
+                      },
+                    },
+                    Object {
+                      "name": "literal",
+                      "structure": Object {
+                        "value": "secondary",
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": false,
+              },
+              "description": "",
+              "isRequired": false,
+              "name": "sticky",
+              "type": Object {
+                "name": "boolean",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "defaultValue": Object {
+                "value": 0,
+              },
+              "description": "Unitless pixel value: if there are other sticky elements at the top of the page, use this to compensate",
+              "isRequired": false,
+              "name": "stickyOffset",
+              "type": Object {
+                "name": "number",
+                "structure": Object {},
+              },
+            },
+          ],
+          "wrappers": Array [],
+        },
+        Object {
+          "documentation": Object {
+            "examples": Array [],
+          },
+          "info": Object {
+            "dirPath": "src/components/ul",
+            "documentation": Object {
+              "path": "src/components/ul/ul.md",
+            },
+            "implementation": Object {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "src/components/ul/ul.jsx",
+            },
+            "presets": Array [],
+          },
+          "name": "Ul",
+          "presets": Array [],
+          "properties": Array [
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "children",
+              "type": Object {
+                "name": "node",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "style",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+            Object {
+              "description": "",
+              "isRequired": false,
+              "name": "className",
+              "type": Object {
+                "name": "string",
+                "structure": Object {},
+              },
+            },
+          ],
+          "wrappers": Array [],
+        },
       ],
-      \\"name\\": \\"Uncategorized\\"
-    }
+      "name": "Uncategorized",
+    },
   ],
-  \\"name\\": \\"Library from Code\\",
-  \\"vcs\\": {
-    \\"branchName\\": \\"HEAD\\",
-    \\"commitHash\\": \\"d914edd5f97cadb284f7f47b783106c86fe430d9\\"
-  }
+  "name": "Library from Code",
+  "vcs": Object {
+    "branchName": "HEAD",
+    "commitHash": "d914edd5f97cadb284f7f47b783106c86fe430d9",
+  },
 }
-"
 `;

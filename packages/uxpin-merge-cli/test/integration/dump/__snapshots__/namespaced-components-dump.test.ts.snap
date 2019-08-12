@@ -107,6 +107,7 @@ Object {
               },
             },
           ],
+          "wrappers": Array [],
         },
         Object {
           "documentation": Object {
@@ -147,6 +148,7 @@ Object {
               },
             },
           ],
+          "wrappers": Array [],
         },
         Object {
           "documentation": Object {
@@ -187,6 +189,7 @@ Object {
               },
             },
           ],
+          "wrappers": Array [],
         },
       ],
       "name": "Card",

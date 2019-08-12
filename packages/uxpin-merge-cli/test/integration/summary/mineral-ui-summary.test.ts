@@ -46,56 +46,6 @@ describe('summary command integration', () => {
         💡 examples: ✔
         🎛  presets: ✔
 
-    Dropdown
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    Link
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    Pagination
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    Popover
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    Select
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✔
-
-    Table
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    Text
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✔
-
-    TextArea
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✔
-
-    TextInput
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    Tooltip
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✔
-
     Checkbox
         📜 documentation: ✘
         💡 examples: ✘
@@ -104,6 +54,11 @@ describe('summary command integration', () => {
     CheckboxGroup
         📜 documentation: ✘
         💡 examples: ✘
+        🎛  presets: ✔
+
+    Dropdown
+        📜 documentation: ✔
+        💡 examples: ✔
         🎛  presets: ✔
 
     FormField
@@ -119,6 +74,11 @@ describe('summary command integration', () => {
     FormFieldset
         📜 documentation: ✘
         💡 examples: ✘
+        🎛  presets: ✔
+
+    Link
+        📜 documentation: ✔
+        💡 examples: ✔
         🎛  presets: ✔
 
     Menu
@@ -141,6 +101,11 @@ describe('summary command integration', () => {
         💡 examples: ✘
         🎛  presets: ✔
 
+    Popover
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
     Radio
         📜 documentation: ✘
         💡 examples: ✘
@@ -151,7 +116,22 @@ describe('summary command integration', () => {
         💡 examples: ✘
         🎛  presets: ✔
 
-    Tab
+    Pagination
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
+    Select
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    Text
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    Table
         📜 documentation: ✔
         💡 examples: ✔
         🎛  presets: ✔
@@ -159,6 +139,26 @@ describe('summary command integration', () => {
     Tabs
         📜 documentation: ✔
         💡 examples: ✔
+        🎛  presets: ✔
+
+    Tab
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
+    TextArea
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    TextInput
+        📜 documentation: ✔
+        💡 examples: ✔
+        🎛  presets: ✔
+
+    Tooltip
+        📜 documentation: ✘
+        💡 examples: ✘
         🎛  presets: ✔
 
 Card
@@ -307,11 +307,6 @@ Layout
         💡 examples: ✘
         🎛  presets: ✔
 
-    StartEnd
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✔
-
     Flex
         📜 documentation: ✘
         💡 examples: ✘
@@ -328,6 +323,11 @@ Layout
         🎛  presets: ✔
 
     GridItem
+        📜 documentation: ✘
+        💡 examples: ✘
+        🎛  presets: ✔
+
+    StartEnd
         📜 documentation: ✘
         💡 examples: ✘
         🎛  presets: ✔

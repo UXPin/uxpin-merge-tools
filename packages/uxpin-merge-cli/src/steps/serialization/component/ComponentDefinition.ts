@@ -2,11 +2,13 @@ import { ComponentInfo } from '../../discovery/component/ComponentInfo';
 import { ComponentExample } from './examples/ComponentExample';
 import { ComponentPropertyDefinition } from './implementation/ComponentPropertyDefinition';
 import { ComponentPreset } from './presets/ComponentPreset';
+import { ComponentWrapper } from './wrappers/ComponentWrapper';
 
 export interface ComponentMetadata {
   name:string;
   namespace?:ComponentNamespace;
   properties:ComponentPropertyDefinition[];
+  wrappers?:ComponentWrapper[];
 }
 
 export interface ComponentDefinition extends ComponentMetadata {
