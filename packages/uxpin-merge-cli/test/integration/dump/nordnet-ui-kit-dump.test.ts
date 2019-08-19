@@ -23,7 +23,7 @@ describe('The dump command', () => {
         params: [Command.DUMP, '--config="../../configs/nordnet-ui-kit-uxpin.config.js"'],
       }).then((consoleOutput) => {
         // then
-        expect(consoleOutput).toMatchSnapshot();
+        expect(JSON.parse(consoleOutput)).toMatchSnapshot();
       });
     });
   });

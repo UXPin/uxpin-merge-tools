@@ -9,7 +9,7 @@ describe('serializeJSComponent', () => {
     it('serializes functional component with primitive property types', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('FunctionPrimitivesOnly');
-      const expectedProps:ComponentMetadata = {
+      const expectedMetadata:ComponentMetadata = {
         name: 'FunctionPrimitivesOnly',
         properties: [
           {
@@ -37,12 +37,13 @@ describe('serializeJSComponent', () => {
             type: { name: 'boolean', structure: {} },
           },
         ],
+        wrappers: [],
       };
 
       // when
       return serializeJSComponent(component).then((serializedProps) => {
         // then
-        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedMetadata);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -50,7 +51,7 @@ describe('serializeJSComponent', () => {
     it('serializes class component with enum property types', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassEnumTypes');
-      const expectedProps:ComponentMetadata = {
+      const expectedMetadata:ComponentMetadata = {
         name: 'ClassEnumTypes',
         properties: [
           {
@@ -84,12 +85,13 @@ describe('serializeJSComponent', () => {
             },
           },
         ],
+        wrappers: [],
       };
 
       // when
       return serializeJSComponent(component).then((serializedProps) => {
         // then
-        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedMetadata);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -97,7 +99,7 @@ describe('serializeJSComponent', () => {
     it('serializes class component with default property values', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithDefaults');
-      const expectedProps:ComponentMetadata = {
+      const expectedMetadata:ComponentMetadata = {
         name: 'ClassWithDefaults',
         properties: [
           {
@@ -124,12 +126,13 @@ describe('serializeJSComponent', () => {
             },
           },
         ],
+        wrappers: [],
       };
 
       // when
       return serializeJSComponent(component).then((serializedProps) => {
         // then
-        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedMetadata);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -137,7 +140,7 @@ describe('serializeJSComponent', () => {
     it('serializes component with shape property type', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassPropShapeType');
-      const expectedProps:ComponentMetadata = {
+      const expectedMetadata:ComponentMetadata = {
         name: 'ClassPropShapeType',
         properties: [
           {
@@ -159,12 +162,13 @@ describe('serializeJSComponent', () => {
             },
           },
         ],
+        wrappers: [],
       };
 
       // when
       return serializeJSComponent(component).then((serializedProps) => {
         // then
-        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedMetadata);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -200,6 +204,7 @@ describe('serializeJSComponent', () => {
             },
           },
         ],
+        wrappers: [],
       };
 
       // when
@@ -401,6 +406,7 @@ describe('serializeJSComponent', () => {
             },
           },
         ],
+        wrappers: [],
       };
 
       // when
@@ -414,7 +420,7 @@ describe('serializeJSComponent', () => {
     it('serializes component with imported enum property types', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('FunctionWithImportedEnum');
-      const expectedProps:ComponentMetadata = {
+      const expectedMetadata:ComponentMetadata = {
         name: 'FunctionWithImportedEnum',
         properties: [
           {
@@ -457,12 +463,13 @@ describe('serializeJSComponent', () => {
             },
           },
         ],
+        wrappers: [],
       };
 
       // when
       return serializeJSComponent(component).then((serializedProps) => {
         // then
-        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedMetadata);
         expect(serializedProps.warnings).toEqual([]);
       });
     });
@@ -483,6 +490,7 @@ describe('serializeJSComponent', () => {
             },
           },
         ],
+        wrappers: [],
       };
       const expectedWarning:WarningDetails = {
         message: `Cannot compute default value for property \`value\`
@@ -548,6 +556,7 @@ ReferenceError: some is not defined
             },
           },
         ],
+        wrappers: [],
       };
 
       // when

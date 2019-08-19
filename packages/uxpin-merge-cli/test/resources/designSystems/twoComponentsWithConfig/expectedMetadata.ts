@@ -44,6 +44,7 @@ export const expectedAvatarMetadata:ComponentDefinition = {
       type: { name: 'string', structure: {} },
     },
   ],
+  wrappers: [],
 };
 
 export const expectedButtonMetadata:ComponentDefinition = {
@@ -89,6 +90,7 @@ export const expectedButtonMetadata:ComponentDefinition = {
       type: { name: 'boolean', structure: {} },
     },
   ],
+  wrappers: [],
 };
 
 export const expectedMetadata:DesignSystemSnapshot = {

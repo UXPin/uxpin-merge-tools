@@ -25,7 +25,7 @@ describe('The dump command', () => {
         params: [Command.DUMP, '--config="../../configs/arui-feather-uxpin.config.js"'],
       }).then((consoleOutput) => {
         // then
-        expect(consoleOutput).toMatchSnapshot();
+        expect(JSON.parse(consoleOutput)).toMatchSnapshot();
       });
     });
   });

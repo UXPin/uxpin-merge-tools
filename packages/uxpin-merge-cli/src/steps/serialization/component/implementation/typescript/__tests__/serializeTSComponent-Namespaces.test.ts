@@ -23,6 +23,7 @@ describe('serializeTSComponent-Namespaces', () => {
             type: { name: 'string', structure: {} },
           },
         ],
+        wrappers: [],
       };
 
       // when
@@ -50,6 +51,7 @@ describe('serializeTSComponent-Namespaces', () => {
             type: { name: 'string', structure: {} },
           },
         ],
+        wrappers: [],
       };
 
       // when
@@ -79,6 +81,7 @@ describe('serializeTSComponent-Namespaces', () => {
             type: { name: 'string', structure: {} },
           },
         ],
+        wrappers: [],
       };
 
       // when
@@ -106,6 +109,7 @@ describe('serializeTSComponent-Namespaces', () => {
             type: { name: 'string', structure: {} },
           },
         ],
+        wrappers: [],
       };
 
       // when

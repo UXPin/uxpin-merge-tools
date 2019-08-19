@@ -1,4 +1,5 @@
 export enum CommentTags {
-  UXPIN_NAMESPACE = '@uxpinnamespace',
   UXPIN_COMPONENT = '@uxpincomponent',
+  UXPIN_NAMESPACE = '@uxpinnamespace',
+  UXPIN_WRAPPERS = '@uxpinwrappers',
 }

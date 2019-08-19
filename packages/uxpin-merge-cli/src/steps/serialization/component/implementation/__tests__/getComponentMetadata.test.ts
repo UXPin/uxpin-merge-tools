@@ -15,7 +15,7 @@ describe('getComponentMetadata – integration', () => {
         lang: 'typescript',
         path: getTypeScriptComponentPath('IntegrationCombo'),
       };
-      const expectedProps:ComponentMetadata = {
+      const expectedMetadata:ComponentMetadata = {
         name: 'IntegrationCombo',
         properties: [
           {
@@ -116,13 +116,14 @@ describe('getComponentMetadata – integration', () => {
             type: { name: 'number', structure: {} },
           },
         ],
+        wrappers: [],
       };
 
       // when
       return getComponentMetadata(component).then((serializedProps) => {
         // then
         expect(serializedProps.warnings).toEqual([]);
-        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedMetadata);
       });
     });
 
@@ -133,7 +134,7 @@ describe('getComponentMetadata – integration', () => {
         lang: 'javascript',
         path: getJavaScriptComponentPath('IntegrationCombo'),
       };
-      const expectedProps:ComponentMetadata = {
+      const expectedMetadata:ComponentMetadata = {
         name: 'ClassWithDefaults',
         properties: [
           {
@@ -160,12 +161,13 @@ describe('getComponentMetadata – integration', () => {
             },
           },
         ],
+        wrappers: [],
       };
 
       // when
       return getComponentMetadata(component).then((serializedProps) => {
         // then
-        expect(serializedProps.result).toEqual(expectedProps);
+        expect(serializedProps.result).toEqual(expectedMetadata);
         expect(serializedProps.warnings).toEqual([]);
       });
     });

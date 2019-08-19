@@ -19,6 +19,7 @@ export function getComponentsCollection(
       namespace: component.namespace,
       properties: component.properties,
       revisionId,
+      wrappers: component.wrappers,
     };
     return all;
   }, {});
