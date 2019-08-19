@@ -1,8 +1,8 @@
 import { reduce } from 'lodash';
 import { join } from 'path';
+import { getRandomString } from '../../../src/utils/getRandomString';
 import { resolveTestProjectPath } from '../resources/resolveTestProjectPath';
 import { AllCmdOptions } from './CmdOptions';
-import { getRandomString } from './getRandomString';
 
 const packageRootDir:string = join(__dirname, '../../../');
 const nycPath:string = join(packageRootDir, 'node_modules/.bin/nyc');

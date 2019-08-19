@@ -32,6 +32,9 @@ export class PageSaveHandler implements RequestHandler {
   }
 
   private updatePage(changes:PageIncrementalUpdate):Promise<void> {
-    return updatePage(this.context.uxpinDirPath, changes);
+    return updatePage({
+      revisionId: this.context.epid.revisionId,
+      uxpinDirPath: this.context.uxpinDirPath,
+    }, changes);
   }
 }

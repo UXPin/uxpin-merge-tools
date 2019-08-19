@@ -7,7 +7,7 @@ import { getCodeSyncMetadata } from './codeSync/getCodeSyncMetadata';
 export async function getPageData(input:PageDataInput):Promise<PageData> {
   const { ngrokSessionId, port, revisionId, uxpinDirPath } = input;
   const metadata:DesignSystemSnapshot = await getProjectMetadata(uxpinDirPath);
-  const pageContent:PageContent = await getPageContent(uxpinDirPath);
+  const pageContent:PageContent = await getPageContent(input, metadata);
 
   return {
     code_sync: getCodeSyncMetadata({ ngrokSessionId, metadata, port, revisionId }),
