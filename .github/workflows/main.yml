@@ -1,0 +1,21 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: make dependencies
+    - name: Create test resources
+      run: make test-resources
+    - name: Check
+      run: make check
+    - name: Build
+      run: make build
+    - name: Test
+      run: make test-ci
