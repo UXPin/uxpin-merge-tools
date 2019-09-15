@@ -10,12 +10,12 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
-      run: make dependencies
+      run: cd packages/uxpin-merge-cli && make dependencies
     - name: Create test resources
-      run: make test-resources
+      run: cd packages/uxpin-merge-cli && make test-resources
     - name: Check
-      run: make check
+      run: cd packages/uxpin-merge-cli && make check
     - name: Build
-      run: make build
+      run: cd packages/uxpin-merge-cli && make build
     - name: Test
-      run: make test-ci
+      run: cd packages/uxpin-merge-cli && make test-ci
