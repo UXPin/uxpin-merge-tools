@@ -28,8 +28,8 @@ function findFunctionalComponent(
   componentFileName:string,
 ):FunctionalComponentDeclaration | undefined {
   return findSpecifiedFunctionComponent(sourceFile)
-    || findDefaultExportedFunction(sourceFile)
     || findExportedFunctionWithName(sourceFile, componentFileName)
+    || findDefaultExportedFunction(sourceFile)
     || findDefaultExportedArrowFunction(sourceFile);
 }
 
@@ -38,6 +38,6 @@ function findClassComponent(
   componentFileName:string,
 ):ClassComponentDeclaration | undefined {
   return findSpecifiedClassComponent(sourceFile)
-    || findDefaultExportedClass(sourceFile)
-    || findExportedClassWithName(sourceFile, componentFileName);
+    || findExportedClassWithName(sourceFile, componentFileName)
+    || findDefaultExportedClass(sourceFile);
 }

@@ -1158,6 +1158,30 @@ component.`,
       });
     });
 
+    it('serializes class component matching filename', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithNameMatchingFilename');
+      const expectedMetadata:ComponentMetadata = {
+        name: 'ClassWithNameMatchingFilename',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'name',
+            type: { name: 'string', structure: {} },
+          },
+        ],
+        wrappers: [],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('serializes component with invalid custom names and gives proper warning', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithCorruptedComments');
@@ -1212,6 +1236,30 @@ component.`,
             sourcePath: component.path,
           },
         ]);
+      });
+    });
+
+    it('serializes stateless component with a name matching filename', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('FunctionMatchingFilename');
+      const expectedMetadata:ComponentMetadata = {
+        name: 'FunctionMatchingFilename',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'name',
+            type: { name: 'string', structure: {} },
+          },
+        ],
+        wrappers: [],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
       });
     });
 
