@@ -4,6 +4,7 @@ import { EPID } from '../epid/EPID';
 import { printServerReadyMessage } from './console/printServerReadyMessage';
 import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundleHandler';
 import { GetCategoriesHandler } from './handler/code/GetCategoriesHandler';
+import { GetInfoHandler } from './handler/code/GetInfoHandler';
 import { GetPreviewsHandler } from './handler/code/GetPreviewsHandler';
 import { GetRepositoryPointerHandler } from './handler/code/GetRepositoryPointerHandler';
 import { GetVariablesHandler } from './handler/document/GetVariablesHandler';
@@ -47,6 +48,7 @@ function registerHandlers(router:ServerRouter, context:ExperimentationServerCont
   router.register('/upload', new UploadHandler(context));
   router.register(/\/upload\/(\d+)\/(.*)/, new GetUploadedFileHandler(context));
   router.register('/code/categories', new GetCategoriesHandler(context));
+  router.register('/code/info', new GetInfoHandler(context));
   router.register('/code/library.js', createLibraryBundleHandler(context));
   router.register('/code/previews', new GetPreviewsHandler(context));
   router.register('/code/repositoryPointer', new GetRepositoryPointerHandler());

@@ -30,7 +30,7 @@ export function getNewPageContent({ revisionId }:PageContentContext, metadata:De
       [elementId]: {
         props: {
           codeComponentId: componentId,
-          codeComponentPresetId: getPresetId(designSystemId, component.info.presets![0].path),
+          codeComponentPresetId: getComponentPresetId(designSystemId, component),
           framework: 'react',
           revisionId,
           x: index * ELEMENT_PLACEMENT_DISTANCE + ELEMENT_PLACEMENT_OFFSET,
@@ -50,6 +50,14 @@ export function getNewPageContent({ revisionId }:PageContentContext, metadata:De
       },
     };
   }, introPageContent);
+}
+
+function getComponentPresetId(designSystemId:string, component:ComponentDefinition):string | undefined {
+  if (!component.info.presets || !component.info.presets[0]) {
+    return undefined;
+  }
+
+  return getPresetId(designSystemId, component.info.presets[0].path);
 }
 
 function findIntroComponents(metadata:DesignSystemSnapshot):ComponentDefinition[] {
