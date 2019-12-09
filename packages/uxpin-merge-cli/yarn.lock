@@ -585,7 +585,7 @@
 
 "@uxpin/react-docgen-better-proptypes@^0.1.1":
   version "0.1.1"
-  resolved "https://registry.uxpin.pl:4873/@uxpin%2freact-docgen-better-proptypes/-/react-docgen-better-proptypes-0.1.1.tgz#35b51aa28cf6eafe10fb3447e8aa2eeed61b0c95"
+  resolved "https://registry.npmjs.org/@uxpin/react-docgen-better-proptypes/-/react-docgen-better-proptypes-0.1.1.tgz#35b51aa28cf6eafe10fb3447e8aa2eeed61b0c95"
   dependencies:
     "@babel/runtime" "^7.2.0"
     fs-extra "^7.0.1"
