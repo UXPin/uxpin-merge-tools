@@ -1,9 +1,7 @@
 import * as ts from 'typescript';
 import { CommentTags } from '../../../CommentTags';
-import { getNodeJsDocTags } from './getNodeJsDocTags';
+import { getNodeJsDocTag } from './getNodeJsDocTag';
 
 export function getUXpinNamespaceComment(node:ts.Node):ts.JSDocTag | undefined {
-  const comments:ts.JSDocTag[] = getNodeJsDocTags(node);
-
-  return comments.find((comment) => comment.getText().trim() === CommentTags.UXPIN_NAMESPACE);
+  return getNodeJsDocTag(node, CommentTags.UXPIN_NAMESPACE);
 }

@@ -1,9 +1,7 @@
 import * as ts from 'typescript';
 import { CommentTags } from '../../../CommentTags';
-import { getNodeJsDocTags } from './getNodeJsDocTags';
+import { getNodeJsDocTag } from './getNodeJsDocTag';
 
 export function hasUXPinComponentComment(node:ts.Node):boolean {
-  const comments:ts.JSDocTag[] = getNodeJsDocTags(node);
-
-  return comments.some((comment) => comment.getText().trim() === CommentTags.UXPIN_COMPONENT);
+  return getNodeJsDocTag(node, CommentTags.UXPIN_COMPONENT) !== undefined;
 }

@@ -468,6 +468,7 @@ Object {
               },
             },
           ],
+          "wrappers": Array [],
         },
         Object {
           "documentation": Object {
@@ -596,6 +597,7 @@ Object {
               },
             },
           ],
+          "wrappers": Array [],
         },
       ],
       "name": "Actions",
@@ -935,6 +937,7 @@ Object {
               },
             },
           ],
+          "wrappers": Array [],
         },
         Object {
           "documentation": Object {
@@ -1001,6 +1004,7 @@ Object {
               },
             },
           ],
+          "wrappers": Array [],
         },
         Object {
           "documentation": Object {
@@ -1076,6 +1080,7 @@ Object {
               },
             },
           ],
+          "wrappers": Array [],
         },
       ],
       "name": "Structure",
@@ -1211,6 +1216,7 @@ Object {
               },
             },
           ],
+          "wrappers": Array [],
         },
         Object {
           "documentation": Object {
@@ -1392,6 +1398,7 @@ Object {
               },
             },
           ],
+          "wrappers": Array [],
         },
       ],
       "name": "Images and Icons",

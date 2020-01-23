@@ -1,4 +1,4 @@
-import { getLines, LINES_DELIMETER } from './getLines';
+import { getLines, LINES_DELIMETER } from '../../../comments/getLines';
 
 const GENERAL_JSDOC_TAG_PREFIX:string = '@';
 const UXPIN_JSDOC_TAG_PREFIX:string = '@uxpin';

@@ -41,6 +41,7 @@ component.`,
             },
           },
         ],
+        wrappers: [],
       };
 
       // when
@@ -88,6 +89,7 @@ component.`,
             },
           },
         ],
+        wrappers: [],
       };
 
       // when
@@ -229,6 +231,7 @@ component.`,
             },
           },
         ],
+        wrappers: [],
       };
       const expectedWarnings:WarningDetails[] = [
         {
@@ -328,6 +331,7 @@ component.`,
             },
           },
         ],
+        wrappers: [],
       };
       const expectedWarnings:WarningDetails[] = [
         {

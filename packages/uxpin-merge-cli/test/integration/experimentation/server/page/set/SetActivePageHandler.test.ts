@@ -136,6 +136,7 @@ describe('Experimentation server – handling set active page request', () => {
           name: expectedButtonMetadata.name,
           properties: expectedButtonMetadata.properties,
           revisionId,
+          wrappers: [],
         },
         'f2dff102-3d25-5174-b733-12c4e58fdd5d': {
           componentId: 'f2dff102-3d25-5174-b733-12c4e58fdd5d',
@@ -143,6 +144,7 @@ describe('Experimentation server – handling set active page request', () => {
           name: expectedAvatarMetadata.name,
           properties: expectedAvatarMetadata.properties,
           revisionId,
+          wrappers: [],
         },
       },
       presets: {
