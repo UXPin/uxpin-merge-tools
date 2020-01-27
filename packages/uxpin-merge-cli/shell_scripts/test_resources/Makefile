@@ -64,3 +64,12 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& mv Component.js RenamedComponent.js \
 	&& git add . \
 	&& git commit -m "Renamed Component"
+
+../../test/resources/repos/storybook-design-system:
+	cd ../../test/resources/repos \
+	&& git clone https://github.com/uxpin-merge/design-system.git ./storybook-design-system \
+	&& cd storybook-design-system \
+	&& git checkout 63fa1788fd68861954ab8d727fbdbf3c75894f6c \
+	&& mkdir ./yarn-cache \
+	&& yarn install --cache-folder ./yarn-cache \
+	&& rm -rf ./yarn-cache
