@@ -19,6 +19,7 @@ import { UploadHandler } from './handler/upload/UploadHandler';
 import { ServerRouter } from './router/ServerRouter';
 
 export interface ExperimentationServerOptions extends ExperimentationServerContext {
+  projectName:string;
   projectRoot:string;
   skipBrowser:boolean;
 }
