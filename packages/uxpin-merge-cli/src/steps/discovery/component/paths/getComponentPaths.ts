@@ -6,6 +6,7 @@ export function getComponentPaths(projectRoot:string, implementationPath:string)
   return {
     componentDirName: basename(componentDirPath),
     componentDirPath,
+    implementationPath,
     projectRoot,
   };
 }

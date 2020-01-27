@@ -75,6 +75,7 @@ describe('getDocumentationInfo', () => {
     return {
       componentDirName,
       componentDirPath: `directories/${componentDirName}`,
+      implementationPath: `directories/${componentDirName}/${componentDirName}.jsx`,
       projectRoot: resolve('./test/resources/'),
     };
   }

@@ -9,6 +9,7 @@ describe('getComponentPaths', () => {
     const expectedPaths:ComponentPaths = {
       componentDirName: 'My',
       componentDirPath: 'relative/components/My',
+      implementationPath: implPath,
       projectRoot,
     };
 

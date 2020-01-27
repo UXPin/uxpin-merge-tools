@@ -11,4 +11,8 @@ export interface ComponentPaths {
    * name of the component directory
    */
   componentDirName:string;
+  /**
+   * component implementation (main file) path relative to the project root
+   */
+  implementationPath:string;
 }
