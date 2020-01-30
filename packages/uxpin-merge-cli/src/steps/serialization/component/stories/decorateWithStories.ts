@@ -5,9 +5,9 @@ import { ComponentInfo } from '../../../discovery/component/ComponentInfo';
 import { ComponentCategory } from '../categories/ComponentCategory';
 import { getAllComponentsFromCategories } from '../categories/getAllComponentsFromCategories';
 import { ComponentDefinition } from '../ComponentDefinition';
-import { PresetsBundle } from '../presets/jsx/bundle/PresetsBundle';
 import { PresetsSerializationResult } from '../presets/PresetsSerializationResult';
 import { getStoriesBundle } from './bundle/getStoriesBundle';
+import { StoriesBundle } from './bundle/StoriesBundle';
 import { serializeStories } from './serializeStories';
 
 export async function decorateWithStories(
@@ -15,13 +15,13 @@ export async function decorateWithStories(
   programArgs:ProgramArgs,
 ):Promise<Array<Warned<ComponentCategory>>> {
   const components:ComponentDefinition[] = getAllComponentsFromCategories(flatMap(categories, (cat) => cat.result));
-  const bundle:PresetsBundle = await getStoriesBundle(programArgs, components);
+  const bundle:StoriesBundle = await getStoriesBundle(programArgs, components);
 
   return categories.map(thunkDecorateComponentsWithStories(bundle));
 }
 
 function thunkDecorateComponentsWithStories(
-  bundle:PresetsBundle,
+  bundle:StoriesBundle,
 ):(category:Warned<ComponentCategory>) => Warned<ComponentCategory> {
   return (category) => (
     category.result.components.reduce((decorated, component) => {
@@ -44,7 +44,7 @@ function thunkDecorateComponentsWithStories(
 }
 
 function serializeOptionalStories(
-  bundle:PresetsBundle,
+  bundle:StoriesBundle,
   info:ComponentInfo,
 ):PresetsSerializationResult {
   if (!info.stories || !info.stories.length) {
