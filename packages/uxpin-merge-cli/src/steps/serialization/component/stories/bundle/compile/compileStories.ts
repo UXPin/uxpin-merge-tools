@@ -1,10 +1,10 @@
 import { unlink } from 'fs-extra';
 import { ProgramArgs } from '../../../../../../program/args/ProgramArgs';
 import { ComponentDefinition } from '../../../ComponentDefinition';
-import { createBundleSource } from '../bundle/createBundleSource';
-import { buildPresetsBundleWithWebpack } from './buildPresetsBundleWithWebpack';
+import { buildPresetsBundleWithWebpack } from '../../../presets/jsx/compile/buildPresetsBundleWithWebpack';
+import { createBundleSource } from '../createBundleSource';
 
-export async function compilePresets(programArgs:ProgramArgs, components:ComponentDefinition[]):Promise<string> {
+export async function compileStories(programArgs:ProgramArgs, components:ComponentDefinition[]):Promise<string> {
   const sourcePath:string = await createBundleSource(programArgs, components);
   const bundlePath:string = await buildPresetsBundleWithWebpack(programArgs, components, sourcePath);
   await unlink(sourcePath);

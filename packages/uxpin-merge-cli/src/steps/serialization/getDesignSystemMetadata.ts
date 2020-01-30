@@ -15,6 +15,7 @@ import { ExamplesSerializationResult } from './component/examples/ExamplesSerial
 import { serializeExamples } from './component/examples/serializeExamples';
 import { getComponentMetadata } from './component/implementation/getComponentMetadata';
 import { decorateWithPresets } from './component/presets/decorateWithPresets';
+import { decorateWithStories } from './component/stories/decorateWithStories';
 import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
 import { validateComponentNamespaces } from './validation/validateComponentNamespaces';
 import { getVscDetails } from './vcs/getVcsDetails';
@@ -28,9 +29,11 @@ export async function getDesignSystemMetadata(
 
   const categoryInfos:ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
   const categories:Array<Warned<ComponentCategory>> = await pMap(categoryInfos, categoryInfoToMetadata);
-  const categoriesWithPresets:Array<Warned<ComponentCategory>> = await decorateWithPresets(categories, programArgs);
+  // const categoriesWithPresets:Array<Warned<ComponentCategory>> = await decorateWithPresets(categories, programArgs);
+  const categoriesWithStories:Array<Warned<ComponentCategory>> =
+    await decorateWithStories(categories, programArgs);
 
-  const categorizedComponents:ComponentCategory[] = categoriesWithPresets.map((category) => category.result);
+  const categorizedComponents:ComponentCategory[] = categoriesWithStories.map((category) => category.result);
   const vcs:VCSDetails = await getVscDetails(paths, buildOptions, categorizedComponents);
 
   validateComponentNamespaces(categorizedComponents);
@@ -41,7 +44,7 @@ export async function getDesignSystemMetadata(
       name: libraryName,
       vcs,
     },
-    warnings: joinWarningLists(categoriesWithPresets.map((category) => category.warnings)),
+    warnings: joinWarningLists(categoriesWithStories.map((category) => category.warnings)),
   };
 }
 

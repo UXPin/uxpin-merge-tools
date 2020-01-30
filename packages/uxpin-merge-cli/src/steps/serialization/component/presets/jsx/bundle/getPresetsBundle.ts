@@ -3,6 +3,7 @@ import { ProgramArgs } from '../../../../../../program/args/ProgramArgs';
 import { ComponentDefinition } from '../../../ComponentDefinition';
 import { compilePresets } from '../compile/compilePresets';
 import { PresetsBundle } from './PresetsBundle';
+import { unRequire } from './unRequire';
 
 export async function getPresetsBundle(
   programArgs:ProgramArgs,
@@ -13,8 +14,4 @@ export async function getPresetsBundle(
   unRequire(bundlePath);
   await unlink(bundlePath);
   return bundle;
-}
-
-function unRequire(name:string):void {
-  delete require.cache[require.resolve(name)];
 }

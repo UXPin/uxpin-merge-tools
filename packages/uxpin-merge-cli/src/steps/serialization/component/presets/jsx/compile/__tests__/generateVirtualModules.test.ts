@@ -1,5 +1,5 @@
 import { ComponentDefinition } from '../../../../ComponentDefinition';
-import { generateVirtualModules, VirtualComponentModule } from '../generateVirtualModules';
+import { generateVirtualModules, VirtualModule } from '../generateVirtualModules';
 
 describe('generateVirtualModules', () => {
   it('generates virtual module objects for component definitions', () => {
@@ -38,7 +38,7 @@ describe('generateVirtualModules', () => {
       },
     ];
 
-    const expectedResult:VirtualComponentModule[] = [
+    const expectedResult:VirtualModule[] = [
       {
         moduleSource: `
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -54,7 +54,7 @@ exports.default = {"name":"Menu"};`,
     ];
 
     // when
-    const result:VirtualComponentModule[] = generateVirtualModules(components);
+    const result:VirtualModule[] = generateVirtualModules(components);
 
     // then
     expect(result).toEqual(expectedResult);
@@ -157,7 +157,7 @@ exports.default = {"name":"Menu"};`,
     ];
 
     // tslint:disable max-line-length
-    const expectedResult:VirtualComponentModule[] = [
+    const expectedResult:VirtualModule[] = [
       {
         moduleSource: `
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -192,7 +192,7 @@ exports.default = {"name":"Card.Header.Menu"};`,
     // tslint:enable max-line-length
 
     // when
-    const result:VirtualComponentModule[] = generateVirtualModules(components);
+    const result:VirtualModule[] = generateVirtualModules(components);
 
     // then
     expect(result).toEqual(expectedResult);

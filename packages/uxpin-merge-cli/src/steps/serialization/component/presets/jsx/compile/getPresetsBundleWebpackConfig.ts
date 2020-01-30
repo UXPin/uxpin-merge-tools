@@ -2,13 +2,13 @@ import { join, parse, resolve } from 'path';
 import { Configuration } from 'webpack';
 import { smartStrategy } from 'webpack-merge';
 import * as VirtualModulesPlugin from 'webpack-virtual-modules';
-import { VirtualComponentModule } from './generateVirtualModules';
+import { VirtualModule } from './generateVirtualModules';
 
 export interface WebpackConfigPaths {
   bundlePath:string;
   projectRoot:string;
   sourcePath:string;
-  virtualModules:VirtualComponentModule[];
+  virtualModules:VirtualModule[];
   webpackConfig?:string;
 }
 
@@ -35,6 +35,7 @@ export function getPresetsBundleWebpackConfig({
           loader: require.resolve('babel-loader'),
           options: {
             babelrc: false,
+            exclude: /node_modules/,
             plugins: [
               require.resolve('@babel/plugin-proposal-class-properties'),
             ],
@@ -43,7 +44,14 @@ export function getPresetsBundleWebpackConfig({
               [require.resolve('@babel/preset-react'), {
                 pragma: '__uxpinParsePreset',
               }],
+              [require.resolve('@babel/preset-env'), {
+                modules: 'commonjs',
+                targets: {
+                  node: true,
+                },
+              }],
             ],
+            sourceType: 'unambiguous',
           },
           test: /\.jsx?$/,
         },
@@ -83,7 +91,7 @@ export function getPresetsBundleWebpackConfig({
   };
 
   if (webpackConfig) {
-    const configProvider:Configuration|ConfigurationFunction = require(join(projectRoot, webpackConfig));
+    const configProvider:Configuration | ConfigurationFunction = require(join(projectRoot, webpackConfig));
     const userWebpackConfig:Configuration = isConfigurationFunction(configProvider) ? configProvider() : configProvider;
     return smartStrategy({ entry: 'replace' })(userWebpackConfig, config);
   }
@@ -91,12 +99,12 @@ export function getPresetsBundleWebpackConfig({
   return config;
 }
 
-function getVirtualModulesPlugin(virtualModules:VirtualComponentModule[]):any {
+function getVirtualModulesPlugin(virtualModules:VirtualModule[]):any {
   return new VirtualModulesPlugin(
     virtualModules.reduce((result, { moduleSource, path }) => ({ ...result, [path]: moduleSource }), {}),
   );
 }
 
-function isConfigurationFunction(conf:Configuration|ConfigurationFunction):conf is ConfigurationFunction {
+function isConfigurationFunction(conf:Configuration | ConfigurationFunction):conf is ConfigurationFunction {
   return typeof conf === 'function';
 }
