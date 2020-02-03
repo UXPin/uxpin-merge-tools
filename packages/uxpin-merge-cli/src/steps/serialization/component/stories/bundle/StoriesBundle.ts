@@ -10,12 +10,23 @@ export interface ComponentStorySet extends ComponentStories {
 }
 
 export interface ComponentStories {
-  [exportName:string]:JSXSerializedElement;
+  [exportName:string]:ComponentStory;
 }
 
 export interface ComponentStorySetMetadata {
   title?:string;
   component?:ComponentPlaceholder;
+  decorators?:any[];
+  parameters?:any[];
+}
+
+export interface ComponentStory {
+  ():JSXSerializedElement;
+  story?:ComponentStoryMetadata;
+}
+
+export interface ComponentStoryMetadata {
+  name?:string;
   decorators?:any[];
   parameters?:any[];
 }

@@ -2,11 +2,12 @@ import { flatMap } from 'lodash';
 import { thunkFillSourcePath } from '../../../../common/warning/thunkFillSourcePath';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
-import { collectPresetElements } from '../presets/collectPresetElements';
+import { ComponentPreset } from '../presets/ComponentPreset';
 import { JSXSerializedElement } from '../presets/jsx/JSXSerializationResult';
 import { PresetsSerializationResult } from '../presets/PresetsSerializationResult';
 import { getUniqStorySetImportName } from './bundle/getUniqStoryImportName';
-import { ComponentStories, ComponentStorySet, StoriesBundle } from './bundle/StoriesBundle';
+import { ComponentStories, ComponentStory, ComponentStorySet, StoriesBundle } from './bundle/StoriesBundle';
+import { collectStoryElements } from './collectStoryElements';
 
 export function serializeStories(bundle:StoriesBundle, stories:ComponentPresetInfo[]):PresetsSerializationResult {
   const aggregator:PresetsSerializationResult = { result: [], warnings: [] };
@@ -31,14 +32,20 @@ function thunkSerializeStory(
 ):(exportName:string) => PresetsSerializationResult {
   return (exportName) => {
     try {
-      const presetData:JSXSerializedElement = stories[exportName] as JSXSerializedElement;
-      const { result: elements, warnings } = collectPresetElements(presetData, { result: {}, warnings: [] });
-      return {
-        result: [{
-          elements,
+      const story:ComponentStory = stories[exportName];
+      const storyExecutionResult:JSXSerializedElement = story();
+      const { result: serializedStory, warnings } = collectStoryElements(storyExecutionResult);
+      const result:ComponentPreset[] = [];
+
+      if (serializedStory) {
+        result.push({
           name: exportName,
-          rootId: presetData.props.uxpId,
-        }],
+          ...serializedStory,
+        });
+      }
+
+      return {
+        result,
         warnings: warnings.map(thunkFillSourcePath(path)),
       };
     } catch (error) {
@@ -49,7 +56,7 @@ function thunkSerializeStory(
 
 function getResultForInvalidPreset(sourcePath:string, originalError:Error):PresetsSerializationResult {
   const warning:WarningDetails = {
-    message: 'Cannot serialize component preset',
+    message: 'Cannot serialize stories',
     originalError,
     sourcePath,
   };

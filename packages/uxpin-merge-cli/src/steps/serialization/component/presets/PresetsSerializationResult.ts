@@ -1,4 +1,4 @@
 import { Warned } from '../../../../common/warning/Warned';
-import { ComponentPreset } from '../presets/ComponentPreset';
+import { ComponentPreset } from './ComponentPreset';
 
 export type PresetsSerializationResult = Warned<ComponentPreset[]>;
