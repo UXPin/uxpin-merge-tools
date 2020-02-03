@@ -1,8 +1,7 @@
-import { flatMap } from 'lodash';
+import { flatMap, isFunction } from 'lodash';
 import { thunkFillSourcePath } from '../../../../common/warning/thunkFillSourcePath';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
-import { ComponentPreset } from '../presets/ComponentPreset';
 import { JSXSerializedElement } from '../presets/jsx/JSXSerializationResult';
 import { PresetsSerializationResult } from '../presets/PresetsSerializationResult';
 import { getUniqStorySetImportName } from './bundle/getUniqStoryImportName';
@@ -32,20 +31,24 @@ function thunkSerializeStory(
 ):(exportName:string) => PresetsSerializationResult {
   return (exportName) => {
     try {
+      const emptySerializationResult:PresetsSerializationResult = { result: [], warnings: [] };
       const story:ComponentStory = stories[exportName];
+      if (!isFunction(story)) {
+        return emptySerializationResult;
+      }
+
       const storyExecutionResult:JSXSerializedElement = story();
       const { result: serializedStory, warnings } = collectStoryElements(storyExecutionResult);
-      const result:ComponentPreset[] = [];
 
-      if (serializedStory) {
-        result.push({
-          name: exportName,
-          ...serializedStory,
-        });
+      if (!serializedStory) {
+        return emptySerializationResult;
       }
 
       return {
-        result,
+        result: [{
+          name: exportName,
+          ...serializedStory,
+        }],
         warnings: warnings.map(thunkFillSourcePath(path)),
       };
     } catch (error) {
