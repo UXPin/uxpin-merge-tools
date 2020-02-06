@@ -69,7 +69,16 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	cd ../../test/resources/repos \
 	&& git clone https://github.com/uxpin-merge/design-system.git ./storybook-design-system \
 	&& cd storybook-design-system \
-	&& git checkout 63fa1788fd68861954ab8d727fbdbf3c75894f6c \
+	&& git checkout master \
+	&& mkdir ./yarn-cache \
+	&& yarn install --cache-folder ./yarn-cache \
+	&& rm -rf ./yarn-cache
+
+../../test/resources/repos/bloom:
+	cd ../../test/resources/repos \
+	&& git clone https://github.com/uxpin-merge/bloom.git \
+	&& cd bloom \
+	&& git checkout master \
 	&& mkdir ./yarn-cache \
 	&& yarn install --cache-folder ./yarn-cache \
 	&& rm -rf ./yarn-cache
