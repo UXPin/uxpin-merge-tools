@@ -1,3 +1,4 @@
+import { readFileSync } from 'fs';
 import { get } from 'lodash';
 import { join, parse } from 'path';
 import { ComponentDefinition } from '../../../ComponentDefinition';
@@ -18,7 +19,10 @@ export interface ComponentPlaceholder {
 export function generateVirtualModules(components:ComponentDefinition[]):VirtualModule[] {
   const tree:NamespacedComponentsTree = getNamespacedComponentsTree(components);
   const modules:VirtualModule[] = components.map((component) => createVirtualModule(component, tree));
-  modules.push(...createStorybookAddonPlaceholderModules());
+  modules.push(
+    ...createStorybookAddonPlaceholderModules(),
+    createStorybookStoriesOfImplementation(),
+  );
   return modules;
 }
 
@@ -49,4 +53,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.action = function() { return undefined; };`,
     path: './node_modules/@storybook/addon-actions/dist/index.js',
   }];
+}
+
+function createStorybookStoriesOfImplementation():VirtualModule {
+  const implPath:string = join(__dirname, '../../../stories/bundle/compile/StorybookStoriesOfImplementation.js');
+  return {
+    moduleSource: readFileSync(implPath, { encoding: 'utf8' }),
+    path: '@storybook/react',
+  };
 }

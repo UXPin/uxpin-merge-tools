@@ -1,16 +1,17 @@
 import { flatMap, isFunction } from 'lodash';
 import { thunkFillSourcePath } from '../../../../common/warning/thunkFillSourcePath';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
-import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
+import { ComponentInfoWithName, ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
 import { JSXSerializedElement } from '../presets/jsx/JSXSerializationResult';
 import { PresetsSerializationResult } from '../presets/PresetsSerializationResult';
 import { getUniqStorySetImportName } from './bundle/getUniqStoryImportName';
 import { ComponentStories, ComponentStory, ComponentStorySet, StoriesBundle } from './bundle/StoriesBundle';
 import { collectStoryElements } from './collectStoryElements';
 
-export function serializeStories(bundle:StoriesBundle, stories:ComponentPresetInfo[]):PresetsSerializationResult {
+export function serializeStories(bundle:StoriesBundle, info:ComponentInfoWithName):PresetsSerializationResult {
+  const { stories, name } = info;
   const aggregator:PresetsSerializationResult = { result: [], warnings: [] };
-  return flatMap(stories, thunkSerializeStoriesSet(bundle))
+  return flatMap(stories, thunkSerializeStoriesSet(bundle, name))
     .reduce((result, presetSerializationResult) => {
       [].push.apply(result.result, presetSerializationResult.result);
       [].push.apply(result.warnings, presetSerializationResult.warnings);
@@ -18,16 +19,20 @@ export function serializeStories(bundle:StoriesBundle, stories:ComponentPresetIn
     }, aggregator);
 }
 
-function thunkSerializeStoriesSet(bundle:StoriesBundle):(info:ComponentPresetInfo) => PresetsSerializationResult[] {
+function thunkSerializeStoriesSet(
+  bundle:StoriesBundle,
+  componentName:string,
+):(info:ComponentPresetInfo) => PresetsSerializationResult[] {
   return ({ path }) => {
     const { default: metadata, ...storySet }:ComponentStorySet = bundle[getUniqStorySetImportName(path)];
-    return Object.keys(storySet).map(thunkSerializeStory(path, storySet));
+    return Object.keys(storySet).map(thunkSerializeStory(path, storySet, componentName));
   };
 }
 
 function thunkSerializeStory(
   path:string,
   stories:ComponentStories,
+  componentName:string,
 ):(exportName:string) => PresetsSerializationResult {
   return (exportName) => {
     try {
@@ -38,7 +43,7 @@ function thunkSerializeStory(
       }
 
       const storyExecutionResult:JSXSerializedElement = story();
-      const { result: serializedStory, warnings } = collectStoryElements(storyExecutionResult);
+      const { result: serializedStory, warnings } = collectStoryElements(storyExecutionResult, componentName);
 
       if (!serializedStory) {
         return emptySerializationResult;

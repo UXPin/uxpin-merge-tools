@@ -22,29 +22,55 @@ export interface PartialComponentPreset {
 
 export function collectStoryElements(
   element:AnySerializedElement,
+  rootComponentName:string,
 ):Warned<PartialComponentPreset | undefined> {
   if (!isJSXSerializedElement(element)) {
     return { result: undefined, warnings: [] };
   }
 
-  const mapper:PresetElementMapper = PresetElementMapper.from(element);
+  const mapperCollection:StoryElementMapperCollection = new StoryElementMapperCollection(rootComponentName, element);
+  const rootMapper:StoryElementMapper | undefined = mapperCollection.getRoot();
+
+  if (!rootMapper) {
+    return { result: undefined, warnings: [] };
+  }
 
   return {
     result: {
-      elements: mapper.createTreeContentMap(),
-      rootId: mapper.getId(),
+      elements: rootMapper.createTreeContentMap(),
+      rootId: rootMapper.getId(),
     },
-    warnings: mapper.getWarnings(),
+    warnings: rootMapper.getWarnings(),
   };
 }
 
-class PresetElementMapper {
+class StoryElementMapperCollection {
 
-  private allChildren:PresetElementMapper[] = [];
+  private allElements:StoryElementMapper[] = [];
+
+  constructor(private rootComponentName:string, originalRootElement:JSXSerializedElement) {
+    this.addFrom(originalRootElement);
+  }
+
+  public addFrom(element:JSXSerializedElement):StoryElementMapper {
+    const newMapper:StoryElementMapper = new StoryElementMapper(element, this);
+    this.allElements.push(newMapper);
+    return newMapper;
+  }
+
+  public getRoot():StoryElementMapper | undefined {
+    return this.allElements.find((mapper) => mapper.getComponentName() === this.rootComponentName);
+  }
+}
+
+// tslint:disable-next-line:max-classes-per-file
+class StoryElementMapper {
+
+  private allChildren:StoryElementMapper[] = [];
   private id:string;
   private definition:ComponentPresetElement;
 
-  constructor(private jsxElement:JSXSerializedElement) {
+  constructor(private jsxElement:JSXSerializedElement, private collection:StoryElementMapperCollection) {
     this.id = v4();
     const { children, name, props } = jsxElement;
     this.definition = {
@@ -54,10 +80,6 @@ class PresetElementMapper {
         ...this.replaceElementsWithReferencesInChildren(children),
       },
     };
-  }
-
-  public static from(jsxElement:JSXSerializedElement):PresetElementMapper {
-    return new PresetElementMapper(jsxElement);
   }
 
   public getId():string {
@@ -83,6 +105,10 @@ class PresetElementMapper {
 
   public getWarnings():WarningDetails[] {
     return flatMap(this.allChildren, (m) => m.getWarnings());
+  }
+
+  public getComponentName():string {
+    return this.definition.name;
   }
 
   private replaceElementsWithReferencesInChildren(children:AnySerializedElement[] | undefined):MapChildrenResult {
@@ -111,7 +137,7 @@ class PresetElementMapper {
 
   private getPresetElementReference(child:AnySerializedElement):PresetElementReference | string {
     if (isJSXSerializedElement(child)) {
-      const childMapper:PresetElementMapper = PresetElementMapper.from(child);
+      const childMapper:StoryElementMapper = this.collection.addFrom(child);
       this.allChildren.push(childMapper);
       return childMapper.getReference();
     }
@@ -126,7 +152,6 @@ class PresetElementMapper {
     });
     return accumulator;
   }
-
 }
 
 interface MapChildrenResult {

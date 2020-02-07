@@ -1,7 +1,7 @@
 import { flatMap } from 'lodash';
 import { Warned } from '../../../../common/warning/Warned';
 import { ProgramArgs } from '../../../../program/args/ProgramArgs';
-import { ComponentInfo } from '../../../discovery/component/ComponentInfo';
+import { ComponentInfoWithName } from '../../../discovery/component/ComponentInfo';
 import { ComponentCategory } from '../categories/ComponentCategory';
 import { getAllComponentsFromCategories } from '../categories/getAllComponentsFromCategories';
 import { ComponentDefinition } from '../ComponentDefinition';
@@ -25,7 +25,8 @@ function thunkDecorateComponentsWithStories(
 ):(category:Warned<ComponentCategory>) => Warned<ComponentCategory> {
   return (category) => (
     category.result.components.reduce((decorated, component) => {
-      const { result: stories, warnings } = serializeOptionalStories(bundle, component.info);
+      const { info, name } = component;
+      const { result: stories, warnings } = serializeOptionalStories(bundle, { ...info, name });
       const newComponent:ComponentDefinition = {
         ...component,
         presets: [
@@ -45,11 +46,11 @@ function thunkDecorateComponentsWithStories(
 
 function serializeOptionalStories(
   bundle:StoriesBundle,
-  info:ComponentInfo,
+  info:ComponentInfoWithName,
 ):PresetsSerializationResult {
   if (!info.stories || !info.stories.length) {
     return { result: [], warnings: [] };
   }
 
-  return serializeStories(bundle, info.stories);
+  return serializeStories(bundle, info);
 }

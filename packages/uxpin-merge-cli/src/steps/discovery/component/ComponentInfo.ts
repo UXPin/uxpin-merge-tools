@@ -6,6 +6,10 @@ export interface ComponentInfo {
   stories?:ComponentPresetInfo[];
 }
 
+export interface ComponentInfoWithName extends ComponentInfo {
+  name:string;
+}
+
 export interface ComponentImplementationInfo {
   path:string;
   lang:ComponentImplementationLang;

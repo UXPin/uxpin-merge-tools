@@ -12,6 +12,6 @@ export async function getStoriesBundle(
   const bundlePath:string = await compileStories(programArgs, components);
   const bundle:StoriesBundle = require(bundlePath);
   unRequire(bundlePath);
-  await unlink(bundlePath);
+  // await unlink(bundlePath);
   return bundle;
 }
