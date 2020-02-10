@@ -4,6 +4,7 @@ import {
   JSXSerializedElement,
   JSXSerializedElementProp,
   JSXSerializedElementProps,
+  PartialProps,
 } from '../../JSXSerializationResult';
 import { ComponentPlaceholder } from '../generateVirtualModules';
 
@@ -20,17 +21,18 @@ function __uxpinParsePreset(
   }
 
   const componentName:string = !!component.name ? component.name : 'Unknown';
+  const propsToSerialize:PartialProps =  props ? props : {};
 
   return {
     children,
     name: componentName,
-    props: JSON.parse(JSON.stringify(props)) || {},
+    props: JSON.parse(JSON.stringify(propsToSerialize)),
     uxpinPresetElementType: 'CodeComponent',
     warnings: getPropertySerializationWarnings(props),
   };
 }
 
-function getPropertySerializationWarnings(props:JSXSerializedElementProps|undefined):WarningDetails[] {
+function getPropertySerializationWarnings(props:JSXSerializedElementProps | undefined):WarningDetails[] {
   if (!props) {
     return [];
   }
