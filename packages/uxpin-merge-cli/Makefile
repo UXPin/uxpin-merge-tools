@@ -59,7 +59,7 @@ test-remap-coverage:
 	remap-istanbul -i coverage/coverage-final.json -o coverage/clover.xml -t clover
 
 test-resources:
-	cd ./shell_scripts/test_resources && make test-resources -j
+	cd ./shell_scripts/test_resources && make test-resources 
 
 test-rename-snapshots:
 	./shell_scripts/test-rename-snapshots.sh

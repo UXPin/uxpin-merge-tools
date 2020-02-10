@@ -1,0 +1,6 @@
+merge-tools:
+  image: ${TEST_IMAGE}
+  entrypoint: ["/app/.uxpinci/merge-tools.sh"]
+  env_file: .env
+  # volumes:
+    # - ../:/app

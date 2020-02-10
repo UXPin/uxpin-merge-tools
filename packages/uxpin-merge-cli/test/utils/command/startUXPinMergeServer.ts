@@ -24,6 +24,7 @@ export interface MergeServerResponse {
 export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerOptions):Promise<MergeServerResponse> {
   return new Promise((resolve, reject) => {
     const command:string = buildCommand(getAllCmdOptions(cmdOptions));
+    console.log(command);
     const subprocess:ChildProcess = spawn(command, [], getSpawnOptions());
     const kill:() => void = () => process.kill(-subprocess.pid);
 
