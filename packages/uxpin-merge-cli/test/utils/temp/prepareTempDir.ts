@@ -25,7 +25,7 @@ export async function prepareTempDir(sourceDir:string, gitOptions:Partial<GitOpt
       'git config user.name test',
       'git config user.email test@test.dev',
       'git commit -m "Test"',
-      'npm install'
+      'npm install',
     ];
 
     await execAsync(gitCommands.join(' && '), { cwd: result.path });
