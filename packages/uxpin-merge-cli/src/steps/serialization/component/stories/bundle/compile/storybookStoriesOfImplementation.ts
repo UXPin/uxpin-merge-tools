@@ -1,5 +1,3 @@
-console.log('storiesOf impl executed!');
-
 export function storiesOf(storySetName:string, storySetModule:NodeModule):StoryBuilder {
   return new StoryBuilder(storySetName, storySetModule);
 }
