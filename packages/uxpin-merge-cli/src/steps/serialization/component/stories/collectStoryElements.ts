@@ -53,8 +53,9 @@ class StoryElementMapperCollection {
   }
 
   public addFrom(element:JSXSerializedElement):StoryElementMapper {
-    const newMapper:StoryElementMapper = new StoryElementMapper(element, this);
+    const newMapper:StoryElementMapper = new StoryElementMapper(this);
     this.allElements.push(newMapper);
+    newMapper.initializeWith(element);
     return newMapper;
   }
 
@@ -68,10 +69,13 @@ class StoryElementMapper {
 
   private allChildren:StoryElementMapper[] = [];
   private id:string;
-  private definition:ComponentPresetElement;
+  private definition!:ComponentPresetElement;
 
-  constructor(private jsxElement:JSXSerializedElement, private collection:StoryElementMapperCollection) {
+  constructor(private collection:StoryElementMapperCollection) {
     this.id = v4();
+  }
+
+  public initializeWith(jsxElement:JSXSerializedElement):void {
     const { children, name, props } = jsxElement;
     this.definition = {
       name,
