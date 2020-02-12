@@ -18,7 +18,7 @@ export function getPresetsCollection(
         return {
           ...preset,
           componentRevisionId: getComponentRevisionId(revisionId, componentId),
-          presetId: getPresetId(designSystemId, component.info.presets![index].path),
+          presetId: getPresetId(designSystemId, component, preset),
           sortIndex: index,
         };
       });

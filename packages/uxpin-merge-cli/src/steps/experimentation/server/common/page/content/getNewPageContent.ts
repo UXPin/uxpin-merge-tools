@@ -53,11 +53,11 @@ export function getNewPageContent({ revisionId }:PageContentContext, metadata:De
 }
 
 function getComponentPresetId(designSystemId:string, component:ComponentDefinition):string | undefined {
-  if (!component.info.presets || !component.info.presets[0]) {
+  if (!component.presets || !component.presets[0]) {
     return undefined;
   }
 
-  return getPresetId(designSystemId, component.info.presets[0].path);
+  return getPresetId(designSystemId, component, component.presets[0]);
 }
 
 function findIntroComponents(metadata:DesignSystemSnapshot):ComponentDefinition[] {
