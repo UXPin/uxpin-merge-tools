@@ -7,6 +7,9 @@ import { BuildOptions } from '../building/BuildOptions';
 import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
 import { getComponentCategoryInfos } from '../discovery/component/category/getComponentCategoryInfos';
 import { ComponentInfo } from '../discovery/component/ComponentInfo';
+import { CliConfig, ComponentSerializer } from '../discovery/config/CliConfig';
+import { getConfiguration } from '../discovery/config/getConfiguration';
+import { getSerializationPlugin } from '../discovery/config/getSerializationPlugin';
 import { getLibraryName } from '../discovery/library/getLibraryName';
 import { ProjectPaths } from '../discovery/paths/ProjectPaths';
 import { ComponentCategory } from './component/categories/ComponentCategory';
@@ -26,9 +29,14 @@ export async function getDesignSystemMetadata(
 ):Promise<Warned<DesignSystemSnapshot>> {
   const buildOptions:BuildOptions = getBuildOptions(programArgs);
   const libraryName:string = getLibraryName(paths);
+  const config:CliConfig = getConfiguration(paths.configPath);
+  const serializationPlugin:ComponentSerializer | undefined = getSerializationPlugin(config);
 
   const categoryInfos:ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
-  const categories:Array<Warned<ComponentCategory>> = await pMap(categoryInfos, categoryInfoToMetadata);
+  const categories:Array<Warned<ComponentCategory>> = await pMap(
+    categoryInfos,
+    (info) => categoryInfoToMetadata(info, serializationPlugin),
+  );
   // const categoriesWithPresets:Array<Warned<ComponentCategory>> = await decorateWithPresets(categories, programArgs);
   const categoriesWithStories:Array<Warned<ComponentCategory>> =
     await decorateWithStories(categories, programArgs);
@@ -50,8 +58,12 @@ export async function getDesignSystemMetadata(
 
 async function categoryInfoToMetadata(
   { componentInfos, name }:ComponentCategoryInfo,
+  serializationPlugin?:ComponentSerializer,
 ):Promise<Warned<ComponentCategory>> {
-  const components:Array<Warned<ComponentDefinition>> = await pMap(componentInfos, componentInfoToDefinition);
+  const components:Array<Warned<ComponentDefinition>> = await pMap(
+    componentInfos,
+    (info) => componentInfoToDefinition(info, serializationPlugin),
+  );
 
   return {
     result: {
@@ -62,8 +74,14 @@ async function categoryInfoToMetadata(
   };
 }
 
-async function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentDefinition>> {
-  const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(info.implementation);
+async function componentInfoToDefinition(
+  info:ComponentInfo,
+  serializationPlugin?:ComponentSerializer,
+):Promise<Warned<ComponentDefinition>> {
+  const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(
+    info.implementation,
+    serializationPlugin,
+  );
   const { result: examples, warnings: exampleWarnings } = await serializeOptionalExamples(info);
   return {
     result: { info, ...metadata, documentation: { examples }, presets: [] },

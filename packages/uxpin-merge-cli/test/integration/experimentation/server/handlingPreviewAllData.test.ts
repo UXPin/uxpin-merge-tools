@@ -11,10 +11,10 @@ describe('Experimentation mode - handling preview all data', () => {
   let response:Response;
   const { request } = setupExperimentationServerTest({
     port,
-    projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
     ],
+    sourceDir: 'resources/designSystems/twoComponentsWithConfig',
   });
 
   beforeAll(async () => {

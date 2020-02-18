@@ -15,6 +15,11 @@
   },
   "exclude": [
     "expectedMetadata.ts",
-    "node_modules/"
+    "node_modules"
+  ],
+  "include": [
+    "*.ts",
+    "**/*.ts",
+    "node_modules/@uxpin/merge-cli/src"
   ]
 }

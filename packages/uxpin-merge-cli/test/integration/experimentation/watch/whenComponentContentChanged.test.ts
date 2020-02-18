@@ -13,11 +13,11 @@ describe('Experimental - watch - change file content', () => {
   const avatarJsxPath:string = './src/components/Avatar/Avatar.jsx';
 
   const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
-    projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
       '--webpack-config "./webpack.config.js"',
     ],
+    sourceDir: 'resources/designSystems/watchingChanges',
   });
 
   beforeAll(async () => {

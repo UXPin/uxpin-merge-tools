@@ -37,15 +37,15 @@ describe('createEPID', () => {
   });
 
   describe('when epid file exists', () => {
-    const projectPath:string = resolve(__dirname, '../../../resources/designSystems/withEpidFile');
-    const { getWorkingDir } = setupExperimentationServerTest({ port: getRandomPortNumber(), projectPath });
+    const sourceDir:string = resolve(__dirname, '../../../resources/designSystems/withEpidFile');
+    const { getWorkingDir } = setupExperimentationServerTest({ port: getRandomPortNumber(), sourceDir });
 
     it('should not override already existed epid file', () => {
-      expect(getEpidContent(getWorkingDir())).toEqual(getEpidContent(projectPath));
+      expect(getEpidContent(getWorkingDir())).toEqual(getEpidContent(sourceDir));
     });
 
-    function getEpidContent(projectDir:string):string {
-      return readFileSync(getEPIDFilePath(projectDir)).toString('utf-8');
+    function getEpidContent(path:string):string {
+      return readFileSync(getEPIDFilePath(path)).toString('utf-8');
     }
   });
 });

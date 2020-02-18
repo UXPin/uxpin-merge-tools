@@ -67,12 +67,12 @@ export default class Avatar extends PureComponent {
 `;
 
   const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
-    projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
       '--webpack-config "./webpack.config.js"',
     ],
     silent: true,
+    sourceDir: 'resources/designSystems/watchingChanges',
   });
 
   beforeAll(async () => {

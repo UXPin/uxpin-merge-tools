@@ -1,25 +1,30 @@
+import { resolve } from 'path';
 import { CmdOptions } from '../command/CmdOptions';
 import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
 
 export type ExperimentationServerTestSetupOptions = Partial<ExperimentationServerOptionsWithDefaults>;
 
 export interface ExperimentationServerOptionsWithDefaults {
-  serverCmdArgs?:string[];
-  serverReadyOutput?:string|RegExp;
-  serverFailOutput?:string|RegExp;
-  projectPath:string;
   env?:CmdOptions['env'];
+  linkPackage:boolean;
   port:number;
+  projectPath:string;
+  serverCmdArgs?:string[];
+  serverFailOutput?:string|RegExp;
+  serverReadyOutput?:string|RegExp;
   silent:boolean;
-  useTempDir:boolean;
+  sourceDir:string;
   useExistingServer?:ExistingServerConfiguration;
+  useTempDir:boolean;
 }
 
 export function getDefaultOptions():ExperimentationServerOptionsWithDefaults {
   return {
+    linkPackage: true,
     port: getRandomPortNumber(),
-    projectPath: 'resources/designSystems/noSrcDir',
+    projectPath: resolve(__dirname, '../../../'),
     silent: false,
+    sourceDir: 'resources/designSystems/noSrcDir',
     useTempDir: true,
   };
 }

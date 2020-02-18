@@ -10,7 +10,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('handlingGetLibraries', () => {
   const { request } = setupExperimentationServerTest({
-    projectPath: 'resources/designSystems/withEpidFile',
+    sourceDir: 'resources/designSystems/withEpidFile',
   });
 
   describe('should serve library bundle', () => {

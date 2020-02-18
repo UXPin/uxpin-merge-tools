@@ -6,5 +6,6 @@ import { runCommand } from './runCommand';
 
 export function runUXPinMergeCommand(options:CmdOptions = {}):Promise<string> {
   const command:string = buildCommand(getAllCmdOptions(options));
+  // console.log(command);
   return runCommand(command, getExecOptions());
 }

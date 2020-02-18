@@ -2,20 +2,17 @@ import { resolve } from 'path';
 import { DirectoryResult } from 'tmp-promise';
 import { Command } from '../../../src';
 import { Environment } from '../../../src/program/env/Environment';
-import { nonExistingLatestCommitStub } from '../../resources/stubs/nonExistingLatestCommit';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
-import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 import { setupTempProject } from '../../utils/temp/setupTempProject';
 
 const CURRENT_TIMEOUT:number = 60000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-describe('Push command with latest commit which doesnt exist in tree', () => {
+describe('Plugins support', () => {
   const sourceDir:string = resolve(__dirname, '../../resources/designSystems/twoComponentsWithConfig');
   const projectPath:string = resolve(__dirname, '../../../');
-  const { getTlsPort } = setupStubbyServer(nonExistingLatestCommitStub);
   const { getDirectory } = setupTempProject({
     gitOptions: { initialise: true },
     linkPackage: true,
@@ -23,27 +20,29 @@ describe('Push command with latest commit which doesnt exist in tree', () => {
     sourceDir,
   });
 
-  it('shows error when latest commit retrieved from API doesnt exist in local tree', async () => {
+  it('it should be possible to serialize component using custom plugin', async () => {
     // having
     const dir:DirectoryResult = getDirectory();
 
     // when
+    const result:string = await runUXPinMergeCommand({
+      cwd: dir.path,
+      env: {
+        UXPIN_ENV: Environment.TEST,
+      },
+      params: [
+        Command.DUMP,
+        '--config "./uxpin.plugin.config.js"',
+        '--webpack-config "./webpack.config.js"',
+      ],
+    });
+
     // then
-    try {
-      await runUXPinMergeCommand({
-        cwd: dir.path,
-        env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-          UXPIN_ENV: Environment.TEST,
-        },
-        params: [
-          Command.PUSH,
-          '--webpack-config "./webpack.config.js"',
-          '--token DUMMY_TOKEN',
-        ],
-      });
-    } catch (error) {
-      expect(error.stderr).toMatch('Unknown revision');
-    }
+    expect(JSON.parse(result)).toMatchSnapshot({
+      vcs: expect.objectContaining({
+        branchName: expect.any(String),
+        commitHash: expect.stringMatching(/[a-z0-9]+/),
+      }),
+    });
   });
 });

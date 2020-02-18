@@ -16,11 +16,11 @@ describe('Experimental - watch - when component presets has changed', () => {
   let initialBundleChecksum:string;
   let initialMetadata:string;
   const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
-    projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: [
       '--config "uxpin.config.js"',
       '--webpack-config "./webpack.config.js"',
     ],
+    sourceDir: 'resources/designSystems/watchingChanges',
   });
 
   const changedFileContent:string = `

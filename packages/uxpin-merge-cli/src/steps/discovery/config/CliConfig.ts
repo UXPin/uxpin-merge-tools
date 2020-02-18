@@ -1,3 +1,6 @@
+import { ImplSerializationResult } from '../../../steps/serialization/component/implementation/ImplSerializationResult';
+import { ComponentImplementationInfo } from '../component/ComponentInfo';
+
 export interface CliConfig {
   components:ComponentsConfig;
   name?:string;
@@ -5,6 +8,7 @@ export interface CliConfig {
 
 export interface ComponentsConfig {
   categories:CategoryConfig[];
+  plugins?:ProjectPlugins;
 }
 
 export interface CategoryConfig {
@@ -27,4 +31,10 @@ export interface CategoryConfig {
    * ```
    */
   include:string|string[];
+}
+
+export type ComponentSerializer = (component:ComponentImplementationInfo) => Promise<ImplSerializationResult>;
+
+export interface ProjectPlugins {
+  serialization?:ComponentSerializer;
 }

@@ -1,4 +1,5 @@
-import { copy } from 'fs-extra';
+import { copy, ensureDir } from 'fs-extra';
+import { resolve } from 'path';
 import { dir, DirectoryResult } from 'tmp-promise';
 import { execAsync } from '../../../src/utils/child_process/execAsync';
 
@@ -12,7 +13,12 @@ const defaultGitOptions:GitOptions = {
   initialise: false,
 };
 
-export async function prepareTempDir(sourceDir:string, gitOptions:Partial<GitOptions> = {}):Promise<DirectoryResult> {
+export async function prepareTempDir(
+  sourceDir:string,
+  gitOptions:Partial<GitOptions> = {},
+  linkPackage:boolean = false,
+  projectPath?:string,
+):Promise<DirectoryResult> {
   const { branch, initialise } = { ...defaultGitOptions, ...gitOptions };
   const result:DirectoryResult = await dir({ unsafeCleanup: true });
   await copy(sourceDir, result.path, { errorOnExist: true });
@@ -28,6 +34,14 @@ export async function prepareTempDir(sourceDir:string, gitOptions:Partial<GitOpt
     ];
 
     await execAsync(gitCommands.join(' && '), { cwd: result.path });
+  }
+
+  if (linkPackage && projectPath) {
+    const projectSrc:string = resolve(projectPath, 'src');
+    const projectDest:string = resolve(result.path, 'node_modules/@uxpin/merge-cli/src');
+
+    await ensureDir(projectDest);
+    await copy(projectSrc, projectDest);
   }
 
   return result;
