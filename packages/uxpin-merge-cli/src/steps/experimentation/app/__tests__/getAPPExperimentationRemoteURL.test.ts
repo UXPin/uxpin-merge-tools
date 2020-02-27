@@ -11,6 +11,7 @@ describe('getAPPExperimentationRemoteURL', () => {
       },
       ngrokSessionId: 'sessionId',
       port: 1234,
+      projectName: 'Uxpin Merge Library',
       projectRoot: '',
       skipBrowser: true,
       uxpinDirPath: '',
@@ -21,7 +22,7 @@ describe('getAPPExperimentationRemoteURL', () => {
     const url:string = getAPPExperimentationRemoteURL(options);
 
     // then
-    expect(url).toEqual('https://app.uxpin.com/experiment/abc_123?ngrok_session=sessionId');
+    expect(url).toEqual('https://app.uxpin.com/experiment/abc_123?ngrok_session=sessionId&name=Uxpin Merge Library');
   });
 
   it('should return url with port if ngrokSessionId is not provided', () => {
@@ -32,6 +33,7 @@ describe('getAPPExperimentationRemoteURL', () => {
         revisionId: 'abc_123',
       },
       port: 1234,
+      projectName: 'Uxpin Merge Library',
       projectRoot: '',
       skipBrowser: true,
       uxpinDirPath: '',
@@ -42,6 +44,6 @@ describe('getAPPExperimentationRemoteURL', () => {
     const url:string = getAPPExperimentationRemoteURL(options);
 
     // then
-    expect(url).toEqual('https://app.uxpin.com/experiment/abc_123?port=1234');
+    expect(url).toEqual('https://app.uxpin.com/experiment/abc_123?port=1234&name=Uxpin Merge Library');
   });
 });
