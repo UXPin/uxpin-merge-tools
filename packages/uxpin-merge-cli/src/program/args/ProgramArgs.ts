@@ -10,6 +10,12 @@ export interface RawProgramArgs {
   wrapper?:string;
 }
 
+export interface ConfigEnabledProgramArgs {
+  webpackConfig?:string;
+  wrapper?:string;
+  uxpinDomain?:string;
+}
+
 export type ProgramArgs = PushProgramArgs
   | ServerProgramArgs
   | DumpProgramArgs

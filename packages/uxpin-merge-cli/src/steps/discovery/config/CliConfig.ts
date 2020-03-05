@@ -1,9 +1,11 @@
+import { ConfigEnabledProgramArgs } from '../../../program/args/ProgramArgs';
+
 export interface CliConfig {
   components:ComponentsConfig;
   name?:string;
 }
 
-export interface ComponentsConfig {
+export interface ComponentsConfig extends ConfigEnabledProgramArgs {
   categories:CategoryConfig[];
 }
 
