@@ -2,6 +2,8 @@
 
 The Command-line tool integrates the Design System repository with [UXPin Merge](https://www.uxpin.com/merge)
 
+### **[See UXPin Docs for full documentation of Merge](https://www.uxpin.com/docs/merge)** 
+
 ## Installation
 Add `uxpin-merge` to your package.json:
 ```
@@ -16,43 +18,34 @@ yarn add @uxpin/merge-cli --dev
 
 This tool recognizes components available in your repository of component library, analyze them and uploads results to [UXPin app](https://uxpin.com/merge) in order to further integration with UXPin Design System services.
 
-## Limitations
-
-We work hard to support the widest possible range of repositories. To minimize the user effort needed to integrate with UXPin, we start by supporting all repositories already working with a [react-styleguidist](https://github.com/styleguidist/react-styleguidist). Given that, your repository must meet the following criteria:
-
-- components are implemented in React.js,
-- components are placed in separate directories and follow "Component declaration convention"
-
-## Component declaration convention
-
-We expect all components to have separate directories under `src/components` or `components` directory:
-
 ```
-src
-└── components
-    └── Button
-        ├── Button.jsx                      <-- Button implementation
-        └── Readme.md                       <-- Button documentation and usage examples
+./node_modules/.bin/uxpin-merge --help
 ```
-#### Component implementation
-
-Components may be functional or stateful, however must be **default exported** from the implementation file. Allowed implementation file examples:
-
+will print the list of options:
 ```
-components/Button/index.jsx
-components/Button/Button.jsx
-```
-	
-#### Documentation and examples
-	
-Component directory must contain markdown file containing component usage examples. Following naming conventions are supported:
+  Usage: uxpin-merge [options] [command]
 
-```
-components/Button/Readme.md
-components/Button/README.md
-components/Button/Button.md
-```
+  `uxpin-merge` starts up an experimentation mode for the project in the CWD. See more commands below.
 
-## Configuration
 
-TBD
+  Options:
+
+    -v, --version            output the version number
+    --webpack-config <path>  path to a custom webpack config, relative to the current working directory
+    --wrapper <path>         path to a custom component wrapper, relative to the current working directory
+    --cwd <path>             working directory: path to root of the DS repository. Default: `./`
+    --config <path>          path to a config file. Default: `./uxpin.config.js`
+    --port <number>          port number on which the local server will listen. Default: 8877
+    --uxpin-domain <domain>  Can be used to set a UXPin private cloud domain. Default: `uxpin.com`
+    --skip-browser           Don't open browser on start
+    --disable-tunneling      Turn off tunneling via ngrok
+    -h, --help               output usage information
+
+
+  Commands:
+
+    server [options]   Start local web server and display the list of design system components
+    push [options]     Upload design system repository information to UXPin
+    dump [options]     Shows all information (in JSON) about the design system repository and NOT send to UXPin
+    summary [options]  Show only design system summary without building it
+```
