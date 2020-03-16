@@ -1,11 +1,12 @@
 import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
+import { ComponentMetadata } from '../../../ComponentDefinition';
 import { BuiltInWrappers, ComponentWrapperType } from '../../../wrappers/ComponentWrapper';
 import { ImplSerializationResult } from '../../ImplSerializationResult';
 import { serializeJSComponent } from '../serializeJSComponent';
 import { getImplementation } from './utils/getImplementation';
 
 describe('SerializeJSComponent - with annotations', () => {
-  describe('FunctionWithComponentDeclaration', () => {
+  describe('function with component declaration', () => {
     let serialized:ImplSerializationResult;
 
     beforeAll(async () => {
@@ -54,7 +55,7 @@ describe('SerializeJSComponent - with annotations', () => {
     });
   });
 
-  describe('DefaultExportedFunctionalComponentComposedWithHOCAndComment', () => {
+  describe('default exported functional component composed with HOC and comment', () => {
     let serialized:ImplSerializationResult;
 
     beforeAll(async () => {
@@ -95,7 +96,7 @@ describe('SerializeJSComponent - with annotations', () => {
     });
   });
 
-  describe('FunctionWithNamespaceDeclaration', () => {
+  describe('function with namespace declaration', () => {
     let serialized:ImplSerializationResult;
 
     beforeAll(async () => {
@@ -129,7 +130,7 @@ describe('SerializeJSComponent - with annotations', () => {
     });
   });
 
-  describe('MultipleFunctionsWithoutAnnotation', () => {
+  describe('multiple functions without annotation', () => {
     let component:ComponentImplementationInfo;
 
     beforeAll(() => {
@@ -150,7 +151,7 @@ describe('SerializeJSComponent - with annotations', () => {
     });
   });
 
-  describe('FunctionWithNamespaceAndWrappersDeclaration', () => {
+  describe('function with namespace and wrappers declaration', () => {
     let serialized:ImplSerializationResult;
 
     beforeAll(async () => {
@@ -187,5 +188,91 @@ describe('SerializeJSComponent - with annotations', () => {
     it('returns empty warnings list', () => {
       expect(serialized.warnings).toEqual([]);
     });
+  });
+
+  describe('class with bind annotation', () => {
+    it('serializes correctly including bind declaration in both function and bound property', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithBindAnnotation');
+
+      // when
+      return serializeJSComponent(component).then((serializedProps) => {
+        // then
+        const expectedMetadata:ComponentMetadata = {
+          name: 'ClassWithBindAnnotation',
+          properties: [
+            {
+              defaultValue: { value: false },
+              description: '',
+              isAutoUpdated: true,
+              isRequired: false,
+              name: 'isChecked',
+              type: { name: 'boolean', structure: {} },
+            },
+            {
+              description: '',
+              isRequired: true,
+              name: 'label',
+              type: { name: 'string', structure: {} },
+            },
+            {
+              defaultValue: { value: '' },
+              description: '',
+              isRequired: false,
+              name: 'name',
+              type: { name: 'string', structure: {} },
+            },
+            {
+              autoUpdate: {
+                targetPropName: 'isChecked',
+                valuePath: '0.target.checked',
+              },
+              description: '',
+              isAutoUpdated: true,
+              isRequired: false,
+              name: 'onChange',
+              type: { name: 'func', structure: {} },
+            },
+          ],
+          wrappers: [],
+        };
+
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+  });
+
+  describe('class with broken bind annotation', () => {
+    it('rejects with an error message', async () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithBindAnnotation');
+
+      // when
+      await expect(serializeJSComponent(component)).rejects.toEqual(
+`Incorrect property name pointed as a binding source.
+  Expected syntax: @uxpinbind [source property name] [value path - optional].
+  Examples:
+    @uxpinbind onChange 0.target.checked
+    @uxpinbind onSelect`);
+    });
+  });
+
+  describe('class with a binding annotation to nonexistent property', async () => {
+    // given
+    const component:ComponentImplementationInfo = getImplementation('ClassWithBindAnnotationToNonexistentProp');
+
+    // when
+    await expect(serializeJSComponent(component)).rejects.toEqual(`Incorrect property name pointed as a binding source.
+    No such property: "onChanged"`);
+  });
+
+  describe('class with overlapping bind annotations', async () => {
+    // given
+    const component:ComponentImplementationInfo = getImplementation('ClassWithOverlappingBindAnnotations');
+
+    // when
+    // tslint:disable-next-line:max-line-length
+    await expect(serializeJSComponent(component)).rejects.toEqual(`More than one property is trying to bind the same source property "onChange"`);
   });
 });

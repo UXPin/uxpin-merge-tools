@@ -1,8 +1,10 @@
 export type ComponentPropertyDefinition = ComponentProperty & ComponentPropertyCustomDescriptors;
 
 export interface ComponentProperty {
+  autoUpdate?:PropertyAutoUpdate;
   defaultValue?:PropertyDefaultValue;
   description:string;
+  isAutoUpdated?:true;
   isRequired:boolean;
   name:string;
   type?:PropertyType;
@@ -20,10 +22,16 @@ export enum CustomDescriptorsTags {
   HIDDEN = '@uxpinignoreprop',
   NAME = '@uxpinpropname',
   TYPE = '@uxpincontroltype',
+  BIND = '@uxpinbind',
 }
 
 export interface PropertyDefaultValue {
   value:any;
+}
+
+export interface PropertyAutoUpdate {
+  targetPropName:string;
+  valuePath:string;
 }
 
 export interface PropertyType<T extends keyof PropertyTypeStructureMap = keyof PropertyTypeStructureMap> {
