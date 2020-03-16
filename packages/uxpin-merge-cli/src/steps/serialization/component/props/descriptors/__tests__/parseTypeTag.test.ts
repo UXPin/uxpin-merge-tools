@@ -3,15 +3,12 @@ import { CustomControlTypeName, CustomDescriptorsTags } from '../../../implement
 import { ParsedPlainPropertyDescriptor } from '../../../implementation/ParsedPropertyDescriptor';
 import { parseTypeTag } from '../parseTypeTag';
 
-const propName:string = 'somePropName';
-
 const cases:TestCase[] = [
   ...Object.values(CustomControlTypeName)
     .filter((customType) => customType !== CustomControlTypeName.Textfield)
     .map((customType) => {
       return {
         expectedValue: {
-          propName,
           serialized: {
             customType: {
               name: customType,
@@ -25,7 +22,6 @@ const cases:TestCase[] = [
     }),
   {
     expectedValue: {
-      propName,
       serialized: {
         customType: {
           name: CustomControlTypeName.Textfield,
@@ -40,7 +36,6 @@ const cases:TestCase[] = [
   },
   {
     expectedValue: {
-      propName,
       serialized: {
         customType: {
           name: CustomControlTypeName.Textfield,
@@ -70,7 +65,7 @@ const cases:TestCase[] = [
 describe('parseTypeTag', () => {
   using(cases)
     .describe('should parse custom types', ({ tag, expectedValue }) => {
-      it(tag, () => expect(parseTypeTag(propName, tag)).toEqual(expectedValue));
+      it(tag, () => expect(parseTypeTag(tag)).toEqual(expectedValue));
     });
 });
 

@@ -13,7 +13,7 @@ export function convertPropItemToPropertyDefinition(propName:string,
   const partialProviders:Array<Promise<Warned<Partial<ComponentPropertyDefinition>>>> = [
     getDefaultValue(propName, propItem),
     getPropertyTypeWithWarnings(propName, propItem),
-    getPropertyCustomDescriptorsWithWarnings(propName, propItem),
+    getPropertyCustomDescriptorsWithWarnings(propItem),
     getPropertyDescriptionWithWarnings(propName, propItem),
   ];
 

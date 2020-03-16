@@ -1,4 +1,4 @@
-import { ComponentPropertyDefinition } from '../../../ComponentPropertyDefinition';
+import { ParsedComponentProperty } from '../../../ComponentPropertyDefinition';
 import { TSSerializationContext } from '../../context/getSerializationContext';
 import { getJSDocDocumentation } from './getJSDocDocumentation';
 import { getPropertyCustomDescriptors } from './getPropertyCustomDescriptiors';
@@ -9,7 +9,7 @@ import { isPropertyRequired } from './isPropertyRequired';
 export function convertMethodSignatureSymbolToPropertyDefinition(
   context:TSSerializationContext,
   methodSymbol:MethodSymbol,
-):ComponentPropertyDefinition {
+):ParsedComponentProperty {
   const name:string | undefined = getPropertyName(methodSymbol);
 
   if (!name) {
@@ -21,6 +21,6 @@ export function convertMethodSignatureSymbolToPropertyDefinition(
     isRequired: isPropertyRequired(methodSymbol),
     name,
     type: { name: 'func', structure: {} },
-    ...getPropertyCustomDescriptors(methodSymbol, name),
+    ...getPropertyCustomDescriptors(methodSymbol),
   };
 }

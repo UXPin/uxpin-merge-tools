@@ -3,7 +3,7 @@ import { ParsedPlainPropertyDescriptor } from '../../implementation/ParsedProper
 
 type ParseResult = ParsedPlainPropertyDescriptor | undefined;
 
-export function parseTypeTag(propName:string, value:string):ParseResult {
+export function parseTypeTag(value:string):ParseResult {
   if (!value) {
     return;
   }
@@ -20,11 +20,11 @@ export function parseTypeTag(propName:string, value:string):ParseResult {
     case CustomControlTypeName.Number:
     case CustomControlTypeName.Select:
     case CustomControlTypeName.Switcher: {
-      return parseCustomType(propName, typeMatch[0] as CustomControlTypeName);
+      return parseCustomType(typeMatch[0] as CustomControlTypeName);
     }
 
     case CustomControlTypeName.Textfield: {
-      return parseTextfieldType(propName, value);
+      return parseTextfieldType(value);
     }
 
     default: {
@@ -37,7 +37,7 @@ const TEXTFIELD_REGEX:RegExp = /(^textfield$|^textfield(\(([\d]+)?\)))/;
 const TEXTFIELD_DEFAULT_ROWS:number = 3;
 const ROWS_MATCH_ID:number = 3;
 
-function parseTextfieldType(propName:string, value:string):ParseResult {
+function parseTextfieldType(value:string):ParseResult {
   const match:RegExpMatchArray | null = value.match(TEXTFIELD_REGEX);
   if (!match) {
     return;
@@ -48,7 +48,6 @@ function parseTextfieldType(propName:string, value:string):ParseResult {
     : parseInt(match[ROWS_MATCH_ID], 10);
 
   return {
-    propName,
     serialized: {
       customType: {
         name: CustomControlTypeName.Textfield,
@@ -61,9 +60,8 @@ function parseTextfieldType(propName:string, value:string):ParseResult {
   };
 }
 
-function parseCustomType(propName:string, typeName:CustomControlTypeName):ParseResult {
+function parseCustomType(typeName:CustomControlTypeName):ParseResult {
   return {
-    propName,
     serialized: {
       customType: {
         name: typeName,

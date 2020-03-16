@@ -1,5 +1,4 @@
-import { CustomDescriptorsTags } from '../../../ComponentPropertyDefinition';
-import { ParsedPropertyDescriptor } from '../../../ParsedPropertyDescriptor';
+import { CustomDescriptorsTags, ParsedPropertyDescriptors } from '../../../ComponentPropertyDefinition';
 import { getPropertyCustomDescriptors } from '../getPropertyCustomDescriptors';
 
 describe('getPropertyCustomDescriptors', () => {
@@ -10,10 +9,10 @@ describe('getPropertyCustomDescriptors', () => {
     const desc:string = '';
 
     // when
-    const descriptors:ParsedPropertyDescriptor[] = getPropertyCustomDescriptors(propName, desc);
+    const descriptors:ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
-    expect(descriptors).toEqual([]);
+    expect(descriptors).toEqual({ descriptors: [] });
   });
 
   it('should parse single descriptor', () => {
@@ -21,16 +20,17 @@ describe('getPropertyCustomDescriptors', () => {
     const desc:string = '@uxpinpropname test';
 
     // when
-    const descriptors:ParsedPropertyDescriptor[] = getPropertyCustomDescriptors(propName, desc);
+    const descriptors:ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
-    const expected:ParsedPropertyDescriptor[] = [
-      {
-        propName,
-        serialized: { customName: 'test' },
-        type: CustomDescriptorsTags.NAME,
-      },
-    ];
+    const expected:ParsedPropertyDescriptors = {
+      descriptors: [
+        {
+          serialized: { customName: 'test' },
+          type: CustomDescriptorsTags.NAME,
+        },
+      ],
+    };
     expect(descriptors).toEqual(expected);
   });
 
@@ -40,23 +40,23 @@ describe('getPropertyCustomDescriptors', () => {
 @uxpinpropname test`;
 
     // when
-    const descriptors:ParsedPropertyDescriptor[] = getPropertyCustomDescriptors(propName, desc);
+    const descriptors:ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
-    const expected:ParsedPropertyDescriptor[] = [
-      {
-        propName,
-        serialized: { customDescription: 'Some desc' },
-        type: CustomDescriptorsTags.DESCRIPTION,
-      },
-      {
-        propName,
-        serialized: {
-          customName: 'test',
+    const expected:ParsedPropertyDescriptors = {
+      descriptors: [
+        {
+          serialized: { customDescription: 'Some desc' },
+          type: CustomDescriptorsTags.DESCRIPTION,
         },
-        type: CustomDescriptorsTags.NAME,
-      },
-    ];
+        {
+          serialized: {
+            customName: 'test',
+          },
+          type: CustomDescriptorsTags.NAME,
+        },
+      ],
+    };
     expect(descriptors).toEqual(expected);
   });
 
@@ -68,27 +68,27 @@ description.
 @uxpinpropname test`;
 
     // when
-    const descriptors:ParsedPropertyDescriptor[] = getPropertyCustomDescriptors(propName, desc);
+    const descriptors:ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
-    const expected:ParsedPropertyDescriptor[] = [
-      {
-        propName,
-        serialized: {
-          customDescription: `Multiline
+    const expected:ParsedPropertyDescriptors = {
+      descriptors: [
+        {
+          serialized: {
+            customDescription: `Multiline
 awesome
 description.`,
+          },
+          type: CustomDescriptorsTags.DESCRIPTION,
         },
-        type: CustomDescriptorsTags.DESCRIPTION,
-      },
-      {
-        propName,
-        serialized: {
-          customName: 'test',
+        {
+          serialized: {
+            customName: 'test',
+          },
+          type: CustomDescriptorsTags.NAME,
         },
-        type: CustomDescriptorsTags.NAME,
-      },
-    ];
+      ],
+    };
     expect(descriptors).toEqual(expected);
   });
 
@@ -98,27 +98,28 @@ description.`,
     const desc:string = '    @uxpindescription      Multiline\nawesome     \n\n     description.\n   			@uxpinpropname      test     ';
 
     // when
-    const descriptors:ParsedPropertyDescriptor[] = getPropertyCustomDescriptors(propName, desc);
+    const descriptors:ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
-    const expected:ParsedPropertyDescriptor[] = [
-      {
-        propName, serialized: {
-          customDescription: `Multiline
+    const expected:ParsedPropertyDescriptors = {
+      descriptors: [
+        {
+          serialized: {
+            customDescription: `Multiline
 awesome
 
 description.`,
+          },
+          type: CustomDescriptorsTags.DESCRIPTION,
         },
-        type: CustomDescriptorsTags.DESCRIPTION,
-      },
-      {
-        propName,
-        serialized: {
-          customName: 'test',
+        {
+          serialized: {
+            customName: 'test',
+          },
+          type: CustomDescriptorsTags.NAME,
         },
-        type: CustomDescriptorsTags.NAME,
-      },
-    ];
+      ],
+    };
     expect(descriptors).toEqual(expected);
   });
 });

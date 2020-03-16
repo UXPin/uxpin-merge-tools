@@ -2,17 +2,13 @@ import { CustomDescriptorsTags } from '../../../implementation/ComponentProperty
 import { parseNameTag } from '../parseNameTag';
 
 describe('parseNameTag', () => {
-
-  const propName:string = 'somePropName';
-
   it('should return valid custom name', () => {
     // having
     const value:string = 'foo';
 
     // when
     // then
-    expect(parseNameTag(propName, value)).toEqual({
-      propName,
+    expect(parseNameTag(value)).toEqual({
       serialized: { customName: 'foo' },
       type: CustomDescriptorsTags.NAME,
     });
@@ -27,8 +23,7 @@ describe('parseNameTag', () => {
 
     // when
     // then
-    expect(parseNameTag(propName, value)).toEqual({
-      propName,
+    expect(parseNameTag(value)).toEqual({
       serialized: { customName: 'foo' },
       type: CustomDescriptorsTags.NAME,
     });
@@ -42,6 +37,6 @@ describe('parseNameTag', () => {
 
     // when
     // then
-    expect(parseNameTag(propName, value)).toEqual(undefined);
+    expect(parseNameTag(value)).toEqual(undefined);
   });
 });

@@ -1,5 +1,5 @@
 import { Warned } from '../../../../../../../common/warning/Warned';
-import { ComponentPropertyCustomDescriptors } from '../../../ComponentPropertyDefinition';
+import { CustomDescriptorsTags, ParsedPropertyDescriptors } from '../../../ComponentPropertyDefinition';
 import { GeneralPropItem } from '../../FlowPropItem';
 import { getPropertyCustomDescriptorsWithWarnings } from '../getPropertyCustomDescriptorsWithWarnings';
 
@@ -14,12 +14,12 @@ describe('getPropertyCustomDescriptorsWithWarnings', () => {
     };
 
     // when
-    const descriptors:Warned<ComponentPropertyCustomDescriptors> =
-      await getPropertyCustomDescriptorsWithWarnings('name', property);
+    const descriptors:Warned<ParsedPropertyDescriptors> =
+      await getPropertyCustomDescriptorsWithWarnings(property);
 
     // then
     expect(descriptors).toEqual({
-      result: {},
+      result: { descriptors: [] },
       warnings: [],
     });
   });
@@ -35,16 +35,25 @@ describe('getPropertyCustomDescriptorsWithWarnings', () => {
     };
 
     // when
-    const descriptors:Warned<ComponentPropertyCustomDescriptors> =
-      await getPropertyCustomDescriptorsWithWarnings('name', property);
+    const descriptors:Warned<ParsedPropertyDescriptors> =
+      await getPropertyCustomDescriptorsWithWarnings(property);
 
     // then
-    expect(descriptors).toEqual({
+    const expected:Warned<ParsedPropertyDescriptors> = {
       result: {
-        customDescription: 'Some desc',
-        customName: 'test',
+        descriptors: [
+          {
+            serialized: { customDescription: 'Some desc' },
+            type: CustomDescriptorsTags.DESCRIPTION,
+          },
+          {
+            serialized: { customName: 'test' },
+            type: CustomDescriptorsTags.NAME,
+          },
+        ],
       },
       warnings: [],
-    } as Warned<ComponentPropertyCustomDescriptors>);
+    };
+    expect(descriptors).toEqual(expected);
   });
 });

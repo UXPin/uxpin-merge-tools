@@ -11,7 +11,6 @@ export type PlainPropertyDescriptorType =
   | CustomDescriptorsTags.TYPE;
 
 export interface ParsedPlainPropertyDescriptor {
-  propName:string;
   type:PlainPropertyDescriptorType;
   serialized:ComponentPropertyCustomDescriptors;
 }
@@ -19,6 +18,5 @@ export interface ParsedPlainPropertyDescriptor {
 export interface ParsedAutoUpdateDescriptor {
   type:CustomDescriptorsTags.BIND;
   sourcePropName:string;
-  targetPropName:string;
   sourceValuePath:string;
 }

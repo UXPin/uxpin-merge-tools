@@ -1,3 +1,5 @@
+import { ParsedPropertyDescriptor } from './ParsedPropertyDescriptor';
+
 export type ComponentPropertyDefinition = ComponentProperty & ComponentPropertyCustomDescriptors;
 
 export interface ComponentProperty {
@@ -15,6 +17,12 @@ export interface ComponentPropertyCustomDescriptors {
   customType?:CustomControlType;
   hidden?:boolean;
   isAutoUpdated?:true;
+}
+
+export type ParsedComponentProperty = ComponentProperty & ParsedPropertyDescriptors;
+
+export interface ParsedPropertyDescriptors {
+  descriptors:ParsedPropertyDescriptor[];
 }
 
 export enum CustomDescriptorsTags {
