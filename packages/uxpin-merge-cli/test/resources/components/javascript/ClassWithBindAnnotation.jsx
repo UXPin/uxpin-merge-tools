@@ -19,14 +19,22 @@ ClassWithBindAnnotation.propTypes = {
    * @uxpinbind onChange 0.target.checked
    */
   isChecked: PropTypes.bool,
+  /**
+   * @uxpinbind onDisabled 0.target.disabled
+   */
+  isDisabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
   name: PropTypes.string,
   onChange: PropTypes.func,
+  onDisabled: PropTypes.func,
 };
 
 ClassWithBindAnnotation.defaultProps = {
   isChecked: false,
+  isDisabled: false,
   name: '',
   onChange: () => {
+  },
+  onDisabled: () => {
   },
 };

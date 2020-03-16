@@ -210,6 +210,14 @@ describe('SerializeJSComponent - with annotations', () => {
               type: { name: 'boolean', structure: {} },
             },
             {
+              defaultValue: { value: false },
+              description: '',
+              isAutoUpdated: true,
+              isRequired: false,
+              name: 'isDisabled',
+              type: { name: 'boolean', structure: {} },
+            },
+            {
               description: '',
               isRequired: true,
               name: 'label',
@@ -227,9 +235,21 @@ describe('SerializeJSComponent - with annotations', () => {
                 targetPropName: 'isChecked',
                 valuePath: '0.target.checked',
               },
+              defaultValue: { value: {} },
               description: '',
               isRequired: false,
               name: 'onChange',
+              type: { name: 'func', structure: {} },
+            },
+            {
+              autoUpdate: {
+                targetPropName: 'isDisabled',
+                valuePath: '0.target.checked',
+              },
+              defaultValue: { value: {} },
+              description: '',
+              isRequired: false,
+              name: 'onDisabled',
               type: { name: 'func', structure: {} },
             },
           ],
@@ -249,7 +269,7 @@ describe('SerializeJSComponent - with annotations', () => {
 
       // when
       await expect(serializeJSComponent(component)).rejects.toEqual(
-`Incorrect property name pointed as a binding source.
+        `Incorrect property name pointed as a binding source.
   Expected syntax: @uxpinbind [source property name] [value path - optional].
   Examples:
     @uxpinbind onChange 0.target.checked
@@ -257,21 +277,26 @@ describe('SerializeJSComponent - with annotations', () => {
     });
   });
 
-  describe('class with a binding annotation to nonexistent property', async () => {
-    // given
-    const component:ComponentImplementationInfo = getImplementation('ClassWithBindAnnotationToNonexistentProp');
+  describe('class with a binding annotation to nonexistent property', () => {
+    it('rejects with an error message', async () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithBindAnnotationToNonexistentProp');
 
-    // when
-    await expect(serializeJSComponent(component)).rejects.toEqual(`Incorrect property name pointed as a binding source.
-    No such property: "onChanged"`);
+      // when
+      await expect(serializeJSComponent(component))
+        .rejects.toEqual(`Incorrect property name pointed as a binding source.
+      No such property: "onChanged"`);
+    });
   });
 
-  describe('class with overlapping bind annotations', async () => {
-    // given
-    const component:ComponentImplementationInfo = getImplementation('ClassWithOverlappingBindAnnotations');
+  describe('class with overlapping bind annotations', () => {
+    it('rejects with an error message', async () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithOverlappingBindAnnotations');
 
-    // when
-    // tslint:disable-next-line:max-line-length
-    await expect(serializeJSComponent(component)).rejects.toEqual(`More than one property is trying to bind the same source property "onChange"`);
+      // when
+      await expect(serializeJSComponent(component))
+        .rejects.toEqual(`More than one property is trying to bind the same source property "onChange"`);
+    });
   });
 });
