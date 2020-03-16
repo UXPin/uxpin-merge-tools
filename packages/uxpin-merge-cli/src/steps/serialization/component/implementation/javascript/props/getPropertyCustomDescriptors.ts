@@ -1,9 +1,9 @@
 import { getJSDocTagsArrayFromString } from '../../../comments/getJSDocTagsArrayFromString';
-import { ComponentPropertyCustomDescriptors } from '../../ComponentPropertyDefinition';
+import { ParsedPropertyDescriptor } from '../../ParsedPropertyDescriptor';
 import { parseTags } from './parseTags';
 
-export function getPropertyCustomDescriptors(desc:string):ComponentPropertyCustomDescriptors {
+export function getPropertyCustomDescriptors(propName:string, desc:string):ParsedPropertyDescriptor[] {
   const tags:string[] = getJSDocTagsArrayFromString(desc);
 
-  return parseTags(tags);
+  return parseTags(propName, tags);
 }

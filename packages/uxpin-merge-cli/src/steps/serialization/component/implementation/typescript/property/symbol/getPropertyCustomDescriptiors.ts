@@ -1,16 +1,17 @@
 import { isValidDescriptor } from '../../../../props/descriptors/isValidDescriptor';
-import {
-  ComponentPropertyCustomDescriptors,
-} from '../../../ComponentPropertyDefinition';
 import { parseTags } from '../../../javascript/props/parseTags';
+import { ParsedPropertyDescriptor } from '../../../ParsedPropertyDescriptor';
 import { ReactPropertySymbol } from './ReactPropertySymbol';
 
-export function getPropertyCustomDescriptors(propertySymbol:ReactPropertySymbol):ComponentPropertyCustomDescriptors {
+export function getPropertyCustomDescriptors(
+  propertySymbol:ReactPropertySymbol,
+  propertyName:string,
+):ParsedPropertyDescriptor[] {
 
   const uxpinJsDocTags:string[] = propertySymbol
     .getJsDocTags()
     .filter((jsDocTag) => isValidDescriptor(`@${jsDocTag.name}`))
     .map((jsDocTag) => `@${jsDocTag.name} ${jsDocTag.text}`);
 
-  return parseTags(uxpinJsDocTags);
+  return parseTags(propertyName, uxpinJsDocTags);
 }

@@ -26,6 +26,6 @@ export function convertPropertySignatureSymbolToPropertyDefinition(
     name,
     type: convertTypeToPropertyType(context, type),
     ...getDefaultValueFromJSDoc(propertySymbol),
-    ...getPropertyCustomDescriptors(propertySymbol),
+    ...getPropertyCustomDescriptors(propertySymbol, name),
   };
 }

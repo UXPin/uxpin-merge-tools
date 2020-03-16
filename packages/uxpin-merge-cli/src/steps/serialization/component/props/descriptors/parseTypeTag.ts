@@ -1,8 +1,9 @@
-import { ComponentPropertyCustomDescriptors, CustomControlTypeName } from '../../implementation/ComponentPropertyDefinition';
+import { CustomControlTypeName, CustomDescriptorsTags } from '../../implementation/ComponentPropertyDefinition';
+import { ParsedPlainPropertyDescriptor } from '../../implementation/ParsedPropertyDescriptor';
 
-type ParseResult = Pick<ComponentPropertyCustomDescriptors, 'customType'> | undefined;
+type ParseResult = ParsedPlainPropertyDescriptor | undefined;
 
-export function parseTypeTag(value:string):ParseResult {
+export function parseTypeTag(propName:string, value:string):ParseResult {
   if (!value) {
     return;
   }
@@ -19,11 +20,11 @@ export function parseTypeTag(value:string):ParseResult {
     case CustomControlTypeName.Number:
     case CustomControlTypeName.Select:
     case CustomControlTypeName.Switcher: {
-      return parseCustomType(typeMatch[0] as CustomControlTypeName);
+      return parseCustomType(propName, typeMatch[0] as CustomControlTypeName);
     }
 
     case CustomControlTypeName.Textfield: {
-      return parseTextfieldType(value);
+      return parseTextfieldType(propName, value);
     }
 
     default: {
@@ -36,7 +37,7 @@ const TEXTFIELD_REGEX:RegExp = /(^textfield$|^textfield(\(([\d]+)?\)))/;
 const TEXTFIELD_DEFAULT_ROWS:number = 3;
 const ROWS_MATCH_ID:number = 3;
 
-function parseTextfieldType(value:string):ParseResult {
+function parseTextfieldType(propName:string, value:string):ParseResult {
   const match:RegExpMatchArray | null = value.match(TEXTFIELD_REGEX);
   if (!match) {
     return;
@@ -47,20 +48,28 @@ function parseTextfieldType(value:string):ParseResult {
     : parseInt(match[ROWS_MATCH_ID], 10);
 
   return {
-    customType: {
-      name: CustomControlTypeName.Textfield,
-      structure: {
-        rows: Math.max(rows, 1),
+    propName,
+    serialized: {
+      customType: {
+        name: CustomControlTypeName.Textfield,
+        structure: {
+          rows: Math.max(rows, 1),
+        },
       },
     },
+    type: CustomDescriptorsTags.TYPE,
   };
 }
 
-function parseCustomType(name:CustomControlTypeName):ParseResult {
+function parseCustomType(propName:string, typeName:CustomControlTypeName):ParseResult {
   return {
-    customType: {
-      name,
-      structure: {},
+    propName,
+    serialized: {
+      customType: {
+        name: typeName,
+        structure: {},
+      },
     },
+    type: CustomDescriptorsTags.TYPE,
   };
 }

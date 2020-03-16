@@ -1,20 +1,20 @@
 export type ComponentPropertyDefinition = ComponentProperty & ComponentPropertyCustomDescriptors;
 
 export interface ComponentProperty {
-  autoUpdate?:PropertyAutoUpdate;
   defaultValue?:PropertyDefaultValue;
   description:string;
-  isAutoUpdated?:true;
   isRequired:boolean;
   name:string;
   type?:PropertyType;
 }
 
 export interface ComponentPropertyCustomDescriptors {
+  autoUpdate?:PropertyAutoUpdate;
   customDescription?:string;
   customName?:string;
   customType?:CustomControlType;
   hidden?:boolean;
+  isAutoUpdated?:true;
 }
 
 export enum CustomDescriptorsTags {

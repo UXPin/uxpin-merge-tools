@@ -1,13 +1,18 @@
 import { getLines } from '../../comments/getLines';
-import { ComponentPropertyCustomDescriptors } from '../../implementation/ComponentPropertyDefinition';
+import { CustomDescriptorsTags } from '../../implementation/ComponentPropertyDefinition';
+import { ParsedPlainPropertyDescriptor } from '../../implementation/ParsedPropertyDescriptor';
 
-export function parseNameTag(value:string):Pick<ComponentPropertyCustomDescriptors, 'customName'> | undefined {
+export function parseNameTag(propName:string, value:string):ParsedPlainPropertyDescriptor | undefined {
   const customName:string = getLines(value)[0];
   if (!customName) {
     return;
   }
 
   return {
-    customName,
+    propName,
+    serialized: {
+      customName,
+    },
+    type: CustomDescriptorsTags.NAME,
   };
 }

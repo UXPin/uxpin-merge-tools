@@ -1,13 +1,18 @@
-import { ComponentPropertyCustomDescriptors } from '../../implementation/ComponentPropertyDefinition';
+import { CustomDescriptorsTags } from '../../implementation/ComponentPropertyDefinition';
+import { ParsedPlainPropertyDescriptor } from '../../implementation/ParsedPropertyDescriptor';
 
 export function parseDescriptionTag(
-  value:string,
-):Pick<ComponentPropertyCustomDescriptors, 'customDescription'> | undefined {
+  propName:string,
+  value:string):ParsedPlainPropertyDescriptor | undefined {
   if (!value) {
     return;
   }
 
   return {
-    customDescription: value,
+    propName,
+    serialized: {
+      customDescription: value,
+    },
+    type: CustomDescriptorsTags.DESCRIPTION,
   };
 }

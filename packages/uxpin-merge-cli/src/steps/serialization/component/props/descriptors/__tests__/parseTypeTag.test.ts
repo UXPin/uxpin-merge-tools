@@ -1,9 +1,9 @@
 import { using } from '../../../../../../../test/utils/using';
-import {
-  ComponentPropertyCustomDescriptors,
-  CustomControlTypeName,
-} from '../../../implementation/ComponentPropertyDefinition';
+import { CustomControlTypeName, CustomDescriptorsTags } from '../../../implementation/ComponentPropertyDefinition';
+import { ParsedPlainPropertyDescriptor } from '../../../implementation/ParsedPropertyDescriptor';
 import { parseTypeTag } from '../parseTypeTag';
+
+const propName:string = 'somePropName';
 
 const cases:TestCase[] = [
   ...Object.values(CustomControlTypeName)
@@ -11,33 +11,45 @@ const cases:TestCase[] = [
     .map((customType) => {
       return {
         expectedValue: {
-          customType: {
-            name: customType,
-            structure: {},
+          propName,
+          serialized: {
+            customType: {
+              name: customType,
+              structure: {},
+            },
           },
+          type: CustomDescriptorsTags.TYPE as CustomDescriptorsTags.TYPE,
         },
         tag: customType,
       };
     }),
   {
     expectedValue: {
-      customType: {
-        name: CustomControlTypeName.Textfield,
-        structure: {
-          rows: 3,
+      propName,
+      serialized: {
+        customType: {
+          name: CustomControlTypeName.Textfield,
+          structure: {
+            rows: 3,
+          },
         },
       },
+      type: CustomDescriptorsTags.TYPE,
     },
     tag: 'textfield',
   },
   {
     expectedValue: {
-      customType: {
-        name: CustomControlTypeName.Textfield,
-        structure: {
-          rows: 10000,
+      propName,
+      serialized: {
+        customType: {
+          name: CustomControlTypeName.Textfield,
+          structure: {
+            rows: 10000,
+          },
         },
       },
+      type: CustomDescriptorsTags.TYPE,
     },
     tag: 'textfield(10000)',
   },
@@ -58,11 +70,11 @@ const cases:TestCase[] = [
 describe('parseTypeTag', () => {
   using(cases)
     .describe('should parse custom types', ({ tag, expectedValue }) => {
-      it(tag, () => expect(parseTypeTag(tag)).toEqual(expectedValue));
+      it(tag, () => expect(parseTypeTag(propName, tag)).toEqual(expectedValue));
     });
 });
 
 interface TestCase {
-  expectedValue:Pick<ComponentPropertyCustomDescriptors, 'customType'> | undefined;
+  expectedValue:ParsedPlainPropertyDescriptor | undefined;
   tag:CustomControlTypeName | string;
 }

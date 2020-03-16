@@ -8,7 +8,7 @@ export async function getPropertyCustomDescriptorsWithWarnings(
   propName:string,
   propItem:GeneralPropItem,
 ):Promise<Warned<ComponentPropertyCustomDescriptors>> {
-  const result:ComponentPropertyCustomDescriptors = getPropertyCustomDescriptors(propItem.description);
+  const result:ComponentPropertyCustomDescriptors = getPropertyCustomDescriptors(propName, propItem.description);
   const warnings:WarningDetails[] = [];
 
   return {

@@ -1,7 +1,12 @@
-import { ComponentPropertyCustomDescriptors } from '../../implementation/ComponentPropertyDefinition';
+import { CustomDescriptorsTags } from '../../implementation/ComponentPropertyDefinition';
+import { ParsedPlainPropertyDescriptor } from '../../implementation/ParsedPropertyDescriptor';
 
-export function parseHiddenTag():Pick<ComponentPropertyCustomDescriptors, 'hidden'> {
+export function parseHiddenTag(propName:string):ParsedPlainPropertyDescriptor {
   return {
-    hidden: true,
+    propName,
+    serialized: {
+      hidden: true,
+    },
+    type: CustomDescriptorsTags.HIDDEN,
   };
 }

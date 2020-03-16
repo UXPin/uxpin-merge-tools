@@ -20,7 +20,7 @@ ClassWithBindAnnotation.propTypes = {
    */
   isChecked: PropTypes.bool,
   /**
-   * @uxpinbind onDisabled 0.target.disabled
+   * @uxpinbind onDisabled
    */
   isDisabled: PropTypes.bool,
   label: PropTypes.string.isRequired,

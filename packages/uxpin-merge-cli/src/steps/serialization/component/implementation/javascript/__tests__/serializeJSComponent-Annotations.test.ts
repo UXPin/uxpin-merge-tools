@@ -244,7 +244,7 @@ describe('SerializeJSComponent - with annotations', () => {
             {
               autoUpdate: {
                 targetPropName: 'isDisabled',
-                valuePath: '0.target.checked',
+                valuePath: '0',
               },
               defaultValue: { value: {} },
               description: '',

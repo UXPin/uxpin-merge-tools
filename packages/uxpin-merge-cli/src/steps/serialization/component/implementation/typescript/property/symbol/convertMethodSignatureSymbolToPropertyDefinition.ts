@@ -21,6 +21,6 @@ export function convertMethodSignatureSymbolToPropertyDefinition(
     isRequired: isPropertyRequired(methodSymbol),
     name,
     type: { name: 'func', structure: {} },
-    ...getPropertyCustomDescriptors(methodSymbol),
+    ...getPropertyCustomDescriptors(methodSymbol, name),
   };
 }
