@@ -228,7 +228,6 @@ describe('SerializeJSComponent - with annotations', () => {
                 valuePath: '0.target.checked',
               },
               description: '',
-              isAutoUpdated: true,
               isRequired: false,
               name: 'onChange',
               type: { name: 'func', structure: {} },

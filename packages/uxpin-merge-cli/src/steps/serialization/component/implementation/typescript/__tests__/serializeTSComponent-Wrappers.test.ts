@@ -5,7 +5,7 @@ import { ComponentWrapperType } from '../../../wrappers/ComponentWrapper';
 import { serializeTSComponent } from '../serializeTSComponent';
 import { getImplementation } from './serializeTSComponent.test';
 
-describe.only('serializeTSComponent-Wrappers', () => {
+describe('serializeTSComponent-Wrappers', () => {
   describe('when class component with valid wrappers declaration is provided', () => {
     let component:ComponentImplementationInfo;
     let metadata:Warned<ComponentMetadata>;
