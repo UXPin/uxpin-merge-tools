@@ -1,5 +1,5 @@
-import { using } from '../../../../../../../test/utils/using';
-import { CustomDescriptorsTags } from '../../../implementation/ComponentPropertyDefinition';
+import { using } from '../../../../../../../../test/utils/using';
+import { CustomDescriptorsTags } from '../../../../implementation/ComponentPropertyDefinition';
 import { isValidDescriptor } from '../isValidDescriptor';
 
 interface TestCase {

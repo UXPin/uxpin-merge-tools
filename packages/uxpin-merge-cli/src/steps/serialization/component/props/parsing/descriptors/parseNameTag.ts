@@ -1,6 +1,6 @@
-import { getLines } from '../../comments/getLines';
-import { CustomDescriptorsTags } from '../../implementation/ComponentPropertyDefinition';
-import { ParsedPlainPropertyDescriptor } from '../../implementation/ParsedPropertyDescriptor';
+import { getLines } from '../../../comments/getLines';
+import { CustomDescriptorsTags } from '../../../implementation/ComponentPropertyDefinition';
+import { ParsedPlainPropertyDescriptor } from '../../../implementation/ParsedPropertyDescriptor';
 
 export function parseNameTag(value:string):ParsedPlainPropertyDescriptor | undefined {
   const customName:string = getLines(value)[0];

@@ -1,6 +1,6 @@
-import { using } from '../../../../../../../test/utils/using';
-import { CustomControlTypeName, CustomDescriptorsTags } from '../../../implementation/ComponentPropertyDefinition';
-import { ParsedPlainPropertyDescriptor } from '../../../implementation/ParsedPropertyDescriptor';
+import { using } from '../../../../../../../../test/utils/using';
+import { CustomControlTypeName, CustomDescriptorsTags } from '../../../../implementation/ComponentPropertyDefinition';
+import { ParsedPlainPropertyDescriptor } from '../../../../implementation/ParsedPropertyDescriptor';
 import { parseTypeTag } from '../parseTypeTag';
 
 const cases:TestCase[] = [

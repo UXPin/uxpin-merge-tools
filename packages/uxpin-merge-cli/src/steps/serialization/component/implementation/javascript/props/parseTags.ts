@@ -1,9 +1,10 @@
-import { isValidDescriptor } from '../../../props/descriptors/isValidDescriptor';
-import { parseBindTag } from '../../../props/descriptors/parseBindTag';
-import { parseDescriptionTag } from '../../../props/descriptors/parseDescriptionTag';
-import { parseHiddenTag } from '../../../props/descriptors/parseHiddenTag';
-import { parseNameTag } from '../../../props/descriptors/parseNameTag';
-import { parseTypeTag } from '../../../props/descriptors/parseTypeTag';
+import { isDefined } from '../../../../../../common/isDefined';
+import { isValidDescriptor } from '../../../props/parsing/descriptors/isValidDescriptor';
+import { parseBindTag } from '../../../props/parsing/descriptors/parseBindTag';
+import { parseDescriptionTag } from '../../../props/parsing/descriptors/parseDescriptionTag';
+import { parseHiddenTag } from '../../../props/parsing/descriptors/parseHiddenTag';
+import { parseNameTag } from '../../../props/parsing/descriptors/parseNameTag';
+import { parseTypeTag } from '../../../props/parsing/descriptors/parseTypeTag';
 import { CustomDescriptorsTags } from '../../ComponentPropertyDefinition';
 import { ParsedPropertyDescriptor } from '../../ParsedPropertyDescriptor';
 
@@ -46,8 +47,4 @@ function parseTag(tag:string):ParsedPropertyDescriptor | undefined {
     default:
       return;
   }
-}
-
-function isDefined<T>(a:T | undefined):a is T {
-  return Boolean(a);
 }

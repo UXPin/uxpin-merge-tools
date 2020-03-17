@@ -1,4 +1,4 @@
-import { CustomDescriptorsTags } from '../../../implementation/ComponentPropertyDefinition';
+import { CustomDescriptorsTags } from '../../../../implementation/ComponentPropertyDefinition';
 import { parseNameTag } from '../parseNameTag';
 
 describe('parseNameTag', () => {

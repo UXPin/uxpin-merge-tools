@@ -1,5 +1,5 @@
-import { CustomControlTypeName, CustomDescriptorsTags } from '../../implementation/ComponentPropertyDefinition';
-import { ParsedPlainPropertyDescriptor } from '../../implementation/ParsedPropertyDescriptor';
+import { CustomControlTypeName, CustomDescriptorsTags } from '../../../implementation/ComponentPropertyDefinition';
+import { ParsedPlainPropertyDescriptor } from '../../../implementation/ParsedPropertyDescriptor';
 
 type ParseResult = ParsedPlainPropertyDescriptor | undefined;
 

@@ -3,21 +3,21 @@ import { ComponentDoc } from 'react-docgen-typescript/lib';
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
-import { validateProps } from '../../../validation/validateProps';
 import { validateWrappers } from '../../../validation/validateWrappers';
 import { getCommentTag } from '../../comments/getCommentTag';
 import { getJSDocTagsArrayFromString } from '../../comments/getJSDocTagsArrayFromString';
 import { CommentTags } from '../../CommentTags';
 import { ComponentNamespace } from '../../ComponentDefinition';
+import { serializeAndValidateParsedProperties } from '../../props/serializeAndValidateParsedProperties';
 import { ComponentWrapper } from '../../wrappers/ComponentWrapper';
 import { parseWrapperAnnotation } from '../../wrappers/parseWrapperAnnotation';
-import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { ImplSerializationResult } from '../ImplSerializationResult';
+import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
-import { convertPropItemToPropertyDefinition } from './convertPropItemToPropertyDefinition';
 import { getComponentName } from './getComponentName';
 import { getComponentNamespaceFromDescription } from './getComponentNamespaceFromDescription';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
+import { parsePropertyItem } from './parsePropertyItem';
 
 export function serializeJSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   return getDefaultComponentFrom(component.path)
@@ -41,10 +41,10 @@ function thunkGetMetadata(implInfo:ComponentImplementationInfo):(parsed:Componen
 }
 
 async function getComponentProperties(props:ComponentDoc['props']):Promise<PropDefinitionSerializationResult[]> {
-  const propsDefinition:Array<Promise<Warned<ComponentPropertyDefinition>>> = toPairs(props)
-    .map(([propName, propType]) => convertPropItemToPropertyDefinition(propName, propType));
-
-  return validateProps(await Promise.all(propsDefinition));
+  const propertyParsingPromises:Array<Promise<PropDefinitionParsingResult>> = toPairs(props)
+    .map(([propName, propType]) => parsePropertyItem(propName, propType));
+  const parsedProps:PropDefinitionParsingResult[] = await Promise.all(propertyParsingPromises);
+  return serializeAndValidateParsedProperties(parsedProps);
 }
 
 function getComponentWrappers(

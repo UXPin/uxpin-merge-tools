@@ -1,4 +1,4 @@
-import { isValidDescriptor } from '../../../../props/descriptors/isValidDescriptor';
+import { isValidDescriptor } from '../../../../props/parsing/descriptors/isValidDescriptor';
 import { ParsedPropertyDescriptors } from '../../../ComponentPropertyDefinition';
 import { parseTags } from '../../../javascript/props/parseTags';
 import { ReactPropertySymbol } from './ReactPropertySymbol';

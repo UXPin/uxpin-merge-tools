@@ -11,6 +11,13 @@ export interface ComponentProperty {
 }
 
 export interface ComponentPropertyCustomDescriptors {
+  /**
+   * `descriptors` property is disallowed here to make strict distinction between internal `ParsedComponentProperty`
+   * and the exported `ComponentPropertyDefinition`. Property defined with `never` causes that's not possible to assign
+   * a variable in type of `ParsedComponentProperty` to a variable in type of `ComponentPropertyDefinition`
+   * and the other way around.
+   */
+  descriptors?:never;
   autoUpdate?:PropertyAutoUpdate;
   customDescription?:string;
   customName?:string;
@@ -56,7 +63,7 @@ export interface PropertyTypeStructureMap {
   custom:{};
   element:{};
   func:FunctionStructure;
-  literal:{ value:string|number };
+  literal:{ value:string | number };
   node:{};
   number:{};
   object:{};

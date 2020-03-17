@@ -1,19 +1,20 @@
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
-import { validateWrappers } from '../../../../serialization/validation/validateWrappers';
-import { validateProps } from '../../../validation/validateProps';
+import { validateWrappers } from '../../../validation/validateWrappers';
 import { ComponentNamespace } from '../../ComponentDefinition';
+import { serializeAndValidateParsedProperties } from '../../props/serializeAndValidateParsedProperties';
 import { ComponentWrapper } from '../../wrappers/ComponentWrapper';
-import { ComponentPropertyDefinition } from '../ComponentPropertyDefinition';
 import { ImplSerializationResult } from '../ImplSerializationResult';
+import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
+import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getComponentDeclaration } from './component/getComponentDeclaration';
 import { getComponentName } from './component/getComponentName';
 import { getComponentNamespace } from './component/getComponentNamespace';
 import { getComponentWrappers } from './component/getComponentWrappers';
 import { ComponentDeclaration } from './component/getPropsTypeAndDefaultProps';
 import { getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
-import { serializeComponentProperties } from './serializeComponentProperties';
+import { parseTSComponentProperties } from './parseTSComponentProperties';
 
 export async function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   const context:TSSerializationContext = getSerializationContext(component);
@@ -24,9 +25,8 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
   }
 
   const name:string = getComponentName(context, declaration);
-  const serializedProps:Array<Warned<ComponentPropertyDefinition>> =
-    serializeComponentProperties(context, declaration);
-  const validatedProps:Array<Warned<ComponentPropertyDefinition>> = validateProps(serializedProps);
+  const parsedProps:PropDefinitionParsingResult[] = parseTSComponentProperties(context, declaration);
+  const validatedProps:PropDefinitionSerializationResult[] = serializeAndValidateParsedProperties(parsedProps);
   const namespace:ComponentNamespace | undefined = getComponentNamespace(declaration, name);
   const wrappers:ComponentWrapper[] = getComponentWrappers(declaration);
   const validatedWrappers:Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);

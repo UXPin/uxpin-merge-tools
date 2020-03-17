@@ -1,5 +1,6 @@
 import { Warned } from '../../../common/warning/Warned';
 import { ComponentPropertyDefinition } from '../component/implementation/ComponentPropertyDefinition';
+import { PropDefinitionSerializationResult } from '../component/implementation/PropDefinitionSerializationResult';
 import { validateCustomNames } from './props/validateCustomNames';
 import { validateCustomTypes } from './props/validateCustomTypes';
 
@@ -9,13 +10,10 @@ const VALIDATORS:ComponentPropertyDefinitionValidator[] = [
 ];
 
 export type ComponentPropertyDefinitionValidator =
-  (props:Array<Warned<ComponentPropertyDefinition>>) => Array<Warned<ComponentPropertyDefinition>>;
+  (props:PropDefinitionSerializationResult[]) => PropDefinitionSerializationResult[];
 
 export function validateProps(
   props:Array<Warned<ComponentPropertyDefinition>>,
 ):Array<Warned<ComponentPropertyDefinition>> {
-  const result:Array<Warned<ComponentPropertyDefinition>> = VALIDATORS
-    .reduce((validated, validator) => validator(validated), props);
-
-  return result;
+  return VALIDATORS.reduce((validated, validator) => validator(validated), props);
 }

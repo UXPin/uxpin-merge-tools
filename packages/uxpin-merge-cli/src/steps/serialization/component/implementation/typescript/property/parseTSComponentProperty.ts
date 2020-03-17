@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { ComponentPropertyDefinition } from '../../ComponentPropertyDefinition';
+import { ParsedComponentProperty } from '../../ComponentPropertyDefinition';
 import { DefaultProps } from '../component/getPropsTypeAndDefaultProps';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import { convertMethodSignatureSymbolToPropertyDefinition } from './symbol/convertMethodSignatureSymbolToPropertyDefinition';
@@ -8,11 +8,11 @@ import { getValidSymbol } from './symbol/getValidSymbol';
 import { isMethodSignatureSymbol } from './symbol/isMethodSignatureSymbol';
 import { isPropertySignatureSymbol, PropertySymbol } from './symbol/isPropertySignatureSymbol';
 
-export function getPropertyDefinition(
+export function parseTSComponentProperty(
   context:TSSerializationContext,
   property:ts.Symbol,
   defaultProps:DefaultProps,
-):ComponentPropertyDefinition | undefined {
+):ParsedComponentProperty | undefined {
   try {
     const propertySymbol:ts.Symbol | undefined = getValidSymbol(property);
     if (!propertySymbol) {
@@ -35,8 +35,8 @@ function propertySignatureToPropertyDefinition(
   context:TSSerializationContext,
   propSymbol:PropertySymbol,
   defaultProps:DefaultProps,
-):ComponentPropertyDefinition {
-  const prop:ComponentPropertyDefinition = convertPropertySignatureSymbolToPropertyDefinition(context, propSymbol);
+):ParsedComponentProperty {
+  const prop:ParsedComponentProperty = convertPropertySignatureSymbolToPropertyDefinition(context, propSymbol);
   if (prop.name in defaultProps) {
     prop.defaultValue = { value: defaultProps[prop.name] };
   }
