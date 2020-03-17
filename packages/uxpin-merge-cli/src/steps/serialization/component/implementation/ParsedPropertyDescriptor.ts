@@ -14,3 +14,7 @@ export interface ParsedBindingDescriptor extends ParsedPlainPropertyDescriptor {
   sourcePropName:string;
   sourceValuePath:string;
 }
+
+export function isBindingDescriptor(d:ParsedPropertyDescriptor):d is ParsedBindingDescriptor {
+  return d.type === CustomDescriptorsTags.BIND;
+}
