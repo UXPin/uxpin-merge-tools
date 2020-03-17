@@ -66,16 +66,21 @@ function getValuesFromComments(
   const jsDocTags:string[] = getJSDocTagsArrayFromString(parsed.description);
   const namespaceTag:string = getCommentTag(CommentTags.UXPIN_NAMESPACE, jsDocTags) || '';
 
+  const namespace:ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
+
+  if (!namespace) {
+    return {};
+  }
+
   return {
-    namespace: getComponentNamespaceFromDescription(name, namespaceTag),
+    namespace,
   };
 }
 
 function thunkGetSummaryResult(path:string):(propResults:PartialResult) => ImplSerializationResult {
-  return ({ name, namespace, properties, wrappers }) => ({
+  return ({ properties, wrappers, ...directProps }) => ({
     result: {
-      name,
-      namespace,
+      ...directProps,
       properties: properties.map((p) => p.result),
       wrappers: wrappers.result,
     },

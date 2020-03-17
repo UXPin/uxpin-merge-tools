@@ -4,6 +4,9 @@ import { ParsedPropertyDescriptor } from '../../../implementation/ParsedProperty
 export function parseBindTag(value:string):ParsedPropertyDescriptor {
   const [sourcePropName, optionalPath] = value.split(' ');
   return {
+    serialized: {
+      isAutoUpdated: true,
+    },
     sourcePropName,
     sourceValuePath: optionalPath || '0',
     type: CustomDescriptorsTags.BIND,

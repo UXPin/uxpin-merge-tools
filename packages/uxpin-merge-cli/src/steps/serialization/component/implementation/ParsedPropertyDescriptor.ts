@@ -1,21 +1,15 @@
 import { ComponentPropertyCustomDescriptors, CustomDescriptorsTags } from './ComponentPropertyDefinition';
 
 export type ParsedPropertyDescriptor =
-  | ParsedAutoUpdateDescriptor
+  | ParsedBindingDescriptor
   | ParsedPlainPropertyDescriptor;
 
-export type PlainPropertyDescriptorType =
-  | CustomDescriptorsTags.DESCRIPTION
-  | CustomDescriptorsTags.HIDDEN
-  | CustomDescriptorsTags.NAME
-  | CustomDescriptorsTags.TYPE;
-
 export interface ParsedPlainPropertyDescriptor {
-  type:PlainPropertyDescriptorType;
+  type:CustomDescriptorsTags;
   serialized:ComponentPropertyCustomDescriptors;
 }
 
-export interface ParsedAutoUpdateDescriptor {
+export interface ParsedBindingDescriptor extends ParsedPlainPropertyDescriptor {
   type:CustomDescriptorsTags.BIND;
   sourcePropName:string;
   sourceValuePath:string;

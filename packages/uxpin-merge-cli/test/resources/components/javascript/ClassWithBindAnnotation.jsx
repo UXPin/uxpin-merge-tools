@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 
 export default class ClassWithBindAnnotation extends Component {
 
-
   render() {
     const { isChecked, onChange, label, name } = this.props;
     return (
@@ -33,8 +32,4 @@ ClassWithBindAnnotation.defaultProps = {
   isChecked: false,
   isDisabled: false,
   name: '',
-  onChange: () => {
-  },
-  onDisabled: () => {
-  },
 };
