@@ -72,7 +72,7 @@
     "deferred-proxy-chain": "^0.0.1",
     "dts-bundle-generator": "^1.6.1",
     "jest": "^23.6.0",
-    "jest-junit-reporter": "^1.1.0",
+    "jest-junit": "^10.0.0",
     "nyc": "^11.2.1",
     "react": "^16.0.0",
     "react-docgen-typescript": "^1.0.2",
