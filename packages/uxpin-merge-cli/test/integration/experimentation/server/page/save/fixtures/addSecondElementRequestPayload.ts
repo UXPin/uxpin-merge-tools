@@ -1,4 +1,6 @@
 import { PageIncrementalUpdate } from '../../../../../../../src/common/types/PageIncrementalUpdate';
+// tslint:disable-next-line:max-line-length typedef no-var-requires
+const introPageContent = require('../../../../../../../src/steps/experimentation/server/common/page/content/introPageContent.json');
 
 export const addSecondElementRequestPayload:PageIncrementalUpdate = {
   can_break_cohesion: false,
@@ -53,7 +55,12 @@ export const addSecondElementRequestPayload:PageIncrementalUpdate = {
       }, type: 'Circle', v: '2.0',
     },
     canvas: {
-      props: { storedElements: ['46a48bee', '83ty393l', 'b5b84017'] },
+      props: {
+        storedElements: [
+          ...introPageContent.canvas.props.storedElements,
+          '46a48bee', '83ty393l', 'b5b84017',
+        ],
+      },
       type: 'Canvas',
       v: '2.0',
     },

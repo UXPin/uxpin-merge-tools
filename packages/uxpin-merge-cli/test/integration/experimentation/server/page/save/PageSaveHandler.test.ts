@@ -17,6 +17,8 @@ import { updateElementRequestPayload } from './fixtures/updateElementRequestPayl
 
 const CURRENT_TIMEOUT:number = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
+// tslint:disable-next-line:max-line-length typedef no-var-requires
+const introPageContent = require('../../../../../../src/steps/experimentation/server/common/page/content/introPageContent.json');
 
 describe('Experimentation server – handling save page request', () => {
   const { request, getWorkingDir } = setupExperimentationServerTest();
@@ -49,11 +51,13 @@ describe('Experimentation server – handling save page request', () => {
     it('correctly saves first element', async () => {
       // given
       const expectedPageContent:PageContent = {
+        ...introPageContent,
         '46a48bee': createFirstElementsRequestPayload.changed_elements['46a48bee'],
         '83ty393l': createFirstElementsRequestPayload.changed_elements['83ty393l'],
         canvas: {
           props: {
             storedElements: [
+              ...introPageContent.canvas.props.storedElements,
               '46a48bee',
               '83ty393l',
             ],
@@ -74,6 +78,7 @@ describe('Experimentation server – handling save page request', () => {
       it('correctly updates existing elements', async () => {
         // given
         const expectedPageContent:PageContent = {
+          ...introPageContent,
           '46a48bee': {
             props: {
               ...createFirstElementsRequestPayload.changed_elements['46a48bee'].props,
@@ -87,6 +92,7 @@ describe('Experimentation server – handling save page request', () => {
           canvas: {
             props: {
               storedElements: [
+                ...introPageContent.canvas.props.storedElements,
                 '46a48bee',
                 '83ty393l',
               ],
@@ -107,6 +113,7 @@ describe('Experimentation server – handling save page request', () => {
         it('correctly saves the new element', async () => {
           // given
           const expectedPageContent:PageContent = {
+            ...introPageContent,
             '46a48bee': {
               props: {
                 ...createFirstElementsRequestPayload.changed_elements['46a48bee'].props,
@@ -121,6 +128,7 @@ describe('Experimentation server – handling save page request', () => {
             canvas: {
               props: {
                 storedElements: [
+                  ...introPageContent.canvas.props.storedElements,
                   '46a48bee',
                   '83ty393l',
                   'b5b84017',
@@ -142,11 +150,13 @@ describe('Experimentation server – handling save page request', () => {
           it('correctly removes elements', async () => {
             // given
             const expectedPageContent:PageContent = {
+              ...introPageContent,
               '83ty393l': createFirstElementsRequestPayload.changed_elements['83ty393l'],
               b5b84017: addSecondElementRequestPayload.changed_elements.b5b84017,
               canvas: {
                 props: {
                   storedElements: [
+                    ...introPageContent.canvas.props.storedElements,
                     '83ty393l',
                     'b5b84017',
                   ],
@@ -167,10 +177,12 @@ describe('Experimentation server – handling save page request', () => {
             it('correctly removes the element', async () => {
               // given
               const expectedPageContent:PageContent = {
+                ...introPageContent,
                 b5b84017: addSecondElementRequestPayload.changed_elements.b5b84017,
                 canvas: {
                   props: {
                     storedElements: [
+                      ...introPageContent.canvas.props.storedElements,
                       'b5b84017',
                     ],
                   }, type: 'Canvas', v: '2.0',

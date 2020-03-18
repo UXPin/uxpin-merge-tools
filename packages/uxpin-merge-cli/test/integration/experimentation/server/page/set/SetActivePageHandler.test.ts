@@ -4,7 +4,7 @@ import { join } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { CodeSyncMetadata } from '../../../../../../src/common/types/CodeSyncMetadata';
-import { PageData } from '../../../../../../src/common/types/PageData';
+import { PageContent, PageData } from '../../../../../../src/common/types/PageData';
 import { TEMP_DIR_NAME } from '../../../../../../src/steps/building/config/getConfig';
 import { PAGE_FILE_NAME } from '../../../../../../src/steps/experimentation/server/handler/page/save/PageSaveHandler';
 import {
@@ -14,6 +14,7 @@ import {
 import { getRandomPortNumber } from '../../../../../utils/e2e/server/getRandomPortNumber';
 import { setupExperimentationServerTest } from '../../../../../utils/experimentation/setupExperimentationServerTest';
 import { examplePageContent } from './fixtures/examplePageContent';
+import { getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom } from './fixtures/getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom';
 
 const TIMEOUT:number = 80000;
 jest.setTimeout(TIMEOUT);
@@ -62,8 +63,12 @@ describe('Experimentation server – handling set active page request', () => {
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
 
-    it('responds with a page object with an empty canvas', () => {
-      // given
+    it('responds with a page object with the example elements on the canvas', () => {
+      // when
+      const responseBody:any = JSON.parse(response.body);
+
+      // then
+      const expectedPage:PageContent = getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(responseBody.page);
       const revisionId:string = '3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762';
       const expectedBody:PageData = {
         code_sync: getExpectedCodeSyncMetadata(revisionId),
@@ -73,17 +78,10 @@ describe('Experimentation server – handling set active page request', () => {
         components_versions_map: [],
         is_component: '0',
         last_update: '0',
-        page: {
-          canvas: {
-            props: { storedElements: [] },
-            type: 'Canvas',
-            v: '2.0',
-          },
-        },
+        page: expectedPage,
       };
 
-      // then
-      expect(JSON.parse(response.body)).toEqual(expectedBody);
+      expect(responseBody).toEqual(expectedBody);
     });
   });
 
