@@ -19,5 +19,7 @@
     "<rootDir>/test/resources/"
   ],
   "testEnvironment": "node",
-  "testResultsProcessor": "jest-junit-reporter"
+  "reporters": [
+    "jest-junit"
+  ]
 }
