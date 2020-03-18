@@ -2,8 +2,6 @@ import { CustomDescriptorsTags, ParsedPropertyDescriptors } from '../../../Compo
 import { getPropertyCustomDescriptors } from '../getPropertyCustomDescriptors';
 
 describe('getPropertyCustomDescriptors', () => {
-  const propName:string = 'somePropName';
-
   it('should not add any custom property descriptors if not provided in description', () => {
     // given
     const desc:string = '';

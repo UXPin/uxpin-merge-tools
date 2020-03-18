@@ -6,4 +6,3 @@ export function serializeComponentProps(props:PropDefinitionParsingResult[]):Pro
   const collection:ParsedPropertiesCollection = new ParsedPropertiesCollection(props);
   return collection.serialize();
 }
-
