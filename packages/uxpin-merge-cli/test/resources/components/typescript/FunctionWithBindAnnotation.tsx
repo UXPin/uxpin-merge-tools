@@ -4,9 +4,7 @@ const noop:() => void = () => {
   return undefined;
 };
 
-export function FunctionWithBindAnnotation(props:Props) {
-
-  const { isChecked = false, onChange = noop, label, name = '' } = props;
+export function FunctionWithBindAnnotation({ isChecked = false, onChange = noop, label, name = '' }:Props) {
   return (
     <label>
       {label}
@@ -19,8 +17,8 @@ interface Props {
   /**
    * @uxpinbind onChange 0.target.checked
    */
-  isChecked:boolean;
+  isChecked?:boolean;
   label:string;
   name?:string;
-  onChange:(event:React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?:(event:React.ChangeEvent<HTMLInputElement>) => void;
 }
