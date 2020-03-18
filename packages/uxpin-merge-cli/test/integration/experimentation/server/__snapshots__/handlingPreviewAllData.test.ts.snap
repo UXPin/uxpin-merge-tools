@@ -194,15 +194,6 @@ Object {
         "components_versions_map": Array [],
         "is_component": "0",
         "last_update": "0",
-        "page": Object {
-          "canvas": Object {
-            "props": Object {
-              "storedElements": Array [],
-            },
-            "type": "Canvas",
-            "v": "2.0",
-          },
-        },
       },
       "metaData": Object {
         "content": "/api/projects/3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762/pages/1/content",
