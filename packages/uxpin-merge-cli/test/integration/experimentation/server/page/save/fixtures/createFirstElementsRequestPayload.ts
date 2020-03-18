@@ -1,4 +1,6 @@
 import { PageIncrementalUpdate } from '../../../../../../../src/common/types/PageIncrementalUpdate';
+// tslint:disable-next-line:typedef no-var-requires max-line-length
+const introPageContent = require('../../../../../../../src/steps/experimentation/server/common/page/content/introPageContent.json');
 
 export const createFirstElementsRequestPayload:PageIncrementalUpdate = {
   can_break_cohesion: false,
@@ -112,6 +114,7 @@ export const createFirstElementsRequestPayload:PageIncrementalUpdate = {
     canvas: {
       props: {
         storedElements: [
+          ...introPageContent.canvas.props.storedElements,
           '46a48bee',
           '83ty393l',
         ],
