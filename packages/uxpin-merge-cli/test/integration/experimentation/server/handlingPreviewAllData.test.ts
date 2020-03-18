@@ -1,7 +1,10 @@
 import { OK } from 'http-status-codes';
+import { omit } from 'lodash';
 import { Response } from 'request';
+import { PageContent } from '../../../../src/common/types/PageData';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
+import { getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom } from './page/set/fixtures/getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom';
 
 const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
@@ -41,6 +44,17 @@ describe('Experimentation mode - handling preview all data', () => {
   });
 
   it('should respond with proper body', () => {
-    expect(JSON.parse(response.body)).toMatchSnapshot();
+    const responseBody:any = JSON.parse(response.body);
+    expect(omit(responseBody, 'pagesData.1.canvasData.page')).toMatchSnapshot();
+  });
+
+  it('should contain correct page object in the body', () => {
+    // when
+    const responseBody:any = JSON.parse(response.body);
+    const responsePage:PageContent = responseBody.pagesData['1'].canvasData.page;
+
+    // then
+    const expectedPage:PageContent = getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(responsePage);
+    expect(responsePage).toEqual(expectedPage);
   });
 });

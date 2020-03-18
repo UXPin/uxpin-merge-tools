@@ -4,7 +4,7 @@ import { join } from 'path';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { CodeSyncMetadata } from '../../../../../../src/common/types/CodeSyncMetadata';
-import { PageData } from '../../../../../../src/common/types/PageData';
+import { PageContent, PageData } from '../../../../../../src/common/types/PageData';
 import { TEMP_DIR_NAME } from '../../../../../../src/steps/building/config/getConfig';
 import { PAGE_FILE_NAME } from '../../../../../../src/steps/experimentation/server/handler/page/save/PageSaveHandler';
 import {
@@ -14,8 +14,7 @@ import {
 import { getRandomPortNumber } from '../../../../../utils/e2e/server/getRandomPortNumber';
 import { setupExperimentationServerTest } from '../../../../../utils/experimentation/setupExperimentationServerTest';
 import { examplePageContent } from './fixtures/examplePageContent';
-// tslint:disable-next-line:max-line-length typedef no-var-requires
-const introPageContent = require('../../../../../../src/steps/experimentation/server/common/page/content/introPageContent.json');
+import { getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom } from './fixtures/getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom';
 
 const TIMEOUT:number = 80000;
 jest.setTimeout(TIMEOUT);
@@ -69,31 +68,9 @@ describe('Experimentation server – handling set active page request', () => {
       const responseBody:any = JSON.parse(response.body);
 
       // then
-      const firstDroppedExample:any = {
-        props: {
-          codeComponentId: 'f2dff102-3d25-5174-b733-12c4e58fdd5d',
-          codeComponentPresetId: '02943eee-ab9a-57c6-adf8-d5c4978cd0b1',
-          framework: 'react',
-          revisionId: '3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762',
-          x: 200,
-          y: 50,
-        },
-        type: 'CodeComponent',
-      };
-      const secondDroppedExample:any = {
-        props: {
-          codeComponentId: 'ba14886c-2674-52a3-a147-7b88e725e4ee',
-          codeComponentPresetId: '364b2288-4144-5962-8ad2-7c5ebc0ab2ae',
-          framework: 'react',
-          revisionId: '3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762',
-          x: 700,
-          y: 50,
-        },
-        type: 'CodeComponent',
-      };
-
+      const expectedPage:PageContent = getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(responseBody.page);
       const revisionId:string = '3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762';
-      const staticExpectedBody:PageData = {
+      const expectedBody:PageData = {
         code_sync: getExpectedCodeSyncMetadata(revisionId),
         component_version: null,
         components_master_ids: [],
@@ -101,47 +78,7 @@ describe('Experimentation server – handling set active page request', () => {
         components_versions_map: [],
         is_component: '0',
         last_update: '0',
-        page: {
-          ...introPageContent,
-          canvas: {
-            props: {
-              storedElements: introPageContent.canvas.props.storedElements,
-            },
-            type: 'Canvas',
-            v: '2.0',
-          },
-        },
-      };
-
-      const knownIds:string[] = Object.keys(staticExpectedBody.page);
-      const unknownIds:string[] = Object.keys(responseBody.page).filter((key) => !knownIds.includes(key));
-
-      let firstNewId:string;
-      let secondNewId:string;
-      if (responseBody.page[unknownIds[0]].props.codeComponentId === 'f2dff102-3d25-5174-b733-12c4e58fdd5d') {
-        [firstNewId, secondNewId] = unknownIds;
-      } else {
-        [firstNewId, secondNewId] = unknownIds.reverse();
-      }
-
-      const expectedBody:any = {
-        ...staticExpectedBody,
-        page: {
-          ...staticExpectedBody.page,
-          [firstNewId]: firstDroppedExample,
-          [secondNewId]: secondDroppedExample,
-          canvas: {
-            props: {
-              storedElements: [
-                ...staticExpectedBody.page.canvas.props.storedElements,
-                firstNewId,
-                secondNewId,
-              ],
-            },
-            type: 'Canvas',
-            v: '2.1',
-          },
-        },
+        page: expectedPage,
       };
 
       expect(responseBody).toEqual(expectedBody);
