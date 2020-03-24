@@ -68,6 +68,10 @@ publish:
 	make build
 	npm publish
 
+publish-dev:
+	make build
+	npm publish --tag dev
+
 serve-mineral:
 	cd ./test/resources/repos/mineral-ui && \
 	$(UXPIN_CODE) server --webpack-config="./webpack.config.js" --wrapper "./src/library/themes/UXPinWrapper.js"
