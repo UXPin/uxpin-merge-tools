@@ -35,7 +35,7 @@ test-integration:
 
 test-ci:
 	make test-rename-snapshots
-	UXPIN_ENV=test TEST_REPORT_PATH=./reports jest --config="jest-ci.json" --maxWorkers=2 --detectOpenHandles --forceExit
+	UXPIN_ENV=test JEST_JUNIT_OUTPUT_DIR=./reports/jest jest --config="jest-ci.json" --maxWorkers=2 --detectOpenHandles --forceExit
 	make test-remap-coverage
 
 clean:
@@ -67,6 +67,10 @@ test-rename-snapshots:
 publish:
 	make build
 	npm publish
+
+publish-dev:
+	make build
+	npm publish --tag dev
 
 serve-mineral:
 	cd ./test/resources/repos/mineral-ui && \
