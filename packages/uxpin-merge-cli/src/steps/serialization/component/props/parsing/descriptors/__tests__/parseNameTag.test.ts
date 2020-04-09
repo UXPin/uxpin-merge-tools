@@ -1,3 +1,4 @@
+import { CustomDescriptorsTags } from '../../../../implementation/ComponentPropertyDefinition';
 import { parseNameTag } from '../parseNameTag';
 
 describe('parseNameTag', () => {
@@ -7,19 +8,25 @@ describe('parseNameTag', () => {
 
     // when
     // then
-    expect(parseNameTag(value)).toEqual({ customName: 'foo' });
+    expect(parseNameTag(value)).toEqual({
+      serialized: { customName: 'foo' },
+      type: CustomDescriptorsTags.NAME,
+    });
   });
 
   it('should trim whitespaces', () => {
     // having
     // tslint:disable:no-trailing-whitespace
-    const value:string = `     
+    const value:string = `
     foo`;
     // tslint:enable:no-trailing-whitespace
 
     // when
     // then
-    expect(parseNameTag(value)).toEqual({ customName: 'foo' });
+    expect(parseNameTag(value)).toEqual({
+      serialized: { customName: 'foo' },
+      type: CustomDescriptorsTags.NAME,
+    });
   });
 
   it('should return empty object if name is not provided', () => {

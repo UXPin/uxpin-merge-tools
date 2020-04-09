@@ -1,24 +1,18 @@
 import * as ts from 'typescript';
+import { isDefined } from '../../../../../../common/isDefined';
 import { getWarnedResult } from '../../../../../../common/warning/getWarnedResult';
-import { ComponentPropertyDefinition } from '../../ComponentPropertyDefinition';
-import { PropDefinitionSerializationResult } from '../../PropDefinitionSerializationResult';
+import { PropDefinitionParsingResult } from '../../PropDefinitionParsingResult';
 import { TSSerializationContext } from '../context/getSerializationContext';
-import { getPropertyDefinition } from '../property/getPropertyDefinition';
+import { parseTSComponentProperty } from '../property/parseTSComponentProperty';
 import { DefaultProps } from './getPropsTypeAndDefaultProps';
 
 export function getComponentPropertiesDefinition(
   context:TSSerializationContext,
   props:ts.Symbol[],
   defaultProps:DefaultProps,
-):PropDefinitionSerializationResult[] {
+):PropDefinitionParsingResult[] {
   return props
-    .map((propSymbol:ts.Symbol) => getPropertyDefinition(context, propSymbol, defaultProps))
-    .filter(isValidDefinition)
-    .map((prop:ComponentPropertyDefinition) => getWarnedResult(prop));
-}
-
-function isValidDefinition(
-  definition:ComponentPropertyDefinition | undefined,
-):definition is ComponentPropertyDefinition {
-  return definition !== undefined;
+    .map((propSymbol:ts.Symbol) => parseTSComponentProperty(context, propSymbol, defaultProps))
+    .filter(isDefined)
+    .map((prop) => getWarnedResult(prop));
 }

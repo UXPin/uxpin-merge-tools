@@ -1,3 +1,5 @@
+import { ParsedPropertyDescriptor } from './ParsedPropertyDescriptor';
+
 export type ComponentPropertyDefinition = ComponentProperty & ComponentPropertyCustomDescriptors;
 
 export interface ComponentProperty {
@@ -9,13 +11,29 @@ export interface ComponentProperty {
 }
 
 export interface ComponentPropertyCustomDescriptors {
+  /**
+   * `descriptors` property is disallowed here to make strict distinction between internal `ParsedComponentProperty`
+   * and the exported `ComponentPropertyDefinition`. Property defined with `never` causes that's not possible to assign
+   * a variable in type of `ParsedComponentProperty` to a variable in type of `ComponentPropertyDefinition`
+   * and the other way around.
+   */
+  descriptors?:never;
+  autoUpdate?:PropertyAutoUpdate;
   customDescription?:string;
   customName?:string;
   customType?:CustomControlType;
   hidden?:boolean;
+  isAutoUpdated?:true;
+}
+
+export type ParsedComponentProperty = ComponentProperty & ParsedPropertyDescriptors;
+
+export interface ParsedPropertyDescriptors {
+  descriptors:ParsedPropertyDescriptor[];
 }
 
 export enum CustomDescriptorsTags {
+  BIND = '@uxpinbind',
   DESCRIPTION = '@uxpindescription',
   HIDDEN = '@uxpinignoreprop',
   NAME = '@uxpinpropname',
@@ -24,6 +42,11 @@ export enum CustomDescriptorsTags {
 
 export interface PropertyDefaultValue {
   value:any;
+}
+
+export interface PropertyAutoUpdate {
+  targetPropName:string;
+  valuePath:string;
 }
 
 export interface PropertyType<T extends keyof PropertyTypeStructureMap = keyof PropertyTypeStructureMap> {
@@ -40,7 +63,7 @@ export interface PropertyTypeStructureMap {
   custom:{};
   element:{};
   func:FunctionStructure;
-  literal:{ value:string|number };
+  literal:{ value:string | number };
   node:{};
   number:{};
   object:{};

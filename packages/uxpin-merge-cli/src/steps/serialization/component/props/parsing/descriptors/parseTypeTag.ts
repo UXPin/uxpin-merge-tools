@@ -1,6 +1,7 @@
-import { ComponentPropertyCustomDescriptors, CustomControlTypeName } from '../../implementation/ComponentPropertyDefinition';
+import { CustomControlTypeName, CustomDescriptorsTags } from '../../../implementation/ComponentPropertyDefinition';
+import { ParsedPlainPropertyDescriptor } from '../../../implementation/ParsedPropertyDescriptor';
 
-type ParseResult = Pick<ComponentPropertyCustomDescriptors, 'customType'> | undefined;
+type ParseResult = ParsedPlainPropertyDescriptor | undefined;
 
 export function parseTypeTag(value:string):ParseResult {
   if (!value) {
@@ -47,20 +48,26 @@ function parseTextfieldType(value:string):ParseResult {
     : parseInt(match[ROWS_MATCH_ID], 10);
 
   return {
-    customType: {
-      name: CustomControlTypeName.Textfield,
-      structure: {
-        rows: Math.max(rows, 1),
+    serialized: {
+      customType: {
+        name: CustomControlTypeName.Textfield,
+        structure: {
+          rows: Math.max(rows, 1),
+        },
       },
     },
+    type: CustomDescriptorsTags.TYPE,
   };
 }
 
-function parseCustomType(name:CustomControlTypeName):ParseResult {
+function parseCustomType(typeName:CustomControlTypeName):ParseResult {
   return {
-    customType: {
-      name,
-      structure: {},
+    serialized: {
+      customType: {
+        name: typeName,
+        structure: {},
+      },
     },
+    type: CustomDescriptorsTags.TYPE,
   };
 }

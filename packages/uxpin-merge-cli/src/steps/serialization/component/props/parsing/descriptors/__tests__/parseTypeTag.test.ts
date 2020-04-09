@@ -1,8 +1,6 @@
-import { using } from '../../../../../../../test/utils/using';
-import {
-  ComponentPropertyCustomDescriptors,
-  CustomControlTypeName,
-} from '../../../implementation/ComponentPropertyDefinition';
+import { using } from '../../../../../../../../test/utils/using';
+import { CustomControlTypeName, CustomDescriptorsTags } from '../../../../implementation/ComponentPropertyDefinition';
+import { ParsedPlainPropertyDescriptor } from '../../../../implementation/ParsedPropertyDescriptor';
 import { parseTypeTag } from '../parseTypeTag';
 
 const cases:TestCase[] = [
@@ -11,33 +9,42 @@ const cases:TestCase[] = [
     .map((customType) => {
       return {
         expectedValue: {
-          customType: {
-            name: customType,
-            structure: {},
+          serialized: {
+            customType: {
+              name: customType,
+              structure: {},
+            },
           },
+          type: CustomDescriptorsTags.TYPE as CustomDescriptorsTags.TYPE,
         },
         tag: customType,
       };
     }),
   {
     expectedValue: {
-      customType: {
-        name: CustomControlTypeName.Textfield,
-        structure: {
-          rows: 3,
+      serialized: {
+        customType: {
+          name: CustomControlTypeName.Textfield,
+          structure: {
+            rows: 3,
+          },
         },
       },
+      type: CustomDescriptorsTags.TYPE,
     },
     tag: 'textfield',
   },
   {
     expectedValue: {
-      customType: {
-        name: CustomControlTypeName.Textfield,
-        structure: {
-          rows: 10000,
+      serialized: {
+        customType: {
+          name: CustomControlTypeName.Textfield,
+          structure: {
+            rows: 10000,
+          },
         },
       },
+      type: CustomDescriptorsTags.TYPE,
     },
     tag: 'textfield(10000)',
   },
@@ -63,6 +70,6 @@ describe('parseTypeTag', () => {
 });
 
 interface TestCase {
-  expectedValue:Pick<ComponentPropertyCustomDescriptors, 'customType'> | undefined;
+  expectedValue:ParsedPlainPropertyDescriptor | undefined;
   tag:CustomControlTypeName | string;
 }

@@ -1,24 +1,26 @@
-import { assign } from 'lodash';
-import { isValidDescriptor } from '../../../props/descriptors/isValidDescriptor';
-import { parseDescriptionTag } from '../../../props/descriptors/parseDescriptionTag';
-import { parseHiddenTag } from '../../../props/descriptors/parseHiddenTag';
-import { parseNameTag } from '../../../props/descriptors/parseNameTag';
-import { parseTypeTag } from '../../../props/descriptors/parseTypeTag';
-import { ComponentPropertyCustomDescriptors, CustomDescriptorsTags } from '../../ComponentPropertyDefinition';
+import { isDefined } from '../../../../../../common/isDefined';
+import { isValidDescriptor } from '../../../props/parsing/descriptors/isValidDescriptor';
+import { parseBindTag } from '../../../props/parsing/descriptors/parseBindTag';
+import { parseDescriptionTag } from '../../../props/parsing/descriptors/parseDescriptionTag';
+import { parseHiddenTag } from '../../../props/parsing/descriptors/parseHiddenTag';
+import { parseNameTag } from '../../../props/parsing/descriptors/parseNameTag';
+import { parseTypeTag } from '../../../props/parsing/descriptors/parseTypeTag';
+import { CustomDescriptorsTags } from '../../ComponentPropertyDefinition';
+import { ParsedPropertyDescriptor } from '../../ParsedPropertyDescriptor';
 
-export function parseTags(tags:string[]):ComponentPropertyCustomDescriptors {
-  return assign({}, ...tags.map(parseTag).filter(Boolean));
+export function parseTags(tags:string[]):ParsedPropertyDescriptor[] {
+  return tags.map(parseTag).filter(isDefined);
 }
 
-function parseTag(tag:string):Partial<ComponentPropertyCustomDescriptors> | undefined {
+function parseTag(tag:string):ParsedPropertyDescriptor | undefined {
   const matches:RegExpMatchArray | null = tag.match(/(^@[a-z]+)(\ ?)+([^]+)?/m);
   if (!matches) {
-    return {};
+    return;
   }
 
-  const [, descriptor,, value] = matches;
+  const [, descriptor, , value] = matches;
   if (!isValidDescriptor(descriptor)) {
-    return {};
+    return;
   }
 
   switch (descriptor) {
@@ -38,7 +40,11 @@ function parseTag(tag:string):Partial<ComponentPropertyCustomDescriptors> | unde
       return parseTypeTag(value);
     }
 
+    case CustomDescriptorsTags.BIND: {
+      return parseBindTag(value);
+    }
+
     default:
-      return {};
+      return;
   }
 }

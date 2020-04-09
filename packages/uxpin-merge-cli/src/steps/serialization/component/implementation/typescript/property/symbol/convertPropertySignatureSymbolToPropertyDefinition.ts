@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { ComponentPropertyDefinition } from '../../../ComponentPropertyDefinition';
+import { ParsedComponentProperty } from '../../../ComponentPropertyDefinition';
 import { TSSerializationContext } from '../../context/getSerializationContext';
 import { convertTypeToPropertyType } from '../type/node/convertTypeToPropertyType';
 import { getDefaultValueFromJSDoc } from './getDefaultValueFromJSDoc';
@@ -12,7 +12,7 @@ import { PropertySymbol } from './isPropertySignatureSymbol';
 export function convertPropertySignatureSymbolToPropertyDefinition(
   context:TSSerializationContext,
   propertySymbol:PropertySymbol,
-):ComponentPropertyDefinition {
+):ParsedComponentProperty {
   const type:ts.Type = context.checker.getTypeFromTypeNode(propertySymbol.valueDeclaration.type!);
   const name:string | undefined = getPropertyName(propertySymbol);
 
