@@ -23,7 +23,7 @@
     "automock": false,
     "moduleFileExtensions": [
       "js",
-      "ts",R
+      "ts",
       "json"
     ],
     "modulePathIgnorePatterns": [
