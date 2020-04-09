@@ -1,3 +1,3 @@
-export function isDefined<T>(a:T | undefined):a is T {
+export function isDefined<T>(a:T | undefined | null):a is T {
   return typeof a !== 'undefined' && a !== null;
 }

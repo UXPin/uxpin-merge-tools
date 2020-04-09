@@ -33,11 +33,11 @@ export interface ParsedPropertyDescriptors {
 }
 
 export enum CustomDescriptorsTags {
+  BIND = '@uxpinbind',
   DESCRIPTION = '@uxpindescription',
   HIDDEN = '@uxpinignoreprop',
   NAME = '@uxpinpropname',
   TYPE = '@uxpincontroltype',
-  BIND = '@uxpinbind',
 }
 
 export interface PropertyDefaultValue {
