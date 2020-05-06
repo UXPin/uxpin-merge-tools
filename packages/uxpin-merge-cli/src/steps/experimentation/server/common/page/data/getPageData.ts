@@ -19,13 +19,13 @@ export async function getPageData(input:PageDataInput):Promise<PageData> {
     last_update: '0',
     page: pageContent,
     variation_data: {
-      version: 0,
-      text: 'Wide 1440',
-      selectedSize: '1440x',
+      height: '',
       scrollx: false,
       scrolly: false,
+      selectedSize: '1440x',
+      text: 'Wide 1440',
+      version: 0,
       width: 1440,
-      height: '',
     },
   };
 }
