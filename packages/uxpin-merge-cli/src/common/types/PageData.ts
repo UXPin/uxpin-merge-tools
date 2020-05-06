@@ -12,6 +12,7 @@ export interface PageData {
   is_component?:string;
   last_update:string | number;
   page:PageContent;
+  variation_data?:PageVariationData;
 }
 
 export interface PageContent {
@@ -25,4 +26,14 @@ export interface PageContent {
   };
 
   [elementId:string]:any;
+}
+
+interface PageVariationData {
+  height:string|number;
+  scrollx:boolean;
+  scrolly:boolean;
+  selectedSize:string;
+  text:string;
+  version:number;
+  width:string|number;
 }
