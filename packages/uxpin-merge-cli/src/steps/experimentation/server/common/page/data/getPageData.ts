@@ -18,6 +18,15 @@ export async function getPageData(input:PageDataInput):Promise<PageData> {
     is_component: '0',
     last_update: '0',
     page: pageContent,
+    variation_data: {
+      height: '',
+      scrollx: false,
+      scrolly: false,
+      selectedSize: '1440x',
+      text: 'Wide 1440',
+      version: 0,
+      width: 1440,
+    },
   };
 }
 

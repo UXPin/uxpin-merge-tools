@@ -79,6 +79,15 @@ describe('Experimentation server – handling set active page request', () => {
         is_component: '0',
         last_update: '0',
         page: expectedPage,
+        variation_data: {
+          height: '',
+          scrollx: false,
+          scrolly: false,
+          selectedSize: '1440x',
+          text: 'Wide 1440',
+          version: 0,
+          width: 1440,
+        },
       };
 
       expect(responseBody).toEqual(expectedBody);
@@ -115,6 +124,15 @@ describe('Experimentation server – handling set active page request', () => {
         is_component: '0',
         last_update: '0',
         page: examplePageContent,
+        variation_data: {
+          height: '',
+          scrollx: false,
+          scrolly: false,
+          selectedSize: '1440x',
+          text: 'Wide 1440',
+          version: 0,
+          width: 1440,
+        },
       };
 
       // then
