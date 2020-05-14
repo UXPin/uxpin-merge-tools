@@ -38,9 +38,7 @@ describe('Experimentation server – handling save page request', () => {
         'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
         'access-control-allow-origin': 'https://app.uxpin.com',
       };
-      const expectedResponse:Pick<PageIncrementalUpdate, 'id_save'> = {
-        id_save: createFirstElementsRequestPayload.id_save,
-      };
+      const expectedResponse:PageIncrementalUpdate = createFirstElementsRequestPayload;
 
       // then
       expect(response.statusCode).toEqual(OK);
