@@ -45,10 +45,6 @@ describe('handlingGetLibraries', () => {
     it('should server libraries content', async () => {
       const expectedLibrary:any = {
         _links: {
-          authToken: {
-            href: '/code/authToken',
-            templated: false,
-          },
           categories: {
             href: '/code/categories',
             templated: false,
