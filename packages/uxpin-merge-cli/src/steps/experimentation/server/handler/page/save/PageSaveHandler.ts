@@ -27,7 +27,7 @@ export class PageSaveHandler implements RequestHandler {
       'Content-Type': 'application/json',
       ...getAccessControlHeaders(request.headers),
     });
-    response.write(JSON.stringify({ id_save: requestPayload.id_save }));
+    response.write(JSON.stringify(requestPayload));
     response.end();
   }
 

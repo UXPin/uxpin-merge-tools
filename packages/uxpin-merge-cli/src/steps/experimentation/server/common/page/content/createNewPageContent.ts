@@ -16,7 +16,7 @@ const ELEMENT_PLACEMENT_OFFSET:number = 200;
 const ELEMENT_PLACEMENT_DISTANCE:number = 500;
 const ELEMENT_Y:number = 50;
 
-export function getNewPageContent({ revisionId }:PageContentContext, metadata:DesignSystemSnapshot):PageContent {
+export function createNewPageContent({ revisionId }:PageContentContext, metadata:DesignSystemSnapshot):PageContent {
   const introPageContent:any = require('./introPageContent.json');
   const introComponents:ComponentDefinition[] = findIntroComponents(metadata);
   const designSystemId:string = getDesignSystemId(revisionId);
