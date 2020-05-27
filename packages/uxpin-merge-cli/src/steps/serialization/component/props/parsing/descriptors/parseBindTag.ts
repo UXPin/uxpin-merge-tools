@@ -2,7 +2,8 @@ import { CustomDescriptorsTags } from '../../../implementation/ComponentProperty
 import { ParsedPropertyDescriptor } from '../../../implementation/ParsedPropertyDescriptor';
 
 export function parseBindTag(value:string):ParsedPropertyDescriptor {
-  const [sourcePropName, optionalPath] = value.split(' ');
+  const [firstLine] = value.split('\n');
+  const [sourcePropName, optionalPath] = firstLine.split(' ');
   return {
     serialized: {
       isAutoUpdated: true,
