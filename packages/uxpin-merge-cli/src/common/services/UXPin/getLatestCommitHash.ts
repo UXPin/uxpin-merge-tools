@@ -1,4 +1,5 @@
 import * as requestPromise from 'request-promise';
+import { requestPromiseWithEnhancedError } from '../../../utils/requestPromiseWithEnhancedError';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
@@ -7,7 +8,7 @@ interface LatestCommitResponse {
 }
 
 export async function getLatestCommitHash(domain:string, branch:string, token:string):Promise<string|null> {
-  return requestPromise(`${domain}/code/v/1.0/branch/${branch}/latestCommit`, {
+  return requestPromiseWithEnhancedError(`${domain}/code/v/1.0/branch/${branch}/latestCommit`, {
     headers: {
       ...getAuthHeaders(token),
       ...getUserAgentHeaders(),
