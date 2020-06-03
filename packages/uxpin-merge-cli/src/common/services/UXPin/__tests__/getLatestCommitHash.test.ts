@@ -57,7 +57,7 @@ describe('getLatestCommitHash', () => {
 
     it('should call proper url', () => {
       const [url] = requestPromiseMock.mock.calls[0];
-      expect(url).toEqual('https://uxpin.mock/code/v/1.0/branch/pull%2F27/latestCommit');
+      expect(url).toEqual('https://uxpin.mock/code/v/1.0/branch/pull:2F27/latestCommit');
     });
   });
 
