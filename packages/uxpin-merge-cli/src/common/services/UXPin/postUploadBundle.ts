@@ -1,5 +1,5 @@
 import { createReadStream } from 'fs';
-import * as requestPromise from 'request-promise';
+import { requestPromiseWithEnhancedError } from '../../../utils/requestPromiseWithEnhancedError';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
@@ -12,8 +12,8 @@ export async function postUploadBundle(
   token:string,
   commitHash:string,
   path:string,
-):Promise<UploadBundleResponse|null> {
-  return requestPromise(`${domain}/code/v/1.0/push/bundle`, {
+):Promise<UploadBundleResponse | null> {
+  return requestPromiseWithEnhancedError(`${domain}/code/v/1.0/push/bundle`, {
     formData: {
       bundle: createReadStream(path),
       commitHash,

@@ -68,9 +68,11 @@ describe('postUploadBundle', () => {
       // given
       requestPromiseMock.mockImplementation(() => {
         return Promise.reject({
-          error: 'Unauthorized',
-          message: 'Incorrect authorization token',
-          statusCode: 401,
+          error: {
+            error: 'Unauthorized',
+            message: 'Incorrect authorization token',
+            statusCode: 401,
+          },
         });
       });
     });
@@ -79,7 +81,12 @@ describe('postUploadBundle', () => {
       try {
         await postUploadBundle(domain, token, commitHash, path);
       } catch (error) {
-        expect(error.message).toContain('Incorrect authorization token');
+        expect(error).toEqual({
+          error: 'Unauthorized',
+          message: 'Incorrect authorization token',
+          statusCode: 401,
+          url: 'https://uxpin.mock/code/v/1.0/push/bundle',
+        });
       }
     });
   });

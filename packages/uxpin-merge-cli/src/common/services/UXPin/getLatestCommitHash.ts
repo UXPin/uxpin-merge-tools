@@ -1,13 +1,15 @@
-import * as requestPromise from 'request-promise';
+import { requestPromiseWithEnhancedError } from '../../../utils/requestPromiseWithEnhancedError';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
+import { encodeBranchName } from './params/encodeBranchName';
 
 interface LatestCommitResponse {
   commitHash:string;
 }
 
-export async function getLatestCommitHash(domain:string, branch:string, token:string):Promise<string|null> {
-  return requestPromise(`${domain}/code/v/1.0/branch/${branch}/latestCommit`, {
+export async function getLatestCommitHash(domain:string, branch:string, token:string):Promise<string | null> {
+  const branchName:string = encodeBranchName(branch);
+  return requestPromiseWithEnhancedError(`${domain}/code/v/1.0/branch/${branchName}/latestCommit`, {
     headers: {
       ...getAuthHeaders(token),
       ...getUserAgentHeaders(),
@@ -15,5 +17,5 @@ export async function getLatestCommitHash(domain:string, branch:string, token:st
     json: true,
     method: 'GET',
   })
-    .then((data:LatestCommitResponse|null) => data ? data.commitHash : null);
+    .then((data:LatestCommitResponse | null) => data ? data.commitHash : null);
 }

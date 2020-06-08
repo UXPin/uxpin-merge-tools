@@ -15,7 +15,7 @@ describe('getLatestCommitHash', () => {
     requestPromiseMock.mockRestore();
   });
 
-  describe('request', () => {
+  describe('request on master branch', () => {
     beforeEach(async () => {
       // given
       requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }));
@@ -45,13 +45,29 @@ describe('getLatestCommitHash', () => {
     });
   });
 
+  describe('request on a branch with name containing a slash character', () => {
+    beforeEach(async () => {
+      // given
+      const branchName:string = 'pull/27';
+      requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }));
+
+      // when
+      await getLatestCommitHash(domain, branchName, token);
+    });
+
+    it('should call proper url', () => {
+      const [url] = requestPromiseMock.mock.calls[0];
+      expect(url).toEqual('https://uxpin.mock/code/v/1.0/branch/pull:2F27/latestCommit');
+    });
+  });
+
   describe('HTTP 200', () => {
     it('should return commitHash', async () => {
       // given
       requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }));
 
       // when
-      const commitHash:string|null = await getLatestCommitHash(domain, branch, token);
+      const commitHash:string | null = await getLatestCommitHash(domain, branch, token);
 
       // then
       expect(commitHash).toEqual('abc123');
@@ -62,7 +78,7 @@ describe('getLatestCommitHash', () => {
       requestPromiseMock.mockImplementation(() => Promise.resolve(undefined));
 
       // when
-      const commitHash:string|null = await getLatestCommitHash(domain, branch, token);
+      const commitHash:string | null = await getLatestCommitHash(domain, branch, token);
 
       // then
       expect(commitHash).toEqual(null);
@@ -73,9 +89,11 @@ describe('getLatestCommitHash', () => {
     beforeEach(() => {
       requestPromiseMock.mockImplementation(() => {
         return Promise.reject({
-          error: 'Unauthorized',
-          message: 'Incorrect authorization token',
-          statusCode: 401,
+          error: {
+            error: 'Unauthorized',
+            message: 'Incorrect authorization token',
+            statusCode: 401,
+          },
         });
       });
     });
@@ -84,7 +102,12 @@ describe('getLatestCommitHash', () => {
       try {
         await getLatestCommitHash(domain, branch, token);
       } catch (error) {
-        expect(error.message).toContain('Incorrect authorization token');
+        expect(error).toEqual({
+          error: 'Unauthorized',
+          message: 'Incorrect authorization token',
+          statusCode: 401,
+          url: 'https://uxpin.mock/code/v/1.0/branch/master/latestCommit',
+        });
       }
     });
   });
