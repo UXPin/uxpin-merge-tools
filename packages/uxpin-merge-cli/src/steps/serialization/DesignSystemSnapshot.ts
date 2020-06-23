@@ -4,6 +4,7 @@ export interface DesignSystemSnapshot {
   name:string;
   categorizedComponents:ComponentCategory[];
   vcs:VCSDetails;
+  forcePush?:boolean;
 }
 
 export interface VCSDetails {
