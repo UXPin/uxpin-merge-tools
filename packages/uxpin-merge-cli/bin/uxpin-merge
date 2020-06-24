@@ -33,6 +33,7 @@ program
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
   .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
   .option('--token <token>', 'auth token for the library. Default: `UXPIN_AUTH_TOKEN` env variable')
+  .option('--force', 'forces push that removes component or preset. Use with care as it may break prototypes in UXPin')
   .action(() => {});
 
 program
