@@ -5,6 +5,12 @@ import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
 export interface PushMetadataResponse {
   message:string;
+  errorCode?:PushError;
+}
+
+export enum PushError {
+  REVISION_ALREADY_EXISTS = 1,
+  COMPONENT_OR_PRESET_REMOVAL = 2,
 }
 
 export async function postPushMetadata(

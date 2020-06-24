@@ -11,6 +11,7 @@ import { isSameVersion } from '../../../../steps/serialization/vcs/isSameVersion
 import { printLine } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
 import { StepExecutor } from '../../Step';
+import { handlePushMetadataError } from './handlePushMetadataError';
 
 export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
   return async (designSystem:DSMetadata) => {
@@ -47,8 +48,7 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
       await postPushMetadata(apiDomain, token, designSystem);
       printLine('✅ Library metadata uploaded successfully!', { color: PrintColor.GREEN });
     } catch (error) {
-      printLine('🛑 There was an error while uploading library metadata! Please try again.', { color: PrintColor.RED });
-      throw new Error(error.message);
+      handlePushMetadataError(error);
     }
 
     return designSystem;
