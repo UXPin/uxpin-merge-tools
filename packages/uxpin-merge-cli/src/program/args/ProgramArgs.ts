@@ -30,6 +30,7 @@ export interface PushProgramArgs {
   uxpinDomain?:string;
   webpackConfig?:string;
   wrapper?:string;
+  force?:boolean;
 }
 
 export interface ServerProgramArgs {

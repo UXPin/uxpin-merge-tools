@@ -6,7 +6,7 @@ export function printLine(message:string, options:PrintOptions = {}):void {
 }
 
 export function printError(message:string):void {
-  printLine(message, { color: PrintColor.RED });
+  printLine(message, { color: PrintColor.RED, channel: 'stderr' });
 }
 
 export function printWarning(message:string):void {

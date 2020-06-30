@@ -1,4 +1,5 @@
 import pMap from 'p-map';
+import { Command } from '../..';
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
 import { ProgramArgs } from '../../program/args/ProgramArgs';
@@ -37,6 +38,7 @@ export async function getDesignSystemMetadata(
 
   return {
     result: {
+      ...getPushOptionIfRequired(programArgs),
       categorizedComponents,
       name: libraryName,
       vcs,
@@ -74,4 +76,14 @@ async function serializeOptionalExamples(info:ComponentInfo):Promise<ExamplesSer
   }
 
   return await serializeExamples(info.documentation.path);
+}
+
+function getPushOptionIfRequired(programArgs:ProgramArgs):Pick<DesignSystemSnapshot, 'forcePush'> {
+  if (programArgs.command === Command.PUSH && programArgs.force) {
+    return {
+      forcePush: true,
+    };
+  }
+
+  return {};
 }

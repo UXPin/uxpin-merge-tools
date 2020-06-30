@@ -1,6 +1,7 @@
 import pMapSeries = require('p-map-series');
 import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
+import { printError } from '../utils/console/printLine';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './args/getProgramArgs';
 import { ProgramArgs, RawProgramArgs } from './args/ProgramArgs';
@@ -70,5 +71,5 @@ function endWithError(error:Error | string):void {
 }
 
 function logError(error:Error | string):void {
-  console.error('ERROR:', error instanceof Error ? error.message : error);
+  printError(`ERROR: ${error instanceof Error ? error.message : error}`);
 }
