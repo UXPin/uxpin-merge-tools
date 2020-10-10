@@ -1,15 +1,14 @@
-# UXPin Merge
+# UXPin Merge Tools
 
 [![CircleCI](https://circleci.com/gh/UXPin/uxpin-merge-tools/tree/master.svg?style=svg&circle-token=3be428149d85d471f8a2661cc39d764a12df725f)](https://circleci.com/gh/UXPin/uxpin-merge-tools/tree/master)
 [![codecov](https://codecov.io/gh/UXPin/uxpin-merge-tools/branch/master/graph/badge.svg?token=oCSlKMhJDN)](https://codecov.io/gh/UXPin/uxpin-merge-tools)
 
-## Motivation
+This repository contains open-source packages that make it easier to integrate your design system with [UXPin Merge](https://uxpin.com/merge). Merge is a revolutionary technology that lets users import and keep in sync coded React.js components to the UXPin Editor. Imported components are 100% identical to the components used by developers during the development process. It means that components are going to look, feel and function (interactions, data) just like the real product experienced by the end-users. 
 
-Creating design system is not a one time project but an ongoing process that is never complete. Constant changes of existing components and optimization may cause a lack of synchronization between Design Systems and the existing code.
+Currently this repo contains one package:
 
-UXPin solution will allow designers and developers to work on the same UI patterns up-to-date with the Design System and code.
+* [uxpin-merge-cli](packages/uxpin-merge-cli/Readme.md) – a command-line tool to preview your design system locally and push it to UXPin Merge.
 
-## multi-package repository
+## Bugs and Issues
 
-This repository consists of multiple tools allowing better integration of your Design System repository with [UXPin app](https://uxpin.com/merge). Look at the Readme file for each of them for more detailed description:
-* [uxpin-merge-cli](packages/uxpin-merge-cli/Readme.md) – command-line tool building and serializing DS on the user's CI server
+Please create an issue if you experience a problem with any of the packages in this repository.
