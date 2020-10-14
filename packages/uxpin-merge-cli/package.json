@@ -54,7 +54,7 @@
     "@types/locate-path": "^2.0.0",
     "@types/lodash": "^4.14.74",
     "@types/node": "^8.0.26",
-    "@types/opn": "^5.1.0",
+    "@types/opn": "^5.5.0",
     "@types/p-any": "^1.1.1",
     "@types/p-map": "^1.1.0",
     "@types/p-map-series": "^1.0.1",
