@@ -1,10 +1,11 @@
-# UXPin Merge
+# UXPin Merge CLI
 
-The Command-line tool integrates the Design System repository with [UXPin Merge](https://www.uxpin.com/merge)
+This is the command line used to preview design system components locally and push it to [UXPin Merge](https://www.uxpin.com/merge). Once pushed, designers can use the components within the UXPin editor.
 
-### **[See UXPin Docs for full documentation of Merge](https://www.uxpin.com/docs/merge)** 
+**[See the UXPin Docs for full documentation of Merge.](https://www.uxpin.com/docs/merge)**
 
 ## Installation
+
 Add `uxpin-merge` to your package.json:
 ```
 npm install @uxpin/merge-cli --save-dev
@@ -16,7 +17,7 @@ yarn add @uxpin/merge-cli --dev
 
 ## Usage
 
-This tool recognizes components available in your repository of component library, analyze them and uploads results to [UXPin app](https://uxpin.com/merge) in order to further integration with UXPin Design System services.
+This tool recognizes components available in your repository of component library, analyze them and uploads results to [UXPin app](https://uxpin.com/merge). See [our docs](https://www.uxpin.com/docs/merge/cli-tool) for usage examples.
 
 ```
 ./node_modules/.bin/uxpin-merge --help
