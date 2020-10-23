@@ -8,7 +8,7 @@
   },
   "typings": "src/types.d.ts",
   "author": "UXPin Inc.",
-  "license": "GPLv3",
+  "license": "GPL-3.0-only",
   "engines": {
     "node": ">=8.10.0"
   },
