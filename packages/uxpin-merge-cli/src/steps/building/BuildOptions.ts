@@ -7,4 +7,5 @@ export interface BuildOptions {
   uxpinDomain?:string;
   webpackConfigPath?:string;
   wrapperPath?:string;
+  branch?:string;
 }

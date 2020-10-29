@@ -8,12 +8,15 @@ import { filterMovedFiles } from './filterMovedFiles';
 import { getRepositoryAdapter } from './repositories/getRepositoryAdapter';
 import { RepositoryAdapter, RepositoryPointer } from './repositories/RepositoryAdapter';
 
-export async function getVscDetails(
+export async function getVcsDetails(
   paths:ProjectPaths,
   buildOptions:BuildOptions,
   categorizedComponents:ComponentCategory[],
 ):Promise<VCSDetails> {
-  const repositoryAdapter:RepositoryAdapter = await getRepositoryAdapter(paths.projectRoot);
+  const repositoryAdapter:RepositoryAdapter = await getRepositoryAdapter(
+    paths.projectRoot,
+    buildOptions,
+  );
   const repositoryPointer:RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
   let latestCommitHash:string|null = null;
 
@@ -28,6 +31,7 @@ export async function getVscDetails(
   const vcs:VCSDetails = {
     branchName: repositoryPointer.branchName,
     commitHash: repositoryPointer.commit.hash,
+    paths,
   };
 
   if (latestCommitHash) {

@@ -1,23 +1,34 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 UXPIN_CODE=$(shell pwd)/bin/uxpin-merge
+YARN ?= yarn
 
-.PHONY: dependencies build check test test-unit test-integration test-ci clean clean-test-resources test-remap-coverage test-resources test-rename-snapshots serve-mineral serve-polaris serve-arui
+.PHONY: dependencies install build build-watch \
+				check check-fix test test-unit test-integration test-ci \
+				clean clean-test-resources \
+				test-remap-coverage test-resources test-rename-snapshots \
+				serve-mineral serve-polaris serve-arui
 
 dependencies:
-	yarn install
-	cd ./test/resources/designSystems && yarn install || npx yarn@1.7.0 install
+	$(YARN) install
+	cd ./test/resources/designSystems && $(YARN) install || npx yarn@1.7.0 install
 
 build:
 	tsc
 	make build-server-app
 	dts-bundle-generator -o src/types.d.ts src/types.ts
 
+build-watch: build
+	tsc --watch
+
 build-server-app:
 	webpack --config "./config/webpack.config.js"
 
 check:
 	tslint --project tsconfig.json
+
+check-fix:
+	tslint --project tsconfig.json --fix
 
 test:
 	make test-resources

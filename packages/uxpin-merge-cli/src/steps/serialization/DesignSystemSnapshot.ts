@@ -1,3 +1,4 @@
+import { ProjectPaths } from '../discovery/paths/ProjectPaths';
 import { ComponentCategory } from './component/categories/ComponentCategory';
 
 export interface DesignSystemSnapshot {
@@ -10,8 +11,11 @@ export interface VCSDetails {
   branchName:string;
   commitHash:string;
   movedObjects?:MovedObjects;
+
   // @todo: make `tags` property required after implementation of git tags
   tags?:VCSTag[];
+
+  paths?:ProjectPaths;
 }
 
 export interface MovedObjects {

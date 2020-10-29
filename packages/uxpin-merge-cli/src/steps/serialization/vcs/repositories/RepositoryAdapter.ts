@@ -21,4 +21,5 @@ export interface RepositoryAdapter {
 
 export interface RepositoryAdapterOptions {
   path:string;
+  branchOverride?:string;
 }

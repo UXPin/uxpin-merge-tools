@@ -1,19 +1,23 @@
-import * as safe from 'colors/safe';
+import { HEAD_REF_NAME } from '../../../../common/constants';
 import { DSMetadata } from '../../../../program/DSMeta';
+import { isTestEnv } from '../../../../program/env/isTestEnv';
 import { printLine } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
 
-const BRANCH_MASTER:string = 'master';
-
 export async function printBranchWarning(designSystem:DSMetadata):Promise<DSMetadata> {
-  if (designSystem.result.vcs.branchName === BRANCH_MASTER) {
-    return designSystem;
-  }
+  const branch:string = designSystem.result.vcs.branchName;
 
-  printLine(
-    `⚠️ Libraries pushed from branch different than ${safe.bold(BRANCH_MASTER)} are currently not supported by UXPin Editor!`, // tslint:disable:max-line-length
-    { color: PrintColor.YELLOW },
-  );
+  // Disallow uploading of branches that are empty (most commonly detached HEAD state)
+  const isUnpushableBranch:boolean = !branch || branch === HEAD_REF_NAME;
+  if (!isTestEnv() && isUnpushableBranch) {
+    printLine(
+      '🛑 Unable to determine current branch name (Design Systems may not be pushed from detached HEAD mode).',
+      { color: PrintColor.RED },
+    );
+    console.info('Hint: please specify the --branch option if pushing from CI.');
+
+    throw new Error(`Cannot push branch [${branch}]`);
+  }
 
   return designSystem;
 }

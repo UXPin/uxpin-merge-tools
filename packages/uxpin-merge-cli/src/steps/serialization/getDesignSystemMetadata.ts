@@ -17,7 +17,7 @@ import { getComponentMetadata } from './component/implementation/getComponentMet
 import { decorateWithPresets } from './component/presets/decorateWithPresets';
 import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
 import { validateComponentNamespaces } from './validation/validateComponentNamespaces';
-import { getVscDetails } from './vcs/getVcsDetails';
+import { getVcsDetails } from './vcs/getVcsDetails';
 
 export async function getDesignSystemMetadata(
   programArgs:ProgramArgs,
@@ -31,7 +31,7 @@ export async function getDesignSystemMetadata(
   const categoriesWithPresets:Array<Warned<ComponentCategory>> = await decorateWithPresets(categories, programArgs);
 
   const categorizedComponents:ComponentCategory[] = categoriesWithPresets.map((category) => category.result);
-  const vcs:VCSDetails = await getVscDetails(paths, buildOptions, categorizedComponents);
+  const vcs:VCSDetails = await getVcsDetails(paths, buildOptions, categorizedComponents);
 
   validateComponentNamespaces(categorizedComponents);
 

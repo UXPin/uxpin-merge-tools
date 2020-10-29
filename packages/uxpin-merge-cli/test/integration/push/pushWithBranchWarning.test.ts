@@ -18,7 +18,7 @@ describe('Push command', () => {
     const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
     const { getDirectory } = setupTempProject({ sourceDir, gitOptions: { branch: 'test', initialise: true } });
 
-    it('shows warning that different branches are not supported', async () => {
+    it('does not shows warning that different branches are not supported', async () => {
       // having
       const dir:DirectoryResult = getDirectory();
 
@@ -37,7 +37,7 @@ describe('Push command', () => {
         ],
       });
 
-      expect(result).toEqual(expect.stringMatching(/branch different than master are currently not supported/));
+      expect(result).not.toEqual(expect.stringMatching(/branch different than master are currently not supported/));
     });
   });
 

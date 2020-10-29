@@ -14409,8 +14409,12 @@ composes [Box](/components/box)",
   ],
   "name": "Library from Code",
   "vcs": Object {
-    "branchName": "HEAD",
+    "branchName": "master",
     "commitHash": "6a18faefe3d8339b066c92f1a10b27872f15729b",
+    "paths": Object {
+      "configPath": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/repos/mineral-ui/uxpin.config.js",
+      "projectRoot": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/repos/mineral-ui",
+    },
   },
 }
 `;

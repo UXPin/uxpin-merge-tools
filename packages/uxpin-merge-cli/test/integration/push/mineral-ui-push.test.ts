@@ -15,7 +15,7 @@ describe('Pushing mineral-ui design system', () => {
   describe('with required user webpack config', () => {
     let consoleOutput:string;
 
-    beforeAll(async () => {
+    it('prints warnings without stack traces to the console', async () => {
       const params:string[] = [
         Command.PUSH,
         '--webpack-config "./webpack.config.js"',
@@ -31,9 +31,7 @@ describe('Pushing mineral-ui design system', () => {
         },
         params,
       });
-    });
 
-    it('prints warnings without stack traces to the console', () => {
       // then
       expect(consoleOutput).toMatchSnapshot();
     });

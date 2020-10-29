@@ -12461,8 +12461,12 @@ function handleChangeAsync(value) {
   ],
   "name": "Library from Code",
   "vcs": Object {
-    "branchName": "HEAD",
+    "branchName": "master",
     "commitHash": "14546410449fdaa2014d3f32cf404291cca41c50",
+    "paths": Object {
+      "configPath": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/configs/arui-feather-uxpin.config.js",
+      "projectRoot": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/repos/arui-feather",
+    },
   },
 }
 `;

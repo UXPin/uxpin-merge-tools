@@ -7,15 +7,17 @@ import { getMovedFiles } from './util/getMovedFiles';
 
 export class GitRepositoryAdapter extends AbstractRepositoryAdapter implements RepositoryAdapter {
   private readonly path:string;
+  private readonly branchOverride:string|undefined;
 
   constructor(options:RepositoryAdapterOptions) {
     super();
 
     this.path = options.path;
+    this.branchOverride = options.branchOverride;
   }
 
   public async getCurrentBranch():Promise<string> {
-    return getCurrentBranch(this.path);
+    return getCurrentBranch(this.path, this.branchOverride);
   }
 
   public async getMovedFiles(revision1:string, revision2:string):Promise<MovedFilePathsMap> {
