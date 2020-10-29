@@ -9,8 +9,8 @@ export function getComponentName(context:TSSerializationContext, component:Compo
   }
   // Support named arrow functions and use the component parent's name.
   // https://github.com/UXPin/uxpin-merge-tools/issues/208
-  if (ts.isArrowFunction(component) && component.parent && "name" in component.parent && (component.parent as ts.ArrowFunction).name) {
-    return ((component.parent as ts.ArrowFunction).name as ts.Identifier).getText()
+  if (isArrowFunction(component) && component.parent && "name" in component.parent && (component.parent as ArrowFunction).name) {
+    return ((component.parent as ArrowFunction).name as Identifier).getText()
   }
   return getComponentFileName(context);
 }
