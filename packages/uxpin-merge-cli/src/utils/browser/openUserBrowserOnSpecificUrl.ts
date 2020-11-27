@@ -1,5 +1,5 @@
-import opn = require('opn');
+import open = require('open');
 
 export async function openUserBrowserOnSpecificUrl(url:string):Promise<void> {
-  await opn(url);
+  await open(url, { url: true });
 }
