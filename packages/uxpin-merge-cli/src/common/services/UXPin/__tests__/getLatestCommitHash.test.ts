@@ -18,6 +18,7 @@ describe('getLatestCommitHash', () => {
   describe('request on master branch', () => {
     beforeEach(async () => {
       // given
+      // @ts-ignore
       requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }));
 
       // when
@@ -49,6 +50,8 @@ describe('getLatestCommitHash', () => {
     beforeEach(async () => {
       // given
       const branchName:string = 'pull/27';
+
+      // @ts-ignore
       requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }));
 
       // when
@@ -64,6 +67,7 @@ describe('getLatestCommitHash', () => {
   describe('HTTP 200', () => {
     it('should return commitHash', async () => {
       // given
+      // @ts-ignore
       requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }));
 
       // when
@@ -75,6 +79,7 @@ describe('getLatestCommitHash', () => {
 
     it('should return null if commitHash is not available', async () => {
       // given
+      // @ts-ignore
       requestPromiseMock.mockImplementation(() => Promise.resolve(undefined));
 
       // when
@@ -87,6 +92,7 @@ describe('getLatestCommitHash', () => {
 
   describe('HTTP 401', () => {
     beforeEach(() => {
+      // @ts-ignore
       requestPromiseMock.mockImplementation(() => {
         return Promise.reject({
           error: {

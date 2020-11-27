@@ -5,6 +5,7 @@ export function serializeLiteralType(typeNode:ts.LiteralType):PropertyType<'lite
   return {
     name: 'literal',
     structure: {
+      // @ts-ignore
       value: typeNode.value,
     },
   };

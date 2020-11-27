@@ -1,4 +1,5 @@
 import { readdir } from 'fs-extra';
+// @ts-ignore
 import pReduce = require('p-reduce');
 import { join, relative } from 'path';
 import { isFile } from '../../../../utils/fs/isFile';
@@ -25,6 +26,7 @@ function getFilePaths(dirPath:string):Promise<string[]> {
 }
 
 function skipDirectories(paths:string[]):Promise<string[]> {
+  // @ts-ignore
   return pReduce(paths.map(getFilePath), (result, filePath) => {
     if (filePath) {
       result.push(filePath);

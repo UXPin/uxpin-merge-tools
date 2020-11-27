@@ -29,6 +29,7 @@ describe('postPushMetadata', () => {
   describe('request', () => {
     beforeEach(async () => {
       // given
+      // @ts-ignore
       requestPromiseMock.mockImplementation(() => Promise.resolve({}));
 
       // when
@@ -61,6 +62,7 @@ describe('postPushMetadata', () => {
 
     beforeEach(async () => {
       // given
+      // @ts-ignore
       requestPromiseMock.mockImplementation(() => Promise.resolve({
         message: 'Design System snapshot has been uploaded successfully',
       }));
@@ -77,6 +79,7 @@ describe('postPushMetadata', () => {
   describe('HTTP 401', () => {
     beforeEach(() => {
       // given
+      // @ts-ignore
       requestPromiseMock.mockImplementation(() => {
         return Promise.reject({
           error: {

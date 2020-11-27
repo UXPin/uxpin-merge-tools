@@ -10,6 +10,7 @@ describe('getPropertyCustomDescriptorsWithWarnings', () => {
       defaultValue: '',
       description: '',
       required: false,
+      // @ts-ignore
       type: { name: 'string', structure: {} },
     };
 
@@ -31,6 +32,7 @@ describe('getPropertyCustomDescriptorsWithWarnings', () => {
       description: `@uxpindescription Some desc
 @uxpinpropname test`,
       required: false,
+      // @ts-ignore
       type: { name: 'string', structure: {} },
     };
 

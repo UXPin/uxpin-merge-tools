@@ -7,8 +7,11 @@ export type TypeStructureConversionStrategy =
   <T extends keyof PropertyTypeStructureMap>(reactDocgenStructure:any) => PropertyTypeStructureMap[T];
 
 const TYPE_STRUCTURE_CONVERTERS:Partial<{ [P in PropertyTypeName]:TypeStructureConversionStrategy }> = {
+  // @ts-ignore
   shape: convertShapeTypeStructure,
+  // @ts-ignore
   typedArray: convertArrayOfTypeStructure,
+  // @ts-ignore
   union: convertOneOfTypeStructure,
 };
 
@@ -18,5 +21,6 @@ export function convertTypeStructure<T extends PropertyTypeName>(typeName:T,
   if (convert) {
     return convert(reactDocgenStructure);
   }
+  // @ts-ignore
   return {};
 }

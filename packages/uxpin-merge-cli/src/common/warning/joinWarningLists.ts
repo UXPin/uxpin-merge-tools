@@ -7,6 +7,7 @@ export function joinWarningLists(warningLists:WarningDetails[][], componentPath?
     if (componentPath) {
       warningsToJoin = warnings.map(thunkFillSourcePath(componentPath));
     }
+    // @ts-ignore
     [].push.apply(warningList, warningsToJoin);
     return warningList;
   }, [] as WarningDetails[]);

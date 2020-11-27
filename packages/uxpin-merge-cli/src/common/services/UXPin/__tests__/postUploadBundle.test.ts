@@ -20,6 +20,7 @@ describe('postUploadBundle', () => {
   describe('request', () => {
     beforeEach(async () => {
       // given
+      // @ts-ignore
       requestPromiseMock.mockImplementation(() => Promise.resolve({ url: 'https://s3.mock/bundle.js' }));
 
       // when
@@ -52,6 +53,7 @@ describe('postUploadBundle', () => {
 
     beforeEach(async () => {
       // given
+      // @ts-ignore
       requestPromiseMock.mockImplementation(() => Promise.resolve({ url: 'https://s3.mock/bundle.js' }));
 
       // when
@@ -66,6 +68,7 @@ describe('postUploadBundle', () => {
   describe('HTTP 401', () => {
     beforeEach(async () => {
       // given
+      // @ts-ignore
       requestPromiseMock.mockImplementation(() => {
         return Promise.reject({
           error: {

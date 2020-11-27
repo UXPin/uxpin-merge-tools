@@ -1,3 +1,4 @@
+// @ts-ignore
 import pReduce = require('p-reduce');
 import { Warned } from '../../../../../common/warning/Warned';
 import { ParsedComponentProperty } from '../ComponentPropertyDefinition';
@@ -27,6 +28,7 @@ export function parsePropertyItem(propName:string,
     warnings: [],
   };
 
+  // @ts-ignore
   return pReduce(partialProviders, (result, partial) => {
     Object.assign(result.result, partial.result);
     Object.assign(result.warnings, partial.warnings);

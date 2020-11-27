@@ -9,6 +9,7 @@ describe('parseComponentName', () => {
     let componentName:string;
 
     beforeAll(() => {
+      // @ts-ignore
       parsed = {
         description: '',
         displayName: '',
@@ -28,6 +29,7 @@ describe('parseComponentName', () => {
     let componentName:string;
 
     beforeAll(() => {
+      // @ts-ignore
       parsed = {
         description: '',
         displayName: 'CustomComponentName',

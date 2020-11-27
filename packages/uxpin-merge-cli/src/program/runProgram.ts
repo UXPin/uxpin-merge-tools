@@ -1,3 +1,4 @@
+// @ts-ignore
 import pMapSeries = require('p-map-series');
 import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
@@ -26,6 +27,7 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
   }
 }
 
+// @ts-ignore
 async function runCommand(programArgs:ProgramArgs):Promise<any> {
   await executeCommandSteps(programArgs, getSteps(programArgs));
 }
@@ -56,6 +58,7 @@ async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promis
   const paths:ProjectPaths = getProjectPaths(programArgs);
   const designSystem:DSMetadata = await getDesignSystemMetadata(programArgs, paths);
 
+  // @ts-ignore
   await pMapSeries(stepFunctions, (step) => step(designSystem));
 }
 

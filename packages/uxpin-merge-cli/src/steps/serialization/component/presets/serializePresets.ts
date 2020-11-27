@@ -16,7 +16,9 @@ export function serializePresets(
   return infos
     .map(thunkSerializePreset(bundle))
     .reduce((result, presetSerializationResult) => {
+      // @ts-ignore
       [].push.apply(result.result, presetSerializationResult.result);
+      // @ts-ignore
       [].push.apply(result.warnings, presetSerializationResult.warnings);
       return result;
     }, aggregator);

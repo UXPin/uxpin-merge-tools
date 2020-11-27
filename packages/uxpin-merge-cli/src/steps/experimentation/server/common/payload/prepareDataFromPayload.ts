@@ -13,6 +13,7 @@ export function prepareDataFromPayload(request:IncomingMessage):Promise<any> {
     });
     request.on('end', () => {
       if (body.startsWith('json')) {
+        // @ts-ignore
         const data:ParsedFormData = parse(body);
         resolve(JSON.parse(data.json));
       } else {
