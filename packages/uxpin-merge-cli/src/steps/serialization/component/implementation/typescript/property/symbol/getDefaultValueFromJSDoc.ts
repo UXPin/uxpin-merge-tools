@@ -36,5 +36,5 @@ function parseDefaultTagValue(defaultTagValue:string):any | undefined {
 
 function replaceNonJSONQuotes(defaultValue:string):string {
   const QUOTES_REGEX:RegExp = /^['`](.*)['`]$/gm;
-  return defaultValue.replace(QUOTES_REGEX, `"$1"`);
+  return defaultValue.replace(QUOTES_REGEX, '"$1"');
 }

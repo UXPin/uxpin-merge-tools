@@ -34,7 +34,7 @@ export async function getComponentCategoryPaths(projectRoot:string, categoryConf
   // If some pattern doesn't provide some files, throw an error as this may result to broken library to be pushed
   // (e.g. when some files won't be commited to the repository)
   if (hasInvalidPatterns) {
-    throw new Error(`🚫 Please check your config file and fix wrong patterns.`);
+    throw new Error('🚫 Please check your config file and fix wrong patterns.');
   }
 
   // Finally get paths for all patterns, as this may produce different results than

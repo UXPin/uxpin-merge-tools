@@ -19,12 +19,12 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
   const namespacedComponentDeclarations:string[] = getNamespacedComponentDeclarations(components);
 
   const exports:string[] = [
-    `export {`,
+    'export {',
     ...components.map((component) => `  ${getImportName(component)},`),
     ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER},`] : []),
     '  React,',
     '  ReactDOM,',
-    `};`,
+    '};',
   ];
 
   return [

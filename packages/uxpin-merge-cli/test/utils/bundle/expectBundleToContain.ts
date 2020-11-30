@@ -6,6 +6,6 @@ export async function expectBundleToContain(projectDir:string, expectedValue:str
   const bundlePath:string = join(projectDir, TEMP_DIR_PATH, LIBRARY_OUTPUT_FILENAME);
   const bundleContent:string = await readFile(bundlePath, { encoding: 'utf8' });
   if (!bundleContent.includes(expectedValue)) {
-    throw new Error(`Did not found expected string in library bundle`);
+    throw new Error('Did not found expected string in library bundle');
   }
 }

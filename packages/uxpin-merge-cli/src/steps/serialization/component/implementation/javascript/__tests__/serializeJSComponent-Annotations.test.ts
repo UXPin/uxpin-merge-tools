@@ -294,7 +294,7 @@ describe('SerializeJSComponent - with annotations', () => {
 
       // when
       await expect(serializeJSComponent(component))
-        .rejects.toThrowError(`More than one property is trying to bind the same source property "onChange"`);
+        .rejects.toThrowError('More than one property is trying to bind the same source property "onChange"');
     });
   });
 });

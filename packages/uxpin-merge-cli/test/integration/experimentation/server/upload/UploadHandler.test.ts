@@ -19,7 +19,7 @@ describe('UploadHandler', () => {
   it('receives uploaded file and saves in the correct dir based on given path parameter', async () => {
     // given
     const fileName:string = 'uxpin_logo_white_720-1.png';
-    const fileId:string = `12311`;
+    const fileId:string = '12311';
     const fixtureFilePath:string = join(__dirname, 'fixtures', fileName);
     const expectedFileChecksum:string = await getFileChecksum(fixtureFilePath);
     const targetDir:string = join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, fileId);

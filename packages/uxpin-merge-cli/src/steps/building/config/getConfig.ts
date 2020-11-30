@@ -7,7 +7,7 @@ import { getComponentLibraryInputPath } from '../library/getComponentLibraryInpu
 export const DEBUG_APP_BUNDLED_FILE:string = 'index.js';
 export const TEMP_DIR_NAME:string = '.uxpin-merge';
 export const TEMP_DIR_PATH:string = `./${TEMP_DIR_NAME}`;
-export const LIBRARY_INPUT_FILENAME:string = `components.js`;
+export const LIBRARY_INPUT_FILENAME:string = 'components.js';
 export const LIBRARY_OUTPUT_FILENAME:string = 'designsystemlibrary.js';
 
 export function getConfig(

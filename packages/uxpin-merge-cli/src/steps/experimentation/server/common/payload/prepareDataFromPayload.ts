@@ -21,7 +21,7 @@ export function prepareDataFromPayload(request:IncomingMessage):Promise<any> {
       }
     });
     request.on('error', (error) => {
-    	reject(error);
+      reject(error);
     });
   });
 }

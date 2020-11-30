@@ -12,7 +12,7 @@ describe('convertLiteralUnionSegment', () => {
       },
       {
         expected: { name: 'literal', structure: { value: 'someValue' } },
-        having: `'someValue'`,
+        having: "'someValue'",
         title: 'parse literals with single quotes correctly',
       },
       {

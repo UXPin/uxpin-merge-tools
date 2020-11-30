@@ -17,6 +17,7 @@ export const ComponentProps:React.SFC<Props> = ({
       <h4>Component properties</h4>
       <ul>
         {
+          // tslint:disable-next-line
           properties.map((prop) => (<li>{`${prop.name}${prop.type ? ': ' + prop.type.name : ''}`}</li>))
         }
       </ul>

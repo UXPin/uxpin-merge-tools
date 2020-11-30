@@ -22,7 +22,7 @@ describe('GetUploadedFileHandler', () => {
 
   it('responds with a file for given id', async () => {
     // given
-    const fileId:string = `12311`;
+    const fileId:string = '12311';
     const fixtureFilePath:string = join(__dirname, 'fixtures', 'uxpin_logo_white_720-1.png');
     const expectedFileChecksum:string = await getFileChecksum(fixtureFilePath);
     const requestOptions:RequestPromiseOptions = {

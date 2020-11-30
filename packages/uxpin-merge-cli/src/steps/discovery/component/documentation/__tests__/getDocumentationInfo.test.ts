@@ -8,7 +8,7 @@ describe('getDocumentationInfo', () => {
     it('recognizes and returns correct path to a `Readme.md` file', () => {
       const paths:ComponentPaths = getComponentsPath('directoryWithReadmeMarkdown');
       const expectedInfo:ComponentDocumenationInfo = {
-        path: `directories/directoryWithReadmeMarkdown/Readme.md`,
+        path: 'directories/directoryWithReadmeMarkdown/Readme.md',
       };
 
       // when
@@ -20,7 +20,7 @@ describe('getDocumentationInfo', () => {
     it('recognizes and returns correct path to a `README.md` file', () => {
       const paths:ComponentPaths = getComponentsPath('directoryWithCapitalReadmeMarkdown');
       const expectedInfo:ComponentDocumenationInfo = {
-        path: `directories/directoryWithCapitalReadmeMarkdown/README.md`,
+        path: 'directories/directoryWithCapitalReadmeMarkdown/README.md',
       };
 
       // when
@@ -32,7 +32,7 @@ describe('getDocumentationInfo', () => {
     it('recognizes and returns correct path to a markdown file with a name equal to a directory name', () => {
       const paths:ComponentPaths = getComponentsPath('directoryWithMarkdown');
       const expectedInfo:ComponentDocumenationInfo = {
-        path: `directories/directoryWithMarkdown/directoryWithMarkdown.md`,
+        path: 'directories/directoryWithMarkdown/directoryWithMarkdown.md',
       };
 
       // when
