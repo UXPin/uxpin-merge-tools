@@ -5,12 +5,15 @@ import { WarningDetails } from './WarningDetails';
 
 export function stringifyWarning(warning:WarningDetails, includeError:boolean = false):string {
   const { message, sourcePath, originalError } = warning;
-  let result:string = `${safe.yellow('warning ')} ${message} in:\n`;
+  // tslint:ignore-next-line
+  let result:string = safe.yellow('warning ') + message + ' in:\n';
   if (sourcePath) {
-    result += `${safe.blue(sourcePath)}\n`;
+    // tslint:ignore-next-line
+    result += safe.blue(sourcePath) + '\n';
   }
   if (includeError && originalError && originalError.stack) {
-    result += `${cleanStacktrace(originalError.stack, cleanStacktraceRelativePaths())}\n`;
+    // tslint:ignore-next-line
+    result += cleanStacktrace(originalError.stack, cleanStacktraceRelativePaths()) + '\n';
   }
   return result;
 }
