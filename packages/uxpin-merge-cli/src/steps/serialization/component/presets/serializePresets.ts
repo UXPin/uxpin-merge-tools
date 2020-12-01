@@ -16,8 +16,10 @@ export function serializePresets(
   return infos
     .map(thunkSerializePreset(bundle))
     .reduce((result, presetSerializationResult) => {
-      [].push.apply(result.result, presetSerializationResult.result);
-      [].push.apply(result.warnings, presetSerializationResult.warnings);
+      const results:any[] = [];
+      const warnings:any[] = [];
+      results.push.apply(result.result, presetSerializationResult.result);
+      warnings.push.apply(result.warnings, presetSerializationResult.warnings);
       return result;
     }, aggregator);
 }
