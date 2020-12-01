@@ -514,20 +514,6 @@
   version "9.4.6"
   resolved "https://registry.npmjs.org/@types/node/-/node-9.4.6.tgz#d8176d864ee48753d053783e4e463aec86b8d82e"
 
-"@types/open@^6.2.1":
-  version "6.2.1"
-  resolved "https://registry.uxpin.pl:4873/@types%2fopen/-/open-6.2.1.tgz#3797ccbe876cca4b0bc78bdfbc3a3008110fdb13"
-  integrity sha512-CzV16LToFaKwm1FfplVTF08E3pznw4fQNCQ87N+A1RU00zu/se7npvb6IC9db3/emnSThQ6R8qFKgrei2M4EYQ==
-  dependencies:
-    open "*"
-
-"@types/opn@^5.5.0":
-  version "5.5.0"
-  resolved "https://registry.uxpin.pl:4873/@types%2fopn/-/opn-5.5.0.tgz#f7b80ae1269b76d621290befb568c87e7511e3ac"
-  integrity sha512-rfEmrSa/x0vArY1aFnVTBAmy6b2I0oNHONL59qR+vnsHfD5xacM40O4PSiVisERq/GmROjmS3Xo/ptp8fx823g==
-  dependencies:
-    opn "*"
-
 "@types/p-any@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@types/p-any/-/p-any-1.1.1.tgz#eb72b5c4c2ffda5be089a86529ce8fb9f82af4e9"
@@ -6135,10 +6121,10 @@ onetime@^2.0.0:
   dependencies:
     mimic-fn "^1.0.0"
 
-open@*:
-  version "7.2.1"
-  resolved "https://registry.uxpin.pl:4873/open/-/open-7.2.1.tgz#07b0ade11a43f2a8ce718480bdf3d7563a095195"
-  integrity sha512-xbYCJib4spUdmcs0g/2mK1nKo/jO2T7INClWd/beL7PFkXRWgr8B23ssDHX/USPn2M2IjDR5UdpYs6I67SnTSA==
+open@^7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/open/-/open-7.3.0.tgz#45461fdee46444f3645b6e14eb3ca94b82e1be69"
+  integrity sha512-mgLwQIx2F/ye9SmbrUkurZCnkoXyXyu9EbHtJZrICjVAJfyMArdHp3KkixGdZx1ZHFPNIwl0DDM1dFFqXbTLZw==
   dependencies:
     is-docker "^2.0.0"
     is-wsl "^2.1.1"
@@ -6146,19 +6132,6 @@ open@*:
 opener@~1.4.0:
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/opener/-/opener-1.4.3.tgz#5c6da2c5d7e5831e8ffa3964950f8d6674ac90b8"
-
-opn@*:
-  version "6.0.0"
-  resolved "https://registry.uxpin.pl:4873/opn/-/opn-6.0.0.tgz#3c5b0db676d5f97da1233d1ed42d182bc5a27d2d"
-  integrity sha512-I9PKfIZC+e4RXZ/qr1RhgyCnGgYX0UEIlXgWnCOVACIvFgaC9rz6Won7xbdhoHrd8IIhV7YEpHjreNUNkqCGkQ==
-  dependencies:
-    is-wsl "^1.1.0"
-
-opn@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.npmjs.org/opn/-/opn-5.4.0.tgz#cb545e7aab78562beb11aa3bfabc7042e1761035"
-  dependencies:
-    is-wsl "^1.1.0"
 
 optimist@0.6.x, optimist@>=0.3.4, optimist@^0.6.1:
   version "0.6.1"
@@ -8147,10 +8120,10 @@ typescript@>=2.6.1, typescript@^3.1.3:
   version "3.1.3"
   resolved "https://registry.npmjs.org/typescript/-/typescript-3.1.3.tgz#01b70247a6d3c2467f70c45795ef5ea18ce191d5"
 
-typescript@~3.1.3:
-  version "3.1.6"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-3.1.6.tgz#b6543a83cfc8c2befb3f4c8fba6896f5b0c9be68"
-  integrity sha512-tDMYfVtvpb96msS1lDX9MEdHrW4yOuZ4Kdc4Him9oU796XldPYF/t2+uKoX0BBa0hXXwDlqYQbXY5Rzjzc5hBA==
+typescript@~3.4.0:
+  version "3.4.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.5.tgz#2d2618d10bb566572b8d7aad5180d84257d70a99"
+  integrity sha512-YycBxUb49UUhdNMU5aJ7z5Ej2XGmaIBL0x34vZ82fn3hGvD+bgrMrVDpatgz2f7YxUMJxMkbWxJZeAvDxVe7Vw==
 
 ua-parser-js@^0.7.9:
   version "0.7.17"
