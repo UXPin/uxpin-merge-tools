@@ -1,3 +1,4 @@
+import * as ts from 'typescript';
 import { ParsedPropertyDescriptor } from './ParsedPropertyDescriptor';
 
 export type ComponentPropertyDefinition = ComponentProperty & ComponentPropertyCustomDescriptors;
@@ -63,7 +64,7 @@ export interface PropertyTypeStructureMap {
   custom:{};
   element:{};
   func:FunctionStructure;
-  literal:{ value:string | number };
+  literal:{ value:string | number | ts.PseudoBigInt };
   node:{};
   number:{};
   object:{};
