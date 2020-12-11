@@ -1,6 +1,8 @@
 import { SHORT_COMMIT_HASH_IDX } from '../../../../../../common/constants';
 import { execAsync } from '../../../../../../utils/child_process/execAsync';
 
+const REMOTE_PREFIX_RGX:RegExp = /^refs\/remotes\/[^\/]+\//;
+
 export async function getBranchesAtCommit(cwd:string, fullCommitHash:string):Promise<string[]> {
   const branches:Set<string> = new Set();
   const currentShortHash:string = fullCommitHash.substring(0, SHORT_COMMIT_HASH_IDX);
@@ -19,8 +21,8 @@ export async function getBranchesAtCommit(cwd:string, fullCommitHash:string):Pro
       const branchName:string = ref
         .replace('refs/heads/', '')
       // Remotes are left in because some platforms that do detached HEAD checkouts
-      // have master present but only as a remote
-        .replace('refs/remotes/', '')
+      // have master present but only as a remote. It's
+        .replace(REMOTE_PREFIX_RGX, '')
         .replace('@{0}:', '');
 
       branches.add(branchName);
