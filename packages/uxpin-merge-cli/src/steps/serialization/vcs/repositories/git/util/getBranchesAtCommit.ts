@@ -2,7 +2,7 @@ import { SHORT_COMMIT_HASH_IDX } from '../../../../../../common/constants';
 import { execAsync } from '../../../../../../utils/child_process/execAsync';
 
 export async function getBranchesAtCommit(cwd:string, fullCommitHash:string):Promise<string[]> {
-  let branches:Set<string> = new Set();
+  const branches:Set<string> = new Set();
   const currentShortHash:string = fullCommitHash.substring(0, SHORT_COMMIT_HASH_IDX);
 
   const rawReflogOutput:string = await execAsync('git reflog --all', { cwd });
@@ -16,7 +16,7 @@ export async function getBranchesAtCommit(cwd:string, fullCommitHash:string):Pro
     .forEach((l) => {
       // tslint:disable-next-line:no-unused-variable
       const [shortCommitHash, ref, ...rest] = l.split(/\s+/);
-      const branchName = ref
+      const branchName:string = ref
         .replace('refs/heads/', '')
       // Remotes are left in because some platforms that do detached HEAD checkouts
       // have master present but only as a remote
