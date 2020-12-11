@@ -3,7 +3,7 @@ import { encodeBranchName } from '../../../../../../common/services/UXPin/params
 
 export async function getCurrentBranch(cwd:string, override?:string):Promise<string> {
   // Use branch override if one is provided
-  const branch:string|undefined = encodeBranchName(override);
+  const branch:string|undefined = encodeBranchName(override || DEFAULT_BRANCH_NAME);
 
   // If branch is not already provided, source from shell
   if (!branch) {
