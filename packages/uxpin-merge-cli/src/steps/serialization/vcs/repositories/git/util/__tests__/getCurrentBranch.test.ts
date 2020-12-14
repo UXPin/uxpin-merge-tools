@@ -1,4 +1,5 @@
 import { resolve } from 'path';
+import { DEFAULT_BRANCH_NAME } from '../../../../../../../common/constants';
 import { execAsync } from '../../../../../../../utils/child_process/execAsync';
 import { getCurrentBranch } from '../getCurrentBranch';
 
@@ -25,9 +26,17 @@ describe('getCurrentBranch', () => {
       await execAsync('git checkout -b test', { cwd: path });
     });
 
-    it('should return proper branch name', async () => {
+    it('should return master if not given an override', async () => {
       // when
       const branch:string = await getCurrentBranch(path);
+
+      // then
+      expect(branch).toEqual(DEFAULT_BRANCH_NAME);
+    });
+
+    it('should return the real branch name only if given an override', async () => {
+      // when
+      const branch:string = await getCurrentBranch(path, 'test');
 
       // then
       expect(branch).toEqual('test');

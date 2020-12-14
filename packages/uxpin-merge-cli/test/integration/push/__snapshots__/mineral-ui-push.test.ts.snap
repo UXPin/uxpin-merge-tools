@@ -1,14 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pushing mineral-ui design system with required user webpack config prints warnings without stack traces to the console 1`] = `
-"[33m⚠️ Libraries pushed from branch different than master are currently not supported by UXPin Editor!
-[0mwarning Cannot compute default value for property \`triggerTitle\`
+"warning Cannot compute default value for property \`triggerTitle\`
 
 SyntaxError: Unexpected token :
 
  in:
 src/library/Card/CardFooter/CardFooter.js
 
-[32m✅ Library is up-to-date!
+[31m🛑 The current commit is not on branch [master], please specify --branch to use a custom branch
 [0m"
 `;

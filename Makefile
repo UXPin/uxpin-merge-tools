@@ -5,16 +5,16 @@ SHELL := /bin/bash -o pipefail
 dependencies: packages/uxpin-merge-cli/node_modules
 
 packages/uxpin-merge-cli/node_modules: packages/uxpin-merge-cli/package.json
-	cd packages/uxpin-merge-cli && yarn install
+	$(MAKE) -C packages/uxpin-merge-cli dependencies
 
 build:
-	cd packages/uxpin-merge-cli && make build
+	$(MAKE) -C packages/uxpin-merge-cli build
 
 check:
-	cd packages/uxpin-merge-cli && make check
+	$(MAKE) -C packages/uxpin-merge-cli check
 
 clean:
-	cd packages/uxpin-merge-cli && make clean
+	$(MAKE) -C packages/uxpin-merge-cli clean
 
 test:
-	cd packages/uxpin-merge-cli && make test
+	$(MAKE) -C packages/uxpin-merge-cli test

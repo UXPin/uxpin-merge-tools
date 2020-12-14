@@ -30,6 +30,10 @@ export interface PushProgramArgs {
   uxpinDomain?:string;
   webpackConfig?:string;
   wrapper?:string;
+
+  // Branch name to use as an override (normally for detached head state)
+  // https://github.com/UXPin/uxpin-merge-tools/issues/206
+  branch?:string;
 }
 
 export interface ServerProgramArgs {

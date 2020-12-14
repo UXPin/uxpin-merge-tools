@@ -1408,6 +1408,10 @@ Object {
   "vcs": Object {
     "branchName": "master",
     "commitHash": "542e947993425fec876e89d1d4bb3c19fca2b5fe",
+    "paths": Object {
+      "configPath": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/repos/polaris/uxpin.config.js",
+      "projectRoot": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/repos/polaris",
+    },
   },
 }
 `;

@@ -1975,8 +1975,12 @@ Object {
   ],
   "name": "Library from Code",
   "vcs": Object {
-    "branchName": "HEAD",
+    "branchName": "master",
     "commitHash": "d914edd5f97cadb284f7f47b783106c86fe430d9",
+    "paths": Object {
+      "configPath": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/configs/nordnet-ui-kit-uxpin.config.js",
+      "projectRoot": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/repos/nordnet-ui-kit",
+    },
   },
 }
 `;
