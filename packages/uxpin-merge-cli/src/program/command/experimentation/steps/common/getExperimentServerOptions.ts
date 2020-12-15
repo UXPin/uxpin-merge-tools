@@ -26,6 +26,7 @@ export async function getExperimentServerOptions(
     epid: await getProjectEPID(getEPIDFilePath(projectRoot)),
     ngrokSessionId,
     port,
+    projectMetadata,
     projectName: projectMetadata.name,
     projectRoot,
     skipBrowser,
