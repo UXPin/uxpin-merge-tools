@@ -1,14 +1,24 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
-import { DEFAULT_BRANCH_NAME, DEFAULT_REPO_POINTER_TYPE } from '../../../../../common/constants';
+import { DEFAULT_BRANCH_NAME } from '../../../../../common/constants';
 import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
 import { getNoCacheHeaders } from '../../headers/getNoCacheHeaders';
-import { RequestHandler } from '../RequestHandler';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
+import { RequestHandler } from '../RequestHandler';
 
-const DEFAULT_REPO_POINTER_METADATA = {
+export const enum RepositoryPointerType {
+  Branch = 'branch',
+  Tag = 'tag',
+}
+
+export interface RepoPointerNameAndType {
+  name:string;
+  type:RepositoryPointerType;
+}
+
+const DEFAULT_REPO_POINTER_METADATA:RepoPointerNameAndType = {
   name: DEFAULT_BRANCH_NAME,
-  type: DEFAULT_REPO_POINTER_TYPE,
+  type: RepositoryPointerType.Branch,
 };
 
 /**
@@ -24,7 +34,7 @@ export class GetRepositoryPointerDefaultHandler implements RequestHandler {
 
   public handle(request:IncomingMessage, response:ServerResponse):void {
     // Always return the current: Get the default commit
-    const pointer = {...DEFAULT_REPO_POINTER_METADATA};
+    const pointer:RepoPointerNameAndType = { ...DEFAULT_REPO_POINTER_METADATA };
     if (this.context.projectMetadata && this.context.projectMetadata.vcs) {
       pointer.name = this.context.projectMetadata.vcs.branchName;
     }
@@ -35,7 +45,7 @@ export class GetRepositoryPointerDefaultHandler implements RequestHandler {
       ...getNoCacheHeaders(),
     });
 
-    response.write(pointer);
+    response.write(JSON.stringify(pointer));
 
     response.end();
   }

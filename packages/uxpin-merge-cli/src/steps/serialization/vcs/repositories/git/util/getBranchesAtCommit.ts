@@ -16,13 +16,8 @@ export async function getBranchesAtCommit(cwd:string, fullCommitHash:string):Pro
     .filter((l) => l.includes(currentShortHash))
   // Convert the line to a structured object
     .forEach((l) => {
-      const items = l.split(/\s+/);
-      if (!items || items.length < 2) {
-        return;
-      }
-
       // tslint:disable-next-line:no-unused-variable
-      const [shortCommitHash, ref, ...rest] = items;
+      const [shortCommitHash, ref, ...rest] = l.split(/\s+/);
       const branchName:string = ref
         .replace('refs/heads/', '')
       // Remotes are left in because some platforms that do detached HEAD checkouts

@@ -7,8 +7,8 @@ import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundle
 import { GetCategoriesHandler } from './handler/code/GetCategoriesHandler';
 import { GetInfoHandler } from './handler/code/GetInfoHandler';
 import { GetPreviewsHandler } from './handler/code/GetPreviewsHandler';
-import { GetRepositoryPointerHandler } from './handler/code/GetRepositoryPointerHandler';
 import { GetRepositoryPointerDefaultHandler } from './handler/code/GetRepositoryPointerDefaultHandler';
+import { GetRepositoryPointerHandler } from './handler/code/GetRepositoryPointerHandler';
 import { GetVariablesHandler } from './handler/document/GetVariablesHandler';
 import { GetLibrariesHandler } from './handler/libraries/GetLibrariesHandler';
 import { GetLibrariesIndexHandler } from './handler/libraries/GetLibrariesIndexHandler';
@@ -25,7 +25,7 @@ export interface ExperimentationServerOptions extends ExperimentationServerConte
   projectRoot:string;
   skipBrowser:boolean;
 
-  projectMetadata?: DesignSystemSnapshot;
+  projectMetadata?:DesignSystemSnapshot;
 }
 
 export interface ExperimentationServerContext {
@@ -36,7 +36,7 @@ export interface ExperimentationServerContext {
   uxpinDirPath:string;
   uxpinDomain:string;
 
-  projectMetadata?: DesignSystemSnapshot;
+  projectMetadata?:DesignSystemSnapshot;
 }
 
 export async function startExperimentationServer(options:ExperimentationServerOptions):Promise<void> {
