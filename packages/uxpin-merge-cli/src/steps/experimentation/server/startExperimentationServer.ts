@@ -1,4 +1,5 @@
 import { createServer, Server } from 'http';
+import { DesignSystemSnapshot } from '../../serialization/DesignSystemSnapshot';
 import { getAPPExperimentationRemoteURL } from '../app/getAPPExperimentationRemoteURL';
 import { EPID } from '../epid/EPID';
 import { printServerReadyMessage } from './console/printServerReadyMessage';
@@ -6,6 +7,7 @@ import { createLibraryBundleHandler } from './handler/bundle/createLibraryBundle
 import { GetCategoriesHandler } from './handler/code/GetCategoriesHandler';
 import { GetInfoHandler } from './handler/code/GetInfoHandler';
 import { GetPreviewsHandler } from './handler/code/GetPreviewsHandler';
+import { GetRepositoryPointerDefaultHandler } from './handler/code/GetRepositoryPointerDefaultHandler';
 import { GetRepositoryPointerHandler } from './handler/code/GetRepositoryPointerHandler';
 import { GetVariablesHandler } from './handler/document/GetVariablesHandler';
 import { GetLibrariesHandler } from './handler/libraries/GetLibrariesHandler';
@@ -22,6 +24,8 @@ export interface ExperimentationServerOptions extends ExperimentationServerConte
   projectName:string;
   projectRoot:string;
   skipBrowser:boolean;
+
+  projectMetadata?:DesignSystemSnapshot;
 }
 
 export interface ExperimentationServerContext {
@@ -31,6 +35,8 @@ export interface ExperimentationServerContext {
   epid:EPID;
   uxpinDirPath:string;
   uxpinDomain:string;
+
+  projectMetadata?:DesignSystemSnapshot;
 }
 
 export async function startExperimentationServer(options:ExperimentationServerOptions):Promise<void> {
@@ -53,6 +59,7 @@ function registerHandlers(router:ServerRouter, context:ExperimentationServerCont
   router.register('/code/library.js', createLibraryBundleHandler(context));
   router.register('/code/previews', new GetPreviewsHandler(context));
   router.register('/code/repositoryPointer', new GetRepositoryPointerHandler());
+  router.register('/code/repositoryPointer/default', new GetRepositoryPointerDefaultHandler(context));
   router.register(/^\/documents\/([a-z0-9-_]+)\/variables$/, new GetVariablesHandler(context));
   router.register('/libraries/', new GetLibrariesHandler(context));
   router.register('/libraries/items/index/', new GetLibrariesIndexHandler());

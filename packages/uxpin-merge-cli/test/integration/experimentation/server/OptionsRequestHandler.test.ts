@@ -19,6 +19,7 @@ describe('OptionsRequestHandler', () => {
     '/libraries/',
     '/libraries/items/index/',
     '/code/repositoryPointer',
+    '/code/repositoryPointer/default',
     '/code/categories',
     '/code/previews',
   ];
