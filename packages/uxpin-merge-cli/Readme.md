@@ -34,6 +34,7 @@ will print the list of options:
     -v, --version            output the version number
     --webpack-config <path>  path to a custom webpack config, relative to the current working directory
     --wrapper <path>         path to a custom component wrapper, relative to the current working directory
+    --branch <branch>        branch to use when uploading. Default: master
     --cwd <path>             working directory: path to root of the DS repository. Default: `./`
     --config <path>          path to a config file. Default: `./uxpin.config.js`
     --port <number>          port number on which the local server will listen. Default: 8877
