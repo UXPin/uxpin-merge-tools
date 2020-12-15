@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.7.2] - 2020-12-15
+
+### Fixed
+- Fixed regression causing components panel to not load in Experimental Mode after 2.7.1 changes
+
 ## [2.7.1] - 2020-12-15
 
 ### Added
