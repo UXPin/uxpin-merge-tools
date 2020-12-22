@@ -8,6 +8,16 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
 
   if (options && options.storybook) {
     // Do storybook stuff
+    // TODO: Figure out the root directory
+
+    // TODO: Call storybook itself, with uxpin-merge CLI as a dep?
+
+    // TODO: uxpin-merge invocation from inside storybook writes out the config we need from storybook
+
+    // TODO: (alternatively) uxpin-merge just calls storybook to build the config? slurps the output from
+    // build-storybook --debug-webpack or start-storybook --debug-webpack
+
+    // TODO: uxpin-merge
   }
 
   await bundle(options);
