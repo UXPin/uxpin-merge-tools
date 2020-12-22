@@ -14,9 +14,10 @@ function getDefaultApiDomain(domain:string):string {
 }
 
 export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
-  const { token, uxpinDomain, webpackConfig, wrapper, branch } = args;
+  const { token, uxpinDomain, webpackConfig, wrapper, branch, storybook } = args;
 
   return {
+    storybook,
     branch,
     projectRoot: getProjectRoot(args),
     token,
@@ -29,4 +30,4 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
 }
 
 export type BuildProgramArgs = Pick<PushProgramArgs, 'cwd' | 'token'
-  | 'uxpinDomain' | 'webpackConfig' | 'wrapper' | 'branch'>;
+  | 'uxpinDomain' | 'webpackConfig' | 'wrapper' | 'branch' | 'storybook'>;

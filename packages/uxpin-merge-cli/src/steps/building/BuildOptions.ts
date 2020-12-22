@@ -8,4 +8,5 @@ export interface BuildOptions {
   webpackConfigPath?:string;
   wrapperPath?:string;
   branch?:string;
+  storybook:boolean;
 }
