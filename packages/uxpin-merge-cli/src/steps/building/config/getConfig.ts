@@ -46,9 +46,10 @@ export function getConfig(
 
   if (webpackConfigPath) {
     const userWebpackConfig:Configuration = require(join(projectRoot, webpackConfigPath));
-    return smart(userWebpackConfig, config);
+    config = smart(userWebpackConfig, config);
   }
 
+  console.log("MERGED CONFIG?", config);
 
   return config;
 }
