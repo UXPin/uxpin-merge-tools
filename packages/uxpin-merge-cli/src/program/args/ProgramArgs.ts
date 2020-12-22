@@ -70,6 +70,7 @@ export interface ExperimentProgramArgs {
   wrapper?:string;
   uxpinDomain:string;
   skipBrowser:boolean;
+  storybook:boolean;
 }
 
 export type Arg = string | CommanderStatic;

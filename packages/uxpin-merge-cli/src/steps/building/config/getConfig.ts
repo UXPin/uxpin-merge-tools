@@ -11,9 +11,17 @@ export const LIBRARY_INPUT_FILENAME:string = `components.js`;
 export const LIBRARY_OUTPUT_FILENAME:string = 'designsystemlibrary.js';
 
 export function getConfig(
-  { development, webpackConfigPath, projectRoot, uxpinDirPath }:BuildOptions,
+  {
+    development,
+    webpackConfigPath,
+    projectRoot,
+    uxpinDirPath,
+    storybook,
+    storybookWebpackConfigPath,
+  }:BuildOptions,
 ):Configuration {
-  const config:Configuration = decorateWithDevToolsWhenDevelopment({
+
+  let config:Configuration = decorateWithDevToolsWhenDevelopment({
     entry: getComponentLibraryInputPath(uxpinDirPath),
     mode: development ? 'development' : 'production',
     optimization: {
@@ -30,10 +38,17 @@ export function getConfig(
     },
   }, development);
 
+  // Add storybook configuration if storybook is enabled
+  if (storybook && storybookWebpackConfigPath) {
+    const storybookWebpackConfig:any = require(join(projectRoot, storybookWebpackConfigPath));
+    config = smart(storybookWebpackConfig, config);
+  }
+
   if (webpackConfigPath) {
     const userWebpackConfig:Configuration = require(join(projectRoot, webpackConfigPath));
     return smart(userWebpackConfig, config);
   }
+
 
   return config;
 }

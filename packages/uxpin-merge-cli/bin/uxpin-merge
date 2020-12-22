@@ -14,6 +14,11 @@ program
   .option('--port <number>', 'port number on which the local server will listen. Default: 8877')
   .option('--uxpin-domain <domain>', 'Can be used to set a UXPin private cloud domain. Default: `uxpin.com`')
   .option('--skip-browser', 'Don\'t open browser on start')
+  .option('--storybook', 'enable storybook integration')
+  .option(
+    '--storybook-config-path',
+    'path to the configuration to use with storybook. Default: <project>/.uxpin-merge/storybook.webpack.config.js',
+  )
   .option('--disable-tunneling', 'Turn off tunneling via ngrok');
 
 program

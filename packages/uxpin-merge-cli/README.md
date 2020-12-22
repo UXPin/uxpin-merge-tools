@@ -31,17 +31,19 @@ will print the list of options:
 
   Options:
 
-    -v, --version            output the version number
-    --webpack-config <path>  path to a custom webpack config, relative to the current working directory
-    --wrapper <path>         path to a custom component wrapper, relative to the current working directory
-    --branch <branch>        branch to use when uploading. Default: master
-    --cwd <path>             working directory: path to root of the DS repository. Default: `./`
-    --config <path>          path to a config file. Default: `./uxpin.config.js`
-    --port <number>          port number on which the local server will listen. Default: 8877
-    --uxpin-domain <domain>  Can be used to set a UXPin private cloud domain. Default: `uxpin.com`
-    --skip-browser           Don't open browser on start
-    --disable-tunneling      Turn off tunneling via ngrok
-    -h, --help               output usage information
+    -v, --version                     output the version number
+    --webpack-config <path>           path to a custom webpack config, relative to the current working directory
+    --storybook                       enable Storybook integration
+    --storybook-webpack-config <path> enable Storybook integration
+    --wrapper <path>                  path to a custom component wrapper, relative to the current working directory
+    --branch <branch>                 branch to use when uploading. Default: master
+    --cwd <path>                      working directory: path to root of the DS repository. Default: `./`
+    --config <path>                   path to a config file. Default: `./uxpin.config.js`
+    --port <number>                   port number on which the local server will listen. Default: 8877
+    --uxpin-domain <domain>           Can be used to set a UXPin private cloud domain. Default: `uxpin.com`
+    --skip-browser                    Don't open browser on start
+    --disable-tunneling               Turn off tunneling via ngrok
+    -h, --help                        output usage information
 
 
   Commands:

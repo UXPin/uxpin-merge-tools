@@ -10,12 +10,13 @@ export function experimentationBuildLibraryStep(args:ExperimentProgramArgs):Step
 }
 
 export function getBuildOptions(args:ExperimentProgramArgs):BuildOptions {
-  const { webpackConfig, wrapper } = args;
+  const { webpackConfig, wrapper, storybook } = args;
   return {
     development: true,
     projectRoot: getProjectRoot(args),
     uxpinDirPath: getTempDirPath(args),
     webpackConfigPath: webpackConfig,
     wrapperPath: wrapper,
+    storybook,
   };
 }

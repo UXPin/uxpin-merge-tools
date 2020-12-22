@@ -21,6 +21,7 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     port: 8877,
     skipBrowser: false,
     uxpinDomain: DEFAULT_UXPIN_DOMAIN,
+    storybook: false,
   },
   [Command.PUSH]: {
     command: Command.PUSH,
