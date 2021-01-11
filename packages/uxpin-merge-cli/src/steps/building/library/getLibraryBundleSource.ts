@@ -10,9 +10,21 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
     'import * as ReactDOM from \'react-dom\';',
   ];
 
+  // Build the list of imports for the component
   const imports:string[] = components
     .filter((comp) => !comp.namespace)
-    .map((comp) => `import ${getImportName(comp)} from '${getImportPath(comp)}';`);
+    .map((comp) => {
+      let importName = getImportName(comp);
+
+      // If we're dealing with a storybook import then we need to do some more work to the import statement to extract what we want
+      // the path to the import is still correct but what it exports is different
+      // https://storybook.js.org/docs/react/writing-stories/introduction
+      if (comp.name && comp.name.endsWith('.stories')) {
+        importName = `{ component as ${importName} }`;
+      }
+
+      return `import ${importName} from '${getImportPath(comp)}';`;
+    });
 
   const wrapperImport:string[] = getWrapperImport(wrapperPath);
 
@@ -20,7 +32,17 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
 
   const exports:string[] = [
     `export {`,
-    ...components.map((component) => `  ${getImportName(component)},`),
+    ...components.map((component) => {
+      const importName = getImportName(component);
+
+      // If we're dealing with a storybook import we need ot ensure the export name matches
+      if (importName.endsWith('Story')) {
+        const withoutStory = importName.replace(/Story$/, '');
+        return `  ${importName} as ${withoutStory},`;
+      }
+
+      return `  ${getImportName(component)},`;
+    }),
     ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER},`] : []),
     '  React,',
     '  ReactDOM,',
@@ -39,6 +61,12 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
 function getImportName({ name, namespace }:ComponentDefinition):string {
   if (namespace) {
     return namespace.importSlug;
+  }
+
+  // Import names for Storybook components should be stripped of .stories suffix
+  // and we'll use '<component Name>Story' instead
+  if (name.endsWith('.stories')) {
+    return name.replace(/\.stories$/, 'Story');
   }
 
   return name;
