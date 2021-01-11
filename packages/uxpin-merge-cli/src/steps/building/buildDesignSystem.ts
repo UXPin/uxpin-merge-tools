@@ -1,5 +1,5 @@
 import { existsSync } from 'fs';
-import { smart } from 'webpack-merge';
+import { merge as webpackMerge } from 'webpack-merge';
 import { join as joinPath } from 'path';
 
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
@@ -50,6 +50,7 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
     // Merge the options into the webpack options we have
     const sbWebpackConfig = require(sbWebpackConfigPath);
 
+    // See: steps/building/config/getConfig.ts
     options.storybookWebpackConfigPath = expectedConfigRelPath;
     // TODO: .uxpin-merge/storybook.webpack.config.js could just be the default value...
     console.log(`set storybookWebpackConfigPath to [${expectedConfigRelPath}]`);

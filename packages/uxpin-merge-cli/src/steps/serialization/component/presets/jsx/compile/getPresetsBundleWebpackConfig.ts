@@ -1,6 +1,6 @@
 import { join, parse, resolve } from 'path';
 import { Configuration } from 'webpack';
-import { smartStrategy } from 'webpack-merge';
+import { mergeWithRules as webpackMergeWithRules, CustomizeRule } from 'webpack-merge';
 import * as VirtualModulesPlugin from 'webpack-virtual-modules';
 import { VirtualComponentModule } from './generateVirtualModules';
 
@@ -85,7 +85,7 @@ export function getPresetsBundleWebpackConfig({
   if (webpackConfig) {
     const configProvider:Configuration|ConfigurationFunction = require(join(projectRoot, webpackConfig));
     const userWebpackConfig:Configuration = isConfigurationFunction(configProvider) ? configProvider() : configProvider;
-    return smartStrategy({ entry: 'replace' })(userWebpackConfig, config);
+    return webpackMergeWithRules({ entry: CustomizeRule.Replace })(userWebpackConfig, config);
   }
 
   return config;

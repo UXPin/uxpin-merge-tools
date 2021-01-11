@@ -1,6 +1,7 @@
-import { join } from 'path';
+import { writeFileSync } from 'fs';
+import { dirname, join } from 'path';
 import { Configuration } from 'webpack';
-import { smart } from 'webpack-merge';
+import { merge as webpackMerge } from 'webpack-merge';
 import { BuildOptions } from '../BuildOptions';
 import { getComponentLibraryInputPath } from '../library/getComponentLibraryInputPath';
 
@@ -38,18 +39,33 @@ export function getConfig(
     },
   }, development);
 
+  // Join the webpack configuration for the project with the config defined above
+  if (webpackConfigPath) {
+    const userWebpackConfig:Configuration = require(join(projectRoot, webpackConfigPath));
+    config = webpackMerge(userWebpackConfig, config);
+  }
+
+  if (storybookWebpackConfigPath) {
+    writeFileSync(
+      join(dirname(storybookWebpackConfigPath), "webpackConfig.before.json"),
+      JSON.stringify(config, null, '  '),
+    );
+  }
+
   // Add storybook configuration if storybook is enabled
   if (storybook && storybookWebpackConfigPath) {
     const storybookWebpackConfig:any = require(join(projectRoot, storybookWebpackConfigPath));
-    config = smart(storybookWebpackConfig, config);
+    config = webpackMerge(storybookWebpackConfig, config);
   }
 
-  if (webpackConfigPath) {
-    const userWebpackConfig:Configuration = require(join(projectRoot, webpackConfigPath));
-    config = smart(userWebpackConfig, config);
+  if (storybookWebpackConfigPath) {
+    writeFileSync(
+      join(dirname(storybookWebpackConfigPath), "webpackConfig.after.json"),
+      JSON.stringify(config, null, '  '),
+    );
   }
 
-  console.log("MERGED CONFIG?", config);
+  // console.log("MERGED CONFIG?", config);
 
   return config;
 }
