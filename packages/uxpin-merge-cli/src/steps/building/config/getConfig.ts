@@ -55,6 +55,32 @@ export function getConfig(
   // Add storybook configuration if storybook is enabled
   if (storybook && storybookWebpackConfigPath) {
     const storybookWebpackConfig:any = require(join(projectRoot, storybookWebpackConfigPath));
+
+    // Look through the storybook webpack config and remove any loaders that are babel-loaders
+    // as they would conflict with the default babel-loader as specified in uxpin-merge config
+    if (storybookWebpackConfig.module && storybookWebpackConfig.module.rules) {
+      storybookWebpackConfig.module.rules = storybookWebpackConfig.module.rules.filter((r: any) => {
+        // Ensure that the rule has a non babel-loader
+        if (r.loader && r.loader.includes("babel-loader/lib/index.js") && r.test === "/\\.(js|mjs|jsx|ts|tsx)$/") {
+          return false;
+        }
+
+        // Allow non-oneOf rules thorugh
+        if (!r.oneOf) { return true; }
+
+        // Do the same if dealing with a oneOf rule (which is an aggregate)
+        r.oneOf = r.oneOf.filter((r: any) => {
+          if (r.loader && r.loader.includes("babel-loader/lib/index.js") && r.test === "/\\.(js|mjs|jsx|ts|tsx)$/") {
+            return false;
+          }
+
+          return true;
+        });
+
+      });
+    }
+
+    // Merge the storybook webpack config with the app config
     config = webpackMerge(storybookWebpackConfig, config);
   }
 
@@ -64,6 +90,7 @@ export function getConfig(
       JSON.stringify(config, null, '  '),
     );
   }
+
 
   // console.log("MERGED CONFIG?", config);
 

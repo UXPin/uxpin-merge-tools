@@ -11,9 +11,10 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
   ];
 
   // Build the list of imports for the component
-  const imports:string[] = components
+  const imports:string[] = [];
+  components
     .filter((comp) => !comp.namespace)
-    .map((comp) => {
+    .forEach((comp) => {
       let importName = getImportName(comp);
 
       // If we're dealing with a storybook import then we need to do some more work to the import statement to extract what we want
@@ -23,7 +24,7 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
         importName = `{ component as ${importName} }`;
       }
 
-      return `import ${importName} from '${getImportPath(comp)}';`;
+      imports.push(`import ${importName} from '${getImportPath(comp)}';`);
     });
 
   const wrapperImport:string[] = getWrapperImport(wrapperPath);
@@ -32,17 +33,7 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
 
   const exports:string[] = [
     `export {`,
-    ...components.map((component) => {
-      const importName = getImportName(component);
-
-      // If we're dealing with a storybook import we need ot ensure the export name matches
-      if (importName.endsWith('Story')) {
-        const withoutStory = importName.replace(/Story$/, '');
-        return `  ${importName} as ${withoutStory},`;
-      }
-
-      return `  ${getImportName(component)},`;
-    }),
+    ...components.map((component) => `  ${getImportName(component)},`),
     ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER},`] : []),
     '  React,',
     '  ReactDOM,',
@@ -63,10 +54,9 @@ function getImportName({ name, namespace }:ComponentDefinition):string {
     return namespace.importSlug;
   }
 
-  // Import names for Storybook components should be stripped of .stories suffix
-  // and we'll use '<component Name>Story' instead
+  // Import names for Storybook components should be stripped of .stories
   if (name.endsWith('.stories')) {
-    return name.replace(/\.stories$/, 'Story');
+    return name.replace('.stories', '');
   }
 
   return name;
