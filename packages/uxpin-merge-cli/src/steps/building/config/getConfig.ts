@@ -57,7 +57,8 @@ export function getConfig(
     const storybookWebpackConfig:any = require(join(projectRoot, storybookWebpackConfigPath));
 
     // Look through the storybook webpack config and remove any loaders that are babel-loaders
-    // as they would conflict with the default babel-loader as specified in uxpin-merge config
+    // storybook's loaders interfere with the loading done for js and ts files locally and cause the
+    // exported bundle to not have any static exports (and be much shorter than normal)
     if (storybookWebpackConfig.module && storybookWebpackConfig.module.rules) {
       storybookWebpackConfig.module.rules = storybookWebpackConfig.module.rules.filter((r: any) => {
         // Ensure that the rule has a non babel-loader
@@ -78,6 +79,7 @@ export function getConfig(
         });
 
       });
+
     }
 
     // Merge the storybook webpack config with the app config
