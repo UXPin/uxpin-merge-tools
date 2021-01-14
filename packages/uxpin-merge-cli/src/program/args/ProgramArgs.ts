@@ -35,8 +35,7 @@ export interface PushProgramArgs {
   // https://github.com/UXPin/uxpin-merge-tools/issues/206
   branch?:string;
 
-  // Whether storybook integration is on/off
-  storybook?: boolean;
+  storybook?:boolean;
 }
 
 export interface ServerProgramArgs {
@@ -70,7 +69,8 @@ export interface ExperimentProgramArgs {
   wrapper?:string;
   uxpinDomain:string;
   skipBrowser:boolean;
-  storybook:boolean;
+
+  storybook?:boolean;
 }
 
 export type Arg = string | CommanderStatic;

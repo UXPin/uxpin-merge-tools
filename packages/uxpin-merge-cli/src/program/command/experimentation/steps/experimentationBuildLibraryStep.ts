@@ -14,9 +14,9 @@ export function getBuildOptions(args:ExperimentProgramArgs):BuildOptions {
   return {
     development: true,
     projectRoot: getProjectRoot(args),
+    storybook,
     uxpinDirPath: getTempDirPath(args),
     webpackConfigPath: webpackConfig,
     wrapperPath: wrapper,
-    storybook,
   };
 }

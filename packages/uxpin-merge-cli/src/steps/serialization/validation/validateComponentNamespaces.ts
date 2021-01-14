@@ -26,8 +26,9 @@ export function validateComponentNamespaces(categories:ComponentCategory[]):void
     const parents:string[] = getComponentNamespaceParents(name);
 
     const invalidParent:string | undefined = parents.find((parent:string) => !componentsMap[parent]);
-    // If we're in storybook mode, and the user provided <component>.stories.js files instead of <component>.js,
-    // the parent being invalid is allowed as the storybook config merged webpack build will resolve the export.component property
+    // Storybook components are specified via <component>.stories.js files instead of <component>.js.
+    // The parent being invalid is allowed as the storybook config merged webpack build
+    // will resolve the export.component (which is usually <component>.js) property
     if (invalidParent && !isStorybookComponent(component)) {
       throw new Error(`Namespace "${invalidParent}" does not exist!`);
     }

@@ -17,9 +17,9 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
   const { token, uxpinDomain, webpackConfig, wrapper, branch, storybook } = args;
 
   return {
-    storybook,
     branch,
     projectRoot: getProjectRoot(args),
+    storybook,
     token,
     uxpinApiDomain: getDefaultApiDomain(uxpinDomain!),
     uxpinDirPath: getTempDirPath(args),

@@ -16,14 +16,14 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
   components
     .filter((comp) => !comp.namespace)
     .forEach((comp) => {
-      const importName = getImportName(comp);
+      const importName:string = getImportName(comp);
 
       // If we're dealing with a storybook import then the import name is <component>Stories
       // (see getImportName) and we must do some work to get <component> to be the right export.
       // the path to the import is still correct but the exported object is a CSF-structured bundle
       // https://storybook.js.org/docs/react/writing-stories/introduction
       if (isStorybookComponent(comp)) {
-        const sbImportName = `${importName}Stories`;
+        const sbImportName:string = `${importName}Stories`;
         imports.push(`import ${sbImportName} from '${getImportPath(comp)}';`);
         imports.push(`const ${importName} = ${sbImportName}.component;`);
         return;

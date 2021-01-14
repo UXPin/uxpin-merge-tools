@@ -1,6 +1,6 @@
 import { join, parse, resolve } from 'path';
 import { Configuration } from 'webpack';
-import { mergeWithRules as webpackMergeWithRules, CustomizeRule } from 'webpack-merge';
+import { CustomizeRule, mergeWithRules as webpackMergeWithRules } from 'webpack-merge';
 import * as VirtualModulesPlugin from 'webpack-virtual-modules';
 import { VirtualComponentModule } from './generateVirtualModules';
 
