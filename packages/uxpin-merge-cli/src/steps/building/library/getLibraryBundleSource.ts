@@ -1,5 +1,6 @@
 import { parse, relative } from 'path';
 import { ComponentDefinition } from '../../serialization/component/ComponentDefinition';
+import { isStorybookComponent } from '../../serialization/component/storybook/isStorybookComponent';
 import { TEMP_DIR_PATH } from '../config/getConfig';
 
 const CLASS_NAME_WRAPPER:string = 'Wrapper';
@@ -15,15 +16,20 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
   components
     .filter((comp) => !comp.namespace)
     .forEach((comp) => {
-      let importName = getImportName(comp);
+      const importName = getImportName(comp);
 
-      // If we're dealing with a storybook import then we need to do some more work to the import statement to extract what we want
-      // the path to the import is still correct but what it exports is different
+      // If we're dealing with a storybook import then the import name is <component>Stories
+      // (see getImportName) and we must do some work to get <component> to be the right export.
+      // the path to the import is still correct but the exported object is a CSF-structured bundle
       // https://storybook.js.org/docs/react/writing-stories/introduction
-      if (comp.name && comp.name.endsWith('.stories')) {
-        importName = `{ component as ${importName} }`;
+      if (isStorybookComponent(comp)) {
+        const sbImportName = `${importName}Stories`;
+        imports.push(`import ${sbImportName} from '${getImportPath(comp)}';`);
+        imports.push(`const ${importName} = ${sbImportName}.component;`);
+        return;
       }
 
+      // Add the import
       imports.push(`import ${importName} from '${getImportPath(comp)}';`);
     });
 
@@ -49,13 +55,15 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
   ].join('\n');
 }
 
-function getImportName({ name, namespace }:ComponentDefinition):string {
+function getImportName(def:ComponentDefinition):string {
+  const { name, namespace } = def;
+
   if (namespace) {
     return namespace.importSlug;
   }
 
   // Import names for Storybook components should be stripped of .stories
-  if (name.endsWith('.stories')) {
+  if (isStorybookComponent(def)) {
     return name.replace('.stories', '');
   }
 
