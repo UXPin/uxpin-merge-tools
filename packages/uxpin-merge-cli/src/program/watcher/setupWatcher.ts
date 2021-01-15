@@ -5,7 +5,6 @@ import { getTempDirPath } from '../args/providers/paths/getTempDirPath';
 
 const DOT_FILES:RegExp = /(^|[\/\\])\../;
 const NODE_MODULES_TOP_LEVEL:RegExp = /^\/node_modules\//;
-const NODE_MODULES_ANYWHERE:RegExp = /node_modules/;
 
 export async function setupWatcher(programArgs:ProgramArgs, onChangeListener:WatchListener):Promise<void> {
   return new Promise<void>((resolve, reject) => {
@@ -14,7 +13,6 @@ export async function setupWatcher(programArgs:ProgramArgs, onChangeListener:Wat
       ignored: [
         DOT_FILES,
         NODE_MODULES_TOP_LEVEL,
-        NODE_MODULES_ANYWHERE,
         getConfigPath(programArgs),
         getTempDirPath(programArgs),
       ],
