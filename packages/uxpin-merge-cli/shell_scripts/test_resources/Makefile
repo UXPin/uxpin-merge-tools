@@ -16,7 +16,7 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	cd ../../test/resources/repos \
 	&& git clone https://github.com/alfa-laboratory/arui-feather.git \
 	&& cd arui-feather \
-	&& git checkout v11.3.1 \
+	&& git checkout v12.12.0 \
 	&& mkdir ./npm-cache \
 	&& npm install --cache=./npm-cache \
 	&& rm -rf ./npm-cache
