@@ -354,11 +354,6 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/aggregate-error/-/aggregate-error-1.0.0.tgz#7f811586f42802b1d84223536545263af931d89e"
 
-"@types/app-root-path@^1.2.4":
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/@types/app-root-path/-/app-root-path-1.2.4.tgz#a78b703282b32ac54de768f5512ecc3569919dc7"
-  integrity sha1-p4twMoKzKsVN52j1US7MNWmRncc=
-
 "@types/babel-core@^6.25.2":
   version "6.25.2"
   resolved "https://registry.yarnpkg.com/@types/babel-core/-/babel-core-6.25.2.tgz#500b7fef2834dce87b32311a4d67a1a757adaac7"
@@ -877,11 +872,6 @@ anymatch@^2.0.0:
   dependencies:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
-
-app-root-path@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/app-root-path/-/app-root-path-3.0.0.tgz#210b6f43873227e18a4b810a032283311555d5ad"
-  integrity sha512-qMcx+Gy2UZynHjOHOIXPNvpf+9cjvk3cWrBBK7zg4gH9+clobJRb9NGzcT7mQTcV/6Gm/1WelUtqxVXnNlrwcw==
 
 append-transform@^0.4.0:
   version "0.4.0"
