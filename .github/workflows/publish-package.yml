@@ -1,0 +1,32 @@
+name: Publish package
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: packages/uxpin-merge-cli
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 12.18.1
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.18.1
+    - run: yarn policies set-version 1.22.4
+
+    - name: Overwrite existing .npmrc
+      run: echo "${NPMRC}" > .npmrc
+      env:
+        NPMRC: |
+          @uxpin:registry=https://npm.pkg.github.com/
+          //npm.pkg.github.com/:_authToken="${{ secrets.GITHUB_TOKEN }}"
+
+    - run: make dependencies
+    - run: make build
+    - run: npm publish --verbose || true
