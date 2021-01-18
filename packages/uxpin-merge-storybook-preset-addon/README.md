@@ -7,20 +7,21 @@ This addon is used to enable [Storybook v6+](https://storybook.js.org/docs) supp
 
 ### 1. Set up Storybook in your Design System repository
 
-Given a repository that contains components that you'd like to use across your organization, ensure that it has Storybook v6 set up and functional.
+Given a repository that contains components that you'd like to use across your organization, ensure that it has [Storybook v6 installed](https://storybook.js.org/docs/react/get-started/install) and functional. The install steps normally consist of:
 
-The following requirements must be met:
+```shell
+$ yarn add -D storybook
+$ npx sb init
+```
 
-- Stories files for components should be of the form `<component name>.stories.[js|ts]`.
-- `storiesOf` should not be used ([CSF should be used instead](https://storybook.js.org/docs/react/api/csf), and the `component` key should be present)
+As you [write stories for your components](https://storybook.js.org/docs/react/get-started/whats-a-story), ensure the following requirements must be met:
+
+- Component stories' file names should be of the form `<component name>.stories.[js|ts]`.
+- `storiesOf` (Storybook v5 and below) should not be used ([CSF should be used instead](https://storybook.js.org/docs/react/api/csf)), and the `component` key should be present
 
 ### 2. Install UXPin Merge in your Design System repository
 
-Your storybook enabled repository now needs to have UXPin Merge added to it like so:
-
-```shell
-$ yarn add @uxpin/merge-cli # alternatively, npm install @uxpin/merge-cli
-```
+If UXPin Merge is not already installed and set up in your storybook enabled repository, install it and [integrate your components integrated](https://www.uxpin.com/docs/merge/integrating-your-own-components#requirements).
 
 ### 3. Add this Preset Addon to your Storybook configuration file
 
@@ -68,5 +69,5 @@ module.exports = {
 After updating the configuration, you may run `uxpin-merge` with the `--storybook` flag:
 
 ```shell
-$ uxpin-merge --disable-tunneling --storybook
+$ npx uxpin-merge --disable-tunneling --storybook
 ```

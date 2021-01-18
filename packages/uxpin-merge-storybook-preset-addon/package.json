@@ -1,5 +1,5 @@
 {
-  "name": "uxpin-merge-storybook-preset-addon",
+  "name": "@uxpin/merge-storybook-preset-addon",
   "version": "1.0.0",
   "description": "Storybook Preset Addon for UXPin Merge",
   "main": "preset.js",

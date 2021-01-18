@@ -34,7 +34,7 @@ will print the list of options:
     -v, --version                     output the version number
     --webpack-config <path>           path to a custom webpack config, relative to the current working directory
     --storybook                       enable Storybook integration
-    --storybook-webpack-config <path> enable Storybook integration
+    --storybook-webpack-config <path> override storybook configuration path
     --wrapper <path>                  path to a custom component wrapper, relative to the current working directory
     --branch <branch>                 branch to use when uploading. Default: master
     --cwd <path>                      working directory: path to root of the DS repository. Default: `./`
