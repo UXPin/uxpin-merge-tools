@@ -1,6 +1,5 @@
 import { Command } from '../../../src';
 import { Environment } from '../../../src/program/env/Environment';
-import { mineralUiServerStub } from '../../resources/stubs/mineralUi';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
@@ -11,7 +10,13 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('react-bootstrap-merge with storybook enabled', () => {
 
-  describe('dump with storybook enabled', () => {
+  beforeAll(async () => {
+    // TODO: Add storybook preset locally (copied locally)
+    // TODO: Overwrite storybook configuration file
+    // TODO: Overwrite uxpin config file
+  });
+
+  describe('dump with storybook enabled', async () => {
     it('succeeds', async () => {
       // Run UXPin merge to serve the local directory
       const consoleOutput = await runUXPinMergeCommand({
@@ -19,20 +24,27 @@ describe('react-bootstrap-merge with storybook enabled', () => {
         params: [ Command.DUMP, '--storybook' ],
       });
 
-      // Ensure that the output contains a success notification
-      expect(consoleOutput).toContain("Compiled successfully! Now you can refresh your browser.");
+      expect(consoleOutput).toContain('"dirPath": "src/Button",');
     });
   });
 
-  // describe('server with storybook enabled', () => {
+  describe('storybook build with uxpin preset', async () => {
+    it('succeeds ', async () => {
+      // TODO: run build-storybook (UXPin not involved)
+      // TODO: check for the generated storybook configuration in .uxpin-merge/
+    });
 
-  //   it('builds and serves properly', async () => {
+  // describe('server run with storybook enabled', () => {
+  //   it('succeeds', async () => {
   //     const params:string[] = [
   //       Command.SERVER,
   //       '--disable-tunneling',
   //       '--skip-browser',
   //       '--storybook',
   //     ];
+
+  //     // TODO: Start uxpin server
+  //     // Start uxpin server
 
   //     // Set up a listener to wait for the merge command to return the right line
   //     const listener = (line) => {
