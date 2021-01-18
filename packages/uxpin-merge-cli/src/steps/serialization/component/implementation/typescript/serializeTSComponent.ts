@@ -18,8 +18,10 @@ import { parseTSComponentProperties } from './parseTSComponentProperties';
 
 export async function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   const context:TSSerializationContext = getSerializationContext(component);
+  console.log("serialization context:", context);
 
   const declaration:ComponentDeclaration | undefined = getComponentDeclaration(context);
+  console.log("declaration?:", declaration);
   if (!declaration) {
     throw new Error('No component found!');
   }
