@@ -15,7 +15,7 @@ describe('react-bootstrap-merge with storybook enabled', () => {
     it('succeeds', async () => {
       // Run UXPin merge to serve the local directory
       const consoleOutput = await runUXPinMergeCommand({
-        cwd: 'resources/repos/react-bootstrap-build',
+        cwd: 'resources/repos/react-bootstrap-merge',
         params: [ Command.DUMP, '--storybook' ],
       });
 
@@ -42,7 +42,7 @@ describe('react-bootstrap-merge with storybook enabled', () => {
 
   //      // Run UXPin merge to serve the local directory
   //      const consoleOutput = await runUXPinMergeCommand({
-  //        cwd: 'resources/repos/react-bootstrap-build',
+  //        cwd: 'resources/repos/react-bootstrap-merge',
   //        params,
   //      });
 

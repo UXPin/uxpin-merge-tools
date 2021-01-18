@@ -63,5 +63,5 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& mkdir ./npm-cache \
 	&& npm install --cache=./npm-cache \
 	&& npm install -D storybook \
-	&& npx sb init \
+	&& npx sb init || true \
 	&& rm -rf ./npm-cache \
