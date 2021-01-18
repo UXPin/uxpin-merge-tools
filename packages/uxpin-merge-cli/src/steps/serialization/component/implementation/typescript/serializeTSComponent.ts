@@ -17,7 +17,8 @@ import { getSerializationContext, TSSerializationContext } from './context/getSe
 import { parseTSComponentProperties } from './parseTSComponentProperties';
 
 export async function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
-  // If the component path is of the form <component>.stories.ts then we expect the original component definition to be at <component>.ts
+  // If the component path is of the form <component>.stories.ts
+  // then we expect the original component definition to be at <component>.ts
   if (component.path.endsWith('stories.ts') || component.path.endsWith('stories.ts')) {
     component.path = component.path.replace(/\.stories\.ts$/, '.ts');
   }

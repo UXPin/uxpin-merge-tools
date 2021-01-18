@@ -1,8 +1,6 @@
 import { Command } from '../../../src';
-import { Environment } from '../../../src/program/env/Environment';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
-import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
 const CURRENT_TIMEOUT:number = 75000;
 
@@ -19,9 +17,9 @@ describe('react-bootstrap-merge with storybook enabled', () => {
   describe('dump with storybook enabled', async () => {
     it('succeeds', async () => {
       // Run UXPin merge to serve the local directory
-      const consoleOutput = await runUXPinMergeCommand({
+      const consoleOutput:string = await runUXPinMergeCommand({
         cwd: 'resources/repos/react-bootstrap-merge',
-        params: [ Command.DUMP, '--storybook' ],
+        params: [Command.DUMP, '--storybook'],
       });
 
       expect(consoleOutput).toContain('"dirPath": "src/Button",');
@@ -33,6 +31,7 @@ describe('react-bootstrap-merge with storybook enabled', () => {
       // TODO: run build-storybook (UXPin not involved)
       // TODO: check for the generated storybook configuration in .uxpin-merge/
     });
+  });
 
   // describe('server run with storybook enabled', () => {
   //   it('succeeds', async () => {
