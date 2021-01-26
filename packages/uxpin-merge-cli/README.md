@@ -46,6 +46,7 @@ will print the list of options:
 
   Commands:
 
+    init [options]     Creates default config files (uxpin.config.js, uxpin.webpack.config.js, UXPinWrapper)
     server [options]   Start local web server and display the list of design system components
     push [options]     Upload design system repository information to UXPin
     dump [options]     Shows all information (in JSON) about the design system repository and NOT send to UXPin

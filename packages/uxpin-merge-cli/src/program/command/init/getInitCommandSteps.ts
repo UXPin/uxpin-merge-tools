@@ -6,7 +6,7 @@ import { InitProgramArgs } from '../../args/ProgramArgs';
 import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
 import { Step } from '../Step';
 
-const RESOURCES_PATH:PathLike = '../../../../resources/';
+const RESOURCES_PATH:PathLike = '../../../resources/';
 const DEFAULT_FILES:string[] = [
   'uxpin.config.js',
   'uxpin.webpack.config.js',
