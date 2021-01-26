@@ -49,8 +49,6 @@ describe('react-bootstrap-merge with storybook enabled', () => {
 
     // Copy the modified Button.stories file to where it should be
     await copy(BUTTON_STORY_FIXTURE_PATH, INSTALLED_BUTTON_STORY_FILE_PATH);
-
-    // TODO: Replace the code in node_modules for merge CLI with the current built version of merge CLI
   });
 
   afterAll(() => {
