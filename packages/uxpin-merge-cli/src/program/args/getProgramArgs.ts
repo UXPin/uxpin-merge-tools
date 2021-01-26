@@ -22,6 +22,11 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     skipBrowser: false,
     uxpinDomain: DEFAULT_UXPIN_DOMAIN,
   },
+  [Command.INIT]: {
+    command: Command.INIT,
+    config: DEFAULT_CONFIG_PATH,
+    cwd: process.cwd(),
+  },
   [Command.PUSH]: {
     command: Command.PUSH,
     config: DEFAULT_CONFIG_PATH,
