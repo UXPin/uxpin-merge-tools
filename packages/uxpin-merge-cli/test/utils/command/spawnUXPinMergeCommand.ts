@@ -2,10 +2,10 @@ import { buildCommand } from './buildCommand';
 import { CmdOptions } from './CmdOptions';
 import { getAllCmdOptions } from './getAllCmdOptions';
 import { getExecOptions } from './getExecOptions';
-import { runCommand } from './runCommand';
+import { spawnCommand } from './spawnCommand';
 import { ChildProcess } from 'child_process';
 
-export function runUXPinMergeCommand(options:CmdOptions = {}):Promise<string> {
+export function spawnUXPinMergeCommand(options:CmdOptions = {}):Promise<ChildProcess> {
   const command:string = buildCommand(getAllCmdOptions(options));
-  return runCommand(command, getExecOptions());
+  return spawnCommand(command, getExecOptions());
 }

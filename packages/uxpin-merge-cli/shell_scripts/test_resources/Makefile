@@ -62,6 +62,6 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& cd react-bootstrap-merge \
 	&& mkdir ./npm-cache \
 	&& npm install --cache=./npm-cache \
-	&& npm install -D storybook \
+	&& npm install -D storybook@^6.1.15 \
 	&& npx sb init || true \
 	&& rm -rf ./npm-cache \

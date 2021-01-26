@@ -1,5 +1,9 @@
-import { existsSync } from 'fs';
+import { tmpdir } from 'os';
+import { existsSync, mkdtemp } from 'fs';
 import { join as joinPath } from 'path';
+import { promisify } from 'util';
+
+const mkdtempAsync = promisify(mkdtemp);
 
 import { execAsync } from '../../utils/child_process/execAsync';
 import { logger } from '../../utils/logger';
@@ -29,7 +33,7 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
 
     // Run a storybook build with the preset installed, which *should* generate
     // <project>/.uxpin-merge/storybook.webpack.config.js
-    const tmpPath:string = '/tmp/storybook-test'; // TODO: make a reasonable tmp path
+    const tmpPath:string = await mkdtempAsync(joinPath(tmpdir(), 'merge-cli-storybook-build-')).toString();
     const cmd:string = `${sbBuildBin} -o ${tmpPath} --docs`;
     logger.debug(`Running storybook with command [${cmd}]`);
     await execAsync(cmd);
