@@ -1,9 +1,6 @@
+import { mkdtemp, pathExists } from 'fs-extra';
 import { tmpdir } from 'os';
-import { existsSync, mkdtemp } from 'fs';
 import { join as joinPath } from 'path';
-import { promisify } from 'util';
-
-const mkdtempAsync = promisify(mkdtemp);
 
 import { execAsync } from '../../utils/child_process/execAsync';
 import { logger } from '../../utils/logger';
@@ -26,14 +23,15 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
 
     // Ensure storybook binary bin exists where we expect it to be
     const sbBuildBin:string = `${projectRoot}/node_modules/.bin/build-storybook`;
-    if (!existsSync(sbBuildBin)) {
+    const sbBuildBinExists:boolean = await pathExists(sbBuildBin);
+    if (!sbBuildBinExists) {
       throw new Error(`Failed to find expected Storybook binary @ expected location [${sbBuildBin}]`);
     }
     logger.debug(`Found Storybook binary @ [${sbBuildBin}]`);
 
     // Run a storybook build with the preset installed, which *should* generate
     // <project>/.uxpin-merge/storybook.webpack.config.js
-    const tmpPath:string = await mkdtempAsync(joinPath(tmpdir(), 'merge-cli-storybook-build-')).toString();
+    const tmpPath:string = await mkdtemp(joinPath(tmpdir(), 'merge-cli-storybook-build-')).toString();
     const cmd:string = `${sbBuildBin} -o ${tmpPath} --docs`;
     logger.debug(`Running storybook with command [${cmd}]`);
     await execAsync(cmd);
@@ -41,7 +39,8 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
 
     const expectedConfigRelPath:string = joinPath('.uxpin-merge', 'storybook.webpack.config.js');
     const sbWebpackConfigPath:string = joinPath(projectRoot, expectedConfigRelPath);
-    if (!existsSync(sbWebpackConfigPath)) {
+    const sbWebpackConfigPathExists:boolean = await pathExists(sbWebpackConfigPath);
+    if (!sbWebpackConfigPathExists) {
       throw new Error(`Failed to find expected UXPin Storybook addon generated artifact @ [${sbWebpackConfigPath}]`);
     }
     logger.debug(`Found expected generated Storybook webpack config @ [${sbWebpackConfigPath}]`);

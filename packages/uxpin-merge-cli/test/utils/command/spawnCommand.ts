@@ -1,5 +1,5 @@
-import { ExecOptions, ChildProcess, spawn } from 'child_process';
+import { ChildProcess, ExecOptions, spawn } from 'child_process';
 
 export function spawnCommand(command:string, options?:ExecOptions):Promise<ChildProcess> {
-  return Promise.resolve(spawn(command, [], {shell: true}));
+  return Promise.resolve(spawn(command, [], { shell: true }));
 }
