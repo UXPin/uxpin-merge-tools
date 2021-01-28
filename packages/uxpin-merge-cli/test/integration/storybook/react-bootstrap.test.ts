@@ -72,7 +72,6 @@ describe('react-bootstrap-merge with storybook enabled', () => {
 
   describe('storybook build with uxpin preset (Button)', async () => {
     it('succeeds', async () => {
-      // Run the build of storybook
       await execAsync('npx build-storybook', { cwd: PROJECT_ROOT_PATH });
 
       // The preset which was installed should generate a webpack config in .uxpin-merge
@@ -87,6 +86,7 @@ describe('react-bootstrap-merge with storybook enabled', () => {
 
       const childProcess:ChildProcess = await spawnUXPinMergeCommand({
         cwd: PROJECT_ROOT_PATH,
+        maxBuffer: 1024 * 1000,
         params: [
           Command.SERVER,
           '--disable-tunneling',
