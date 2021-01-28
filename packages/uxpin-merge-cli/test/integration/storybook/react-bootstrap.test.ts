@@ -8,8 +8,6 @@ import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { spawnUXPinMergeCommand } from '../../utils/command/spawnUXPinMergeCommand';
 
-const CURRENT_TIMEOUT:number = 75000;
-
 const PRESET_JS_PATH:string = resolvePath(
   joinPath(__dirname, '../../../../uxpin-merge-storybook-preset-addon/preset.js'),
 );
@@ -19,17 +17,20 @@ const STORYBOOK_CONFIG_DIR_PATH:string = joinPath(PROJECT_ROOT_PATH, '.storybook
 const STORYBOOK_CONFIG_FIXTURE_PATH:string = resolvePath(joinPath(__dirname, './fixtures/storybook-main-config.js'));
 const UXPIN_CONFIG_FIXTURE_PATH:string = resolvePath(joinPath(__dirname, './fixtures/uxpin-config.js'));
 const BUTTON_STORY_FIXTURE_PATH:string = resolvePath(joinPath(__dirname, './fixtures/Button.stories.js'));
+const UXPIN_WEBPACK_CONFIG_FIXTURE_PATH:string = resolvePath(joinPath(__dirname, './fixtures/uxpin-webpack-config.js'));
 
 const INSTALLED_PRESET_JS_PATH:string = joinPath(PROJECT_ROOT_PATH, '.storybook/uxpin-storybook.js');
 const INSTALLED_STORYBOOK_CONFIG_FILE_PATH:string = joinPath(PROJECT_ROOT_PATH, '.storybook/main.js');
 const INSTALLED_UXPIN_CONFIG_FILE_PATH:string = joinPath(PROJECT_ROOT_PATH, 'uxpin.config.js');
+const INSTALLED_UXPIN_WEBPACK_CONFIG_FILE_PATH:string = joinPath(PROJECT_ROOT_PATH, 'uxpin.webpack.config.js');
 const INSTALLED_BUTTON_STORY_FILE_PATH:string = joinPath(PROJECT_ROOT_PATH, 'src/Button/Button.stories.js');
 
 const GENERATED_WEBPACK_CONFIG_PATH:string = joinPath(PROJECT_ROOT_PATH, '.uxpin-merge/storybook.webpack.config.js');
 
 const MERGE_COMMAND_SUCCESS_LINE:string = 'server started successfully!';
 
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
+const TIMEOUT_MS:number = 750000;
+setTimeoutBeforeAll(TIMEOUT_MS);
 
 describe('react-bootstrap-merge with storybook enabled', () => {
   const processes:ChildProcess[] = [];
@@ -46,6 +47,9 @@ describe('react-bootstrap-merge with storybook enabled', () => {
 
     // Copy the modified uxpin config fixture in
     await copy(UXPIN_CONFIG_FIXTURE_PATH, INSTALLED_UXPIN_CONFIG_FILE_PATH);
+
+    // Copy the modified uxpin webpack config fixture in
+    await copy(UXPIN_WEBPACK_CONFIG_FIXTURE_PATH, INSTALLED_UXPIN_WEBPACK_CONFIG_FILE_PATH);
 
     // Copy the modified Button.stories file to where it should be
     await copy(BUTTON_STORY_FIXTURE_PATH, INSTALLED_BUTTON_STORY_FILE_PATH);
@@ -72,7 +76,9 @@ describe('react-bootstrap-merge with storybook enabled', () => {
 
   describe('storybook build with uxpin preset (Button)', async () => {
     it('succeeds', async () => {
-      await execAsync('npx build-storybook', { cwd: PROJECT_ROOT_PATH });
+      await execAsync('npx build-storybook', {
+        cwd: PROJECT_ROOT_PATH,
+      });
 
       // The preset which was installed should generate a webpack config in .uxpin-merge
       expect(await pathExists(GENERATED_WEBPACK_CONFIG_PATH));
@@ -86,7 +92,6 @@ describe('react-bootstrap-merge with storybook enabled', () => {
 
       const childProcess:ChildProcess = await spawnUXPinMergeCommand({
         cwd: PROJECT_ROOT_PATH,
-        maxBuffer: 1024 * 1000,
         params: [
           Command.SERVER,
           '--disable-tunneling',

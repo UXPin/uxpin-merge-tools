@@ -1,7 +1,7 @@
 import { ExecOptions } from 'child_process';
+import { DEFAULT_STDOUT_BUFFER_SIZE_BYTES } from '../../../src/common/constants';
 
-export function getExecOptions():ExecOptions {
-  const bytesPerKByte:number = 1024;
-  const maxStdOutBufferSizeInKB:number = 1000;
-  return { maxBuffer: bytesPerKByte * maxStdOutBufferSizeInKB };
+export function getExecOptions(options?:Partial<ExecOptions>):ExecOptions {
+  const maxBuffer:number = options && options.maxBuffer ? options.maxBuffer : DEFAULT_STDOUT_BUFFER_SIZE_BYTES;
+  return { ...options, maxBuffer };
 }
