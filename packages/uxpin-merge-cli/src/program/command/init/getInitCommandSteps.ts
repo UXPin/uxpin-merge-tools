@@ -6,12 +6,23 @@ import { InitProgramArgs } from '../../args/ProgramArgs';
 import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
 import { Step } from '../Step';
 
-const RESOURCES_PATH:PathLike = '../../../resources/';
-const DEFAULT_FILES:string[] = [
-  'uxpin.config.js',
-  'uxpin.webpack.config.js',
-  'src/Wrapper/UXPinWrapper.js',
+const RESOURCES_PATH:PathLike = '../../../resources';
+
+export interface DefaultFile {
+  source:PathLike;
+  target:PathLike;
+}
+
+const DEFAULT_CONFIG_FILES:DefaultFile[] = [
+  { source: 'uxpin.config.js', target: 'uxpin.config.js' },
+  { source: 'uxpin.webpack.config.js', target: 'uxpin.webpack.config.js' },
+  { source: 'UXPinWrapper.js', target: 'src/Wrapper/UXPinWrapper.js' },
 ];
+
+const EXAMPLE_COMPONENT:DefaultFile = {
+  source: 'Button',
+  target: 'src/components/Button',
+};
 
 export function getInitCommandSteps(args:InitProgramArgs):Step[] {
   return [
@@ -22,13 +33,19 @@ export function getInitCommandSteps(args:InitProgramArgs):Step[] {
 function copyDefaultFiles(args:InitProgramArgs):any {
   const projectRoot:PathLike = getProjectRoot(args);
   try {
-    DEFAULT_FILES.forEach((file) => {
-      const filePath:PathLike = projectRoot + '/' + file;
+    // config files
+    DEFAULT_CONFIG_FILES.forEach((file) => {
+      const filePath:PathLike = projectRoot + '/' + file.target;
       if (!existsSync(filePath)) {
-        const sourcePath:PathLike = resolve(__dirname, RESOURCES_PATH + file.substring(file.lastIndexOf('/') + 1));
-        copySync(sourcePath, filePath);
+        copySync(resolve(__dirname, RESOURCES_PATH + '/' + file.source), filePath);
       }
     });
+
+    // default component
+    const componentPath:PathLike = projectRoot + '/' + EXAMPLE_COMPONENT.target;
+    if (!existsSync(componentPath)) {
+      copySync(resolve(__dirname, RESOURCES_PATH + '/' + EXAMPLE_COMPONENT.source), componentPath);
+    }
   } catch (error) {
     printLine('🛑 There was an error while copying default config files. Please try again.', { color: PrintColor.RED });
     throw new Error(error.message);
