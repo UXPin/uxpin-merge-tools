@@ -37,14 +37,14 @@ function copyDefaultFiles(args:InitProgramArgs):any {
     DEFAULT_CONFIG_FILES.forEach((file) => {
       const filePath:PathLike = projectRoot + '/' + file.target;
       if (!existsSync(filePath)) {
-        copySync(resolve(__dirname, RESOURCES_PATH + '/' + file.source), filePath);
+        copySync(resolve(__dirname, `${RESOURCES_PATH}/${file.source}`), filePath);
       }
     });
 
     // default component
     const componentPath:PathLike = projectRoot + '/' + EXAMPLE_COMPONENT.target;
     if (!existsSync(componentPath)) {
-      copySync(resolve(__dirname, RESOURCES_PATH + '/' + EXAMPLE_COMPONENT.source), componentPath);
+      copySync(resolve(__dirname, `${RESOURCES_PATH}/${EXAMPLE_COMPONENT.source}`), componentPath);
     }
   } catch (error) {
     printLine('🛑 There was an error while copying default config files. Please try again.', { color: PrintColor.RED });
