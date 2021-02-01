@@ -50,7 +50,8 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
 export function getProgramArgs(program:RawProgramArgs):ProgramArgs {
   const command:Command = getCommand(program);
   const cliArgs:ProgramArgs = getCLIArgs(program, command);
-  const configArgs:ConfigEnabledProgramArgs = pickConfigArgs(getConfigPath({ ...defaultArgs[command], ...cliArgs }));
+  const configArgs:ConfigEnabledProgramArgs =
+    pickConfigArgs(getConfigPath({ ...defaultArgs[command], ...cliArgs }), command);
   return {
     ...defaultArgs[command],
     ...configArgs,
