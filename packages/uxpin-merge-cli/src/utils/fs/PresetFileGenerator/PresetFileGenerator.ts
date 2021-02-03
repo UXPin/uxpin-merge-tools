@@ -1,6 +1,6 @@
 import { mkdir, pathExists } from 'fs-extra';
+import { kebabCase } from 'lodash';
 import { dirname, resolve } from 'path';
-import { v4 } from 'uuid';
 import { ComponentImplementationInfo } from '../../../steps/discovery/component/ComponentInfo';
 import { getImplementationInfo } from '../../../steps/discovery/component/implementation/getImplementationInfo';
 import { ComponentMetadata } from '../../../steps/serialization/component/ComponentDefinition';
@@ -57,7 +57,7 @@ export class PresetFileGenerator {
 	  }
 
 	  this.componentMetadata = metadata;
-	  this.componentName = this.componentName;
+	  this.componentName = this.componentMetadata.name;
 	  this.setPropertiesValues();
   }
 
@@ -97,7 +97,7 @@ export class PresetFileGenerator {
 		  return result;
 	  }, [{
 		  name: 'uxpId',
-		  value: v4(),
+		  value: `${kebabCase(this.componentName)}-1`,
 	  }]);
   }
 

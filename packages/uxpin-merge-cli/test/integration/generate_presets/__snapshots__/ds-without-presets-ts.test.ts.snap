@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The generate presets command run for ds without presets repository create 0-default.jsx for Avatar component 1`] = `
+"import React from 'react';
+import Avatar from '../Avatar';
+
+export default (
+  <Avatar
+    uxpId=\\"avatar-1\\"
+    size=\\"\\"
+    imageUrl=\\"\\"
+  />
+);"
+`;

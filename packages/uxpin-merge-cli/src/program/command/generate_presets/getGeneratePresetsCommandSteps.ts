@@ -29,10 +29,6 @@ function thunkGenerateFiles(args:GeneratePresetsProgramArgs):() => Promise<void>
   return async () => {
     const { componentPath } = args;
 
-    const util:any = require('util');
-    // @ts-ignore
-    writeToFile(args.componentPath, util.inspect({ a: 1, b: () => { alert(1); }, c: /[a-d]/ }));
-
     if (componentPath) {
       await generatePresetFile(componentPath);
     } else {
