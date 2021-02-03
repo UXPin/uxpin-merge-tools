@@ -8,7 +8,7 @@ import { getProjectPaths } from './args/providers/paths/getProjectPaths';
 import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
 import { getStepsForWatcher } from './command/getStepsForWatcher';
-import { Step, StepExecutor } from './command/Step';
+import {Step, StepExecutor, StepWithoutDSExecutor} from './command/Step';
 import { DSMetadata } from './DSMeta';
 import { setNodeEnv } from './env/setNodeEnv';
 import { printCurrentVersionInfo } from './utils/version/printCurrentVersion';
@@ -49,14 +49,21 @@ function thunkRunCommandWhenFilesChanged(programArgs:ProgramArgs):(path:string) 
 }
 
 async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promise<void> {
-  const stepFunctions:StepExecutor[] = steps
+  const stepFunctions:Array<StepExecutor|StepWithoutDSExecutor> = steps
     .filter((step) => step.shouldRun)
     .map((step) => tapPromise(step.exec));
 
-  const paths:ProjectPaths = getProjectPaths(programArgs);
-  const designSystem:DSMetadata = await getDesignSystemMetadata(programArgs, paths);
+  if (shouldPassDesignSystemToCommand(programArgs)) {
+    const paths:ProjectPaths = getProjectPaths(programArgs);
+    const designSystem:DSMetadata = await getDesignSystemMetadata(programArgs, paths);
+    await pMapSeries(stepFunctions as StepExecutor[], (step) => step(designSystem));
+  } else {
+    await pMapSeries(stepFunctions as StepWithoutDSExecutor[], (step) => step());
+  }
+}
 
-  await pMapSeries(stepFunctions, (step) => step(designSystem));
+function shouldPassDesignSystemToCommand(programArgs:ProgramArgs):boolean {
+  return programArgs.command !== Command.GENERATE_PRESETS;
 }
 
 function isWatchChangesCommand(programArgs:ProgramArgs):boolean {

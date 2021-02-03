@@ -8,6 +8,11 @@ export const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
 const DEFAULT_UXPIN_DOMAIN:string = 'uxpin.com';
 
 const defaultArgs:{ [key in Command]:ProgramArgs } = {
+  [Command.GENERATE_PRESETS]: {
+    command: Command.GENERATE_PRESETS,
+    config: DEFAULT_CONFIG_PATH,
+    cwd: process.cwd(),
+  },
   [Command.DUMP]: {
     command: Command.DUMP,
     config: DEFAULT_CONFIG_PATH,
@@ -45,10 +50,10 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
 export function getProgramArgs(program:RawProgramArgs):ProgramArgs {
   const command:Command = getCommand(program);
   const cliArgs:ProgramArgs = getCLIArgs(program, command);
-  const configArgs:ConfigEnabledProgramArgs = pickConfigArgs(getConfigPath({ ...defaultArgs[command], ...cliArgs }));
+ // const configArgs:ConfigEnabledProgramArgs = pickConfigArgs(getConfigPath({ ...defaultArgs[command], ...cliArgs }));
   return {
     ...defaultArgs[command],
-    ...configArgs,
+    //...configArgs,
     ...cliArgs,
   } as ProgramArgs;
 }

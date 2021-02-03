@@ -17,6 +17,7 @@ export interface ConfigEnabledProgramArgs {
 }
 
 export type ProgramArgs = PushProgramArgs
+  | GeneratePresetsProgramArgs
   | ServerProgramArgs
   | DumpProgramArgs
   | SummaryProgramArgs
@@ -34,6 +35,13 @@ export interface PushProgramArgs {
   // Branch name to use as an override (normally for detached head state)
   // https://github.com/UXPin/uxpin-merge-tools/issues/206
   branch?:string;
+}
+
+export interface GeneratePresetsProgramArgs {
+  command:Command.GENERATE_PRESETS;
+  componentPath?:string;
+  cwd:string;
+  config?:string;
 }
 
 export interface ServerProgramArgs {
