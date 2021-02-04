@@ -3,7 +3,6 @@ import { getAllComponentsFromCategories } from '../component/categories/getAllCo
 import { ComponentDefinition } from '../component/ComponentDefinition';
 import { getComponentNamespacedName } from '../component/name/getComponentNamespacedName';
 import { getComponentNamespaceParents } from '../component/name/getComponentNamespaceParents';
-import { isStorybookComponent } from '../component/storybook/isStorybookComponent';
 
 export function validateComponentNamespaces(categories:ComponentCategory[]):void {
   const components:ComponentDefinition[] = getAllComponentsFromCategories(categories);
@@ -26,10 +25,7 @@ export function validateComponentNamespaces(categories:ComponentCategory[]):void
     const parents:string[] = getComponentNamespaceParents(name);
 
     const invalidParent:string | undefined = parents.find((parent:string) => !componentsMap[parent]);
-    // Storybook components are specified via <component>.stories.js files instead of <component>.js.
-    // The parent being invalid is allowed as the storybook config merged webpack build
-    // will resolve the export.component (which is usually <component>.js) property
-    if (invalidParent && !isStorybookComponent(component)) {
+    if (invalidParent) {
       throw new Error(`Namespace "${invalidParent}" does not exist!`);
     }
   });
