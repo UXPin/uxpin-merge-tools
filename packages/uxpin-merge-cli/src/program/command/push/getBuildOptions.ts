@@ -1,3 +1,4 @@
+import { Configuration } from 'webpack';
 import { isDevelopmentEnv } from '../../../program/env/isDevelopmentEnv';
 import { isTestEnv } from '../../../program/env/isTestEnv';
 import { BuildOptions } from '../../../steps/building/BuildOptions';
@@ -28,7 +29,7 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
     branch,
     projectRoot: getProjectRoot(args),
     storybook,
-    storybookWebpackConfigPath: storybookWebpackConfig,
+    storybookWebpackConfig,
     token,
     uxpinApiDomain: getDefaultApiDomain(uxpinDomain!),
     uxpinDirPath: getTempDirPath(args),
@@ -40,4 +41,9 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
 
 export type BuildProgramArgs = Pick<PushProgramArgs, 'cwd' | 'token'
   | 'uxpinDomain' | 'webpackConfig' | 'wrapper' | 'branch'
-  | 'storybook' | 'storybookWebpackConfig' >;
+  | 'storybook' >
+  & StorybookBuildArgs;
+
+type StorybookBuildArgs = {
+  storybookWebpackConfig?:Configuration;
+};

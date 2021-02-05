@@ -1,3 +1,5 @@
+import { Configuration } from "webpack";
+
 export interface BuildOptions {
   development?:boolean;
   projectRoot:string;
@@ -9,5 +11,5 @@ export interface BuildOptions {
   wrapperPath?:string;
   branch?:string;
   storybook?:boolean;
-  storybookWebpackConfigPath?:string;
+  storybookWebpackConfig?:Configuration;
 }

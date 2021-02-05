@@ -36,7 +36,6 @@ export interface PushProgramArgs {
   branch?:string;
 
   storybook?:boolean;
-  storybookWebpackConfig?:string;
 }
 
 export interface ServerProgramArgs {
@@ -48,7 +47,6 @@ export interface ServerProgramArgs {
   config:string;
 
   storybook?:boolean;
-  storybookWebpackConfig?:string;
 }
 
 export interface DumpProgramArgs {
@@ -57,7 +55,6 @@ export interface DumpProgramArgs {
   config:string;
 
   storybook?:boolean;
-  storybookWebpackConfig?:string;
 }
 
 export interface SummaryProgramArgs {
@@ -66,7 +63,6 @@ export interface SummaryProgramArgs {
   config:string;
 
   storybook?:boolean;
-  storybookWebpackConfig?:string;
 }
 
 export interface ExperimentProgramArgs {
@@ -81,7 +77,6 @@ export interface ExperimentProgramArgs {
   skipBrowser:boolean;
 
   storybook?:boolean;
-  storybookWebpackConfig?:string;
 }
 
 export type Arg = string | CommanderStatic;

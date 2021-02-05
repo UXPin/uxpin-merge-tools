@@ -6,5 +6,8 @@
   "repository": "https://github.com/UXPin/uxpin-merge-tools/",
   "author": "dev@uxpin.com",
   "license": "GPL-3.0",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "@uxpin/merge-cli": "link:/Users/naohiro/xenon/uxpin/uxpin-merge-tools-new/packages/uxpin-merge-cli"
+  }
 }
