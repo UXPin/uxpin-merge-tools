@@ -8,7 +8,7 @@ import { getProjectPaths } from './args/providers/paths/getProjectPaths';
 import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
 import { getStepsForWatcher } from './command/getStepsForWatcher';
-import {Step, StepExecutor, StepWithoutDSExecutor} from './command/Step';
+import { Step, StepExecutor, StepWithoutDSExecutor } from './command/Step';
 import { DSMetadata } from './DSMeta';
 import { setNodeEnv } from './env/setNodeEnv';
 import { printCurrentVersionInfo } from './utils/version/printCurrentVersion';

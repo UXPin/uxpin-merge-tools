@@ -9,10 +9,10 @@ import { Step } from './Step';
 import { getSummaryCommandSteps } from './summary/getSummaryCommandSteps';
 
 export function getSteps(args:ProgramArgs):Step[] {
-  console.log(args.command);
   switch (args.command) {
     case Command.GENERATE_PRESETS:
       return getGeneratePresetsCommandSteps(args);
+
     case Command.SERVER:
       return getServerCommandSteps(args);
 
