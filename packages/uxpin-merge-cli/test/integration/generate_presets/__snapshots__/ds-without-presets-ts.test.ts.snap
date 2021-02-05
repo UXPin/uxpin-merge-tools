@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The generate presets command run for ds without presets repository create 0-default.jsx for Avatar component 1`] = `
+exports[`The generate presets command run for Avatar component create 0-default.jsx 1`] = `
 "import React from 'react';
 import Avatar from '../Avatar';
 
@@ -9,6 +9,69 @@ export default (
     uxpId=\\"avatar-1\\"
     size=\\"\\"
     imageUrl=\\"\\"
+  />
+);"
+`;
+
+exports[`The generate presets command run for ButtonWithIconAsProp component create 0-default.jsx 1`] = `
+"import React from 'react';
+import ButtonWithIconAsProp from '../ButtonWithIconAsProp';
+
+export default (
+  <ButtonWithIconAsProp
+    uxpId=\\"button-with-icon-as-prop-1\\"
+    iconStart=\\"\\"
+    isPrimary={false}
+  >Put ButtonWithIconAsProp contents here</ButtonWithIconAsProp>
+);"
+`;
+
+exports[`The generate presets command run for MenuWithData component create 0-default.jsx 1`] = `
+"import React from 'react';
+import MenuWithData from '../MenuWithData';
+
+export default (
+  <MenuWithData
+    uxpId=\\"menu-with-data-1\\"
+    data={[]}
+  />
+);"
+`;
+
+exports[`The generate presets command run for whole ds based on uxpin.config.js create 0-default.jsx for Avatar 1`] = `
+"import React from 'react';
+import Avatar from '../Avatar';
+
+export default (
+  <Avatar
+    uxpId=\\"avatar-1\\"
+    size=\\"\\"
+    imageUrl=\\"\\"
+  />
+);"
+`;
+
+exports[`The generate presets command run for whole ds based on uxpin.config.js create 0-default.jsx for ButtonWithIconAsProp 1`] = `
+"import React from 'react';
+import ButtonWithIconAsProp from '../ButtonWithIconAsProp';
+
+export default (
+  <ButtonWithIconAsProp
+    uxpId=\\"button-with-icon-as-prop-1\\"
+    iconStart=\\"\\"
+    isPrimary={false}
+  >Put ButtonWithIconAsProp contents here</ButtonWithIconAsProp>
+);"
+`;
+
+exports[`The generate presets command run for whole ds based on uxpin.config.js create 0-default.jsx for MenuWithData 1`] = `
+"import React from 'react';
+import MenuWithData from '../MenuWithData';
+
+export default (
+  <MenuWithData
+    uxpId=\\"menu-with-data-1\\"
+    data={[]}
   />
 );"
 `;
