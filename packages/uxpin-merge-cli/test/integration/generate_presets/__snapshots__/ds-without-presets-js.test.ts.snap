@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The generate presets command run for Avatar component create 0-default.jsx 1`] = `
+"import React from 'react';
+import Avatar from '../Avatar';
+
+export default (
+  <Avatar
+    uxpId=\\"avatar-1\\"
+    size=\\"xs\\"
+    imageUrl=\\"\\"
+  />
+);"
+`;
+
+exports[`The generate presets command run for Button component create 0-default.jsx 1`] = `
+"import React from 'react';
+import Button from '../Button';
+
+export default (
+  <Button
+    uxpId=\\"button-1\\"
+    primary={false}
+  >Put Button contents here</Button>
+);"
+`;
+
+exports[`The generate presets command run for whole ds based on uxpin.config.js create 0-default.jsx for Avatar 1`] = `
+"import React from 'react';
+import Avatar from '../Avatar';
+
+export default (
+  <Avatar
+    uxpId=\\"avatar-1\\"
+    size=\\"xs\\"
+    imageUrl=\\"\\"
+  />
+);"
+`;
+
+exports[`The generate presets command run for whole ds based on uxpin.config.js create 0-default.jsx for Button 1`] = `
+"import React from 'react';
+import Button from '../Button';
+
+export default (
+  <Button
+    uxpId=\\"button-1\\"
+    primary={false}
+  >Put Button contents here</Button>
+);"
+`;
