@@ -1,14 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Button({ onClick, className, label, name, value, disabled }) {
+function Button({ onClick, label, disabled }) {
   return (
     <button
-      className={className}
-      name={name}
       onClick={onClick}
       type="button"
-      value={value}
       disabled={disabled}
     >
       {label}
@@ -18,17 +15,11 @@ function Button({ onClick, className, label, name, value, disabled }) {
 
 Button.propTypes = {
   onClick: PropTypes.func,
-  className: PropTypes.string,
-  name: PropTypes.string,
-  label: PropTypes.node,
-  value: PropTypes.string,
   disabled: PropTypes.bool,
+  label: PropTypes.node,
 };
 
 Button.defaultProps = {
-  className: '',
-  name: null,
-  value: undefined,
   onClick: null,
   disabled: false,
   label: null,
