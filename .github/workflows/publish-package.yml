@@ -17,8 +17,6 @@ jobs:
       with:
         node-version: 12.18.1
     - run: yarn policies set-version 1.22.4
-    - name: Install build-utils
-      run: yarn global add @uxpin/build-utils
 
     - name: Overwrite existing .npmrc
       run: echo "${NPMRC}" > .npmrc
@@ -26,6 +24,9 @@ jobs:
         NPMRC: |
           @uxpin:registry=https://npm.pkg.github.com/
           //npm.pkg.github.com/:_authToken="${{ secrets.GITHUB_TOKEN }}"
+
+    - name: Install build-utils
+      run: yarn global add @uxpin/build-utils
 
     - run: make dependencies
     - run: make build
