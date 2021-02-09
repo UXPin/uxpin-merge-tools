@@ -65,9 +65,11 @@ function checkDependencies():any {
   REQUIRED_DEPENDENCIES.forEach((library) => {
     try {
       require.resolve(library);
-      printLine(`✅ ${library} dependency found.`, { color: PrintColor.GREEN });
+      printLine(`✅ Required ${library} dependency found.`, { color: PrintColor.GREEN });
     } catch (e) {
-      printLine(`🛑 ${library} dependency is missing. Please install it.`, { color: PrintColor.RED });
+      printLine(
+        `🛑 Required ${library} dependency is missing. Please install it: yarn add ${library} --dev`,
+        { color: PrintColor.RED });
     }
   });
 }
