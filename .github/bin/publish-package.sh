@@ -10,5 +10,4 @@ fi
 
 export BUILD_NUM=${GITHUB_RUN_NUMBER}
 export tag=$(build-utils publishprepare --branch dev --build-num "${BUILD_NUM}")
-echo "${tag}"
-npm publish --tag "${tag}" --verbose || true
+npm publish --tag dev --verbose || true
