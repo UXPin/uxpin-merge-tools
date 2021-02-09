@@ -1,9 +1,7 @@
 name: Publish package
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
 
 jobs:
   publish:
@@ -19,6 +17,8 @@ jobs:
       with:
         node-version: 12.18.1
     - run: yarn policies set-version 1.22.4
+    - name: Install build-utils
+      run: yarn global add @uxpin/build-utils
 
     - name: Overwrite existing .npmrc
       run: echo "${NPMRC}" > .npmrc
@@ -29,4 +29,5 @@ jobs:
 
     - run: make dependencies
     - run: make build
-    - run: npm publish --verbose || true
+    - name: publish package
+      run: bash ../../.github/bin/publish-package.sh
