@@ -9,5 +9,6 @@ else
 fi
 
 export BUILD_NUM=${GITHUB_RUN_NUMBER}
-export tag=$(build-utils publishprepare --branch dev --build-num "${BUILD_NUM}")
+
+build-utils publishprepare --branch dev --build-num "${BUILD_NUM}"
 npm publish --tag dev --verbose || true
