@@ -55,13 +55,3 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& mv Component.js RenamedComponent.js \
 	&& git add . \
 	&& git commit -m "Renamed Component"
-
-../../test/resources/repos/react-bootstrap-merge:
-	cd ../../test/resources/repos \
-	&& git clone git@github.com:uxpin-merge/react-bootstrap-merge.git \
-	&& cd react-bootstrap-merge \
-	&& mkdir ./npm-cache \
-	&& npm install --cache=./npm-cache \
-	&& npm install -D storybook@^6.1.15 \
-	&& npx sb init \
-	&& rm -rf ./npm-cache \
