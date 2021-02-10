@@ -1,17 +1,21 @@
-import { buildDesignSystemWithStorybook } from '@uxpin/merge-cli';
+const { buildDesignSystemWithStorybook } = require('@uxpin/merge-cli');
+const { cloneDeep } = require('lodash');
 
 module.exports = {
-  webpackFinal: async (config, options) => {
-    const webpackConfig = {...config};
-    // Remove config-internal properties that are filled in by webpack
-    // These properties contain in-memory objects
-    delete webpackConfig['plugins'];
-    delete webpackConfig['resolve']['plugins'];
-    delete webpackConfig['resolveLoader']['plugins'];
-    delete webpackConfig['optimization']['minimizer'];
+  webpackFinal: async (config, option) => {
 
-    console.log('Building DS for uxpin-merge');
-    await buildDesignSystemWithStorybook(webpackConfig);
+    let webpackConfigForMerge = cloneDeep(config);;
+
+    option.presetsList.forEach(async (preset) => {
+      if (!preset.preset.webpackFinal || preset.name.includes('uxpin-merge-storybook-preset-addon')) {
+        return;
+      } else {
+        webpackConfigForMerge = await require(preset.name).webpackFinal(webpackConfigForMerge, option);
+      }
+    });
+
+    console.log('Building a design system for uxpin-merge')
+    await buildDesignSystemWithStorybook(webpackConfigForMerge);
 
     return config;
   },

@@ -1,5 +1,5 @@
 import * as path from 'path';
-import {pathExists } from 'fs-extra';
+import { pathExists } from 'fs-extra';
 import { Configuration } from 'webpack';
 import { getBuildOptions, BuildProgramArgs } from '../../program/command/push/getBuildOptions';
 import { BuildOptions } from './BuildOptions';
