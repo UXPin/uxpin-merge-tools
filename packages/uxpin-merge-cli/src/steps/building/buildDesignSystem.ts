@@ -1,5 +1,4 @@
-import { mkdtemp, pathExists } from 'fs-extra';
-import { tmpdir } from 'os';
+import { pathExists } from 'fs-extra';
 import { join as joinPath } from 'path';
 
 import { execAsync } from '../../utils/child_process/execAsync';
@@ -32,6 +31,7 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
     logger.debug(`Found Storybook binary @ [${sbBuildBin}]`);
 
     // Run a storybook build with the preset installed, which *should* generate
+    // <project>/.uxpin-merge/bundle.js
     const uxpinDirPath:string = joinPath(projectRoot, TEMP_DIR_PATH);
     const storybookOutputPath:string = joinPath(uxpinDirPath, 'merge-cli-storybook-build');
     const cmd:string = `${sbBuildBin} -o ${storybookOutputPath} --docs`;
@@ -51,7 +51,6 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
 
 export function bundle(options:BuildOptions):Promise<void> {
   setNodeEnvironment(options.development);
-
   return getCompiler(options).compile();
 }
 

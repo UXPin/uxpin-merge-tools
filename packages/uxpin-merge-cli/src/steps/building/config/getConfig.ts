@@ -15,7 +15,7 @@ export const LIBRARY_OUTPUT_FILENAME:string = 'designsystemlibrary.js';
 export const DEBUG_WEBPACK_FILENAME:string = 'uxpin.debug.webpack.config.js';
 
 export function getConfig(
-  { development, webpackConfigPath, projectRoot, uxpinDirPath, storybookWebpackConfig}:BuildOptions,
+  { development, webpackConfigPath, projectRoot, uxpinDirPath, storybookWebpackConfig }:BuildOptions,
 ):Configuration {
   let config:Configuration = decorateWithDevToolsWhenDevelopment({
     entry: getComponentLibraryInputPath(uxpinDirPath),

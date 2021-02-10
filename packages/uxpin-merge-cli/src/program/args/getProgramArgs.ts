@@ -20,7 +20,6 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     disableTunneling: false,
     port: 8877,
     skipBrowser: false,
-    storybook: false,
     uxpinDomain: DEFAULT_UXPIN_DOMAIN,
   },
   [Command.PUSH]: {
