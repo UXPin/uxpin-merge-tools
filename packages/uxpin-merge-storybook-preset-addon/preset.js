@@ -14,7 +14,6 @@ module.exports = {
       }
     });
 
-    console.log('Building a design system for uxpin-merge')
     await buildDesignSystemWithStorybook(webpackConfigForMerge);
 
     return config;
