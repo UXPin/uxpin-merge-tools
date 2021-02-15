@@ -4,7 +4,6 @@ import { getComponentCategoryInfos } from '../../../steps/discovery/component/ca
 import { ComponentInfo } from '../../../steps/discovery/component/ComponentInfo';
 import { printError } from '../../../utils/console/printLine';
 import { PresetFileGenerator } from '../../../utils/fs/PresetFileGenerator/PresetFileGenerator';
-import { writeToFile } from '../../../utils/fs/writeToFile';
 import { GeneratePresetsProgramArgs } from '../../args/ProgramArgs';
 import { getProjectPaths } from '../../args/providers/paths/getProjectPaths';
 import { Step } from '../Step';

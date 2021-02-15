@@ -95,19 +95,22 @@ describe('The generate presets command', () => {
 
     it('create 0-default.jsx for Avatar', async () => {
       // when
-      const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[0]}/presets/0-default.jsx`, 'utf-8');
+      const INDEX:number = 0;
+      const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[INDEX]}/presets/0-default.jsx`, 'utf-8');
       expect(content).toMatchSnapshot();
     });
 
     it('create 0-default.jsx for MenuWithData', async () => {
       // when
-      const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[1]}/presets/0-default.jsx`, 'utf-8');
+      const INDEX:number = 1;
+      const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[INDEX]}/presets/0-default.jsx`, 'utf-8');
       expect(content).toMatchSnapshot();
     });
 
     it('create 0-default.jsx for ButtonWithIconAsProp', async () => {
       // when
-      const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[2]}/presets/0-default.jsx`, 'utf-8');
+      const INDEX:number = 2;
+      const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[INDEX]}/presets/0-default.jsx`, 'utf-8');
       expect(content).toMatchSnapshot();
     });
   });

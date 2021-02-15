@@ -1,6 +1,6 @@
-import { mkdir, pathExists } from 'fs-extra';
+import { mkdir, pathExists, readFile } from 'fs-extra';
 import { kebabCase } from 'lodash';
-import { dirname, resolve } from 'path';
+import { dirname, relative, resolve } from 'path';
 import { ComponentImplementationInfo } from '../../../steps/discovery/component/ComponentInfo';
 import { getImplementationInfo } from '../../../steps/discovery/component/implementation/getImplementationInfo';
 import { ComponentMetadata } from '../../../steps/serialization/component/ComponentDefinition';
@@ -71,14 +71,14 @@ export class PresetFileGenerator {
       return;
     }
 
-    const componentFileContent:string = this.generateComponentFile();
+    const componentFileContent:string = await this.generateComponentFile();
     await writeToFile(this.presetFilePath, componentFileContent);
     printLine(`File ${this.presetFilePath} created successfully`, { color: PrintColor.GREEN });
   }
 
-  public generateComponentFile():string {
+  public async generateComponentFile():Promise<string> {
     return [
-      this.generateImports(),
+      await this.generateImports(),
       '',
       'export default (',
       `${INDENTATION_CHAR}<${this.componentName}`,
@@ -113,10 +113,24 @@ export class PresetFileGenerator {
     return !!this.componentProperties.find(isChildrenProp);
   }
 
-  private generateImports():string {
+  private async hasDefaultExport():Promise<boolean> {
+    try {
+      const file:string = await readFile(this.componentPath, 'utf8');
+      return file.indexOf('export default') !== -1;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  private async generateImports():Promise<string> {
+    const relativeComponentPath:string = relative(this.presetDirectory, this.componentPath)
+      .split('.')
+      .slice(0, -1)
+      .join('.');
+    const importName:string = (await this.hasDefaultExport()) ? this.componentName : `{ ${this.componentName} }`;
     const imports:string[] = [
       `import React from 'react';`,
-      `import ${this.componentName} from '../${this.componentName}';`,
+      `import ${importName} from '${relativeComponentPath}';`,
     ];
 
     return imports.join('\n');
