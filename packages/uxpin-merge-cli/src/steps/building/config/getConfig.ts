@@ -1,11 +1,12 @@
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
 import * as util from 'util';
 import { Configuration } from 'webpack';
 import { merge as webpackMerge } from 'webpack-merge';
+
+import { logger } from '../../../utils/logger';
 import { BuildOptions } from '../BuildOptions';
 import { getComponentLibraryInputPath } from '../library/getComponentLibraryInputPath';
-import { logger } from '../../../utils/logger'
 
 export const DEBUG_APP_BUNDLED_FILE:string = 'index.js';
 export const TEMP_DIR_NAME:string = '.uxpin-merge';
@@ -43,7 +44,7 @@ export function getConfig(
 
   // Writing out webpack config to degbug
   if (logger.level === 'debug') {
-    const debugConfigFilePath = path.join(projectRoot, TEMP_DIR_PATH, DEBUG_WEBPACK_FILENAME);
+    const debugConfigFilePath:string = path.join(projectRoot, TEMP_DIR_PATH, DEBUG_WEBPACK_FILENAME);
     fs.writeFileSync(debugConfigFilePath, util.inspect(config, false, null));
   }
 

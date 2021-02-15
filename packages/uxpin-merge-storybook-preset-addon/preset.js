@@ -9,9 +9,9 @@ module.exports = {
     option.presetsList.forEach(async (preset) => {
       if (!preset.preset.webpackFinal || preset.name.includes('uxpin-merge-storybook-preset-addon')) {
         return;
-      } else {
-        webpackConfigForMerge = await require(preset.name).webpackFinal(webpackConfigForMerge, option);
       }
+
+      webpackConfigForMerge = await require(preset.name).webpackFinal(webpackConfigForMerge, option);
     });
 
     await buildDesignSystemWithStorybook(webpackConfigForMerge);

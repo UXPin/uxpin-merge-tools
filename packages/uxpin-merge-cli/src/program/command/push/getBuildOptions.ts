@@ -44,6 +44,6 @@ export type BuildProgramArgs = Pick<PushProgramArgs, 'cwd' | 'token'
   | 'storybook' >
   & StorybookBuildArgs;
 
-type StorybookBuildArgs = {
+interface StorybookBuildArgs {
   storybookWebpackConfig?:Configuration;
-};
+}

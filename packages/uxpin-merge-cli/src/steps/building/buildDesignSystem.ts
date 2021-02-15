@@ -6,8 +6,8 @@ import { logger } from '../../utils/logger';
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
 import { BuildOptions } from './BuildOptions';
 import { getCompiler } from './compiler/getCompiler';
-import { createComponentsLibrary } from './library/createComponentsLibrary';
 import { LIBRARY_OUTPUT_FILENAME, TEMP_DIR_PATH } from './config/getConfig';
+import { createComponentsLibrary } from './library/createComponentsLibrary';
 
 export async function buildDesignSystem(components:ComponentDefinition[], options:BuildOptions):Promise<void> {
   await createComponentsLibrary(components, options);

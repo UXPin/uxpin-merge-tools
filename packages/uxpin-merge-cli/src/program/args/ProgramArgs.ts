@@ -30,11 +30,9 @@ export interface PushProgramArgs {
   uxpinDomain?:string;
   webpackConfig?:string;
   wrapper?:string;
-
   // Branch name to use as an override (normally for detached head state)
   // https://github.com/UXPin/uxpin-merge-tools/issues/206
   branch?:string;
-
   storybook?:boolean;
 }
 
@@ -45,7 +43,6 @@ export interface ServerProgramArgs {
   webpackConfig?:string;
   wrapper?:string;
   config:string;
-
   storybook?:boolean;
 }
 
@@ -53,7 +50,6 @@ export interface DumpProgramArgs {
   command:Command.DUMP;
   cwd:string;
   config:string;
-
   storybook?:boolean;
 }
 
@@ -61,7 +57,6 @@ export interface SummaryProgramArgs {
   command:Command.SUMMARY;
   cwd:string;
   config:string;
-
   storybook?:boolean;
 }
 
@@ -75,7 +70,6 @@ export interface ExperimentProgramArgs {
   wrapper?:string;
   uxpinDomain:string;
   skipBrowser:boolean;
-
   storybook?:boolean;
 }
 
