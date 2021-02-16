@@ -5,7 +5,7 @@ import { ComponentDoc } from 'react-docgen-typescript/lib';
 import { CommentTags } from '../../CommentTags';
 import { hasCommentTag } from './hasCommentTag';
 
-const parsers:Array<(file:string, filePath:string, handlers:Handler[]) => ComponentDoc | undefined> = [
+const parsers:Array<(file:string, handlers:Handler[]) => ComponentDoc | undefined> = [
   parseWithAnnotation,
   parseDefault,
 ];
@@ -22,7 +22,7 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
 
   for (const parser of parsers) {
     try {
-      componentDoc = parser(file, filePath, handlers);
+      componentDoc = parser(file, handlers);
     } catch (e) {
       error = e;
     }
@@ -39,9 +39,9 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
   return componentDoc;
 }
 
-function parseWithAnnotation(file:string, filePath:string, handlers:Handler[]):ComponentDoc | undefined {
+function parseWithAnnotation(file:string, handlers:Handler[]):ComponentDoc | undefined {
   const parsed:ComponentDoc[] =
-    parse(file, resolver.findAllComponentDefinitions, handlers, { filename: filePath }) as ComponentDoc[];
+    parse(file, resolver.findAllComponentDefinitions, handlers) as ComponentDoc[];
 
   for (const componentDoc of parsed) {
     if (hasCommentTag(componentDoc.description, CommentTags.UXPIN_COMPONENT)) {
@@ -50,6 +50,6 @@ function parseWithAnnotation(file:string, filePath:string, handlers:Handler[]):C
   }
 }
 
-function parseDefault(file:string, filePath:string, handlers:Handler[]):ComponentDoc | undefined {
-  return parse(file, undefined, handlers, { filename: filePath }) as ComponentDoc;
+function parseDefault(file:string, handlers:Handler[]):ComponentDoc | undefined {
+  return parse(file, undefined, handlers) as ComponentDoc;
 }
