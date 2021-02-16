@@ -44,6 +44,10 @@ export function getPresetsBundleWebpackConfig({
                 pragma: '__uxpinParsePreset',
               }],
             ],
+            // `babelrc: false` option doesn't ignore `babel.config.js` configuration file.
+            // So, setting root to be node_modules/@uxpin/merge-cli will prevent it.
+            // If you really need to customize, you can add in uxpin.webpack.config.js
+            root: './node_modules/@uxpin/merge-cli',
           },
           test: /\.jsx?$/,
         },
