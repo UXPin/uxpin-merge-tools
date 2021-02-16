@@ -33,7 +33,7 @@ const EXAMPLE_COMPONENT:DefaultFile = {
 export function getInitCommandSteps(args:InitProgramArgs):Step[] {
   return [
     { exec: copyDefaultFiles(args), shouldRun: true },
-    { exec: checkDependencies(), shouldRun: true },
+    { exec: checkDependencies(args), shouldRun: true },
   ];
 }
 
@@ -61,10 +61,11 @@ function copyDefaultFiles(args:InitProgramArgs):any {
   }
 }
 
-function checkDependencies():any {
+function checkDependencies(args:InitProgramArgs):any {
+  const projectRoot:PathLike = getProjectRoot(args);
   REQUIRED_DEPENDENCIES.forEach((library) => {
     try {
-      require.resolve(library);
+      require.resolve(projectRoot + '/node_modules/' + library);
       printLine(`✅ Required ${library} dependency found.`, { color: PrintColor.GREEN });
     } catch (e) {
       printLine(
