@@ -1,12 +1,17 @@
 import * as webpack from 'webpack';
 import { formatWebpackErrorMessages } from '../../../../utils/webpack/formatWebpackErrorMessages';
 import { Compiler } from '../Compiler';
+import { getStorybookWebpack } from './getStorybookWebpack';
 
 export class WebpackCompiler implements Compiler {
   private compiler:webpack.Compiler;
 
-  constructor(private readonly config:webpack.Configuration) {
-    this.compiler = webpack(this.config);
+  constructor(private readonly config:webpack.Configuration, storybook:boolean = false) {
+    if (storybook) {
+      this.compiler = getStorybookWebpack(this.config);
+    } else {
+      this.compiler = webpack(this.config);
+    }
   }
 
   public compile():Promise<void> {
