@@ -44,10 +44,6 @@ export function getPresetsBundleWebpackConfig({
                 pragma: '__uxpinParsePreset',
               }],
             ],
-            // We don't want to load project babel configuration for preset file, but `babelrc` option doesn't ignore
-            // `babel.config.js` configuration file. Setting root to be node_modules/@uxpin/merge-cli will prevent it.
-            // If you really need to customize, you can add in uxpin.webpack.config.js
-            root: './node_modules/@uxpin/merge-cli',
           },
           test: /\.jsx?$/,
         },
