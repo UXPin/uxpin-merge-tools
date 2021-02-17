@@ -8,6 +8,6 @@
   "license": "GPL-3.0",
   "private": false,
   "dependencies": {
-    "@uxpin/merge-cli": "link:/Users/naohiro/xenon/uxpin/uxpin-merge-tools-new/packages/uxpin-merge-cli"
+    "@uxpin/merge-cli": "link:../packages/uxpin-merge-cli"
   }
 }
