@@ -1,7 +1,7 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 
-test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/repos/polaris ../../test/resources/repos/mineral-ui ../../test/resources/repos/git-repo ../../test/resources/repos/git-repo-rename
+test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/repos/polaris ../../test/resources/repos/mineral-ui ../../test/resources/repos/git-repo ../../test/resources/repos/git-repo-rename ../../test/resources/repos/storybook-design-system
 
 ../../test/resources/repos/nordnet-ui-kit:
 	cd ../../test/resources/repos \
