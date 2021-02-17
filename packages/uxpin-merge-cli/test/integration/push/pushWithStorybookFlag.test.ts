@@ -1,0 +1,41 @@
+import { pathExists } from 'fs-extra';
+import { join as joinPath } from 'path';
+import { Command } from '../../../src';
+import { Environment } from '../../../src/program/env/Environment';
+
+import { LIBRARY_OUTPUT_FILENAME, STORYBOOK_OUTPUT_DIR, TEMP_DIR_PATH } from '../../../src/steps/building/config/getConfig';
+import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
+import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
+import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
+import { testDirPath } from '../../utils/resources/testDirPath';
+import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
+
+const CURRENT_TIMEOUT:number = 75000;
+
+setTimeoutBeforeAll(CURRENT_TIMEOUT);
+
+describe('Push repos/storybook-design-system with --storybook flag', async () => {
+  const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
+  const params:string[] = [
+    Command.PUSH,
+    '--storybook',
+    '--config="./uxpin.config.js"',
+    '--token DUMMY_TOKEN',
+  ];
+
+  const uxpinTempPath:string = joinPath(testDirPath, 'resources/repos/nordnet-ui-kit', TEMP_DIR_PATH);
+
+  it ('generate merge and storybook artifacts', async () => {
+    await runUXPinMergeCommand({
+      cwd: 'resources/repos/storybook-design-system',
+      env: {
+        UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+        UXPIN_ENV: Environment.TEST,
+      },
+      params,
+    });
+
+    expect(pathExists(joinPath(uxpinTempPath, LIBRARY_OUTPUT_FILENAME))).toBeTruthy();
+    expect(pathExists(joinPath(uxpinTempPath, STORYBOOK_OUTPUT_DIR))).toBeTruthy();
+  });
+});

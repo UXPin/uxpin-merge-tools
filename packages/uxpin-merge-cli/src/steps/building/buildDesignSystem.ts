@@ -6,7 +6,7 @@ import { logger } from '../../utils/logger';
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
 import { BuildOptions } from './BuildOptions';
 import { getCompiler } from './compiler/getCompiler';
-import { LIBRARY_OUTPUT_FILENAME, TEMP_DIR_PATH } from './config/getConfig';
+import { LIBRARY_OUTPUT_FILENAME, STORYBOOK_OUTPUT_DIR, TEMP_DIR_PATH } from './config/getConfig';
 import { createComponentsLibrary } from './library/createComponentsLibrary';
 
 export async function buildDesignSystem(components:ComponentDefinition[], options:BuildOptions):Promise<void> {
@@ -33,7 +33,7 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
     // Run a storybook build with the preset installed, which *should* generate
     // <project>/.uxpin-merge/bundle.js
     const uxpinDirPath:string = joinPath(projectRoot, TEMP_DIR_PATH);
-    const storybookOutputPath:string = joinPath(uxpinDirPath, 'merge-cli-storybook-build');
+    const storybookOutputPath:string = joinPath(uxpinDirPath, STORYBOOK_OUTPUT_DIR);
     const cmd:string = `${sbBuildBin} -o ${storybookOutputPath} --docs`;
     logger.debug(`Running storybook with command [${cmd}]`);
     await execAsync(cmd);

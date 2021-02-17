@@ -55,3 +55,29 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& mv Component.js RenamedComponent.js \
 	&& git add . \
 	&& git commit -m "Renamed Component"
+
+# NOTE for test with Storybook DS.
+# last manually tested version is 3da80d0079a522d8e6773edc4e5bb3322ad162b4
+# but not checking out for this test resource because the ultimate goal is
+# "if you have storybook integreated, it should work"
+# And when we finish storybook integration,
+# 1. We should not need to replace Button.js with ButtonWithDefaultExport.js
+# 2. We should not need uxpin.config.js
+# 3. We should not need to modify babel.config.js
+../../test/resources/repos/storybook-design-system:
+	cd ../../test/resources/repos \
+	&& git clone https://github.com/storybookjs/design-system.git ./storybook-design-system \
+	&& cd storybook-design-system \
+	&& mkdir ./yarn-cache \
+	&& yarn install --cache-folder ./yarn-cache \
+	&& yarn add -D link:../../../../../uxpin-merge-storybook-preset-addon \
+	&& rm -f babel.config.js \
+	&& rm -f ./.storybook/main.js \
+	&& rm -f ./src/components/Button.js \
+	&& cp ../../components/javascript/storybook-design-system/ButtonWithDefaultExport.js ./src/components/Button.js \
+	&& cp ../../configs/storybook-design-system-babel.config.js ./babel.config.js \
+	&& cp ../../configs/storybook-design-system-main.js ./.storybook/main.js \
+	&& cp ../../configs/storybook-design-system-uxpin.config.js ./uxpin.config.js \
+	&& cp ../../configs/storybook-design-system-uxpin.config.js ./uxpin.config.js \
+	&& cp ../../configs/storybook-design-system-uxpin.config.js ./uxpin.config.js \
+	&& rm -rf ./yarn-cache
