@@ -57,10 +57,11 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& git commit -m "Renamed Component"
 
 # NOTE for test with Storybook DS.
-# last manually tested version is 3da80d0079a522d8e6773edc4e5bb3322ad162b4
+# The version we test manually lat time is 3da80d0079a522d8e6773edc4e5bb3322ad162b4
 # but not checking out for this test resource because the ultimate goal is
-# "if you have storybook integreated, it should work"
-# And when we finish storybook integration,
+# "if you have storybook integreated, it should work". And if this stops working
+# We should know and check what has changed.
+# By the time we finish storybook integration,
 # 1. We should not need to replace Button.js with ButtonWithDefaultExport.js
 # 2. We should not need uxpin.config.js
 # 3. We should not need to modify babel.config.js
