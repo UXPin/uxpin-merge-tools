@@ -16,14 +16,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Push repos/storybook-design-system with --storybook flag', async () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
-  const params:string[] = [
-    Command.PUSH,
-    '--storybook',
-    '--config="./uxpin.config.js"',
-    '--token DUMMY_TOKEN',
-  ];
-
-  const uxpinTempPath:string = joinPath(testDirPath, 'resources/repos/nordnet-ui-kit', TEMP_DIR_PATH);
+  const uxpinTempPath:string = joinPath(testDirPath, 'resources/repos/storybook-design-system', TEMP_DIR_PATH);
 
   it ('generate merge and storybook artifacts', async () => {
     await runUXPinMergeCommand({
@@ -32,10 +25,17 @@ describe('Push repos/storybook-design-system with --storybook flag', async () =>
         UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
         UXPIN_ENV: Environment.TEST,
       },
-      params,
+      params: [
+        Command.PUSH,
+        '--storybook',
+        '--config="./uxpin.config.js"',
+        '--token DUMMY_TOKEN',
+      ],
     });
 
-    expect(pathExists(joinPath(uxpinTempPath, LIBRARY_OUTPUT_FILENAME))).toBeTruthy();
-    expect(pathExists(joinPath(uxpinTempPath, STORYBOOK_OUTPUT_DIR))).toBeTruthy();
+    const mergeOutputExists:boolean = await pathExists(joinPath(uxpinTempPath, LIBRARY_OUTPUT_FILENAME));
+    const storybookOutputExists:boolean = await pathExists(joinPath(uxpinTempPath, STORYBOOK_OUTPUT_DIR));
+    expect(mergeOutputExists).toBeTruthy();
+    expect(storybookOutputExists).toBeTruthy();
   });
 });
