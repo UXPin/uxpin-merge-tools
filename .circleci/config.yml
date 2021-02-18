@@ -50,7 +50,6 @@ jobs:
           no_output_timeout: 30m
           environment:
             CHROME_PATH: /usr/bin/google-chrome
-          background: true
       - store_test_results:
           path: ./reports
       - run:
