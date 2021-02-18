@@ -15,16 +15,9 @@ const CURRENT_TIMEOUT:number = 750000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 const PROJECT_DIR:string = joinPath(testDirPath, 'resources/repos/storybook-design-system');
 const UXPIN_TEMP_DIR:string = joinPath(PROJECT_DIR, TEMP_DIR_PATH);
-const UXPIN_STORYBOOK_ADDON:string = '@uxpin/merge-storybook-preset-addon';
 
 describe('Push repos/storybook-design-system with --storybook flag', () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
-
-  it (`${UXPIN_STORYBOOK_ADDON} is installed(linked)`, () => {
-    // @ts-ignore
-    const addonPath:string = require.resolve(UXPIN_STORYBOOK_ADDON, { paths: [joinPath(PROJECT_DIR, 'node_modules')] });
-    expect(addonPath).toBe(joinPath(PROJECT_DIR, 'node_modules', UXPIN_STORYBOOK_ADDON, 'preset.js'));
-  });
 
   it ('generate merge and storybook artifacts', async () => {
     await runUXPinMergeCommand({

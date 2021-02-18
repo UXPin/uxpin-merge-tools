@@ -49,8 +49,8 @@ jobs:
           name: "Install dependencies for uxpin-merge-storybook-preset-addon"
           command: cd ../uxpin-merge-storybook-preset-addon && yarn install
       - run:
-          name: "Build storybook"
-          command: cd ./test/resources/repos/storybook-design-system && BUILD_STORYBOOK_WITH_UXPIN_MERGE=true npx build-storybook
+          name: "Run pushWithStorybookFlag test"
+          command: UXPIN_ENV=test npx jest test/integration/push/pushWithStorybookFlag.test.ts
       - run:
           name: "Test"
           command: make test-ci
