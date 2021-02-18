@@ -12,8 +12,7 @@
     "json"
   ],
   "testMatch": [
-    "**/test/**/*.test.js",
-    "**/__tests__/*.test.js"
+    "**/test/**/pushWithStorybookFlag.test.js"
   ],
   "testPathIgnorePatterns": [
     "<rootDir>/test/resources/"

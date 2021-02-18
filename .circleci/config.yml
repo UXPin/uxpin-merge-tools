@@ -49,9 +49,6 @@ jobs:
           name: "Install dependencies for uxpin-merge-storybook-preset-addon"
           command: cd ../uxpin-merge-storybook-preset-addon && yarn install
       - run:
-          name: "Run pushWithStorybookFlag test"
-          command: UXPIN_ENV=test npx jest test/integration/push/pushWithStorybookFlag.test.ts
-      - run:
           name: "Test"
           command: make test-ci
           no_output_timeout: 30m
