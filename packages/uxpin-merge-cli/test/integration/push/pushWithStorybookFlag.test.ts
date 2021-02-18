@@ -28,7 +28,6 @@ describe('Push repos/storybook-design-system with --storybook flag', async () =>
       },
       params: [
         Command.PUSH,
-        '--storybook',
         '--config="./uxpin.config.js"',
         '--token DUMMY_TOKEN',
       ],
