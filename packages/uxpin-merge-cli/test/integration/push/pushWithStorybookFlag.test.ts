@@ -11,8 +11,7 @@ import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { testDirPath } from '../../utils/resources/testDirPath';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
-const CURRENT_TIMEOUT:number = 75000;
-
+const CURRENT_TIMEOUT:number = 750000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Push repos/storybook-design-system with --storybook flag', async () => {
@@ -28,6 +27,7 @@ describe('Push repos/storybook-design-system with --storybook flag', async () =>
       },
       params: [
         Command.PUSH,
+        '--storybook',
         '--config="./uxpin.config.js"',
         '--token DUMMY_TOKEN',
       ],
