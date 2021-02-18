@@ -43,8 +43,6 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
     const bundleExists:boolean = await pathExists(joinPath(uxpinDirPath, LIBRARY_OUTPUT_FILENAME));
     if (!bundleExists) {
       throw new Error(`Failed to find expected UXPin Storybook addon generated artifact @ [${uxpinDirPath}]`);
-    } else {
-      throw new Error(`bundle exists, but throwing error to see the command on circle ci...`);
     }
     logger.debug(`Found expected generated ${LIBRARY_OUTPUT_FILENAME} by storybook addon @ [${uxpinDirPath}]`);
   } else {
