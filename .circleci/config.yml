@@ -24,10 +24,10 @@ jobs:
           key: uxpin-merge-cli-dependencies-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      # Install dependencies for uxpin-merge-storybook-addon-preset
+      # Install dependencies for uxpin-merge-storybook-preset-addon
       - run:
-          name: "Install dependencies for uxpin-merge-storybook-addon-preset"
-          command: cd ../uxpin-merge-storybook-addon-preset && yarn install
+          name: "Install dependencies for uxpin-merge-storybook-preset-addon"
+          command: cd ../uxpin-merge-storybook-preset-addon && yarn install
       # Download test repositories with cache
       - restore_cache:
           key: uxpin-merge-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
