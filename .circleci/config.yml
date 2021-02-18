@@ -18,12 +18,16 @@ jobs:
       - restore_cache:
           key: uxpin-merge-cli-dependencies-cache-{{ checksum "package.json" }}
       - run:
-          name: "Install dependencies"
+          name: "Install dependencies for uxpin-merge-cli"
           command: make dependencies
       - save_cache:
           key: uxpin-merge-cli-dependencies-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+      # Install dependencies for uxpin-merge-storybook-addon-preset
+      - run:
+          name: "Install dependencies for uxpin-merge-storybook-addon-preset"
+          command: cd ../uxpin-merge-storybook-addon-preset && yarn install
       # Download test repositories with cache
       - restore_cache:
           key: uxpin-merge-cli-test-repos-{{ checksum "shell_scripts/test_resources/Makefile" }}
