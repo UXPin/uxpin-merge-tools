@@ -19,7 +19,7 @@ const UXPIN_TEMP_DIR:string = joinPath(PROJECT_DIR, TEMP_DIR_PATH);
 describe('Push repos/storybook-design-system with --storybook flag', () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
 
-  it ('generate merge and storybook artifacts', async () => {
+  it ('generates merge and storybook artifacts', async () => {
     await runUXPinMergeCommand({
       cwd: 'resources/repos/storybook-design-system',
       env: {

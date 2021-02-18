@@ -8,7 +8,6 @@
   "license": "GPL-3.0",
   "private": false,
   "dependencies": {
-    "@storybook/node-logger": "^6.1.18",
     "@uxpin/merge-cli": "link:../uxpin-merge-cli",
     "lodash": "^4.17.20"
   }

@@ -20,7 +20,6 @@ module.exports = {
       webpackConfigForMerge = await require(preset.name).webpackFinal(webpackConfigForMerge, option);
     });
 
-    logger.info("=> Building DS for uxpin-merge");
     await buildDesignSystemWithStorybook(webpackConfigForMerge);
     // Exit storybook build to avoid slowing @uxpin/merge-cli build
     process.exit(0)
