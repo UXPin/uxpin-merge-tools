@@ -3,7 +3,8 @@ import { join as joinPath } from 'path';
 import { Command } from '../../../src';
 import { Environment } from '../../../src/program/env/Environment';
 
-import { LIBRARY_OUTPUT_FILENAME, STORYBOOK_OUTPUT_DIR, TEMP_DIR_PATH } from '../../../src/steps/building/config/getConfig';
+import { STORYBOOK_OUTPUT_DIR } from '../../../src/common/constants';
+import { LIBRARY_OUTPUT_FILENAME, TEMP_DIR_PATH } from '../../../src/steps/building/config/getConfig';
 import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';

@@ -14,7 +14,6 @@ export const TEMP_DIR_PATH:string = `./${TEMP_DIR_NAME}`;
 export const LIBRARY_INPUT_FILENAME:string = `components.js`;
 export const LIBRARY_OUTPUT_FILENAME:string = 'designsystemlibrary.js';
 export const DEBUG_WEBPACK_FILENAME:string = 'uxpin.debug.webpack.config.js';
-export const STORYBOOK_OUTPUT_DIR:string = 'merge-cli-storybook-build';
 
 export function getConfig(
   { development, webpackConfigPath, projectRoot, uxpinDirPath, storybookWebpackConfig }:BuildOptions,

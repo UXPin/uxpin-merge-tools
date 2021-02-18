@@ -8,6 +8,7 @@
   "license": "GPL-3.0",
   "private": false,
   "dependencies": {
-    "@uxpin/merge-cli": "link:../packages/uxpin-merge-cli"
+    "@uxpin/merge-cli": "link:../packages/uxpin-merge-cli",
+    "lodash": "^4.17.20"
   }
 }
