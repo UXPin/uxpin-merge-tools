@@ -1,11 +1,13 @@
 const { buildDesignSystemWithStorybook } = require('@uxpin/merge-cli');
 const { cloneDeep } = require('lodash');
+const { logger } = require('@storybook/node-logger');
 
 module.exports = {
   webpackFinal: async (config, option) => {
     // Do nothing if BUILD_SB_WITH_UXPIN_MERGE is not set
     // to avoid slowing storybook build.
     if (!process.env.BUILD_STORYBOOK_WITH_UXPIN_MERGE) {
+      logger.trace("BUILD_STORYBOOK_WITH_UXPIN_MERGE is not set. Skipping to build DS for uxpin-merge");
       return config;
     }
 
