@@ -1,6 +1,5 @@
 const { buildDesignSystemWithStorybook } = require('@uxpin/merge-cli');
 const { cloneDeep } = require('lodash');
-const { logger } = require('@storybook/node-logger');
 
 module.exports = {
   webpackFinal: async (config, option) => {
