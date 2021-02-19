@@ -4,8 +4,7 @@ import { pickConfigArgs } from './pickConfigArgs';
 import { Arg, ConfigEnabledProgramArgs, ProgramArgs, RawProgramArgs } from './ProgramArgs';
 import { getConfigPath } from './providers/paths/getConfigPath';
 
-export const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
-const DEFAULT_UXPIN_DOMAIN:string = 'uxpin.com';
+import { DEFAULT_CONFIG_PATH, DEFAULT_UXPIN_DOMAIN } from '../../common/constants';
 
 const defaultArgs:{ [key in Command]:ProgramArgs } = {
   [Command.DUMP]: {

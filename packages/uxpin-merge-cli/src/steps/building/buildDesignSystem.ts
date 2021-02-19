@@ -1,7 +1,7 @@
 import { pathExists } from 'fs-extra';
 import { join as joinPath } from 'path';
 
-import { STORYBOOK_BUILD_ENV, STORYBOOK_OUTPUT_DIR } from '../../common/constants';
+import { STORYBOOK_BUILD_ENV, STORYBOOK_DEFAILT_CONFIG_DIR, STORYBOOK_OUTPUT_DIR } from '../../common/constants';
 import { execAsync } from '../../utils/child_process/execAsync';
 import { logger } from '../../utils/logger';
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
@@ -35,7 +35,9 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
     // <project>/.uxpin-merge/bundle.js
     const uxpinDirPath:string = joinPath(projectRoot, TEMP_DIR_PATH);
     const storybookOutputPath:string = joinPath(uxpinDirPath, STORYBOOK_OUTPUT_DIR);
-    const cmd:string = `${STORYBOOK_BUILD_ENV} ${sbBuildBin} -o ${storybookOutputPath} --docs`;
+    const storybookConfigDir:string = `--config-dir ${options.storybookConfigDir || STORYBOOK_DEFAILT_CONFIG_DIR}`;
+    console.log(options.storybookConfigDir);
+    const cmd:string = `${STORYBOOK_BUILD_ENV} ${sbBuildBin} -o ${storybookOutputPath} ${storybookConfigDir}`;
     logger.debug(`Running storybook with command [${cmd}]`);
     await execAsync(cmd);
     logger.debug(`Finished running storybook`);
