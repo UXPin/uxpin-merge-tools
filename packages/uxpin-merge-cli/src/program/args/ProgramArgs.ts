@@ -8,6 +8,8 @@ export interface RawProgramArgs {
   port?:number;
   webpackConfig?:string;
   wrapper?:string;
+  storybook?:boolean;
+  storybookConfigDir?:string;
 }
 
 export interface ConfigEnabledProgramArgs {
