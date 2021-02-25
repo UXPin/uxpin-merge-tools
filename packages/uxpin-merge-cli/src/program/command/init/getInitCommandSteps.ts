@@ -13,12 +13,6 @@ export interface DefaultFile {
   target:PathLike;
 }
 
-const REQUIRED_DEPENDENCIES:string[] = [
-  'babel-loader',
-  '@babel/preset-env',
-  'prop-types',
-];
-
 const DEFAULT_CONFIG_FILES:DefaultFile[] = [
   { source: 'uxpin.config.js', target: 'uxpin.config.js' },
   { source: 'uxpin.webpack.config.js', target: 'uxpin.webpack.config.js' },
@@ -33,7 +27,6 @@ const EXAMPLE_COMPONENT:DefaultFile = {
 export function getInitCommandSteps(args:InitProgramArgs):Step[] {
   return [
     { exec: copyDefaultFiles(args), shouldRun: true },
-    { exec: checkDependencies(args), shouldRun: true },
   ];
 }
 
@@ -59,18 +52,4 @@ function copyDefaultFiles(args:InitProgramArgs):any {
     printLine('🛑 There was an error while copying default config files. Please try again.', { color: PrintColor.RED });
     throw new Error(error.message);
   }
-}
-
-function checkDependencies(args:InitProgramArgs):any {
-  const projectRoot:PathLike = getProjectRoot(args);
-  REQUIRED_DEPENDENCIES.forEach((library) => {
-    try {
-      require.resolve(projectRoot + '/node_modules/' + library);
-      printLine(`✅ Required ${library} dependency found.`, { color: PrintColor.GREEN });
-    } catch (e) {
-      printLine(
-        `🛑 Required ${library} dependency is missing. Please install it: yarn add ${library} --dev`,
-        { color: PrintColor.RED });
-    }
-  });
 }
