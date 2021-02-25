@@ -29,7 +29,7 @@ module.exports = {
         ]
       },
       {
-        loader: "babel-loader",
+        loader: require.resolve('babel-loader', { paths: ['./node_modules/@uxpin/merge-cli'] }),
         test: /\.js?$/,
         exclude: /node_modules/,
         options: {
