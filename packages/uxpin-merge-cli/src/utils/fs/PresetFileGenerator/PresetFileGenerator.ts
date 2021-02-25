@@ -41,13 +41,13 @@ export class PresetFileGenerator {
 
   public async init():Promise<void> {
     if (await pathExists(resolve(__dirname, this.componentPath))) {
-      throw new Error(`Component ${this.componentPath} does not exists`);
+      throw new Error(`🛑 Component ${this.componentPath} does not exists`);
     }
 
     const implementationInfo:ComponentImplementationInfo | null = getImplementationInfo(this.componentPath);
 
     if (!implementationInfo) {
-      throw Error(`Invalid component path - ${this.componentPath}`);
+      throw Error(`🛑 Invalid component path - ${this.componentPath}`);
     }
 
     const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(implementationInfo);
@@ -67,13 +67,13 @@ export class PresetFileGenerator {
     }
 
     if (await pathExists(this.presetFilePath)) {
-      printWarning(`File ${this.presetFilePath} exists`);
+      printWarning(`👉 File ${this.presetFilePath} exists`);
       return;
     }
 
     const componentFileContent:string = await this.generateComponentFile();
     await writeToFile(this.presetFilePath, componentFileContent);
-    printLine(`File ${this.presetFilePath} created successfully`, { color: PrintColor.GREEN });
+    printLine(`✅ File ${this.presetFilePath} created successfully`, { color: PrintColor.GREEN });
   }
 
   public async generateComponentFile():Promise<string> {
@@ -116,7 +116,7 @@ export class PresetFileGenerator {
   private async hasDefaultExport():Promise<boolean> {
     try {
       const file:string = await readFile(this.componentPath, 'utf8');
-      return file.indexOf('export default') !== -1;
+      return file.indexOf('export default') !== -1 || /export (.*) as default/.test(file);
     } catch (e) {
       return false;
     }
