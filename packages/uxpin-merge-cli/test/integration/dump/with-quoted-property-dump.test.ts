@@ -14,7 +14,7 @@ describe('The dump command', () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
 
   describe('run for the with-quoted-property repository', () => {
-    it('prints the JSON describing the full repository', () => {
+    it('prints components with proper properties', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/designSystems/withQuotedProperty',
@@ -25,7 +25,8 @@ describe('The dump command', () => {
         params: [Command.DUMP, '--config="./uxpin.config.js"'],
       }).then((consoleOutput) => {
         // then
-        expect(JSON.parse(consoleOutput)).toMatchSnapshot();
+        const output:any = JSON.parse(consoleOutput);
+        expect(output.categorizedComponents).toMatchSnapshot();
       });
     });
   });
