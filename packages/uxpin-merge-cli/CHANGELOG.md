@@ -1,9 +1,10 @@
 # Changelog
 
-## [2.7.3] - 2021-01-26
+## [2.7.3] - 2021-03-01
 
 ### Added
-- Added init command which adds the default files required by merge
+- Added an init command which adds the default files required by merge
+- Added a generate-presets command which reads the config file and auto generates preset files
 
 ## [2.7.2] - 2020-12-15
 
