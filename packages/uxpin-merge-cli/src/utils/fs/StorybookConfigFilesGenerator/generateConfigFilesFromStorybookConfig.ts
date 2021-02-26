@@ -21,7 +21,7 @@ export async function generateConfigFilesFromStorybookConfig(args:RawProgramArgs
   let { stories } = require(path);
 
   // Change it to absolute path, so we don't always have to resolve path from storybookConfigDir
-  stories = stories.map((filePattern:string) => resolve(cwd, storybookConfigDir, filePattern))
+  stories = stories.map((filePattern:string) => resolve(cwd, storybookConfigDir, filePattern));
   const storiesPaths:string[] = await globby(stories, { cwd });
   const storiesInfors:StoriesInfo[] = await getComponentsFromStories(cwd, storybookConfigDir, storiesPaths);
   await generateComponentsStoriesMapFile(cwd, storiesInfors);

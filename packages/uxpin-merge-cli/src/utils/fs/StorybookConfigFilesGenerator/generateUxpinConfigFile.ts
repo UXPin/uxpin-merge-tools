@@ -26,7 +26,7 @@ export async function generateUxpinConfigFile(cwd:string, storiesInfos:StoriesIn
         cwd, storiesInfo.componentFilePath, storiesInfo.storiesPath);
 
       if (!path) {
-        logger.debug(`Failed to find a path for component ${storiesInfo.component}`)
+        logger.debug(`Failed to find a path for component ${storiesInfo.component}`);
         return comps;
       }
 
