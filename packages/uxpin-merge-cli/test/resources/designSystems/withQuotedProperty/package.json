@@ -1,5 +1,5 @@
 {
-  "name": "with-presets",
+  "name": "with-quoted-property",
   "version": "0.0.1",
   "devDependencies": {
     "@types/react": "^16.0.12",
