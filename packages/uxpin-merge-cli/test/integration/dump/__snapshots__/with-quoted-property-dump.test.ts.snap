@@ -122,7 +122,7 @@ Object {
   "name": "Example Design System",
   "vcs": Object {
     "branchName": "master",
-    "commitHash": "c1caef23497e2dca072afb9f39a4a7bd8524bd4f",
+    "commitHash": "ddaeada67b7da14959e7ec8080dfb51caf68cb65",
     "paths": Object {
       "configPath": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/designSystems/withQuotedProperty/uxpin.config.js",
       "projectRoot": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/designSystems/withQuotedProperty",
