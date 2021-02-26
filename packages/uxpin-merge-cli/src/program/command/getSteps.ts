@@ -3,6 +3,7 @@ import { Command } from './Command';
 import { getDumpCommandSteps } from './dump/getDumpCommandSteps';
 import { getExperimentationCommandSteps } from './experimentation/getExperimentationCommandSteps';
 import { getInitCommandSteps } from './init/getInitCommandSteps';
+import { getGeneratePresetsCommandSteps } from './generate_presets/getGeneratePresetsCommandSteps';
 import { getPushCommandSteps } from './push/getPushCommandSteps';
 import { getServerCommandSteps } from './server/getServerCommandSteps';
 import { Step } from './Step';
@@ -18,6 +19,9 @@ export function getSteps(args:ProgramArgs):Step[] {
 
     case Command.INIT:
       return getInitCommandSteps(args);
+
+    case Command.GENERATE_PRESETS:
+      return getGeneratePresetsCommandSteps(args);
 
     case Command.PUSH:
       return getPushCommandSteps(args);

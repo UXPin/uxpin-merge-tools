@@ -8,6 +8,11 @@ export const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
 const DEFAULT_UXPIN_DOMAIN:string = 'uxpin.com';
 
 const defaultArgs:{ [key in Command]:ProgramArgs } = {
+  [Command.GENERATE_PRESETS]: {
+    command: Command.GENERATE_PRESETS,
+    config: DEFAULT_CONFIG_PATH,
+    cwd: process.cwd(),
+  },
   [Command.DUMP]: {
     command: Command.DUMP,
     config: DEFAULT_CONFIG_PATH,
