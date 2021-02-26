@@ -36,7 +36,6 @@ export async function buildDesignSystem(components:ComponentDefinition[], option
     const uxpinDirPath:string = joinPath(projectRoot, TEMP_DIR_PATH);
     const storybookOutputPath:string = joinPath(uxpinDirPath, STORYBOOK_OUTPUT_DIR);
     const storybookConfigDir:string = `--config-dir ${options.storybookConfigDir || STORYBOOK_DEFAULT_CONFIG_DIR}`;
-    console.log(options.storybookConfigDir);
     const cmd:string = `${STORYBOOK_BUILD_ENV} ${sbBuildBin} -o ${storybookOutputPath} ${storybookConfigDir}`;
     logger.debug(`Running storybook with command [${cmd}]`);
     await execAsync(cmd);
