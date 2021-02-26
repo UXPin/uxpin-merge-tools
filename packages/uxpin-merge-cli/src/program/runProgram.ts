@@ -1,7 +1,7 @@
 import pMapSeries = require('p-map-series');
 import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
-import { generateConfigFiles } from '../utils/fs/StorybookConfigFilesGenerator/generateConfigFiles';
+import { generateConfigFilesFromStorybookConfig } from '../utils/fs/StorybookConfigFilesGenerator/generateConfigFilesFromStorybookConfig';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './args/getProgramArgs';
 import { ProgramArgs, RawProgramArgs } from './args/ProgramArgs';
@@ -21,7 +21,7 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
     printCurrentVersionInfo();
     // This needs to be called before `getProgramArgs` because
     // in getProgramArgs, we try to get config for wrapper
-    if (program.storybook) { await generateConfigFiles(program); }
+    if (program.storybook) { await generateConfigFilesFromStorybookConfig(program); }
     const programArgs:ProgramArgs = getProgramArgs(program);
     await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
