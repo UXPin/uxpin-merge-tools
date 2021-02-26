@@ -14,6 +14,6 @@ export function getNodeName(node:Node):ts.__String | undefined {
   }
 
   if (ts.isLiteralExpression(node.name)) {
-    return node.name.text;
+    return node.name.text as ts.__String;
   }
 }
