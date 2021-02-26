@@ -16,12 +16,37 @@ export interface ConfigEnabledProgramArgs {
   uxpinDomain?:string;
 }
 
-export type ProgramArgs = PushProgramArgs
-  | GeneratePresetsProgramArgs
-  | ServerProgramArgs
-  | DumpProgramArgs
-  | SummaryProgramArgs
-  | ExperimentProgramArgs;
+export type ProgramArgs = DumpProgramArgs
+    | ExperimentProgramArgs
+    | InitProgramArgs
+    | PushProgramArgs
+    | GeneratePresetsProgramArgs
+    | ServerProgramArgs
+    | SummaryProgramArgs;
+
+export interface DumpProgramArgs {
+  command:Command.DUMP;
+  cwd:string;
+  config:string;
+}
+
+export interface ExperimentProgramArgs {
+  command:Command.EXPERIMENT;
+  config:string;
+  cwd:string;
+  disableTunneling?:boolean;
+  port:number;
+  webpackConfig?:string;
+  wrapper?:string;
+  uxpinDomain:string;
+  skipBrowser:boolean;
+}
+
+export interface InitProgramArgs {
+  command:Command.INIT;
+  cwd:string;
+  config:string;
+}
 
 export interface PushProgramArgs {
   command:Command.PUSH;
@@ -53,28 +78,10 @@ export interface ServerProgramArgs {
   config:string;
 }
 
-export interface DumpProgramArgs {
-  command:Command.DUMP;
-  cwd:string;
-  config:string;
-}
-
 export interface SummaryProgramArgs {
   command:Command.SUMMARY;
   cwd:string;
   config:string;
-}
-
-export interface ExperimentProgramArgs {
-  command:Command.EXPERIMENT;
-  config:string;
-  cwd:string;
-  disableTunneling?:boolean;
-  port:number;
-  webpackConfig?:string;
-  wrapper?:string;
-  uxpinDomain:string;
-  skipBrowser:boolean;
 }
 
 export type Arg = string | CommanderStatic;

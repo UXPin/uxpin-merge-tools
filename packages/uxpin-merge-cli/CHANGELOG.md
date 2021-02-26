@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.7.3] - 2021-01-26
+
+### Added
+- Added init command which adds the default files required by merge
+
 ## [2.7.2] - 2020-12-15
 
 ### Fixed
