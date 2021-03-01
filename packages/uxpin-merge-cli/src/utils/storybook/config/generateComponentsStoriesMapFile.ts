@@ -2,7 +2,7 @@ import { ensureDir } from 'fs-extra';
 import { dirname, resolve } from 'path';
 import { inspect } from 'util';
 import { STORYBOOK_STORIES_MAP_PATH } from '../../../common/constants';
-import { writeToFile } from '../writeToFile';
+import { writeToFile } from '../../fs/writeToFile';
 import { StoriesInfo } from './getStoriesInfo';
 
 export interface ComponetsStoriesMap {

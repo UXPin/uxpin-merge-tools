@@ -1,8 +1,8 @@
 import pMapSeries = require('p-map-series');
 import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
-import { generateConfigFilesFromStorybookConfig } from '../utils/fs/StorybookConfigFilesGenerator/generateConfigFilesFromStorybookConfig';
 import { tapPromise } from '../utils/promise/tapPromise';
+import { generateConfigFilesFromStorybookConfig } from '../utils/storybook/config/generateConfigFilesFromStorybookConfig';
 import { getProgramArgs } from './args/getProgramArgs';
 import { ProgramArgs, RawProgramArgs } from './args/ProgramArgs';
 import { getProjectPaths } from './args/providers/paths/getProjectPaths';
