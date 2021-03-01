@@ -1,8 +1,10 @@
 import { ExportDefaultDeclaration, ImportDeclaration, ModuleNode, parse } from 'acorn-loose';
 import { readFileSync } from 'fs-extra';
 import { isEmpty } from 'lodash';
+import { logger } from '../../logger';
 import { ExportDefaultInfo, getExportDefaultInfo } from './acornAnalyzers/getExportDefaultInfo';
 import { getImportedModules, ImportedModule, ImportedModules } from './acornAnalyzers/getImportedModules';
+import { getComponentNameFromStoriesTitle } from './getComponentNameFromStoriesTitle';
 
 export interface StoriesInfo {
   title:string;
@@ -36,11 +38,20 @@ export function getStoriesInfo(storiesPath:string):StoriesInfo | null {
 
   // We only support stories.js file defining default export
   // with both `title` and `component` attributes.
-  if (!exportDefaultInfo || isEmpty(exportDefaultInfo.title) || isEmpty(exportDefaultInfo.localComponentName)) {
+  if (!exportDefaultInfo || isEmpty(exportDefaultInfo.title)) {
+    logger.debug(`Failed to get StoriesInfo for ${storiesPath} because 'title' is missing in default export`);
     return null;
   }
 
-  const component:ImportedModule = imports[exportDefaultInfo.localComponentName];
+  const componentName:string = exportDefaultInfo.localComponentName ||
+    getComponentNameFromStoriesTitle(exportDefaultInfo.title);
+  const component:ImportedModule = imports[componentName];
+
+  if (!component) {
+    logger.debug(`Failed to get StoriesInfo for ${storiesPath} because module ${componentName} is missing in the file`);
+    return null;
+  }
+
   const storiesInfo:StoriesInfo = {
     component: component.name,
     componentFilePath: component.componentFilePath,
