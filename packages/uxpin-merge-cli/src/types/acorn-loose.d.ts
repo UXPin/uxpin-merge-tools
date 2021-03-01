@@ -49,4 +49,3 @@ export interface Literal extends Node {
   type:'Literal';
   value:string;
 }
-
