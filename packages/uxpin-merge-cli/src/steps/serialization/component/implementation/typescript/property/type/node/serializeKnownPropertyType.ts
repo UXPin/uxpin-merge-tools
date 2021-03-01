@@ -5,6 +5,7 @@ export const KNOWN_TYPES_MAP:{ [typeName:string]:PropertyType } = {
   Array: { name: 'array', structure: {} },
   ReactElement: { name: 'element', structure: {} },
   ReactNode: { name: 'node', structure: {} },
+  Date: { name: 'date', structure: {} },
 };
 
 export function serializeKnownPropertyType(type:ts.Type):PropertyType {

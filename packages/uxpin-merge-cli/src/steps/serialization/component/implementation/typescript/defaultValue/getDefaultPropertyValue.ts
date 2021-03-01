@@ -18,9 +18,22 @@ export function getDefaultPropertyValue(
       return false;
     case ts.SyntaxKind.Identifier:
       return getDefaultValueFromIdentifier(context, valueInitializer as ts.Identifier);
+    case ts.SyntaxKind.NewExpression:
+      return getDefaultValueFromNewExpression(context, valueInitializer as ts.NewExpression);
     default:
       return;
   }
+}
+
+export function getDefaultValueFromNewExpression(
+  context:TSSerializationContext,
+  propertyInitializer:any,
+):SupportedDefaultValue | undefined {
+  if (propertyInitializer.expression.escapedText == 'Date') {
+    return new Date(propertyInitializer.arguments[0].text).toJSON();
+  }
+
+  return false;
 }
 
 export function getDefaultValueFromIdentifier(
