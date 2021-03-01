@@ -2,7 +2,7 @@ import { ExportDefaultDeclaration, Property } from 'acorn-loose';
 
 export interface ExportDefaultInfo {
   title:string;
-  component:string;
+  localComponentName:string;
 }
 
 export function getExportDefaultInfo(node:ExportDefaultDeclaration):ExportDefaultInfo {
@@ -23,7 +23,7 @@ export function getExportDefaultInfo(node:ExportDefaultDeclaration):ExportDefaul
   }
 
   return {
-    component: storiesComponent,
+    localComponentName: storiesComponent,
     title: storiesTitle,
   };
 }

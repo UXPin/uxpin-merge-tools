@@ -2,7 +2,7 @@ import { ExportDefaultDeclaration, ImportDeclaration, ModuleNode, parse } from '
 import { readFileSync } from 'fs-extra';
 import { isEmpty } from 'lodash';
 import { ExportDefaultInfo, getExportDefaultInfo } from './acornAnalyzers/getExportDefaultInfo';
-import { getImportedModules, ImportedModules } from './acornAnalyzers/getImportedModules';
+import { getImportedModules, ImportedModule, ImportedModules } from './acornAnalyzers/getImportedModules';
 
 export interface StoriesInfo {
   title:string;
@@ -36,14 +36,15 @@ export function getStoriesInfo(storiesPath:string):StoriesInfo | null {
 
   // We only support stories.js file defining default export
   // with both `title` and `component` attributes.
-  if (!exportDefaultInfo || isEmpty(exportDefaultInfo.title) || isEmpty(exportDefaultInfo.component)) {
+  if (!exportDefaultInfo || isEmpty(exportDefaultInfo.title) || isEmpty(exportDefaultInfo.localComponentName)) {
     return null;
   }
 
+  const component:ImportedModule = imports[exportDefaultInfo.localComponentName];
   const storiesInfo:StoriesInfo = {
-    component: exportDefaultInfo.component,
-    componentFilePath: imports[exportDefaultInfo.component].componentFilePath,
-    importDefault: imports[exportDefaultInfo.component].importDefault,
+    component: component.name,
+    componentFilePath: component.componentFilePath,
+    importDefault: component.importDefault,
     storiesPath,
     title: exportDefaultInfo.title,
   };

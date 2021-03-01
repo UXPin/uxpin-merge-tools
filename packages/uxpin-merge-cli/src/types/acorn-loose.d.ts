@@ -26,6 +26,7 @@ export interface ImportDefaultSpecifier extends Node {
 
 export interface ImportSpecifier extends Node {
   type:'ImportSpecifier';
+  imported:Identifier;
   local:Identifier;
 }
 

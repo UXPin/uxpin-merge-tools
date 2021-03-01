@@ -7,14 +7,19 @@ export interface ImportedModules {
 export interface ImportedModule {
   componentFilePath:string;
   importDefault:boolean;
+  name:string;
 }
 
 export function getImportedModules(imports:ImportedModules, node:ImportDeclaration):ImportedModules {
   node.specifiers.forEach((specifier:any) => {
+    const importDefault:boolean = isImportDefault(specifier);
+    const name:string = importDefault ? specifier.local.name : specifier.imported.name;
     const localName:string = specifier.local.name;
+
     const importedModule:ImportedModule = {
       componentFilePath: node.source.value,
-      importDefault: isImportDefault(specifier),
+      importDefault,
+      name,
     };
     imports[localName] = importedModule;
   });
