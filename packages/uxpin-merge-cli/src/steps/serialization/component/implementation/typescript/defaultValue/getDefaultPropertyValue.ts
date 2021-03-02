@@ -19,18 +19,32 @@ export function getDefaultPropertyValue(
     case ts.SyntaxKind.Identifier:
       return getDefaultValueFromIdentifier(context, valueInitializer as ts.Identifier);
     case ts.SyntaxKind.NewExpression:
-      return getDefaultValueFromNewExpression(context, valueInitializer as ts.NewExpression);
+      return getDefaultValueFromNewExpression(valueInitializer as ts.NewExpression);
     default:
       return;
   }
 }
 
 export function getDefaultValueFromNewExpression(
-  context:TSSerializationContext,
-  propertyInitializer:any,
+  propertyInitializer:ts.NewExpression,
 ):SupportedDefaultValue | undefined {
-  if (propertyInitializer.expression.escapedText == 'Date') {
-    return new Date(propertyInitializer.arguments[0].text).toJSON();
+  if (propertyInitializer.arguments &&
+      (propertyInitializer.expression as ts.Identifier).escapedText == 'Date') {
+
+    const dateProps:unknown[] = propertyInitializer.arguments
+      .map((argument):string | number | undefined => {
+        switch (argument.kind) {
+          case ts.SyntaxKind.StringLiteral:
+            return (argument as ts.Identifier).text;
+          case ts.SyntaxKind.NumericLiteral:
+            return parseInt((argument as ts.Identifier).text, 10);
+          default:
+            return;
+        }
+      });
+
+    // @ts-ignore
+    return new Date(...dateProps).toJSON();
   }
 
   return false;

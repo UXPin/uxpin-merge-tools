@@ -6,6 +6,7 @@ export interface ComboProps {
   arrayProp:any[];
   unionTypeArrayProp:Array<string | number>;
   booleanProp:boolean;
+  dateProp:Date;
   elementProp:React.ReactElement<any>;
   functionProp:(a:string) => number;
   stringLiteralUnion:'a' | 'b';
