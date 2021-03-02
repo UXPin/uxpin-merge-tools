@@ -48,6 +48,95 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes class component with date property ', () => {
+      const isoRegex:RegExp = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*))(?:Z|(\+|-)([\d|:]*))?$/;
+
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithDateType');
+      const expectedMetadata:ComponentMetadata = {
+        name: 'ClassWithDateType',
+        namespace: undefined,
+        properties: [
+          {
+            defaultValue: {
+              value: '2016-07-19T20:23:01.804Z',
+            },
+            description: 'Dates only',
+            isRequired: true,
+            name: 'dateInteger',
+            type: {
+              name: 'date',
+              structure: {},
+            },
+          },
+          {
+            defaultValue: {
+              value: '2010-08-08T00:00:00.000Z',
+            },
+            description: '',
+            isRequired: true,
+            name: 'dateString',
+            type: {
+              name: 'date',
+              structure: {},
+            },
+          },
+          {
+            defaultValue: {
+              value: expect.stringMatching(isoRegex),
+            },
+            description: '',
+            isRequired: true,
+            name: 'dateEmpty',
+            type: {
+              name: 'date',
+              structure: {},
+            },
+          },
+          {
+            defaultValue: {
+              value: '1997-08-07T05:00:00.000Z',
+            },
+            description: '',
+            isRequired: true,
+            name: 'dateRest',
+            type: {
+              name: 'date',
+              structure: {},
+            },
+          },
+        ],
+        wrappers: [],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    // it('serializes class component with empty date property', () => {
+    //   // given
+    //   const component:ComponentImplementationInfo = getImplementation('ClassWithEmptyDateType');
+    //   const expectedMetadata:ComponentMetadata = {
+    //     name: 'ClassWithEmptyDateType',
+    //     namespace: undefined,
+    //     properties: [
+    //
+    //     ],
+    //     wrappers: [],
+    //   };
+    //
+    //   // when
+    //   return serializeTSComponent(component).then((serializedProps) => {
+    //     // then
+    //     expect(serializedProps.result).toEqual(expectedMetadata);
+    //     expect(serializedProps.warnings).toEqual([]);
+    //   });
+    // });
+
     it('serializes class component with enum property types', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassEnumTypes');
