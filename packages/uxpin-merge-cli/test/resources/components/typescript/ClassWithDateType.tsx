@@ -16,7 +16,7 @@ export default class ClassWithDateType extends React.Component<Props> {
     dateInteger: new Date(1468959781804),
     dateString: new Date("2010-08-08"),
     dateEmpty: new Date(),
-    dateRest: new Date(1997, 7, 7, 7),
+    dateRest: new Date(1997, 1, 1, 1, 1, 1, 1),
   };
 
   public render():JSX.Element {

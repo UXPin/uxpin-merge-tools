@@ -49,7 +49,7 @@ describe('serializeTSComponent', () => {
     });
 
     it('serializes class component with date property ', () => {
-      const isoRegex:RegExp = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*))(?:Z|(\+|-)([\d|:]*))?$/;
+      const isoRegex:RegExp = /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/;
 
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithDateType');
@@ -95,7 +95,7 @@ describe('serializeTSComponent', () => {
           },
           {
             defaultValue: {
-              value: '1997-08-07T05:00:00.000Z',
+              value: '1997-02-01T00:01:01.001Z',
             },
             description: '',
             isRequired: true,
