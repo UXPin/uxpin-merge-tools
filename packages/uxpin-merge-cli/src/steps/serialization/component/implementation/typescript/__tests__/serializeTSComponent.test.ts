@@ -49,8 +49,6 @@ describe('serializeTSComponent', () => {
     });
 
     it('serializes class component with date property ', () => {
-      const isoRegex:RegExp = /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/;
-
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithDateType');
       const expectedMetadata:ComponentMetadata = {
@@ -83,19 +81,7 @@ describe('serializeTSComponent', () => {
           },
           {
             defaultValue: {
-              value: expect.stringMatching(isoRegex),
-            },
-            description: '',
-            isRequired: true,
-            name: 'dateEmpty',
-            type: {
-              name: 'date',
-              structure: {},
-            },
-          },
-          {
-            defaultValue: {
-              value: '1997-02-01T00:01:01.001Z',
+              value: '1997-02-01T01:01:01.001Z',
             },
             description: '',
             isRequired: true,
@@ -113,6 +99,27 @@ describe('serializeTSComponent', () => {
       return serializeTSComponent(component).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes class component with empty date property ', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithEmptyDateType');
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expect.objectContaining({
+          name: expect.any(String),
+          properties: expect.arrayContaining([
+            expect.objectContaining({
+              defaultValue: expect.objectContaining({
+                value: expect.any(String),
+              }),
+            }),
+          ]),
+          wrappers: expect.any(Array),
+        }));
         expect(serializedProps.warnings).toEqual([]);
       });
     });
