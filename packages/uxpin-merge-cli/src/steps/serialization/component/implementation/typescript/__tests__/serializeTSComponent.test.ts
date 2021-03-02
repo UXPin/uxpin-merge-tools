@@ -117,26 +117,6 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    // it('serializes class component with empty date property', () => {
-    //   // given
-    //   const component:ComponentImplementationInfo = getImplementation('ClassWithEmptyDateType');
-    //   const expectedMetadata:ComponentMetadata = {
-    //     name: 'ClassWithEmptyDateType',
-    //     namespace: undefined,
-    //     properties: [
-    //
-    //     ],
-    //     wrappers: [],
-    //   };
-    //
-    //   // when
-    //   return serializeTSComponent(component).then((serializedProps) => {
-    //     // then
-    //     expect(serializedProps.result).toEqual(expectedMetadata);
-    //     expect(serializedProps.warnings).toEqual([]);
-    //   });
-    // });
-
     it('serializes class component with enum property types', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassEnumTypes');
