@@ -43,8 +43,7 @@ export function getDefaultValueFromNewExpression(
         }
       });
 
-    // @ts-ignore
-    return new Date(...dateProps).toJSON();
+    return new Date(...dateProps as [number, number, number, number, number, number]).toJSON();
   }
 
   return false;
