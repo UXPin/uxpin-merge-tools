@@ -71,12 +71,14 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& cd storybook-design-system \
 	&& mkdir ./yarn-cache \
 	&& yarn install --cache-folder ./yarn-cache \
-	&& yarn add -D link:../../../../../uxpin-merge-storybook-preset-addon --cache-folder ./yarn-cache \
+	&& yarn add -D link:../../../../../uxpin-merge-storybook-preset-addon \
 	&& rm -f babel.config.js \
 	&& rm -f ./.storybook/main.js \
 	&& rm -f ./src/components/Button.js \
 	&& cp ../../components/javascript/storybook-design-system/ButtonWithDefaultExport.js ./src/components/Button.js \
 	&& cp ../../configs/storybook-design-system-babel.config.js ./babel.config.js \
 	&& cp ../../configs/storybook-design-system-main.js ./.storybook/main.js \
+	&& cp ../../configs/storybook-design-system-uxpin.config.js ./uxpin.config.js \
+	&& cp ../../configs/storybook-design-system-uxpin.config.js ./uxpin.config.js \
 	&& cp ../../configs/storybook-design-system-uxpin.config.js ./uxpin.config.js \
 	&& rm -rf ./yarn-cache

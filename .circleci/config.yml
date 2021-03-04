@@ -15,8 +15,8 @@ jobs:
           name: 'NPM: Set authentication token'
           command: npm set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
       # Yarn install with cache
-    #   - restore_cache:
-    #       key: uxpin-merge-cli-dependencies-cache-{{ checksum "package.json" }}
+      - restore_cache:
+          key: uxpin-merge-cli-dependencies-cache-{{ checksum "package.json" }}
       - run:
           name: "Install dependencies for uxpin-merge-cli"
           command: make dependencies
