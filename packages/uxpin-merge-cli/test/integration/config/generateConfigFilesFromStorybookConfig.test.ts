@@ -1,4 +1,4 @@
-import { emptyDir, pathExists, rmdir, readdir } from 'fs-extra';
+import { emptyDir, pathExists, rmdir } from 'fs-extra';
 import { join } from 'path';
 
 import { Command } from '../../../src';
@@ -16,7 +16,7 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 const PROJECT_DIR:string = join(testDirPath, 'resources/repos/storybook-design-system');
 const UXPIN_TEMP_DIR:string = join(PROJECT_DIR, TEMP_DIR_PATH);
 
-describe('generates uxpin.config.js and/or compnentsStoriesMap.js based on .storybook/main.js', () => {
+describe('generates uxpin.config.js and/or componentsStoriesMap.js based on .storybook/main.js', () => {
   describe('With dump command', () => {
 
     beforeEach(async () => {
@@ -27,7 +27,7 @@ describe('generates uxpin.config.js and/or compnentsStoriesMap.js based on .stor
     });
 
     describe('with --config option', () => {
-      it('generates only compnentsStoriesMap.js', async () => {
+      it('generates only componentsStoriesMap.js', async () => {
         await runUXPinMergeCommand({
           cwd: 'resources/repos/storybook-design-system',
           env: {
@@ -45,7 +45,7 @@ describe('generates uxpin.config.js and/or compnentsStoriesMap.js based on .stor
       });
     });
     describe('without --config option', () => {
-      it('generates both uxpin.config.js and compnentsStoriesMap.js', async () => {
+      it('generates both uxpin.config.js and componentsStoriesMap.js', async () => {
         await runUXPinMergeCommand({
           cwd: 'resources/repos/storybook-design-system',
           env: {
