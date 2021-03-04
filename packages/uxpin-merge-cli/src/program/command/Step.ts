@@ -6,3 +6,5 @@ export interface Step {
 }
 
 export type StepExecutor = (designSystem:DSMetadata) => Promise<DSMetadata>;
+
+export type StepWithoutDSExecutor = () => Promise<void>;

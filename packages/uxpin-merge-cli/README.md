@@ -7,10 +7,13 @@ This is the command line used to preview design system components locally and pu
 ## Installation
 
 Add `uxpin-merge` to your package.json:
+
 ```
 npm install @uxpin/merge-cli --save-dev
 ```
+
 or
+
 ```
 yarn add @uxpin/merge-cli --dev
 ```
@@ -22,7 +25,9 @@ This tool recognizes components available in your repository of component librar
 ```
 ./node_modules/.bin/uxpin-merge --help
 ```
+
 will print the list of options:
+
 ```
   Usage: uxpin-merge [options] [command]
 
@@ -48,8 +53,10 @@ will print the list of options:
 
   Commands:
 
-    server [options]   Start local web server and display the list of design system components
-    push [options]     Upload design system repository information to UXPin
-    dump [options]     Shows all information (in JSON) about the design system repository and NOT send to UXPin
-    summary [options]  Show only design system summary without building it
+    init [options]              Creates default config files (uxpin.config.js, uxpin.webpack.config.js, UXPinWrapper)
+    generate-presets [options]  Generate presets for components
+    push [options]              Upload design system repository information to UXPin
+    dump [options]              Shows all information (in JSON) about the design system repository and NOT send to UXPin
+    server [options]            Start local web server and display the list of design system components
+    summary [options]           Show only design system summary without building it
 ```

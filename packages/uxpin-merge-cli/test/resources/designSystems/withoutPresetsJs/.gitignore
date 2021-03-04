@@ -1,0 +1,5 @@
+!*.config.js
+!*.js
+/node_modules/
+.uxpin-merge/*
+!.uxpin-merge/epid

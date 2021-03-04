@@ -10,6 +10,11 @@ function getDefaultArgs(program:RawProgramArgs):{ [key in Command]:ProgramArgs }
   const defaultConfigPath:string = program.storybook ? STORYBOOK_UXPIN_CONFIG_PATH : DEFAULT_CONFIG_PATH;
 
   return {
+    [Command.GENERATE_PRESETS]: {
+      command: Command.GENERATE_PRESETS,
+      config: DEFAULT_CONFIG_PATH,
+      cwd: process.cwd(),
+    },
     [Command.DUMP]: {
       command: Command.DUMP,
       config: defaultConfigPath,
@@ -23,6 +28,11 @@ function getDefaultArgs(program:RawProgramArgs):{ [key in Command]:ProgramArgs }
       port: 8877,
       skipBrowser: false,
       uxpinDomain: DEFAULT_UXPIN_DOMAIN,
+    },
+    [Command.INIT]: {
+      command: Command.INIT,
+      config: DEFAULT_CONFIG_PATH,
+      cwd: process.cwd(),
     },
     [Command.PUSH]: {
       command: Command.PUSH,
@@ -49,7 +59,7 @@ export function getProgramArgs(program:RawProgramArgs):ProgramArgs {
   const command:Command = getCommand(program);
   const cliArgs:ProgramArgs = getCLIArgs(program, command);
   const configPath:string = getConfigPath({ ...getDefaultArgs(program)[command], ...cliArgs });
-  const configArgs:ConfigEnabledProgramArgs = pickConfigArgs(configPath);
+  const configArgs:ConfigEnabledProgramArgs = pickConfigArgs(configPath, command);
   return {
     ...getDefaultArgs(program)[command],
     ...configArgs,
