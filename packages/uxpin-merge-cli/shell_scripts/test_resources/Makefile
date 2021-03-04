@@ -71,7 +71,7 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& cd storybook-design-system \
 	&& mkdir ./yarn-cache \
 	&& yarn install --cache-folder ./yarn-cache \
-	&& yarn add -D link:../../../../../uxpin-merge-storybook-preset-addon \
+	&& yarn add -D link:../../../../../uxpin-merge-storybook-preset-addon --cache-folder ./yarn-cache \
 	&& rm -f babel.config.js \
 	&& rm -f ./.storybook/main.js \
 	&& rm -f ./src/components/Button.js \
