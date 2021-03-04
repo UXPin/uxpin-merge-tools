@@ -27,7 +27,7 @@ export async function generateConfigFilesFromStorybookConfig(args:RawProgramArgs
   await generateComponentsStoriesMapFile(cwd, storiesInfors);
 
   // If config is specified, not going to auto generate.
-  if (!args.config || await pathExists(resolve(cwd, args.config))) {
+  if (!args.config || !(await pathExists(resolve(cwd, args.config)))) {
     await generateUxpinConfigFile(cwd, storiesInfors);
   }
 }

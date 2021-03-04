@@ -6,6 +6,7 @@ export async function getComponentsFromStories(
 
   return storiesPaths.reduce((storiesInfos:StoriesInfo[], storiesPath:string) => {
     // @todo: support md|mdx file.
+    // https://storybook.js.org/docs/react/api/mdx
     if (storiesPath.match(/.(md|mdx)$/)) {
       return storiesInfos;
     }

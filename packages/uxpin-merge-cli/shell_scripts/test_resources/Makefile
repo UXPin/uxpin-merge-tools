@@ -79,6 +79,4 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& cp ../../configs/storybook-design-system-babel.config.js ./babel.config.js \
 	&& cp ../../configs/storybook-design-system-main.js ./.storybook/main.js \
 	&& cp ../../configs/storybook-design-system-uxpin.config.js ./uxpin.config.js \
-	&& cp ../../configs/storybook-design-system-uxpin.config.js ./uxpin.config.js \
-	&& cp ../../configs/storybook-design-system-uxpin.config.js ./uxpin.config.js \
 	&& rm -rf ./yarn-cache

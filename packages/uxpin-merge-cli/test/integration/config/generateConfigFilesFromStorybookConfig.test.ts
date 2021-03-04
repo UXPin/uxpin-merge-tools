@@ -1,0 +1,65 @@
+import { emptyDir, pathExists, rmdir, readdir } from 'fs-extra';
+import { join } from 'path';
+
+import { Command } from '../../../src';
+import { STORYBOOK_STORIES_MAP_PATH, STORYBOOK_UXPIN_CONFIG_PATH } from '../../../src/common/constants';
+import { Environment } from '../../../src/program/env/Environment';
+import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
+import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
+import { testDirPath } from '../../utils/resources/testDirPath';
+
+import { TEMP_DIR_PATH } from '../../../src/steps/building/config/getConfig';
+
+const CURRENT_TIMEOUT:number = 30000;
+setTimeoutBeforeAll(CURRENT_TIMEOUT);
+
+const PROJECT_DIR:string = join(testDirPath, 'resources/repos/storybook-design-system');
+const UXPIN_TEMP_DIR:string = join(PROJECT_DIR, TEMP_DIR_PATH);
+
+describe('generates uxpin.config.js and/or compnentsStoriesMap.js based on .storybook/main.js', () => {
+  describe('With dump command', () => {
+
+    beforeEach(async () => {
+      if (await pathExists(UXPIN_TEMP_DIR)) {
+        await emptyDir(UXPIN_TEMP_DIR);
+        await rmdir(UXPIN_TEMP_DIR);
+      }
+    });
+
+    describe('with --config option', () => {
+      it('generates only compnentsStoriesMap.js', async () => {
+        await runUXPinMergeCommand({
+          cwd: 'resources/repos/storybook-design-system',
+          env: {
+            UXPIN_ENV: Environment.TEST,
+          },
+          params: [
+            Command.DUMP,
+            '--storybook',
+            '--config="./uxpin.config.js"',
+          ],
+        });
+
+        expect(await pathExists(join(PROJECT_DIR, STORYBOOK_UXPIN_CONFIG_PATH))).toBeFalsy();
+        expect(await pathExists(join(PROJECT_DIR, STORYBOOK_STORIES_MAP_PATH))).toBeTruthy();
+      });
+    });
+    describe('without --config option', () => {
+      it('generates both uxpin.config.js and compnentsStoriesMap.js', async () => {
+        await runUXPinMergeCommand({
+          cwd: 'resources/repos/storybook-design-system',
+          env: {
+            UXPIN_ENV: Environment.TEST,
+          },
+          params: [
+            Command.DUMP,
+            '--storybook',
+          ],
+        });
+
+        expect(await pathExists(join(PROJECT_DIR, STORYBOOK_UXPIN_CONFIG_PATH))).toBeTruthy();
+        expect(await pathExists(join(PROJECT_DIR, STORYBOOK_STORIES_MAP_PATH))).toBeTruthy();
+      });
+    });
+  });
+});
