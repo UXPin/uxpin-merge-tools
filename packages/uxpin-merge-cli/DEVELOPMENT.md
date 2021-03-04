@@ -83,7 +83,6 @@ server ready on http://127.0.0.1:8080/
 
   * `make serve-mineral`
   * `make serve-polaris`
-  * `make serve-arui`
   * `make serve-nordnet`
 
 ⚠️ Note, that due to the recent update of Webpack, some of the example repositories may not work. Currently the only working example is MineralUI

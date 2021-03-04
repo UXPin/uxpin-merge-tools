@@ -11,7 +11,7 @@
   "author": "UXPin Inc.",
   "license": "GPL-3.0-only",
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=10.0.0"
   },
   "keywords": [
     "UXPin",
@@ -125,7 +125,8 @@
     "typescript": "~3.4.0",
     "uuid": "^3.3.2",
     "webpack": "^4.8.1",
-    "webpack-merge": "^4.1.2",
-    "webpack-virtual-modules": "^0.1.10"
+    "webpack-merge": "^5.7.3",
+    "webpack-virtual-modules": "^0.1.10",
+    "winston": "^3.3.3"
   }
 }

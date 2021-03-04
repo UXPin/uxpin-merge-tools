@@ -5,4 +5,5 @@ export interface AllCmdOptions {
   env:{ [name:string]:string | number };
   params:string[];
   useTempDir:boolean;
+  maxBuffer?:number;
 }

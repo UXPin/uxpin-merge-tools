@@ -1,6 +1,6 @@
 import { join, parse, resolve } from 'path';
 import { Configuration } from 'webpack';
-import { smartStrategy } from 'webpack-merge';
+import { CustomizeRule, mergeWithRules as webpackMergeWithRules } from 'webpack-merge';
 import * as VirtualModulesPlugin from 'webpack-virtual-modules';
 import { VirtualComponentModule } from './generateVirtualModules';
 
@@ -44,6 +44,10 @@ export function getPresetsBundleWebpackConfig({
                 pragma: '__uxpinParsePreset',
               }],
             ],
+            // `babelrc: false` option doesn't ignore `babel.config.js` configuration file.
+            // So, setting root to be node_modules/@uxpin/merge-cli will prevent it.
+            // If you really need to customize, you can add in uxpin.webpack.config.js
+            root: './node_modules/@uxpin/merge-cli',
           },
           test: /\.jsx?$/,
         },
@@ -85,7 +89,7 @@ export function getPresetsBundleWebpackConfig({
   if (webpackConfig) {
     const configProvider:Configuration|ConfigurationFunction = require(join(projectRoot, webpackConfig));
     const userWebpackConfig:Configuration = isConfigurationFunction(configProvider) ? configProvider() : configProvider;
-    return smartStrategy({ entry: 'replace' })(userWebpackConfig, config);
+    return webpackMergeWithRules({ entry: CustomizeRule.Replace })(userWebpackConfig, config);
   }
 
   return config;
