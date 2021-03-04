@@ -10,7 +10,7 @@ import { testDirPath } from '../../utils/resources/testDirPath';
 
 import { TEMP_DIR_PATH } from '../../../src/steps/building/config/getConfig';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT:number = 75000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 const PROJECT_DIR:string = join(testDirPath, 'resources/repos/storybook-design-system');
