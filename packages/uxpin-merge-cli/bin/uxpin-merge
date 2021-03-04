@@ -18,6 +18,40 @@ program
   .option('--disable-tunneling', 'Turn off tunneling via ngrok');
 
 program
+    .command(Command.INIT)
+    .description('Creates default config files (uxpin.config.js, uxpin.webpack.config.js, UXPinWrapper)')
+    .option('--cwd <path>', 'working directory: path to root of the DS repository')
+    .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
+    .action(() => {});
+
+program
+    .command(Command.GENERATE_PRESETS)
+    .description('Generate presets for components')
+    .option('--cwd <path>', 'working directory: path to root of the DS repository. Default: `./`')
+    .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
+    .option('--component-path <path>', 'path to a component path, relative to the current working directory')
+    .action(() => {});
+
+
+program
+    .command(Command.PUSH)
+    .description('Upload design system repository information to UXPin')
+    .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
+    .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
+    .option('--cwd <path>', 'working directory: path to root of the DS repository')
+    .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
+    .option('--token <token>', 'auth token for the library. Default: `UXPIN_AUTH_TOKEN` env variable')
+    .option('--branch <branch>', 'branch to use when uploading. Default: master')
+    .action(() => {});
+
+program
+    .command(Command.DUMP)
+    .description('Shows all information (in JSON) about the design system repository and NOT send to UXPin')
+    .option('--cwd <path>', 'working directory: path to root of the DS repository')
+    .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
+    .action(() => {});
+
+program
   .command(Command.SERVER)
   .description('Start local web server and display the list of design system components')
   .option('--port <number>', 'port number')
@@ -25,24 +59,6 @@ program
   .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
   .option('--cwd <path>', 'working directory: path to root of the DS repository')
   .action(() => console.log('starting server...'));
-
-program
-  .command(Command.PUSH)
-  .description('Upload design system repository information to UXPin')
-  .option('--webpack-config <path>', 'path to a custom webpack config, relative to the current working directory')
-  .option('--wrapper <path>', 'path to a custom component wrapper, relative to the current working directory')
-  .option('--cwd <path>', 'working directory: path to root of the DS repository')
-  .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
-  .option('--token <token>', 'auth token for the library. Default: `UXPIN_AUTH_TOKEN` env variable')
-  .option('--branch <branch>', 'branch to use when uploading. Default: master')
-  .action(() => {});
-
-program
-  .command(Command.DUMP)
-  .description('Shows all information (in JSON) about the design system repository and NOT send to UXPin')
-  .option('--cwd <path>', 'working directory: path to root of the DS repository')
-  .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
-  .action(() => {});
 
 program
   .command(Command.SUMMARY)

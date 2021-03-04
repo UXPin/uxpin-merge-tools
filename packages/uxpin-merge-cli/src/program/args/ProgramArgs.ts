@@ -16,11 +16,37 @@ export interface ConfigEnabledProgramArgs {
   uxpinDomain?:string;
 }
 
-export type ProgramArgs = PushProgramArgs
-  | ServerProgramArgs
-  | DumpProgramArgs
-  | SummaryProgramArgs
-  | ExperimentProgramArgs;
+export type ProgramArgs = DumpProgramArgs
+    | ExperimentProgramArgs
+    | InitProgramArgs
+    | PushProgramArgs
+    | GeneratePresetsProgramArgs
+    | ServerProgramArgs
+    | SummaryProgramArgs;
+
+export interface DumpProgramArgs {
+  command:Command.DUMP;
+  cwd:string;
+  config:string;
+}
+
+export interface ExperimentProgramArgs {
+  command:Command.EXPERIMENT;
+  config:string;
+  cwd:string;
+  disableTunneling?:boolean;
+  port:number;
+  webpackConfig?:string;
+  wrapper?:string;
+  uxpinDomain:string;
+  skipBrowser:boolean;
+}
+
+export interface InitProgramArgs {
+  command:Command.INIT;
+  cwd:string;
+  config:string;
+}
 
 export interface PushProgramArgs {
   command:Command.PUSH;
@@ -34,6 +60,13 @@ export interface PushProgramArgs {
   // https://github.com/UXPin/uxpin-merge-tools/issues/206
   branch?:string;
   storybook?:boolean;
+}
+
+export interface GeneratePresetsProgramArgs {
+  command:Command.GENERATE_PRESETS;
+  componentPath?:string;
+  cwd:string;
+  config?:string;
 }
 
 export interface ServerProgramArgs {
