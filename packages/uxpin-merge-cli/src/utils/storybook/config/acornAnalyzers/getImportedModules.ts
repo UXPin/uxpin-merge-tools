@@ -27,10 +27,5 @@ export function getImportedModules(imports:ImportedModules, node:ImportDeclarati
 }
 
 function isImportDefault(specifier:ImportDefaultSpecifier|ImportSpecifier):boolean {
-  switch (specifier.type) {
-    case 'ImportDefaultSpecifier':
-      return true;
-    case 'ImportSpecifier':
-      return false;
-  }
+  return specifier.type === 'ImportDefaultSpecifier';
 }

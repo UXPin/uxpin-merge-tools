@@ -19,7 +19,7 @@ interface UXPinConfigCategory {
 }
 
 export async function generateUxpinConfigFile(cwd:string, storiesInfos:StoriesInfo[]):Promise<void> {
-  const categorilzedComponentsPaths:CategorizedComponentsPaths =
+  const categorizedComponentsPaths:CategorizedComponentsPaths =
     storiesInfos.reduce((comps:CategorizedComponentsPaths, storiesInfo:StoriesInfo) => {
       const category:string = getCategoryFromStoriesTitle(storiesInfo.title);
       const path:string | null = resolveComponentPathFromStoriesPath(
@@ -34,9 +34,9 @@ export async function generateUxpinConfigFile(cwd:string, storiesInfos:StoriesIn
       return comps;
     }, {});
 
-  const categories:UXPinConfigCategory[] = Object.keys(categorilzedComponentsPaths).map((category:string) => {
+  const categories:UXPinConfigCategory[] = Object.keys(categorizedComponentsPaths).map((category:string) => {
     return {
-      include: categorilzedComponentsPaths[category],
+      include: categorizedComponentsPaths[category],
       name: category,
     };
   });

@@ -1,23 +1,23 @@
 import { readdirSync } from 'fs-extra';
 import { basename, dirname, relative, resolve } from 'path';
 
-// Retrun relative path to the component from cwd
+// Return relative path to the component from cwd
 export function resolveComponentPathFromStoriesPath(
   cwd:string, componentPath:string, storiesPath:string):string | null {
 
-  const absoluteCompoentPath:string = resolve(dirname(storiesPath), componentPath);
-  const componentDir:string = dirname(absoluteCompoentPath);
-  const baseName:string = basename(absoluteCompoentPath);
+  const absoluteComponentPath:string = resolve(dirname(storiesPath), componentPath);
+  const componentDir:string = dirname(absoluteComponentPath);
+  const baseName:string = basename(absoluteComponentPath);
   const files:string[] = readdirSync(componentDir);
 
-  const fileNameWithExtention:string | undefined = files.find((file:string) => {
+  const fileNameWithExtension:string | undefined = files.find((file:string) => {
     const reg:RegExp = new RegExp(`${baseName}.(ts|tsx|js|jsx)`);
     return file.match(reg) !== null;
   });
 
-  if (!fileNameWithExtention) {
+  if (!fileNameWithExtension) {
     return null;
   }
 
-  return relative(cwd, resolve(componentDir, fileNameWithExtention));
+  return relative(cwd, resolve(componentDir, fileNameWithExtension));
 }
