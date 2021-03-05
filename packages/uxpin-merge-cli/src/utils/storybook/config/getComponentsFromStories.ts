@@ -1,9 +1,6 @@
-import { resolve } from 'path';
 import { getStoriesInfo, StoriesInfo } from './getStoriesInfo';
 
-export async function getComponentsFromStories(
-    cwd:string, storybookConfigDir:string, storiesPaths:string[]):Promise<StoriesInfo[]> {
-
+export async function getComponentsFromStories(storiesPaths:string[]):Promise<StoriesInfo[]> {
   return storiesPaths.reduce((storiesInfos:StoriesInfo[], storiesPath:string) => {
     // @todo: support md|mdx file.
     // https://storybook.js.org/docs/react/api/mdx
@@ -11,7 +8,7 @@ export async function getComponentsFromStories(
       return storiesInfos;
     }
 
-    const storiesInfo:StoriesInfo | null = getStoriesInfo(resolve(cwd, storybookConfigDir, storiesPath));
+    const storiesInfo:StoriesInfo | null = getStoriesInfo(storiesPath);
     if (storiesInfo) { storiesInfos.push(storiesInfo); }
     return storiesInfos;
   }, []);

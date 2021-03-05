@@ -1,4 +1,4 @@
-import('acron');
+import('acorn');
 import { Node, Options } from 'acorn';
 import { parse } from 'acorn-loose';
 

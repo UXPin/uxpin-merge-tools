@@ -9,9 +9,9 @@ import { getComponentNameFromStoriesTitle } from './getComponentNameFromStoriesT
 export interface StoriesInfo {
   title:string;
   component:string;
-  componentFilePath:string; // relative from stories path
+  componentFilePath:string;
   importDefault:boolean;
-  storiesPath:string; // absolute path
+  storiesPath:string;
 }
 
 export function getStoriesInfo(storiesPath:string):StoriesInfo | null {
