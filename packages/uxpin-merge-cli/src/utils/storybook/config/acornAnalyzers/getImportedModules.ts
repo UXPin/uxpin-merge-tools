@@ -1,4 +1,4 @@
-import { ImportDeclaration, ImportDefaultSpecifier, ImportSpecifier } from 'acorn-loose';
+import { ImportDeclaration, ImportDefaultSpecifier, ImportNamespaceSpecifier, ImportSpecifier } from 'acorn-loose';
 
 export interface ImportedModules {
   [localName:string]:ImportedModule;
@@ -13,7 +13,7 @@ export interface ImportedModule {
 export function getImportedModules(imports:ImportedModules, node:ImportDeclaration):ImportedModules {
   node.specifiers.forEach((specifier:any) => {
     const importDefault:boolean = isImportDefault(specifier);
-    const name:string = importDefault ? specifier.local.name : specifier.imported.name;
+    const name:string = (importDefault || isImportNamespace) ? specifier.local.name : specifier.imported.name;
     const localName:string = specifier.local.name;
 
     const importedModule:ImportedModule = {
@@ -26,6 +26,10 @@ export function getImportedModules(imports:ImportedModules, node:ImportDeclarati
   return imports;
 }
 
-function isImportDefault(specifier:ImportDefaultSpecifier|ImportSpecifier):boolean {
+function isImportDefault(specifier:ImportSpecifier|ImportDefaultSpecifier|ImportNamespaceSpecifier):boolean {
   return specifier.type === 'ImportDefaultSpecifier';
+}
+
+function isImportNamespace(specifier:ImportSpecifier|ImportDefaultSpecifier|ImportNamespaceSpecifier):boolean {
+  return specifier.type === 'ImportNamespaceSpecifier';
 }

@@ -24,6 +24,11 @@ export interface ImportDefaultSpecifier extends Node {
   local:Identifier;
 }
 
+export interface ImportNamespaceSpecifier extends Node {
+  type:'ImportNamespaceSpecifier';
+  local:Identifier;
+}
+
 export interface ImportSpecifier extends Node {
   type:'ImportSpecifier';
   imported:Identifier;
