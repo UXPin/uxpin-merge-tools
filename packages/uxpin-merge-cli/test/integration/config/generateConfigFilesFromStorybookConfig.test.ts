@@ -1,4 +1,4 @@
-import { emptyDir, pathExists, rmdir } from 'fs-extra';
+import { emptyDir, pathExists, readFile, rmdir } from 'fs-extra';
 import { join } from 'path';
 
 import { Command } from '../../../src';
@@ -40,8 +40,9 @@ describe('generates uxpin.config.js and/or componentsStoriesMap.js based on .sto
           ],
         });
 
+        const storiesMapContent:string = await readFile(join(PROJECT_DIR, STORYBOOK_STORIES_MAP_PATH), 'utf-8');
+        expect(storiesMapContent).toMatchSnapshot();
         expect(await pathExists(join(PROJECT_DIR, STORYBOOK_UXPIN_CONFIG_PATH))).toBeFalsy();
-        expect(await pathExists(join(PROJECT_DIR, STORYBOOK_STORIES_MAP_PATH))).toBeTruthy();
       });
     });
     describe('without --config option', () => {
@@ -57,8 +58,10 @@ describe('generates uxpin.config.js and/or componentsStoriesMap.js based on .sto
           ],
         });
 
-        expect(await pathExists(join(PROJECT_DIR, STORYBOOK_UXPIN_CONFIG_PATH))).toBeTruthy();
-        expect(await pathExists(join(PROJECT_DIR, STORYBOOK_STORIES_MAP_PATH))).toBeTruthy();
+        const uxpinConfigContent:string = await readFile(join(PROJECT_DIR, STORYBOOK_UXPIN_CONFIG_PATH), 'utf-8');
+        const storiesMapContent:string = await readFile(join(PROJECT_DIR, STORYBOOK_STORIES_MAP_PATH), 'utf-8');
+        expect(uxpinConfigContent).toMatchSnapshot();
+        expect(storiesMapContent).toMatchSnapshot();
       });
     });
   });

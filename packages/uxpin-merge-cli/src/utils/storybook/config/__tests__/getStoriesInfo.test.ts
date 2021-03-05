@@ -8,7 +8,7 @@ describe('getStoriesInfo', () => {
 
   const cases:any[] = [
     {
-      description: 'with title and componenent defined in export default',
+      description: 'with title and component defined in export default',
       path: 'src/components/Button.stories.js',
     },
     {

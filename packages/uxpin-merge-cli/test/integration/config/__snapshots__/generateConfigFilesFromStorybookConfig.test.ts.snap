@@ -1,0 +1,671 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generates uxpin.config.js and/or componentsStoriesMap.js based on .storybook/main.js With dump command with --config option generates only componentsStoriesMap.js 1`] = `
+"module.exports = {
+  Avatar: {
+    component: 'Avatar',
+    componentFilePath: './Avatar',
+    importDefault: false,
+    storiesPath: 'src/components/Avatar.stories.js',
+    title: 'Avatar'
+  },
+  AvatarList: {
+    component: 'AvatarList',
+    componentFilePath: './AvatarList',
+    importDefault: false,
+    storiesPath: 'src/components/AvatarList.stories.js',
+    title: 'AvatarList'
+  },
+  Badge: {
+    component: 'Badge',
+    componentFilePath: './Badge',
+    importDefault: false,
+    storiesPath: 'src/components/Badge.stories.js',
+    title: 'Badge'
+  },
+  Button: {
+    component: 'Button',
+    componentFilePath: './Button',
+    importDefault: false,
+    storiesPath: 'src/components/Button.stories.js',
+    title: 'Button'
+  },
+  ButtonToggle: {
+    component: 'ButtonToggle',
+    componentFilePath: './ButtonToggle',
+    importDefault: false,
+    storiesPath: 'src/components/ButtonToggle.stories.tsx',
+    title: 'ButtonToggle'
+  },
+  Cardinal: {
+    component: 'Cardinal',
+    componentFilePath: './Cardinal',
+    importDefault: false,
+    storiesPath: 'src/components/Cardinal.stories.tsx',
+    title: 'Cardinal'
+  },
+  Checkbox: {
+    component: 'Checkbox',
+    componentFilePath: './Checkbox',
+    importDefault: false,
+    storiesPath: 'src/components/Checkbox.stories.js',
+    title: 'forms/Checkbox'
+  },
+  CodeSnippets: {
+    component: 'CodeSnippets',
+    componentFilePath: './CodeSnippets',
+    importDefault: false,
+    storiesPath: 'src/components/CodeSnippets.stories.js',
+    title: 'CodeSnippets'
+  },
+  FormErrorState: {
+    component: 'FormErrorState',
+    componentFilePath: './FormErrorState',
+    importDefault: false,
+    storiesPath: 'src/components/FormErrorState.stories.tsx',
+    title: 'forms/FormErrorState'
+  },
+  Highlight: {
+    component: 'Highlight',
+    componentFilePath: './Highlight',
+    importDefault: false,
+    storiesPath: 'src/components/Highlight.stories.js',
+    title: 'Highlight'
+  },
+  Icon: {
+    component: 'Icon',
+    componentFilePath: './Icon',
+    importDefault: false,
+    storiesPath: 'src/components/Icon.stories.js',
+    title: 'Icon'
+  },
+  Input: {
+    component: 'Input',
+    componentFilePath: './Input',
+    importDefault: false,
+    storiesPath: 'src/components/Input.stories.js',
+    title: 'forms/Input'
+  },
+  Link: {
+    component: 'Link',
+    componentFilePath: './Link',
+    importDefault: false,
+    storiesPath: 'src/components/Link.stories.tsx',
+    title: 'Link'
+  },
+  LinkTabs: {
+    component: 'LinkTabs',
+    componentFilePath: './LinkTabs',
+    importDefault: false,
+    storiesPath: 'src/components/LinkTabs.stories.js',
+    title: 'LinkTabs'
+  },
+  ProgressDots: {
+    component: 'ProgressDots',
+    componentFilePath: './ProgressDots',
+    importDefault: false,
+    storiesPath: 'src/components/ProgressDots.stories.js',
+    title: 'ProgressDots'
+  },
+  Radio: {
+    component: 'Radio',
+    componentFilePath: './Radio',
+    importDefault: false,
+    storiesPath: 'src/components/Radio.stories.js',
+    title: 'forms/Radio'
+  },
+  Select: {
+    component: 'Select',
+    componentFilePath: './Select',
+    importDefault: false,
+    storiesPath: 'src/components/Select.stories.js',
+    title: 'forms/Select'
+  },
+  ShadowBoxCTA: {
+    component: 'ShadowBoxCTA',
+    componentFilePath: './ShadowBoxCTA',
+    importDefault: false,
+    storiesPath: 'src/components/ShadowBoxCTA.stories.js',
+    title: 'ShadowBoxCTA'
+  },
+  Spinner: {
+    component: 'Spinner',
+    componentFilePath: './Spinner',
+    importDefault: false,
+    storiesPath: 'src/components/Spinner.stories.js',
+    title: 'Spinner'
+  },
+  Subheading: {
+    component: 'Subheading',
+    componentFilePath: './Subheading',
+    importDefault: false,
+    storiesPath: 'src/components/Subheading.stories.js',
+    title: 'Subheading'
+  },
+  Textarea: {
+    component: 'Textarea',
+    componentFilePath: './Textarea',
+    importDefault: false,
+    storiesPath: 'src/components/Textarea.stories.js',
+    title: 'forms/Textarea'
+  },
+  Clipboard: {
+    component: 'Clipboard',
+    componentFilePath: './Clipboard',
+    importDefault: false,
+    storiesPath: 'src/components/clipboard/Clipboard.stories.tsx',
+    title: 'Clipboard/Clipboard'
+  },
+  ClipboardCode: {
+    component: 'ClipboardCode',
+    componentFilePath: './ClipboardCode',
+    importDefault: false,
+    storiesPath: 'src/components/clipboard/ClipboardCode.stories.tsx',
+    title: 'Clipboard/ClipboardCode'
+  },
+  ClipboardIcon: {
+    component: 'ClipboardIcon',
+    componentFilePath: './ClipboardIcon',
+    importDefault: false,
+    storiesPath: 'src/components/clipboard/ClipboardIcon.stories.tsx',
+    title: 'Clipboard/ClipboardIcon'
+  },
+  ClipboardInput: {
+    component: 'ClipboardInput',
+    componentFilePath: './ClipboardInput',
+    importDefault: false,
+    storiesPath: 'src/components/clipboard/ClipboardInput.stories.tsx',
+    title: 'Clipboard/ClipboardInput'
+  },
+  Header: {
+    component: 'Header',
+    componentFilePath: './Header',
+    importDefault: false,
+    storiesPath: 'src/components/header/Header.stories.js',
+    title: 'Header'
+  },
+  Modal: {
+    component: 'Modal',
+    componentFilePath: './Modal',
+    importDefault: false,
+    storiesPath: 'src/components/modal/Modal.stories.js',
+    title: 'modal/Modal'
+  },
+  WithModal: {
+    component: 'WithModal',
+    componentFilePath: './WithModal',
+    importDefault: true,
+    storiesPath: 'src/components/modal/WithModal.stories.js',
+    title: 'modal/WithModal'
+  },
+  BulletLink: {
+    component: 'BulletLink',
+    componentFilePath: './BulletLink',
+    importDefault: false,
+    storiesPath: 'src/components/table-of-contents/BulletLink.stories.tsx',
+    title: 'TableOfContents/BulletLink'
+  },
+  ItemLink: {
+    component: 'ItemLink',
+    componentFilePath: './ItemLink',
+    importDefault: false,
+    storiesPath: 'src/components/table-of-contents/ItemLink.stories.tsx',
+    title: 'TableOfContents/ItemLink'
+  },
+  MenuLink: {
+    component: 'MenuLink',
+    componentFilePath: './MenuLink',
+    importDefault: false,
+    storiesPath: 'src/components/table-of-contents/MenuLink.stories.tsx',
+    title: 'TableOfContents/MenuLink'
+  },
+  TableOfContents: {
+    component: 'TableOfContents',
+    componentFilePath: './TableOfContents',
+    importDefault: false,
+    storiesPath: 'src/components/table-of-contents/TableOfContents.stories.tsx',
+    title: 'TableOfContents'
+  },
+  TagItem: {
+    component: 'TagItem',
+    componentFilePath: './TagItem',
+    importDefault: false,
+    storiesPath: 'src/components/tag/TagItem.stories.tsx',
+    title: 'Tag/TagItem'
+  },
+  TagLink: {
+    component: 'TagLink',
+    componentFilePath: './TagLink',
+    importDefault: false,
+    storiesPath: 'src/components/tag/TagLink.stories.tsx',
+    title: 'Tag/TagLink'
+  },
+  TagList: {
+    component: 'TagList',
+    componentFilePath: './TagList',
+    importDefault: false,
+    storiesPath: 'src/components/tag/TagList.stories.tsx',
+    title: 'Tag/TagList'
+  },
+  ListItem: {
+    component: 'ListItem',
+    componentFilePath: './ListItem',
+    importDefault: false,
+    storiesPath: 'src/components/tooltip/ListItem.stories.js',
+    title: 'tooltip/ListItem'
+  },
+  Tooltip: {
+    component: 'Tooltip',
+    componentFilePath: './Tooltip',
+    importDefault: false,
+    storiesPath: 'src/components/tooltip/Tooltip.stories.js',
+    title: 'tooltip/Tooltip'
+  },
+  TooltipLinkList: {
+    component: 'TooltipLinkList',
+    componentFilePath: './TooltipLinkList',
+    importDefault: false,
+    storiesPath: 'src/components/tooltip/TooltipLinkList.stories.js',
+    title: 'tooltip/TooltipLinkList'
+  },
+  TooltipMessage: {
+    component: 'TooltipMessage',
+    componentFilePath: './TooltipMessage',
+    importDefault: false,
+    storiesPath: 'src/components/tooltip/TooltipMessage.stories.js',
+    title: 'tooltip/TooltipMessage'
+  },
+  TooltipNote: {
+    component: 'TooltipNote',
+    componentFilePath: './TooltipNote',
+    importDefault: false,
+    storiesPath: 'src/components/tooltip/TooltipNote.stories.js',
+    title: 'tooltip/TooltipNote'
+  },
+  WithTooltip: {
+    component: 'WithTooltip',
+    componentFilePath: './WithTooltip',
+    importDefault: true,
+    storiesPath: 'src/components/tooltip/WithTooltip.stories.js',
+    title: 'tooltip/WithTooltip'
+  }
+}"
+`;
+
+exports[`generates uxpin.config.js and/or componentsStoriesMap.js based on .storybook/main.js With dump command without --config option generates both uxpin.config.js and componentsStoriesMap.js 1`] = `
+"module.exports = {
+  components: {
+    categories: [
+  {
+    include: [
+      'src/components/Avatar.tsx',
+      'src/components/AvatarList.tsx',
+      'src/components/Badge.js',
+      'src/components/Button.js',
+      'src/components/ButtonToggle.tsx',
+      'src/components/Cardinal.tsx',
+      'src/components/CodeSnippets.js',
+      'src/components/Highlight.js',
+      'src/components/Icon.tsx',
+      'src/components/Link.tsx',
+      'src/components/LinkTabs.js',
+      'src/components/ProgressDots.js',
+      'src/components/ShadowBoxCTA.js',
+      'src/components/Spinner.js',
+      'src/components/Subheading.js',
+      'src/components/header/Header.tsx',
+      'src/components/table-of-contents/TableOfContents.tsx'
+    ],
+    name: 'Uncategorized'
+  },
+  {
+    include: [
+      'src/components/Checkbox.js',
+      'src/components/FormErrorState.tsx',
+      'src/components/Input.js',
+      'src/components/Radio.js',
+      'src/components/Select.js',
+      'src/components/Textarea.js'
+    ],
+    name: 'forms'
+  },
+  {
+    include: [
+      'src/components/clipboard/Clipboard.tsx',
+      'src/components/clipboard/ClipboardCode.tsx',
+      'src/components/clipboard/ClipboardIcon.tsx',
+      'src/components/clipboard/ClipboardInput.tsx'
+    ],
+    name: 'Clipboard'
+  },
+  {
+    include: [
+      'src/components/modal/Modal.js',
+      'src/components/modal/WithModal.js'
+    ],
+    name: 'modal'
+  },
+  {
+    include: [
+      'src/components/table-of-contents/BulletLink.tsx',
+      'src/components/table-of-contents/ItemLink.tsx',
+      'src/components/table-of-contents/MenuLink.tsx'
+    ],
+    name: 'TableOfContents'
+  },
+  {
+    include: [
+      'src/components/tag/TagItem.tsx',
+      'src/components/tag/TagLink.tsx',
+      'src/components/tag/TagList.tsx'
+    ],
+    name: 'Tag'
+  },
+  {
+    include: [
+      'src/components/tooltip/ListItem.js',
+      'src/components/tooltip/Tooltip.js',
+      'src/components/tooltip/TooltipLinkList.js',
+      'src/components/tooltip/TooltipMessage.js',
+      'src/components/tooltip/TooltipNote.js',
+      'src/components/tooltip/WithTooltip.js'
+    ],
+    name: 'tooltip'
+  }
+],
+  },
+  name: 'Design System',
+};"
+`;
+
+exports[`generates uxpin.config.js and/or componentsStoriesMap.js based on .storybook/main.js With dump command without --config option generates both uxpin.config.js and componentsStoriesMap.js 2`] = `
+"module.exports = {
+  Avatar: {
+    component: 'Avatar',
+    componentFilePath: './Avatar',
+    importDefault: false,
+    storiesPath: 'src/components/Avatar.stories.js',
+    title: 'Avatar'
+  },
+  AvatarList: {
+    component: 'AvatarList',
+    componentFilePath: './AvatarList',
+    importDefault: false,
+    storiesPath: 'src/components/AvatarList.stories.js',
+    title: 'AvatarList'
+  },
+  Badge: {
+    component: 'Badge',
+    componentFilePath: './Badge',
+    importDefault: false,
+    storiesPath: 'src/components/Badge.stories.js',
+    title: 'Badge'
+  },
+  Button: {
+    component: 'Button',
+    componentFilePath: './Button',
+    importDefault: false,
+    storiesPath: 'src/components/Button.stories.js',
+    title: 'Button'
+  },
+  ButtonToggle: {
+    component: 'ButtonToggle',
+    componentFilePath: './ButtonToggle',
+    importDefault: false,
+    storiesPath: 'src/components/ButtonToggle.stories.tsx',
+    title: 'ButtonToggle'
+  },
+  Cardinal: {
+    component: 'Cardinal',
+    componentFilePath: './Cardinal',
+    importDefault: false,
+    storiesPath: 'src/components/Cardinal.stories.tsx',
+    title: 'Cardinal'
+  },
+  Checkbox: {
+    component: 'Checkbox',
+    componentFilePath: './Checkbox',
+    importDefault: false,
+    storiesPath: 'src/components/Checkbox.stories.js',
+    title: 'forms/Checkbox'
+  },
+  CodeSnippets: {
+    component: 'CodeSnippets',
+    componentFilePath: './CodeSnippets',
+    importDefault: false,
+    storiesPath: 'src/components/CodeSnippets.stories.js',
+    title: 'CodeSnippets'
+  },
+  FormErrorState: {
+    component: 'FormErrorState',
+    componentFilePath: './FormErrorState',
+    importDefault: false,
+    storiesPath: 'src/components/FormErrorState.stories.tsx',
+    title: 'forms/FormErrorState'
+  },
+  Highlight: {
+    component: 'Highlight',
+    componentFilePath: './Highlight',
+    importDefault: false,
+    storiesPath: 'src/components/Highlight.stories.js',
+    title: 'Highlight'
+  },
+  Icon: {
+    component: 'Icon',
+    componentFilePath: './Icon',
+    importDefault: false,
+    storiesPath: 'src/components/Icon.stories.js',
+    title: 'Icon'
+  },
+  Input: {
+    component: 'Input',
+    componentFilePath: './Input',
+    importDefault: false,
+    storiesPath: 'src/components/Input.stories.js',
+    title: 'forms/Input'
+  },
+  Link: {
+    component: 'Link',
+    componentFilePath: './Link',
+    importDefault: false,
+    storiesPath: 'src/components/Link.stories.tsx',
+    title: 'Link'
+  },
+  LinkTabs: {
+    component: 'LinkTabs',
+    componentFilePath: './LinkTabs',
+    importDefault: false,
+    storiesPath: 'src/components/LinkTabs.stories.js',
+    title: 'LinkTabs'
+  },
+  ProgressDots: {
+    component: 'ProgressDots',
+    componentFilePath: './ProgressDots',
+    importDefault: false,
+    storiesPath: 'src/components/ProgressDots.stories.js',
+    title: 'ProgressDots'
+  },
+  Radio: {
+    component: 'Radio',
+    componentFilePath: './Radio',
+    importDefault: false,
+    storiesPath: 'src/components/Radio.stories.js',
+    title: 'forms/Radio'
+  },
+  Select: {
+    component: 'Select',
+    componentFilePath: './Select',
+    importDefault: false,
+    storiesPath: 'src/components/Select.stories.js',
+    title: 'forms/Select'
+  },
+  ShadowBoxCTA: {
+    component: 'ShadowBoxCTA',
+    componentFilePath: './ShadowBoxCTA',
+    importDefault: false,
+    storiesPath: 'src/components/ShadowBoxCTA.stories.js',
+    title: 'ShadowBoxCTA'
+  },
+  Spinner: {
+    component: 'Spinner',
+    componentFilePath: './Spinner',
+    importDefault: false,
+    storiesPath: 'src/components/Spinner.stories.js',
+    title: 'Spinner'
+  },
+  Subheading: {
+    component: 'Subheading',
+    componentFilePath: './Subheading',
+    importDefault: false,
+    storiesPath: 'src/components/Subheading.stories.js',
+    title: 'Subheading'
+  },
+  Textarea: {
+    component: 'Textarea',
+    componentFilePath: './Textarea',
+    importDefault: false,
+    storiesPath: 'src/components/Textarea.stories.js',
+    title: 'forms/Textarea'
+  },
+  Clipboard: {
+    component: 'Clipboard',
+    componentFilePath: './Clipboard',
+    importDefault: false,
+    storiesPath: 'src/components/clipboard/Clipboard.stories.tsx',
+    title: 'Clipboard/Clipboard'
+  },
+  ClipboardCode: {
+    component: 'ClipboardCode',
+    componentFilePath: './ClipboardCode',
+    importDefault: false,
+    storiesPath: 'src/components/clipboard/ClipboardCode.stories.tsx',
+    title: 'Clipboard/ClipboardCode'
+  },
+  ClipboardIcon: {
+    component: 'ClipboardIcon',
+    componentFilePath: './ClipboardIcon',
+    importDefault: false,
+    storiesPath: 'src/components/clipboard/ClipboardIcon.stories.tsx',
+    title: 'Clipboard/ClipboardIcon'
+  },
+  ClipboardInput: {
+    component: 'ClipboardInput',
+    componentFilePath: './ClipboardInput',
+    importDefault: false,
+    storiesPath: 'src/components/clipboard/ClipboardInput.stories.tsx',
+    title: 'Clipboard/ClipboardInput'
+  },
+  Header: {
+    component: 'Header',
+    componentFilePath: './Header',
+    importDefault: false,
+    storiesPath: 'src/components/header/Header.stories.js',
+    title: 'Header'
+  },
+  Modal: {
+    component: 'Modal',
+    componentFilePath: './Modal',
+    importDefault: false,
+    storiesPath: 'src/components/modal/Modal.stories.js',
+    title: 'modal/Modal'
+  },
+  WithModal: {
+    component: 'WithModal',
+    componentFilePath: './WithModal',
+    importDefault: true,
+    storiesPath: 'src/components/modal/WithModal.stories.js',
+    title: 'modal/WithModal'
+  },
+  BulletLink: {
+    component: 'BulletLink',
+    componentFilePath: './BulletLink',
+    importDefault: false,
+    storiesPath: 'src/components/table-of-contents/BulletLink.stories.tsx',
+    title: 'TableOfContents/BulletLink'
+  },
+  ItemLink: {
+    component: 'ItemLink',
+    componentFilePath: './ItemLink',
+    importDefault: false,
+    storiesPath: 'src/components/table-of-contents/ItemLink.stories.tsx',
+    title: 'TableOfContents/ItemLink'
+  },
+  MenuLink: {
+    component: 'MenuLink',
+    componentFilePath: './MenuLink',
+    importDefault: false,
+    storiesPath: 'src/components/table-of-contents/MenuLink.stories.tsx',
+    title: 'TableOfContents/MenuLink'
+  },
+  TableOfContents: {
+    component: 'TableOfContents',
+    componentFilePath: './TableOfContents',
+    importDefault: false,
+    storiesPath: 'src/components/table-of-contents/TableOfContents.stories.tsx',
+    title: 'TableOfContents'
+  },
+  TagItem: {
+    component: 'TagItem',
+    componentFilePath: './TagItem',
+    importDefault: false,
+    storiesPath: 'src/components/tag/TagItem.stories.tsx',
+    title: 'Tag/TagItem'
+  },
+  TagLink: {
+    component: 'TagLink',
+    componentFilePath: './TagLink',
+    importDefault: false,
+    storiesPath: 'src/components/tag/TagLink.stories.tsx',
+    title: 'Tag/TagLink'
+  },
+  TagList: {
+    component: 'TagList',
+    componentFilePath: './TagList',
+    importDefault: false,
+    storiesPath: 'src/components/tag/TagList.stories.tsx',
+    title: 'Tag/TagList'
+  },
+  ListItem: {
+    component: 'ListItem',
+    componentFilePath: './ListItem',
+    importDefault: false,
+    storiesPath: 'src/components/tooltip/ListItem.stories.js',
+    title: 'tooltip/ListItem'
+  },
+  Tooltip: {
+    component: 'Tooltip',
+    componentFilePath: './Tooltip',
+    importDefault: false,
+    storiesPath: 'src/components/tooltip/Tooltip.stories.js',
+    title: 'tooltip/Tooltip'
+  },
+  TooltipLinkList: {
+    component: 'TooltipLinkList',
+    componentFilePath: './TooltipLinkList',
+    importDefault: false,
+    storiesPath: 'src/components/tooltip/TooltipLinkList.stories.js',
+    title: 'tooltip/TooltipLinkList'
+  },
+  TooltipMessage: {
+    component: 'TooltipMessage',
+    componentFilePath: './TooltipMessage',
+    importDefault: false,
+    storiesPath: 'src/components/tooltip/TooltipMessage.stories.js',
+    title: 'tooltip/TooltipMessage'
+  },
+  TooltipNote: {
+    component: 'TooltipNote',
+    componentFilePath: './TooltipNote',
+    importDefault: false,
+    storiesPath: 'src/components/tooltip/TooltipNote.stories.js',
+    title: 'tooltip/TooltipNote'
+  },
+  WithTooltip: {
+    component: 'WithTooltip',
+    componentFilePath: './WithTooltip',
+    importDefault: true,
+    storiesPath: 'src/components/tooltip/WithTooltip.stories.js',
+    title: 'tooltip/WithTooltip'
+  }
+}"
+`;

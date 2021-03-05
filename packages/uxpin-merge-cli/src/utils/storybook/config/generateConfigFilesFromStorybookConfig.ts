@@ -8,8 +8,8 @@ import { generateUxpinConfigFile } from './generateUxpinConfigFile';
 import { getComponentsFromStories } from './getComponentsFromStories';
 import { StoriesInfo } from './getStoriesInfo';
 
-// We generate config files(uxpin.config.js and stories-map.json) based on stories in main.js
-// stories-map.json file is useful for us to find stories file in later steps based on component path.
+// We generate config files(uxpin.config.js and componentsStoriesMap.js) based on stories in main.js
+// componentsStoriesMap.js file is useful for us to find stories file in later steps based on component path.
 // e.g.(1) detect component name to import. (2) serialize story as preset for uxpin
 export async function generateConfigFilesFromStorybookConfig(args:RawProgramArgs):Promise<void> {
   // storybookConfigDir and cwd should be set following default in `getProgramArgs`.
@@ -21,7 +21,8 @@ export async function generateConfigFilesFromStorybookConfig(args:RawProgramArgs
   let { stories } = require(path);
 
   stories = stories.map((filePattern:string) => relative(cwd, join(storybookConfigDir, filePattern)));
-  const storiesPaths:string[] = await globby(stories, { cwd });
+  // because globby doesn't guarantee the order, sorting for consistency
+  const storiesPaths:string[] = await (await globby(stories, { cwd })).sort();
   const storiesInfos:StoriesInfo[] = await getComponentsFromStories(storiesPaths);
   await generateComponentsStoriesMapFile(cwd, storiesInfos);
 
