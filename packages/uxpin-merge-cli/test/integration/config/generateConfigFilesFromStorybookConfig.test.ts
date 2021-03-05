@@ -1,4 +1,4 @@
-import { emptyDir, pathExists, readFile, rmdir } from 'fs-extra';
+import { emptyDir, pathExists, rmdir } from 'fs-extra';
 import { join } from 'path';
 
 import { Command } from '../../../src';
@@ -10,7 +10,7 @@ import { testDirPath } from '../../utils/resources/testDirPath';
 
 import { TEMP_DIR_PATH } from '../../../src/steps/building/config/getConfig';
 
-const CURRENT_TIMEOUT:number = 75000;
+const CURRENT_TIMEOUT:number = 150000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 const PROJECT_DIR:string = join(testDirPath, 'resources/repos/storybook-design-system');
@@ -40,8 +40,8 @@ describe('generates uxpin.config.js and/or componentsStoriesMap.js based on .sto
           ],
         });
 
-        const storiesMapContent:string = await readFile(join(PROJECT_DIR, STORYBOOK_STORIES_MAP_PATH), 'utf-8');
-        expect(storiesMapContent).toMatchSnapshot();
+        const storiesMap:any = require(join(PROJECT_DIR, STORYBOOK_STORIES_MAP_PATH));
+        expect(storiesMap).toMatchSnapshot();
         expect(await pathExists(join(PROJECT_DIR, STORYBOOK_UXPIN_CONFIG_PATH))).toBeFalsy();
       });
     });
@@ -58,10 +58,10 @@ describe('generates uxpin.config.js and/or componentsStoriesMap.js based on .sto
           ],
         });
 
-        const uxpinConfigContent:string = await readFile(join(PROJECT_DIR, STORYBOOK_UXPIN_CONFIG_PATH), 'utf-8');
-        const storiesMapContent:string = await readFile(join(PROJECT_DIR, STORYBOOK_STORIES_MAP_PATH), 'utf-8');
-        expect(uxpinConfigContent).toMatchSnapshot();
-        expect(storiesMapContent).toMatchSnapshot();
+        const uxpinConfig:any = require(join(PROJECT_DIR, STORYBOOK_UXPIN_CONFIG_PATH));
+        const storiesMap:any = require(join(PROJECT_DIR, STORYBOOK_STORIES_MAP_PATH));
+        expect(uxpinConfig).toMatchSnapshot();
+        expect(storiesMap).toMatchSnapshot();
       });
     });
   });
