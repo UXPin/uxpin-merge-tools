@@ -13,7 +13,7 @@ export interface ImportedModule {
 export function getImportedModules(imports:ImportedModules, node:ImportDeclaration):ImportedModules {
   node.specifiers.forEach((specifier:any) => {
     const importDefault:boolean = isImportDefault(specifier);
-    const name:string = (importDefault || isImportNamespace) ? specifier.local.name : specifier.imported.name;
+    const name:string = useLocalName(specifier) ? specifier.local.name : specifier.imported.name;
     const localName:string = specifier.local.name;
 
     const importedModule:ImportedModule = {
@@ -24,6 +24,10 @@ export function getImportedModules(imports:ImportedModules, node:ImportDeclarati
     imports[localName] = importedModule;
   });
   return imports;
+}
+
+function useLocalName(specifier:ImportSpecifier|ImportDefaultSpecifier|ImportNamespaceSpecifier):boolean {
+  return isImportDefault(specifier) || isImportNamespace(specifier);
 }
 
 function isImportDefault(specifier:ImportSpecifier|ImportDefaultSpecifier|ImportNamespaceSpecifier):boolean {
