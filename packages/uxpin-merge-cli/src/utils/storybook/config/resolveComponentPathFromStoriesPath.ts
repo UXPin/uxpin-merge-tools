@@ -15,9 +15,11 @@ export function resolveComponentPathFromStoriesPath(
     return file.match(reg) !== null;
   });
 
-  if (!fileNameWithExtension) {
-    return null;
+  if (fileNameWithExtension) {
+    return relative(cwd, resolve(componentDir, fileNameWithExtension));
   }
 
-  return relative(cwd, resolve(componentDir, fileNameWithExtension));
+  // @todo - handle component exported via index.(js|ts)
+  // by finding component file path from index.(js|ts) with `acorn-loose`
+  return null;
 }
