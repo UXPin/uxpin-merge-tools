@@ -67,11 +67,11 @@ describe('serializeTSComponent', () => {
             type: {
               name: 'union',
               structure: {
-                elements: expect.arrayContaining([
+                elements: [
                   { name: 'literal', structure: { value: 'secondary' } },
                   { name: 'literal', structure: { value: 'primary' } },
                   { name: 'literal', structure: { value: 'link' } },
-                ]),
+                ],
               },
             },
           },
@@ -82,11 +82,68 @@ describe('serializeTSComponent', () => {
             type: {
               name: 'union',
               structure: {
-                elements: expect.arrayContaining([
+                elements: [
                   { name: 'literal', structure: { value: 'large' } },
                   { name: 'literal', structure: { value: 'medium' } },
                   { name: 'literal', structure: { value: 'small' } },
-                ]),
+                ],
+              },
+            },
+          },
+          {
+            defaultValue:  {
+              value: 1,
+            },
+            description: '',
+            isRequired: true,
+            name: 'propNumeric',
+            type: {
+              name: 'union',
+              structure: {
+                elements:  [
+                  { name: 'literal', structure: { value: 0 } },
+                  { name: 'literal', structure: { value: 1 } },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'propCustomNumeric',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 3 } },
+                  { name: 'literal', structure: { value: 4 } },
+                  { name: 'literal', structure: { value: 5 } },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'propComputed',
+            type: {
+              name: 'unsupported',
+              structure: { raw: 'enum' } },
+          },
+          {
+            defaultValue:{
+              value: 0,
+            },
+            description: '',
+            isRequired: true,
+            name: 'propHeterogeneous',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'literal', structure: { value: 0 } },
+                  { name: 'literal', structure: { value: 'YES' } },
+                ],
               },
             },
           },
