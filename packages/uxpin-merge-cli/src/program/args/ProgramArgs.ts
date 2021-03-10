@@ -8,6 +8,8 @@ export interface RawProgramArgs {
   port?:number;
   webpackConfig?:string;
   wrapper?:string;
+  storybook?:boolean;
+  storybookConfigDir?:string;
 }
 
 export interface ConfigEnabledProgramArgs {
@@ -60,6 +62,7 @@ export interface PushProgramArgs {
   // https://github.com/UXPin/uxpin-merge-tools/issues/206
   branch?:string;
   storybook?:boolean;
+  storybookConfigDir?:string;
 }
 
 export interface GeneratePresetsProgramArgs {
@@ -77,6 +80,7 @@ export interface ServerProgramArgs {
   wrapper?:string;
   config:string;
   storybook?:boolean;
+  storybookConfigDir?:string;
 }
 
 export interface DumpProgramArgs {
@@ -84,6 +88,7 @@ export interface DumpProgramArgs {
   cwd:string;
   config:string;
   storybook?:boolean;
+  storybookConfigDir?:string;
 }
 
 export interface SummaryProgramArgs {
@@ -91,6 +96,7 @@ export interface SummaryProgramArgs {
   cwd:string;
   config:string;
   storybook?:boolean;
+  storybookConfigDir?:string;
 }
 
 export interface ExperimentProgramArgs {
@@ -104,6 +110,7 @@ export interface ExperimentProgramArgs {
   uxpinDomain:string;
   skipBrowser:boolean;
   storybook?:boolean;
+  storybookConfigDir?:string;
 }
 
 export type Arg = string | CommanderStatic;

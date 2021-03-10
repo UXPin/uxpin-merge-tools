@@ -1560,6 +1560,13 @@ acorn-globals@^4.1.0:
   dependencies:
     acorn "^5.0.0"
 
+acorn-loose@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/acorn-loose/-/acorn-loose-8.0.2.tgz#a158e721c3cf7845d7d646465df89fb708292b14"
+  integrity sha512-h25FYjJONkLfEq0PWMax9p2Xjhj6Ex9aiOhwayUxT8R5alTt1+00xypWLxUBu7kASwiNTzjmq6ohOY6EdsVbVw==
+  dependencies:
+    acorn "^8.0.0"
+
 acorn@^5.0.0:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.1.2.tgz#911cb53e036807cf0fa778dc5d370fbd864246d7"
@@ -1567,6 +1574,11 @@ acorn@^5.0.0:
 acorn@^5.3.0:
   version "5.5.3"
   resolved "https://registry.npmjs.org/acorn/-/acorn-5.5.3.tgz#f473dd47e0277a08e28e9bec5aeeb04751f0b8c9"
+
+acorn@^8.0.0:
+  version "8.0.5"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.0.5.tgz#a3bfb872a74a6a7f661bc81b9849d9cac12601b7"
+  integrity sha512-v+DieK/HJkJOpFBETDJioequtc3PfxsWMaxIdIwujtF7FEV/MAyDQLlm6/zPvr7Mix07mLh6ccVwIsloceodlg==
 
 aggregate-error@^1.0.0:
   version "1.0.0"

@@ -22,6 +22,7 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
     wrapper,
     branch,
     storybook,
+    storybookConfigDir,
     storybookWebpackConfig,
   } = args;
 
@@ -29,6 +30,7 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
     branch,
     projectRoot: getProjectRoot(args),
     storybook,
+    storybookConfigDir,
     storybookWebpackConfig,
     token,
     uxpinApiDomain: getDefaultApiDomain(uxpinDomain!),
@@ -41,7 +43,7 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
 
 export type BuildProgramArgs = Pick<PushProgramArgs, 'cwd' | 'token'
   | 'uxpinDomain' | 'webpackConfig' | 'wrapper' | 'branch'
-  | 'storybook' >
+  | 'storybook' | 'storybookConfigDir' >
   & StorybookBuildArgs;
 
 interface StorybookBuildArgs {

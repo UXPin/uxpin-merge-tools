@@ -11,5 +11,6 @@ export interface BuildOptions {
   wrapperPath?:string;
   branch?:string;
   storybook?:boolean;
+  storybookConfigDir?:string;
   storybookWebpackConfig?:Configuration;
 }

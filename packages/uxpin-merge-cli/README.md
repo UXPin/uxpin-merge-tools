@@ -7,10 +7,13 @@ This is the command line used to preview design system components locally and pu
 ## Installation
 
 Add `uxpin-merge` to your package.json:
+
 ```
 npm install @uxpin/merge-cli --save-dev
 ```
+
 or
+
 ```
 yarn add @uxpin/merge-cli --dev
 ```
@@ -22,7 +25,9 @@ This tool recognizes components available in your repository of component librar
 ```
 ./node_modules/.bin/uxpin-merge --help
 ```
+
 will print the list of options:
+
 ```
   Usage: uxpin-merge [options] [command]
 
@@ -34,6 +39,7 @@ will print the list of options:
     -v, --version                     output the version number
     --webpack-config <path>           path to a custom webpack config, relative to the current working directory
     --storybook                       enable Storybook integration
+    --storybook-config-dir <path>     Directory where to load Storybook configurations from
     --wrapper <path>                  path to a custom component wrapper, relative to the current working directory
     --branch <branch>                 branch to use when uploading. Default: master
     --cwd <path>                      working directory: path to root of the DS repository. Default: `./`
