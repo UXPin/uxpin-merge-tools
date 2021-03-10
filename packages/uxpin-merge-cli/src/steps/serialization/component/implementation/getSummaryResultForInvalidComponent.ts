@@ -1,4 +1,5 @@
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
+import { ComponentMetadata } from '../ComponentDefinition';
 import { getComponentNameFromPath } from '../name/getComponentNameFromPath';
 import { ImplSerializationResult } from './ImplSerializationResult';
 
@@ -9,6 +10,13 @@ export function thunkGetSummaryResultForInvalidComponent(sourcePath:string):(e:E
       originalError,
       sourcePath,
     };
-    return { result: { name: getComponentNameFromPath(sourcePath), properties: [] }, warnings: [warning] };
+
+    const componentMetadata:ComponentMetadata = {
+      defaultExported: false,
+      name: getComponentNameFromPath(sourcePath),
+      properties: [],
+    };
+
+    return { result: componentMetadata, warnings: [warning] };
   };
 }

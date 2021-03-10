@@ -23,6 +23,7 @@ describe('filterMovedFiles', () => {
       {
         components: [
           {
+            defaultExported: true,
             documentation: { examples: [] },
             info: {
               dirPath: 'src/NewFoo',
@@ -42,6 +43,7 @@ describe('filterMovedFiles', () => {
       {
         components: [
           {
+            defaultExported: true,
             documentation: { examples: [] },
             info: {
               dirPath: 'src/NewBar',

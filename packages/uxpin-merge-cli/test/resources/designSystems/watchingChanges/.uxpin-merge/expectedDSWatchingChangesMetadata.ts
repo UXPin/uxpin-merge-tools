@@ -2,6 +2,7 @@ import { ComponentDefinition } from '../../../../../src/steps/serialization/comp
 import { DesignSystemSnapshot } from '../../../../../src/steps/serialization/DesignSystemSnapshot';
 
 export const expectedAvatarDefinition:ComponentDefinition = {
+  defaultExported: true,
   documentation: {
     examples: [],
   },
@@ -87,6 +88,7 @@ export const expectedAvatarDefinition:ComponentDefinition = {
 };
 
 export const expectedButtonDefinition:ComponentDefinition = {
+  defaultExported: true,
   documentation: {
     examples: [],
   },

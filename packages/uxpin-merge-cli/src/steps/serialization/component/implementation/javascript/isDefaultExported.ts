@@ -1,4 +1,13 @@
-import { ExportDefaultDeclaration, ExportNamedDeclaration, ExportSpecifier, ImportDeclaration, ModuleNode, parse, VariableDeclaration, VariableDeclarator } from 'acorn-loose';
+import {
+  ExportDefaultDeclaration,
+  ExportNamedDeclaration,
+  ExportSpecifier,
+  ImportDeclaration,
+  ModuleNode,
+  parse,
+  VariableDeclaration,
+  VariableDeclarator,
+} from 'acorn-loose';
 import { readFileSync } from 'fs-extra';
 
 // This function is checking if component is default exported by

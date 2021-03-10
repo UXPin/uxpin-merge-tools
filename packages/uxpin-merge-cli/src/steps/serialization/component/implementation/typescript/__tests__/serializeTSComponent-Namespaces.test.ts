@@ -10,6 +10,7 @@ describe('serializeTSComponent-Namespaces', () => {
       // having
       const component:ComponentImplementationInfo = getImplementation('ClassWithNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'ClassWithNamespaceDeclaration',
         namespace: {
           importSlug: 'Namespace_ClassWithNamespaceDeclaration',
@@ -38,6 +39,7 @@ describe('serializeTSComponent-Namespaces', () => {
       // having
       const component:ComponentImplementationInfo = getImplementation('ClassWithMultilevelNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'ClassWithMultilevelNamespaceDeclaration',
         namespace: {
           importSlug: 'Some_Nested_Namespace_ClassWithMultilevelNamespaceDeclaration',
@@ -68,6 +70,7 @@ describe('serializeTSComponent-Namespaces', () => {
       // having
       const component:ComponentImplementationInfo = getImplementation('FunctionWithNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'FunctionWithNamespaceDeclaration',
         namespace: {
           importSlug: 'Namespace_FunctionWithNamespaceDeclaration',
@@ -96,6 +99,7 @@ describe('serializeTSComponent-Namespaces', () => {
       // having
       const component:ComponentImplementationInfo = getImplementation('FunctionWithMultilevelNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'FunctionWithMultilevelNamespaceDeclaration',
         namespace: {
           importSlug: 'Some_Nested_Namespace_FunctionWithMultilevelNamespaceDeclaration',
