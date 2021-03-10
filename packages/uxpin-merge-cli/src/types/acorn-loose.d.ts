@@ -77,3 +77,8 @@ export interface VariableDeclarator extends Node {
   type:'VariableDeclarator';
   id:Identifier;
 }
+
+export interface ClassDeclaration extends Node {
+  type:'ClassDeclaration';
+  id:Identifier;
+}

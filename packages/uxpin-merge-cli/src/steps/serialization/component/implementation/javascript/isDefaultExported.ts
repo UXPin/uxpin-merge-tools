@@ -1,4 +1,5 @@
 import {
+  ClassDeclaration,
   ExportDefaultDeclaration,
   ExportNamedDeclaration,
   ExportSpecifier,
@@ -24,9 +25,14 @@ export function isDefaultExported(componentPath:string, name:string):boolean {
   const isNamedExported:boolean = ast.body.some((node:nodeTypes) => {
     if (node.type !== 'ExportNamedDeclaration') { return false; }
 
+    // e.g. export class Component
+    if (isClassDeclaration(node.declaration)) {
+      return node.declaration.id.name === name;
+    }
+
     // e.g. export const Component = ...
     if (isVariableDeclaration(node)) {
-      return (node.declaration as VariableDeclaration).declarations.some((variableDeclarator:VariableDeclarator) => {
+      return node.declaration.declarations.some((variableDeclarator:VariableDeclarator) => {
         return variableDeclarator.id.name === name;
       });
     }
@@ -40,6 +46,10 @@ export function isDefaultExported(componentPath:string, name:string):boolean {
   return !isNamedExported;
 }
 
-function isVariableDeclaration(node:ExportNamedDeclaration):boolean {
-  return node.declaration !== null;
+function isClassDeclaration(node:ClassDeclaration|VariableDeclaration):boolean {
+  return node.type === 'ClassDeclaration';
+}
+
+function isVariableDeclaration(node:ClassDeclaration|VariableDeclaration):boolean {
+  return node.type === 'VariableDeclaration';
 }
