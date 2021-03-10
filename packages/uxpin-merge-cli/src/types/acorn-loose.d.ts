@@ -15,7 +15,7 @@ export interface ExportDefaultDeclaration extends Node {
 
 export interface ExportNamedDeclaration extends Node {
   type:'ExportNamedDeclaration';
-  declaration: VariableDeclaration|null;
+  declaration: ClassDeclaration|VariableDeclaration|null;
   specifiers: ExportSpecifier[];
 }
 
@@ -68,6 +68,11 @@ export interface Literal extends Node {
   value:string;
 }
 
+export interface ClassDeclaration extends Node {
+  type:'ClassDeclaration';
+  id:Identifier;
+}
+
 export interface VariableDeclaration extends Node {
   type:'VariableDeclaration';
   declarations:VariableDeclarator[];
@@ -75,10 +80,5 @@ export interface VariableDeclaration extends Node {
 
 export interface VariableDeclarator extends Node {
   type:'VariableDeclarator';
-  id:Identifier;
-}
-
-export interface ClassDeclaration extends Node {
-  type:'ClassDeclaration';
   id:Identifier;
 }

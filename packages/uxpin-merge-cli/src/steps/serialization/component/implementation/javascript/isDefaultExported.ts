@@ -25,22 +25,26 @@ export function isDefaultExported(componentPath:string, name:string):boolean {
   const isNamedExported:boolean = ast.body.some((node:nodeTypes) => {
     if (node.type !== 'ExportNamedDeclaration') { return false; }
 
+    // e.g. export { Component }
+    if (node.declaration === null) {
+      return node.specifiers.some((specifier:ExportSpecifier) => {
+        return specifier.exported.name === name;
+      });
+    }
+
     // e.g. export class Component
     if (isClassDeclaration(node.declaration)) {
-      return node.declaration.id.name === name;
+      return (node.declaration as ClassDeclaration).id.name === name;
     }
 
     // e.g. export const Component = ...
-    if (isVariableDeclaration(node)) {
-      return node.declaration.declarations.some((variableDeclarator:VariableDeclarator) => {
+    if (isVariableDeclaration(node.declaration)) {
+      return (node.declaration as VariableDeclaration).declarations.some((variableDeclarator:VariableDeclarator) => {
         return variableDeclarator.id.name === name;
       });
     }
 
-    // e.g. export { Component }
-    return node.specifiers.some((specifier:ExportSpecifier) => {
-      return specifier.exported.name === name;
-    });
+    return false;
   });
 
   return !isNamedExported;
