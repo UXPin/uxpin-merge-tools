@@ -1,7 +1,7 @@
 import * as ts from 'typescript';
 import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
 
-export function isExported(node:ComponentDeclaration):boolean {
+export function isExported(node:ComponentDeclaration | ts.VariableStatement):boolean {
   if (!node.modifiers) {
     return false;
   }

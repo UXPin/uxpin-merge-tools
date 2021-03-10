@@ -3,6 +3,7 @@ import { TSSerializationContext } from '../context/getSerializationContext';
 import { findDefaultExportedArrowFunction } from './findDefaultExportedArrowFunction';
 import { findDefaultExportedClass } from './findDefaultExportedClass';
 import { findDefaultExportedFunction } from './findDefaultExportedFunction';
+import { findExportedArrowFunctionWithName } from './findExportedArrowFunctionWithName';
 import { findExportedClassWithName } from './findExportedClassWithName';
 import { findExportedFunctionWithName } from './findExportedFunctionWithName';
 import {
@@ -30,7 +31,8 @@ function findFunctionalComponent(
   return findSpecifiedFunctionComponent(sourceFile)
     || findDefaultExportedFunction(sourceFile)
     || findExportedFunctionWithName(sourceFile, componentFileName)
-    || findDefaultExportedArrowFunction(sourceFile);
+    || findDefaultExportedArrowFunction(sourceFile)
+    || findExportedArrowFunctionWithName(sourceFile, componentFileName);
 }
 
 function findClassComponent(
