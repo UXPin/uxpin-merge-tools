@@ -13,6 +13,12 @@ export interface ExportDefaultDeclaration extends Node {
   declaration: (ObjectExpression|Identifier)
 }
 
+export interface ExportNamedDeclaration extends Node {
+  type:'ExportNamedDeclaration';
+  declaration: VariableDeclaration|null;
+  specifiers: ExportSpecifier[];
+}
+
 export interface ImportDeclaration extends Node {
   type:'ImportDeclaration';
   specifiers: (ImportDefaultSpecifier|ImportSpecifier)[];
@@ -26,6 +32,12 @@ export interface ImportDefaultSpecifier extends Node {
 
 export interface ImportNamespaceSpecifier extends Node {
   type:'ImportNamespaceSpecifier';
+  local:Identifier;
+}
+
+export interface ExportSpecifier extends Node {
+  type:'ExportSpecifier';
+  exported:Identifier;
   local:Identifier;
 }
 
@@ -54,4 +66,14 @@ export interface Property extends Node {
 export interface Literal extends Node {
   type:'Literal';
   value:string;
+}
+
+export interface VariableDeclaration extends Node {
+  type:'VariableDeclaration';
+  declarations:VariableDeclarator[];
+}
+
+export interface VariableDeclarator extends Node {
+  type:'VariableDeclarator';
+  id:Identifier;
 }
