@@ -9,7 +9,7 @@ export interface ComponentMetadata {
   namespace?:ComponentNamespace;
   properties:ComponentPropertyDefinition[];
   wrappers?:ComponentWrapper[];
-  defaultExported?:boolean;
+  defaultExported:boolean;
 }
 
 export interface ComponentDefinition extends ComponentMetadata {

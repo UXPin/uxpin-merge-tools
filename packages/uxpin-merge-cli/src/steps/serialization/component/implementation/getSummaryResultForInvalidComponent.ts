@@ -2,6 +2,7 @@ import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { ComponentMetadata } from '../ComponentDefinition';
 import { getComponentNameFromPath } from '../name/getComponentNameFromPath';
 import { ImplSerializationResult } from './ImplSerializationResult';
+import { isDefaultExported } from './javascript/isDefaultExported';
 
 export function thunkGetSummaryResultForInvalidComponent(sourcePath:string):(e:Error) => ImplSerializationResult {
   return (originalError) => {
@@ -11,7 +12,9 @@ export function thunkGetSummaryResultForInvalidComponent(sourcePath:string):(e:E
       sourcePath,
     };
 
+    const componentName:string = getComponentNameFromPath(sourcePath);
     const componentMetadata:ComponentMetadata = {
+      defaultExported: isDefaultExported(sourcePath, componentName),
       name: getComponentNameFromPath(sourcePath),
       properties: [],
     };
