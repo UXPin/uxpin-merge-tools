@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`summary command integration summary command prints  prints the list of components found in nordnet-ui-kit example 1`] = `
+"[1mUncategorized[22m
+
+    [1mAlert[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mAnimate[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mAvatar[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mBadge[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mButton[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mDropdown[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mFlag[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIcon[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mInput[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mLabeledValue[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mLi[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mLogo[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mPane[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mRadioGroup[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mSegmentedControl[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mSpinner[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mTable[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mTbody[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mTd[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mTfoot[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mTh[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mThead[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mTooltip[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mTr[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mUl[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/alert/alert.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/animate/animate.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/avatar/avatar.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/badge/badge.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/button/button.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/dropdown/dropdown.jsx[39m
+
+[33mwarning [39mCannot parse type of a property 'aria-hidden' in:
+[34msrc/components/icon/icon.jsx[39m
+
+[33mwarning [39mCannot parse type of a property 'focusable' in:
+[34msrc/components/icon/icon.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/labeled-value/labeled-value.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/li/li.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/pane/pane.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/spinner/spinner.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/td/td.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/th/th.jsx[39m
+
+[33mwarning [39mCannot serialize component properties in:
+[34msrc/components/tooltip/tooltip.jsx[39m
+
+"
+`;
