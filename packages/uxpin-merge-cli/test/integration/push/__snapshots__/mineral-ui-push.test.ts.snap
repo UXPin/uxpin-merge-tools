@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pushing mineral-ui design system with required user webpack config prints warnings without stack traces to the console 1`] = `
-"warning Cannot compute default value for property \`triggerTitle\`
+"[33mwarning [39mCannot compute default value for property \`triggerTitle\`
 
 SyntaxError: Unexpected token :
 
  in:
-src/library/Card/CardFooter/CardFooter.js
+[34msrc/library/Card/CardFooter/CardFooter.js[39m
 
 [31m🛑 The current commit is not on branch [master], please specify --branch to use a custom branch
 [0m"
