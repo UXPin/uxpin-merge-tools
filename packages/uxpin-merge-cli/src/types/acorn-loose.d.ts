@@ -10,7 +10,7 @@ export interface ModuleNode extends Node {
 
 export interface ExportDefaultDeclaration extends Node {
   type:'ExportDefaultDeclaration';
-  declaration: (ObjectExpression|Identifier)
+  declaration: (ObjectExpression|Identifier|CallExpression)
 }
 
 export interface ExportNamedDeclaration extends Node {
@@ -86,4 +86,9 @@ export interface VariableDeclaration extends Node {
 export interface VariableDeclarator extends Node {
   type:'VariableDeclarator';
   id:Identifier;
+}
+
+export interface CallExpression extends Node {
+  type:'CallExpression';
+  arguments:(Identifier|CallExpression)[];
 }
