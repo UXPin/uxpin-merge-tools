@@ -15,7 +15,7 @@ export interface ExportDefaultDeclaration extends Node {
 
 export interface ExportNamedDeclaration extends Node {
   type:'ExportNamedDeclaration';
-  declaration: ClassDeclaration|VariableDeclaration|null;
+  declaration: ClassDeclaration|FunctionDeclaration|VariableDeclaration|null;
   specifiers: ExportSpecifier[];
 }
 
@@ -70,6 +70,11 @@ export interface Literal extends Node {
 
 export interface ClassDeclaration extends Node {
   type:'ClassDeclaration';
+  id:Identifier;
+}
+
+export interface FunctionDeclaration extends Node {
+  type:'FunctionDeclaration';
   id:Identifier;
 }
 

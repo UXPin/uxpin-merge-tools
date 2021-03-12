@@ -3,6 +3,7 @@ import {
   ExportDefaultDeclaration,
   ExportNamedDeclaration,
   ExportSpecifier,
+  FunctionDeclaration,
   ImportDeclaration,
   ModuleNode,
   parse,
@@ -37,6 +38,11 @@ export function isDefaultExported(componentPath:string, name:string):boolean {
       return (node.declaration as ClassDeclaration).id.name === name;
     }
 
+    // e.g. export function Component
+    if (isFunctionDeclaration(node.declaration)) {
+      return (node.declaration as FunctionDeclaration).id.name === name;
+    }
+
     // e.g. export const Component = ...
     if (isVariableDeclaration(node.declaration)) {
       return (node.declaration as VariableDeclaration).declarations.some((variableDeclarator:VariableDeclarator) => {
@@ -50,10 +56,14 @@ export function isDefaultExported(componentPath:string, name:string):boolean {
   return !isNamedExported;
 }
 
-function isClassDeclaration(node:ClassDeclaration|VariableDeclaration):boolean {
+function isClassDeclaration(node:ClassDeclaration|VariableDeclaration|FunctionDeclaration):boolean {
   return node.type === 'ClassDeclaration';
 }
 
-function isVariableDeclaration(node:ClassDeclaration|VariableDeclaration):boolean {
+function isFunctionDeclaration(node:ClassDeclaration|VariableDeclaration|FunctionDeclaration):boolean {
+  return node.type === 'FunctionDeclaration';
+}
+
+function isVariableDeclaration(node:ClassDeclaration|VariableDeclaration|FunctionDeclaration):boolean {
   return node.type === 'VariableDeclaration';
 }
