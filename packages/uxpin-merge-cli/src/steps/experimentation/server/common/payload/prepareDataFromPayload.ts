@@ -1,9 +1,5 @@
 import { IncomingMessage } from 'http';
-import { parse } from 'querystring';
-
-interface ParsedFormData {
-  json:string;
-}
+import { parse, ParsedUrlQuery } from 'querystring';
 
 export function prepareDataFromPayload(request:IncomingMessage):Promise<any> {
   return new Promise((resolve, reject) => {
@@ -13,8 +9,8 @@ export function prepareDataFromPayload(request:IncomingMessage):Promise<any> {
     });
     request.on('end', () => {
       if (body.startsWith('json')) {
-        const data:ParsedFormData = parse(body);
-        resolve(JSON.parse(data.json));
+        const data:ParsedUrlQuery = parse(body);
+        resolve(JSON.parse(data.json as string));
       } else {
         resolve(JSON.parse(body));
       }
