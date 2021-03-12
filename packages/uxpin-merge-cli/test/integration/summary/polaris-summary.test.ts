@@ -28,49 +28,7 @@ describe('summary command integration', () => {
       })
         .then((output) => {
           // then
-          expect(output).toEqual(`Actions
-
-    Button
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    Link
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-Structure
-
-    Card
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    Header
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✔
-
-    Section
-        📜 documentation: ✘
-        💡 examples: ✘
-        🎛  presets: ✔
-
-Images and Icons
-
-    Avatar
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-    Badge
-        📜 documentation: ✔
-        💡 examples: ✔
-        🎛  presets: ✔
-
-
-`);
+          expect(output).toMatchSnapshot();
         });
     });
   });
