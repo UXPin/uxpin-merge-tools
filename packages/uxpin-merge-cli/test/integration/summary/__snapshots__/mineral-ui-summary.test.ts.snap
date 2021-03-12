@@ -306,7 +306,7 @@ exports[`summary command integration summary command prints  prints the list of 
 
 [33mwarning [39mCannot compute default value for property \`triggerTitle\`
 
-SyntaxError: Unexpected token :
+SyntaxError: Unexpected token ':'
 
  in:
 [34msrc/library/Card/CardFooter/CardFooter.js[39m
