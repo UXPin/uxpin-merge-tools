@@ -32,35 +32,39 @@ export function isDefaultExported(componentPath:string, name:string):boolean {
   ast.body.forEach((node:nodeTypes) => {
     if (node.type === 'ExportDefaultDeclaration') {
       exportDefaultDeclaration = node;
+      return;
     }
 
     if (node.type !== 'ExportNamedDeclaration') { return; }
 
     // e.g. export { Component }
     if (node.declaration === null) {
-      return node.specifiers.some((specifier:ExportSpecifier) => {
-        isNamedExported = specifier.exported.name === name;
+      isNamedExported = node.specifiers.some((specifier:ExportSpecifier) => {
+        return specifier.exported.name === name;
       });
+      return;
     }
 
     // e.g. export class Component
     if (isClassDeclaration(node.declaration)) {
       isNamedExported = (node.declaration as ClassDeclaration).id.name === name;
+      return;
     }
 
     // e.g. export function Component
     if (isFunctionDeclaration(node.declaration)) {
       isNamedExported = (node.declaration as FunctionDeclaration).id.name === name;
+      return;
     }
 
     // e.g. export const Component = ...
     if (isVariableDeclaration(node.declaration)) {
-      return (node.declaration as VariableDeclaration).declarations.some((variableDeclarator:VariableDeclarator) => {
-        isNamedExported = variableDeclarator.id.name === name;
-      });
+      isNamedExported = (node.declaration as VariableDeclaration).declarations.some(
+        (variableDeclarator:VariableDeclarator) => {
+          return variableDeclarator.id.name === name;
+        });
+      return;
     }
-
-    return false;
   });
 
   // e.g.
