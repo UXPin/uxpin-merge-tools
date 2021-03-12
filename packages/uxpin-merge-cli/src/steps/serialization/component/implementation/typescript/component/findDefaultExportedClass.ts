@@ -1,11 +1,12 @@
 import * as ts from 'typescript';
+import { TSSerializationContext } from '../context/getSerializationContext';
 import { ClassComponentDeclaration } from './getPropsTypeAndDefaultProps';
 import { isDefaultExported } from './isDefaultExported';
 
-export function findDefaultExportedClass(sourceFile:ts.SourceFile):ClassComponentDeclaration | undefined {
+export function findDefaultExportedClass(context:TSSerializationContext):ClassComponentDeclaration | undefined {
   let result:ts.ClassDeclaration | ts.ClassExpression | undefined;
-  ts.forEachChild(sourceFile, (node) => {
-    if ((ts.isClassDeclaration(node) || ts.isClassExpression(node)) && isDefaultExported(node)) {
+  ts.forEachChild(context.file, (node) => {
+    if ((ts.isClassDeclaration(node) || ts.isClassExpression(node)) && isDefaultExported(node, context)) {
       result = node;
     }
   });

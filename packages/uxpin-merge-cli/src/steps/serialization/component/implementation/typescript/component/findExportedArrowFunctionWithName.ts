@@ -1,12 +1,13 @@
 import * as ts from 'typescript';
+import { TSSerializationContext } from '../context/getSerializationContext';
 import { getNodeName } from '../node/getNodeName';
 import { isExported } from './isExported';
 
 export function findExportedArrowFunctionWithName(
-  sourceFile:ts.SourceFile, componentFileName:string):ts.ArrowFunction | undefined {
+  context:TSSerializationContext, componentFileName:string):ts.ArrowFunction | undefined {
 
   let result:ts.ArrowFunction | undefined;
-  ts.forEachChild(sourceFile, (node) => {
+  ts.forEachChild(context.file, (node) => {
     // Named Arrow Function:
     //     export const Foo = () => {};
     if (

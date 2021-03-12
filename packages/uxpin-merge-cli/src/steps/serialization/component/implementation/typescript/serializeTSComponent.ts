@@ -31,7 +31,7 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
   const namespace:ComponentNamespace | undefined = getComponentNamespace(declaration, name);
   const wrappers:ComponentWrapper[] = getComponentWrappers(declaration);
   const validatedWrappers:Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
-  const defaultExported:boolean = isDefaultExported(declaration);
+  const defaultExported:boolean = isDefaultExported(declaration, context);
 
   return {
     result: {
