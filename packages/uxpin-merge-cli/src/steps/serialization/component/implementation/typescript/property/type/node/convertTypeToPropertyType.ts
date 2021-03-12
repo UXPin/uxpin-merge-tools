@@ -14,7 +14,6 @@ import { serializeUnionType } from './serializeUnionType';
 
 // tslint:disable no-bitwise
 export function convertTypeToPropertyType(context:TSSerializationContext, type:ts.Type):PropertyType {
-  console.log(type);
   if (type.flags & ts.TypeFlags.String) {
     return { name: 'string', structure: {} };
   }
