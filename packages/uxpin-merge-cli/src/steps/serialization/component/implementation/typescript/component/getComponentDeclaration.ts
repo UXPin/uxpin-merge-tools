@@ -1,4 +1,3 @@
-import * as ts from 'typescript';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import { findDefaultExportedArrowFunction } from './findDefaultExportedArrowFunction';
 import { findDefaultExportedClass } from './findDefaultExportedClass';
