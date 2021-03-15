@@ -13,6 +13,7 @@ describe('serializeTSComponent-Annotations', () => {
       return serializeTSComponent(component).then((serializedProps) => {
         // then
         const expectedMetadata:ComponentMetadata = {
+          defaultExported: false,
           name: 'FunctionWithBindAnnotation',
           properties: [
             {

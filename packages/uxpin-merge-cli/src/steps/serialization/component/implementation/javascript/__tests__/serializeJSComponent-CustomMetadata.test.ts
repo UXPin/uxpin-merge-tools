@@ -11,6 +11,7 @@ describe('serializeJSComponent-CustomMetadata', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('PropTypesWithComments');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'PropTypesWithComments',
         properties: [
           {
@@ -56,6 +57,7 @@ component.`,
       // given
       const component:ComponentImplementationInfo = getImplementation('PropTypesWithCorruptedComments');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'PropTypesWithCorruptedComments',
         properties: [
           {
@@ -113,6 +115,7 @@ component.`,
       // given
       const component:ComponentImplementationInfo = getImplementation('PropTypesWithTextfieldCustomType');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'PropTypesWithTextfieldCustomType',
         properties: [
           {
@@ -256,6 +259,7 @@ component.`,
       // given
       const component:ComponentImplementationInfo = getImplementation('PropTypesWithSelectCustomType');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'PropTypesWithSelectCustomType',
         properties: [
           {

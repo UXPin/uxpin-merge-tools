@@ -1,7 +1,7 @@
 import * as ts from 'typescript';
 
 interface Node {
-  name?:ts.Identifier | ts.PropertyName | ts.Token<ts.SyntaxKind.StringLiteral>;
+  name?:ts.Identifier | ts.PropertyName | ts.BindingName | ts.Token<ts.SyntaxKind.StringLiteral>;
 }
 
 export function getNodeName(node:Node):ts.__String | undefined {

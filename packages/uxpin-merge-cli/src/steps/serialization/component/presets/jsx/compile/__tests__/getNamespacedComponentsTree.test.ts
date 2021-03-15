@@ -4,6 +4,7 @@ import { getNamespacedComponentsTree, NamespacedComponentsTree } from '../getNam
 describe('getNamespacedComponentsTree', () => {
   const components:ComponentDefinition[] = [
     {
+      defaultExported: true,
       documentation: { examples: [] },
       info: {
         dirPath: 'src/components/Button',
@@ -20,6 +21,7 @@ describe('getNamespacedComponentsTree', () => {
       properties: [],
     },
     {
+      defaultExported: true,
       documentation: { examples: [] },
       info: {
         dirPath: 'src/components/Card',
@@ -36,6 +38,7 @@ describe('getNamespacedComponentsTree', () => {
       properties: [],
     },
     {
+      defaultExported: true,
       documentation: { examples: [] },
       info: {
         dirPath: 'src/components/Card/components/Body',
@@ -56,6 +59,7 @@ describe('getNamespacedComponentsTree', () => {
       properties: [],
     },
     {
+      defaultExported: true,
       documentation: { examples: [] },
       info: {
         dirPath: 'src/components/Card/components/Header',
@@ -76,6 +80,7 @@ describe('getNamespacedComponentsTree', () => {
       properties: [],
     },
     {
+      defaultExported: true,
       documentation: { examples: [] },
       info: {
         dirPath: 'src/components/Card/components/Header/components/Menu',

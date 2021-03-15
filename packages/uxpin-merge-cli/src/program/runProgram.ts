@@ -19,7 +19,7 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
     setNodeEnv(process.env.UXPIN_ENV);
     printCurrentVersionInfo();
     const programArgs:ProgramArgs = getProgramArgs(program);
-    await setupProjectWatcher(programArgs);
+    // await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
   } catch (error) {
     endWithError(error);

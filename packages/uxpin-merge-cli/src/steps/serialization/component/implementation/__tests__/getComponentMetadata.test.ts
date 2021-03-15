@@ -16,6 +16,7 @@ describe('getComponentMetadata – integration', () => {
         path: getTypeScriptComponentPath('IntegrationCombo'),
       };
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'IntegrationCombo',
         properties: [
           {
@@ -135,6 +136,7 @@ describe('getComponentMetadata – integration', () => {
         path: getJavaScriptComponentPath('IntegrationCombo'),
       };
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'ClassWithDefaults',
         properties: [
           {
