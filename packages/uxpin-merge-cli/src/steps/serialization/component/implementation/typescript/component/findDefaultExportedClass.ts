@@ -16,7 +16,7 @@ export function findDefaultExportedClass(context:TSSerializationContext):ClassCo
 
 function isDefaultExportedClass(context:TSSerializationContext, node:any):boolean {
   return (
-    ts.isClassDeclaration(node) || ts.isClassExpression(node)) &&
-    isDefaultExported(context.componentPath, getComponentName(context, node)
+    ts.isClassDeclaration(node) || ts.isClassExpression(node) &&
+    isDefaultExported(context.componentPath, getComponentName(context, node))
   );
 }

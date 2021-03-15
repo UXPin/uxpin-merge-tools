@@ -27,7 +27,6 @@ function isNamedArrowFunctionWithDefaultExport(context:TSSerializationContext, n
     ts.isArrowFunction(node.declarationList.declarations[0].initializer as ts.ArrowFunction) &&
     isDefaultExported(
       context.componentPath,
-      getComponentName(context, node.declarationList.declarations[0].initializer as ts.ArrowFunction)
-    )
+      getComponentName(context, node.declarationList.declarations[0].initializer as ts.ArrowFunction))
   );
 }
