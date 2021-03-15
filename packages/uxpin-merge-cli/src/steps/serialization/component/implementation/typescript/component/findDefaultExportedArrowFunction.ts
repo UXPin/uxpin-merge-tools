@@ -1,6 +1,7 @@
 import * as ts from 'typescript';
+import { isDefaultExported } from '../../isDefaultExported';
 import { TSSerializationContext } from '../context/getSerializationContext';
-import { isDefaultExported } from './isDefaultExported';
+import { getComponentName } from './getComponentName';
 
 export function findDefaultExportedArrowFunction(context:TSSerializationContext):ts.ArrowFunction | undefined {
   let result:ts.ArrowFunction | undefined;
@@ -13,12 +14,20 @@ export function findDefaultExportedArrowFunction(context:TSSerializationContext)
     // Named Arrow Function:
     //     const Foo = () => {};
     //     export default Foo;
-    } else if (ts.isVariableStatement(node) &&
-               ts.isArrowFunction(node.declarationList.declarations[0].initializer as ts.ArrowFunction) &&
-               isDefaultExported(node.declarationList.declarations[0].initializer as ts.ArrowFunction, context)
-               ) {
-      result = node.declarationList.declarations[0].initializer as ts.ArrowFunction;
+    } else if (isNamedArrowFunctionWithDefaultExport(context, node)) {
+      result = (node as ts.VariableStatement).declarationList.declarations[0].initializer as ts.ArrowFunction;
     }
   });
   return result;
+}
+
+function isNamedArrowFunctionWithDefaultExport(context:TSSerializationContext, node:any):boolean {
+  return (
+    ts.isVariableStatement(node) &&
+    ts.isArrowFunction(node.declarationList.declarations[0].initializer as ts.ArrowFunction) &&
+    isDefaultExported(
+      context.componentPath,
+      getComponentName(context, node.declarationList.declarations[0].initializer as ts.ArrowFunction)
+    )
+  );
 }

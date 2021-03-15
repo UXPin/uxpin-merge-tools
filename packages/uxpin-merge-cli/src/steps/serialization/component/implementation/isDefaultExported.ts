@@ -15,7 +15,7 @@ import {
 } from 'acorn-loose';
 import { readFileSync } from 'fs-extra';
 
-// This function is checking if component is default exported by
+// This function checks if component is default exported by
 // checking if component is not named exported.
 // We are doing this way because there could be multiple components in a single.
 // e.g.
