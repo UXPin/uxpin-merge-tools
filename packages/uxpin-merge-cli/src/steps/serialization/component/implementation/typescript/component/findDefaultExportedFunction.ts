@@ -1,12 +1,13 @@
 import * as ts from 'typescript';
-import { isDefaultExported } from '../../isDefaultExported';
 import { TSSerializationContext } from '../context/getSerializationContext';
-import { getComponentName } from './getComponentName';
+import { isExported } from './isExported';
+import { withDefaultExportKeyword } from './withDefaultExportKeyword';
 
 export function findDefaultExportedFunction(context:TSSerializationContext):ts.FunctionDeclaration | undefined {
   let result:ts.FunctionDeclaration | undefined;
+  // e.g. export default function()
   ts.forEachChild(context.file, (node) => {
-    if (ts.isFunctionDeclaration(node) && isDefaultExported(context.componentPath, getComponentName(context, node))) {
+    if (ts.isFunctionDeclaration(node) && isExported(node) && withDefaultExportKeyword(node)) {
       result = node;
     }
   });
