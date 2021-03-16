@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { ComponentDeclaration } from "./getPropsTypeAndDefaultProps";
+import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
 
 export function isArrowFunction(node:ComponentDeclaration | ts.VariableStatement):boolean {
   return (
