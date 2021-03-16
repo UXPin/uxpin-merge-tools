@@ -5,6 +5,7 @@ Array [
   Object {
     "components": Array [
       Object {
+        "defaultExported": true,
         "documentation": Object {
           "examples": Array [],
         },
@@ -60,6 +61,7 @@ Array [
         "wrappers": Array [],
       },
       Object {
+        "defaultExported": true,
         "documentation": Object {
           "examples": Array [],
         },
