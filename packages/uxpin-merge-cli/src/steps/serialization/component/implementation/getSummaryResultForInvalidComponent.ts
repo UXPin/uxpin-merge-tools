@@ -2,7 +2,7 @@ import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { ComponentMetadata } from '../ComponentDefinition';
 import { getComponentNameFromPath } from '../name/getComponentNameFromPath';
 import { ImplSerializationResult } from './ImplSerializationResult';
-import { isDefaultExported } from './isDefaultExported';
+import { isDefaultExported } from './javascript/isDefaultExported';
 
 export function thunkGetSummaryResultForInvalidComponent(sourcePath:string):(e:Error) => ImplSerializationResult {
   return (originalError) => {

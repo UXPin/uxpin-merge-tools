@@ -12,12 +12,12 @@ import { serializeAndValidateParsedProperties } from '../../props/serializeAndVa
 import { ComponentWrapper } from '../../wrappers/ComponentWrapper';
 import { parseWrapperAnnotation } from '../../wrappers/parseWrapperAnnotation';
 import { ImplSerializationResult } from '../ImplSerializationResult';
-import { isDefaultExported } from '../isDefaultExported';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getComponentName } from './getComponentName';
 import { getComponentNamespaceFromDescription } from './getComponentNamespaceFromDescription';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
+import { isDefaultExported } from './isDefaultExported';
 import { parsePropertyItem } from './parsePropertyItem';
 
 export function serializeJSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
