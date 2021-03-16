@@ -6,6 +6,7 @@ Object {
     Object {
       "components": Array [
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -200,6 +201,7 @@ Object {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -742,6 +744,7 @@ Object {
               },
             },
             Object {
+              "defaultExported": true,
               "description": "Обработчик события снятия курсора с кнопки",
               "isRequired": false,
               "name": "onMouseLeave",
@@ -1353,6 +1356,7 @@ Object {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -1683,6 +1687,7 @@ const offDays = [subtractDays(new Date(), 2), addDays(new Date(), 2)]
               },
             },
             Object {
+              "defaultExported": true,
               "description": "Обработчик снятия фокуса",
               "isRequired": false,
               "name": "onBlur",
@@ -2310,6 +2315,7 @@ const offDays = [subtractDays(new Date(), 2), addDays(new Date(), 2)]
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -2355,6 +2361,7 @@ const offDays = [subtractDays(new Date(), 2), addDays(new Date(), 2)]
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -2689,6 +2696,7 @@ const offDays = [subtractDays(new Date(), 2), addDays(new Date(), 2)]
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -3118,6 +3126,7 @@ initialState = {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -3738,6 +3747,7 @@ initialState = {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -3763,6 +3773,7 @@ initialState = {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -4000,6 +4011,7 @@ const countriesList = countries.getCountries();
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -4286,6 +4298,7 @@ const countriesList = countries.getCountries();
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -4426,6 +4439,7 @@ const countriesList = countries.getCountries();
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -4571,6 +4585,7 @@ const countriesList = countries.getCountries();
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -4738,6 +4753,7 @@ const countriesList = countries.getCountries();
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -4773,6 +4789,7 @@ const countriesList = countries.getCountries();
           "properties": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -5441,6 +5458,7 @@ initialState = {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -5926,6 +5944,7 @@ function handleChange(value) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -6062,6 +6081,7 @@ function handleChange(value) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -6110,6 +6130,7 @@ function handleChange(value) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -6128,6 +6149,7 @@ function handleChange(value) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -6303,6 +6325,7 @@ function handleChange(value) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -6673,6 +6696,7 @@ function handleChange(value) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -6825,6 +6849,7 @@ function handleChange(value) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -6880,6 +6905,7 @@ function handleChange(value) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -7578,6 +7604,7 @@ const MENU_3 = [
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -7968,6 +7995,7 @@ const MENU_3 = [
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -8024,6 +8052,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -8079,6 +8108,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -8445,6 +8475,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -8596,6 +8627,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -8646,6 +8678,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -8787,6 +8820,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -9411,6 +9445,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -9506,6 +9541,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -9624,6 +9660,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -9696,6 +9733,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -10021,6 +10059,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -10398,6 +10437,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -10469,6 +10509,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -10497,6 +10538,7 @@ function handleMoneyChange(money) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -11371,6 +11413,7 @@ const options2 = [
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -11648,6 +11691,7 @@ initialState = {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -11754,6 +11798,7 @@ initialState = {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -11892,6 +11937,7 @@ initialState = {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -11909,6 +11955,7 @@ initialState = {
           "properties": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -11935,6 +11982,7 @@ initialState = {
           "properties": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -11976,6 +12024,7 @@ function handleClick(event) {
           "properties": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -12009,6 +12058,7 @@ function handleClick(event) {
           "properties": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -12392,6 +12442,7 @@ function handleChangeAsync(value) {
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
