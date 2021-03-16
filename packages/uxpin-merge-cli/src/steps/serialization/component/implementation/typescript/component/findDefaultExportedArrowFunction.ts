@@ -1,5 +1,6 @@
 import * as ts from 'typescript';
 import { TSSerializationContext } from '../context/getSerializationContext';
+import { isArrowFunction } from './isArrowFunction';
 import { isDefaultExported } from './isDefaultExported';
 
 export function findDefaultExportedArrowFunction(context:TSSerializationContext):ts.ArrowFunction | undefined {
@@ -22,8 +23,7 @@ export function findDefaultExportedArrowFunction(context:TSSerializationContext)
 
 function isNamedArrowFunctionWithDefaultExport(context:TSSerializationContext, node:any):boolean {
   return (
-    ts.isVariableStatement(node) &&
-    ts.isArrowFunction(node.declarationList.declarations[0].initializer as ts.ArrowFunction) &&
+    isArrowFunction(node) &&
     isDefaultExported(
       node.declarationList.declarations[0].initializer as ts.ArrowFunction as ts.ArrowFunction, context)
   );

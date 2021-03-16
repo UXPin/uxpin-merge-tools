@@ -1,6 +1,7 @@
 import * as ts from 'typescript';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import { getNodeName } from '../node/getNodeName';
+import { isArrowFunction } from './isArrowFunction';
 import { isExported } from './isExported';
 
 export function findExportedArrowFunctionWithName(
@@ -13,11 +14,10 @@ export function findExportedArrowFunctionWithName(
     if (
         ts.isVariableStatement(node) &&
         isExported(node) &&
-        node.declarationList.declarations[0].initializer &&
-        ts.isArrowFunction(node.declarationList.declarations[0].initializer) &&
+        isArrowFunction(node) &&
         getNodeName(node.declarationList.declarations[0]) === componentFileName
       ) {
-      result = node.declarationList.declarations[0].initializer;
+      result = node.declarationList.declarations[0].initializer as ts.ArrowFunction;
       return;
     }
   });
