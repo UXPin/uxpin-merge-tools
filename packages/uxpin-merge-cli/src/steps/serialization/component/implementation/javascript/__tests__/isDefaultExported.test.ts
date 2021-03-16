@@ -1,22 +1,20 @@
-import { resolve } from 'path';
+import { getJavaScriptComponentPath } from '../../../../../../../test/utils/resources/getExampleComponentPath';
 import { using } from '../../../../../../../test/utils/using';
 import { isDefaultExported } from '../isDefaultExported';
-
-const JS_COMPONENTS_DIR:string = '../../../../../../../test/resources/components/javascript';
 
 describe('getComponentNameFromStoriesTitle', () => {
   const cases:any[] = [
     /////////// Class components
     ////// Default exported
     // export default class Component
-    { path: 'ClassWithDefaults.jsx', componentName: 'ClassWithDefaults', expected: true },
+    { filename: 'ClassWithDefaults', componentName: 'ClassWithDefaults', expected: true },
 
     // class Component
     // export default Component
     {
       componentName: 'ClassWithSeparateDefaultExportDeclaratin',
       expected: true,
-      path: 'ClassWithSeparateDefaultExportDeclaratin.jsx',
+      filename: 'ClassWithSeparateDefaultExportDeclaratin',
     },
 
     // /**
@@ -27,7 +25,7 @@ describe('getComponentNameFromStoriesTitle', () => {
     {
       componentName: 'ClassPrependedWithCommentToBeComposedWithHOC',
       expected: true,
-      path: 'DefaultExportedFunctionalComponentComposedWithHOCAndComment.jsx',
+      filename: 'DefaultExportedFunctionalComponentComposedWithHOCAndComment',
     },
 
     ////// Named exported
@@ -35,7 +33,7 @@ describe('getComponentNameFromStoriesTitle', () => {
     {
       componentName: 'ClassWithNamedExport',
       expected: false,
-      path: 'ClassWithNamedExport.jsx',
+      filename: 'ClassWithNamedExport',
     },
 
     // class ClassWithNamedExport
@@ -43,21 +41,21 @@ describe('getComponentNameFromStoriesTitle', () => {
     {
       componentName: 'ClassWithSeparateNamedExportDeclaration',
       expected: false,
-      path: 'ClassWithSeparateNamedExportDeclaration.jsx',
+      filename: 'ClassWithSeparateNamedExportDeclaration',
     },
 
     /////////// Function components
     ////// Default exported
     // export default function()
-    { path: 'FunctionPrimitivesOnly.jsx', componentName: 'FunctionPrimitivesOnly', expected: true },
+    { filename: 'FunctionPrimitivesOnly', componentName: 'FunctionPrimitivesOnly', expected: true },
 
     // const FunctionWithDefaults = () => {}
     // export default FunctionWithDefaults;
-    { path: 'FunctionWithDefaults.jsx', componentName: 'FunctionWithDefaults', expected: true },
+    { filename: 'FunctionWithDefaults', componentName: 'FunctionWithDefaults', expected: true },
 
     // function FunctionWithImportedEnum()
     // export default FunctionWithImportedEnum;
-    { path: 'FunctionWithImportedEnum.jsx', componentName: 'FunctionWithImportedEnum', expected: true },
+    { filename: 'FunctionWithImportedEnum', componentName: 'FunctionWithImportedEnum', expected: true },
 
     // /**
     //  * @uxpincomponent
@@ -67,7 +65,7 @@ describe('getComponentNameFromStoriesTitle', () => {
     {
       componentName: 'FunctionWithComponentDeclarationAndCustomName',
       expected: true,
-      path: 'FunctionWithComponentDeclaration.jsx',
+      filename: 'FunctionWithComponentDeclaration',
     },
 
     ////// Named exported
@@ -75,14 +73,14 @@ describe('getComponentNameFromStoriesTitle', () => {
     {
       componentName: 'ArrowFunctionWithNamedExport',
       expected: false,
-      path: 'ArrowFunctionWithNamedExport.jsx',
+      filename: 'ArrowFunctionWithNamedExport',
     },
 
     // export function FunctionWithNamedExport() {}
     {
       componentName: 'FunctionWithNamedExport',
       expected: false,
-      path: 'FunctionWithNamedExport.jsx',
+      filename: 'FunctionWithNamedExport',
     },
 
     // function FunctionWithSeparateNamedExportDeclaration() {}
@@ -90,7 +88,7 @@ describe('getComponentNameFromStoriesTitle', () => {
     {
       componentName: 'FunctionWithSeparateNamedExportDeclaration',
       expected: false,
-      path: 'FunctionWithSeparateNamedExportDeclaration.jsx',
+      filename: 'FunctionWithSeparateNamedExportDeclaration',
     },
 
     // const ArrowFunctionWithSeparateNamedExportDeclaration = () => {}
@@ -98,15 +96,14 @@ describe('getComponentNameFromStoriesTitle', () => {
     {
       componentName: 'ArrowFunctionWithSeparateNamedExportDeclaration',
       expected: false,
-      path: 'ArrowFunctionWithSeparateNamedExportDeclaration.jsx',
+      filename: 'ArrowFunctionWithSeparateNamedExportDeclaration',
     },
   ];
 
   using(cases).describe(
-    'checking if isDefaultExported correctly detect default export', ({ path, componentName, expected }) => {
-      it(`for given ${componentName} in ${path}`, () => {
-        const absPathToComponentFile:string = resolve(__dirname, JS_COMPONENTS_DIR, path);
-        expect(isDefaultExported(absPathToComponentFile, componentName)).toEqual(expected);
+    'checking if isDefaultExported correctly detect default export', ({ filename, componentName, expected }) => {
+      it(`for given ${componentName} in ${filename}`, () => {
+        expect(isDefaultExported(getJavaScriptComponentPath(filename), componentName)).toEqual(expected);
       });
     });
 });
