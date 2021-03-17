@@ -1,19 +1,16 @@
 import * as ts from 'typescript';
 
-interface Node {
-  name?:ts.Identifier | ts.PropertyName | ts.Token<ts.SyntaxKind.StringLiteral>;
-}
-
-export function getNodeName(node:Node):ts.__String | undefined {
-  if (!node.name) {
-    return;
-  }
-
-  if (ts.isIdentifier(node.name)) {
-    return node.name.escapedText;
-  }
-
-  if (ts.isLiteralExpression(node.name)) {
-    return node.name.text as ts.__String;
+export function getNodeName(node:any):ts.__String | undefined {
+  switch (true) {
+    case ts.isExportSpecifier(node):
+      return (node.propertyName && node.propertyName.escapedText) || node.name.escapedText;
+    case ts.isExportAssignment(node):
+      return ((node as ts.ExportAssignment).expression as ts.Identifier).escapedText;
+    case !node.name:
+      return;
+    case ts.isIdentifier(node!.name):
+      return node!.name.escapedText;
+    case ts.isLiteralExpression(node!.name):
+      return node.name.text as ts.__String;
   }
 }
