@@ -7,12 +7,23 @@ function isNodeNamePassedAsArgument(expression:ts.CallExpression, nodeName:strin
 }
 
 export function isNodeExported(node:ts.Node, nodeName:string):boolean {
+
+	/**
+	 * Handling following cases:
+	 * export default Component
+	 * export HOC(Component)
+	 */
   if (ts.isExportAssignment(node)
 		&& (getNodeName(node) === nodeName || isNodeNamePassedAsArgument(node.expression as ts.CallExpression, nodeName))
 	) {
   	return true;
   }
 
+	/**
+	 * Handling following cases:
+	 * export { Component };
+	 * export { Component as default };
+	 */
   if (ts.isExportDeclaration(node) && node.exportClause) {
     const { elements } = node.exportClause;
     return !!find(
