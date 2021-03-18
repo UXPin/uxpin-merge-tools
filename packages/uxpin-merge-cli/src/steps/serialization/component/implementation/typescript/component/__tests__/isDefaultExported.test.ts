@@ -130,7 +130,6 @@ describe('getComponentNameFromStoriesTitle', () => {
     //   filename: 'ArrowFunctionWithSeparateNamedExportDeclaration',
     // },
 
-
     /////////// Other
     // export { Component as default }
     {
