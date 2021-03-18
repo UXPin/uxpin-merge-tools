@@ -15,28 +15,10 @@ Array [
             "lang": "typescript",
             "path": "src/components/Avatar/Avatar.tsx",
           },
-          "presets": Array [
-            Object {
-              "path": "src/components/Avatar/presets/0-default.jsx",
-            },
-          ],
+          "presets": Array [],
         },
         "name": "Avatar",
-        "presets": Array [
-          Object {
-            "elements": Object {
-              "1": Object {
-                "name": "Avatar",
-                "props": Object {
-                  "imageUrl": "https://picsum.photos/100/100?image=1027",
-                  "size": "small",
-                },
-              },
-            },
-            "name": "default",
-            "rootId": "1",
-          },
-        ],
+        "presets": Array [],
         "properties": Array [
           Object {
             "description": "",
@@ -70,28 +52,10 @@ Array [
             "lang": "typescript",
             "path": "src/components/AvatarFn/AvatarFn.tsx",
           },
-          "presets": Array [
-            Object {
-              "path": "src/components/AvatarFn/presets/0-default.jsx",
-            },
-          ],
+          "presets": Array [],
         },
         "name": "AvatarFn",
-        "presets": Array [
-          Object {
-            "elements": Object {
-              "1": Object {
-                "name": "AvatarFn",
-                "props": Object {
-                  "imageUrl": "https://picsum.photos/100/100?image=1027",
-                  "size": "small",
-                },
-              },
-            },
-            "name": "default",
-            "rootId": "1",
-          },
-        ],
+        "presets": Array [],
         "properties": Array [
           Object {
             "description": "",
@@ -125,28 +89,10 @@ Array [
             "lang": "typescript",
             "path": "src/components/AvatarFnDefault/AvatarFnDefault.tsx",
           },
-          "presets": Array [
-            Object {
-              "path": "src/components/AvatarFnDefault/presets/0-default.jsx",
-            },
-          ],
+          "presets": Array [],
         },
         "name": "AvatarFnDefault",
-        "presets": Array [
-          Object {
-            "elements": Object {
-              "1": Object {
-                "name": "AvatarFnDefault",
-                "props": Object {
-                  "imageUrl": "https://picsum.photos/100/100?image=1027",
-                  "size": "small",
-                },
-              },
-            },
-            "name": "default",
-            "rootId": "1",
-          },
-        ],
+        "presets": Array [],
         "properties": Array [
           Object {
             "description": "",
@@ -180,28 +126,10 @@ Array [
             "lang": "typescript",
             "path": "src/components/AvatarHOC/AvatarHOC.tsx",
           },
-          "presets": Array [
-            Object {
-              "path": "src/components/AvatarHOC/presets/0-default.jsx",
-            },
-          ],
+          "presets": Array [],
         },
         "name": "AvatarHOC",
-        "presets": Array [
-          Object {
-            "elements": Object {
-              "1": Object {
-                "name": "AvatarHOC",
-                "props": Object {
-                  "imageUrl": "https://picsum.photos/100/100?image=1027",
-                  "size": "small",
-                },
-              },
-            },
-            "name": "default",
-            "rootId": "1",
-          },
-        ],
+        "presets": Array [],
         "properties": Array [
           Object {
             "description": "",
@@ -235,28 +163,10 @@ Array [
             "lang": "typescript",
             "path": "src/components/ButtonWithIconAsProp/ButtonWithIconAsProp.tsx",
           },
-          "presets": Array [
-            Object {
-              "path": "src/components/ButtonWithIconAsProp/presets/0-default.jsx",
-            },
-          ],
+          "presets": Array [],
         },
         "name": "ButtonWithIconAsProp",
-        "presets": Array [
-          Object {
-            "elements": Object {
-              "1": Object {
-                "name": "ButtonWithIconAsProp",
-                "props": Object {
-                  "children": "Click me",
-                  "isPrimary": true,
-                },
-              },
-            },
-            "name": "default",
-            "rootId": "1",
-          },
-        ],
+        "presets": Array [],
         "properties": Array [
           Object {
             "description": "",
@@ -290,40 +200,10 @@ Array [
             "lang": "typescript",
             "path": "src/components/MenuWithData/MenuWithData.tsx",
           },
-          "presets": Array [
-            Object {
-              "path": "src/components/MenuWithData/presets/0-default.jsx",
-            },
-          ],
+          "presets": Array [],
         },
         "name": "MenuWithData",
-        "presets": Array [
-          Object {
-            "elements": Object {
-              "1": Object {
-                "name": "MenuWithData",
-                "props": Object {
-                  "data": Array [
-                    Object {
-                      "subtitle": "this is item 1",
-                      "title": "item 1",
-                    },
-                    Object {
-                      "subtitle": "this is item 2",
-                      "title": "item 2",
-                    },
-                    Object {
-                      "subtitle": "this is item 3",
-                      "title": "item 3",
-                    },
-                  ],
-                },
-              },
-            },
-            "name": "default",
-            "rootId": "1",
-          },
-        ],
+        "presets": Array [],
         "properties": Array [
           Object {
             "description": "",
@@ -348,40 +228,10 @@ Array [
             "lang": "typescript",
             "path": "src/components/MenuWithDataHOC/MenuWithDataHOC.tsx",
           },
-          "presets": Array [
-            Object {
-              "path": "src/components/MenuWithDataHOC/presets/0-default.jsx",
-            },
-          ],
+          "presets": Array [],
         },
         "name": "MenuWithDataHOC",
-        "presets": Array [
-          Object {
-            "elements": Object {
-              "1": Object {
-                "name": "MenuWithDataHOC",
-                "props": Object {
-                  "data": Array [
-                    Object {
-                      "subtitle": "this is item 1",
-                      "title": "item 1",
-                    },
-                    Object {
-                      "subtitle": "this is item 2",
-                      "title": "item 2",
-                    },
-                    Object {
-                      "subtitle": "this is item 3",
-                      "title": "item 3",
-                    },
-                  ],
-                },
-              },
-            },
-            "name": "default",
-            "rootId": "1",
-          },
-        ],
+        "presets": Array [],
         "properties": Array [
           Object {
             "description": "",
