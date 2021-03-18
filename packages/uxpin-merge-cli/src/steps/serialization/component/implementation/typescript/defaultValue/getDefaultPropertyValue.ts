@@ -18,9 +18,24 @@ export function getDefaultPropertyValue(
       return false;
     case ts.SyntaxKind.Identifier:
       return getDefaultValueFromIdentifier(context, valueInitializer as ts.Identifier);
+    case ts.SyntaxKind.PropertyAccessExpression:
+      return getDefaultValueFromPropertyAccessExpression(context, valueInitializer as ts.Identifier);
     default:
       return;
   }
+}
+
+export function getDefaultValueFromPropertyAccessExpression(
+  context:TSSerializationContext,
+  propertyInitializer:any,
+):SupportedDefaultValue | undefined {
+  const symbol:ts.Symbol | undefined = context.checker.getSymbolAtLocation(propertyInitializer);
+  if (symbol && ts.isEnumMember(symbol.valueDeclaration) && symbol.valueDeclaration.initializer) {
+    let initializer:ts.Identifier = symbol.valueDeclaration.name as ts.Identifier;
+    return initializer.escapedText as string;
+  }
+
+  return;
 }
 
 export function getDefaultValueFromIdentifier(

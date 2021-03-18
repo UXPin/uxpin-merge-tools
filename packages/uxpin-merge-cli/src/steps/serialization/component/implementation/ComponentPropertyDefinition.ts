@@ -63,6 +63,7 @@ export interface PropertyTypeStructureMap {
   boolean:{};
   custom:{};
   element:{};
+  enum:{ name:string | number, value:string | number | ts.PseudoBigInt };
   func:FunctionStructure;
   literal:{ value:string | number | ts.PseudoBigInt };
   node:{};

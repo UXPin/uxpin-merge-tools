@@ -3,11 +3,13 @@ import { PropertyType } from '../../../../ComponentPropertyDefinition';
 import { TSSerializationContext } from '../../../context/getSerializationContext';
 import { isBooleanLike } from '../checker/isBooleanLike';
 import { isCallable } from '../checker/isCallable';
+import { isEnum } from '../checker/isEnum';
 import { isKnownPropertyType } from '../checker/isKnownPropertyType';
 import { isLiteral } from '../checker/isLiteral';
 import { isObjectLike } from '../checker/isObjectLike';
 import { isUnion } from '../checker/isUnion';
 import { serializeAsUnsupportedType } from './serializeAsUnsupportedType';
+import { serializeEnumType } from './serializeEnumType';
 import { serializeKnownPropertyType } from './serializeKnownPropertyType';
 import { serializeLiteralType } from './serializeLiteralType';
 import { serializeUnionType } from './serializeUnionType';
@@ -37,6 +39,9 @@ export function convertTypeToPropertyType(context:TSSerializationContext, type:t
   }
   if (isUnion(type)) {
     return serializeUnionType(context, type);
+  }
+  if (isEnum(type)) {
+    return serializeEnumType(type);
   }
   if (isLiteral(type)) {
     return serializeLiteralType(type);
