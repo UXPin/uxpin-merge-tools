@@ -8,11 +8,9 @@ export function getNodeName(node:any):ts.__String | undefined {
       return ((node as ts.ExportAssignment).expression as ts.Identifier).escapedText;
     case ts.isIdentifier(node):
       return node.escapedText;
-    case !node.name:
-      return;
-    case ts.isIdentifier(node.name):
+    case node.name && ts.isIdentifier(node.name):
       return node.name.escapedText;
-    case ts.isLiteralExpression(node.name):
+    case node.name && ts.isLiteralExpression(node.name):
       return node.name.text as ts.__String;
   }
 }
