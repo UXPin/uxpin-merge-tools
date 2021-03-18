@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The dump command run for the with-quoted-property repository prints components with proper properties 1`] = `
+exports[`The dump command run for the with-non-inline-exports repository prints components with proper properties 1`] = `
 Array [
   Object {
     "components": Array [

@@ -13,7 +13,7 @@ jest.mock('../../../src/program/utils/version/getToolVersion');
 describe('The dump command', () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
 
-  describe('run for the with-quoted-property repository', () => {
+  describe('run for the with-non-inline-exports repository', () => {
     it('prints components with proper properties', () => {
       // when
       return runUXPinMergeCommand({
