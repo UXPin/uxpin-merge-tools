@@ -38,6 +38,26 @@ export function isDefaultExported(componentPath:string, name:string):boolean {
     if (node.type !== 'ExportNamedDeclaration') { return; }
 
     // e.g. export { Component }
+    // NOTE: if an export statement is like `export { Component as default }`,
+    // the specifier will look like something below
+    // Node {
+    //   type: 'ExportSpecifier',
+    //   start: 11128,
+    //   end: 11145,
+    //   local: Node {
+    //     type: 'Identifier',
+    //     start: 11128,
+    //     end: 11134,
+    //     name: 'Component'
+    //   },
+    //   exported: Node {
+    //     type: 'Identifier',
+    //     start: 11138,
+    //     end: 11145,
+    //     name: 'default'
+    //   }
+    // },
+    // Thus, as long as exported.name === name, it is named exported.
     if (node.declaration === null) {
       isNamedExported = node.specifiers.some((specifier:ExportSpecifier) => {
         return specifier.exported.name === name;

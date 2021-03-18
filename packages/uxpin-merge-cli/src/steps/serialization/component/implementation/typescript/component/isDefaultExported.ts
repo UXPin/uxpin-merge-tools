@@ -36,6 +36,20 @@ export function isDefaultExported(declaration:ComponentDeclaration, context:TSSe
   // Because export statement is in different node, we need to go through again...
   let isDefault:boolean = false;
   ts.forEachChild(context.file, (node) => {
+
+    // export { Component as default }
+    if (ts.isExportDeclaration(node) && node.exportClause) {
+      isDefault = node.exportClause.elements.some((specifier:ts.ExportSpecifier) => {
+        return (
+          specifier.propertyName &&
+          specifier.propertyName.escapedText === componentName &&
+          specifier.name.escapedText === 'default'
+        );
+      });
+    }
+
+    // isExportAssignment returns true when the code looks like
+    // export default Component;
     if (!ts.isExportAssignment(node)) { return; }
 
     const exportedName:string = (node.expression as any).escapedText;

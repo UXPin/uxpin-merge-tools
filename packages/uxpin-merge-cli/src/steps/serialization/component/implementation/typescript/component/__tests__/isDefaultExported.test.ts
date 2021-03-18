@@ -129,6 +129,15 @@ describe('getComponentNameFromStoriesTitle', () => {
     //   expected: false,
     //   filename: 'ArrowFunctionWithSeparateNamedExportDeclaration',
     // },
+
+
+    /////////// Other
+    // export { Component as default }
+    {
+      componentName: 'DefaultExportedWithAsDefaultStatement',
+      expected: true,
+      filename: 'DefaultExportedWithAsDefaultStatement',
+    },
   ];
 
   using(cases).describe(
