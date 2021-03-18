@@ -15,7 +15,7 @@ export function thunkGetSummaryResultForInvalidComponent(sourcePath:string):(e:E
     const componentName:string = getComponentNameFromPath(sourcePath);
     const componentMetadata:ComponentMetadata = {
       defaultExported: isDefaultExported(sourcePath, componentName),
-      name: getComponentNameFromPath(sourcePath),
+      name: componentName,
       properties: [],
     };
 

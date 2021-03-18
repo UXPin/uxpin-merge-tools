@@ -4,6 +4,8 @@ import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
 export function isArrowFunction(node:ComponentDeclaration | ts.VariableStatement):boolean {
   return (
     ts.isVariableStatement(node) &&
-    ts.isArrowFunction((node as ts.VariableStatement).declarationList.declarations[0].initializer as ts.ArrowFunction)
+    node.declarationList.declarations[0] &&
+    !!node.declarationList.declarations[0].initializer &&
+    ts.isArrowFunction(node.declarationList.declarations[0].initializer)
   );
 }

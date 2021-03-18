@@ -105,9 +105,6 @@ function isWrappedWithHOC(name:string, expression?:CallExpression):boolean {
     if (isCallExpression(node)) {
       return isWrappedWithHOC(name, node as CallExpression);
     }
-    if (node.type === 'Identifier' && node.name === name) {
-      return true;
-    }
-    return false;
+    return node.type === 'Identifier' && node.name === name;
   });
 }
