@@ -16,7 +16,7 @@ export function isNodeExported(node:ts.Node, nodeName:string):boolean {
   if (ts.isExportAssignment(node)
 		&& (getNodeName(node) === nodeName || isNodeNamePassedAsArgument(node.expression as ts.CallExpression, nodeName))
 	) {
-  	return true;
+    return true;
   }
 
 	/**
