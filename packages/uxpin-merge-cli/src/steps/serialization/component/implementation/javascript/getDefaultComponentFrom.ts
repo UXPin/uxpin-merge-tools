@@ -11,7 +11,7 @@ interface ReactDocgenOptionsWithBabelConfig extends ReactDocgenOptions {
 }
 
 // tslint:disable-next-line: max-line-length
-const parsers:Array<(file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig | undefined) => ComponentDoc | undefined> = [
+const parsers:Array<(file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig) => ComponentDoc | undefined> = [
   parseWithAnnotation,
   parseDefault,
 ];
@@ -34,7 +34,7 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
   // to make sure we are not breaking existing customers integration by this change, we
   // 1. try with react-docgen default babel plugins
   // 2. try with user configured babel config(e.g. .babelrc, babel.config.js)
-  const docgenOptions:Array<ReactDocgenOptionsWithBabelConfig | undefined> = [
+  const docgenOptions:ReactDocgenOptionsWithBabelConfig[] = [
     {
       babelrc: false,
       configFile: false,
@@ -57,7 +57,6 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
         return componentDoc;
       }
     }
-
   }
 
   if (!componentDoc) {
@@ -68,7 +67,7 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
 }
 
 function parseWithAnnotation(
-    file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig | undefined):ComponentDoc | undefined {
+    file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig):ComponentDoc | undefined {
   const parsed:ComponentDoc[] =
     parse(file, resolver.findAllComponentDefinitions, handlers, options) as ComponentDoc[];
 
@@ -80,6 +79,6 @@ function parseWithAnnotation(
 }
 
 function parseDefault(
-    file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig | undefined):ComponentDoc | undefined {
+    file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig):ComponentDoc | undefined {
   return parse(file, undefined, handlers, options) as ComponentDoc;
 }
