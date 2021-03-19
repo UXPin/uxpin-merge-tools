@@ -6,6 +6,7 @@ import { getPropsTypeOfClassComponent } from '../property/getPropsTypeOfClassCom
 import { getPropsTypeOfFunctionalComponent } from '../property/getPropsTypeOfFunctionalComponent';
 import { isClassComponentDeclaration } from './isClassComponentDeclaration';
 import { isFunctionalComponentDeclaration } from './isFunctionalComponentDeclaration';
+import {getVariableDeclaration} from "./getVariableDeclaration";
 
 export interface DefaultProps {
   [propName:string]:any;
@@ -28,7 +29,7 @@ export function getPropsTypeAndDefaultProps(
   if (isFunctionalComponentDeclaration(component)) {
     return {
       defaultProps: getDefaultPropsFromParamDestructuring(context, component),
-      propsTypeNode: getPropsTypeOfFunctionalComponent(component),
+      propsTypeNode: getPropsTypeOfFunctionalComponent(component,  getVariableDeclaration(context)),
     };
   }
 

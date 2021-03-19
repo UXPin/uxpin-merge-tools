@@ -1,9 +1,23 @@
 import * as ts from 'typescript';
+import { isReactFunctionComponent } from '../component/isReactFunctionComponent';
+import { TSSerializationContext } from '../context/getSerializationContext';
 
-export function getPropsTypeOfFunctionalComponent(func:ts.FunctionLikeDeclaration):ts.TypeNode | undefined {
-  if (!func.parameters || !func.parameters[0] || !func.parameters[0].type) {
+export function getPropsTypeOfFunctionalComponent(
+  func:ts.FunctionLikeDeclaration,
+  variableDeclaration?:ts.VariableDeclaration,
+):ts.TypeNode | undefined {
+  if (!func.parameters && !variableDeclaration) {
     return;
   }
 
-  return func.parameters[0].type;
+  if (func.parameters[0]?.type) {
+    return func.parameters[0]?.type;
+  }
+
+  const variableType:ts.TypeReferenceNode | undefined = variableDeclaration?.type as ts.TypeReferenceNode;
+  if (variableType && variableType.typeArguments && isReactFunctionComponent(variableType.typeName)) {
+    return variableType.typeArguments[0];
+  }
+
+  return variableType;
 }
