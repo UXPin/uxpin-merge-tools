@@ -6,8 +6,8 @@ import { CommentTags } from '../../CommentTags';
 import { hasCommentTag } from './hasCommentTag';
 
 interface ReactDocgenOptionsWithBabelConfig extends ReactDocgenOptions {
-  babelrc:boolean;
-  configFile:boolean;
+  babelrc?:boolean;
+  configFile?:boolean;
 }
 
 // tslint:disable-next-line: max-line-length
@@ -26,15 +26,22 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
     importedPropTypesHandler(filePath),
   ];
 
-  // react-docgen has a default set of babel plugins, so trying to use it.
-  // By default, react-docgen try to use users babel config file if it exists.
-  // But there is a case it doesn't work... e.g. storybook/design-system has babel.config.js
-  // which includes preset-typescript. Because of it, react-docgen can't serialize js|jsx file.
+  // Passing `filename` helps babel to load correct babel configuration file.
+  // (NOTE: Without filename option, babel behave as if `babelrc: false` is set)
+  // However, react-docgen has a good set of default babel plugins
+  // and it has been working for most of customers.
+  // I've encountered failure tests from simply setting filename, so,
+  // to make sure we are not breaking existing customers integration by this change, we
+  // 1. try with react-docgen default babel plugins
+  // 2. try with user configured babel config(e.g. .babelrc, babel.config.js)
   const docgenOptions:Array<ReactDocgenOptionsWithBabelConfig | undefined> = [
-    undefined,
     {
       babelrc: false,
       configFile: false,
+      filename: filePath,
+    },
+    {
+      filename: filePath,
     },
   ];
 
