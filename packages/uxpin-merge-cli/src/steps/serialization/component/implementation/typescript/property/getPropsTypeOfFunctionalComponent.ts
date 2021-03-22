@@ -1,6 +1,5 @@
 import * as ts from 'typescript';
 import { isReactFunctionComponent } from '../component/isReactFunctionComponent';
-import { TSSerializationContext } from '../context/getSerializationContext';
 
 export function getPropsTypeOfFunctionalComponent(
   func:ts.FunctionLikeDeclaration,
