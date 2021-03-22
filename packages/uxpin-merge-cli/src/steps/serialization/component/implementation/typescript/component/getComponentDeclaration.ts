@@ -5,6 +5,7 @@ import { findDefaultExportedClass } from './findDefaultExportedClass';
 import { findDefaultExportedFunction } from './findDefaultExportedFunction';
 import { findExportedClassWithName } from './findExportedClassWithName';
 import { findExportedFunctionWithName } from './findExportedFunctionWithName';
+import { findExportedFunctionWithReactForwardRef } from './findExportedFunctionWithReactForwardRef';
 import {
   findSpecifiedClassComponent,
   findSpecifiedFunctionComponent,
@@ -19,18 +20,19 @@ import {
 export function getComponentDeclaration(context:TSSerializationContext):ComponentDeclaration | undefined {
   const fileName:string = getComponentFileName(context);
 
-  return findFunctionalComponent(context.file, fileName)
+  return findFunctionalComponent(context, fileName)
     || findClassComponent(context.file, fileName);
 }
 
 function findFunctionalComponent(
-  sourceFile:ts.SourceFile,
+  context:TSSerializationContext,
   componentFileName:string,
 ):FunctionalComponentDeclaration | undefined {
-  return findSpecifiedFunctionComponent(sourceFile)
-    || findDefaultExportedFunction(sourceFile)
-    || findExportedFunctionWithName(sourceFile, componentFileName)
-    || findDefaultExportedArrowFunction(sourceFile);
+  return findSpecifiedFunctionComponent(context.file)
+    || findDefaultExportedFunction(context.file)
+    || findExportedFunctionWithName(context.file, componentFileName)
+    || findDefaultExportedArrowFunction(context.file)
+    || findExportedFunctionWithReactForwardRef(context, componentFileName);
 }
 
 function findClassComponent(

@@ -20,9 +20,7 @@ function findVariableDeclaration(
       const declaration:ts.VariableDeclaration = node.declarationList?.declarations[0];
 
       if (getNodeName(declaration) === componentFileName) {
-        console.log('KURWA');
         result = declaration;
-        console.log((declaration.type as any).typeArguments[0]);
       }
     }
   });
