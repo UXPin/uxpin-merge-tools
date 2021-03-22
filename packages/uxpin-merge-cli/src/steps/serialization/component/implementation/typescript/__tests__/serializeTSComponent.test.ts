@@ -48,6 +48,82 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes class component with date property ', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithDateType');
+      const expectedMetadata:ComponentMetadata = {
+        name: 'ClassWithDateType',
+        namespace: undefined,
+        properties: [
+          {
+            defaultValue: {
+              value: '2016-07-19T20:23:01.804Z',
+            },
+            description: 'Dates only',
+            isRequired: true,
+            name: 'dateInteger',
+            type: {
+              name: 'date',
+              structure: {},
+            },
+          },
+          {
+            defaultValue: {
+              value: '2010-08-08T00:00:00.000Z',
+            },
+            description: '',
+            isRequired: true,
+            name: 'dateString',
+            type: {
+              name: 'date',
+              structure: {},
+            },
+          },
+          {
+            defaultValue: {
+              value: '1997-02-01T01:01:01.001Z',
+            },
+            description: '',
+            isRequired: true,
+            name: 'dateRest',
+            type: {
+              name: 'date',
+              structure: {},
+            },
+          },
+        ],
+        wrappers: [],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes class component with empty date property ', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithEmptyDateType');
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expect.objectContaining({
+          name: expect.any(String),
+          properties: expect.arrayContaining([
+            expect.objectContaining({
+              defaultValue: expect.objectContaining({
+                value: expect.any(String),
+              }),
+            }),
+          ]),
+          wrappers: expect.any(Array),
+        }));
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('serializes class component with enum property types', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassEnumTypes');
