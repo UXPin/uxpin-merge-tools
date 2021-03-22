@@ -4,9 +4,9 @@ import { getDefaultPropsFromParamDestructuring } from '../defaultValue/getDefaul
 import { getDefaultPropsOfClassComponent } from '../defaultValue/getDefaultPropsOfClassComponent';
 import { getPropsTypeOfClassComponent } from '../property/getPropsTypeOfClassComponent';
 import { getPropsTypeOfFunctionalComponent } from '../property/getPropsTypeOfFunctionalComponent';
+import { getVariableDeclaration } from './getVariableDeclaration';
 import { isClassComponentDeclaration } from './isClassComponentDeclaration';
 import { isFunctionalComponentDeclaration } from './isFunctionalComponentDeclaration';
-import {getVariableDeclaration} from "./getVariableDeclaration";
 
 export interface DefaultProps {
   [propName:string]:any;
@@ -18,7 +18,7 @@ export interface ComponentDeclarationData {
 }
 
 export type ClassComponentDeclaration = ts.ClassDeclaration | ts.ClassExpression;
-export type FunctionalComponentDeclaration = ts.FunctionDeclaration | ts.ArrowFunction;
+export type FunctionalComponentDeclaration = ts.FunctionDeclaration | ts.ArrowFunction | ts.FunctionExpression;
 
 export type ComponentDeclaration = FunctionalComponentDeclaration | ClassComponentDeclaration;
 

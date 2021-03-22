@@ -20,19 +20,19 @@ import {
 export function getComponentDeclaration(context:TSSerializationContext):ComponentDeclaration | undefined {
   const fileName:string = getComponentFileName(context);
 
-  return findFunctionalComponent(context, fileName)
+  return findFunctionalComponent(context.file, fileName)
     || findClassComponent(context.file, fileName);
 }
 
 function findFunctionalComponent(
-  context:TSSerializationContext,
+  sourceFile:ts.SourceFile,
   componentFileName:string,
 ):FunctionalComponentDeclaration | undefined {
-  return findSpecifiedFunctionComponent(context.file)
-    || findDefaultExportedFunction(context.file)
-    || findExportedFunctionWithName(context.file, componentFileName)
-    || findDefaultExportedArrowFunction(context.file)
-    || findExportedFunctionWithReactForwardRef(context, componentFileName);
+  return findSpecifiedFunctionComponent(sourceFile)
+    || findDefaultExportedFunction(sourceFile)
+    || findExportedFunctionWithName(sourceFile, componentFileName)
+    || findDefaultExportedArrowFunction(sourceFile)
+    || findExportedFunctionWithReactForwardRef(sourceFile, componentFileName);
 }
 
 function findClassComponent(
