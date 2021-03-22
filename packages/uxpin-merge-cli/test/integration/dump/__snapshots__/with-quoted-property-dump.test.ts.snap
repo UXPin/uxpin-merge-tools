@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The dump command run for the with-quoted-property repository prints components with proper properties 1`] = `
+Array [
+  Object {
+    "components": Array [
+      Object {
+        "defaultExported": true,
+        "documentation": Object {
+          "examples": Array [],
+        },
+        "info": Object {
+          "dirPath": "src/components/Avatar",
+          "implementation": Object {
+            "framework": "reactjs",
+            "lang": "typescript",
+            "path": "src/components/Avatar/Avatar.tsx",
+          },
+          "presets": Array [
+            Object {
+              "path": "src/components/Avatar/presets/0-default.jsx",
+            },
+          ],
+        },
+        "name": "Avatar",
+        "presets": Array [
+          Object {
+            "elements": Object {
+              "1": Object {
+                "name": "Avatar",
+                "props": Object {
+                  "imageUrl": "https://picsum.photos/100/100?image=1027",
+                  "size": "small",
+                },
+              },
+            },
+            "name": "default",
+            "rootId": "1",
+          },
+        ],
+        "properties": Array [
+          Object {
+            "description": "",
+            "isRequired": false,
+            "name": "size",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "imageUrl",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+        ],
+        "wrappers": Array [],
+      },
+      Object {
+        "defaultExported": true,
+        "documentation": Object {
+          "examples": Array [],
+        },
+        "info": Object {
+          "dirPath": "src/components/Button",
+          "implementation": Object {
+            "framework": "reactjs",
+            "lang": "typescript",
+            "path": "src/components/Button/Button.tsx",
+          },
+          "presets": Array [
+            Object {
+              "path": "src/components/Button/presets/0-default.jsx",
+            },
+          ],
+        },
+        "name": "Button",
+        "presets": Array [
+          Object {
+            "elements": Object {
+              "1": Object {
+                "name": "Button",
+                "props": Object {
+                  "children": "Click me",
+                  "isPrimary": true,
+                },
+              },
+            },
+            "name": "default",
+            "rootId": "1",
+          },
+        ],
+        "properties": Array [
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "children",
+            "type": Object {
+              "name": "node",
+              "structure": Object {},
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": false,
+            "name": "isPrimary",
+            "type": Object {
+              "name": "boolean",
+              "structure": Object {},
+            },
+          },
+        ],
+        "wrappers": Array [],
+      },
+    ],
+    "name": "General",
+  },
+]
+`;
