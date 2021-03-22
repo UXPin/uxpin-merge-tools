@@ -7,7 +7,7 @@ export function serializeEnumType(typeNode:ts.LiteralType):PropertyType<'enum'> 
     name: 'enum',
     structure: {
       name: typeSymbol.name,
-      value: typeNode.value
+      value: typeNode.value,
     },
   };
 }
