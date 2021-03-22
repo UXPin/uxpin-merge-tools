@@ -13,6 +13,7 @@ const propTypesToValuesMap:GetDefaultValueForPropType = {
   array:[],
   boolean:false,
   custom:null,
+  date:new Date(),
   dictionary:null,
   element:null,
   enum:null,
