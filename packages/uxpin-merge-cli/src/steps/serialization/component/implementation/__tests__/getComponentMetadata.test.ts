@@ -45,6 +45,12 @@ describe('getComponentMetadata – integration', () => {
           {
             description: '',
             isRequired: true,
+            name: 'dateProp',
+            type: { name: 'date', structure: {} },
+          },
+          {
+            description: '',
+            isRequired: true,
             name: 'elementProp',
             type: { name: 'element', structure: {} },
           },

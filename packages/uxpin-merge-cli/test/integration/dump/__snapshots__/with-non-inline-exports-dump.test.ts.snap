@@ -1,0 +1,252 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The dump command run for the with-non-inline-exports repository prints components with proper properties 1`] = `
+Array [
+  Object {
+    "components": Array [
+      Object {
+        "documentation": Object {
+          "examples": Array [],
+        },
+        "info": Object {
+          "dirPath": "src/components/Avatar",
+          "implementation": Object {
+            "framework": "reactjs",
+            "lang": "typescript",
+            "path": "src/components/Avatar/Avatar.tsx",
+          },
+          "presets": Array [],
+        },
+        "name": "Avatar",
+        "presets": Array [],
+        "properties": Array [
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "size",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "imageUrl",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+        ],
+        "wrappers": Array [],
+      },
+      Object {
+        "documentation": Object {
+          "examples": Array [],
+        },
+        "info": Object {
+          "dirPath": "src/components/AvatarFn",
+          "implementation": Object {
+            "framework": "reactjs",
+            "lang": "typescript",
+            "path": "src/components/AvatarFn/AvatarFn.tsx",
+          },
+          "presets": Array [],
+        },
+        "name": "AvatarFn",
+        "presets": Array [],
+        "properties": Array [
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "size",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "imageUrl",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+        ],
+        "wrappers": Array [],
+      },
+      Object {
+        "documentation": Object {
+          "examples": Array [],
+        },
+        "info": Object {
+          "dirPath": "src/components/AvatarFnDefault",
+          "implementation": Object {
+            "framework": "reactjs",
+            "lang": "typescript",
+            "path": "src/components/AvatarFnDefault/AvatarFnDefault.tsx",
+          },
+          "presets": Array [],
+        },
+        "name": "AvatarFnDefault",
+        "presets": Array [],
+        "properties": Array [
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "size",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "imageUrl",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+        ],
+        "wrappers": Array [],
+      },
+      Object {
+        "documentation": Object {
+          "examples": Array [],
+        },
+        "info": Object {
+          "dirPath": "src/components/AvatarHOC",
+          "implementation": Object {
+            "framework": "reactjs",
+            "lang": "typescript",
+            "path": "src/components/AvatarHOC/AvatarHOC.tsx",
+          },
+          "presets": Array [],
+        },
+        "name": "AvatarHOC",
+        "presets": Array [],
+        "properties": Array [
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "size",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "imageUrl",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+        ],
+        "wrappers": Array [],
+      },
+      Object {
+        "documentation": Object {
+          "examples": Array [],
+        },
+        "info": Object {
+          "dirPath": "src/components/ButtonWithIconAsProp",
+          "implementation": Object {
+            "framework": "reactjs",
+            "lang": "typescript",
+            "path": "src/components/ButtonWithIconAsProp/ButtonWithIconAsProp.tsx",
+          },
+          "presets": Array [],
+        },
+        "name": "ButtonWithIconAsProp",
+        "presets": Array [],
+        "properties": Array [
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "children",
+            "type": Object {
+              "name": "node",
+              "structure": Object {},
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": false,
+            "name": "isPrimary",
+            "type": Object {
+              "name": "boolean",
+              "structure": Object {},
+            },
+          },
+        ],
+        "wrappers": Array [],
+      },
+      Object {
+        "documentation": Object {
+          "examples": Array [],
+        },
+        "info": Object {
+          "dirPath": "src/components/MenuWithData",
+          "implementation": Object {
+            "framework": "reactjs",
+            "lang": "typescript",
+            "path": "src/components/MenuWithData/MenuWithData.tsx",
+          },
+          "presets": Array [],
+        },
+        "name": "MenuWithData",
+        "presets": Array [],
+        "properties": Array [
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "data",
+            "type": Object {
+              "name": "array",
+              "structure": Object {},
+            },
+          },
+        ],
+        "wrappers": Array [],
+      },
+      Object {
+        "documentation": Object {
+          "examples": Array [],
+        },
+        "info": Object {
+          "dirPath": "src/components/MenuWithDataHOC",
+          "implementation": Object {
+            "framework": "reactjs",
+            "lang": "typescript",
+            "path": "src/components/MenuWithDataHOC/MenuWithDataHOC.tsx",
+          },
+          "presets": Array [],
+        },
+        "name": "MenuWithDataHOC",
+        "presets": Array [],
+        "properties": Array [
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "data",
+            "type": Object {
+              "name": "array",
+              "structure": Object {},
+            },
+          },
+        ],
+        "wrappers": Array [],
+      },
+    ],
+    "name": "General",
+  },
+]
+`;

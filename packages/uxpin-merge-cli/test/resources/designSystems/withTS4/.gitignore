@@ -1,0 +1,6 @@
+!*.config.js
+*.jsx
+!**/presets/*.js
+!**/presets/*.jsx
+.uxpin-merge/*
+!.uxpin-merge/epid
