@@ -33,8 +33,7 @@ export function getDefaultValueFromPropertyAccessExpression(
 ):SupportedDefaultValue | undefined {
   const symbol:ts.Symbol | undefined = context.checker.getSymbolAtLocation(propertyInitializer);
   if (symbol && ts.isEnumMember(symbol.valueDeclaration) && symbol.valueDeclaration.initializer) {
-    const initializer:ts.Identifier = symbol.valueDeclaration.name as ts.Identifier;
-    return initializer.escapedText as string;
+    return getDefaultPropertyValue(context, symbol.valueDeclaration.initializer);
   }
 
   return;

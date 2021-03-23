@@ -64,7 +64,7 @@ export interface PropertyTypeStructureMap {
   custom:{};
   date:{};
   element:{};
-  enum:{ name:string | number, value:string | number | ts.PseudoBigInt };
+  enum:{ label:string | number, value:string | number | ts.PseudoBigInt };
   func:FunctionStructure;
   literal:{ value:string | number | ts.PseudoBigInt };
   node:{};

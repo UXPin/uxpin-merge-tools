@@ -159,16 +159,16 @@ describe('serializeTSComponent', () => {
               name: 'union',
               structure: {
                 elements: [
-                  { name: 'enum', structure: { name: 'Large', value: 'large' } },
-                  { name: 'enum', structure: { name: 'Medium', value: 'medium' } },
-                  { name: 'enum', structure: { name: 'Small', value: 'small' } },
+                  { name: 'enum', structure: { label: 'Large', value: 'large' } },
+                  { name: 'enum', structure: { label: 'Medium', value: 'medium' } },
+                  { name: 'enum', structure: { label: 'Small', value: 'small' } },
                 ],
               },
             },
           },
           {
             defaultValue:  {
-              value: 'One',
+              value: 1,
             },
             description: '',
             isRequired: true,
@@ -177,8 +177,8 @@ describe('serializeTSComponent', () => {
               name: 'union',
               structure: {
                 elements:  [
-                  { name: 'enum', structure: { name: 'Zero', value: 0 } },
-                  { name: 'enum', structure: { name: 'One', value: 1 } },
+                  { name: 'enum', structure: { label: 'Zero', value: 0 } },
+                  { name: 'enum', structure: { label: 'One', value: 1 } },
                 ],
               },
             },
@@ -191,17 +191,14 @@ describe('serializeTSComponent', () => {
               name: 'union',
               structure: {
                 elements: [
-                  { name: 'enum', structure: { name: 'Blue', value: 3 } },
-                  { name: 'enum', structure: { name: 'Red', value: 4 } },
-                  { name: 'enum', structure: { name: 'Green', value: 5 } },
+                  { name: 'enum', structure: { label: 'Blue', value: 3 } },
+                  { name: 'enum', structure: { label: 'Red', value: 4 } },
+                  { name: 'enum', structure: { label: 'Green', value: 5 } },
                 ],
               },
             },
           },
           {
-            defaultValue: {
-              value: 'Sunday',
-            },
             description: '',
             isRequired: true,
             name: 'propComputed',
@@ -211,7 +208,7 @@ describe('serializeTSComponent', () => {
           },
           {
             defaultValue:{
-              value: 'No',
+              value: 0,
             },
             description: '',
             isRequired: true,
@@ -220,8 +217,8 @@ describe('serializeTSComponent', () => {
               name: 'union',
               structure: {
                 elements: [
-                  { name: 'enum', structure: { name: 'No', value: 0 } },
-                  { name: 'enum', structure: { name: 'Yes', value: 'YES' } },
+                  { name: 'enum', structure: { label: 'No', value: 0 } },
+                  { name: 'enum', structure: { label: 'Yes', value: 'YES' } },
                 ],
               },
             },
