@@ -53,6 +53,7 @@ describe('serializeTSComponent', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithDateType');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'ClassWithDateType',
         namespace: undefined,
         properties: [

@@ -38,7 +38,7 @@ export function isDefaultExported(declaration:ComponentDeclaration, context:TSSe
   ts.forEachChild(context.file, (node) => {
 
     // export { Component as default }
-    if (ts.isExportDeclaration(node) && node.exportClause) {
+    if (ts.isExportDeclaration(node) && node.exportClause && ts.isNamedExports(node.exportClause)) {
       isDefault = node.exportClause.elements.some((specifier:ts.ExportSpecifier) => {
         return (
           specifier.propertyName &&
