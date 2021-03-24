@@ -56,4 +56,4 @@ class ClassWithSeparateDefaultExportDeclaratin extends React.Component<Props> {
   }
 }
 
-export { ClassWithSeparateDefaultExportDeclaratin };
+export default ClassWithSeparateDefaultExportDeclaratin;

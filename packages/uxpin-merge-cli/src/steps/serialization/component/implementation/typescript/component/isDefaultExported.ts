@@ -91,7 +91,7 @@ function isDefaultExportedFunctionWithName(exportedName:string, declaration:Comp
 }
 
 function isDefaultExportedClassWithName(exportedName:string, declaration:ComponentDeclaration):boolean {
-  return ts.isFunctionDeclaration(declaration) && exportedName === getNodeName(declaration);
+  return ts.isClassDeclaration(declaration) && exportedName === getNodeName(declaration);
 }
 
 function isWrappedWithHOC(exportedName:string, expression?:ts.Expression):boolean {

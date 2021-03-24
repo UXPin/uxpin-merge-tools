@@ -21,14 +21,13 @@ describe('getComponentNameFromStoriesTitle', () => {
     // export default class Component
     { filename: 'ClassWithDefaults', componentName: 'ClassWithDefaults', expected: true },
 
-    // @todo - getComponentDeclaration cannot find a component in this case.
     // class Component
     // export default Component
-    // {
-    //   componentName: 'ClassWithSeparateDefaultExportDeclaratin',
-    //   expected: true,
-    //   filename: 'ClassWithSeparateDefaultExportDeclaratin',
-    // },
+    {
+      componentName: 'ClassWithSeparateDefaultExportDeclaratin',
+      expected: true,
+      filename: 'ClassWithSeparateDefaultExportDeclaratin',
+    },
 
     // /**
     //  * @uxpincomponent
@@ -49,14 +48,13 @@ describe('getComponentNameFromStoriesTitle', () => {
       filename: 'NamedExportedClassMatchingFilename',
     },
 
-    // @todo - getComponentDeclaration cannot find a component in this case.
     // class ClassWithNamedExport
     // export ClassWithNamedExport;
-    // {
-    //   componentName: 'NamedExportedClassMatchingFilenameWithSeparateExportDeclaration',
-    //   expected: false,
-    //   filename: 'NamedExportedClassMatchingFilenameWithSeparateExportDeclaration',
-    // },
+    {
+      componentName: 'NamedExportedClassMatchingFilenameWithSeparateExportDeclaration',
+      expected: false,
+      filename: 'NamedExportedClassMatchingFilenameWithSeparateExportDeclaration',
+    },
 
     /////////// Function components
     ////// Default exported
@@ -112,23 +110,21 @@ describe('getComponentNameFromStoriesTitle', () => {
       filename: 'FunctionWithNamedExport',
     },
 
-    // @todo - getComponentDeclaration cannot find a component in this case.
     // // function FunctionWithSeparateNamedExportDeclaration() {}
     // // export { FunctionWithSeparateNamedExportDeclaration }
-    // {
-    //   componentName: 'FunctionWithSeparateNamedExportDeclaration',
-    //   expected: false,
-    //   filename: 'FunctionWithSeparateNamedExportDeclaration',
-    // },
+    {
+      componentName: 'FunctionWithSeparateNamedExportDeclaration',
+      expected: false,
+      filename: 'FunctionWithSeparateNamedExportDeclaration',
+    },
 
-    // @todo - getComponentDeclaration cannot find a component in this case.
     // // const ArrowFunctionWithSeparateNamedExportDeclaration = () => {}
     // // export { ArrowFunctionWithSeparateNamedExportDeclaration }
-    // {
-    //   componentName: 'ArrowFunctionWithSeparateNamedExportDeclaration',
-    //   expected: false,
-    //   filename: 'ArrowFunctionWithSeparateNamedExportDeclaration',
-    // },
+    {
+      componentName: 'ArrowFunctionWithSeparateNamedExportDeclaration',
+      expected: false,
+      filename: 'ArrowFunctionWithSeparateNamedExportDeclaration',
+    },
 
     /////////// Other
     // export { Component as default }
