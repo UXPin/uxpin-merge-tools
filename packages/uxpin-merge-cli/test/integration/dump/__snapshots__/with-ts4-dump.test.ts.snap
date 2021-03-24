@@ -5,6 +5,7 @@ Array [
   Object {
     "components": Array [
       Object {
+        "defaultExported": true,
         "documentation": Object {
           "examples": Array [],
         },
