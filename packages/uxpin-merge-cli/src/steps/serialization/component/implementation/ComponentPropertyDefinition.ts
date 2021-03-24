@@ -62,6 +62,7 @@ export interface PropertyTypeStructureMap {
   array:{};
   boolean:{};
   custom:{};
+  date:{};
   element:{};
   func:FunctionStructure;
   literal:{ value:string | number | ts.PseudoBigInt };

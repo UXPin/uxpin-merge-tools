@@ -1,0 +1,315 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`summary command integration summary command prints  prints the list of components found in mineral-ui example 1`] = `
+"[1mGeneral[22m
+
+    [1mAvatar[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mButton[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [32m✔[39m
+
+    [1mButtonGroup[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [32m✔[39m
+
+    [1mCheckbox[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mCheckboxGroup[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mDropdown[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [32m✔[39m
+
+    [1mFormField[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mFormFieldDivider[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mFormFieldset[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mLink[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [32m✔[39m
+
+    [1mMenu[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mMenuDivider[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mMenuGroup[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mMenuItem[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mPopover[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [32m✔[39m
+
+    [1mRadio[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mRadioGroup[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mPagination[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [32m✔[39m
+
+    [1mSelect[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mText[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mTable[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [32m✔[39m
+
+    [1mTabs[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [32m✔[39m
+
+    [1mTab[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [32m✔[39m
+
+    [1mTextArea[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mTextInput[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [32m✔[39m
+
+    [1mTooltip[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+[1mCard[22m
+
+    [1mCard[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mCardActions[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mCardBlock[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mCardDivider[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [31m✘[39m
+
+    [1mCardFooter[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mCardImage[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mCardStatus[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mCardTitle[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mCardTitleMenu[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+[1mIcons[22m
+
+    [1mIcon[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconArrowDropdownDown[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconArrowDropdownUp[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconCheckBoxCheck[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconCheckBoxIndeterminate[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconChevronLeft[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconChevronRight[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconClose[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconDanger[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconDangerSimple[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconExpandLess[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconExpandMore[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconMoreHoriz[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconRadioButtonCheck[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconSuccess[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconSuccessSimple[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconWarning[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+    [1mIconWarningSimple[22m
+        📜 documentation: [32m✔[39m
+        💡 examples: [32m✔[39m
+        🎛  presets: [31m✘[39m
+
+[1mLayout[22m
+
+    [1mBox[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mFlex[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mFlexItem[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mGrid[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mGridItem[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+    [1mStartEnd[22m
+        📜 documentation: [31m✘[39m
+        💡 examples: [31m✘[39m
+        🎛  presets: [32m✔[39m
+
+[33mwarning [39mCannot compute default value for property \`triggerTitle\`
+
+SyntaxError: Unexpected token ':'
+
+ in:
+[34msrc/library/Card/CardFooter/CardFooter.js[39m
+
+"
+`;
