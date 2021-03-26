@@ -1,4 +1,5 @@
 import * as ts from 'typescript';
+import { isFunctionalComponentWithReactForwardRef } from '../component/isFunctionalComponentWithReactForwardRef';
 import { isReactFunctionComponent } from '../component/isReactFunctionComponent';
 
 export function getPropsTypeOfFunctionalComponent(
@@ -14,8 +15,19 @@ export function getPropsTypeOfFunctionalComponent(
   }
 
   const variableType:ts.TypeReferenceNode | undefined = variableDeclaration?.type as ts.TypeReferenceNode;
+
   if (variableType && variableType.typeArguments && isReactFunctionComponent(variableType.typeName)) {
     return variableType.typeArguments[0];
+  }
+
+  if (variableDeclaration && isFunctionalComponentWithReactForwardRef(variableDeclaration)) {
+    const typeArguments:ts.NodeArray<ts.TypeNode> | undefined = (
+      variableDeclaration.initializer as ts.CallExpression
+    ).typeArguments;
+
+    if (typeArguments  && typeArguments[1]) {
+      return typeArguments[1];
+    }
   }
 
   return variableType;

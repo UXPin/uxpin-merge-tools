@@ -11,6 +11,8 @@ export function isFunctionalComponentWithReactForwardRef(node:ts.Node):boolean {
   	expression = (
   		node.declarationList.declarations[0].initializer as ts.CallExpression
 	  ).expression as ts.PropertyAccessExpression;
+  } else if (ts.isVariableDeclaration(node)  && ts.isCallExpression(node.initializer as ts.CallExpression)) {
+  	expression = (node.initializer as ts.CallExpression).expression as ts.PropertyAccessExpression;
   }
 
   if (!expression) {
