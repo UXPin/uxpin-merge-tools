@@ -14,6 +14,14 @@ export function getPropsTypeOfFunctionalComponent(
     return func.parameters[0]?.type;
   }
 
+  if (isFunctionalComponentWithReactForwardRef(func.parent)) {
+    const typeArguments:ts.NodeArray<ts.TypeNode> | undefined = (func.parent as ts.CallExpression).typeArguments;
+
+    if (typeArguments  && typeArguments[1]) {
+      return typeArguments[1];
+    }
+  }
+
   const variableType:ts.TypeReferenceNode | undefined = variableDeclaration?.type as ts.TypeReferenceNode;
 
   if (variableType && variableType.typeArguments && isReactFunctionComponent(variableType.typeName)) {

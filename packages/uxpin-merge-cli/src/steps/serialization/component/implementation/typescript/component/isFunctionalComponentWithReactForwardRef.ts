@@ -3,7 +3,9 @@ import * as ts from 'typescript';
 export function isFunctionalComponentWithReactForwardRef(node:ts.Node):boolean {
   let expression:ts.Identifier|ts.PropertyAccessExpression|undefined;
 
-  if (ts.isExportAssignment(node)) { // export default forwardRef(() => {})
+  if (ts.isCallExpression(node)) {
+  	expression = node.expression as ts.Identifier;
+  } else if (ts.isExportAssignment(node) || ts.isCallExpression(node)) { // export default forwardRef(() => {})
     expression = (ts.isCallExpression(node.expression) ? node.expression.expression : node.expression) as ts.Identifier;
   } else if (ts.isVariableStatement(node)
 	  && ts.isCallExpression(node.declarationList?.declarations[0]?.initializer as ts.Node)
