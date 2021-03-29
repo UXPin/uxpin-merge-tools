@@ -5,7 +5,6 @@ import { getComponentFileName } from './getComponentFileName';
 
 export function getVariableDeclaration(context:TSSerializationContext):ts.VariableDeclaration | undefined {
   const fileName:string = getComponentFileName(context);
-
   return findVariableDeclaration(context.file, fileName);
 }
 

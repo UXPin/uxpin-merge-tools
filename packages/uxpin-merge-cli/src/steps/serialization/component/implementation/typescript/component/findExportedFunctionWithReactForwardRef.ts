@@ -14,6 +14,12 @@ function isVariableStatementWithProperName(node:ts.Node, functionName:string):no
     && getNodeName(node.declarationList.declarations[0].initializer?.parent) === functionName;
 }
 
+function isExportedForwardRef(node:ts.Node):node is ts.ExportAssignment {
+  return ts.isExportAssignment(node)
+    && ts.isCallExpression(node.expression)
+   && isFunctionalComponentWithReactForwardRef(node);
+}
+
 function getVariableStatement(sourceFile:ts.SourceFile, functionName:string):ts.VariableStatement | undefined {
   let result:ts.VariableStatement | undefined;
   ts.forEachChild(sourceFile, (node) => {
@@ -47,11 +53,8 @@ function getFunctionDeclaration(
   // export default forwardRef(() => {});
   let result:ts.ArrowFunction | ts.FunctionExpression | undefined;
   ts.forEachChild(sourceFile, (node) => {
-    if (ts.isExportAssignment(node)
-      && ts.isCallExpression(node.expression)
-      && isFunctionalComponentWithReactForwardRef(node)
-    ) {
-      const argument:ts.Expression = node.expression.arguments[0];
+    if (isExportedForwardRef(node)) {
+      const argument:ts.Expression = (node.expression as ts.CallExpression).arguments[0];
 
       if (ts.isArrowFunction(argument) || ts.isFunctionExpression(argument)) {
         result = argument;

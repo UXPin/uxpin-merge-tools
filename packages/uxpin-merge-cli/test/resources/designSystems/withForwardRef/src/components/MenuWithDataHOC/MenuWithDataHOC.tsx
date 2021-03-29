@@ -10,6 +10,10 @@ export interface Props {
   data:MenuItem[];
 }
 
+function HOC(component:any):any {
+  return component;
+}
+
 const MenuWithDataHOC:React.FC<Props> = React.forwardRef((props) => {
   const { data } = props;
   return (
@@ -21,4 +25,4 @@ const MenuWithDataHOC:React.FC<Props> = React.forwardRef((props) => {
   );
 });
 
-export default MenuWithDataHOC;
+export default HOC(MenuWithDataHOC);

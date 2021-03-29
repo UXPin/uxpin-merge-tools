@@ -1,21 +1,27 @@
 import * as ts from 'typescript';
 
-export function isFunctionalComponentWithReactForwardRef(node:ts.Node):boolean {
-  let expression:ts.Identifier|ts.PropertyAccessExpression|undefined;
-
+function extractExpression(node:ts.Node):ts.Identifier|ts.PropertyAccessExpression|undefined {
   if (ts.isCallExpression(node)) {
-  	expression = node.expression as ts.Identifier;
-  } else if (ts.isExportAssignment(node) || ts.isCallExpression(node)) { // export default forwardRef(() => {})
-    expression = (ts.isCallExpression(node.expression) ? node.expression.expression : node.expression) as ts.Identifier;
-  } else if (ts.isVariableStatement(node)
-	  && ts.isCallExpression(node.declarationList?.declarations[0]?.initializer as ts.Node)
-	) { // export Component = forwardRef(() => {});
-  	expression = (
-  		node.declarationList.declarations[0].initializer as ts.CallExpression
-	  ).expression as ts.PropertyAccessExpression;
-  } else if (ts.isVariableDeclaration(node)  && ts.isCallExpression(node.initializer as ts.CallExpression)) {
-  	expression = (node.initializer as ts.CallExpression).expression as ts.PropertyAccessExpression;
+    return node.expression as ts.Identifier;
   }
+
+  if (ts.isExportAssignment(node)) {
+    return (ts.isCallExpression(node.expression) ? node.expression.expression : node.expression) as ts.Identifier;
+  }
+
+  if (ts.isVariableStatement(node)
+		&& ts.isCallExpression(node.declarationList?.declarations[0]?.initializer as ts.Node)
+	) {
+    return extractExpression(node.declarationList.declarations[0].initializer as ts.CallExpression);
+  }
+
+  if (ts.isVariableDeclaration(node) && ts.isCallExpression(node.initializer as ts.CallExpression)) {
+    return extractExpression(node.initializer as ts.CallExpression);
+  }
+}
+
+export function isFunctionalComponentWithReactForwardRef(node:ts.Node):boolean {
+  const expression:ts.Identifier|ts.PropertyAccessExpression|undefined = extractExpression(node);
 
   if (!expression) {
   	return false;
