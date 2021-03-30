@@ -64,6 +64,7 @@ export interface PropertyTypeStructureMap {
   custom:{};
   date:{};
   element:{};
+  enum:EnumTypeStructure;
   func:FunctionStructure;
   literal:{ value:string | number | ts.PseudoBigInt };
   node:{};
@@ -77,6 +78,11 @@ export interface PropertyTypeStructureMap {
   union:UnionTypeStructure;
   unsupported:{ raw:string; };
   empty:{};
+}
+
+export interface EnumTypeStructure {
+  label:string | number;
+  value:string | number | ts.PseudoBigInt;
 }
 
 export interface UnionTypeStructure {

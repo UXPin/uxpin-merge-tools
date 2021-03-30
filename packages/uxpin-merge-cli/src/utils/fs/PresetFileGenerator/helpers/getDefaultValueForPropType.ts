@@ -17,6 +17,7 @@ const propTypesToValuesMap:GetDefaultValueForPropType = {
   dictionary:null,
   element:null,
   empty:'',
+  enum:null,
   func: noop,
   literal:null,
   node:'',
