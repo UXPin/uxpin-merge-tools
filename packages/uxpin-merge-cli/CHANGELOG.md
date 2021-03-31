@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.7.4] - 2021-04-31
+## [2.7.4] - 2021-03-31
 
 ### Added
 - Improved TypeScript Support:
