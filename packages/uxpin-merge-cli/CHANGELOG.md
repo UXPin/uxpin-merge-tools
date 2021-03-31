@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.7.4] - 2021-04-31
+
+### Added
+- Improved TypeScript Support:
+  - Improved support for different ways of [exporting components](https://github.com/UXPin/uxpin-merge-tools/pull/248)
+  - Added support for Date type
+  - Added support for enum type
+
+### Changed
+- TypeScript updated to v4.2.3
+  - Added to allow support for the [Omit Utility Type](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys)
+  - Added to allow support for [Type-Only Imports and Exports](https://devblogs.microsoft.com/typescript/announcing-typescript-3-8/#type-only-imports-exports)
+- React updated to v17.0.1
+  - Added to allow support the new [JSX Transform feature](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)
+  - You no longer have to write `import React from 'react';` in each component file
+- Added support for using custom Babel configuration to use different presets during merge-cli component serialization stage
+  - By default we will use react-docgen default presets
+
+### Fixed
+- Fixed TypeScript serialization bug that was causing prop names inside quotes to be ignored
+  - This scenario was common for customers using Stencil to generate their React Wrappers
+  - Example: `"persistent": boolean;` inside a TypeScript interface was previously unrecognised
+
 ## [2.7.3] - 2021-03-01
 
 ### Added
