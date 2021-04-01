@@ -1,11 +1,17 @@
 import { importedPropTypesHandler } from '@uxpin/react-docgen-better-proptypes';
 import { readFile } from 'fs-extra';
-import { defaultHandlers, Handler, parse, resolver } from 'react-docgen';
+import { defaultHandlers, Handler, parse, ReactDocgenOptions, resolver } from 'react-docgen';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
 import { CommentTags } from '../../CommentTags';
 import { hasCommentTag } from './hasCommentTag';
 
-const parsers:Array<(file:string, handlers:Handler[]) => ComponentDoc | undefined> = [
+interface ReactDocgenOptionsWithBabelConfig extends ReactDocgenOptions {
+  babelrc?:boolean;
+  configFile?:boolean;
+}
+
+// tslint:disable-next-line: max-line-length
+const parsers:Array<(file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig) => ComponentDoc | undefined> = [
   parseWithAnnotation,
   parseDefault,
 ];
@@ -20,15 +26,36 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
     importedPropTypesHandler(filePath),
   ];
 
-  for (const parser of parsers) {
-    try {
-      componentDoc = parser(file, handlers);
-    } catch (e) {
-      error = e;
-    }
+  // Passing `filename` helps babel to load correct babel configuration file.
+  // (NOTE: Without filename option, babel behave as if `babelrc: false` is set)
+  // However, react-docgen has a good set of default babel plugins
+  // and it has been working for most of customers.
+  // I've encountered failure tests from simply setting filename, so,
+  // to make sure we are not breaking existing customers integration by this change, we
+  // 1. try with react-docgen default babel plugins
+  // 2. try with user configured babel config(e.g. .babelrc, babel.config.js)
+  const docgenOptions:ReactDocgenOptionsWithBabelConfig[] = [
+    {
+      babelrc: false,
+      configFile: false,
+      filename: filePath,
+    },
+    {
+      filename: filePath,
+    },
+  ];
 
-    if (componentDoc) {
-      break;
+  for (const options of docgenOptions) {
+    for (const parser of parsers) {
+      try {
+        componentDoc = parser(file, handlers, options);
+      } catch (e) {
+        error = e;
+      }
+
+      if (componentDoc) {
+        return componentDoc;
+      }
     }
   }
 
@@ -39,9 +66,10 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
   return componentDoc;
 }
 
-function parseWithAnnotation(file:string, handlers:Handler[]):ComponentDoc | undefined {
+function parseWithAnnotation(
+    file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig):ComponentDoc | undefined {
   const parsed:ComponentDoc[] =
-    parse(file, resolver.findAllComponentDefinitions, handlers) as ComponentDoc[];
+    parse(file, resolver.findAllComponentDefinitions, handlers, options) as ComponentDoc[];
 
   for (const componentDoc of parsed) {
     if (hasCommentTag(componentDoc.description, CommentTags.UXPIN_COMPONENT)) {
@@ -50,6 +78,7 @@ function parseWithAnnotation(file:string, handlers:Handler[]):ComponentDoc | und
   }
 }
 
-function parseDefault(file:string, handlers:Handler[]):ComponentDoc | undefined {
-  return parse(file, undefined, handlers) as ComponentDoc;
+function parseDefault(
+    file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig):ComponentDoc | undefined {
+  return parse(file, undefined, handlers, options) as ComponentDoc;
 }

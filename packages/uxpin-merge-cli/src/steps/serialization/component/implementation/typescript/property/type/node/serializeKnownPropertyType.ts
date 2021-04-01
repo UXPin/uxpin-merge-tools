@@ -3,6 +3,7 @@ import { PropertyType } from '../../../../ComponentPropertyDefinition';
 
 export const KNOWN_TYPES_MAP:{ [typeName:string]:PropertyType } = {
   Array: { name: 'array', structure: {} },
+  Date: { name: 'date', structure: {} },
   ReactElement: { name: 'element', structure: {} },
   ReactNode: { name: 'node', structure: {} },
 };

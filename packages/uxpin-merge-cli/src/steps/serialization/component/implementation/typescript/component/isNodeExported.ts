@@ -29,7 +29,7 @@ export function isNodeExported(node:ts.Node, nodeName:string):boolean {
    * export { Component as default };
    */
   if (ts.isExportDeclaration(node) && node.exportClause) {
-    const { elements } = node.exportClause;
+    const { elements } = (node.exportClause as ts.NamedExports || { elements: [] });
     return !!find(elements, hasProperName.bind(null, nodeName));
   }
 

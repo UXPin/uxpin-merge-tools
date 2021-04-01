@@ -48,6 +48,82 @@ describe('serializeTSComponent', () => {
       });
     });
 
+    it('serializes class component with date property ', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithDateType');
+      const expectedMetadata:ComponentMetadata = {
+        name: 'ClassWithDateType',
+        namespace: undefined,
+        properties: [
+          {
+            defaultValue: {
+              value: '2016-07-19T20:23:01.804Z',
+            },
+            description: 'Dates only',
+            isRequired: true,
+            name: 'dateInteger',
+            type: {
+              name: 'date',
+              structure: {},
+            },
+          },
+          {
+            defaultValue: {
+              value: '2010-08-08T00:00:00.000Z',
+            },
+            description: '',
+            isRequired: true,
+            name: 'dateString',
+            type: {
+              name: 'date',
+              structure: {},
+            },
+          },
+          {
+            defaultValue: {
+              value: '1997-02-01T01:01:01.001Z',
+            },
+            description: '',
+            isRequired: true,
+            name: 'dateRest',
+            type: {
+              name: 'date',
+              structure: {},
+            },
+          },
+        ],
+        wrappers: [],
+      };
+
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes class component with empty date property ', () => {
+      // given
+      const component:ComponentImplementationInfo = getImplementation('ClassWithEmptyDateType');
+      // when
+      return serializeTSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expect.objectContaining({
+          name: expect.any(String),
+          properties: expect.arrayContaining([
+            expect.objectContaining({
+              defaultValue: expect.objectContaining({
+                value: expect.any(String),
+              }),
+            }),
+          ]),
+          wrappers: expect.any(Array),
+        }));
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
     it('serializes class component with enum property types', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassEnumTypes');
@@ -82,11 +158,68 @@ describe('serializeTSComponent', () => {
             type: {
               name: 'union',
               structure: {
-                elements: expect.arrayContaining([
-                  { name: 'literal', structure: { value: 'large' } },
-                  { name: 'literal', structure: { value: 'medium' } },
-                  { name: 'literal', structure: { value: 'small' } },
-                ]),
+                elements: [
+                  { name: 'enum', structure: { label: 'Large', value: 'large' } },
+                  { name: 'enum', structure: { label: 'Medium', value: 'medium' } },
+                  { name: 'enum', structure: { label: 'Small', value: 'small' } },
+                ],
+              },
+            },
+          },
+          {
+            defaultValue:  {
+              value: 1,
+            },
+            description: '',
+            isRequired: true,
+            name: 'propNumeric',
+            type: {
+              name: 'union',
+              structure: {
+                elements:  [
+                  { name: 'enum', structure: { label: 'Zero', value: 0 } },
+                  { name: 'enum', structure: { label: 'One', value: 1 } },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'propCustomNumeric',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'enum', structure: { label: 'Blue', value: 3 } },
+                  { name: 'enum', structure: { label: 'Red', value: 4 } },
+                  { name: 'enum', structure: { label: 'Green', value: 5 } },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'propComputed',
+            type: {
+              name: 'unsupported',
+              structure: { raw: 'enum' } },
+          },
+          {
+            defaultValue:{
+              value: 0,
+            },
+            description: '',
+            isRequired: true,
+            name: 'propHeterogeneous',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'enum', structure: { label: 'No', value: 0 } },
+                  { name: 'enum', structure: { label: 'Yes', value: 'YES' } },
+                ],
               },
             },
           },
