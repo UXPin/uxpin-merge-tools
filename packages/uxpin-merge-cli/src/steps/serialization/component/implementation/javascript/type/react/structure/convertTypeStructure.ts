@@ -3,22 +3,20 @@ import { convertArrayOfTypeStructure } from './arrayOf/convertArrayOfTypeStructu
 import { convertOneOfTypeStructure } from './oneOf/convertOneOfTypeStructure';
 import { convertShapeTypeStructure } from './shape/convertShapeTypeStructure';
 
-type StructureConverters = Partial<{
-  [P in PropertyTypeName]:(reactDocgenStructure:any) => PropertyTypeStructureMap[P]
-}>;
+export type TypeStructureConversionStrategy =
+  <T extends keyof PropertyTypeStructureMap>(reactDocgenStructure:any) => PropertyTypeStructureMap[T];
 
-const TYPE_STRUCTURE_CONVERTERS:StructureConverters = {
+const TYPE_STRUCTURE_CONVERTERS:Partial<{ [P in PropertyTypeName]:TypeStructureConversionStrategy }> = {
   shape: convertShapeTypeStructure,
   typedArray: convertArrayOfTypeStructure,
   union: convertOneOfTypeStructure,
 };
 
 export function convertTypeStructure<T extends PropertyTypeName>(typeName:T,
-  reactDocgenStructure:any):PropertyTypeStructureMap[T] | {} {
-  const convert:StructureConverters[T] | undefined = TYPE_STRUCTURE_CONVERTERS[typeName];
+  reactDocgenStructure:any):PropertyTypeStructureMap[T] {
+  const convert:TypeStructureConversionStrategy | undefined = TYPE_STRUCTURE_CONVERTERS[typeName];
   if (convert) {
     return convert(reactDocgenStructure);
   }
-
   return {};
 }
