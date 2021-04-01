@@ -12,15 +12,6 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& yarn install --cache-folder ./yarn-cache \
 	&& rm -rf ./yarn-cache
 
-../../test/resources/repos/arui-feather:
-	cd ../../test/resources/repos \
-	&& git clone https://github.com/alfa-laboratory/arui-feather.git \
-	&& cd arui-feather \
-	&& git checkout v11.3.1 \
-	&& mkdir ./npm-cache \
-	&& npm install --cache=./npm-cache \
-	&& rm -rf ./npm-cache
-
 ../../test/resources/repos/polaris:
 	cd ../../test/resources/repos \
 	&& git clone https://github.com/uxpin-merge/polaris-react.git polaris \
