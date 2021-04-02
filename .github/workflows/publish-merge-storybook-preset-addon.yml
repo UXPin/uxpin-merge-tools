@@ -35,7 +35,6 @@ jobs:
             @uxpin:registry=https://npm.pkg.github.com/
             //npm.pkg.github.com/:_authToken="${{ secrets.GITHUB_TOKEN }}"
 
-      - run: make dependencies
-      - run: make build
+      - run: yarn install
       - name: publish package
         run: bash ../../.github/bin/publish-package.sh
