@@ -14,14 +14,14 @@ And this integration tries to leverage storybook configuration file to skip requ
 echo @uxpin:registry=https://npm.pkg.github.com/ > .npmrc
 ```
 
-1. Add @uxpin/merge-cli package
+2. Add @uxpin/merge-cli package
 `yarn add @uxpin/merge-cli@2.7.4-dev-dev.34`
 
-1. Add @uxpin/merge-storybook-preset-addon
-`@uxpin/merge-storybook-preset-addon@1.0.0-dev.2`
+3. Add @uxpin/merge-storybook-preset-addon
+`yarn add @uxpin/merge-storybook-preset-addon@1.0.0-dev.2`
 
-1. Add `@uxpin/merge-storybook-preset-addon` to `main.js`
-e.g.
+4. Add `@uxpin/merge-storybook-preset-addon` to storybook `main.js`
+
 ```
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.js', '../src/**/*.stories.tsx'],
@@ -29,7 +29,7 @@ module.exports = {
 };
 ```
 
-1. Start experimental mode
+5. Start experimental mode
 ```
 npx uxpin-merge --disable-tunneling --storybook
 ```
@@ -39,6 +39,9 @@ If you would like to use your custom [uxpin.config.js](https://www.uxpin.com/doc
 npx uxpin-merge --disable-tunneling --storybook --config uxpin.config.js
 ```
 
-This is useful when
-1. you want to skip some components from your DS
-2. Add wrapper
+This is useful sometimes such as when you would like to ignore some components from merge library.
+
+6. Push to UXPin
+```
+npx uxpin-merge push --storybook --token TOKEN
+```
