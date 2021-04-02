@@ -1,0 +1,41 @@
+name: Publish package
+
+on:
+  push:
+
+jobs:
+  publish:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: packages/uxpin-merge-storybook-preset-addon
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.18.1
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.18.1
+      - run: yarn policies set-version 1.22.4
+
+      - name: Setting $HOME/.npmrc to install built-utils
+        run: echo "${NPMRC}" > $HOME/.npmrc
+        env:
+          NPMRC: |
+            @uxpin:registry=https://npm.pkg.github.com/
+            //npm.pkg.github.com/:_authToken="${{ secrets.NPMRC_READ_TOKEN }}"
+
+      - name: Install build-utils
+        run: yarn global add @uxpin/build-utils
+
+      - name: Setting .npmrc to publish a package on github
+        run: echo "${NPMRC}" > .npmrc
+        env:
+          NPMRC: |
+            @uxpin:registry=https://npm.pkg.github.com/
+            //npm.pkg.github.com/:_authToken="${{ secrets.GITHUB_TOKEN }}"
+
+      - run: make dependencies
+      - run: make build
+      - name: publish package
+        run: bash ../../.github/bin/publish-package.sh
