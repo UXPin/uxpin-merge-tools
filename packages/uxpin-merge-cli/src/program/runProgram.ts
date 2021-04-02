@@ -23,7 +23,10 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
     // in getProgramArgs, we try to get config for wrapper
     if (program.storybook) { await generateConfigFilesFromStorybookConfig(program); }
     const programArgs:ProgramArgs = getProgramArgs(program);
-    await setupProjectWatcher(programArgs);
+
+    // watcher hangs...
+    // if (!program.storybook) { await setupProjectWatcher(programArgs); }
+
     await runCommand(programArgs);
   } catch (error) {
     endWithError(error);
