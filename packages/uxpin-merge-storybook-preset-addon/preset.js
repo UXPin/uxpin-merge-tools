@@ -12,7 +12,7 @@ module.exports = {
     let webpackConfigForMerge = cloneDeep(config);;
 
     option.presetsList.forEach(async (preset) => {
-      if (!preset.preset.webpackFinal || preset.name.includes('uxpin-merge-storybook-preset-addon')) {
+      if (!preset.preset.webpackFinal || preset.name.includes('merge-storybook-preset-addon')) {
         return;
       }
 
