@@ -29,7 +29,7 @@ You just need `read:packages` permission.
 
 3. Add @uxpin/merge-storybook-preset-addon
     ```
-    yarn add @uxpin/merge-storybook-preset-addon@1.0.0-dev.2
+    yarn add @uxpin/merge-storybook-preset-addon@1.0.0-dev.3
     ```
 
 4. Add `@uxpin/merge-storybook-preset-addon` to storybook `main.js`
