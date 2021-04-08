@@ -29,6 +29,6 @@ export async function postUploadBundle(
     },
     method: 'POST',
     responseType: 'json',
-    url: `${domain}/code/v/1.0/push/bundle`
+    url: `${domain}/code/v/1.0/push/bundle`,
   }).then((response:AxiosResponse) => ((response.data as UploadBundleResponse) || null));
 }
