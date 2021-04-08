@@ -5,6 +5,7 @@ import { findDefaultExportedClass } from './findDefaultExportedClass';
 import { findDefaultExportedFunction } from './findDefaultExportedFunction';
 import { findExportedClassWithName } from './findExportedClassWithName';
 import { findExportedFunctionWithName } from './findExportedFunctionWithName';
+import { findExportedFunctionWithReactForwardRef } from './findExportedFunctionWithReactForwardRef';
 import {
   findSpecifiedClassComponent,
   findSpecifiedFunctionComponent,
@@ -30,7 +31,8 @@ function findFunctionalComponent(
   return findSpecifiedFunctionComponent(sourceFile)
     || findDefaultExportedFunction(sourceFile)
     || findExportedFunctionWithName(sourceFile, componentFileName)
-    || findDefaultExportedArrowFunction(sourceFile);
+    || findDefaultExportedArrowFunction(sourceFile)
+    || findExportedFunctionWithReactForwardRef(sourceFile, componentFileName);
 }
 
 function findClassComponent(

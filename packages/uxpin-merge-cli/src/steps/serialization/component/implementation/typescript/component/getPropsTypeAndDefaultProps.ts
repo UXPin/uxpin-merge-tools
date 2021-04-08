@@ -4,6 +4,7 @@ import { getDefaultPropsFromParamDestructuring } from '../defaultValue/getDefaul
 import { getDefaultPropsOfClassComponent } from '../defaultValue/getDefaultPropsOfClassComponent';
 import { getPropsTypeOfClassComponent } from '../property/getPropsTypeOfClassComponent';
 import { getPropsTypeOfFunctionalComponent } from '../property/getPropsTypeOfFunctionalComponent';
+import { getVariableDeclaration } from './getVariableDeclaration';
 import { isClassComponentDeclaration } from './isClassComponentDeclaration';
 import { isFunctionalComponentDeclaration } from './isFunctionalComponentDeclaration';
 
@@ -17,7 +18,7 @@ export interface ComponentDeclarationData {
 }
 
 export type ClassComponentDeclaration = ts.ClassDeclaration | ts.ClassExpression;
-export type FunctionalComponentDeclaration = ts.FunctionDeclaration | ts.ArrowFunction;
+export type FunctionalComponentDeclaration = ts.FunctionDeclaration | ts.ArrowFunction | ts.FunctionExpression;
 
 export type ComponentDeclaration = FunctionalComponentDeclaration | ClassComponentDeclaration;
 
@@ -28,7 +29,7 @@ export function getPropsTypeAndDefaultProps(
   if (isFunctionalComponentDeclaration(component)) {
     return {
       defaultProps: getDefaultPropsFromParamDestructuring(context, component),
-      propsTypeNode: getPropsTypeOfFunctionalComponent(component),
+      propsTypeNode: getPropsTypeOfFunctionalComponent(component,  getVariableDeclaration(context)),
     };
   }
 
