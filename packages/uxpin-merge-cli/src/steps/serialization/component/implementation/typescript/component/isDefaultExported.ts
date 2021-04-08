@@ -2,6 +2,7 @@ import * as ts from 'typescript';
 import { hasUXPinComponentComment } from '../comments/hasUXPinComponentComment';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import { getNodeName } from '../node/getNodeName';
+import { isDefaultExportedForwardRef } from './findExportedFunctionWithReactForwardRef';
 import { getComponentName } from './getComponentName';
 import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
 import { isExported } from './isExported';
@@ -71,7 +72,12 @@ export function isDefaultExported(declaration:ComponentDeclaration, context:TSSe
 
     // component wrapped with HOC.
     // export default withHOC(Component);
-    if (declaration.name && isWrappedWithHOC(componentName, node.expression)) {
+    if (isWrappedWithHOC(componentName, node.expression)) {
+      isDefault = true;
+    }
+
+    // export default forwardRef<HTMLBaseElement, Props>((props) => {}
+    if (isDefaultExportedForwardRef(node)) {
       isDefault = true;
     }
   });
