@@ -1414,7 +1414,7 @@ Object {
   "name": "Shopify Polaris",
   "vcs": Object {
     "branchName": "master",
-    "commitHash": "542e947993425fec876e89d1d4bb3c19fca2b5fe",
+    "commitHash": "4e89f89e1b6aafabd9228a4745f4eece67de9937",
     "paths": Object {
       "configPath": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/repos/polaris/uxpin.config.js",
       "projectRoot": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/repos/polaris",

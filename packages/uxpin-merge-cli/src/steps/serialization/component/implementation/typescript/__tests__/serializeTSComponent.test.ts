@@ -161,11 +161,68 @@ describe('serializeTSComponent', () => {
             type: {
               name: 'union',
               structure: {
-                elements: expect.arrayContaining([
-                  { name: 'literal', structure: { value: 'large' } },
-                  { name: 'literal', structure: { value: 'medium' } },
-                  { name: 'literal', structure: { value: 'small' } },
-                ]),
+                elements: [
+                  { name: 'enum', structure: { label: 'Large', value: 'large' } },
+                  { name: 'enum', structure: { label: 'Medium', value: 'medium' } },
+                  { name: 'enum', structure: { label: 'Small', value: 'small' } },
+                ],
+              },
+            },
+          },
+          {
+            defaultValue:  {
+              value: 1,
+            },
+            description: '',
+            isRequired: true,
+            name: 'propNumeric',
+            type: {
+              name: 'union',
+              structure: {
+                elements:  [
+                  { name: 'enum', structure: { label: 'Zero', value: 0 } },
+                  { name: 'enum', structure: { label: 'One', value: 1 } },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'propCustomNumeric',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'enum', structure: { label: 'Blue', value: 3 } },
+                  { name: 'enum', structure: { label: 'Red', value: 4 } },
+                  { name: 'enum', structure: { label: 'Green', value: 5 } },
+                ],
+              },
+            },
+          },
+          {
+            description: '',
+            isRequired: true,
+            name: 'propComputed',
+            type: {
+              name: 'unsupported',
+              structure: { raw: 'enum' } },
+          },
+          {
+            defaultValue:{
+              value: 0,
+            },
+            description: '',
+            isRequired: true,
+            name: 'propHeterogeneous',
+            type: {
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'enum', structure: { label: 'No', value: 0 } },
+                  { name: 'enum', structure: { label: 'Yes', value: 'YES' } },
+                ],
               },
             },
           },
