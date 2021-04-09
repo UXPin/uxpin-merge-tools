@@ -99,6 +99,23 @@ describe('getComponentNameFromStoriesTitle', () => {
       filename: 'ArrowFunctionWithSeparateNamedExportDeclaration',
     },
 
+    /////////// With forwardRef
+    // const DefaultExportedComponentWithForwardRef = React.forwardRef
+    // export default DefaultExportedComponentWithForwardRef;
+    {
+      componentName: 'DefaultExportedComponentWithForwardRef',
+      expected: true,
+      filename: 'DefaultExportedComponentWithForwardRef',
+    },
+
+    // const NamedExportedComponentWithForwardRef.tsx = React.forwardRef
+    // export default NamedExportedComponentWithForwardRef.tsx;
+    {
+      componentName: 'NamedExportedComponentWithForwardRef',
+      expected: false,
+      filename: 'NamedExportedComponentWithForwardRef',
+    },
+
     /////////// Other
     // export { Component as default }
     {

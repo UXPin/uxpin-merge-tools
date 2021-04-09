@@ -126,6 +126,22 @@ describe('getComponentNameFromStoriesTitle', () => {
       filename: 'ArrowFunctionWithSeparateNamedExportDeclaration',
     },
 
+    /////////// component with ForwardRef
+    // export default React.forwardRef
+    {
+      componentName: 'DefaultExportedComponentWithForwardRef',
+      expected: true,
+      filename: 'DefaultExportedComponentWithForwardRef',
+    },
+
+    // const Component = React.forwardRef
+    // export { Component }
+    {
+      componentName: 'NamedExportedComponentWithForwardRef',
+      expected: false,
+      filename: 'NamedExportedComponentWithForwardRef',
+    },
+
     /////////// Other
     // export { Component as default }
     {
