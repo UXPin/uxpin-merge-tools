@@ -1,16 +1,17 @@
 import * as ts from 'typescript';
+import { TSSerializationContext } from '../context/getSerializationContext';
 import { getNodeName } from '../node/getNodeName';
 import { ClassComponentDeclaration } from './getPropsTypeAndDefaultProps';
 import { isExported } from './isExported';
 import { isNodeExported } from './isNodeExported';
 
 export function getClassComponentDeclaration(
-  sourceFile:ts.SourceFile,
+  context:TSSerializationContext,
   className:string,
 ):ClassComponentDeclaration | undefined {
   let result:ts.ClassDeclaration | ts.ClassExpression | undefined;
 
-  ts.forEachChild(sourceFile, (node) => {
+  ts.forEachChild(context.file, (node) => {
     if (ts.isClassDeclaration(node) && getNodeName(node) === className) {
       result = node;
     }
@@ -20,11 +21,11 @@ export function getClassComponentDeclaration(
 }
 
 export function findExportedClassWithName(
-  sourceFile:ts.SourceFile,
+  context:TSSerializationContext,
   className:string,
 ):ClassComponentDeclaration | undefined {
   const result:ts.ClassDeclaration | ts.ClassExpression | undefined = getClassComponentDeclaration(
-    sourceFile,
+    context,
     className,
   );
 
@@ -34,7 +35,7 @@ export function findExportedClassWithName(
 
   let isClassExported:boolean = false;
 
-  ts.forEachChild(sourceFile, (node) => {
+  ts.forEachChild(context.file, (node) => {
     if (!isClassExported) {
       isClassExported = isNodeExported(node, className);
     }

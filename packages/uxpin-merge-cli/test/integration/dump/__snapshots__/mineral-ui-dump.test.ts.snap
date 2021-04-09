@@ -6,6 +6,7 @@ Object {
     Object {
       "components": Array [
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -152,6 +153,7 @@ string",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -432,6 +434,7 @@ string",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -739,6 +742,7 @@ primarily for use with uncontrolled components with a \`mode\` prop defined.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -1062,6 +1066,7 @@ specified. See also: \`defaultIndeterminate\`.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -1289,6 +1294,7 @@ use with uncontrolled components.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -1816,6 +1822,7 @@ sibling to the trigger",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -2041,6 +2048,7 @@ text",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -2059,6 +2067,7 @@ text",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -2175,6 +2184,7 @@ text",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -2286,6 +2296,7 @@ text",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -2822,6 +2833,7 @@ See the [React docs](https://reactjs.org/docs/lists-and-keys.html#keys).",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -2840,6 +2852,7 @@ See the [React docs](https://reactjs.org/docs/lists-and-keys.html#keys).",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -2931,6 +2944,7 @@ See the [React docs](https://reactjs.org/docs/lists-and-keys.html#keys).",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -3126,6 +3140,7 @@ our [render props guide](/render-props).",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -3567,6 +3582,7 @@ the trigger",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -3844,6 +3860,7 @@ uncontrolled components",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -4058,6 +4075,7 @@ uncontrolled components.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -4482,6 +4500,7 @@ are truncated ([see example for details](#visible-range))",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -5086,6 +5105,7 @@ to the trigger",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -5412,6 +5432,7 @@ to the trigger",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -6248,6 +6269,7 @@ used by sortable columns",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -6584,6 +6606,7 @@ See also: \`defaultSelectedTabIndex\`",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -6743,6 +6766,7 @@ See also: \`defaultSelectedTabIndex\`",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -7020,6 +7044,7 @@ specified.  Also see \`defaultValue\`.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -7419,6 +7444,7 @@ specified.  Also see \`defaultValue\`.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -7769,6 +7795,7 @@ to the trigger.",
     Object {
       "components": Array [
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -7878,6 +7905,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -7987,6 +8015,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -8032,6 +8061,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -8050,6 +8080,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -8288,6 +8319,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -8343,6 +8375,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -8419,6 +8452,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -8597,6 +8631,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -8694,6 +8729,7 @@ to the trigger.",
     Object {
       "components": Array [
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -8818,6 +8854,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -8930,6 +8967,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -9042,6 +9080,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -9154,6 +9193,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -9266,6 +9306,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -9378,6 +9419,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -9490,6 +9532,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -9602,6 +9645,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -9714,6 +9758,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -9826,6 +9871,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -9938,6 +9984,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -10050,6 +10097,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -10162,6 +10210,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -10274,6 +10323,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -10386,6 +10436,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -10498,6 +10549,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -10610,6 +10662,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [
               Object {
@@ -10727,6 +10780,7 @@ to the trigger.",
     Object {
       "components": Array [
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -13194,6 +13248,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -13657,6 +13712,7 @@ to the trigger.",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -13885,6 +13941,7 @@ composes [Box](/components/box)",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -14141,6 +14198,7 @@ composes [Box](/components/box)",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },
@@ -14213,6 +14271,7 @@ composes [Box](/components/box)",
           "wrappers": Array [],
         },
         Object {
+          "defaultExported": true,
           "documentation": Object {
             "examples": Array [],
           },

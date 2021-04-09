@@ -199,6 +199,7 @@ describe('SerializeJSComponent - with annotations', () => {
       return serializeJSComponent(component).then((serializedProps) => {
         // then
         const expectedMetadata:ComponentMetadata = {
+          defaultExported: true,
           name: 'ClassWithBindAnnotation',
           properties: [
             {

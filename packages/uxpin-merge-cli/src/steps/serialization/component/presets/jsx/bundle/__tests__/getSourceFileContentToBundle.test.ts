@@ -6,6 +6,7 @@ describe('getSourceFileContentToBundle', () => {
     // given
     const components:ComponentDefinition[] = [
       {
+        defaultExported: true,
         documentation: { examples: [] },
         info: {
           dirPath: '',
@@ -20,6 +21,7 @@ describe('getSourceFileContentToBundle', () => {
         properties: [],
       },
       {
+        defaultExported: true,
         documentation: { examples: [] },
         info: {
           dirPath: '',

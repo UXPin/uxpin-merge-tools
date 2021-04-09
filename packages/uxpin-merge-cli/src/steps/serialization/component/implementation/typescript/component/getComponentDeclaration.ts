@@ -1,8 +1,8 @@
-import * as ts from 'typescript';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import { findDefaultExportedArrowFunction } from './findDefaultExportedArrowFunction';
 import { findDefaultExportedClass } from './findDefaultExportedClass';
 import { findDefaultExportedFunction } from './findDefaultExportedFunction';
+import { findExportedArrowFunctionWithName } from './findExportedArrowFunctionWithName';
 import { findExportedClassWithName } from './findExportedClassWithName';
 import { findExportedFunctionWithName } from './findExportedFunctionWithName';
 import { findExportedFunctionWithReactForwardRef } from './findExportedFunctionWithReactForwardRef';
@@ -20,26 +20,27 @@ import {
 export function getComponentDeclaration(context:TSSerializationContext):ComponentDeclaration | undefined {
   const fileName:string = getComponentFileName(context);
 
-  return findFunctionalComponent(context.file, fileName)
-    || findClassComponent(context.file, fileName);
+  return findFunctionalComponent(context, fileName)
+    || findClassComponent(context, fileName);
 }
 
 function findFunctionalComponent(
-  sourceFile:ts.SourceFile,
+  context:TSSerializationContext,
   componentFileName:string,
 ):FunctionalComponentDeclaration | undefined {
-  return findSpecifiedFunctionComponent(sourceFile)
-    || findDefaultExportedFunction(sourceFile)
-    || findExportedFunctionWithName(sourceFile, componentFileName)
-    || findDefaultExportedArrowFunction(sourceFile)
-    || findExportedFunctionWithReactForwardRef(sourceFile, componentFileName);
+  return findSpecifiedFunctionComponent(context)
+    || findDefaultExportedFunction(context)
+    || findExportedFunctionWithName(context, componentFileName)
+    || findDefaultExportedArrowFunction(context)
+    || findExportedArrowFunctionWithName(context, componentFileName)
+    || findExportedFunctionWithReactForwardRef(context, componentFileName);
 }
 
 function findClassComponent(
-  sourceFile:ts.SourceFile,
+  context:TSSerializationContext,
   componentFileName:string,
 ):ClassComponentDeclaration | undefined {
-  return findSpecifiedClassComponent(sourceFile)
-    || findDefaultExportedClass(sourceFile)
-    || findExportedClassWithName(sourceFile, componentFileName);
+  return findSpecifiedClassComponent(context)
+    || findDefaultExportedClass(context)
+    || findExportedClassWithName(context, componentFileName);
 }

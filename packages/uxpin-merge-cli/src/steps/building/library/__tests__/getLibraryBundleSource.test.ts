@@ -14,6 +14,7 @@ describe('getLibraryBundleSource', () => {
   it('returns content of library file for list of components', () => {
     const components:ComponentDefinition[] = [
       {
+        defaultExported: true,
         info: {
           dirPath: 'src/components/button',
           implementation: {
@@ -25,6 +26,7 @@ describe('getLibraryBundleSource', () => {
         ...commonProps,
       },
       {
+        defaultExported: true,
         info: {
           dirPath: 'src/components/button-list',
           implementation: {
@@ -58,6 +60,7 @@ export {
   it('returns content of library file for list of components and path of custom wrapper', () => {
     const components:ComponentDefinition[] = [
       {
+        defaultExported: true,
         info: {
           dirPath: 'src/components/button',
           implementation: {
@@ -69,6 +72,7 @@ export {
         ...commonProps,
       },
       {
+        defaultExported: true,
         info: {
           dirPath: 'src/components/button-list',
           implementation: {
@@ -106,6 +110,7 @@ export {
   it('returns content of library file for list of components including namespaced components', () => {
     const components:ComponentDefinition[] = [
       {
+        defaultExported: true,
         info: {
           dirPath: 'src/components/card',
           implementation: {
@@ -117,6 +122,7 @@ export {
         ...commonProps,
       },
       {
+        defaultExported: true,
         info: {
           dirPath: 'src/components/card/components/header',
           implementation: {
@@ -132,6 +138,7 @@ export {
         ...commonProps,
       },
       {
+        defaultExported: true,
         info: {
           dirPath: 'src/components/card/components/header/components/menu',
           implementation: {

@@ -1,5 +1,6 @@
 import * as ts from 'typescript';
 import { hasUXPinComponentComment } from '../comments/hasUXPinComponentComment';
+import { TSSerializationContext } from '../context/getSerializationContext';
 import {
   ClassComponentDeclaration,
   ComponentDeclaration,
@@ -8,19 +9,19 @@ import {
 import { isClassComponentDeclaration } from './isClassComponentDeclaration';
 import { isFunctionalComponentDeclaration } from './isFunctionalComponentDeclaration';
 
-export const findSpecifiedClassComponent:(sourceFile:ts.SourceFile) => ClassComponentDeclaration | undefined =
+export const findSpecifiedClassComponent:(context:TSSerializationContext) => ClassComponentDeclaration | undefined =
   createFindSpecifiedComponent(isClassComponentDeclaration);
 
-export const findSpecifiedFunctionComponent:(sourceFile:ts.SourceFile) => FunctionalComponentDeclaration | undefined =
-  createFindSpecifiedComponent(isFunctionalComponentDeclaration);
+export const findSpecifiedFunctionComponent:(context:TSSerializationContext) =>
+  FunctionalComponentDeclaration | undefined = createFindSpecifiedComponent(isFunctionalComponentDeclaration);
 
 function createFindSpecifiedComponent<T extends ComponentDeclaration>(
   declarationChecker:(node:ts.Node) => node is T,
-):(sourceFile:ts.SourceFile) => T | undefined {
-  return (sourceFile:ts.SourceFile) => {
+):(context:TSSerializationContext) => T | undefined {
+  return (context:TSSerializationContext) => {
     let result:T | undefined;
 
-    ts.forEachChild(sourceFile, (node) => {
+    ts.forEachChild(context.file, (node) => {
       if (!result && declarationChecker(node) && hasUXPinComponentComment(node)) {
         result = node;
       }

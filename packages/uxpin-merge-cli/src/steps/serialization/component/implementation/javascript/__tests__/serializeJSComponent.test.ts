@@ -10,6 +10,7 @@ describe('serializeJSComponent', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('FunctionPrimitivesOnly');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'FunctionPrimitivesOnly',
         properties: [
           {
@@ -52,6 +53,7 @@ describe('serializeJSComponent', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassEnumTypes');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'ClassEnumTypes',
         properties: [
           {
@@ -100,6 +102,7 @@ describe('serializeJSComponent', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassWithDefaults');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'ClassWithDefaults',
         properties: [
           {
@@ -141,6 +144,7 @@ describe('serializeJSComponent', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('ClassPropShapeType');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'ClassPropShapeType',
         properties: [
           {
@@ -177,6 +181,7 @@ describe('serializeJSComponent', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('PropShapeTypeWithDefault');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'PropShapeTypeWithDefault',
         properties: [
           {
@@ -219,6 +224,7 @@ describe('serializeJSComponent', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('IntegrationComboFlow');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'IntegrationComboFlow',
         properties: [
           {
@@ -421,6 +427,7 @@ describe('serializeJSComponent', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('FunctionWithImportedEnum');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'FunctionWithImportedEnum',
         properties: [
           {
@@ -478,6 +485,7 @@ describe('serializeJSComponent', () => {
       // given
       const component:ComponentImplementationInfo = getImplementation('CorruptedDefaultPropertyValue');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'CorruptedDefaultPropertyValue',
         properties: [
           {
@@ -538,6 +546,7 @@ ReferenceError: some is not defined
       // given
       const component:ComponentImplementationInfo = getImplementation('PropTypesOneOfNumber');
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'PropTypesOneOfNumber',
         properties: [
           {

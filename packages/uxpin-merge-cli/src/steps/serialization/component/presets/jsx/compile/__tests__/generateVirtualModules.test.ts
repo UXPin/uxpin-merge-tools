@@ -5,6 +5,7 @@ describe('generateVirtualModules', () => {
   it('generates virtual module objects for component definitions', () => {
     const components:ComponentDefinition[] = [
       {
+        defaultExported: true,
         documentation: { examples: [] },
         info: {
           dirPath: 'src/components/Avatar',
@@ -21,6 +22,7 @@ describe('generateVirtualModules', () => {
         properties: [],
       },
       {
+        defaultExported: true,
         documentation: { examples: [] },
         info: {
           dirPath: 'src/packages/navigation/Menu',
@@ -63,6 +65,7 @@ exports.default = {"name":"Menu"};`,
   it('generates virtual module objects for namespaced component definitions', () => {
     const components:ComponentDefinition[] = [
       {
+        defaultExported: true,
         documentation: { examples: [] },
         info: {
           dirPath: 'src/components/Button',
@@ -79,6 +82,7 @@ exports.default = {"name":"Menu"};`,
         properties: [],
       },
       {
+        defaultExported: true,
         documentation: { examples: [] },
         info: {
           dirPath: 'src/components/Card',
@@ -95,6 +99,7 @@ exports.default = {"name":"Menu"};`,
         properties: [],
       },
       {
+        defaultExported: true,
         documentation: { examples: [] },
         info: {
           dirPath: 'src/components/Card/components/Body',
@@ -115,6 +120,7 @@ exports.default = {"name":"Menu"};`,
         properties: [],
       },
       {
+        defaultExported: true,
         documentation: { examples: [] },
         info: {
           dirPath: 'src/components/Card/components/Header',
@@ -135,6 +141,7 @@ exports.default = {"name":"Menu"};`,
         properties: [],
       },
       {
+        defaultExported: true,
         documentation: { examples: [] },
         info: {
           dirPath: 'src/components/Card/components/Header/components/Menu',

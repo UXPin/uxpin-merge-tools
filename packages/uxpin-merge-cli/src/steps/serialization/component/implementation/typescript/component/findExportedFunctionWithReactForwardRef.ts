@@ -1,4 +1,5 @@
 import * as ts from 'typescript';
+import { TSSerializationContext } from '../context/getSerializationContext';
 import { getNodeName } from '../node/getNodeName';
 import { isExported } from './isExported';
 import { isFunctionalComponentWithReactForwardRef } from './isFunctionalComponentWithReactForwardRef';
@@ -14,7 +15,7 @@ function isVariableStatementWithProperName(node:ts.Node, functionName:string):no
     && getNodeName(node.declarationList.declarations[0].initializer?.parent) === functionName;
 }
 
-function isExportedForwardRef(node:ts.Node):node is ts.ExportAssignment {
+export function isDefaultExportedForwardRef(node:ts.Node):node is ts.ExportAssignment {
   return ts.isExportAssignment(node)
     && ts.isCallExpression(node.expression)
    && isFunctionalComponentWithReactForwardRef(node);
@@ -53,7 +54,7 @@ function getFunctionDeclaration(
   // export default forwardRef(() => {});
   let result:ts.ArrowFunction | ts.FunctionExpression | undefined;
   ts.forEachChild(sourceFile, (node) => {
-    if (isExportedForwardRef(node)) {
+    if (isDefaultExportedForwardRef(node)) {
       const argument:ts.Expression = (node.expression as ts.CallExpression).arguments[0];
 
       if (ts.isArrowFunction(argument) || ts.isFunctionExpression(argument)) {
@@ -66,11 +67,11 @@ function getFunctionDeclaration(
 }
 
 export function findExportedFunctionWithReactForwardRef(
-  sourceFile:ts.SourceFile,
+  context:TSSerializationContext,
   functionName:string,
 ):ts.FunctionDeclaration | ts.ArrowFunction | ts.FunctionExpression | undefined {
   const result:ComponentFunction | undefined = getFunctionDeclaration(
-    sourceFile,
+    context.file,
     functionName,
   );
 
@@ -83,7 +84,7 @@ export function findExportedFunctionWithReactForwardRef(
   // non-inline export
   // const Component = forwardRef(() => {});
   // export Component;
-  ts.forEachChild(sourceFile, (node) => {
+  ts.forEachChild(context.file, (node) => {
     if (!isFunctionExported) {
       isFunctionExported = isNodeExported(node, functionName);
     }
