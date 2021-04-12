@@ -81,7 +81,7 @@ describe('handlingGetLibraries', () => {
         type: 'code-sync',
       };
 
-      expect(JSON.parse(response.data)).toEqual([expectedLibrary]);
+      expect(response.data).toEqual([expectedLibrary]);
     });
   });
 });
