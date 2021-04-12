@@ -36,6 +36,6 @@ describe('Experimentation server - handling libraries index', () => {
   });
 
   it('should respond with empty array', () => {
-    expect(response.data).toEqual('[]');
+    expect(response.data).toEqual([]);
   });
 });

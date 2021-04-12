@@ -41,7 +41,7 @@ describe('Experimentation server – handling save page request', () => {
 
       // then
       expect(response.status).toEqual(OK);
-      expect(JSON.parse(response.data)).toEqual(expectedResponse);
+      expect(response.data).toEqual(expectedResponse);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
 
@@ -198,7 +198,7 @@ describe('Experimentation server – handling save page request', () => {
   function performSaveRequestWith(payload:PageIncrementalUpdate):AxiosPromise {
     const origin:string = 'https://app.uxpin.com';
     const options:AxiosRequestConfig = {
-      data: { json: JSON.stringify(payload) },
+      data: payload,
       headers: { origin },
       method: 'POST',
     };
