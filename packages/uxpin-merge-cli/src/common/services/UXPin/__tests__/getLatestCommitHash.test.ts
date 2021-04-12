@@ -24,7 +24,6 @@ describe('getLatestCommitHash', () => {
 
     it('should call proper url', () => {
       const [options] = axiosMock.mock.calls[0];
-      console.log(options);
       expect(options.url).toEqual('https://uxpin.mock/code/v/1.0/branch/master/latestCommit');
     });
 
