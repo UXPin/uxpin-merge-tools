@@ -1,11 +1,9 @@
+import axios, { AxiosStatic } from 'axios';
 import { resolve } from 'path';
-import * as requestPromise from 'request-promise';
 import { postUploadBundle, UploadBundleResponse } from '../postUploadBundle';
 
-jest.mock('request-promise');
-
-const requestPromiseMock:jest.Mock<typeof requestPromise> =
-  requestPromise as unknown as jest.Mock<typeof requestPromise>;
+jest.mock('axios');
+const axiosMock:jest.Mock<AxiosStatic> = axios as unknown as jest.Mock<AxiosStatic>;
 
 describe('postUploadBundle', () => {
   const domain:string = 'https://uxpin.mock';
@@ -14,35 +12,35 @@ describe('postUploadBundle', () => {
   const commitHash:string = '123abc';
 
   beforeEach(() => {
-    requestPromiseMock.mockRestore();
+    axiosMock.mockRestore();
   });
 
   describe('request', () => {
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({ url: 'https://s3.mock/bundle.js' }));
+      axiosMock.mockImplementation(() => Promise.resolve({ data: { url: 'https://s3.mock/bundle.js' } }));
 
       // when
       await postUploadBundle(domain, token, commitHash, path);
     });
 
     it('should call proper url', () => {
-      const [url] = requestPromiseMock.mock.calls[0];
-      expect(url).toEqual('https://uxpin.mock/code/v/1.0/push/bundle');
+      const [options] = axiosMock.mock.calls[0];
+      expect(options.url).toEqual('https://uxpin.mock/code/v/1.0/push/bundle');
     });
 
     it('should use proper HTTP method', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
+      const [options] = axiosMock.mock.calls[0];
       expect(options.method).toEqual('POST');
     });
 
     it('should use proper auth-token', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
+      const [options] = axiosMock.mock.calls[0];
       expect(options.headers['auth-token']).toEqual('token');
     });
 
     it('should have User-Agent header', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
+      const [options] = axiosMock.mock.calls[0];
       expect(options.headers['User-Agent']).toContain('uxpin-merge-cli');
     });
   });
@@ -52,7 +50,7 @@ describe('postUploadBundle', () => {
 
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({ url: 'https://s3.mock/bundle.js' }));
+      axiosMock.mockImplementation(() => Promise.resolve({ data: { url: 'https://s3.mock/bundle.js' } }));
 
       // when
       response = await postUploadBundle(domain, token, commitHash, path);
@@ -66,14 +64,12 @@ describe('postUploadBundle', () => {
   describe('HTTP 401', () => {
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => {
-        return Promise.reject({
-          error: {
-            error: 'Unauthorized',
-            message: 'Incorrect authorization token',
-            statusCode: 401,
-          },
-        });
+      axiosMock.mockImplementation(() => {
+        return Promise.reject({response: {data: {
+          error: 'Unauthorized',
+          message: 'Incorrect authorization token',
+          statusCode: 401,
+        }}});
       });
     });
 
