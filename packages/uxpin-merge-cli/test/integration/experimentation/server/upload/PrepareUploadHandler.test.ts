@@ -40,9 +40,7 @@ describe('Experimentation server – handling upload preparation', () => {
         };
 
         const requestOptions:AxiosRequestConfig = {
-          data: {
-            json: JSON.stringify(firstRequestFormDataJson),
-          },
+          data: firstRequestFormDataJson,
           headers: {
             origin: 'https://app.uxpin.com',
           },
@@ -110,9 +108,7 @@ describe('Experimentation server – handling upload preparation', () => {
           };
 
           const requestOptions:AxiosRequestConfig = {
-            data: {
-              json: JSON.stringify(secondRequestFormDataJson),
-            },
+            data: secondRequestFormDataJson,
             method: 'POST',
           };
 
