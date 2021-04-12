@@ -44,13 +44,13 @@ describe('Experimentation mode - handling preview all data', () => {
   });
 
   it('should respond with proper body', () => {
-    const responseBody:any = JSON.parse(response.data);
+    const responseBody:any = response.data;
     expect(omit(responseBody, 'pagesData.1.canvasData.page')).toMatchSnapshot();
   });
 
   it('should contain correct page object in the body', () => {
     // when
-    const responseBody:any = JSON.parse(response.data);
+    const responseBody:any = response.data;
     const responsePage:PageContent = responseBody.pagesData['1'].canvasData.page;
 
     // then
