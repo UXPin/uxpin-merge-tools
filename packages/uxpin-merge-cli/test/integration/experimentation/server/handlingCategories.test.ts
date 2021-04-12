@@ -39,6 +39,6 @@ describe('Experimentation mode - handling categories', () => {
   });
 
   it('should respond with proper body', () => {
-    expect(JSON.parse(response.data)).toMatchSnapshot();
+    expect(response.data).toMatchSnapshot();
   });
 });

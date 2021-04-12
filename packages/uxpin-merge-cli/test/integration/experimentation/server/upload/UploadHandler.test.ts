@@ -32,6 +32,7 @@ describe('UploadHandler', () => {
 
     const requestOptions:AxiosRequestConfig = {
       data: formData,
+      headers: formData.getHeaders(),
       method: 'POST',
     };
 

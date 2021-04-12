@@ -92,7 +92,7 @@ describe('Experimentation server – handling upload preparation', () => {
         };
 
         // then
-        expect(JSON.parse(response.data)).toEqual(expectedResponse);
+        expect(response.data).toEqual(expectedResponse);
       });
 
       describe('and then requesting upload of the second file (even with the same name)', () => {
@@ -145,7 +145,7 @@ describe('Experimentation server – handling upload preparation', () => {
           };
 
           // then
-          expect(JSON.parse(response.data)).toEqual(expectedResponse);
+          expect(response.data).toEqual(expectedResponse);
         });
 
         it('creates correct metadata file', async () => {

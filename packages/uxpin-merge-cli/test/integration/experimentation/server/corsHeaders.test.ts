@@ -25,7 +25,7 @@ describe('CORS Headers', () => {
 
       // then
       expect(response.status).toEqual(OK);
-      expect(response.data).toEqual('[]');
+      expect(response.data).toEqual([]);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
   });
@@ -45,7 +45,7 @@ describe('CORS Headers', () => {
 
       // then
       expect(response.status).toEqual(OK);
-      expect(response.data).toEqual('[]');
+      expect(response.data).toEqual([]);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
   });

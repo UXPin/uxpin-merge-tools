@@ -13,6 +13,7 @@ describe('Experimentation server – handling not found path', () => {
     // when
     const response:AxiosResponse = await axiosPromise('/nonexistent/path', { });
 
+    console.log(response);
     // then
     expect(response.status).toEqual(NOT_FOUND);
     expect(response.data).toEqual('Not found');

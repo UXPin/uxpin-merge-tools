@@ -63,7 +63,7 @@ describe('Experimentation server – handling set active page request', () => {
 
     it('responds with a page object with the example elements on the canvas', () => {
       // when
-      const responseBody:any = JSON.parse(response.data);
+      const responseBody:any = response.data;
 
       // then
       const expectedPage:PageContent = getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(responseBody.page);
@@ -115,7 +115,7 @@ describe('Experimentation server – handling set active page request', () => {
       };
 
       // then
-      expect(JSON.parse(response.data)).toEqual(expectedBody);
+      expect(response.data).toEqual(expectedBody);
     });
   });
 
