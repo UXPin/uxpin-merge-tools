@@ -26,6 +26,7 @@ describe('GetUploadedFileHandler', () => {
     const expectedFileChecksum:string = await getFileChecksum(fixtureFilePath);
     const requestOptions:AxiosRequestConfig = {
       method: 'GET',
+      responseType: 'arraybuffer',
     };
     await placeFixtureInUploadDir(fixtureFilePath, fileId);
 
