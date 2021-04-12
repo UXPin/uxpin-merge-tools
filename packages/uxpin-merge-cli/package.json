@@ -120,7 +120,6 @@
     "p-reduce": "^1.0.0",
     "path-sort": "^0.1.0",
     "react-docgen": "^4.1.0",
-    "request-promise": "^4.2.2",
     "require1k": "^1.0.1",
     "sortobject": "^1.1.1",
     "source-map-support": "^0.4.18",
