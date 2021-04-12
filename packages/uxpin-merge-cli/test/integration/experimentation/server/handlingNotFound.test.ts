@@ -1,4 +1,4 @@
-import { AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import { NOT_FOUND } from 'http-status-codes';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
@@ -11,11 +11,12 @@ describe('Experimentation server – handling not found path', () => {
 
   it('Responds with NOT_FOUND status code', async () => {
     // when
-    const response:AxiosResponse = await axiosPromise('/nonexistent/path', { });
+    const response:AxiosResponse | undefined = await axiosPromise('/nonexistent/path', {}).catch((error:AxiosError) => {
+      return error.response;
+    });
 
-    console.log(response);
     // then
-    expect(response.status).toEqual(NOT_FOUND);
-    expect(response.data).toEqual('Not found');
+    expect(response?.status).toEqual(NOT_FOUND);
+    expect(response?.data).toEqual('Not found');
   });
 });
