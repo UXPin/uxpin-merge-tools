@@ -1,6 +1,5 @@
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { OK } from 'http-status-codes';
-import { Response } from 'request';
-import { RequestPromiseOptions } from 'request-promise';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
@@ -8,7 +7,7 @@ const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental server - serving library bundle', () => {
-  const { request } = setupExperimentationServerTest({
+  const { axiosPromise } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
@@ -16,18 +15,18 @@ describe('Experimental server - serving library bundle', () => {
   });
 
   describe('should serve library bundle', () => {
-    let response:Response;
+    let response:AxiosResponse;
     beforeAll(async () => {
       // given
       const origin:string = 'https://app.uxpin.com';
-      const options:RequestPromiseOptions = { method: 'GET', resolveWithFullResponse: true, headers: { origin } };
+      const options:AxiosRequestConfig = { method: 'GET', headers: { origin } };
 
       // when
-      response = await request('/code/library.js', options);
+      response = await axiosPromise('/code/library.js', options);
     });
 
     it('with correct status code', () => {
-      expect(response.statusCode).toEqual(OK);
+      expect(response.status).toEqual(OK);
     });
 
     it('with correct response headers', () => {
@@ -45,7 +44,7 @@ describe('Experimental server - serving library bundle', () => {
     });
 
     it('with not empty response', () => {
-      expect(response.body).toBeDefined();
+      expect(response.data).toBeDefined();
     });
   });
 });

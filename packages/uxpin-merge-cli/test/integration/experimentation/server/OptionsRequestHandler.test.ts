@@ -1,5 +1,5 @@
+import { AxiosResponse } from 'axios';
 import { OK } from 'http-status-codes';
-import { Response } from 'request';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { using } from '../../../utils/using';
@@ -8,7 +8,7 @@ const CURRENT_TIMEOUT:number = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('OptionsRequestHandler', () => {
-  const { request } = setupExperimentationServerTest({
+  const { axiosPromise } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: [
       '--webpack-config "./webpack.config.js"',
@@ -35,16 +35,15 @@ describe('OptionsRequestHandler', () => {
       };
 
       // when
-      const response:Response = await request(uri, {
+      const response:AxiosResponse = await axiosPromise(uri, {
         headers: { origin },
         method: 'OPTIONS',
-        resolveWithFullResponse: true,
       });
 
       // then
-      expect(response.statusCode).toEqual(OK);
+      expect(response.status).toEqual(OK);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
-      expect(response.body).toEqual('');
+      expect(response.data).toEqual('');
     });
   });
 });

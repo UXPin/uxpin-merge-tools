@@ -1,6 +1,6 @@
+import { AxiosResponse } from 'axios';
 import { OK } from 'http-status-codes';
 import { omit } from 'lodash';
-import { Response } from 'request';
 import { PageContent } from '../../../../src/common/types/PageData';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
@@ -11,8 +11,8 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - handling preview all data', () => {
   const port:number = 8888;
-  let response:Response;
-  const { request } = setupExperimentationServerTest({
+  let response:AxiosResponse;
+  const { axiosPromise } = setupExperimentationServerTest({
     port,
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: [
@@ -22,11 +22,11 @@ describe('Experimentation mode - handling preview all data', () => {
 
   beforeAll(async () => {
     const origin:string = 'https://app.uxpin.com';
-    response = await request('/preview/all', { resolveWithFullResponse: true, headers: { origin } });
+    response = await axiosPromise('/preview/all', { headers: { origin } });
   });
 
   it('should responds with OK status code', async () => {
-    expect(response.statusCode).toEqual(OK);
+    expect(response.status).toEqual(OK);
   });
 
   it('should responds with correct CORS headers and no-cache', async () => {
@@ -44,13 +44,13 @@ describe('Experimentation mode - handling preview all data', () => {
   });
 
   it('should respond with proper body', () => {
-    const responseBody:any = JSON.parse(response.body);
+    const responseBody:any = JSON.parse(response.data);
     expect(omit(responseBody, 'pagesData.1.canvasData.page')).toMatchSnapshot();
   });
 
   it('should contain correct page object in the body', () => {
     // when
-    const responseBody:any = JSON.parse(response.body);
+    const responseBody:any = JSON.parse(response.data);
     const responsePage:PageContent = responseBody.pagesData['1'].canvasData.page;
 
     // then

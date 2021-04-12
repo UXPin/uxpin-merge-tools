@@ -1,8 +1,7 @@
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { readJson } from 'fs-extra';
 import { OK } from 'http-status-codes';
 import { join } from 'path';
-import { Response } from 'request';
-import { RequestPromiseOptions } from 'request-promise';
 import { TEMP_DIR_NAME } from '../../../../../src/steps/building/config/getConfig';
 import { PrepareUploadFormData } from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadFormData';
 import {
@@ -20,11 +19,11 @@ jest.setTimeout(TIMEOUT);
 describe('Experimentation server – handling upload preparation', () => {
 
   const port:number = getRandomPortNumber();
-  const { request, getWorkingDir } = setupExperimentationServerTest({ port });
+  const { axiosPromise, getWorkingDir } = setupExperimentationServerTest({ port });
 
   describe('when requesting preparation of the upload', () => {
 
-    let response:Response;
+    let response:AxiosResponse;
 
     describe('for the first file', () => {
       beforeAll(async () => {
@@ -40,19 +39,18 @@ describe('Experimentation server – handling upload preparation', () => {
           resolution: '128x110',
         };
 
-        const requestOptions:RequestPromiseOptions = {
-          form: {
+        const requestOptions:AxiosRequestConfig = {
+          data: {
             json: JSON.stringify(firstRequestFormDataJson),
           },
           headers: {
             origin: 'https://app.uxpin.com',
           },
           method: 'POST',
-          resolveWithFullResponse: true,
         };
 
         // when
-        response = await request('/ajax/dmsFileManager/PrepareUpload/', requestOptions);
+        response = await axiosPromise('/ajax/dmsFileManager/PrepareUpload/', requestOptions);
       });
 
       it('responds with OK status code and correct headers', async () => {
@@ -65,7 +63,7 @@ describe('Experimentation server – handling upload preparation', () => {
         };
 
         // then
-        expect(response.statusCode).toEqual(OK);
+        expect(response.status).toEqual(OK);
         expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
       });
 
@@ -94,7 +92,7 @@ describe('Experimentation server – handling upload preparation', () => {
         };
 
         // then
-        expect(JSON.parse(response.body)).toEqual(expectedResponse);
+        expect(JSON.parse(response.data)).toEqual(expectedResponse);
       });
 
       describe('and then requesting upload of the second file (even with the same name)', () => {
@@ -111,16 +109,15 @@ describe('Experimentation server – handling upload preparation', () => {
             resolution: '128x110',
           };
 
-          const requestOptions:RequestPromiseOptions = {
-            form: {
+          const requestOptions:AxiosRequestConfig = {
+            data: {
               json: JSON.stringify(secondRequestFormDataJson),
             },
             method: 'POST',
-            resolveWithFullResponse: true,
           };
 
           // when
-          response = await request('/ajax/dmsFileManager/PrepareUpload/', requestOptions);
+          response = await axiosPromise('/ajax/dmsFileManager/PrepareUpload/', requestOptions);
         });
 
         it('responds with the correct final URL for the second file', () => {
@@ -148,7 +145,7 @@ describe('Experimentation server – handling upload preparation', () => {
           };
 
           // then
-          expect(JSON.parse(response.body)).toEqual(expectedResponse);
+          expect(JSON.parse(response.data)).toEqual(expectedResponse);
         });
 
         it('creates correct metadata file', async () => {

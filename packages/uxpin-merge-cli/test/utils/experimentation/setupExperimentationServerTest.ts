@@ -1,9 +1,7 @@
 // tslint:disable no-duplicate-imports
+import axios , { AxiosPromise, AxiosRequestConfig } from 'axios';
 import { DeferredChain } from 'deferred-proxy-chain';
 import * as path from 'path';
-import * as requestPromise from 'request-promise';
-import { RequestPromise, RequestPromiseOptions } from 'request-promise';
-import { URL } from 'url';
 import { COMPILATION_SUCCESS_MESSAGE } from '../../../src/program/command/experimentation/getExperimentationWatchCommandSteps';
 import { Environment } from '../../../src/program/env/Environment';
 import { SERVER_READY_OUTPUT } from '../../../src/steps/experimentation/server/console/printServerReadyMessage';
@@ -23,7 +21,7 @@ export enum TestServerStatus {
 }
 
 export interface ExperimentationServerTestContext {
-  request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
+  axiosPromise:(url:string, options:AxiosRequestConfig) => AxiosPromise;
   changeProjectFile:(filePath:string, content:string) => Promise<void>;
   getExperimentationUrl():string;
   getServerStatus():TestServerStatus;
@@ -113,9 +111,9 @@ function getTestContext(
     getWorkingDir():string {
       return workingDir;
     },
-    request(uri:string, options:RequestPromiseOptions = {}):RequestPromise {
-      const url:URL = new URL(uri, `http://localhost:${port}`);
-      return requestPromise({ url, ...options });
+    axiosPromise(url:string, options:AxiosRequestConfig):AxiosPromise {
+      options.url = `http://localhost:${port}${url}`;
+      return axios(options);
     },
   };
 }

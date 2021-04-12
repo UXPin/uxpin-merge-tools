@@ -1,8 +1,7 @@
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { copy, ensureDir, writeJson } from 'fs-extra';
 import { OK } from 'http-status-codes';
 import { join, parse } from 'path';
-import { Response } from 'request';
-import { RequestPromiseOptions } from 'request-promise';
 import { TEMP_DIR_NAME } from '../../../../../src/steps/building/config/getConfig';
 import {
   UPLOAD_DIR_NAME,
@@ -18,27 +17,25 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('GetUploadedFileHandler', () => {
 
-  const { request, getWorkingDir } = setupExperimentationServerTest();
+  const { axiosPromise, getWorkingDir } = setupExperimentationServerTest();
 
   it('responds with a file for given id', async () => {
     // given
     const fileId:string = `12311`;
     const fixtureFilePath:string = join(__dirname, 'fixtures', 'uxpin_logo_white_720-1.png');
     const expectedFileChecksum:string = await getFileChecksum(fixtureFilePath);
-    const requestOptions:RequestPromiseOptions = {
-      encoding: null,
+    const requestOptions:AxiosRequestConfig = {
       method: 'GET',
-      resolveWithFullResponse: true,
     };
     await placeFixtureInUploadDir(fixtureFilePath, fileId);
 
     // when
-    const response:Response = await request('/upload/12311/uxpin_logo_white_720-1.png', requestOptions);
+    const response:AxiosResponse = await axiosPromise('/upload/12311/uxpin_logo_white_720-1.png', requestOptions);
 
     // then
-    expect(response.statusCode).toEqual(OK);
+    expect(response.status).toEqual(OK);
     expect(response.headers['content-type']).toEqual('image/png');
-    expect(getBufferChecksum(response.body)).toEqual(expectedFileChecksum);
+    expect(getBufferChecksum(response.data)).toEqual(expectedFileChecksum);
   });
 
   async function placeFixtureInUploadDir(fixturePath:string, fileId:string):Promise<void> {
