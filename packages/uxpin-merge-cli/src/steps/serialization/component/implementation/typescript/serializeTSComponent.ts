@@ -13,6 +13,7 @@ import { getComponentName } from './component/getComponentName';
 import { getComponentNamespace } from './component/getComponentNamespace';
 import { getComponentWrappers } from './component/getComponentWrappers';
 import { ComponentDeclaration } from './component/getPropsTypeAndDefaultProps';
+import { isDefaultExported } from './component/isDefaultExported';
 import { getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
 import { parseTSComponentProperties } from './parseTSComponentProperties';
 
@@ -30,9 +31,11 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
   const namespace:ComponentNamespace | undefined = getComponentNamespace(declaration, name);
   const wrappers:ComponentWrapper[] = getComponentWrappers(declaration);
   const validatedWrappers:Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
+  const defaultExported:boolean = isDefaultExported(declaration, context);
 
   return {
     result: {
+      defaultExported,
       name,
       namespace,
       properties: validatedProps.map(({ result }) => result),

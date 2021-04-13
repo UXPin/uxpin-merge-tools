@@ -19,8 +19,9 @@ export interface ComponentDeclarationData {
 
 export type ClassComponentDeclaration = ts.ClassDeclaration | ts.ClassExpression;
 export type FunctionalComponentDeclaration = ts.FunctionDeclaration | ts.ArrowFunction | ts.FunctionExpression;
+export type VariableDeclaration = ts.VariableDeclaration;
 
-export type ComponentDeclaration = FunctionalComponentDeclaration | ClassComponentDeclaration;
+export type ComponentDeclaration = FunctionalComponentDeclaration | ClassComponentDeclaration | VariableDeclaration;
 
 export function getPropsTypeAndDefaultProps(
   context:TSSerializationContext,

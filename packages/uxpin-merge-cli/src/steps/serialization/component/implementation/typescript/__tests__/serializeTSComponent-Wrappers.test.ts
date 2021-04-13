@@ -18,6 +18,7 @@ describe('serializeTSComponent-Wrappers', () => {
     it('serializes metadata correctly', () => {
       // having
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'ClassWithWrappersDeclaration',
         properties: [
           {
@@ -61,6 +62,7 @@ describe('serializeTSComponent-Wrappers', () => {
     it('serializes metadata correctly', () => {
       // having
       const expectedMetadata:ComponentMetadata = {
+        defaultExported: true,
         name: 'ClassWithWrappersDeclaration',
         properties: [
           {

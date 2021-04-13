@@ -20,10 +20,12 @@ export function generateVirtualModules(components:ComponentDefinition[]):Virtual
 }
 
 function createVirtualModule(component:ComponentDefinition, tree:NamespacedComponentsTree):VirtualComponentModule {
+  const exportName:string = component.defaultExported ? 'default' : component.name;
+
   return ({
     moduleSource: `
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ${JSON.stringify(createComponentPlaceholder(component, tree))};`,
+exports.${exportName} = ${JSON.stringify(createComponentPlaceholder(component, tree))};`,
     path: removeExtensionFromPath(component.info.implementation.path),
   });
 }

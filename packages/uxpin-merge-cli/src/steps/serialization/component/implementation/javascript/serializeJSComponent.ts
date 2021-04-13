@@ -17,6 +17,7 @@ import { PropDefinitionSerializationResult } from '../PropDefinitionSerializatio
 import { getComponentName } from './getComponentName';
 import { getComponentNamespaceFromDescription } from './getComponentNamespaceFromDescription';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
+import { isDefaultExported } from './isDefaultExported';
 import { parsePropertyItem } from './parsePropertyItem';
 
 export function serializeJSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
@@ -30,8 +31,10 @@ function thunkGetMetadata(implInfo:ComponentImplementationInfo):(parsed:Componen
     const properties:PropDefinitionSerializationResult[] = await getComponentProperties(parsed.props);
     const name:string = getComponentName(implInfo.path, parsed);
     const wrappers:Warned<ComponentWrapper[]> = getComponentWrappers(parsed, implInfo);
+    const defaultExported:boolean = isDefaultExported(implInfo.path, name);
 
     return {
+      defaultExported,
       name,
       properties,
       wrappers,
@@ -99,4 +102,5 @@ interface PartialResult {
   namespace?:ComponentNamespace;
   properties:PropDefinitionSerializationResult[];
   wrappers:Warned<ComponentWrapper[]>;
+  defaultExported:boolean;
 }

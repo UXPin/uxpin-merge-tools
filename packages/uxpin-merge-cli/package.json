@@ -96,6 +96,7 @@
     "@types/yargs": "^16.0.0",
     "@uxpin/react-docgen-better-proptypes": "^0.1.1",
     "axios": "^0.21.1",
+    "acorn-loose": "^8.0.2",
     "babel-loader": "^8.0.5",
     "babel-standalone": "^6.26.0",
     "chokidar": "^2.0.4",

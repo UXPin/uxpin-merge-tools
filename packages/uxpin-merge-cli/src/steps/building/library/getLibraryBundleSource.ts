@@ -20,7 +20,7 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
 
   const exports:string[] = [
     `export {`,
-    ...components.map((component) => `  ${getImportName(component)},`),
+    ...components.map((component) => `  ${getExportName(component)},`),
     ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER},`] : []),
     '  React,',
     '  ReactDOM,',
@@ -36,12 +36,16 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
   ].join('\n');
 }
 
-function getImportName({ name, namespace }:ComponentDefinition):string {
-  if (namespace) {
-    return namespace.importSlug;
+function getImportName({ name, namespace, defaultExported }:ComponentDefinition):string {
+  const componentName:string = namespace ? namespace.importSlug : name;
+  if (defaultExported) {
+    return componentName;
   }
+  return `{ ${componentName} }`;
+}
 
-  return name;
+function getExportName({ name, namespace }:ComponentDefinition):string {
+  return namespace ? namespace.importSlug : name;
 }
 
 function getImportPath({ info }:ComponentDefinition):string {
