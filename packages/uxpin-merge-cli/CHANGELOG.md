@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.7.5] - 2021-04-14
+### Added
+- Improved Typescript Support
+  - Support React.forwardRef and React.FC (https://github.com/UXPin/uxpin-merge-tools/pull/253)
+- Support for named exported component (https://github.com/UXPin/uxpin-merge-tools/pull/246)
+
+### Changed
+- Upgrade some packages(y18n, yargs-parser and elliptic) with security vulnerability
+
 ## [2.7.4] - 2021-03-31
 
 ### Added
