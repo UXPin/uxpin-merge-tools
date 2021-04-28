@@ -41,7 +41,6 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& git config user.email test@test.dev \
 	&& git commit -m "Initial commit"
 
-
 ../../test/resources/repos/git-repo-rename:
 	cd ../../test/resources/repos \
 	&& mkdir git-repo-rename \
