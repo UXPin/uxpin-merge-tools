@@ -7,7 +7,7 @@ YARN ?= yarn
 				check check-fix test test-unit test-integration test-ci \
 				clean clean-test-resources \
 				test-remap-coverage test-resources test-rename-snapshots \
-				serve-mineral serve-polaris serve-arui
+				serve-mineral serve-polaris
 
 dependencies:
 	$(YARN) install
@@ -94,10 +94,6 @@ serialize-mineral:
 serve-polaris:
 	cd ./test/resources/repos/polaris && \
 	$(UXPIN_CODE) server --webpack-config="./polaris-webpack.config"
-
-serve-arui:
-	cd ./test/resources/repos/arui-feather && \
-	$(UXPIN_CODE) server --webpack-config "./webpack.gemini.config.js" --config="../../configs/arui-feather-uxpin.config.js"
 
 serve-nordnet:
 	cd ./test/resources/repos/nordnet-ui-kit && \
