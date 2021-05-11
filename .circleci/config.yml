@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.18.1
-    resource_class: medium
+    resource_class: large
     working_directory: ~/project/packages/uxpin-merge-cli
     steps:
       - checkout:
