@@ -10,6 +10,7 @@ import { writeStaticIndexFile } from './writeStaticIndexFile';
 
 const HTTP_STATUS_OK:number = 200;
 const HTTP_STATUS_NOT_FOUND:number = 404;
+
 interface ServerOptions {
   port:number;
   root:string;
