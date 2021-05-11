@@ -12,7 +12,7 @@ describe('getComponentNameFromPath', () => {
     expect(result).toEqual(expectedComponentName);
   });
 
-  it('returns component name from file path which includes .name adding to file extension', () => {
+  it('returns component name from file path includes .name adding to file extension', () => {
     const componentFilePath:string = 'Component/Component.react.jsx';
     const expectedComponentName:string = 'Component';
 
