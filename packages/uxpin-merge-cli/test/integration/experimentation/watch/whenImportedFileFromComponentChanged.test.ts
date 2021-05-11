@@ -5,7 +5,7 @@ import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll'
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../utils/file/getFileChecksum';
 
-const CURRENT_TIMEOUT:number = 200000;
+const CURRENT_TIMEOUT:number = 100000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental - watch - imported file from component changed', () => {
