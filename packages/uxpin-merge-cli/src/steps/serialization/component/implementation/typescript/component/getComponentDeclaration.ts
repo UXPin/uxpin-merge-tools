@@ -15,6 +15,7 @@ import {
   ClassComponentDeclaration,
   ComponentDeclaration,
   FunctionalComponentDeclaration,
+  VariableDeclaration,
 } from './getPropsTypeAndDefaultProps';
 
 export function getComponentDeclaration(context:TSSerializationContext):ComponentDeclaration | undefined {
@@ -27,7 +28,7 @@ export function getComponentDeclaration(context:TSSerializationContext):Componen
 function findFunctionalComponent(
   context:TSSerializationContext,
   componentFileName:string,
-):FunctionalComponentDeclaration | undefined {
+):FunctionalComponentDeclaration | VariableDeclaration | undefined {
   return findSpecifiedFunctionComponent(context)
     || findDefaultExportedFunction(context)
     || findExportedFunctionWithName(context, componentFileName)

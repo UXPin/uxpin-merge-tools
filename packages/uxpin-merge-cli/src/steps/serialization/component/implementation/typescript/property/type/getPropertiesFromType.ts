@@ -6,6 +6,12 @@ export interface TypeProps {
   exclusiveProps:ts.Symbol[];
 }
 
+const BLACKLIST_ATTRIBUTES:string[] = [
+  'AriaAttributes',
+  'DOMAttributes',
+  'SVGAttributes',
+];
+
 export function getPropertiesFromType(type:ts.Type):TypeProps {
   if (type.isUnion()) {
     return getPropertiesFromUnionType(type);
@@ -18,7 +24,14 @@ export function getPropertiesFromType(type:ts.Type):TypeProps {
 }
 
 function getBasePropertiesFromType(type:ts.Type):ts.Symbol[] {
-  return type.getProperties();
+  return type.getProperties().filter((property, i) => {
+    // @ts-ignore
+    if (property.parent && BLACKLIST_ATTRIBUTES.includes(property.parent.escapedName)) {
+      return false;
+    }
+
+    return true;
+  });
 }
 
 function getPropertiesFromUnionType(type:ts.UnionType):TypeProps {
