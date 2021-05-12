@@ -8,8 +8,8 @@ import { getVariableStatement } from './getVariableStatement';
  * when Component variable declaration is passed it returns the function expression assigned to the variable _Component
  */
 export function findFunctionFromVariableDeclaration(
-	sourceFile:ts.SourceFile,
-	variableDeclaration:ts.VariableDeclaration,
+  sourceFile:ts.SourceFile,
+  variableDeclaration:ts.VariableDeclaration,
 ):ts.ArrowFunction | ts.FunctionExpression | undefined {
   const argument:ts.Expression = (variableDeclaration.initializer as ts.CallExpression).arguments[0];
   if (ts.isIdentifier(argument)) {
