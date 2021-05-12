@@ -14,9 +14,8 @@ export function findFunctionFromVariableDeclaration(
   const argument:ts.Expression = (variableDeclaration.initializer as ts.CallExpression).arguments[0];
   if (ts.isIdentifier(argument)) {
     const internalVariable:ts.VariableStatement | undefined  = getVariableStatement(
-			sourceFile,
-			(argument as ts.Identifier).escapedText as string,
-		);
+    	sourceFile, (argument as ts.Identifier).escapedText as string,
+    );
     const initializer:any = internalVariable?.declarationList?.declarations[0]?.initializer;
 
     if (initializer && ts.isArrowFunction(initializer) || ts.isFunctionExpression(initializer)) {
