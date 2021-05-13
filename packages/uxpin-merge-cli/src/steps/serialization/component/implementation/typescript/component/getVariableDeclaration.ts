@@ -1,11 +1,11 @@
 import * as ts from 'typescript';
+import { getComponentNameFromPath } from '../../../name/getComponentNameFromPath';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import { getNodeName } from '../node/getNodeName';
-import { getComponentFileName } from './getComponentFileName';
 
 export function getVariableDeclaration(context:TSSerializationContext):ts.VariableDeclaration | undefined {
-  const fileName:string = getComponentFileName(context);
-  return findVariableDeclaration(context.file, fileName);
+  const componentName:string = getComponentNameFromPath(context.componentPath);
+  return findVariableDeclaration(context.file, componentName);
 }
 
 function findVariableDeclaration(
