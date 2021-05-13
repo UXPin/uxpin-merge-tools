@@ -9,6 +9,7 @@ export interface TypeProps {
 const BLACKLIST_ATTRIBUTES:string[] = [
   'AriaAttributes',
   'DOMAttributes',
+  'HTMLAttributes',
   'SVGAttributes',
 ];
 
