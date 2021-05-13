@@ -1,6 +1,6 @@
 import { ArrowFunction, Identifier, isArrowFunction } from 'typescript';
+import { getComponentNameFromPath } from '../../../name/getComponentNameFromPath';
 import { TSSerializationContext } from '../context/getSerializationContext';
-import { getComponentFileName } from './getComponentFileName';
 import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
 
 export function getComponentName(context:TSSerializationContext, component:ComponentDeclaration):string {
@@ -13,5 +13,5 @@ export function getComponentName(context:TSSerializationContext, component:Compo
       'name' in component.parent && (component.parent as ArrowFunction).name) {
     return ((component.parent as ArrowFunction).name as Identifier).getText();
   }
-  return getComponentFileName(context);
+  return getComponentNameFromPath(context.componentPath);
 }

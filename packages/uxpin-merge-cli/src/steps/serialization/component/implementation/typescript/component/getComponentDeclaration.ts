@@ -1,3 +1,4 @@
+import { getComponentNameFromPath } from '../../../name/getComponentNameFromPath';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import { findDefaultExportedArrowFunction } from './findDefaultExportedArrowFunction';
 import { findDefaultExportedClass } from './findDefaultExportedClass';
@@ -10,7 +11,6 @@ import {
   findSpecifiedClassComponent,
   findSpecifiedFunctionComponent,
 } from './findSpecifiedComponent';
-import { getComponentFileName } from './getComponentFileName';
 import {
   ClassComponentDeclaration,
   ComponentDeclaration,
@@ -18,29 +18,29 @@ import {
 } from './getPropsTypeAndDefaultProps';
 
 export function getComponentDeclaration(context:TSSerializationContext):ComponentDeclaration | undefined {
-  const fileName:string = getComponentFileName(context);
+  const componentName:string = getComponentNameFromPath(context.componentPath);
 
-  return findFunctionalComponent(context, fileName)
-    || findClassComponent(context, fileName);
+  return findFunctionalComponent(context, componentName)
+    || findClassComponent(context, componentName);
 }
 
 function findFunctionalComponent(
   context:TSSerializationContext,
-  componentFileName:string,
+  componentName:string,
 ):FunctionalComponentDeclaration | undefined {
   return findSpecifiedFunctionComponent(context)
     || findDefaultExportedFunction(context)
-    || findExportedFunctionWithName(context, componentFileName)
+    || findExportedFunctionWithName(context, componentName)
     || findDefaultExportedArrowFunction(context)
-    || findExportedArrowFunctionWithName(context, componentFileName)
-    || findExportedFunctionWithReactForwardRef(context, componentFileName);
+    || findExportedArrowFunctionWithName(context, componentName)
+    || findExportedFunctionWithReactForwardRef(context, componentName);
 }
 
 function findClassComponent(
   context:TSSerializationContext,
-  componentFileName:string,
+  componentName:string,
 ):ClassComponentDeclaration | undefined {
   return findSpecifiedClassComponent(context)
     || findDefaultExportedClass(context)
-    || findExportedClassWithName(context, componentFileName);
+    || findExportedClassWithName(context, componentName);
 }
