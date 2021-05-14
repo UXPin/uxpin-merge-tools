@@ -1,18 +1,13 @@
 import * as ts from 'typescript';
 import { TSSerializationContext } from '../context/getSerializationContext';
-import { getNodeName } from '../node/getNodeName';
+import { getVariableStatement } from './getVariableStatement';
 import { isExported } from './isExported';
 import { isFunctionalComponentWithReactForwardRef } from './isFunctionalComponentWithReactForwardRef';
 import { isNodeExported } from './isNodeExported';
 
-interface ComponentFunction {
-  fn:ts.ArrowFunction | ts.FunctionExpression | undefined;
+interface ComponentData {
+  declaration:ts.ArrowFunction | ts.FunctionExpression | ts.VariableDeclaration | undefined;
   isExported:boolean;
-}
-
-function isVariableStatementWithProperName(node:ts.Node, functionName:string):node is ts.VariableStatement {
-  return ts.isVariableStatement(node)
-    && getNodeName(node.declarationList.declarations[0].initializer?.parent) === functionName;
 }
 
 export function isDefaultExportedForwardRef(node:ts.Node):node is ts.ExportAssignment {
@@ -21,32 +16,35 @@ export function isDefaultExportedForwardRef(node:ts.Node):node is ts.ExportAssig
    && isFunctionalComponentWithReactForwardRef(node);
 }
 
-function getVariableStatement(sourceFile:ts.SourceFile, functionName:string):ts.VariableStatement | undefined {
-  let result:ts.VariableStatement | undefined;
-  ts.forEachChild(sourceFile, (node) => {
-    if (!result && isVariableStatementWithProperName(node, functionName)) {
-      result = node;
-    }
-  });
-
-  return result;
-}
-
-function getFunctionDeclaration(
+function getComponentDeclaration(
   sourceFile:ts.SourceFile,
   functionName:string,
-):ComponentFunction|undefined {
+):ComponentData|undefined {
   const variable:ts.VariableStatement | undefined = getVariableStatement(sourceFile, functionName);
 
   // const Component = forwardRef(() => {});
   // const Component = forwardRef(function() {});
+  // const Component = forwardRef(_Component);
   if (variable && isFunctionalComponentWithReactForwardRef(variable)) {
     const argument:ts.Expression = (
       variable.declarationList.declarations[0].initializer as ts.CallExpression
     ).arguments[0];
 
+    // const Component = forwardRef(_Component);
+    if (ts.isIdentifier(argument)) {
+      const internalVariable:ts.VariableStatement | undefined  = getVariableStatement(
+        sourceFile,
+        (argument as ts.Identifier).escapedText as string,
+      );
+      const initializer:any = internalVariable?.declarationList?.declarations[0]?.initializer;
+
+      if (initializer && ts.isArrowFunction(initializer) || ts.isFunctionExpression(initializer)) {
+        return { declaration: variable.declarationList.declarations[0], isExported: isExported(variable) };
+      }
+    }
+
     if (ts.isArrowFunction(argument) || ts.isFunctionExpression(argument)) {
-      return { fn: argument, isExported: isExported(variable) };
+      return { declaration: argument, isExported: isExported(variable) };
     }
   }
 
@@ -63,20 +61,20 @@ function getFunctionDeclaration(
     }
   });
 
-  return { fn: result, isExported: true };
+  return { declaration: result, isExported: true };
 }
 
 export function findExportedFunctionWithReactForwardRef(
   context:TSSerializationContext,
   functionName:string,
-):ts.FunctionDeclaration | ts.ArrowFunction | ts.FunctionExpression | undefined {
-  const result:ComponentFunction | undefined = getFunctionDeclaration(
+):ts.FunctionDeclaration | ts.ArrowFunction | ts.FunctionExpression | ts.VariableDeclaration | undefined {
+  const result:ComponentData | undefined = getComponentDeclaration(
     context.file,
     functionName,
   );
 
   if (result && result.isExported) {
-    return result.fn;
+    return result.declaration;
   }
 
   let isFunctionExported:boolean = false;
@@ -90,5 +88,5 @@ export function findExportedFunctionWithReactForwardRef(
     }
   });
 
-  return isFunctionExported ? result?.fn : undefined;
+  return isFunctionExported ? result?.declaration : undefined;
 }

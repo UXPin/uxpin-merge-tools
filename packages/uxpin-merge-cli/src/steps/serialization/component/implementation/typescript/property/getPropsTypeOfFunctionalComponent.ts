@@ -42,5 +42,19 @@ export function getPropsTypeOfFunctionalComponent(
     }
   }
 
+  // custom generic types
+  // argument should contain props in name
+  // const Component:CustomType<abc, MyProps, html> = () =>{};
+  if (variableType && variableType.typeArguments) {
+    const typeNode:ts.TypeNode | undefined = variableType.typeArguments.find((arg) =>
+      ts.isTypeReferenceNode(arg) &&
+      String((arg.typeName as ts.Identifier)?.escapedText).toLowerCase().indexOf('props') !== -1,
+    );
+
+    if (typeNode) {
+      return typeNode;
+    }
+  }
+
   return variableType;
 }

@@ -7,6 +7,7 @@ module.exports = {
         include: [
           'src/components/Avatar/Avatar.tsx',
           'src/components/AvatarFn/AvatarFn.tsx',
+          'src/components/AvatarInternalVariable/AvatarInternalVariable.tsx',
           'src/components/AvatarFnDefault/AvatarFnDefault.tsx',
           'src/components/ButtonWithIconAsProp/ButtonWithIconAsProp.tsx',
           'src/components/MenuWithData/MenuWithData.tsx',

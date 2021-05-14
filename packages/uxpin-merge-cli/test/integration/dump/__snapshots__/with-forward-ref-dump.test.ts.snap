@@ -81,6 +81,44 @@ Array [
         "wrappers": Array [],
       },
       Object {
+        "defaultExported": false,
+        "documentation": Object {
+          "examples": Array [],
+        },
+        "info": Object {
+          "dirPath": "src/components/AvatarInternalVariable",
+          "implementation": Object {
+            "framework": "reactjs",
+            "lang": "typescript",
+            "path": "src/components/AvatarInternalVariable/AvatarInternalVariable.tsx",
+          },
+          "presets": Array [],
+        },
+        "name": "AvatarInternalVariable",
+        "presets": Array [],
+        "properties": Array [
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "size",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "imageUrl",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+        ],
+        "wrappers": Array [],
+      },
+      Object {
         "defaultExported": true,
         "documentation": Object {
           "examples": Array [],

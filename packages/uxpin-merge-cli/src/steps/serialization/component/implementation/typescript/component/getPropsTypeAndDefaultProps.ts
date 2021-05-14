@@ -4,6 +4,7 @@ import { getDefaultPropsFromParamDestructuring } from '../defaultValue/getDefaul
 import { getDefaultPropsOfClassComponent } from '../defaultValue/getDefaultPropsOfClassComponent';
 import { getPropsTypeOfClassComponent } from '../property/getPropsTypeOfClassComponent';
 import { getPropsTypeOfFunctionalComponent } from '../property/getPropsTypeOfFunctionalComponent';
+import { findFunctionFromVariableDeclaration } from './findFunctionFromVariableDeclaration';
 import { getVariableDeclaration } from './getVariableDeclaration';
 import { isClassComponentDeclaration } from './isClassComponentDeclaration';
 import { isFunctionalComponentDeclaration } from './isFunctionalComponentDeclaration';
@@ -27,6 +28,20 @@ export function getPropsTypeAndDefaultProps(
   context:TSSerializationContext,
   component:ComponentDeclaration,
 ):ComponentDeclarationData {
+  if (ts.isVariableDeclaration(component)) {
+    const fnDeclaration:ts.FunctionLikeDeclaration | undefined = findFunctionFromVariableDeclaration(
+      context.file,
+      component,
+    );
+
+    if (fnDeclaration) {
+      return {
+        defaultProps: getDefaultPropsFromParamDestructuring(context, fnDeclaration),
+        propsTypeNode: getPropsTypeOfFunctionalComponent(fnDeclaration, component),
+      };
+    }
+  }
+
   if (isFunctionalComponentDeclaration(component)) {
     return {
       defaultProps: getDefaultPropsFromParamDestructuring(context, component),
