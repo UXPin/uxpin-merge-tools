@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.7.6] - 2021-05-17
+
+### Added
+- Blacklist some generic props such as HTMLAttributes in TS ([#271](https://github.com/UXPin/uxpin-merge-tools/pull/271))
+
+### Changed
+- Replaced `http-server` with `http` for server command ([#268](https://github.com/UXPin/uxpin-merge-tools/pull/268))
+- Improved getting Component name from file path ([#269](https://github.com/UXPin/uxpin-merge-tools/pull/269))
+- Improved detecting component with forwardRef in TS ([#271](https://github.com/UXPin/uxpin-merge-tools/pull/271))
+
 ## [2.7.5] - 2021-04-14
 ### Added
 - Improved Typescript Support
