@@ -6,11 +6,10 @@ export interface TypeProps {
   exclusiveProps:ts.Symbol[];
 }
 
-const BLACKLIST_ATTRIBUTES:string[] = [
-  'AriaAttributes',
-  'DOMAttributes',
-  'HTMLAttributes',
-  'SVGAttributes',
+// Blacklist types like 'HTMLAttributes' because those types instantly creates
+// hundreds of props attributes and users don't want them to be visible on UXPin editor.
+const BLACKLIST_NAMESPACES:string[] = [
+  'React',
 ];
 
 export function getPropertiesFromType(type:ts.Type):TypeProps {
@@ -27,7 +26,7 @@ export function getPropertiesFromType(type:ts.Type):TypeProps {
 function getBasePropertiesFromType(type:ts.Type):ts.Symbol[] {
   return type.getProperties().filter((property, i) => {
     // @ts-ignore
-    if (property.parent && BLACKLIST_ATTRIBUTES.includes(property.parent.escapedName)) {
+    if (property.parent?.parent && BLACKLIST_NAMESPACES.includes(property.parent.parent.escapedName)) {
       return false;
     }
 
