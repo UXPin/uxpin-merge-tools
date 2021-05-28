@@ -39,12 +39,17 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     const branchesAtCurrentCommit:string[] = await getBranchesAtCommit(vcsDetails.paths.projectRoot, commitHash);
 
     // Prevent trying to push non-master commits to master
-    if (!branchesAtCurrentCommit.includes(branch)) {
-      printError(
-        `🛑 The current commit is not on branch [${branch}], please specify --branch to use a custom branch`,
-      );
-      return designSystem;
-    }
+    // Why can't we allow simply switching branch push?
+    // e.g. 
+    // 1. git checkout -b test
+    // 2. npx uxpin-merge push
+    // should be a valid action?
+    // if (!branchesAtCurrentCommit.includes(branch)) {
+    //   printError(
+    //     `🛑 The current commit is not on branch [${branch}], please specify --branch to use a custom branch`,
+    //   );
+    //   return designSystem;
+    // }
 
     // If the backend already has the commit we're trying to push,
     // Update the repository pointer to the current branch and exit early
