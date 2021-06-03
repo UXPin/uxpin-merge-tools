@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.7.7] - 2021-06-03
+
+### Changed
+- Blacklist type defined under React namespace in DefinitelyTyped ([#272](https://github.com/UXPin/uxpin-merge-tools/pull/272))
+- Upgrade packages(browserslist and dns-packet) from dependabot alerts
+
 ## [2.7.6] - 2021-05-17
 
 ### Added
