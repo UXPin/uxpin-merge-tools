@@ -25,9 +25,8 @@ export function getPropertiesFromType(type:ts.Type):TypeProps {
 
 function getBasePropertiesFromType(type:ts.Type):ts.Symbol[] {
   return type.getProperties().filter((property, i) => {
-
     // property.syntheticOrigin is useful when people use utility types
-    // like "Omit" because we need to point back to original type if it's from React or not
+    // like "Omit" because we need to point back to original type to see if it's from React
     // @ts-ignore
     // tslint:disable-next-line: max-line-length
     const parentNameSpace:string | undefined = property.parent?.parent?.escapedName || property.syntheticOrigin?.parent?.parent?.escapedName;
