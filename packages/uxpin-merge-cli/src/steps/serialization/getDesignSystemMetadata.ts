@@ -1,6 +1,7 @@
 import pMap from 'p-map';
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
+import { Framework } from '../../framework/framework';
 import { ProgramArgs } from '../../program/args/ProgramArgs';
 import { getBuildOptions } from '../../program/command/push/getBuildOptions';
 import { BuildOptions } from '../building/BuildOptions';
@@ -13,7 +14,6 @@ import { ComponentCategory } from './component/categories/ComponentCategory';
 import { ComponentDefinition } from './component/ComponentDefinition';
 import { ExamplesSerializationResult } from './component/examples/ExamplesSerializationResult';
 import { serializeExamples } from './component/examples/serializeExamples';
-import { getComponentMetadata } from './component/implementation/getComponentMetadata';
 import { decorateWithPresets } from './component/presets/decorateWithPresets';
 import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
 import { validateComponentNamespaces } from './validation/validateComponentNamespaces';
@@ -60,7 +60,9 @@ async function categoryInfoToMetadata(
 }
 
 async function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentDefinition>> {
-  const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(info.implementation);
+  const { result: metadata, warnings: metadataWarnings } = await Framework.loadFrameworkModule(
+    'getComponentMetadata',
+  )(info.implementation);
   const { result: examples, warnings: exampleWarnings } = await serializeOptionalExamples(info);
   return {
     result: { info, ...metadata, documentation: { examples }, presets: [] },
