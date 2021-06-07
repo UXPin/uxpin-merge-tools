@@ -1,5 +1,6 @@
 import { copySync, existsSync, PathLike } from 'fs-extra';
 import { resolve } from 'path';
+import { Framework } from '../../../framework/framework';
 import { printLine } from '../../../utils/console/printLine';
 import { PrintColor } from '../../../utils/console/PrintOptions';
 import { InitProgramArgs } from '../../args/ProgramArgs';
@@ -13,16 +14,22 @@ export interface DefaultFile {
   target:PathLike;
 }
 
-const DEFAULT_CONFIG_FILES:DefaultFile[] = [
-  { source: 'uxpin.config.js', target: 'uxpin.config.js' },
-  { source: 'uxpin.webpack.config.js', target: 'uxpin.webpack.config.js' },
-  { source: 'UXPinWrapper.js', target: 'src/components/UXPinWrapper/UXPinWrapper.js' },
-];
+function getDefaultConfigFiles():DefaultFile[] {
+  return [
+    { source: `${Framework.currentFrameworkName}/uxpin.config.js`, target: 'uxpin.config.js' },
+    { source: `${Framework.currentFrameworkName}/uxpin.webpack.config.js`, target: 'uxpin.webpack.config.js' },
+    { source: `${Framework.currentFrameworkName}/UXPinWrapper.js`,
+      target: 'src/components/UXPinWrapper/UXPinWrapper.js',
+    },
+  ];
+}
 
-const EXAMPLE_COMPONENT:DefaultFile = {
-  source: 'Button',
-  target: 'src/components/Button',
-};
+function getExampleComponent():DefaultFile {
+  return {
+    source: `${Framework.currentFrameworkName}/Button`,
+    target: 'src/components/Button',
+  };
+}
 
 export function getInitCommandSteps(args:InitProgramArgs):Step[] {
   return [
@@ -34,7 +41,7 @@ function copyDefaultFiles(args:InitProgramArgs):any {
   const projectRoot:PathLike = getProjectRoot(args);
   try {
     // config files
-    DEFAULT_CONFIG_FILES.forEach((file) => {
+    getDefaultConfigFiles().forEach((file) => {
       const filePath:PathLike = `${projectRoot}/${file.target}`;
       if (!existsSync(filePath)) {
         copySync(resolve(__dirname, `${RESOURCES_PATH}/${file.source}`), filePath);
@@ -43,9 +50,9 @@ function copyDefaultFiles(args:InitProgramArgs):any {
     });
 
     // default component
-    const componentPath:PathLike = `${projectRoot}/${EXAMPLE_COMPONENT.target}`;
+    const componentPath:PathLike = `${projectRoot}/${getExampleComponent().target}`;
     if (!existsSync(componentPath)) {
-      copySync(resolve(__dirname, `${RESOURCES_PATH}/${EXAMPLE_COMPONENT.source}`), componentPath);
+      copySync(resolve(__dirname, `${RESOURCES_PATH}/${getExampleComponent().source}`), componentPath);
       printLine(`✅ Successfully created example component in ${componentPath}`, { color: PrintColor.GREEN });
     }
   } catch (error) {
