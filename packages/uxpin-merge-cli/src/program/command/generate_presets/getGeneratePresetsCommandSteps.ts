@@ -1,9 +1,10 @@
 import pMapSeries = require('p-map-series');
+import { Framework } from '../../../framework/framework';
+import { FrameworkModule } from '../../../framework/FrameworkModule';
 import { ComponentCategoryInfo } from '../../../steps/discovery/component/category/ComponentCategoryInfo';
 import { getComponentCategoryInfos } from '../../../steps/discovery/component/category/getComponentCategoryInfos';
 import { ComponentInfo } from '../../../steps/discovery/component/ComponentInfo';
 import { printError } from '../../../utils/console/printLine';
-import { PresetFileGenerator } from '../../../utils/fs/PresetFileGenerator/PresetFileGenerator';
 import { GeneratePresetsProgramArgs } from '../../args/ProgramArgs';
 import { getProjectPaths } from '../../args/providers/paths/getProjectPaths';
 import { Step } from '../Step';
@@ -16,7 +17,11 @@ export function getGeneratePresetsCommandSteps(args:GeneratePresetsProgramArgs):
 
 async function generatePresetFile(path:string):Promise<void> {
   try {
-    const presetFile:PresetFileGenerator = new PresetFileGenerator(path);
+    // tslint:disable-next-line:variable-name
+    const PresetFileGenerator:FrameworkModule['PresetFileGenerator'] = Framework.loadFrameworkModule(
+      'PresetFileGenerator',
+    );
+    const presetFile:FrameworkModule['PresetFileGenerator'] = new PresetFileGenerator(path);
     await presetFile.init();
     await presetFile.createPresetFile();
   } catch (e) {

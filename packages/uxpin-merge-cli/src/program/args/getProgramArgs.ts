@@ -1,4 +1,5 @@
 import { CommanderStatic } from 'commander';
+import { FrameworkNames } from '../../framework/frameworkNames';
 import { Command, DEFAULT_COMMAND } from '../command/Command';
 import { pickConfigArgs } from './pickConfigArgs';
 import { Arg, ConfigEnabledProgramArgs, ProgramArgs, RawProgramArgs } from './ProgramArgs';
@@ -12,17 +13,20 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     command: Command.GENERATE_PRESETS,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
+    framework: FrameworkNames.reactjs,
   },
   [Command.DUMP]: {
     command: Command.DUMP,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
+    framework: FrameworkNames.reactjs,
   },
   [Command.EXPERIMENT]: {
     command: Command.EXPERIMENT,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
     disableTunneling: false,
+    framework: FrameworkNames.reactjs,
     port: 8877,
     skipBrowser: false,
     uxpinDomain: DEFAULT_UXPIN_DOMAIN,
@@ -31,11 +35,13 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     command: Command.INIT,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
+    framework: FrameworkNames.reactjs,
   },
   [Command.PUSH]: {
     command: Command.PUSH,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
+    framework: FrameworkNames.reactjs,
     token: process.env.UXPIN_AUTH_TOKEN,
     uxpinDomain: DEFAULT_UXPIN_DOMAIN,
   },
@@ -43,12 +49,14 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     command: Command.SERVER,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
+    framework: FrameworkNames.reactjs,
     port: 8080,
   },
   [Command.SUMMARY]: {
     command: Command.SUMMARY,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
+    framework: FrameworkNames.reactjs,
   },
 };
 

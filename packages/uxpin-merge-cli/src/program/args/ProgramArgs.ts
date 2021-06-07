@@ -1,5 +1,6 @@
 import { CommanderStatic } from 'commander';
 import { Command } from '../..';
+import { FrameworkNames } from '../../framework/frameworkNames';
 
 export interface RawProgramArgs {
   args?:Arg[];
@@ -28,6 +29,7 @@ export interface DumpProgramArgs {
   command:Command.DUMP;
   cwd:string;
   config:string;
+  framework:FrameworkNames;
 }
 
 export interface ExperimentProgramArgs {
@@ -40,12 +42,14 @@ export interface ExperimentProgramArgs {
   wrapper?:string;
   uxpinDomain:string;
   skipBrowser:boolean;
+  framework:FrameworkNames;
 }
 
 export interface InitProgramArgs {
   command:Command.INIT;
   cwd:string;
   config:string;
+  framework:FrameworkNames;
 }
 
 export interface PushProgramArgs {
@@ -60,6 +64,7 @@ export interface PushProgramArgs {
   // Branch name to use as an override (normally for detached head state)
   // https://github.com/UXPin/uxpin-merge-tools/issues/206
   branch?:string;
+  framework:FrameworkNames;
 }
 
 export interface GeneratePresetsProgramArgs {
@@ -67,6 +72,7 @@ export interface GeneratePresetsProgramArgs {
   componentPath?:string;
   cwd:string;
   config?:string;
+  framework:FrameworkNames;
 }
 
 export interface ServerProgramArgs {
@@ -76,12 +82,14 @@ export interface ServerProgramArgs {
   webpackConfig?:string;
   wrapper?:string;
   config:string;
+  framework:FrameworkNames;
 }
 
 export interface SummaryProgramArgs {
   command:Command.SUMMARY;
   cwd:string;
   config:string;
+  framework:FrameworkNames;
 }
 
 export type Arg = string | CommanderStatic;

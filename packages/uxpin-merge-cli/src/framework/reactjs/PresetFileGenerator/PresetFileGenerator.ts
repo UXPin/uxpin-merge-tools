@@ -5,9 +5,9 @@ import { ComponentImplementationInfo } from '../../../steps/discovery/component/
 import { getImplementationInfo } from '../../../steps/discovery/component/implementation/getImplementationInfo';
 import { ComponentMetadata } from '../../../steps/serialization/component/ComponentDefinition';
 import { getComponentMetadata } from '../../../steps/serialization/component/implementation/getComponentMetadata';
-import { printLine, printWarning } from '../../console/printLine';
-import { PrintColor } from '../../console/PrintOptions';
-import { writeToFile } from '../writeToFile';
+import { printLine, printWarning } from '../../../utils/console/printLine';
+import { PrintColor } from '../../../utils/console/PrintOptions';
+import { writeToFile } from '../../../utils/fs/writeToFile';
 import { generatePropertyValuePair, INDENTATION_CHAR } from './helpers/generatePropertyValuePair';
 import { getPropTypeValue } from './helpers/getPropTypeValue';
 
