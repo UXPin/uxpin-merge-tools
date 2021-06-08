@@ -1,10 +1,10 @@
 import { flatMap } from 'lodash';
 import { Warned } from '../../../../common/warning/Warned';
 import { ProgramArgs } from '../../../../program/args/ProgramArgs';
-import { ComponentInfo } from '../../../discovery/component/ComponentInfo';
-import { ComponentCategory } from '../categories/ComponentCategory';
-import { getAllComponentsFromCategories } from '../categories/getAllComponentsFromCategories';
-import { ComponentDefinition } from '../ComponentDefinition';
+import { ComponentInfo } from '../../../../steps/discovery/component/ComponentInfo';
+import { ComponentCategory } from '../../../../steps/serialization/component/categories/ComponentCategory';
+import { getAllComponentsFromCategories } from '../../../../steps/serialization/component/categories/getAllComponentsFromCategories';
+import { ComponentDefinition } from '../../../../steps/serialization/component/ComponentDefinition';
 import { getPresetsBundle } from './jsx/bundle/getPresetsBundle';
 import { PresetsBundle } from './jsx/bundle/PresetsBundle';
 import { PresetsSerializationResult } from './PresetsSerializationResult';

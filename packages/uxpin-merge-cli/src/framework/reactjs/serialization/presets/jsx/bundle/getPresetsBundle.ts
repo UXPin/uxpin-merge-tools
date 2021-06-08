@@ -1,6 +1,6 @@
 import { unlink } from 'fs-extra';
 import { ProgramArgs } from '../../../../../../program/args/ProgramArgs';
-import { ComponentDefinition } from '../../../ComponentDefinition';
+import { ComponentDefinition } from '../../../../../../steps/serialization/component/ComponentDefinition';
 import { compilePresets } from '../compile/compilePresets';
 import { PresetsBundle } from './PresetsBundle';
 

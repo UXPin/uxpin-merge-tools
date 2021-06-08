@@ -1,5 +1,5 @@
 import { FrameworkNames } from '../../../../../../../framework/frameworkNames';
-import { ComponentDefinition } from '../../../../ComponentDefinition';
+import { ComponentDefinition } from '../../../../../../../steps/serialization/component/ComponentDefinition';
 import { generateVirtualModules, VirtualComponentModule } from '../generateVirtualModules';
 
 describe('generateVirtualModules', () => {

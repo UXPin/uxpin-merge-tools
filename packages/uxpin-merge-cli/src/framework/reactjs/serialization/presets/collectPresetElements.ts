@@ -1,6 +1,6 @@
 import { forEach, isArray } from 'lodash';
+import { ComponentPresetElement } from '../../../../common/types/ComponentPreset';
 import { Warned } from '../../../../common/warning/Warned';
-import { ComponentPresetElement } from './ComponentPreset';
 import { isJSXSerializedElement } from './isJSXSerializedElement';
 import { AnySerializedElement } from './jsx/JSXSerializationResult';
 import { replaceElementsWithReferencesInChildren } from './replaceElementsWithReferencesInChildren';

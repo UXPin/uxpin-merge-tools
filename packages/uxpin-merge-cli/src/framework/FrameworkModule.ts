@@ -5,5 +5,6 @@ export interface FrameworkModule {
   getLibraryBundleSource:any;
   getSerializationContext:any;
   getComponentDeclaration:any;
+  decorateWithPresets:any;
   isDefaultExportedForwardRef:any; // only for react, for different framework should return false
 }

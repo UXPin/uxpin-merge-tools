@@ -1,7 +1,7 @@
+import { ComponentPreset } from '../../../common/types/ComponentPreset';
 import { ComponentInfo } from '../../discovery/component/ComponentInfo';
 import { ComponentExample } from './examples/ComponentExample';
 import { ComponentPropertyDefinition } from './implementation/ComponentPropertyDefinition';
-import { ComponentPreset } from './presets/ComponentPreset';
 import { ComponentWrapper } from './wrappers/ComponentWrapper';
 
 export interface ComponentMetadata {

@@ -1,4 +1,4 @@
-import { PresetElementReference } from './ComponentPreset';
+import { PresetElementReference } from '../../../../common/types/ComponentPreset';
 import { isJSXSerializedElement } from './isJSXSerializedElement';
 import { AnySerializedElement } from './jsx/JSXSerializationResult';
 

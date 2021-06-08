@@ -1,7 +1,7 @@
 import { thunkFillSourcePath } from '../../../../common/warning/thunkFillSourcePath';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
-import { ComponentPresetInfo } from '../../../discovery/component/ComponentInfo';
-import { getPresetName } from '../../../discovery/component/presets/presetFileNameParser';
+import { ComponentPresetInfo } from '../../../../steps/discovery/component/ComponentInfo';
+import { getPresetName } from '../../../../steps/discovery/component/presets/presetFileNameParser';
 import { collectPresetElements } from './collectPresetElements';
 import { getUniqPresetImportName } from './jsx/bundle/getUniqPresetImportName';
 import { PresetsBundle } from './jsx/bundle/PresetsBundle';

@@ -1,7 +1,7 @@
 import { get } from 'lodash';
 import { join, parse } from 'path';
-import { ComponentDefinition } from '../../../ComponentDefinition';
-import { getComponentNamespacedName } from '../../../name/getComponentNamespacedName';
+import { ComponentDefinition } from '../../../../../../steps/serialization/component/ComponentDefinition';
+import { getComponentNamespacedName } from '../../../../../../steps/serialization/component/name/getComponentNamespacedName';
 import { getNamespacedComponentsTree, NamespacedComponentsTree } from './getNamespacedComponentsTree';
 
 export interface VirtualComponentModule {

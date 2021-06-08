@@ -3,8 +3,8 @@ import { resolve } from 'path';
 import { v4 } from 'uuid';
 import { ProgramArgs } from '../../../../../../program/args/ProgramArgs';
 import { getTempDirPath } from '../../../../../../program/args/providers/paths/getTempDirPath';
+import { ComponentDefinition } from '../../../../../../steps/serialization/component/ComponentDefinition';
 import { writeToFile } from '../../../../../../utils/fs/writeToFile';
-import { ComponentDefinition } from '../../../ComponentDefinition';
 import { getSourceFileContentToBundle } from './getSourceFileContentToBundle';
 
 export async function createBundleSource(programArgs:ProgramArgs, components:ComponentDefinition[]):Promise<string> {

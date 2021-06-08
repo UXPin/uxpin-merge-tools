@@ -1,5 +1,5 @@
 import { isArray, isEmpty } from 'lodash';
-import { PresetElementReference } from './ComponentPreset';
+import { PresetElementReference } from '../../../../common/types/ComponentPreset';
 import { getPresetElementReference } from './getPresetElementReference';
 import { isJSXSerializedElement } from './isJSXSerializedElement';
 import { AnySerializedElement } from './jsx/JSXSerializationResult';

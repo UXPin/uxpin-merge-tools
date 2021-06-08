@@ -14,7 +14,6 @@ import { ComponentCategory } from './component/categories/ComponentCategory';
 import { ComponentDefinition } from './component/ComponentDefinition';
 import { ExamplesSerializationResult } from './component/examples/ExamplesSerializationResult';
 import { serializeExamples } from './component/examples/serializeExamples';
-import { decorateWithPresets } from './component/presets/decorateWithPresets';
 import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
 import { validateComponentNamespaces } from './validation/validateComponentNamespaces';
 import { getVcsDetails } from './vcs/getVcsDetails';
@@ -28,7 +27,8 @@ export async function getDesignSystemMetadata(
 
   const categoryInfos:ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
   const categories:Array<Warned<ComponentCategory>> = await pMap(categoryInfos, categoryInfoToMetadata);
-  const categoriesWithPresets:Array<Warned<ComponentCategory>> = await decorateWithPresets(categories, programArgs);
+  const categoriesWithPresets:Array<Warned<ComponentCategory>> =
+    await Framework.loadFrameworkModule('decorateWithPresets')(categories, programArgs);
 
   const categorizedComponents:ComponentCategory[] = categoriesWithPresets.map((category) => category.result);
   const vcs:VCSDetails = await getVcsDetails(paths, buildOptions, categorizedComponents);

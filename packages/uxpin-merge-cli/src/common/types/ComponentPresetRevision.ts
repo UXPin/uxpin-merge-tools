@@ -1,4 +1,4 @@
-import { ComponentPreset } from '../../steps/serialization/component/presets/ComponentPreset';
+import { ComponentPreset } from './ComponentPreset';
 
 export interface ComponentPresetRevision extends ComponentPreset {
   componentRevisionId:string;

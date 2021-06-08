@@ -1,4 +1,4 @@
-import { ComponentPresetElementProps } from '../ComponentPreset';
+import { ComponentPresetElementProps } from '../../../../../common/types/ComponentPreset';
 import { PartialProps } from '../jsx/JSXSerializationResult';
 import { replaceElementsWithReferencesInProps } from '../replaceElementsWithReferencesInProps';
 

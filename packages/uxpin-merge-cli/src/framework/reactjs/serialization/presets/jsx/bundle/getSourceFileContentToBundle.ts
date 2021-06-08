@@ -1,7 +1,7 @@
 import { flatMap } from 'lodash';
 import { relative } from 'path';
-import { ComponentPresetInfo } from '../../../../../discovery/component/ComponentInfo';
-import { ComponentDefinition } from '../../../ComponentDefinition';
+import { ComponentPresetInfo } from '../../../../../../steps/discovery/component/ComponentInfo';
+import { ComponentDefinition } from '../../../../../../steps/serialization/component/ComponentDefinition';
 import { getUniqPresetImportName } from './getUniqPresetImportName';
 
 export function getSourceFileContentToBundle(tempDirPath:string, components:ComponentDefinition[]):string {
