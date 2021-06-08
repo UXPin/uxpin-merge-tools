@@ -1,15 +1,15 @@
 import * as ts from 'typescript';
-import { getWarnedResult } from '../../../../../common/warning/getWarnedResult';
-import { ParsedComponentProperty } from '../ComponentPropertyDefinition';
-import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
+import { getWarnedResult } from '../../../../common/warning/getWarnedResult';
+import { ParsedComponentProperty } from '../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
+import { PropDefinitionParsingResult } from '../../../../steps/serialization/component/implementation/PropDefinitionParsingResult';
+import { ComponentDeclaration } from '../../../../steps/serialization/component/implementation/typescript/component/getPropsTypeAndDefaultProps';
+import { TSSerializationContext } from '../../../../steps/serialization/component/implementation/typescript/context/getSerializationContext';
+import { getPropertiesFromType, TypeProps } from '../../../../steps/serialization/component/implementation/typescript/property/type/getPropertiesFromType';
 import { getComponentPropertiesDefinition } from './component/getComponentPropertiesDefinition';
 import {
-  ComponentDeclaration,
   DefaultProps,
   getPropsTypeAndDefaultProps,
 } from './component/getPropsTypeAndDefaultProps';
-import { TSSerializationContext } from './context/getSerializationContext';
-import { getPropertiesFromType, TypeProps } from './property/type/getPropertiesFromType';
 
 export function parseTSComponentProperties(
   context:TSSerializationContext,

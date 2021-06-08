@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { ClassComponentDeclaration } from '../component/getPropsTypeAndDefaultProps';
+import { ClassComponentDeclaration } from '../../../../../steps/serialization/component/implementation/typescript/component/getPropsTypeAndDefaultProps';
 
 const REACT_COMPONENT_TYPES:string[] = [
   'React.Component',

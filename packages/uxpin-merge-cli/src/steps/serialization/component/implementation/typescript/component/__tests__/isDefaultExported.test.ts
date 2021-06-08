@@ -1,14 +1,15 @@
 import { getTypeScriptComponentPath } from '../../../../../../../../test/utils/resources/getExampleComponentPath';
 import { using } from '../../../../../../../../test/utils/using';
+import { Framework } from '../../../../../../../framework/framework';
+import { FrameworkNames } from '../../../../../../../framework/frameworkNames';
 import { ComponentImplementationInfo } from '../../../../../../discovery/component/ComponentInfo';
-import { getSerializationContext, TSSerializationContext } from '../../context/getSerializationContext';
-import { getComponentDeclaration } from '../getComponentDeclaration';
+import { TSSerializationContext } from '../../context/getSerializationContext';
 import { ComponentDeclaration } from '../getPropsTypeAndDefaultProps';
 import { isDefaultExported } from '../isDefaultExported';
 
 export function getImplementation(componentName:string):ComponentImplementationInfo {
   return {
-    framework: 'reactjs',
+    framework: FrameworkNames.reactjs,
     lang: 'typescript',
     path: getTypeScriptComponentPath(componentName),
   };
@@ -154,9 +155,12 @@ describe('getComponentNameFromStoriesTitle', () => {
   using(cases).describe(
     'checking if isDefaultExported correctly detect default export', ({ filename, componentName, expected }) => {
       it(`for given ${componentName} in ${filename}`, () => {
+        Framework.currentFrameworkName = FrameworkNames.reactjs;
         const component:ComponentImplementationInfo = getImplementation(filename);
-        const context:TSSerializationContext = getSerializationContext(component);
-        const declaration:ComponentDeclaration | undefined = getComponentDeclaration(context);
+        const context:TSSerializationContext = Framework.loadFrameworkModule('getSerializationContext')(component);
+        const declaration:ComponentDeclaration | undefined = Framework.loadFrameworkModule(
+          'getComponentDeclaration',
+        )(context);
 
         if (declaration) {
           expect(isDefaultExported(declaration, context)).toEqual(expected);

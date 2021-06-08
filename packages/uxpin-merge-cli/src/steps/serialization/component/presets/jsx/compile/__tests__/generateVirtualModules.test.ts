@@ -1,3 +1,4 @@
+import { FrameworkNames } from '../../../../../../../framework/frameworkNames';
 import { ComponentDefinition } from '../../../../ComponentDefinition';
 import { generateVirtualModules, VirtualComponentModule } from '../generateVirtualModules';
 
@@ -11,7 +12,7 @@ describe('generateVirtualModules', () => {
           dirPath: 'src/components/Avatar',
           documentation: { path: '' },
           implementation: {
-            framework: 'reactjs',
+            framework: FrameworkNames.reactjs,
             lang: 'typescript',
             path: 'src/components/Avatar/Avatar.tsx',
           },
@@ -28,7 +29,7 @@ describe('generateVirtualModules', () => {
           dirPath: 'src/packages/navigation/Menu',
           documentation: { path: '' },
           implementation: {
-            framework: 'reactjs',
+            framework: FrameworkNames.reactjs,
             lang: 'javascript',
             path: 'src/packages/navigation/Menu/Menu.js',
           },
@@ -71,7 +72,7 @@ exports.default = {"name":"Menu"};`,
           dirPath: 'src/components/Button',
           documentation: { path: '' },
           implementation: {
-            framework: 'reactjs',
+            framework: FrameworkNames.reactjs,
             lang: 'typescript',
             path: 'src/components/Button/Button.tsx',
           },
@@ -88,7 +89,7 @@ exports.default = {"name":"Menu"};`,
           dirPath: 'src/components/Card',
           documentation: { path: '' },
           implementation: {
-            framework: 'reactjs',
+            framework: FrameworkNames.reactjs,
             lang: 'typescript',
             path: 'src/components/Card/Card.tsx',
           },
@@ -105,7 +106,7 @@ exports.default = {"name":"Menu"};`,
           dirPath: 'src/components/Card/components/Body',
           documentation: { path: '' },
           implementation: {
-            framework: 'reactjs',
+            framework: FrameworkNames.reactjs,
             lang: 'typescript',
             path: 'src/components/Card/components/Body/Body.tsx',
           },
@@ -126,7 +127,7 @@ exports.default = {"name":"Menu"};`,
           dirPath: 'src/components/Card/components/Header',
           documentation: { path: '' },
           implementation: {
-            framework: 'reactjs',
+            framework: FrameworkNames.reactjs,
             lang: 'typescript',
             path: 'src/components/Card/components/Header/Header.tsx',
           },
@@ -147,7 +148,7 @@ exports.default = {"name":"Menu"};`,
           dirPath: 'src/components/Card/components/Header/components/Menu',
           documentation: { path: '' },
           implementation: {
-            framework: 'reactjs',
+            framework: FrameworkNames.reactjs,
             lang: 'typescript',
             path: 'src/components/Card/components/Header/components/Menu/Menu.tsx',
           },

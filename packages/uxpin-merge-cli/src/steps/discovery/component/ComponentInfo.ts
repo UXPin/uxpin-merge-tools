@@ -14,7 +14,7 @@ export interface ComponentImplementationInfo {
 }
 
 export type ComponentImplementationLang = 'javascript' | 'typescript';
-export type ComponentImplementationFramework = keyof FrameworkNames;
+export type ComponentImplementationFramework = FrameworkNames;
 
 export interface ComponentDocumenationInfo {
   path:string;

@@ -1,6 +1,6 @@
-import { WarningDetails } from '../../../../../../common/warning/WarningDetails';
-import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
-import { ComponentMetadata } from '../../../ComponentDefinition';
+import { WarningDetails } from '../../../../../common/warning/WarningDetails';
+import { ComponentImplementationInfo } from '../../../../../steps/discovery/component/ComponentInfo';
+import { ComponentMetadata } from '../../../../../steps/serialization/component/ComponentDefinition';
 import { serializeJSComponent } from '../serializeJSComponent';
 import { getImplementation } from './utils/getImplementation';
 

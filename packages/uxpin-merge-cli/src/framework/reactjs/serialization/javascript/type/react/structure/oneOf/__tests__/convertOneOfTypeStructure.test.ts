@@ -1,4 +1,4 @@
-import { UnionTypeStructure } from '../../../../../../ComponentPropertyDefinition';
+import { UnionTypeStructure } from '../../../../../../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
 import { convertOneOfTypeStructure } from '../convertOneOfTypeStructure';
 
 describe('convertOneOfTypeStructure', () => {

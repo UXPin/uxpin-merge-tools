@@ -1,10 +1,15 @@
 import { ComponentImplementationInfo } from '../../../../../steps/discovery/component/ComponentInfo';
 import { ComponentDefinition } from '../../../../../steps/serialization/component/ComponentDefinition';
+import { FrameworkNames } from '../../../../frameworkNames';
 import { getLibraryBundleSource } from '../getLibraryBundleSource';
 
 describe('getLibraryBundleSource', () => {
 
-  const commonImplementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
+  const commonImplementation:ComponentImplementationInfo = {
+    framework: FrameworkNames.reactjs,
+    lang: 'javascript',
+    path: '',
+  };
   const commonProps:Pick<ComponentDefinition, 'properties' | 'documentation' | 'presets'> = {
     documentation: { examples: [] },
     presets: [],

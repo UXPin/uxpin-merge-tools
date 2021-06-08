@@ -1,7 +1,7 @@
-import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
-import { ComponentMetadata } from '../../../ComponentDefinition';
-import { BuiltInWrappers, ComponentWrapperType } from '../../../wrappers/ComponentWrapper';
-import { ImplSerializationResult } from '../../ImplSerializationResult';
+import { ComponentImplementationInfo } from '../../../../../steps/discovery/component/ComponentInfo';
+import { ComponentMetadata } from '../../../../../steps/serialization/component/ComponentDefinition';
+import { ImplSerializationResult } from '../../../../../steps/serialization/component/implementation/ImplSerializationResult';
+import { BuiltInWrappers, ComponentWrapperType } from '../../../../../steps/serialization/component/wrappers/ComponentWrapper';
 import { serializeJSComponent } from '../serializeJSComponent';
 import { getImplementation } from './utils/getImplementation';
 

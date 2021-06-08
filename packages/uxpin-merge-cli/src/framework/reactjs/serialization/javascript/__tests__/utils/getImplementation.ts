@@ -1,9 +1,10 @@
-import { getJavaScriptComponentPath } from '../../../../../../../../test/utils/resources/getExampleComponentPath';
-import { ComponentImplementationInfo } from './../../../../../../discovery/component/ComponentInfo';
+import { getJavaScriptComponentPath } from '../../../../../../../test/utils/resources/getExampleComponentPath';
+import { ComponentImplementationInfo } from '../../../../../../steps/discovery/component/ComponentInfo';
+import { FrameworkNames } from '../../../../../frameworkNames';
 
 export function getImplementation(componentName:string):ComponentImplementationInfo {
   return {
-    framework: 'reactjs',
+    framework: FrameworkNames.reactjs,
     lang: 'javascript',
     path: getJavaScriptComponentPath(componentName),
   };

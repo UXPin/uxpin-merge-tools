@@ -1,3 +1,4 @@
+import { FrameworkNames } from '../../../../src/framework/frameworkNames';
 import { ComponentDefinition } from '../../../../src/steps/serialization/component/ComponentDefinition';
 import { DesignSystemSnapshot } from '../../../../src/steps/serialization/DesignSystemSnapshot';
 
@@ -7,7 +8,7 @@ export const expectedAvatarMetadata:ComponentDefinition = {
   info: {
     dirPath: 'src/components/Avatar',
     implementation: {
-      framework: 'reactjs',
+      framework: FrameworkNames.reactjs,
       lang: 'typescript',
       path: 'src/components/Avatar/Avatar.tsx',
     },
@@ -54,7 +55,7 @@ export const expectedButtonMetadata:ComponentDefinition = {
   info: {
     dirPath: 'src/components/Button',
     implementation: {
-      framework: 'reactjs',
+      framework: FrameworkNames.reactjs,
       lang: 'typescript',
       path: 'src/components/Button/Button.tsx',
     },

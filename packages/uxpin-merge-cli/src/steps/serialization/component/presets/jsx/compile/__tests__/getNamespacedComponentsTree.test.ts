@@ -1,3 +1,4 @@
+import { FrameworkNames } from '../../../../../../../framework/frameworkNames';
 import { ComponentDefinition } from '../../../../ComponentDefinition';
 import { getNamespacedComponentsTree, NamespacedComponentsTree } from '../getNamespacedComponentsTree';
 
@@ -10,7 +11,7 @@ describe('getNamespacedComponentsTree', () => {
         dirPath: 'src/components/Button',
         documentation: { path: '' },
         implementation: {
-          framework: 'reactjs',
+          framework: FrameworkNames.reactjs,
           lang: 'typescript',
           path: 'src/components/Button/Button.tsx',
         },
@@ -27,7 +28,7 @@ describe('getNamespacedComponentsTree', () => {
         dirPath: 'src/components/Card',
         documentation: { path: '' },
         implementation: {
-          framework: 'reactjs',
+          framework: FrameworkNames.reactjs,
           lang: 'typescript',
           path: 'src/components/Card/Card.tsx',
         },
@@ -44,7 +45,7 @@ describe('getNamespacedComponentsTree', () => {
         dirPath: 'src/components/Card/components/Body',
         documentation: { path: '' },
         implementation: {
-          framework: 'reactjs',
+          framework: FrameworkNames.reactjs,
           lang: 'typescript',
           path: 'src/components/Card/components/Body/Body.tsx',
         },
@@ -65,7 +66,7 @@ describe('getNamespacedComponentsTree', () => {
         dirPath: 'src/components/Card/components/Header',
         documentation: { path: '' },
         implementation: {
-          framework: 'reactjs',
+          framework: FrameworkNames.reactjs,
           lang: 'typescript',
           path: 'src/components/Card/components/Header/Header.tsx',
         },
@@ -86,7 +87,7 @@ describe('getNamespacedComponentsTree', () => {
         dirPath: 'src/components/Card/components/Header/components/Menu',
         documentation: { path: '' },
         implementation: {
-          framework: 'reactjs',
+          framework: FrameworkNames.reactjs,
           lang: 'typescript',
           path: 'src/components/Card/components/Header/components/Menu/Menu.tsx',
         },

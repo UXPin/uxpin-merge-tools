@@ -1,3 +1,4 @@
+import { FrameworkNames } from '../../../../../../../framework/frameworkNames';
 import { ComponentDefinition } from '../../../../ComponentDefinition';
 import { getSourceFileContentToBundle } from '../getSourceFileContentToBundle';
 
@@ -10,7 +11,7 @@ describe('getSourceFileContentToBundle', () => {
         documentation: { examples: [] },
         info: {
           dirPath: '',
-          implementation : { framework: 'reactjs', lang: 'javascript', path: '' },
+          implementation : { framework: FrameworkNames.reactjs, lang: 'javascript', path: '' },
           presets: [
             { path: './src/components/Component1/presets/0-default.jsx' },
             { path: './src/components/Component1/presets/1-alternative.jsx' },
@@ -25,7 +26,7 @@ describe('getSourceFileContentToBundle', () => {
         documentation: { examples: [] },
         info: {
           dirPath: '',
-          implementation : { framework: 'reactjs', lang: 'javascript', path: '' },
+          implementation : { framework: FrameworkNames.reactjs, lang: 'javascript', path: '' },
           presets: [
             { path: './src/components/Component2/presets/0-default.jsx' },
           ],

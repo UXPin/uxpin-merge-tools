@@ -1,7 +1,7 @@
-import { Warned } from '../../../../../../common/warning/Warned';
-import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
-import { ComponentMetadata } from '../../../ComponentDefinition';
-import { ComponentWrapperType } from '../../../wrappers/ComponentWrapper';
+import { Warned } from '../../../../../common/warning/Warned';
+import { ComponentImplementationInfo } from '../../../../../steps/discovery/component/ComponentInfo';
+import { ComponentMetadata } from '../../../../../steps/serialization/component/ComponentDefinition';
+import { ComponentWrapperType } from '../../../../../steps/serialization/component/wrappers/ComponentWrapper';
 import { serializeTSComponent } from '../serializeTSComponent';
 import { getImplementation } from './serializeTSComponent.test';
 

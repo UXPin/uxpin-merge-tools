@@ -1,8 +1,8 @@
 import * as ts from 'typescript';
-import { isDefined } from '../../../../../../common/isDefined';
-import { getWarnedResult } from '../../../../../../common/warning/getWarnedResult';
-import { PropDefinitionParsingResult } from '../../PropDefinitionParsingResult';
-import { TSSerializationContext } from '../context/getSerializationContext';
+import { isDefined } from '../../../../../common/isDefined';
+import { getWarnedResult } from '../../../../../common/warning/getWarnedResult';
+import { PropDefinitionParsingResult } from '../../../../../steps/serialization/component/implementation/PropDefinitionParsingResult';
+import { TSSerializationContext } from '../../../../../steps/serialization/component/implementation/typescript/context/getSerializationContext';
 import { parseTSComponentProperty } from '../property/parseTSComponentProperty';
 import { DefaultProps } from './getPropsTypeAndDefaultProps';
 

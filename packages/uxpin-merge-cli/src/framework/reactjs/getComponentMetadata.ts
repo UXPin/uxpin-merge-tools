@@ -1,8 +1,8 @@
 import { ComponentImplementationInfo } from '../../steps/discovery/component/ComponentInfo';
 import { thunkGetSummaryResultForInvalidComponent } from '../../steps/serialization/component/implementation/getSummaryResultForInvalidComponent';
 import { ImplSerializationResult } from '../../steps/serialization/component/implementation/ImplSerializationResult';
-import { serializeTSComponent } from '../../steps/serialization/component/implementation/typescript/serializeTSComponent';
 import { serializeJSComponent } from './serialization/javascript/serializeJSComponent';
+import { serializeTSComponent } from './serialization/typescript/serializeTSComponent';
 
 export function getComponentMetadata(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   let promise:Promise<ImplSerializationResult>;

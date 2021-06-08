@@ -1,5 +1,5 @@
-import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
-import { ComponentMetadata } from '../../../ComponentDefinition';
+import { ComponentImplementationInfo } from '../../../../../steps/discovery/component/ComponentInfo';
+import { ComponentMetadata } from '../../../../../steps/serialization/component/ComponentDefinition';
 import { serializeTSComponent } from '../serializeTSComponent';
 import { getImplementation } from './serializeTSComponent.test';
 

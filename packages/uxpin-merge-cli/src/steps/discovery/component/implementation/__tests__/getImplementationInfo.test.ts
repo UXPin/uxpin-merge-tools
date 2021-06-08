@@ -1,3 +1,4 @@
+import { FrameworkNames } from '../../../../../framework/frameworkNames';
 import { ComponentImplementationInfo } from '../../ComponentInfo';
 import { getImplementationInfo } from '../getImplementationInfo';
 
@@ -8,7 +9,7 @@ describe('getImplementationInfo', () => {
       // given
       const path:string = 'some/path/Component.react.tsx';
       const expectedInfo:ComponentImplementationInfo = {
-        framework: 'reactjs',
+        framework: FrameworkNames.reactjs,
         lang: 'typescript',
         path,
       };
@@ -21,7 +22,7 @@ describe('getImplementationInfo', () => {
       // given
       const path:string = 'some/path/Component.ts';
       const expectedInfo:ComponentImplementationInfo = {
-        framework: 'reactjs',
+        framework: FrameworkNames.reactjs,
         lang: 'typescript',
         path,
       };
@@ -34,7 +35,7 @@ describe('getImplementationInfo', () => {
       // given
       const path:string = 'some/path/Component.jsx';
       const expectedInfo:ComponentImplementationInfo = {
-        framework: 'reactjs',
+        framework: FrameworkNames.reactjs,
         lang: 'javascript',
         path,
       };
@@ -47,7 +48,7 @@ describe('getImplementationInfo', () => {
       // given
       const path:string = 'some/path/Component.js';
       const expectedInfo:ComponentImplementationInfo = {
-        framework: 'reactjs',
+        framework: FrameworkNames.reactjs,
         lang: 'javascript',
         path,
       };

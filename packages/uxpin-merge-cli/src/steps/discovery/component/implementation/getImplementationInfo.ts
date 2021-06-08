@@ -1,9 +1,10 @@
 import { extname } from 'path';
+import { FrameworkNames } from '../../../../framework/frameworkNames';
 import { ComponentImplementationInfo } from '../ComponentInfo';
 
 export function getImplementationInfo(path:string):ComponentImplementationInfo | null {
   const info:Pick<ComponentImplementationInfo, 'framework' | 'path'> = {
-    framework: 'reactjs',
+    framework: FrameworkNames.reactjs,
     path,
   };
   const extension:string = extname(path);

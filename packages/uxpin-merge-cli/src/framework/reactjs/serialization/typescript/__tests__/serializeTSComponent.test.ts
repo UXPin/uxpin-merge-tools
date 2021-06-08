@@ -1,7 +1,8 @@
-import { getTypeScriptComponentPath } from '../../../../../../../test/utils/resources/getExampleComponentPath';
-import { Warned } from '../../../../../../common/warning/Warned';
-import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
-import { ComponentMetadata } from '../../../ComponentDefinition';
+import { getTypeScriptComponentPath } from '../../../../../../test/utils/resources/getExampleComponentPath';
+import { Warned } from '../../../../../common/warning/Warned';
+import { ComponentImplementationInfo } from '../../../../../steps/discovery/component/ComponentInfo';
+import { ComponentMetadata } from '../../../../../steps/serialization/component/ComponentDefinition';
+import { FrameworkNames } from '../../../../frameworkNames';
 import { serializeTSComponent } from '../serializeTSComponent';
 
 describe('serializeTSComponent', () => {
@@ -1395,7 +1396,7 @@ component.`,
 
 export function getImplementation(componentName:string):ComponentImplementationInfo {
   return {
-    framework: 'reactjs',
+    framework: FrameworkNames.reactjs,
     lang: 'typescript',
     path: getTypeScriptComponentPath(componentName),
   };

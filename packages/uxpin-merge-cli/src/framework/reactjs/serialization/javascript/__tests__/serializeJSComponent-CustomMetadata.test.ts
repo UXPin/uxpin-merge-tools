@@ -1,7 +1,7 @@
-import { WarningDetails } from '../../../../../../common/warning/WarningDetails';
-import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
-import { ComponentMetadata } from '../../../ComponentDefinition';
-import { CustomControlTypeName } from '../../ComponentPropertyDefinition';
+import { WarningDetails } from '../../../../../common/warning/WarningDetails';
+import { ComponentImplementationInfo } from '../../../../../steps/discovery/component/ComponentInfo';
+import { ComponentMetadata } from '../../../../../steps/serialization/component/ComponentDefinition';
+import { CustomControlTypeName } from '../../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
 import { serializeJSComponent } from '../serializeJSComponent';
 import { getImplementation } from './utils/getImplementation';
 

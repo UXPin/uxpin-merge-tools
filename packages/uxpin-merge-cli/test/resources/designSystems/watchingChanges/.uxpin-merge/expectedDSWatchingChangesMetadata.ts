@@ -1,3 +1,4 @@
+import { FrameworkNames } from '../../../../../src/framework/frameworkNames';
 import { ComponentDefinition } from '../../../../../src/steps/serialization/component/ComponentDefinition';
 import { DesignSystemSnapshot } from '../../../../../src/steps/serialization/DesignSystemSnapshot';
 
@@ -9,7 +10,7 @@ export const expectedAvatarDefinition:ComponentDefinition = {
   info: {
     dirPath: 'src/components/Avatar',
     implementation: {
-      framework: 'reactjs',
+      framework: FrameworkNames.reactjs,
       lang: 'javascript',
       path: 'src/components/Avatar/Avatar.jsx',
     },
@@ -95,7 +96,7 @@ export const expectedButtonDefinition:ComponentDefinition = {
   info: {
     dirPath: 'src/components/Button',
     implementation: {
-      framework: 'reactjs',
+      framework: FrameworkNames.reactjs,
       lang: 'javascript',
       path: 'src/components/Button/Button.jsx',
     },

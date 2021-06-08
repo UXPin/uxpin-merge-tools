@@ -4,6 +4,7 @@ import {
 } from '../../../../test/utils/resources/getExampleComponentPath';
 import { ComponentImplementationInfo } from '../../../steps/discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../steps/serialization/component/ComponentDefinition';
+import { FrameworkNames } from '../../frameworkNames';
 import { getComponentMetadata } from '../getComponentMetadata';
 
 describe('getComponentMetadata – integration', () => {
@@ -11,7 +12,7 @@ describe('getComponentMetadata – integration', () => {
     it('serializes component implemented in TypeScript', () => {
       // given
       const component:ComponentImplementationInfo = {
-        framework: 'reactjs',
+        framework: FrameworkNames.reactjs,
         lang: 'typescript',
         path: getTypeScriptComponentPath('IntegrationCombo'),
       };
@@ -137,7 +138,7 @@ describe('getComponentMetadata – integration', () => {
     it('serializes component implemented in JavaScript', () => {
       // given
       const component:ComponentImplementationInfo = {
-        framework: 'reactjs',
+        framework: FrameworkNames.reactjs,
         lang: 'javascript',
         path: getJavaScriptComponentPath('IntegrationCombo'),
       };

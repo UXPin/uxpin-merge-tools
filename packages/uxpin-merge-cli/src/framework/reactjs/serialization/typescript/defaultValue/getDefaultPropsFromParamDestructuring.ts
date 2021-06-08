@@ -1,7 +1,7 @@
 import * as ts from 'typescript';
+import { TSSerializationContext } from '../../../../../steps/serialization/component/implementation/typescript/context/getSerializationContext';
+import { getNodeName } from '../../../../../steps/serialization/component/implementation/typescript/node/getNodeName';
 import { DefaultProps } from '../component/getPropsTypeAndDefaultProps';
-import { TSSerializationContext } from '../context/getSerializationContext';
-import { getNodeName } from '../node/getNodeName';
 import { getDefaultPropertyValue, SupportedDefaultValue } from './getDefaultPropertyValue';
 
 export function getDefaultPropsFromParamDestructuring(

@@ -1,9 +1,9 @@
 import * as ts from 'typescript';
-import { TSSerializationContext } from '../context/getSerializationContext';
-import { getVariableStatement } from './getVariableStatement';
-import { isExported } from './isExported';
+import { getVariableStatement } from '../../../../../steps/serialization/component/implementation/typescript/component/getVariableStatement';
+import { isExported } from '../../../../../steps/serialization/component/implementation/typescript/component/isExported';
+import { isNodeExported } from '../../../../../steps/serialization/component/implementation/typescript/component/isNodeExported';
+import { TSSerializationContext } from '../../../../../steps/serialization/component/implementation/typescript/context/getSerializationContext';
 import { isFunctionalComponentWithReactForwardRef } from './isFunctionalComponentWithReactForwardRef';
-import { isNodeExported } from './isNodeExported';
 
 interface ComponentData {
   declaration:ts.ArrowFunction | ts.FunctionExpression | ts.VariableDeclaration | undefined;
