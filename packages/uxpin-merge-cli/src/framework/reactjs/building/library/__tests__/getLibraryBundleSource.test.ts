@@ -1,5 +1,5 @@
-import { ComponentImplementationInfo } from '../../../discovery/component/ComponentInfo';
-import { ComponentDefinition } from '../../../serialization/component/ComponentDefinition';
+import { ComponentImplementationInfo } from '../../../../../steps/discovery/component/ComponentInfo';
+import { ComponentDefinition } from '../../../../../steps/serialization/component/ComponentDefinition';
 import { getLibraryBundleSource } from '../getLibraryBundleSource';
 
 describe('getLibraryBundleSource', () => {

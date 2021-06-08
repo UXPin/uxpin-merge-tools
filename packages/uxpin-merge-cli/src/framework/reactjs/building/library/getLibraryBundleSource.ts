@@ -1,6 +1,6 @@
 import { parse, relative } from 'path';
-import { ComponentDefinition } from '../../serialization/component/ComponentDefinition';
-import { TEMP_DIR_PATH } from '../config/getConfig';
+import { TEMP_DIR_PATH } from '../../../../steps/building/config/getConfig';
+import { ComponentDefinition } from '../../../../steps/serialization/component/ComponentDefinition';
 
 const CLASS_NAME_WRAPPER:string = 'Wrapper';
 

@@ -1,3 +1,5 @@
+import { FrameworkNames } from '../../../framework/frameworkNames';
+
 export interface ComponentInfo {
   dirPath:string;
   implementation:ComponentImplementationInfo;
@@ -12,7 +14,7 @@ export interface ComponentImplementationInfo {
 }
 
 export type ComponentImplementationLang = 'javascript' | 'typescript';
-export type ComponentImplementationFramework = 'reactjs';
+export type ComponentImplementationFramework = keyof FrameworkNames;
 
 export interface ComponentDocumenationInfo {
   path:string;
