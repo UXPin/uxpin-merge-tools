@@ -11,7 +11,7 @@ const frameworkModules:FrameworkModules = {
 };
 
 export class Framework {
-  public static currentFrameworkName:FrameworkNames;
+  public static currentFrameworkName:FrameworkNames = FrameworkNames.reactjs;
 
   public static loadFrameworkModule<T extends ObjectName>(objectName:T):FrameworkModule[T] {
 	  const module:FrameworkModule = frameworkModules[Framework.currentFrameworkName];
