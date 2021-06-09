@@ -1,12 +1,12 @@
 import * as ts from 'typescript';
 import { ParsedComponentProperty } from '../../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
 import { TSSerializationContext } from '../../../../../steps/serialization/component/implementation/typescript/context/getSerializationContext';
-import { convertMethodSignatureSymbolToPropertyDefinition } from '../../../../../steps/serialization/component/implementation/typescript/property/symbol/convertMethodSignatureSymbolToPropertyDefinition';
-import { convertPropertySignatureSymbolToPropertyDefinition } from '../../../../../steps/serialization/component/implementation/typescript/property/symbol/convertPropertySignatureSymbolToPropertyDefinition';
-import { getValidSymbol } from '../../../../../steps/serialization/component/implementation/typescript/property/symbol/getValidSymbol';
-import { isMethodSignatureSymbol } from '../../../../../steps/serialization/component/implementation/typescript/property/symbol/isMethodSignatureSymbol';
-import { isPropertySignatureSymbol, PropertySymbol } from '../../../../../steps/serialization/component/implementation/typescript/property/symbol/isPropertySignatureSymbol';
 import { DefaultProps } from '../component/getPropsTypeAndDefaultProps';
+import { convertMethodSignatureSymbolToPropertyDefinition } from './symbol/convertMethodSignatureSymbolToPropertyDefinition';
+import { convertPropertySignatureSymbolToPropertyDefinition } from './symbol/convertPropertySignatureSymbolToPropertyDefinition';
+import { getValidSymbol } from './symbol/getValidSymbol';
+import { isMethodSignatureSymbol } from './symbol/isMethodSignatureSymbol';
+import { isPropertySignatureSymbol, PropertySymbol } from './symbol/isPropertySignatureSymbol';
 
 export function parseTSComponentProperty(
   context:TSSerializationContext,

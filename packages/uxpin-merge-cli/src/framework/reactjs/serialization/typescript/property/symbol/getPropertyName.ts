@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { getNodeName } from '../../node/getNodeName';
+import { getNodeName } from '../../../../../../steps/serialization/component/implementation/typescript/node/getNodeName';
 import { ReactPropertySymbol } from './ReactPropertySymbol';
 
 export function getPropertyName(methodSymbol:ReactPropertySymbol):string | undefined {

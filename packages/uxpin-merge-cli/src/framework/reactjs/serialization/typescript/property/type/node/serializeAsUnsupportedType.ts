@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { PropertyType } from '../../../../ComponentPropertyDefinition';
+import { PropertyType } from '../../../../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
 
 export function serializeAsUnsupportedType(declaration:ts.Type):PropertyType<'unsupported'> {
   return {

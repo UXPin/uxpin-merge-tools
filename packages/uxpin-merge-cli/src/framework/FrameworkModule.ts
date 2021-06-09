@@ -1,5 +1,6 @@
 
 export interface FrameworkModule {
+  KNOWN_PROPERTY_TYPES_MAP:any;
   getComponentMetadata:any;
   PresetFileGenerator:any;
   getLibraryBundleSource:any;

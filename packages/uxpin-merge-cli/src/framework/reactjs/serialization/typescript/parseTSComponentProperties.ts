@@ -4,12 +4,12 @@ import { ParsedComponentProperty } from '../../../../steps/serialization/compone
 import { PropDefinitionParsingResult } from '../../../../steps/serialization/component/implementation/PropDefinitionParsingResult';
 import { ComponentDeclaration } from '../../../../steps/serialization/component/implementation/typescript/component/getPropsTypeAndDefaultProps';
 import { TSSerializationContext } from '../../../../steps/serialization/component/implementation/typescript/context/getSerializationContext';
-import { getPropertiesFromType, TypeProps } from '../../../../steps/serialization/component/implementation/typescript/property/type/getPropertiesFromType';
 import { getComponentPropertiesDefinition } from './component/getComponentPropertiesDefinition';
 import {
   DefaultProps,
   getPropsTypeAndDefaultProps,
 } from './component/getPropsTypeAndDefaultProps';
+import { getPropertiesFromType, TypeProps } from './property/type/getPropertiesFromType';
 
 export function parseTSComponentProperties(
   context:TSSerializationContext,

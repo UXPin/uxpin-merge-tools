@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { PropertyType } from '../../../../ComponentPropertyDefinition';
+import { PropertyType } from '../../../../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
 
 export const KNOWN_TYPES_MAP:{ [typeName:string]:PropertyType } = {
   Array: { name: 'array', structure: {} },
