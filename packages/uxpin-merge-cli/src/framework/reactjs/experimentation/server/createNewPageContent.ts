@@ -1,12 +1,12 @@
-import { PageContent } from '../../../../../../common/types/PageData';
-import { getRandomString } from '../../../../../../utils/getRandomString';
-import { getAllComponentsFromCategories } from '../../../../../serialization/component/categories/getAllComponentsFromCategories';
-import { ComponentDefinition } from '../../../../../serialization/component/ComponentDefinition';
-import { DesignSystemSnapshot } from '../../../../../serialization/DesignSystemSnapshot';
-import { getComponentId } from '../data/codeSync/component/getComponentId';
-import { getDesignSystemId } from '../data/codeSync/getDesignSystemId';
-import { getPresetId } from '../data/codeSync/preset/getPresetId';
-import { PageContentContext } from './getPageContent';
+import { PageContent } from '../../../../common/types/PageData';
+import { PageContentContext } from '../../../../steps/experimentation/server/common/page/content/getPageContent';
+import { getComponentId } from '../../../../steps/experimentation/server/common/page/data/codeSync/component/getComponentId';
+import { getDesignSystemId } from '../../../../steps/experimentation/server/common/page/data/codeSync/getDesignSystemId';
+import { getPresetId } from '../../../../steps/experimentation/server/common/page/data/codeSync/preset/getPresetId';
+import { getAllComponentsFromCategories } from '../../../../steps/serialization/component/categories/getAllComponentsFromCategories';
+import { ComponentDefinition } from '../../../../steps/serialization/component/ComponentDefinition';
+import { DesignSystemSnapshot } from '../../../../steps/serialization/DesignSystemSnapshot';
+import { getRandomString } from '../../../../utils/getRandomString';
 
 // tslint:disable-next-line:no-var-requires
 

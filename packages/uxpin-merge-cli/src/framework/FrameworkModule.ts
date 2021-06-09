@@ -7,4 +7,5 @@ export interface FrameworkModule {
   getComponentDeclaration:any;
   decorateWithPresets:any;
   isDefaultExportedForwardRef:any; // only for react, for different framework should return false
+  createNewPageContent:any;
 }

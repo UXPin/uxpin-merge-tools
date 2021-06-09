@@ -1,5 +1,6 @@
 import { FrameworkModule } from '../FrameworkModule';
 import { getLibraryBundleSource } from './building/library/getLibraryBundleSource';
+import { createNewPageContent } from './experimentation/server/createNewPageContent';
 import { getComponentMetadata } from './getComponentMetadata';
 import { PresetFileGenerator } from './PresetFileGenerator/PresetFileGenerator';
 import { decorateWithPresets } from './serialization/presets/decorateWithPresets';
@@ -9,6 +10,7 @@ import { getSerializationContext } from './serialization/typescript/context/getS
 
 export const reactModule:FrameworkModule = {
   PresetFileGenerator,
+  createNewPageContent,
   decorateWithPresets,
   getComponentDeclaration,
   getComponentMetadata,

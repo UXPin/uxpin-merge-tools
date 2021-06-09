@@ -8,7 +8,6 @@ import { getJSDocTagsArrayFromString } from '../../../../steps/serialization/com
 import { CommentTags } from '../../../../steps/serialization/component/CommentTags';
 import { ComponentNamespace } from '../../../../steps/serialization/component/ComponentDefinition';
 import { ImplSerializationResult } from '../../../../steps/serialization/component/implementation/ImplSerializationResult';
-import { getComponentName } from '../../../../steps/serialization/component/implementation/javascript/getComponentName';
 import { getComponentNamespaceFromDescription } from '../../../../steps/serialization/component/implementation/javascript/getComponentNamespaceFromDescription';
 import { isDefaultExported } from '../../../../steps/serialization/component/implementation/javascript/isDefaultExported';
 import { PropDefinitionParsingResult } from '../../../../steps/serialization/component/implementation/PropDefinitionParsingResult';
@@ -17,6 +16,7 @@ import { serializeAndValidateParsedProperties } from '../../../../steps/serializ
 import { ComponentWrapper } from '../../../../steps/serialization/component/wrappers/ComponentWrapper';
 import { parseWrapperAnnotation } from '../../../../steps/serialization/component/wrappers/parseWrapperAnnotation';
 import { validateWrappers } from '../../../../steps/serialization/validation/validateWrappers';
+import { getComponentName } from './getComponentName';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 import { parsePropertyItem } from './parsePropertyItem';
 
