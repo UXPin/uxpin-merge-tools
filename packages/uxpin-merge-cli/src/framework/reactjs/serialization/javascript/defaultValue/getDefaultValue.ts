@@ -1,6 +1,6 @@
-import { Warned } from '../../../../../../common/warning/Warned';
-import { WarningDetails } from '../../../../../../common/warning/WarningDetails';
-import { ComponentPropertyDefinition } from '../../ComponentPropertyDefinition';
+import { Warned } from '../../../../../common/warning/Warned';
+import { WarningDetails } from '../../../../../common/warning/WarningDetails';
+import { ComponentPropertyDefinition } from '../../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
 import { GeneralPropItem } from '../FlowPropItem';
 import { parseValue } from './parseValue';
 

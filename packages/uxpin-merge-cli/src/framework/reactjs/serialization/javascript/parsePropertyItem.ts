@@ -1,11 +1,11 @@
 import pReduce = require('p-reduce');
 import { Warned } from '../../../../common/warning/Warned';
 import { ParsedComponentProperty } from '../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
-import { getDefaultValue } from '../../../../steps/serialization/component/implementation/javascript/defaultValue/getDefaultValue';
-import { GeneralPropItem } from '../../../../steps/serialization/component/implementation/javascript/FlowPropItem';
-import { getPropertyCustomDescriptorsWithWarnings } from '../../../../steps/serialization/component/implementation/javascript/props/getPropertyCustomDescriptorsWithWarnings';
-import { getPropertyDescriptionWithWarnings } from '../../../../steps/serialization/component/implementation/javascript/props/getPropertyDescriptionWithWarnings';
 import { PropDefinitionParsingResult } from '../../../../steps/serialization/component/implementation/PropDefinitionParsingResult';
+import { getDefaultValue } from './defaultValue/getDefaultValue';
+import { GeneralPropItem } from './FlowPropItem';
+import { getPropertyCustomDescriptorsWithWarnings } from './props/getPropertyCustomDescriptorsWithWarnings';
+import { getPropertyDescriptionWithWarnings } from './props/getPropertyDescriptionWithWarnings';
 import { getPropertyTypeWithWarnings } from './type/getPropertyTypeWithWarnings';
 
 export function parsePropertyItem(propName:string,

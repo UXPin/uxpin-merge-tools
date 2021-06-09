@@ -1,5 +1,5 @@
-import { Warned } from '../../../../../../../common/warning/Warned';
-import { CustomDescriptorsTags, ParsedPropertyDescriptors } from '../../../ComponentPropertyDefinition';
+import { Warned } from '../../../../../../common/warning/Warned';
+import { CustomDescriptorsTags, ParsedPropertyDescriptors } from '../../../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
 import { GeneralPropItem } from '../../FlowPropItem';
 import { getPropertyCustomDescriptorsWithWarnings } from '../getPropertyCustomDescriptorsWithWarnings';
 

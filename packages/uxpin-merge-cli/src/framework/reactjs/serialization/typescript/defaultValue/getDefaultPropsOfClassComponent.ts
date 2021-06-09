@@ -2,8 +2,8 @@ import * as ts from 'typescript';
 import { ClassComponentDeclaration } from '../../../../../steps/serialization/component/implementation/typescript/component/getPropsTypeAndDefaultProps';
 import { TSSerializationContext } from '../../../../../steps/serialization/component/implementation/typescript/context/getSerializationContext';
 import { getNodeName } from '../../../../../steps/serialization/component/implementation/typescript/node/getNodeName';
-import { isDefaultPropertiesStaticProperty } from '../../../../../steps/serialization/component/implementation/typescript/node/property/isDefaultPropertiesStaticProperty';
 import { DefaultProps } from '../component/getPropsTypeAndDefaultProps';
+import { isDefaultPropertiesStaticProperty } from '../node/property/isDefaultPropertiesStaticProperty';
 import { getDefaultPropertyValue, SupportedDefaultValue } from './getDefaultPropertyValue';
 
 export function getDefaultPropsOfClassComponent(

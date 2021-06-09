@@ -1,6 +1,6 @@
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentPropertyDefinition } from '../../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
-import { GeneralPropItem, isFlowPropItem  } from '../../../../../steps/serialization/component/implementation/javascript/FlowPropItem';
+import { GeneralPropItem, isFlowPropItem } from '../FlowPropItem';
 import { convertFlowPropertyTypeWithWarnings } from './flow/convertFlowPropertyTypeWithWarnings';
 import { convertReactPropertyTypeWithWarnings } from './react/convertReactPropertyTypeWithWarnings';
 

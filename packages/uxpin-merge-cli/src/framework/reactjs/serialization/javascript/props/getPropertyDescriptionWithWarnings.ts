@@ -1,5 +1,5 @@
-import { Warned } from '../../../../../../common/warning/Warned';
-import { ComponentPropertyDefinition } from '../../ComponentPropertyDefinition';
+import { Warned } from '../../../../../common/warning/Warned';
+import { ComponentPropertyDefinition } from '../../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
 import { GeneralPropItem } from '../FlowPropItem';
 import { getPropertyDescription } from './getPropertyDescription';
 

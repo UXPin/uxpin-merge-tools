@@ -1,5 +1,5 @@
 import { PropItem } from 'react-docgen-typescript/lib';
-import { FlowType } from '../../../../../types/babylon-ast';
+import { FlowType } from '../../../../types/babylon-ast';
 
 export interface FlowPropItem {
   required:boolean;

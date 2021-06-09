@@ -1,4 +1,4 @@
-import { CustomDescriptorsTags, ParsedPropertyDescriptors } from '../../../ComponentPropertyDefinition';
+import { CustomDescriptorsTags, ParsedPropertyDescriptors } from '../../../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
 import { getPropertyCustomDescriptors } from '../getPropertyCustomDescriptors';
 
 describe('getPropertyCustomDescriptors', () => {

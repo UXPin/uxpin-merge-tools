@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { getNodeName } from '../getNodeName';
+import { getNodeName } from '../../../../../../steps/serialization/component/implementation/typescript/node/getNodeName';
 import { isPrivateProperty } from './isPrivateProperty';
 import { isStaticProperty } from './isStaticProperty';
 

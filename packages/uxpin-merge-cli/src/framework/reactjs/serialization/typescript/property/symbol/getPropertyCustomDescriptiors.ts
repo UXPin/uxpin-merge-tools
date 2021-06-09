@@ -1,6 +1,6 @@
 import { ParsedPropertyDescriptors } from '../../../../../../steps/serialization/component/implementation/ComponentPropertyDefinition';
-import { parseTags } from '../../../../../../steps/serialization/component/implementation/javascript/props/parseTags';
 import { isValidDescriptor } from '../../../../../../steps/serialization/component/props/parsing/descriptors/isValidDescriptor';
+import { parseTags } from '../../../javascript/props/parseTags';
 import { ReactPropertySymbol } from './ReactPropertySymbol';
 
 export function getPropertyCustomDescriptors(
