@@ -1,4 +1,5 @@
 import pMapSeries = require('p-map-series');
+import { FileGenerator } from '../../../common/types/FileGenerator';
 import { Framework } from '../../../framework/framework';
 import { FrameworkModule } from '../../../framework/FrameworkModule';
 import { ComponentCategoryInfo } from '../../../steps/discovery/component/category/ComponentCategoryInfo';
@@ -21,7 +22,7 @@ async function generatePresetFile(path:string):Promise<void> {
     const PresetFileGenerator:FrameworkModule['PresetFileGenerator'] = Framework.loadFrameworkModule(
       'PresetFileGenerator',
     );
-    const presetFile:FrameworkModule['PresetFileGenerator'] = new PresetFileGenerator(path);
+    const presetFile:FileGenerator = new PresetFileGenerator(path);
     await presetFile.init();
     await presetFile.createPresetFile();
   } catch (e) {
