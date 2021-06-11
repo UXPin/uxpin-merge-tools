@@ -17,11 +17,11 @@ export class Framework {
 	  const module:FrameworkModule = frameworkModules[Framework.currentFrameworkName];
 
 	  if (!module) {
-		  throw new Error('Invalid framework name');
+		  throw new Error(`🛑 Invalid framework name - ${Framework.currentFrameworkName}`);
 	  }
 
 	  if (!module[objectName]) {
-		  throw new Error(`${objectName} does not exist in ${Framework.currentFrameworkName} module`);
+		  throw new Error(`🛑  ${objectName} does not exist in ${Framework.currentFrameworkName} module`);
 	  }
 
 	  return module[objectName];

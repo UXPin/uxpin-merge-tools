@@ -43,6 +43,10 @@ function copyDefaultFiles(args:InitProgramArgs):any {
     // config files
     getDefaultConfigFiles().forEach((file) => {
       const filePath:PathLike = `${projectRoot}/${file.target}`;
+      if (!existsSync(`${RESOURCES_PATH}/${file.source}`)) {
+        throw new Error(`🛑 Init command does not support framework - ${Framework.currentFrameworkName}`);
+      }
+
       if (!existsSync(filePath)) {
         copySync(resolve(__dirname, `${RESOURCES_PATH}/${file.source}`), filePath);
         printLine(`✅ Successfully created ${filePath}`, { color: PrintColor.GREEN });
