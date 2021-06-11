@@ -7,7 +7,9 @@ import { InitProgramArgs } from '../../args/ProgramArgs';
 import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
 import { Step } from '../Step';
 
-const RESOURCES_PATH:PathLike = '../../../resources';
+function getResourcesPath():PathLike {
+  return `../../../framework/${Framework.currentFrameworkName}/resources`;
+}
 
 export interface DefaultFile {
   source:PathLike;
@@ -16,17 +18,16 @@ export interface DefaultFile {
 
 function getDefaultConfigFiles():DefaultFile[] {
   return [
-    { source: `${Framework.currentFrameworkName}/uxpin.config.js`, target: 'uxpin.config.js' },
-    { source: `${Framework.currentFrameworkName}/uxpin.webpack.config.js`, target: 'uxpin.webpack.config.js' },
-    { source: `${Framework.currentFrameworkName}/UXPinWrapper.js`,
-      target: 'src/components/UXPinWrapper/UXPinWrapper.js',
+    { source: `uxpin.config.js`, target: 'uxpin.config.js' },
+    { source: `uxpin.webpack.config.js`, target: 'uxpin.webpack.config.js' },
+    { source: `UXPinWrapper.js`, target: 'src/components/UXPinWrapper/UXPinWrapper.js',
     },
   ];
 }
 
 function getExampleComponent():DefaultFile {
   return {
-    source: `${Framework.currentFrameworkName}/Button`,
+    source: `Button`,
     target: 'src/components/Button',
   };
 }
@@ -43,12 +44,12 @@ function copyDefaultFiles(args:InitProgramArgs):any {
     // config files
     getDefaultConfigFiles().forEach((file) => {
       const filePath:PathLike = `${projectRoot}/${file.target}`;
-      if (!existsSync(`${RESOURCES_PATH}/${file.source}`)) {
+      if (!existsSync(resolve(__dirname, `${getResourcesPath()}/${file.source}`))) {
         throw new Error(`🛑 Init command does not support framework - ${Framework.currentFrameworkName}`);
       }
 
       if (!existsSync(filePath)) {
-        copySync(resolve(__dirname, `${RESOURCES_PATH}/${file.source}`), filePath);
+        copySync(resolve(__dirname, `${getResourcesPath()}/${file.source}`), filePath);
         printLine(`✅ Successfully created ${filePath}`, { color: PrintColor.GREEN });
       }
     });
@@ -56,7 +57,7 @@ function copyDefaultFiles(args:InitProgramArgs):any {
     // default component
     const componentPath:PathLike = `${projectRoot}/${getExampleComponent().target}`;
     if (!existsSync(componentPath)) {
-      copySync(resolve(__dirname, `${RESOURCES_PATH}/${getExampleComponent().source}`), componentPath);
+      copySync(resolve(__dirname, `${getResourcesPath()}/${getExampleComponent().source}`), componentPath);
       printLine(`✅ Successfully created example component in ${componentPath}`, { color: PrintColor.GREEN });
     }
   } catch (error) {
