@@ -14,16 +14,16 @@ export class Framework {
   public static currentFrameworkName:FrameworkNames = FrameworkNames.reactjs;
 
   public static loadFrameworkModule<T extends ObjectName>(objectName:T):FrameworkModule[T] {
-	  const module:FrameworkModule = frameworkModules[Framework.currentFrameworkName];
+    const module:FrameworkModule = frameworkModules[Framework.currentFrameworkName];
 
-	  if (!module) {
-		  throw new Error(`🛑 Invalid framework name - ${Framework.currentFrameworkName}`);
-	  }
+    if (!module) {
+    	throw new Error(`🛑 Invalid framework name - ${Framework.currentFrameworkName}`);
+    }
 
-	  if (!module[objectName]) {
-		  throw new Error(`🛑  ${objectName} does not exist in ${Framework.currentFrameworkName} module`);
-	  }
+    if (!module[objectName]) {
+      throw new Error(`🛑  ${objectName} does not exist in ${Framework.currentFrameworkName} module`);
+    }
 
-	  return module[objectName];
+    return module[objectName];
   }
 }
