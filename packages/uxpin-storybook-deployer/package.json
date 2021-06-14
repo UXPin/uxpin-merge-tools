@@ -1,11 +1,18 @@
 {
-  "name": "uxpin-storybook-deployer",
+  "name": "@uxpin/storybook-deployer",
   "version": "1.0.0",
   "description": "CLI to deploy static Storybook to UXPin",
   "main": "index.js",
   "repository": "https://github.com/UXPin/uxpin-storybook-deployer",
   "author": "dev@uxpin.com",
   "license": "MIT",
+  "files": [
+    "bin/uxpin-storybook-deployer",
+    "src/deploy.js"
+  ],
+  "bin": {
+    "uxpin-storybook-deployer": "bin/uxpin-storybook-deployer"
+  },
   "scripts": {
     "build": "tsc",
     "build-watch": "tsc --watch",
