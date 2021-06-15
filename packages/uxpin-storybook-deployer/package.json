@@ -6,7 +6,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/UXPin/uxpin-merge-tools",
-    "directory": "packages/uxpin-storybook-deployer",
+    "directory": "packages/uxpin-storybook-deployer"
   },
   "author": "dev@uxpin.com",
   "license": "MIT",
