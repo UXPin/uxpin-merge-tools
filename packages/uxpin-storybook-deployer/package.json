@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "CLI to deploy static Storybook to UXPin",
   "main": "index.js",
-  "repository": "https://github.com/UXPin/uxpin-storybook-deployer",
+  "repository": "https://github.com/UXPin/uxpin-merge-tools",
   "author": "dev@uxpin.com",
   "license": "MIT",
   "files": [
