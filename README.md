@@ -8,6 +8,7 @@ This repository contains open-source packages that make it easier to integrate y
 Currently this repository contains one package:
 
 * [uxpin-merge-cli](packages/uxpin-merge-cli/README.md) – a command-line tool to preview your design system locally and push it to UXPin Merge.
+* [uxpin-storybook-deployer](packages/uxpin-storybook-deployer/README.md) – a command-line tool to deploy Storybook to UXPin for Private Storybook Integration.
 
 ## Bugs and Issues
 

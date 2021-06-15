@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const Option = program.Option;
+const { deploy } = require('../src/deploy')
+const DEFAULT_STORYBOOK_STATIC_DIR = 'storybook-static'
+
+program
+  .description('`uxpin-storybook-deployer` uploads your static storybook to UXPin')
+  .option('-s --source <path>', 'path to directory where storybook build locates', DEFAULT_STORYBOOK_STATIC_DIR)
+  .requiredOption('-t --token <token>', 'auth token for the library.')
+  .addOption(new Option('--uxpin-domain <domain>').hideHelp())
+
+program.parse(process.argv);
+
+deploy(program.opts());
