@@ -1,5 +1,5 @@
+import { AxiosResponse } from 'axios';
 import { NO_CONTENT } from 'http-status-codes';
-import { Response } from 'request';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
@@ -7,14 +7,14 @@ const CURRENT_TIMEOUT:number = 20_000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server - handling repository pointer', () => {
-  const { request } = setupExperimentationServerTest();
+  const { axiosPromise } = setupExperimentationServerTest();
 
   it('should responds with NO_CONTENT status code', async () => {
     // when
-    const response:Response = await request('/code/repositoryPointer', { resolveWithFullResponse: true });
+    const response:AxiosResponse = await axiosPromise('/code/repositoryPointer', {});
 
     // then
-    expect(response.statusCode).toEqual(NO_CONTENT);
+    expect(response.status).toEqual(NO_CONTENT);
   });
 
   it('should responds with correct CORS headers', async () => {
@@ -27,9 +27,8 @@ describe('Experimentation server - handling repository pointer', () => {
     };
 
     // when
-    const response:Response = await request('/code/repositoryPointer', {
+    const response:AxiosResponse = await axiosPromise('/code/repositoryPointer', {
       headers: { origin },
-      resolveWithFullResponse: true,
     });
 
     // then

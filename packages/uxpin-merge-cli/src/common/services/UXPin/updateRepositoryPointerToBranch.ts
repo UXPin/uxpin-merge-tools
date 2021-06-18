@@ -1,5 +1,5 @@
 import { isTestEnv } from '../../../program/env/isTestEnv';
-import { requestPromiseWithEnhancedError } from '../../../utils/requestPromiseWithEnhancedError';
+import { axiosWithEnhancedError } from '../../../utils/axiosWithEnhancedError';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 import { encodeBranchName } from './params/encodeBranchName';
@@ -30,8 +30,8 @@ export async function updateRepositoryPointerToBranch(
 
   const branchName:string = encodeBranchName(opts.branch);
 
-  return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/update-repository-pointer`, {
-    body: {
+  return axiosWithEnhancedError({
+    data: {
       commitHash: opts.commitHash,
       pointerName: branchName,
       pointerType: RepositoryPointerType.Branch,
@@ -40,8 +40,8 @@ export async function updateRepositoryPointerToBranch(
       ...getAuthHeaders(opts.authToken),
       ...getUserAgentHeaders(),
     },
-    json: true,
     method: 'POST',
-  })
-    .then(() => undefined);
+    responseType: 'json',
+    url: `${opts.apiDomain}/code/v/1.0/update-repository-pointer`,
+  }).then(() => undefined);
 }

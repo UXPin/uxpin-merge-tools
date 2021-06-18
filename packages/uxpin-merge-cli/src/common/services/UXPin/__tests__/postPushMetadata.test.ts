@@ -1,11 +1,9 @@
-import * as requestPromise from 'request-promise';
+import axios, { AxiosStatic } from 'axios';
 import { DSMetadata } from '../../../../program/DSMeta';
 import { postPushMetadata, PushMetadataResponse } from '../postPushMetadata';
 
-jest.mock('request-promise');
-
-const requestPromiseMock:jest.Mock<typeof requestPromise> =
-  requestPromise as unknown as jest.Mock<typeof requestPromise>;
+jest.mock('axios');
+const axiosMock:jest.Mock<AxiosStatic> = axios as unknown as jest.Mock<AxiosStatic>;
 
 describe('postPushMetadata', () => {
   const domain:string = 'https://uxpin.mock';
@@ -23,35 +21,35 @@ describe('postPushMetadata', () => {
   };
 
   beforeEach(() => {
-    requestPromiseMock.mockRestore();
+    axiosMock.mockRestore();
   });
 
   describe('request', () => {
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({}));
+      axiosMock.mockImplementation(() => Promise.resolve({}));
 
       // when
       await postPushMetadata(domain, token, metadata);
     });
 
     it('should call proper url', () => {
-      const [url] = requestPromiseMock.mock.calls[0];
-      expect(url).toEqual('https://uxpin.mock/code/v/1.0/push');
+      const [options] = axiosMock.mock.calls[0];
+      expect(options.url).toEqual('https://uxpin.mock/code/v/1.0/push');
     });
 
     it('should use proper HTTP method', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
+      const [options] = axiosMock.mock.calls[0];
       expect(options.method).toEqual('POST');
     });
 
     it('should use proper auth-token', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
+      const [options] = axiosMock.mock.calls[0];
       expect(options.headers['auth-token']).toEqual('token');
     });
 
     it('should have User-Agent header', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
+      const [options] = axiosMock.mock.calls[0];
       expect(options.headers['User-Agent']).toContain('uxpin-merge-cli');
     });
   });
@@ -61,9 +59,9 @@ describe('postPushMetadata', () => {
 
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({
+      axiosMock.mockImplementation(() => Promise.resolve({data: {
         message: 'Design System snapshot has been uploaded successfully',
-      }));
+      }}));
 
       // when
       response = await postPushMetadata(domain, token, metadata);
@@ -77,14 +75,13 @@ describe('postPushMetadata', () => {
   describe('HTTP 401', () => {
     beforeEach(() => {
       // given
-      requestPromiseMock.mockImplementation(() => {
-        return Promise.reject({
-          error: {
-            error: 'Unauthorized',
-            message: 'Incorrect authorization token',
-            statusCode: 401,
-          },
-        });
+      axiosMock.mockImplementation(() => {
+        return Promise.reject({response: {data: {
+          error: 'Unauthorized',
+          message: 'Incorrect authorization token',
+          statusCode: 401,
+        },
+        }});
       });
     });
 
