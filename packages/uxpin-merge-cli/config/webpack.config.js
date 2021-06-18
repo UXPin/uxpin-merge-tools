@@ -2,9 +2,9 @@ const { resolve } = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/debug/server/frontEnd/App.js',
+  entry: './src/framework/reactjs/debug/App.js',
   output: {
-    path: resolve(__dirname, '../dist/debug/server'),
+    path: resolve(__dirname, '../dist/debug/server-reactjs'),
     filename: 'index.js',
   },
   resolve: {

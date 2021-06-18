@@ -1,8 +1,8 @@
 import * as ts from 'typescript';
+import { Framework } from '../../../../../../framework/framework';
 import { hasUXPinComponentComment } from '../comments/hasUXPinComponentComment';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import { getNodeName } from '../node/getNodeName';
-import { isDefaultExportedForwardRef } from './findExportedFunctionWithReactForwardRef';
 import { getComponentName } from './getComponentName';
 import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
 import { isExported } from './isExported';
@@ -77,7 +77,7 @@ export function isDefaultExported(declaration:ComponentDeclaration, context:TSSe
     }
 
     // export default forwardRef<HTMLBaseElement, Props>((props) => {}
-    if (isDefaultExportedForwardRef(node)) {
+    if (Framework.loadFrameworkModule('isDefaultExportedForwardRef')(node)) {
       isDefault = true;
     }
   });

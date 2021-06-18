@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { KNOWN_TYPES_MAP } from '../node/serializeKnownPropertyType';
+import { Framework } from '../../../../../../../../framework/framework';
 import { isObjectLike } from './isObjectLike';
 import { isUnion } from './isUnion';
 
@@ -9,6 +9,8 @@ export function isKnownPropertyType(type:ts.Type):boolean {
   return (
     (isObjectLike(type) || isUnion(type))
       && typeSymbol
-      && typeSymbol.escapedName.toString() in KNOWN_TYPES_MAP
+      && typeSymbol.escapedName.toString() in Framework.loadFrameworkModule(
+        'KNOWN_PROPERTY_TYPES_MAP',
+    )
   );
 }

@@ -1,7 +1,7 @@
 import { pathExists } from 'fs-extra';
 import { PageContent } from '../../../../../../common/types/PageData';
+import { Framework } from '../../../../../../framework/framework';
 import { DesignSystemSnapshot } from '../../../../../serialization/DesignSystemSnapshot';
-import { createNewPageContent } from './createNewPageContent';
 import { getPageContentFilePath } from './getPageContentFilePath';
 import { readPageContent } from './readPageContent';
 import { writePageContent } from './writePageContent';
@@ -12,7 +12,9 @@ export async function getPageContent(
 ):Promise<PageContent> {
   const { uxpinDirPath } = contentContext;
   if (!await existsPageFile(uxpinDirPath)) {
-    const freshPageContent:PageContent = await createNewPageContent(contentContext, metadata);
+    const freshPageContent:PageContent = await Framework.loadFrameworkModule(
+      'createNewPageContent',
+    )(contentContext, metadata);
     await writePageContent(uxpinDirPath, freshPageContent);
   }
   return readPageContent(uxpinDirPath);

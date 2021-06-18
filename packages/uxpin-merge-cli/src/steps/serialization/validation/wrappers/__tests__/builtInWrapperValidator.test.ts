@@ -1,11 +1,12 @@
 import { Warned } from '../../../../../common/warning/Warned';
+import { FrameworkNames } from '../../../../../framework/frameworkNames';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { BuiltInWrappers, ComponentWrapper, ComponentWrapperType } from '../../../component/wrappers/ComponentWrapper';
 import { builtInWrapperValidator } from '../builtInWrapperValidator';
 
 describe('isBuiltInWrapperValidator', () => {
   const implInfo:ComponentImplementationInfo = {
-    framework: 'reactjs',
+    framework: FrameworkNames.reactjs,
     lang: 'typescript',
     path: './somePath/',
   };

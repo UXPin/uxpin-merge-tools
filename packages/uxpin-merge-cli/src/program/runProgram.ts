@@ -1,4 +1,5 @@
 import pMapSeries = require('p-map-series');
+import { Framework } from '../framework/framework';
 import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
@@ -19,6 +20,7 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
     setNodeEnv(process.env.UXPIN_ENV);
     printCurrentVersionInfo();
     const programArgs:ProgramArgs = getProgramArgs(program);
+    Framework.currentFrameworkName = programArgs.framework;
     await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
   } catch (error) {

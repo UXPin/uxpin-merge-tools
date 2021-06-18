@@ -1,4 +1,5 @@
 import { values } from 'lodash';
+import { FrameworkNames } from '../../../../framework/frameworkNames';
 import { ComponentCategory } from '../../component/categories/ComponentCategory';
 import { MovedFilePathsMap } from '../../DesignSystemSnapshot';
 import { filterMovedFiles } from '../filterMovedFiles';
@@ -28,7 +29,7 @@ describe('filterMovedFiles', () => {
             info: {
               dirPath: 'src/NewFoo',
               implementation: {
-                framework: 'reactjs',
+                framework: FrameworkNames.reactjs,
                 lang: 'javascript',
                 path: 'src/NewFoo/NewFoo.js',
               },
@@ -48,7 +49,7 @@ describe('filterMovedFiles', () => {
             info: {
               dirPath: 'src/NewBar',
               implementation: {
-                framework: 'reactjs',
+                framework: FrameworkNames.reactjs,
                 lang: 'javascript',
                 path: 'src/NewBar/NewBar.js',
               },

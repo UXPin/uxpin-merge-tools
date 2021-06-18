@@ -1,12 +1,13 @@
 import { resolve } from 'path';
 import { Warned } from '../../../../../common/warning/Warned';
+import { FrameworkNames } from '../../../../../framework/frameworkNames';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { BuiltInWrappers, ComponentWrapper, ComponentWrapperType } from '../../../component/wrappers/ComponentWrapper';
 import { customWrapperPathValidator } from '../customWrapperPathValidator';
 
 describe('customWrapperPathValidator', () => {
   const implInfo:ComponentImplementationInfo = {
-    framework: 'reactjs',
+    framework: FrameworkNames.reactjs,
     lang: 'typescript',
     path: resolve(__dirname, '../../../../../../', 'test/resources/designSystems/withWrappers/Button.js'),
   };
