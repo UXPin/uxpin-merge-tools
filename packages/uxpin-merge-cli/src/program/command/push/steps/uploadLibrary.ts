@@ -4,7 +4,7 @@ import { getApiDomain } from '../../../../common/services/UXPin/getApiDomain';
 import { getLatestCommitHash } from '../../../../common/services/UXPin/getLatestCommitHash';
 import { postPushMetadata } from '../../../../common/services/UXPin/postPushMetadata';
 import { postUploadBundle } from '../../../../common/services/UXPin/postUploadBundle';
-import { updateRepositoryPointerToBranch } from '../../../../common/services/UXPin/updateRepositoryPointerToBranch';
+import { updateRepositoryPointerToBranchOrTag } from '../../../../common/services/UXPin/updateRepositoryPointerToBranchOrTag';
 import { DSMetadata } from '../../../../program/DSMeta';
 import { BuildOptions } from '../../../../steps/building/BuildOptions';
 import { LIBRARY_OUTPUT_FILENAME } from '../../../../steps/building/config/getConfig';
@@ -23,6 +23,7 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     const commitHash:string = vcsDetails.commitHash;
     const path:string = resolve(buildOptions.uxpinDirPath, LIBRARY_OUTPUT_FILENAME);
     const branch:string = vcsDetails && vcsDetails.branchName ? vcsDetails.branchName : DEFAULT_BRANCH_NAME;
+    const tag:string = buildOptions.tag!;
 
     // Get the latest commit hash known by the backend
     // NOTE: if the branch has changed locally, but latest commit has not (so a fresh branch)
@@ -52,11 +53,12 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
       printLine('✅ Library is up-to-date!', { color: PrintColor.GREEN });
 
       // Update the repository pointer to point to the new branch
-      await updateRepositoryPointerToBranch({
+      await updateRepositoryPointerToBranchOrTag({
         apiDomain,
         authToken,
         branch,
         commitHash,
+        tag,
       });
 
       printLine(
@@ -93,11 +95,12 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     }
 
     try {
-      await updateRepositoryPointerToBranch({
+      await updateRepositoryPointerToBranchOrTag({
         apiDomain,
         authToken,
         branch,
         commitHash,
+        tag,
       });
       printLine(`✅ Projects set to use DS branch [${vcsDetails.branchName}]!`, { color: PrintColor.GREEN });
     } catch (error) {
