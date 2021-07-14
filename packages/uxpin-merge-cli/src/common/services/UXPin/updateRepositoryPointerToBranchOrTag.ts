@@ -27,10 +27,16 @@ export async function updateRepositoryPointerToBranchOrTag(
   if (!opts.apiDomain) { throw new Error('Missing API domain for repository pointer update'); }
   if (!opts.commitHash) { throw new Error('Missing commit hash for repository pointer update'); }
   if (!opts.authToken) { throw new Error('Missing auth token for repository pointer update'); }
+  if (!opts.branch) { throw new Error('Missing branch name for repository pointer update'); }
 
   // If an optional tag was provided then we need to make a duplicate repository
   // pointer with type 'tag' that points to the same commit hash
   if (opts.tag) {
+    // Temp condition: 1.0 is a tag that hypothetically exists
+    if (opts.tag === '1.0') {
+      throw new Error(`This tag [${opts.tag}] already exists. Please provide another identifer and try again.`);
+    }
+
     updateRepositoryPointerToTag(opts)
       .then(() => undefined);
   }
@@ -47,8 +53,6 @@ async function updateRepositoryPointerToBranch(
     commitHash:string,
     tag:string,
   }):Promise<void> {
-
-  if (!opts.branch) { throw new Error('Missing branch name for repository pointer update'); }
 
   const branchName:string = encodeBranchName(opts.branch);
 
@@ -76,8 +80,6 @@ async function updateRepositoryPointerToTag(
     commitHash:string,
     tag:string,
   }):Promise<void> {
-
-  if (!opts.tag) { throw new Error('Missing tag for repository pointer update'); }
 
   return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/update-repository-pointer`, {
     body: {

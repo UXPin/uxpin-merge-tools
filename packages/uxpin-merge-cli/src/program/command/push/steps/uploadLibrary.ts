@@ -48,23 +48,40 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     }
 
     // If the backend already has the commit we're trying to push,
-    // Update the repository pointer to the current branch and exit early
+    // Update the repository pointer to the current branch/tag and exit early
     if (isSameVersion(designSystem.result)) {
-      printLine('✅ Library is up-to-date!', { color: PrintColor.GREEN });
+      try {
+        printLine('✅ Library is up-to-date!', { color: PrintColor.GREEN });
 
-      // Update the repository pointer to point to the new branch
-      await updateRepositoryPointerToBranchOrTag({
-        apiDomain,
-        authToken,
-        branch,
-        commitHash,
-        tag,
-      });
+        // Update the repository pointer to point to the new branch and/or tag
+        await updateRepositoryPointerToBranchOrTag({
+          apiDomain,
+          authToken,
+          branch,
+          commitHash,
+          tag,
+        });
 
-      printLine(
-        `🛈  Projects using this Design System have been updated to branch [${branch}]`,
-        { color: PrintColor.CYAN },
-      );
+        printLine(
+          `🛈  Projects using this Design System have been updated to branch [${branch}]`,
+          { color: PrintColor.CYAN },
+        );
+
+        if (tag) {
+          printLine(
+            `🏷️  Library tagged at this point in time with tag [${tag}] at commit hash [${commitHash}]`,
+            { color: PrintColor.YELLOW },
+          );
+        }
+
+        return designSystem;
+      } catch (error) {
+        printLine(
+          `🛑 There was an error while updating the branch or tag design system pointers.`,
+          { color: PrintColor.RED },
+        );
+        throw new Error(error.message);
+      }
 
       return designSystem;
     }
@@ -103,9 +120,17 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
         tag,
       });
       printLine(`✅ Projects set to use DS branch [${vcsDetails.branchName}]!`, { color: PrintColor.GREEN });
+
+      if (tag) {
+        printLine(
+          `🏷️  Library tagged at this point in time with tag [${tag}] at commit hash [${commitHash}]`,
+          { color: PrintColor.YELLOW },
+        );
+      }
+
     } catch (error) {
       printLine(
-        `🛑 There was an error while updating design system pointers [${vcsDetails.branchName}] .`,
+        `🛑 There was an error while updating the branch or tag design system pointers.`,
         { color: PrintColor.RED },
       );
       throw new Error(error.message);
