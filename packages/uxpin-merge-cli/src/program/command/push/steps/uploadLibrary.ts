@@ -4,7 +4,7 @@ import { getApiDomain } from '../../../../common/services/UXPin/getApiDomain';
 import { getLatestCommitHash } from '../../../../common/services/UXPin/getLatestCommitHash';
 import { postPushMetadata } from '../../../../common/services/UXPin/postPushMetadata';
 import { postUploadBundle } from '../../../../common/services/UXPin/postUploadBundle';
-import { updateRepositoryPointerToBranch } from '../../../../common/services/UXPin/updateRepositoryPointerToBranch';
+import { updateRepositoryPointerToBranchOrTag } from '../../../../common/services/UXPin/updateRepositoryPointerToBranchOrTag';
 import { DSMetadata } from '../../../../program/DSMeta';
 import { BuildOptions } from '../../../../steps/building/BuildOptions';
 import { LIBRARY_OUTPUT_FILENAME } from '../../../../steps/building/config/getConfig';
@@ -23,6 +23,7 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     const commitHash:string = vcsDetails.commitHash;
     const path:string = resolve(buildOptions.uxpinDirPath, LIBRARY_OUTPUT_FILENAME);
     const branch:string = vcsDetails && vcsDetails.branchName ? vcsDetails.branchName : DEFAULT_BRANCH_NAME;
+    const tag:string = buildOptions.tag!;
 
     // Get the latest commit hash known by the backend
     // NOTE: if the branch has changed locally, but latest commit has not (so a fresh branch)
@@ -47,22 +48,40 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     }
 
     // If the backend already has the commit we're trying to push,
-    // Update the repository pointer to the current branch and exit early
+    // Update the repository pointer to the current branch/tag and exit early
     if (isSameVersion(designSystem.result)) {
-      printLine('✅ Library is up-to-date!', { color: PrintColor.GREEN });
+      try {
+        printLine('✅ Library is up-to-date!', { color: PrintColor.GREEN });
 
-      // Update the repository pointer to point to the new branch
-      await updateRepositoryPointerToBranch({
-        apiDomain,
-        authToken,
-        branch,
-        commitHash,
-      });
+        // Update the repository pointer to point to the new branch and/or tag
+        await updateRepositoryPointerToBranchOrTag({
+          apiDomain,
+          authToken,
+          branch,
+          commitHash,
+          tag,
+        });
 
-      printLine(
-        `🛈  Projects using this Design System have been updated to branch [${branch}]`,
-        { color: PrintColor.CYAN },
-      );
+        printLine(
+          `🛈  Projects using this Design System have been updated to branch [${branch}]`,
+          { color: PrintColor.CYAN },
+        );
+
+        if (tag) {
+          printLine(
+            `🏷️  Library tagged at this point in time with tag [${tag}] at commit hash [${commitHash}]`,
+            { color: PrintColor.YELLOW },
+          );
+        }
+
+        return designSystem;
+      } catch (error) {
+        printLine(
+          `🛑 There was an error while updating the branch or tag design system pointers.`,
+          { color: PrintColor.RED },
+        );
+        throw new Error(error.message);
+      }
 
       return designSystem;
     }
@@ -93,16 +112,25 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     }
 
     try {
-      await updateRepositoryPointerToBranch({
+      await updateRepositoryPointerToBranchOrTag({
         apiDomain,
         authToken,
         branch,
         commitHash,
+        tag,
       });
       printLine(`✅ Projects set to use DS branch [${vcsDetails.branchName}]!`, { color: PrintColor.GREEN });
+
+      if (tag) {
+        printLine(
+          `🏷️  Library tagged at this point in time with tag [${tag}] at commit hash [${commitHash}]`,
+          { color: PrintColor.YELLOW },
+        );
+      }
+
     } catch (error) {
       printLine(
-        `🛑 There was an error while updating design system pointers [${vcsDetails.branchName}] .`,
+        `🛑 There was an error while updating the branch or tag design system pointers.`,
         { color: PrintColor.RED },
       );
       throw new Error(error.message);
