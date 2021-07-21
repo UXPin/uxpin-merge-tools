@@ -37,8 +37,12 @@ export async function updateRepositoryPointerToBranchOrTag(
       throw new Error(`This tag [${opts.tag}] already exists. Please provide another identifer and try again.`);
     }
 
-    updateRepositoryPointerToTag(opts)
-      .then(() => undefined);
+    try {
+      await createTag(opts)
+        .then(() => undefined);
+    } catch (error) {
+      throw new Error('Unable to create Tag');
+    }
   }
 
   return updateRepositoryPointerToBranch(opts)
@@ -72,7 +76,7 @@ async function updateRepositoryPointerToBranch(
     .then(() => undefined);
 }
 
-async function updateRepositoryPointerToTag(
+async function createTag(
   opts:{
     apiDomain:string,
     authToken:string,
@@ -81,8 +85,9 @@ async function updateRepositoryPointerToTag(
     tag:string,
   }):Promise<void> {
 
-  return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/update-repository-pointer`, {
+  return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/create-tag`, {
     body: {
+      authToken: opts.authToken,
       commitHash: opts.commitHash,
       pointerName: opts.tag,
       pointerType: RepositoryPointerType.Tag,
