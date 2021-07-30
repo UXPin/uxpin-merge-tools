@@ -32,16 +32,12 @@ export async function updateRepositoryPointerToBranchOrTag(
   // If an optional tag was provided then we need to make a duplicate repository
   // pointer with type 'tag' that points to the same commit hash
   if (opts.tag) {
-    // Temp condition: 1.0 is a tag that hypothetically exists
-    if (opts.tag === '1.0') {
-      throw new Error(`This tag [${opts.tag}] already exists. Please provide another identifer and try again.`);
-    }
-
     try {
       await createTag(opts)
         .then(() => undefined);
     } catch (error) {
-      throw new Error('Unable to create Tag');
+      // Could throw error if the tag already exists
+      throw new Error(error.message);
     }
   }
 
