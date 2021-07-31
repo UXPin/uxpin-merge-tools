@@ -1,10 +1,11 @@
 import { resolve } from 'path';
 import { DEFAULT_BRANCH_NAME } from '../../../../common/constants';
+import { createTag } from '../../../../common/services/UXPin/createTag';
 import { getApiDomain } from '../../../../common/services/UXPin/getApiDomain';
 import { getLatestCommitHash } from '../../../../common/services/UXPin/getLatestCommitHash';
 import { postPushMetadata } from '../../../../common/services/UXPin/postPushMetadata';
 import { postUploadBundle } from '../../../../common/services/UXPin/postUploadBundle';
-import { updateRepositoryPointerToBranchOrTag } from '../../../../common/services/UXPin/updateRepositoryPointerToBranchOrTag';
+import { updateRepositoryPointerToBranch } from '../../../../common/services/UXPin/updateRepositoryPointerToBranch';
 import { DSMetadata } from '../../../../program/DSMeta';
 import { BuildOptions } from '../../../../steps/building/BuildOptions';
 import { LIBRARY_OUTPUT_FILENAME } from '../../../../steps/building/config/getConfig';
@@ -48,18 +49,17 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     }
 
     // If the backend already has the commit we're trying to push,
-    // Update the repository pointer to the current branch/tag and exit early
+    // Update the repository pointer to the current branch and exit early
     if (isSameVersion(designSystem.result)) {
       try {
         printLine('✅ Library is up-to-date!', { color: PrintColor.GREEN });
 
-        // Update the repository pointer to point to the new branch and/or tag
-        await updateRepositoryPointerToBranchOrTag({
+        // Update the repository pointer to point to the new branch
+        await updateRepositoryPointerToBranch({
           apiDomain,
           authToken,
           branch,
           commitHash,
-          tag,
         });
 
         printLine(
@@ -68,6 +68,13 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
         );
 
         if (tag) {
+          await createTag({
+            apiDomain,
+            authToken,
+            commitHash,
+            tag,
+          });
+
           printLine(
             `🏷️  Library tagged at this point in time with tag [${tag}] at commit hash [${commitHash}]`,
             { color: PrintColor.YELLOW },
@@ -112,16 +119,22 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     }
 
     try {
-      await updateRepositoryPointerToBranchOrTag({
+      await updateRepositoryPointerToBranch({
         apiDomain,
         authToken,
         branch,
         commitHash,
-        tag,
       });
       printLine(`✅ Projects set to use DS branch [${vcsDetails.branchName}]!`, { color: PrintColor.GREEN });
 
       if (tag) {
+        await createTag({
+          apiDomain,
+          authToken,
+          commitHash,
+          tag,
+        });
+
         printLine(
           `🏷️  Library tagged at this point in time with tag [${tag}] at commit hash [${commitHash}]`,
           { color: PrintColor.YELLOW },
