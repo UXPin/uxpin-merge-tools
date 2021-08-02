@@ -2,7 +2,6 @@ import { isTestEnv } from '../../../program/env/isTestEnv';
 import { requestPromiseWithEnhancedError } from '../../../utils/requestPromiseWithEnhancedError';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
-import { RepositoryPointerType } from './updateRepositoryPointerToBranch';
 
 export async function createTag(
   opts:{
@@ -20,8 +19,7 @@ export async function createTag(
   return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/create-tag`, {
     body: {
       commitHash: opts.commitHash,
-      pointerName: opts.tag,
-      pointerType: RepositoryPointerType.Tag,
+      tagName: opts.tag,
     },
     headers: {
       ...getAuthHeaders(opts.authToken),
