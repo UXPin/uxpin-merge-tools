@@ -17,35 +17,8 @@ export async function createTag(
     return Promise.resolve();
   }
 
-  if (!opts) { throw new Error('Missing/invalid options'); }
-  if (!opts.apiDomain) { throw new Error('Missing API domain for repository pointer update'); }
-  if (!opts.commitHash) { throw new Error('Missing commit hash for repository pointer update'); }
-  if (!opts.authToken) { throw new Error('Missing auth token for repository pointer update'); }
-
-  // If an optional tag was provided then we need to make a duplicate repository
-  // pointer with type 'tag' that points to the same commit hash
-  if (opts.tag) {
-    try {
-      await createTagRepositoryPointer(opts)
-        .then(() => undefined);
-    } catch (error) {
-      // Could throw error if the tag already exists
-      throw new Error(error.message);
-    }
-  }
-}
-
-async function createTagRepositoryPointer(
-  opts:{
-    apiDomain:string,
-    authToken:string,
-    commitHash:string,
-    tag:string,
-  }):Promise<void> {
-
   return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/create-tag`, {
     body: {
-      authToken: opts.authToken,
       commitHash: opts.commitHash,
       pointerName: opts.tag,
       pointerType: RepositoryPointerType.Tag,
@@ -56,6 +29,5 @@ async function createTagRepositoryPointer(
     },
     json: true,
     method: 'POST',
-  })
-    .then(() => undefined);
+  }).then(() => undefined);
 }

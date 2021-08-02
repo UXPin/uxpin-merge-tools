@@ -22,12 +22,6 @@ export async function updateRepositoryPointerToBranch(
     return Promise.resolve();
   }
 
-  if (!opts) { throw new Error('Missing/invalid options'); }
-  if (!opts.apiDomain) { throw new Error('Missing API domain for repository pointer update'); }
-  if (!opts.branch) { throw new Error('Missing branch name for repository pointer update'); }
-  if (!opts.commitHash) { throw new Error('Missing commit hash for repository pointer update'); }
-  if (!opts.authToken) { throw new Error('Missing auth token for repository pointer update'); }
-
   const branchName:string = encodeBranchName(opts.branch);
 
   return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/update-repository-pointer`, {
