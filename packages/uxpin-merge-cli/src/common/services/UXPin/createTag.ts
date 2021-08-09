@@ -2,19 +2,13 @@ import { isTestEnv } from '../../../program/env/isTestEnv';
 import { requestPromiseWithEnhancedError } from '../../../utils/requestPromiseWithEnhancedError';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
-import { encodeBranchName } from './params/encodeBranchName';
 
-export const enum RepositoryPointerType {
-  Branch = 'branch',
-  Tag = 'tag',
-}
-
-export async function updateRepositoryPointerToBranch(
+export async function createTag(
   opts:{
     apiDomain:string,
     authToken:string,
-    branch:string,
     commitHash:string,
+    tag:string,
   }):Promise<void> {
 
   // Skip updating repository pointers in test environment
@@ -22,13 +16,10 @@ export async function updateRepositoryPointerToBranch(
     return Promise.resolve();
   }
 
-  const branchName:string = encodeBranchName(opts.branch);
-
-  return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/update-repository-pointer`, {
+  return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/create-tag`, {
     body: {
       commitHash: opts.commitHash,
-      pointerName: branchName,
-      pointerType: RepositoryPointerType.Branch,
+      tagName: opts.tag,
     },
     headers: {
       ...getAuthHeaders(opts.authToken),
@@ -36,6 +27,5 @@ export async function updateRepositoryPointerToBranch(
     },
     json: true,
     method: 'POST',
-  })
-    .then(() => undefined);
+  }).then(() => undefined);
 }

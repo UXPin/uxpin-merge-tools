@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 import { DEFAULT_BRANCH_NAME } from '../../../../common/constants';
+import { createTag } from '../../../../common/services/UXPin/createTag';
 import { getApiDomain } from '../../../../common/services/UXPin/getApiDomain';
 import { getLatestCommitHash } from '../../../../common/services/UXPin/getLatestCommitHash';
 import { postPushMetadata } from '../../../../common/services/UXPin/postPushMetadata';
@@ -23,6 +24,7 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     const commitHash:string = vcsDetails.commitHash;
     const path:string = resolve(buildOptions.uxpinDirPath, LIBRARY_OUTPUT_FILENAME);
     const branch:string = vcsDetails && vcsDetails.branchName ? vcsDetails.branchName : DEFAULT_BRANCH_NAME;
+    const tag:string | undefined = buildOptions.tag;
 
     // Get the latest commit hash known by the backend
     // NOTE: if the branch has changed locally, but latest commit has not (so a fresh branch)
@@ -50,19 +52,22 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     // Update the repository pointer to the current branch and exit early
     if (isSameVersion(designSystem.result)) {
       printLine('✅ Library is up-to-date!', { color: PrintColor.GREEN });
-
-      // Update the repository pointer to point to the new branch
-      await updateRepositoryPointerToBranch({
+        // Update the repository pointer to point to the new branch
+      await updateRepositoryPointerWithPrintMessage({
         apiDomain,
         authToken,
         branch,
         commitHash,
       });
 
-      printLine(
-        `🛈  Projects using this Design System have been updated to branch [${branch}]`,
-        { color: PrintColor.CYAN },
-      );
+      if (tag) {
+        await createTagWithPrintMessage({
+          apiDomain,
+          authToken,
+          commitHash,
+          tag,
+        });
+      }
 
       return designSystem;
     }
@@ -92,22 +97,66 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
       throw new Error(error.message);
     }
 
-    try {
-      await updateRepositoryPointerToBranch({
+    await updateRepositoryPointerWithPrintMessage({
+      apiDomain,
+      authToken,
+      branch,
+      commitHash,
+    });
+
+    if (tag) {
+      await createTagWithPrintMessage({
         apiDomain,
         authToken,
-        branch,
         commitHash,
+        tag,
       });
-      printLine(`✅ Projects set to use DS branch [${vcsDetails.branchName}]!`, { color: PrintColor.GREEN });
-    } catch (error) {
-      printLine(
-        `🛑 There was an error while updating design system pointers [${vcsDetails.branchName}] .`,
-        { color: PrintColor.RED },
-      );
-      throw new Error(error.message);
     }
 
     return designSystem;
   };
+}
+
+async function createTagWithPrintMessage(opts:{
+  apiDomain:string,
+  authToken:string,
+  commitHash:string,
+  tag:string,
+}):Promise<void> {
+  try {
+    await createTag(opts);
+    printLine(
+      `🏷️  Library tagged at this point in time with tag [${opts.tag}] at commit hash [${opts.commitHash}]`,
+      { color: PrintColor.YELLOW },
+    );
+  } catch (error) {
+    printLine(
+      `🛑 There was an error while creating a tag [${opts.tag}] at commit hash [${opts.commitHash}]`,
+      { color: PrintColor.RED },
+    );
+    throw new Error(error.message);
+  }
+}
+
+async function updateRepositoryPointerWithPrintMessage(opts:{
+  apiDomain:string,
+  authToken:string,
+  branch:string,
+  commitHash:string,
+}):Promise<void> {
+  try {
+    // Update the repository pointer to point to the new branch
+    await updateRepositoryPointerToBranch(opts);
+
+    printLine(
+      `🛈  Projects using this Design System have been updated to branch [${opts.branch}]`,
+      { color: PrintColor.CYAN },
+    );
+  } catch (error) {
+    printLine(
+      `🛑 There was an error while updating design system pointers [${opts.branch}]`,
+      { color: PrintColor.RED },
+    );
+    throw new Error(error.message);
+  }
 }

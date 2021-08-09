@@ -41,6 +41,7 @@ program
     .option('--config <path>', 'path to a config file. Default: `./uxpin.config.js`')
     .option('--token <token>', 'auth token for the library. Default: `UXPIN_AUTH_TOKEN` env variable')
     .option('--branch <branch>', 'branch to use when uploading. Default: master')
+    .option('--tag <tag>', 'tag this push with a specific name or number. The provided name/number is unique and can be used only once.')
     .action(() => {});
 
 program
