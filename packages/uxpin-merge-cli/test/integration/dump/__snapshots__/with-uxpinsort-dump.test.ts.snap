@@ -1,0 +1,258 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The dump command run for the withUXPinSort repository prints components with proper properties 1`] = `
+Array [
+  Object {
+    "components": Array [
+      Object {
+        "defaultExported": true,
+        "documentation": Object {
+          "examples": Array [],
+        },
+        "info": Object {
+          "dirPath": "src/components/Avatar",
+          "implementation": Object {
+            "framework": "reactjs",
+            "lang": "typescript",
+            "path": "src/components/Avatar/Avatar.tsx",
+          },
+          "presets": Array [
+            Object {
+              "path": "src/components/Avatar/presets/0-default.jsx",
+            },
+          ],
+        },
+        "name": "Avatar",
+        "presets": Array [
+          Object {
+            "elements": Object {
+              "1": Object {
+                "name": "Avatar",
+                "props": Object {
+                  "imageUrl": "https://picsum.photos/100/100?image=1027",
+                  "size": "small",
+                  "test": Object {
+                    "abc": 123,
+                    "name": "abc",
+                  },
+                  "user": Object {
+                    "id": 1,
+                    "name": "abc",
+                  },
+                },
+              },
+            },
+            "name": "default",
+            "rootId": "1",
+          },
+        ],
+        "properties": Array [
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "imageUrl",
+            "type": Object {
+              "name": "string",
+              "structure": Object {},
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "test",
+            "type": Object {
+              "name": "shape",
+              "structure": Object {},
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": true,
+            "name": "user",
+            "type": Object {
+              "name": "shape",
+              "structure": Object {},
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": false,
+            "name": "appearance",
+            "type": Object {
+              "name": "union",
+              "structure": Object {
+                "elements": Array [
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": "secondary",
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": "primary",
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": "link",
+                    },
+                  },
+                ],
+              },
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": false,
+            "name": "size",
+            "type": Object {
+              "name": "union",
+              "structure": Object {
+                "elements": Array [
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 16,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 18,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 20,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 22,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 24,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 28,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 30,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 32,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 36,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 42,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 44,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 48,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 52,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 60,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 62,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 72,
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": 88,
+                    },
+                  },
+                ],
+              },
+            },
+          },
+          Object {
+            "description": "",
+            "isRequired": false,
+            "name": "type",
+            "type": Object {
+              "name": "union",
+              "structure": Object {
+                "elements": Array [
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": "a",
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": "b",
+                    },
+                  },
+                  Object {
+                    "name": "literal",
+                    "structure": Object {
+                      "value": "c",
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        ],
+        "wrappers": Array [],
+      },
+    ],
+    "name": "General",
+  },
+]
+`;

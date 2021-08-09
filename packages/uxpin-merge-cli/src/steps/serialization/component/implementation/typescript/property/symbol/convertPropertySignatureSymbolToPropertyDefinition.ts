@@ -24,7 +24,7 @@ export function convertPropertySignatureSymbolToPropertyDefinition(
     description: getJSDocDocumentation(context, propertySymbol),
     isRequired: isPropertyRequired(propertySymbol),
     name,
-    type: convertTypeToPropertyType(context, type),
+    type: convertTypeToPropertyType(context, type, propertySymbol.getJsDocTags()),
     ...getDefaultValueFromJSDoc(propertySymbol),
     ...getPropertyCustomDescriptors(propertySymbol),
   };

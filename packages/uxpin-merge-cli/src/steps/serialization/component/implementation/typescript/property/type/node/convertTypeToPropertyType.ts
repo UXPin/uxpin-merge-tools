@@ -15,7 +15,11 @@ import { serializeLiteralType } from './serializeLiteralType';
 import { serializeUnionType } from './serializeUnionType';
 
 // tslint:disable no-bitwise
-export function convertTypeToPropertyType(context:TSSerializationContext, type:ts.Type):PropertyType {
+export function convertTypeToPropertyType(
+  context:TSSerializationContext,
+  type:ts.Type,
+  jsDocsTag:ts.JSDocTagInfo[],
+):PropertyType {
   if (type.flags & ts.TypeFlags.String) {
     return { name: 'string', structure: {} };
   }
@@ -38,7 +42,7 @@ export function convertTypeToPropertyType(context:TSSerializationContext, type:t
     return { name: 'shape', structure: {} };
   }
   if (isUnion(type)) {
-    return serializeUnionType(context, type);
+    return serializeUnionType(context, type, jsDocsTag);
   }
   if (isEnum(type)) {
     return serializeEnumType(type);
