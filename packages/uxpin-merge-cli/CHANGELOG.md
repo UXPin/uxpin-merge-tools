@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.7.8] - 2021-08-10
+
+### Changed
+- Support creating tag with `--tag` option for Merge library version control ([#282](https://github.com/UXPin/uxpin-merge-tools/pull/282))
+- Support `@uxpinsort` JSDoc comment to sort union type in TS ([#285](https://github.com/UXPin/uxpin-merge-tools/pull/285))
+
 ## [2.7.7] - 2021-06-03
 
 ### Changed
