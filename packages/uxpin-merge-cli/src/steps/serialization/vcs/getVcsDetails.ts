@@ -35,13 +35,13 @@ export async function getVcsDetails(
   };
 
   if (latestCommitHash) {
-    const movedFiles:MovedFilePathsMap = await repositoryAdapter.getMovedFiles(
-      latestCommitHash,
-      repositoryPointer.commit.hash,
-    );
+    // const movedFiles:MovedFilePathsMap = await repositoryAdapter.getMovedFiles(
+    //   latestCommitHash,
+    //   repositoryPointer.commit.hash,
+    // );
 
     vcs.movedObjects = {
-      components: filterMovedFiles(movedFiles, categorizedComponents),
+      components: {},
       diffSourceCommitHash: latestCommitHash,
     };
   }
