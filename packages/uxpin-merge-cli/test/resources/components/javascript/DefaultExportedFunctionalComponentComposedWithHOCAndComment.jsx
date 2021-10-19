@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
-import { withI18n } from './hoc/withI18n';
+import React, { PropTypes } from "react";
+import { withI18n } from "./hoc/withI18n";
 
 /**
  * @uxpincomponent
  * @uxpinnamespace Multi.Level.CustomNamespace
+ * @uxpindocurl https://app.uxpin.com/test
  */
 export class ClassPrependedWithCommentToBeComposedWithHOC extends React.Component {
   render() {
@@ -31,9 +32,7 @@ export class DummyComponent extends React.Component {
 
     return (
       <div>
-        <button className={appearance}>
-          {children}
-        </button>
+        <button className={appearance}>{children}</button>
       </div>
     );
   }

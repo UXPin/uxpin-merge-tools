@@ -7,13 +7,14 @@ import { validateWrappers } from '../../../validation/validateWrappers';
 import { getCommentTag } from '../../comments/getCommentTag';
 import { getJSDocTagsArrayFromString } from '../../comments/getJSDocTagsArrayFromString';
 import { CommentTags } from '../../CommentTags';
-import { ComponentNamespace } from '../../ComponentDefinition';
+import { ComponentDocUrl, ComponentNamespace } from '../../ComponentDefinition';
 import { serializeAndValidateParsedProperties } from '../../props/serializeAndValidateParsedProperties';
 import { ComponentWrapper } from '../../wrappers/ComponentWrapper';
 import { parseWrapperAnnotation } from '../../wrappers/parseWrapperAnnotation';
 import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
+import { getComponentDocUrlFromDescription } from './getComponentDocUrlFromDescription';
 import { getComponentName } from './getComponentName';
 import { getComponentNamespaceFromDescription } from './getComponentNamespaceFromDescription';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
@@ -65,19 +66,23 @@ function getComponentWrappers(
 function getValuesFromComments(
   name:string,
   parsed:ComponentDoc,
-):Pick<PartialResult, 'namespace'> {
+):Pick<PartialResult, 'namespace' | 'componentDocUrl'> {
   const jsDocTags:string[] = getJSDocTagsArrayFromString(parsed.description);
   const namespaceTag:string = getCommentTag(CommentTags.UXPIN_NAMESPACE, jsDocTags) || '';
+  const componentDocUrlTag:string = getCommentTag(CommentTags.UXPIN_DOC_URL, jsDocTags) || '';
+
+  console.log("COMPONENTDOCURLTAG", componentDocUrlTag)
 
   const namespace:ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
+  const componentDocUrl:ComponentDocUrl | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
+  
+  console.log("URL from getComponentDocUrlFromDescription", componentDocUrl)
 
-  if (!namespace) {
-    return {};
-  }
+  return { namespace, componentDocUrl };
+  // if namespace and componentDocUrl are undefined,
+  // this function should return empty object {}
 
-  return {
-    namespace,
-  };
+  // return omitBy({ namespace, componentDocUrl }, isNil);
 }
 
 function thunkGetSummaryResult(path:string):(propResults:PartialResult) => ImplSerializationResult {
@@ -100,6 +105,7 @@ function thunkGetSummaryResult(path:string):(propResults:PartialResult) => ImplS
 interface PartialResult {
   name:string;
   namespace?:ComponentNamespace;
+  componentDocUrl?:ComponentDocUrl;
   properties:PropDefinitionSerializationResult[];
   wrappers:Warned<ComponentWrapper[]>;
   defaultExported:boolean;

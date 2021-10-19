@@ -5,7 +5,7 @@ export function getCommentTagInlineValue(comment:string, tag:string):string | un
     return;
   }
 
-  const pattern:RegExp = new RegExp(`${escapeForRegexp(tag)}\\s+([a-z0-9\\.\\_\\-]+)\\s*$`, 'im');
+  const pattern:RegExp = new RegExp(`${escapeForRegexp(tag)}\\s+([a-z0-9\\.\\_\\-\\:\\/]+)\\s*$`, 'im');
   const matches:string[] | null = comment.match(pattern);
 
   if (!matches) {

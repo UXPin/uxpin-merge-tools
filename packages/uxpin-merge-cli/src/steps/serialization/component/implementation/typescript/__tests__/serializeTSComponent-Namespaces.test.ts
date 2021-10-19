@@ -29,7 +29,6 @@ describe('serializeTSComponent-Namespaces', () => {
 
       // when
       const metadata:Warned<ComponentMetadata> = await serializeTSComponent(component);
-
       // then
       expect(metadata.warnings).toEqual([]);
       expect(metadata.result).toEqual(expectedMetadata);
@@ -66,7 +65,7 @@ describe('serializeTSComponent-Namespaces', () => {
   });
 
   describe('functional component', () => {
-    it('is serialized correctly with provided namespace', async () => {
+    it.only('is serialized correctly with provided namespace', async () => {
       // having
       const component:ComponentImplementationInfo = getImplementation('FunctionWithNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {
@@ -89,7 +88,6 @@ describe('serializeTSComponent-Namespaces', () => {
 
       // when
       const metadata:Warned<ComponentMetadata> = await serializeTSComponent(component);
-
       // then
       expect(metadata.warnings).toEqual([]);
       expect(metadata.result).toEqual(expectedMetadata);

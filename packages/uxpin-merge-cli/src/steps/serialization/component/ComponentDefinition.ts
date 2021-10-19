@@ -7,6 +7,7 @@ import { ComponentWrapper } from './wrappers/ComponentWrapper';
 export interface ComponentMetadata {
   name:string;
   namespace?:ComponentNamespace;
+  componentDocUrl?:ComponentDocUrl;
   properties:ComponentPropertyDefinition[];
   wrappers?:ComponentWrapper[];
   defaultExported:boolean;
@@ -22,4 +23,8 @@ export interface ComponentDefinition extends ComponentMetadata {
 export interface ComponentNamespace {
   importSlug:string;
   name:string;
+}
+
+export interface ComponentDocUrl {
+  url:string;
 }
