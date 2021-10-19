@@ -23,7 +23,6 @@ describe('SerializeJSComponent - with annotations', () => {
     });
 
     it('doesnt return componentDocUrl value', () => {
-      console.log('RETURN THE VALUE HERE', serialized.result.componentDocUrl)
       expect(serialized.result.componentDocUrl).toBeUndefined();
     });
 
