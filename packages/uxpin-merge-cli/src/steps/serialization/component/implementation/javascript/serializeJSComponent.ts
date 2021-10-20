@@ -73,7 +73,6 @@ function getValuesFromComments(
 
   const namespace:ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
   const componentDocUrl:string | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
-  
   return { namespace, componentDocUrl };
 }
 

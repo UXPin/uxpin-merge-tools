@@ -63,8 +63,6 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
     throw error! || new Error(`Component not found in file: ${filePath}`);
   }
 
-
-
   return componentDoc;
 }
 

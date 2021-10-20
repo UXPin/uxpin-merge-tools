@@ -44,7 +44,7 @@ export function getDefaultValueFromNewExpression(
 ):SupportedDefaultValue | undefined {
   if (propertyInitializer.arguments &&
       (propertyInitializer.expression as ts.Identifier).escapedText === 'Date') {
-    const dateProps:Array<unknown> = propertyInitializer.arguments
+    const dateProps:unknown[] = propertyInitializer.arguments
       .map((argument):string | number | undefined => {
         switch (argument.kind) {
           case ts.SyntaxKind.StringLiteral:

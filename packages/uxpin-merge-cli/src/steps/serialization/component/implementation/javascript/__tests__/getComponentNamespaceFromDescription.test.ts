@@ -52,4 +52,3 @@ Another description line`;
     });
   });
 });
-

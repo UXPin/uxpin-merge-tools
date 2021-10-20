@@ -12,7 +12,5 @@ export function getComponentDocUrlFromDescription(description:string):string | u
     return;
   }
 
-  return componentDocUrl
+  return componentDocUrl;
 }
-
-

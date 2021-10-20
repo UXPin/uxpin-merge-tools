@@ -1,51 +1,39 @@
 import { getComponentDocUrlFromDescription } from '../getComponentDocUrlFromDescription';
 
-
 describe('getComponentDocUrlFromDescription', () => {
-
-    describe('when description is empty', () => {
-        const description:string ='';
-
-        it('returns undefined', () => {
-            expect(getComponentDocUrlFromDescription(description)).toBeUndefined();
-        });
+  let description:string = '';
+  describe('when description is empty', () => {
+    it('returns undefined', () => {
+      expect(getComponentDocUrlFromDescription(description)).toBeUndefined();
     });
+  });
 
-    describe('when description does not contain @uxpindocurl annotation', () => {
-        const description:string = 'Description string without annotation';
-    
-        it('returns undefined', () => {
-          expect(getComponentDocUrlFromDescription(description)).toBeUndefined();
-        });
-      });
+  describe('when description does not contain @uxpindocurl annotation', () => {
 
-   describe('when description contains single-line @uxpindocurl annotation', () => {
-    const description:string = '@uxpindocurl https://app.uxpin.com/test';
+    description = 'Description string without annotation';
+
+    it('returns undefined', () => {
+      expect(getComponentDocUrlFromDescription(description)).toBeUndefined();
+    });
+  });
+
+  describe('when description contains single-line @uxpindocurl annotation', () => {
+
+    description = '@uxpindocurl https://app.uxpin.com/test';
 
     it('returns docUrl url', () => {
       expect(getComponentDocUrlFromDescription(description)).toMatch('https://app.uxpin.com/test');
     });
 
     describe('when description contains multi-line @uxpindocurl annotation', () => {
-        const description:string = `Some component description
-    
-    @uxpindocurl https://app.uxpin.com/test
-    Another description line`;
-    
-        it('returns extracted docUrl url', () => {
-          expect(getComponentDocUrlFromDescription(description)).toMatch('https://app.uxpin.com/test');
-        });
+
+      description = `Some component description
+     @uxpindocurl https://app.uxpin.com/test
+     Another description line`;
+
+      it('returns extracted docUrl url', () => {
+        expect(getComponentDocUrlFromDescription(description)).toMatch('https://app.uxpin.com/test');
       });
-
-  });   
-
-
-
-
-
-
-
-
-
-
-})
+    });
+  });
+});

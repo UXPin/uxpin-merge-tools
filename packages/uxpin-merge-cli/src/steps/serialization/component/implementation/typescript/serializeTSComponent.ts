@@ -9,9 +9,9 @@ import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getComponentDeclaration } from './component/getComponentDeclaration';
+import { getComponentDocUrl } from './component/getComponentDocUrl';
 import { getComponentName } from './component/getComponentName';
 import { getComponentNamespace } from './component/getComponentNamespace';
-import { getComponentDocUrl } from './component/getComponentDocUrl';
 import { getComponentWrappers } from './component/getComponentWrappers';
 import { ComponentDeclaration } from './component/getPropsTypeAndDefaultProps';
 import { isDefaultExported } from './component/isDefaultExported';
@@ -37,10 +37,10 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
 
   return {
     result: {
+      componentDocUrl,
       defaultExported,
       name,
       namespace,
-      componentDocUrl,
       properties: validatedProps.map(({ result }) => result),
       wrappers: validatedWrappers.result,
     },
