@@ -12,9 +12,7 @@ describe('serializeTSComponent-DocUrl', () => {
       const expectedMetadata:ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionWithDocUrlDeclaration',
-        componentDocUrl: {
-            url: 'https://app.uxpin.com/test'
-        },
+        componentDocUrl: 'https://app.uxpin.com/test',
         properties: [
           {
             description: '',

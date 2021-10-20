@@ -7,7 +7,7 @@ import { validateWrappers } from '../../../validation/validateWrappers';
 import { getCommentTag } from '../../comments/getCommentTag';
 import { getJSDocTagsArrayFromString } from '../../comments/getJSDocTagsArrayFromString';
 import { CommentTags } from '../../CommentTags';
-import { ComponentDocUrl, ComponentNamespace } from '../../ComponentDefinition';
+import { ComponentNamespace } from '../../ComponentDefinition';
 import { serializeAndValidateParsedProperties } from '../../props/serializeAndValidateParsedProperties';
 import { ComponentWrapper } from '../../wrappers/ComponentWrapper';
 import { parseWrapperAnnotation } from '../../wrappers/parseWrapperAnnotation';
@@ -72,13 +72,9 @@ function getValuesFromComments(
   const componentDocUrlTag:string = getCommentTag(CommentTags.UXPIN_DOC_URL, jsDocTags) || '';
 
   const namespace:ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
-  const componentDocUrl:ComponentDocUrl | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
+  const componentDocUrl:string | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
   
   return { namespace, componentDocUrl };
-  // if namespace and componentDocUrl are undefined,
-  // this function should return empty object {}
-
-  // return omitBy({ namespace, componentDocUrl }, isNil);
 }
 
 function thunkGetSummaryResult(path:string):(propResults:PartialResult) => ImplSerializationResult {
@@ -101,7 +97,7 @@ function thunkGetSummaryResult(path:string):(propResults:PartialResult) => ImplS
 interface PartialResult {
   name:string;
   namespace?:ComponentNamespace;
-  componentDocUrl?:ComponentDocUrl;
+  componentDocUrl?:string;
   properties:PropDefinitionSerializationResult[];
   wrappers:Warned<ComponentWrapper[]>;
   defaultExported:boolean;

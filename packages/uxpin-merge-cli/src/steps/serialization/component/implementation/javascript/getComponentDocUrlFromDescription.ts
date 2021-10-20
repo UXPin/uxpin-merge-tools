@@ -1,8 +1,7 @@
 import { CommentTags } from '../../CommentTags';
-import { ComponentDocUrl } from './../../ComponentDefinition';
 import { getCommentTagInlineValue } from './getCommentTagInlineValue';
 
-export function getComponentDocUrlFromDescription(description:string):ComponentDocUrl | undefined {
+export function getComponentDocUrlFromDescription(description:string):string | undefined {
   if (!description) {
     return;
   }
@@ -13,9 +12,7 @@ export function getComponentDocUrlFromDescription(description:string):ComponentD
     return;
   }
 
-  return {
-    url: componentDocUrl,
-  }
+  return componentDocUrl
 }
 
 

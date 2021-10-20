@@ -78,7 +78,7 @@ describe('SerializeJSComponent - with annotations', () => {
     });
 
     it('returns componentDocUrl value of component', () => {
-      expect(serialized.result.componentDocUrl!.url).toEqual('https://app.uxpin.com/test');
+      expect(serialized.result.componentDocUrl).toEqual('https://app.uxpin.com/test');
     });
 
     it('returns empty list of wrappers', () => {
@@ -207,7 +207,7 @@ describe('SerializeJSComponent - with annotations', () => {
     });
 
     it('returns correct url', () => {
-      expect(serialized.result.componentDocUrl!.url).toEqual('https://app.uxpin.com/test');
+      expect(serialized.result.componentDocUrl).toEqual('https://app.uxpin.com/test');
     });
 
     it('returns empty list of wrappers', () => {
@@ -241,7 +241,7 @@ describe('SerializeJSComponent - with annotations', () => {
     });
 
     it('returns annotated componentDocUrl value', () => {
-      expect(serialized.result.componentDocUrl!.url).toEqual('https://app.uxpin.com/test');
+      expect(serialized.result.componentDocUrl).toEqual('https://app.uxpin.com/test');
     });
 
     it('returns correct props list of component', () => {
