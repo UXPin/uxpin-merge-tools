@@ -1,8 +1,8 @@
 import { getComponentDocUrlFromDescription } from '../getComponentDocUrlFromDescription';
 
 describe('getComponentDocUrlFromDescription', () => {
-  let description:string = '';
   describe('when description is empty', () => {
+    const description:string = '';
     it('returns undefined', () => {
       expect(getComponentDocUrlFromDescription(description)).toBeUndefined();
     });
@@ -10,7 +10,7 @@ describe('getComponentDocUrlFromDescription', () => {
 
   describe('when description does not contain @uxpindocurl annotation', () => {
 
-    description = 'Description string without annotation';
+    const description:string = 'Description string without annotation';
 
     it('returns undefined', () => {
       expect(getComponentDocUrlFromDescription(description)).toBeUndefined();
@@ -19,7 +19,7 @@ describe('getComponentDocUrlFromDescription', () => {
 
   describe('when description contains single-line @uxpindocurl annotation', () => {
 
-    description = '@uxpindocurl https://app.uxpin.com/test';
+    const description:string = '@uxpindocurl https://app.uxpin.com/test';
 
     it('returns docUrl url', () => {
       expect(getComponentDocUrlFromDescription(description)).toMatch('https://app.uxpin.com/test');
@@ -27,7 +27,7 @@ describe('getComponentDocUrlFromDescription', () => {
 
     describe('when description contains multi-line @uxpindocurl annotation', () => {
 
-      description = `Some component description
+      const description:string = `Some component description
      @uxpindocurl https://app.uxpin.com/test
      Another description line`;
 
