@@ -65,7 +65,7 @@ describe('serializeTSComponent-Namespaces', () => {
   });
 
   describe('functional component', () => {
-    it.only('is serialized correctly with provided namespace', async () => {
+    it('is serialized correctly with provided namespace', async () => {
       // having
       const component:ComponentImplementationInfo = getImplementation('FunctionWithNamespaceDeclaration');
       const expectedMetadata:ComponentMetadata = {

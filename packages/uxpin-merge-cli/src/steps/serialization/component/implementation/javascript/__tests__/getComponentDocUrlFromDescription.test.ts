@@ -23,9 +23,7 @@ describe('getComponentDocUrlFromDescription', () => {
     const description:string = '@uxpindocurl https://app.uxpin.com/test';
 
     it('returns docUrl url', () => {
-      expect(getComponentDocUrlFromDescription(description)).toMatchObject({
-        url: 'https://app.uxpin.com/test',
-      });
+      expect(getComponentDocUrlFromDescription(description)).toMatch('https://app.uxpin.com/test');
     });
 
     describe('when description contains multi-line @uxpindocurl annotation', () => {
@@ -34,10 +32,8 @@ describe('getComponentDocUrlFromDescription', () => {
     @uxpindocurl https://app.uxpin.com/test
     Another description line`;
     
-        it.only('returns extracted docUrl url', () => {
-          expect(getComponentDocUrlFromDescription(description)).toMatchObject({
-            url: 'https://app.uxpin.com/test',
-          });
+        it('returns extracted docUrl url', () => {
+          expect(getComponentDocUrlFromDescription(description)).toMatch('https://app.uxpin.com/test');
         });
       });
 
