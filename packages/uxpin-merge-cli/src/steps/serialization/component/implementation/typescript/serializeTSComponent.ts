@@ -9,6 +9,7 @@ import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getComponentDeclaration } from './component/getComponentDeclaration';
+import { getComponentDocUrl } from './component/getComponentDocUrl';
 import { getComponentName } from './component/getComponentName';
 import { getComponentNamespace } from './component/getComponentNamespace';
 import { getComponentWrappers } from './component/getComponentWrappers';
@@ -29,12 +30,14 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
   const parsedProps:PropDefinitionParsingResult[] = parseTSComponentProperties(context, declaration);
   const validatedProps:PropDefinitionSerializationResult[] = serializeAndValidateParsedProperties(parsedProps);
   const namespace:ComponentNamespace | undefined = getComponentNamespace(declaration, name);
+  const componentDocUrl:string | undefined = getComponentDocUrl(declaration);
   const wrappers:ComponentWrapper[] = getComponentWrappers(declaration);
   const validatedWrappers:Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
   const defaultExported:boolean = isDefaultExported(declaration, context);
 
   return {
     result: {
+      componentDocUrl,
       defaultExported,
       name,
       namespace,

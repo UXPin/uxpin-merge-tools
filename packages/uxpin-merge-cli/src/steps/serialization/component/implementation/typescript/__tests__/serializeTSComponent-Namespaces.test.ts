@@ -29,7 +29,6 @@ describe('serializeTSComponent-Namespaces', () => {
 
       // when
       const metadata:Warned<ComponentMetadata> = await serializeTSComponent(component);
-
       // then
       expect(metadata.warnings).toEqual([]);
       expect(metadata.result).toEqual(expectedMetadata);
@@ -89,7 +88,6 @@ describe('serializeTSComponent-Namespaces', () => {
 
       // when
       const metadata:Warned<ComponentMetadata> = await serializeTSComponent(component);
-
       // then
       expect(metadata.warnings).toEqual([]);
       expect(metadata.result).toEqual(expectedMetadata);

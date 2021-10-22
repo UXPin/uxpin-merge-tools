@@ -14,6 +14,7 @@ import { parseWrapperAnnotation } from '../../wrappers/parseWrapperAnnotation';
 import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
+import { getComponentDocUrlFromDescription } from './getComponentDocUrlFromDescription';
 import { getComponentName } from './getComponentName';
 import { getComponentNamespaceFromDescription } from './getComponentNamespaceFromDescription';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
@@ -65,19 +66,14 @@ function getComponentWrappers(
 function getValuesFromComments(
   name:string,
   parsed:ComponentDoc,
-):Pick<PartialResult, 'namespace'> {
+):Pick<PartialResult, 'namespace' | 'componentDocUrl'> {
   const jsDocTags:string[] = getJSDocTagsArrayFromString(parsed.description);
   const namespaceTag:string = getCommentTag(CommentTags.UXPIN_NAMESPACE, jsDocTags) || '';
+  const componentDocUrlTag:string = getCommentTag(CommentTags.UXPIN_DOC_URL, jsDocTags) || '';
 
   const namespace:ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
-
-  if (!namespace) {
-    return {};
-  }
-
-  return {
-    namespace,
-  };
+  const componentDocUrl:string | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
+  return { namespace, componentDocUrl };
 }
 
 function thunkGetSummaryResult(path:string):(propResults:PartialResult) => ImplSerializationResult {
@@ -100,6 +96,7 @@ function thunkGetSummaryResult(path:string):(propResults:PartialResult) => ImplS
 interface PartialResult {
   name:string;
   namespace?:ComponentNamespace;
+  componentDocUrl?:string;
   properties:PropDefinitionSerializationResult[];
   wrappers:Warned<ComponentWrapper[]>;
   defaultExported:boolean;

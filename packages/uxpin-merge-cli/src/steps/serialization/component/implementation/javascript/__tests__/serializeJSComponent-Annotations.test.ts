@@ -22,6 +22,10 @@ describe('SerializeJSComponent - with annotations', () => {
       expect(serialized.result.namespace).toBeUndefined();
     });
 
+    it('doesnt return componentDocUrl value', () => {
+      expect(serialized.result.componentDocUrl).toBeUndefined();
+    });
+
     it('returns empty list of wrappers', () => {
       expect(serialized.result.wrappers).toEqual([]);
     });
@@ -71,6 +75,10 @@ describe('SerializeJSComponent - with annotations', () => {
 
     it('returns namespace value of annotated component', () => {
       expect(serialized.result.namespace!.name).toEqual('Multi.Level.CustomNamespace');
+    });
+
+    it('returns componentDocUrl value of component', () => {
+      expect(serialized.result.componentDocUrl).toEqual('https://app.uxpin.com/test');
     });
 
     it('returns empty list of wrappers', () => {
@@ -165,6 +173,75 @@ describe('SerializeJSComponent - with annotations', () => {
 
     it('returns annotated namespace value', () => {
       expect(serialized.result.namespace!.name).toEqual('CustomNamespace');
+    });
+
+    it('returns correct props list of component', () => {
+      expect(serialized.result.properties).toEqual([
+        expect.objectContaining({
+          isRequired: true,
+          name: 'name',
+        }),
+      ]);
+    });
+
+    it('returns proper list of wrappers', () => {
+      expect(serialized.result.wrappers).toEqual([
+        {
+          name: BuiltInWrappers.NON_RESIZABLE_WRAPPER,
+          type: ComponentWrapperType.BUILT_IN,
+        },
+      ]);
+    });
+
+    it('returns empty warnings list', () => {
+      expect(serialized.warnings).toEqual([]);
+    });
+  });
+
+  describe('function with componentDocUrl declaration', () => {
+    let serialized:ImplSerializationResult;
+
+    beforeAll(async () => {
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithDocUrlDeclaration');
+      serialized = await serializeJSComponent(component);
+    });
+
+    it('returns correct url', () => {
+      expect(serialized.result.componentDocUrl).toEqual('https://app.uxpin.com/test');
+    });
+
+    it('returns empty list of wrappers', () => {
+      expect(serialized.result.wrappers).toEqual([]);
+    });
+
+    it('returns correct props list of component', () => {
+      expect(serialized.result.properties).toEqual([
+        expect.objectContaining({
+          isRequired: true,
+          name: 'name',
+        }),
+      ]);
+    });
+
+    it('returns empty warnings list', () => {
+      expect(serialized.warnings).toEqual([]);
+    });
+  });
+
+  describe('function with componentDocUrl and wrappers declaration', () => {
+    let serialized:ImplSerializationResult;
+
+    beforeAll(async () => {
+      const component:ComponentImplementationInfo = getImplementation('FunctionWithDocUrlAndWrappersDeclaration');
+      serialized = await serializeJSComponent(component);
+    });
+
+    it('returns correct component name', () => {
+      expect(serialized.result.name).toEqual('FunctionWithDocUrlAndWrappersDeclaration');
+    });
+
+    it('returns annotated componentDocUrl value', () => {
+      expect(serialized.result.componentDocUrl).toEqual('https://app.uxpin.com/test');
     });
 
     it('returns correct props list of component', () => {
