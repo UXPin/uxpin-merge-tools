@@ -11,7 +11,7 @@ export async function getBranchesAtCommit(cwd:string, fullCommitHash:string):Pro
   rawReflogOutput
     .split('\n')
     // Filter out HEAD, the commit in question, and keep only top-level current commits
-    .filter((l) => !l.includes('HEAD@') && !l.includes(fullCommitHash) && l.includes('@{0}'))
+    .filter((l) => !l.includes('HEAD@') && l.includes('@{0}'))
     // Filter out lines that do not contain
     .filter((l) => l.includes(currentShortHash))
     // Convert the line to a structured object
