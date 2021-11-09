@@ -38,7 +38,7 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
 
 function getImportName({ name, namespace, defaultExported }:ComponentDefinition):string {
   const componentName:string = namespace ? namespace.importSlug : name;
-  if (defaultExported) {
+  if (defaultExported && componentName !== 'TextInput' ) {
     return componentName;
   }
   return `{ ${componentName} }`;
@@ -49,7 +49,12 @@ function getExportName({ name, namespace }:ComponentDefinition):string {
 }
 
 function getImportPath({ info }:ComponentDefinition):string {
-  const path:string = relative(TEMP_DIR_PATH, `./${info.dirPath}`);
+  let path:string = relative(TEMP_DIR_PATH, `./${info.dirPath}`);
+  if (path.includes('node_modules')) {
+   // path = '@material-ui/core/Dialog';
+    return 'carbon-components-react';
+  }
+
   const fileName:string = parse(info.implementation.path).name;
   return `${path}/${fileName}`;
 }

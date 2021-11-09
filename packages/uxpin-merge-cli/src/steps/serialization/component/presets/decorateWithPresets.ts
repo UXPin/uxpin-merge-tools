@@ -1,6 +1,6 @@
 import { flatMap } from 'lodash';
 import { Warned } from '../../../../common/warning/Warned';
-import { ProgramArgs } from '../../../../program/args/ProgramArgs';
+import {CreateAppProgramArgs, ProgramArgs} from '../../../../program/args/ProgramArgs';
 import { ComponentInfo } from '../../../discovery/component/ComponentInfo';
 import { ComponentCategory } from '../categories/ComponentCategory';
 import { getAllComponentsFromCategories } from '../categories/getAllComponentsFromCategories';
@@ -12,7 +12,7 @@ import { serializePresets } from './serializePresets';
 
 export async function decorateWithPresets(
   categories:Array<Warned<ComponentCategory>>,
-  programArgs:ProgramArgs,
+  programArgs:Exclude<ProgramArgs, CreateAppProgramArgs>,
 ):Promise<Array<Warned<ComponentCategory>>> {
   const components:ComponentDefinition[] = getAllComponentsFromCategories(flatMap(categories, (cat) => cat.result));
   const bundle:PresetsBundle = await getPresetsBundle(programArgs, components);

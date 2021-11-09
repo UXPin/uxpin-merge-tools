@@ -31,6 +31,13 @@ program
     .option('--component-path <path>', 'path to a component path, relative to the current working directory')
     .action(() => {});
 
+program
+    .command(Command.CREATE_APP)
+    .description('Create app based on package name')
+    .option('--components <string>', 'list of imports statements')
+    .option('--package-name <string>', 'name of npm package')
+    .action(() => {});
+
 
 program
     .command(Command.PUSH)

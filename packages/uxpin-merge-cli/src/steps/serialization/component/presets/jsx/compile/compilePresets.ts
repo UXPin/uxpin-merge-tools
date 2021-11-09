@@ -1,7 +1,7 @@
 import { unlink } from 'fs-extra';
 import { join, parse } from 'path';
 import * as webpack from 'webpack';
-import { ProgramArgs, RawProgramArgs } from '../../../../../../program/args/ProgramArgs';
+import {CreateAppProgramArgs, ProgramArgs, RawProgramArgs} from '../../../../../../program/args/ProgramArgs';
 import { getProjectRoot } from '../../../../../../program/args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../../../../../program/args/providers/paths/getTempDirPath';
 import { Compiler } from '../../../../../building/compiler/Compiler';
@@ -11,7 +11,10 @@ import { createBundleSource } from '../bundle/createBundleSource';
 import { generateVirtualModules, VirtualComponentModule } from './generateVirtualModules';
 import { getPresetsBundleWebpackConfig } from './getPresetsBundleWebpackConfig';
 
-export async function compilePresets(programArgs:ProgramArgs, components:ComponentDefinition[]):Promise<string> {
+export async function compilePresets(
+    programArgs:Exclude<ProgramArgs, CreateAppProgramArgs>,
+    components:ComponentDefinition[],
+):Promise<string> {
   const sourcePath:string = await createBundleSource(programArgs, components);
   const bundlePath:string = await compileWithWebpack(programArgs, components, sourcePath);
   await unlink(sourcePath);
@@ -20,7 +23,7 @@ export async function compilePresets(programArgs:ProgramArgs, components:Compone
 }
 
 async function compileWithWebpack(
-  programArgs:ProgramArgs,
+  programArgs:Exclude<ProgramArgs, CreateAppProgramArgs>,
   components:ComponentDefinition[],
   sourcePath:string,
 ):Promise<string> {

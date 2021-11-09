@@ -13,6 +13,10 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
   },
+  [Command.CREATE_APP]: {
+    command: Command.GENERATE_PRESETS,
+    cwd: process.cwd(),
+  },
   [Command.DUMP]: {
     command: Command.DUMP,
     config: DEFAULT_CONFIG_PATH,
@@ -55,8 +59,16 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
 export function getProgramArgs(program:RawProgramArgs):ProgramArgs {
   const command:Command = getCommand(program);
   const cliArgs:ProgramArgs = getCLIArgs(program, command);
-  const configArgs:ConfigEnabledProgramArgs =
-    pickConfigArgs(getConfigPath({ ...defaultArgs[command], ...cliArgs }), command);
+
+  if (command === Command.CREATE_APP) {
+    return {
+      ...defaultArgs[command],
+      ...cliArgs,
+    } as ProgramArgs;
+  }
+
+  const { cwd, config } = { ...defaultArgs[command], ...cliArgs };
+  const configArgs:ConfigEnabledProgramArgs = pickConfigArgs(getConfigPath({ cwd, config }), command);
   return {
     ...defaultArgs[command],
     ...configArgs,

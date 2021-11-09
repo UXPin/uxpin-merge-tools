@@ -16,7 +16,8 @@ export interface ConfigEnabledProgramArgs {
   uxpinDomain?:string;
 }
 
-export type ProgramArgs = DumpProgramArgs
+export type ProgramArgs = CreateAppProgramArgs
+    | DumpProgramArgs
     | ExperimentProgramArgs
     | InitProgramArgs
     | PushProgramArgs
@@ -68,6 +69,12 @@ export interface GeneratePresetsProgramArgs {
   componentPath?:string;
   cwd:string;
   config?:string;
+}
+
+export interface CreateAppProgramArgs {
+  command:Command.CREATE_APP;
+  components?:string;
+  packageName:string;
 }
 
 export interface ServerProgramArgs {

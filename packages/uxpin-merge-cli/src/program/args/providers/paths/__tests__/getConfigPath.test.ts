@@ -11,7 +11,7 @@ describe('getConfigPath', () => {
       };
 
       // then
-      expect(getConfigPath(args as ProgramArgs)).toEqual('/project/root/directory/file.js');
+      expect(getConfigPath({ cwd: args.cwd, config: args.config })).toEqual('/project/root/directory/file.js');
     });
   });
 
@@ -23,6 +23,6 @@ describe('getConfigPath', () => {
     };
 
     // then
-    expect(getConfigPath(args as ProgramArgs)).toEqual('/absolute/directory/file.js');
+    expect(getConfigPath({ cwd: args.cwd, config: args.config })).toEqual('/absolute/directory/file.js');
   });
 });

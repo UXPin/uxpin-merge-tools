@@ -1,7 +1,7 @@
 import { isAbsolute, resolve } from 'path';
-import { ProgramArgs } from '../../ProgramArgs';
+import { CreateAppProgramArgs, ProgramArgs } from '../../ProgramArgs';
 
-export function getProjectRoot({ cwd }:Pick<ProgramArgs, 'cwd'>):string {
+export function getProjectRoot({ cwd }:Pick<Exclude<ProgramArgs, CreateAppProgramArgs>, 'cwd'>):string {
   if (isAbsolute(cwd)) {
     return cwd;
   }
