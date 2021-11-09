@@ -75,6 +75,7 @@ export interface CreateAppProgramArgs {
   command:Command.CREATE_APP;
   components?:string;
   packageName:string;
+  appName:string;
 }
 
 export interface ServerProgramArgs {

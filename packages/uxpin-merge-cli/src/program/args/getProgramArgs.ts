@@ -14,8 +14,9 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     cwd: process.cwd(),
   },
   [Command.CREATE_APP]: {
-    command: Command.GENERATE_PRESETS,
-    cwd: process.cwd(),
+    appName: 'react-app',
+    command: Command.CREATE_APP,
+    packageName: '',
   },
   [Command.DUMP]: {
     command: Command.DUMP,

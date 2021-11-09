@@ -34,6 +34,7 @@ program
 program
     .command(Command.CREATE_APP)
     .description('Create app based on package name')
+    .option('--app-name <string>', 'App name')
     .option('--components <string>', 'list of imports statements')
     .option('--package-name <string>', 'name of npm package')
     .action(() => {});
