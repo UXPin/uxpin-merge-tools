@@ -29,17 +29,8 @@ export function thunkCreateUXPinConfigFile(args:CreateAppProgramArgs):() => Prom
       categories: componentsList.map(({ name, imports }) => ({ name, imports })),
     };
 
-    [{
-      name: "General",
-      imports: "import { Button } from '@material-ui/core/button'; import { Checkbox } from '@material-ui/core/checkbox'"
-    }]
-
     const uxpinConfigFilePath:string = resolve(APP_DIRECTORY, 'uxpin.config.js');
-    if (!await pathExists(uxpinConfigFilePath)) {
-      await writeToFile(uxpinConfigFilePath, `module.exports = ${JSON.stringify(uxpinConfigFile,null, INDENT)}`);
-      printLine(`✅ File uxpin.config.js created`, { color: PrintColor.GREEN });
-    } else {
-      printWarning(`👉 File uxpin.config.js exists`);
-    }
+    await writeToFile(uxpinConfigFilePath, `module.exports = ${JSON.stringify(uxpinConfigFile,null, INDENT)}`);
+    printLine(`✅ File uxpin.config.js created`, { color: PrintColor.GREEN });
   };
 }
