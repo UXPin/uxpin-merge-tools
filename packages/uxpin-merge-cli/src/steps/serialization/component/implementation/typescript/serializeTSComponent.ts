@@ -42,7 +42,6 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
       defaultExported,
       name,
       namespace,
-      componentDocUrl,
       properties: validatedProps.map(({ result }) => result),
       wrappers: validatedWrappers.result,
     },
