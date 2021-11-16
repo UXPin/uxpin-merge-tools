@@ -18,7 +18,7 @@ export async function getMovedFiles(cwd:string, revision1:string, revision2:stri
 
   forEach(revs, (isValidCommit, revision) => {
     if (!isValidCommit) {
-      throw new Error(`🛑 Unknown revision ${revision}.`);
+      throw new Error(`🛑 The last pushed commit to library ${revision} cannot be found. The current HEAD may be different.`);
     }
   });
 
