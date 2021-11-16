@@ -10,9 +10,9 @@ import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getComponentDeclaration } from './component/getComponentDeclaration';
+import { getComponentDocUrl } from './component/getComponentDocUrl';
 import { getComponentName } from './component/getComponentName';
 import { getComponentNamespace } from './component/getComponentNamespace';
-import { getComponentDocUrl } from './component/getComponentDocUrl';
 import { getComponentWrappers } from './component/getComponentWrappers';
 import { ComponentDeclaration } from './component/getPropsTypeAndDefaultProps';
 import { isDefaultExported } from './component/isDefaultExported';
@@ -31,13 +31,14 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
   const parsedProps:PropDefinitionParsingResult[] = parseTSComponentProperties(context, declaration);
   const validatedProps:PropDefinitionSerializationResult[] = serializeAndValidateParsedProperties(parsedProps);
   const namespace:ComponentNamespace | undefined = getComponentNamespace(declaration, name);
-  const componentDocUrl:ComponentDocUrl | undefined = getComponentDocUrl(declaration);
+  const componentDocUrl:string | undefined = getComponentDocUrl(declaration);
   const wrappers:ComponentWrapper[] = getComponentWrappers(declaration);
   const validatedWrappers:Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
   const defaultExported:boolean = isDefaultExported(declaration, context);
 
   return {
     result: {
+      componentDocUrl,
       defaultExported,
       name,
       namespace,

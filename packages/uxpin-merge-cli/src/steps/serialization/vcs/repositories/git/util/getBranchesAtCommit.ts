@@ -10,11 +10,11 @@ export async function getBranchesAtCommit(cwd:string, fullCommitHash:string):Pro
   const rawReflogOutput:string = await execAsync('git reflog --all', { cwd });
   rawReflogOutput
     .split('\n')
-  // Filter out HEAD, the commit in question, and keep only top-level current commits
-    .filter((l) => !l.includes('HEAD') && !l.includes(fullCommitHash) && l.includes('@{0}'))
-  // Filter out lines that do not contain
+    // Filter out HEAD, the commit in question, and keep only top-level current commits
+    .filter((l) => !l.includes('HEAD@') && l.includes('@{0}'))
+    // Filter out lines that do not contain
     .filter((l) => l.includes(currentShortHash))
-  // Convert the line to a structured object
+    // Convert the line to a structured object
     .forEach((l) => {
       // tslint:disable-next-line:no-unused-variable
       const [shortCommitHash, ref, ...rest] = l.split(/\s+/);

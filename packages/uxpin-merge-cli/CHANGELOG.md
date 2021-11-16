@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.7.9] - 2021-10-25
+
+### Changed
+- Added `@uxpindocurl` jsdoc support ([#297](https://github.com/UXPin/uxpin-merge-tools/pull/297))
+- Allow pushing a branch without making changes from original branch ([#294](https://github.com/UXPin/uxpin-merge-tools/pull/294))
+- Allow pushing a branch made from specific sha ([#298](https://github.com/UXPin/uxpin-merge-tools/pull/298))
+- Upgrade packages(tar, tmpl, path-parse) from dependabot alerts
+
 ## [2.7.8] - 2021-08-10
 
 ### Changed

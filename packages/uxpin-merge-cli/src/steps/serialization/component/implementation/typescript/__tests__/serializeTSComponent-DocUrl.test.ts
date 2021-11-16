@@ -10,11 +10,9 @@ describe('serializeTSComponent-DocUrl', () => {
       // having
       const component:ComponentImplementationInfo = getImplementation('FunctionWithDocUrlDeclaration');
       const expectedMetadata:ComponentMetadata = {
+        componentDocUrl: 'https://app.uxpin.com/test',
         defaultExported: true,
         name: 'FunctionWithDocUrlDeclaration',
-        componentDocUrl: {
-            url: 'https://app.uxpin.com/test'
-        },
         properties: [
           {
             description: '',
@@ -34,4 +32,3 @@ describe('serializeTSComponent-DocUrl', () => {
     });
   });
 });
-

@@ -71,18 +71,9 @@ function getValuesFromComments(
   const namespaceTag:string = getCommentTag(CommentTags.UXPIN_NAMESPACE, jsDocTags) || '';
   const componentDocUrlTag:string = getCommentTag(CommentTags.UXPIN_DOC_URL, jsDocTags) || '';
 
-  console.log("COMPONENTDOCURLTAG", componentDocUrlTag)
-
   const namespace:ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
-  const componentDocUrl:ComponentDocUrl | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
-  
-  console.log("URL from getComponentDocUrlFromDescription", componentDocUrl)
-
+  const componentDocUrl:string | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
   return { namespace, componentDocUrl };
-  // if namespace and componentDocUrl are undefined,
-  // this function should return empty object {}
-
-  // return omitBy({ namespace, componentDocUrl }, isNil);
 }
 
 function thunkGetSummaryResult(path:string):(propResults:PartialResult) => ImplSerializationResult {
@@ -105,7 +96,7 @@ function thunkGetSummaryResult(path:string):(propResults:PartialResult) => ImplS
 interface PartialResult {
   name:string;
   namespace?:ComponentNamespace;
-  componentDocUrl?:ComponentDocUrl;
+  componentDocUrl?:string;
   properties:PropDefinitionSerializationResult[];
   wrappers:Warned<ComponentWrapper[]>;
   defaultExported:boolean;
