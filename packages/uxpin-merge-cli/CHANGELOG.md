@@ -4,7 +4,7 @@
 
 ### Changed
 - Better error message for unknown revision ([#299](https://github.com/UXPin/uxpin-merge-tools/pull/299))
-- Modified the test for unknown revision error
+- added regex to account for # in tag comment ([#301](https://github.com/UXPin/uxpin-merge-tools/pull/301))
 
 ## [2.7.9] - 2021-10-25
 
