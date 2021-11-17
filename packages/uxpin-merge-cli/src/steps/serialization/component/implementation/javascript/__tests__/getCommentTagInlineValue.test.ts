@@ -35,6 +35,14 @@ describe('getCommentTagInlineValue', () => {
     });
   });
 
+  describe('when comment contains #', () => {
+    const comment:string = '@uxpintag https://mui.com/components/buttons/#main-content';
+
+    it('returns tag value', () => {
+      expect(getCommentTagInlineValue(comment, tag)).toEqual('https://mui.com/components/buttons/#main-content');
+    });
+  });
+
   describe('when comment contains given tag with multi-word value', () => {
     const comment:string = '@uxpintag Some multi word text';
 
