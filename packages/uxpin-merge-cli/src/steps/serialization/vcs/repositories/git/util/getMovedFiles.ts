@@ -18,7 +18,12 @@ export async function getMovedFiles(cwd:string, revision1:string, revision2:stri
 
   forEach(revs, (isValidCommit, revision) => {
     if (!isValidCommit) {
-      throw new Error(`🛑 Unknown revision ${revision}.`);
+      throw new Error(`🛑 Unable to find revision ${revision} on your git. Please check the following.
+          • Override push of DS from different repository is not supported. Please reach out to support if necessary.
+          • If using shallow clone then clone depth must be changed as well.
+          • Make sure repository is up-to-date 👉 pull latest changes from remote git. A team member may have pushed
+            new changes to UXPin.
+      `);
     }
   });
 
