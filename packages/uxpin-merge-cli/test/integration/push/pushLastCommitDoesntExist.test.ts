@@ -37,7 +37,7 @@ describe('Push command with latest commit which doesnt exist in tree', () => {
         ],
       });
     } catch (error) {
-      expect(error.stderr).toMatch("Unable to find revision");
+      expect(error.stderr).toMatch('Unable to find revision');
     }
   });
 });
