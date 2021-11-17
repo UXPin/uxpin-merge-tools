@@ -18,7 +18,7 @@ export async function getMovedFiles(cwd:string, revision1:string, revision2:stri
 
   forEach(revs, (isValidCommit, revision) => {
     if (!isValidCommit) {
-      throw new Error(`🛑 Previous commit ${revision} cannot be found. Current HEAD may be different.`);
+      throw new Error(`🛑 Previous commit ${revision} differs from current HEAD.`);
     }
   });
 
