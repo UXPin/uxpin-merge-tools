@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.7.10] - 2021-11-17
+
+### Changed
+- Better error message for unknown revision ([#299](https://github.com/UXPin/uxpin-merge-tools/pull/299))
+- Modified the test for unknown revision error
+
 ## [2.7.9] - 2021-10-25
 
 ### Changed
