@@ -15,6 +15,7 @@
 !/test/resources/repos/.gitkeep
 /reports/*
 !/reports/.gitkeep
+/tmp/**
 
 !/test/resources/configs/*.js
 !/test/resources/components/**/*.js

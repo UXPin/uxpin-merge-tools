@@ -1,0 +1,37 @@
+{
+  "categorizedComponents": [
+    {
+      "components": [
+        {
+          "defaultExported": true,
+          "documentation": {
+            "examples": []
+          },
+          "info": {
+            "dirPath": "./node_modules/carbon-components-react/lib/components/TextInput",
+            "implementation": {
+              "framework": "reactjs",
+              "lang": "javascript",
+              "path": "./node_modules/carbon-components-react/lib/components/TextInput/TextInput.js"
+            },
+            "presets": []
+          },
+          "name": "TextInput",
+          "presets": [],
+          "properties": [],
+          "wrappers": []
+        }
+      ],
+      "name": "General"
+    }
+  ],
+  "name": "material-ui",
+  "vcs": {
+    "branchName": "master",
+    "commitHash": "8b323623fdd000a0a61523dc41621a44802a8913",
+    "paths": {
+      "configPath": "/Users/roberthilscher/apps/uxpin-merge-tools/packages/uxpin-merge-cli/material-ui/uxpin.config.js",
+      "projectRoot": "/Users/roberthilscher/apps/uxpin-merge-tools/packages/uxpin-merge-cli/material-ui"
+    }
+  }
+}

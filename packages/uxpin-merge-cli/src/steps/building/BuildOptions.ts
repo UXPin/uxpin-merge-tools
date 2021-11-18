@@ -9,4 +9,5 @@ export interface BuildOptions {
   wrapperPath?:string;
   branch?:string;
   tag?:string;
+  disableVersionControl?:boolean;
 }

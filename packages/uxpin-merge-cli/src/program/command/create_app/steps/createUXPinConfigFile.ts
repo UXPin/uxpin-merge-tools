@@ -21,12 +21,13 @@ export function thunkCreateUXPinConfigFile(args:CreateAppProgramArgs):() => Prom
     try {
       componentsList = JSON.parse(args.components || '');
     } catch (e) {
+      console.log(e);
       // do nothing
     }
 
     uxpinConfigFile.name = args.appName;
     uxpinConfigFile.components = {
-      categories: componentsList.map(({ name, imports }) => ({ name, imports })),
+      categories: componentsList.map(({ name, imports }:any) => ({ name, imports })),
     };
 
     const uxpinConfigFilePath:string = resolve(APP_DIRECTORY, 'uxpin.config.js');

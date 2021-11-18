@@ -37,6 +37,7 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
       return designSystem;
     }
 
+    /*
     // Get the branches at the current commit
     const branchesAtCurrentCommit:string[] = await getBranchesAtCommit(vcsDetails.paths.projectRoot, commitHash);
 
@@ -47,6 +48,7 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
       );
       return designSystem;
     }
+    */
 
     // If the backend already has the commit we're trying to push,
     // Update the repository pointer to the current branch and exit early
@@ -90,6 +92,7 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     }
 
     try {
+      console.log(JSON.stringify(designSystem));
       await postPushMetadata(apiDomain, authToken, designSystem);
       printLine('✅ Library metadata uploaded successfully!', { color: PrintColor.GREEN });
     } catch (error) {

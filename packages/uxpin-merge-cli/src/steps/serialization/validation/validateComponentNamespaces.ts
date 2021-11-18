@@ -15,7 +15,9 @@ export function validateComponentNamespaces(categories:ComponentCategory[]):void
       throw new Error(`Component "${name}" already exists in ${path}!`);
     }
 
-    map[name] = component.info.dirPath;
+    if (component.info.dirPath) {
+      map[name] = component.info.dirPath;
+    }
 
     return map;
   }, {});

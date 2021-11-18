@@ -119,6 +119,7 @@
     "p-map": "^2.0.0",
     "p-map-series": "^1.0.0",
     "p-reduce": "^1.0.0",
+    "parse-static-imports": "^1.1.0",
     "path-sort": "^0.1.0",
     "react-docgen": "^4.1.0",
     "request-promise": "^4.2.2",

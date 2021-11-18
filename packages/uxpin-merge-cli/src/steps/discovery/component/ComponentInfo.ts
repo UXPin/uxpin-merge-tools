@@ -1,5 +1,6 @@
 export interface ComponentInfo {
-  dirPath:string;
+  import?:string;
+  dirPath?:string;
   implementation:ComponentImplementationInfo;
   documentation?:ComponentDocumenationInfo;
   presets?:ComponentPresetInfo[];

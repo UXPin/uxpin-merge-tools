@@ -62,6 +62,7 @@ export interface PushProgramArgs {
   // https://github.com/UXPin/uxpin-merge-tools/issues/206
   branch?:string;
   tag?:string;
+  disableVersionControl?:boolean;
 }
 
 export interface GeneratePresetsProgramArgs {

@@ -1,4 +1,5 @@
 import { BuildOptions } from '../../../building/BuildOptions';
+import { FakeRepositoryAdapter } from './fake/FakeRepositoryAdapter';
 import { GitRepositoryAdapter } from './git/GitRepositoryAdapter';
 import { isGitRepository } from './git/util/isGitRepository';
 import { RepositoryAdapter, RepositoryAdapterOptions } from './RepositoryAdapter';
@@ -9,6 +10,11 @@ export async function getRepositoryAdapter(cwd:string, buildOptions?:BuildOption
   // Use branch for override if provided
   if (buildOptions && buildOptions.branch) {
     options.branchOverride = buildOptions.branch;
+  }
+
+  // for npm integration
+  if (buildOptions && buildOptions.disableVersionControl) {
+    return new FakeRepositoryAdapter();
   }
 
   // Check and use Git repository

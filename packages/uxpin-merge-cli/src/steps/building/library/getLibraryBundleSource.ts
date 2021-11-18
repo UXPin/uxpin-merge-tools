@@ -12,7 +12,7 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
 
   const imports:string[] = components
     .filter((comp) => !comp.namespace)
-    .map((comp) => `import ${getImportName(comp)} from '${getImportPath(comp)}';`);
+    .map((comp) => comp.info.import || `import ${getImportName(comp)} from '${getImportPath(comp)}';`);
 
   const wrapperImport:string[] = getWrapperImport(wrapperPath);
 
