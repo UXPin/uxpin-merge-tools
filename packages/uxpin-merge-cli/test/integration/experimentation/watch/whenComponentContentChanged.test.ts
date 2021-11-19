@@ -23,7 +23,7 @@ describe('Experimental - watch - change file content', () => {
   beforeAll(async () => {
     initialBundleChecksum = await getBundleChecksum();
   });
-  
+
   it('should update library bundle when component changed', async () => {
     // given
     const changedFileContent:string = `

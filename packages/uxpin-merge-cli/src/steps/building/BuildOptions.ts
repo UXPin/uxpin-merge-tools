@@ -10,4 +10,5 @@ export interface BuildOptions {
   branch?:string;
   tag?:string;
   disableVersionControl?:boolean;
+  styles?:string;
 }

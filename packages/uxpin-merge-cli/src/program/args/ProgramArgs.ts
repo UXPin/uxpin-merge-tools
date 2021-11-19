@@ -63,6 +63,7 @@ export interface PushProgramArgs {
   branch?:string;
   tag?:string;
   disableVersionControl?:boolean;
+  styles?:string;
 }
 
 export interface GeneratePresetsProgramArgs {

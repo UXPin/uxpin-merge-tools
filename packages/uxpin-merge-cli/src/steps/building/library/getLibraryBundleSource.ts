@@ -4,7 +4,7 @@ import { TEMP_DIR_PATH } from '../config/getConfig';
 
 const CLASS_NAME_WRAPPER:string = 'Wrapper';
 
-export function getLibraryBundleSource(components:ComponentDefinition[], wrapperPath?:string):string {
+export function getLibraryBundleSource(components:ComponentDefinition[], wrapperPath?:string, styles?:string):string {
   const libImports:string[] = [
     'import * as React from \'react\';',
     'import * as ReactDOM from \'react-dom\';',
@@ -17,6 +17,18 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
   const wrapperImport:string[] = getWrapperImport(wrapperPath);
 
   const namespacedComponentDeclarations:string[] = getNamespacedComponentDeclarations(components);
+
+  let cssStyles:string[] = [];
+
+  if (styles) {
+    cssStyles = [
+      `const link = document.createElement('link');`,
+      `link.rel = 'stylesheet';`,
+      `link.type = 'text/css';`,
+      `link.href = "${styles}";`,
+      `document.getElementsByTagName("head")[0].appendChild(link);`,
+    ];
+  }
 
   const exports:string[] = [
     `export {`,
@@ -32,6 +44,7 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
     ...imports,
     ...wrapperImport,
     ...namespacedComponentDeclarations,
+    ...cssStyles,
     ...exports,
   ].join('\n');
 }
