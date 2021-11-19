@@ -24,6 +24,7 @@ describe('Experimental - watch - change file content', () => {
     initialBundleChecksum = await getBundleChecksum();
   });
 
+  // tests fails on Circle, locally works ¯\_(ツ)_/¯
   xit('should update library bundle when component changed', async () => {
     // given
     const changedFileContent:string = `
