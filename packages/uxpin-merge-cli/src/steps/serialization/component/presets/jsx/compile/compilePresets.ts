@@ -1,7 +1,7 @@
 import { unlink } from 'fs-extra';
 import { join, parse } from 'path';
 import * as webpack from 'webpack';
-import {CreateAppProgramArgs, ProgramArgs, RawProgramArgs} from '../../../../../../program/args/ProgramArgs';
+import { CreateAppProgramArgs, ProgramArgs, RawProgramArgs } from '../../../../../../program/args/ProgramArgs';
 import { getProjectRoot } from '../../../../../../program/args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../../../../../program/args/providers/paths/getTempDirPath';
 import { Compiler } from '../../../../../building/compiler/Compiler';

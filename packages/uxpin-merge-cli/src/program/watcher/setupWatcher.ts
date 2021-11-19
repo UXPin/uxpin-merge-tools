@@ -1,5 +1,5 @@
 import { FSWatcher, watch, WatchOptions } from 'chokidar';
-import {CreateAppProgramArgs, ProgramArgs} from '../args/ProgramArgs';
+import { CreateAppProgramArgs, ProgramArgs } from '../args/ProgramArgs';
 import { getConfigPath } from '../args/providers/paths/getConfigPath';
 import { getTempDirPath } from '../args/providers/paths/getTempDirPath';
 

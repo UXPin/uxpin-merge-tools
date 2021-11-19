@@ -1,5 +1,5 @@
 import { unlink } from 'fs-extra';
-import {CreateAppProgramArgs, ProgramArgs} from '../../../../../../program/args/ProgramArgs';
+import { CreateAppProgramArgs, ProgramArgs } from '../../../../../../program/args/ProgramArgs';
 import { ComponentDefinition } from '../../../ComponentDefinition';
 import { compilePresets } from '../compile/compilePresets';
 import { PresetsBundle } from './PresetsBundle';

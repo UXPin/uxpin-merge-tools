@@ -1,6 +1,6 @@
 import { flatMap } from 'lodash';
 import { Warned } from '../../../../common/warning/Warned';
-import {CreateAppProgramArgs, ProgramArgs} from '../../../../program/args/ProgramArgs';
+import { CreateAppProgramArgs, ProgramArgs } from '../../../../program/args/ProgramArgs';
 import { ComponentInfo } from '../../../discovery/component/ComponentInfo';
 import { ComponentCategory } from '../categories/ComponentCategory';
 import { getAllComponentsFromCategories } from '../categories/getAllComponentsFromCategories';

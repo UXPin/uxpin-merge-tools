@@ -1,9 +1,9 @@
 import * as cp from 'child_process';
+import { printLine } from '../../../../utils/console/printLine';
+import { PrintColor } from '../../../../utils/console/PrintOptions';
 import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
-import {printLine} from "../../../../utils/console/printLine";
-import {PrintColor} from "../../../../utils/console/PrintOptions";
 
 export function installPackage(args:CreateAppProgramArgs):Step {
   return { exec: thunkInstallPackage(args), shouldRun: true };

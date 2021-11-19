@@ -1,4 +1,4 @@
-import { mkdir, pathExists } from 'fs-extra';
+import { pathExists } from 'fs-extra';
 import { resolve } from 'path';
 import { printLine, printWarning } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
@@ -15,7 +15,10 @@ export function createPackageJsonFile(args:CreateAppProgramArgs):Step {
 
 export function thunkCreatePackageJsonFile(args:CreateAppProgramArgs):() => Promise<void> {
   return async () => {
-    const packageFile:any = {};
+    const packageFile:{
+      name?:string;
+      dependencies?:{ [key:string]:number|string }
+    } = {};
 
     packageFile.name = args.appName;
     packageFile.dependencies = {};

@@ -4,9 +4,6 @@ import { thunkGetSummaryResultForInvalidComponent } from './getSummaryResultForI
 import { ImplSerializationResult } from './ImplSerializationResult';
 import { serializeJSComponent } from './javascript/serializeJSComponent';
 import { serializeTSComponent } from './typescript/serializeTSComponent';
-import {ComponentPropertyDefinition} from "./ComponentPropertyDefinition";
-import {ComponentWrapper} from "../wrappers/ComponentWrapper";
-import {ComponentNamespace} from "../ComponentDefinition";
 
 export function getComponentMetadata(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   let promise:Promise<ImplSerializationResult>;

@@ -1,7 +1,7 @@
 import pMap from 'p-map';
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
-import {CreateAppProgramArgs, ProgramArgs} from '../../program/args/ProgramArgs';
+import { CreateAppProgramArgs, ProgramArgs } from '../../program/args/ProgramArgs';
 import { getBuildOptions } from '../../program/command/push/getBuildOptions';
 import { BuildOptions } from '../building/BuildOptions';
 import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
