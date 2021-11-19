@@ -24,7 +24,7 @@ describe('Experimental - watch - change file content', () => {
     initialBundleChecksum = await getBundleChecksum();
   });
 
-  it('should update library bundle when component changed', async () => {
+  xit('should update library bundle when component changed', async () => {
     // given
     const changedFileContent:string = `
 import PropTypes from 'prop-types';
