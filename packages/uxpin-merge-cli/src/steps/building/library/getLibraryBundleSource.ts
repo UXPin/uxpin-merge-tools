@@ -38,7 +38,7 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
 
 function getImportName({ name, namespace, defaultExported }:ComponentDefinition):string {
   const componentName:string = namespace ? namespace.importSlug : name;
-  if (defaultExported && componentName !== 'TextInput') {
+  if (defaultExported) {
     return componentName;
   }
   return `{ ${componentName} }`;

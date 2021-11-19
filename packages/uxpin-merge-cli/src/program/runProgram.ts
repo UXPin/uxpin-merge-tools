@@ -24,7 +24,6 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
     }
     await runCommand(programArgs);
   } catch (error) {
-    console.log('error', error);
     endWithError(error);
   }
 }

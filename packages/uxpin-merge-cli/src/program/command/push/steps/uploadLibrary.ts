@@ -92,7 +92,6 @@ export function uploadLibrary(buildOptions:BuildOptions):StepExecutor {
     }
 
     try {
-      console.log(JSON.stringify(designSystem));
       await postPushMetadata(apiDomain, authToken, designSystem);
       printLine('✅ Library metadata uploaded successfully!', { color: PrintColor.GREEN });
     } catch (error) {

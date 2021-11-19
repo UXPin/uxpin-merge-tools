@@ -15,12 +15,5 @@ export function createApp(args:CreateAppProgramArgs):Step[] {
     installPackage(args),
     installPeerDependencies(args),
     createUXPinConfigFile(args),
-    { exec: thunkGenerateFiles(args), shouldRun: true },
   ];
-}
-
-function thunkGenerateFiles(args:CreateAppProgramArgs):() => Promise<void> {
-  return async () => {
-   // console.log(args);
-  };
 }
