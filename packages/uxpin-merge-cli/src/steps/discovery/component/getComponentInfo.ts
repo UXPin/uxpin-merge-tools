@@ -1,4 +1,4 @@
-import { getParsedImports } from '../../../utils/getParsedImports';
+import { getParsedImports, Import } from '../../../utils/getParsedImports';
 import { ComponentImplementationInfo, ComponentInfo } from './ComponentInfo';
 import { getDocumentationInfo } from './documentation/getDocumentationInfo';
 import { getImplementationInfo } from './implementation/getImplementationInfo';
@@ -12,7 +12,7 @@ export async function getComponentInfo(projectRoot:string, implementationPath:st
     return null;
   }
 
-  const parsedImports:any[] = getParsedImports(implementationPath);
+  const parsedImports:Import[] = getParsedImports(implementationPath);
 
   if (parsedImports.length) {
     return {

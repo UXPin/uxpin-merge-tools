@@ -1,5 +1,5 @@
 import { ProjectPaths } from '../../../../steps/discovery/paths/ProjectPaths';
-import {CreateAppProgramArgs, ProgramArgs} from '../../ProgramArgs';
+import { CreateAppProgramArgs, ProgramArgs } from '../../ProgramArgs';
 import { getConfigPath } from './getConfigPath';
 import { getProjectRoot } from './getProjectRoot';
 
