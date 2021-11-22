@@ -3,7 +3,6 @@ import { resolve } from 'path';
 import { printLine, printWarning } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
 import { writeToFile } from '../../../../utils/fs/writeToFile';
-import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 
