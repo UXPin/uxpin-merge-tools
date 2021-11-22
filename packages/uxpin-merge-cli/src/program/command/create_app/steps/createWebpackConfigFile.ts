@@ -25,13 +25,13 @@ module.exports = {
     module: {
         rules: [
             {
-                loader: require.resolve('babel-loader', { paths: ['./node_modules/@uxpin/merge-cli'] }),
+                loader: require.resolve('babel-loader'),
                 test: /\\.jsx?$/,
                 exclude: /node_modules/,
                 options: {
                     presets: [
-                        require.resolve('@babel/preset-env', { paths: ['./node_modules/@uxpin/merge-cli'] }),
-                        require.resolve('@babel/preset-react', { paths: ['./node_modules/@uxpin/merge-cli'] })
+                        require.resolve('@babel/preset-env'),
+                        require.resolve('@babel/preset-react')
                     ],
                 }
             },
