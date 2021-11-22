@@ -1,4 +1,3 @@
-import { getParsedImports } from '../../../../utils/getParsedImports';
 import { ComponentImplementationInfo } from '../../../discovery/component/ComponentInfo';
 import { thunkGetSummaryResultForInvalidComponent } from './getSummaryResultForInvalidComponent';
 import { ImplSerializationResult } from './ImplSerializationResult';
@@ -7,16 +6,6 @@ import { serializeTSComponent } from './typescript/serializeTSComponent';
 
 export function getComponentMetadata(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   let promise:Promise<ImplSerializationResult>;
-
-  const parsedImports:any = getParsedImports(component.path);
-  if (parsedImports.length) {
-    const parsedImport:any = parsedImports[0];
-    return Promise.resolve({ result: {
-      defaultExported: !!parsedImport.defaultImport,
-      name: parsedImport.defaultImport || parsedImport.namedImports[0].name,
-      properties: [],
-    }, warnings: [] });
-  }
 
   if (component.lang === 'typescript') {
     promise = serializeTSComponent(component);

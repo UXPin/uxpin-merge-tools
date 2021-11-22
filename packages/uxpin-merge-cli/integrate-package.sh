@@ -6,8 +6,8 @@ token=$3
 styles=$4
 
 ./bin/uxpin-merge create-app --package-name="$packageName" --app-name="$token" --components="$components"
-cd tmp/$token
-../../bin/uxpin-merge push --token $token --disableVersionControl --styles="$styles"
+cd $token
+../bin/uxpin-merge push --token $token --disableVersionControl --styles="$styles" --webpack-config=webpack.config.js
 cd ..
 rm -fr $token
 

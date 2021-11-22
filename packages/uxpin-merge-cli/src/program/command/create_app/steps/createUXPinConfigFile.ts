@@ -5,6 +5,7 @@ import { writeToFile } from '../../../../utils/fs/writeToFile';
 import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
+import { components } from './createComponentsFiles';
 
 const INDENT:number = 2;
 
@@ -15,18 +16,10 @@ export function createUXPinConfigFile(args:CreateAppProgramArgs):Step {
 export function thunkCreateUXPinConfigFile(args:CreateAppProgramArgs):() => Promise<void> {
   return async () => {
     const uxpinConfigFile:any = {};
-    let componentsList:any = [];
-
-    try {
-      componentsList = JSON.parse(args.components || '');
-    } catch (e) {
-      console.log(e);
-      // do nothing
-    }
 
     uxpinConfigFile.name = args.appName;
     uxpinConfigFile.components = {
-      categories: componentsList.map(({ name, imports }:any) => ({ name, imports })),
+      categories: components.map(({ name, include }:any) => ({ name, include })),
     };
 
     const uxpinConfigFilePath:string = resolve(APP_DIRECTORY, 'uxpin.config.js');

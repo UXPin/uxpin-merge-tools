@@ -11,44 +11,36 @@ const NEGATED_PATTERN_MATCH:string = '!';
 
 export async function getComponentCategoryPaths(projectRoot:string, categoryConfig:CategoryConfig):Promise<string[]> {
   let hasInvalidPatterns:boolean = false;
-  if (categoryConfig.imports) {
-    return categoryConfig.imports;
-  }
+  const patterns:string[] = isArray(categoryConfig.include) ? categoryConfig.include : [categoryConfig.include];
+  const positivePatterns:string [] = patterns.filter((pattern) => !pattern.startsWith(NEGATED_PATTERN_MATCH));
 
-  if (categoryConfig.include) {
-    const patterns:string[] = isArray(categoryConfig.include) ? categoryConfig.include : [categoryConfig.include];
-    const positivePatterns:string [] = patterns.filter((pattern) => !pattern.startsWith(NEGATED_PATTERN_MATCH));
+  // First check if each non negated pattern produces any paths
+  const sortedPaths:string[] = flatten(await pMap(positivePatterns, async (pattern:string):Promise<string[]> => {
 
-    // First check if each non negated pattern produces any paths
-    const sortedPaths:string[] = flatten(await pMap(positivePatterns, async (pattern:string):Promise<string[]> => {
+    let newPaths:string[] = await globby(pattern, { cwd: projectRoot });
 
-      let newPaths:string[] = await globby(pattern, { cwd: projectRoot });
-
-      if (newPaths.length === 0) {
-        hasInvalidPatterns = true;
-        printWarning(`👉 Pattern ${safe.bold(pattern)} didn't match any files.`);
-      }
-
-      // If there are multiple paths returned by globby, sort them
-      if (newPaths.length > 1) {
-        newPaths = sortFilePaths(newPaths);
-      }
-
-      return newPaths;
-    }));
-
-    // If some pattern doesn't provide some files, throw an error as this may result to broken library to be pushed
-    // (e.g. when some files won't be commited to the repository)
-    if (hasInvalidPatterns) {
-      throw new Error(`🚫 Please check your config file and fix wrong patterns.`);
+    if (newPaths.length === 0) {
+      hasInvalidPatterns = true;
+      printWarning(`👉 Pattern ${safe.bold(pattern)} didn't match any files.`);
     }
 
-    // Finally get paths for all patterns, as this may produce different results than
-    // checking each pattern separately (some patterns may be excluded)
-    const allPaths:string[] = await globby(patterns, { cwd: projectRoot });
+    // If there are multiple paths returned by globby, sort them
+    if (newPaths.length > 1) {
+      newPaths = sortFilePaths(newPaths);
+    }
 
-    return intersection(sortedPaths, allPaths);
+    return newPaths;
+  }));
+
+  // If some pattern doesn't provide some files, throw an error as this may result to broken library to be pushed
+  // (e.g. when some files won't be commited to the repository)
+  if (hasInvalidPatterns) {
+    throw new Error(`🚫 Please check your config file and fix wrong patterns.`);
   }
 
-  return [];
+  // Finally get paths for all patterns, as this may produce different results than
+  // checking each pattern separately (some patterns may be excluded)
+  const allPaths:string[] = await globby(patterns, { cwd: projectRoot });
+
+  return intersection(sortedPaths, allPaths);
 }

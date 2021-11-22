@@ -4,7 +4,6 @@ import { printLine, printWarning } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
 import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
-import { TMP_DIRECTORY } from './createTmpDirectory';
 
 export let APP_DIRECTORY:string = '';
 
@@ -18,13 +17,13 @@ export function thunkCreateAppDirectory(args:CreateAppProgramArgs):() => Promise
       throw new Error('🛑 Invalid app name');
     }
 
-    const appDirectory:string = resolve(TMP_DIRECTORY, args.appName);
+    const appDirectory:string = resolve(process.cwd() , args.appName);
     APP_DIRECTORY = appDirectory;
     if (!await pathExists(appDirectory)) {
       await mkdir(appDirectory);
-      printLine(`✅ App directory "${args.appName}" created`, { color: PrintColor.GREEN });
+      printLine(`✅ App directory "${appDirectory}" created`, { color: PrintColor.GREEN });
     } else {
-      printWarning(`👉 App directory "${args.appName}" exists`);
+      printWarning(`👉 App directory "${appDirectory}" exists`);
     }
   };
 }

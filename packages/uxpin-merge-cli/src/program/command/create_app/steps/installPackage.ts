@@ -23,6 +23,9 @@ export function thunkInstallPackage(args:CreateAppProgramArgs):() => Promise<voi
       throw new Error('🛑 Something went wrong during installing package');
     }
 
-    printLine(`✅ Package "${args.packageName}" installed`, { color: PrintColor.GREEN });
+    printLine(
+      `✅ Packages "${args.packageName}" installed`,
+      { color: PrintColor.GREEN },
+    );
   };
 }

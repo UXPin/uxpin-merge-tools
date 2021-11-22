@@ -28,6 +28,5 @@ export interface CategoryConfig {
    * include: "src/components/*\/*.js",
    * ```
    */
-  include?:string|string[];
-  imports?:string[];
+  include:string|string[];
 }
