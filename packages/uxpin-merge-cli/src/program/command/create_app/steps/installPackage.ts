@@ -23,6 +23,18 @@ export function thunkInstallPackage(args:CreateAppProgramArgs):() => Promise<voi
       throw new Error('🛑 Something went wrong during installing package');
     }
 
-    printLine(`✅ Package "${args.packageName}" installed`, { color: PrintColor.GREEN });
+    const { status: babelLoaderStatus } = cp.spawnSync(
+      'npm', ['install', 'babel-loader', '@babel/core', '@babel/preset-env', '@babel/preset-react', 'webpack'], {
+        cwd: APP_DIRECTORY,
+      });
+
+    if (babelLoaderStatus !== 0) {
+      throw new Error('🛑 Something went wrong during installing babel-loader');
+    }
+
+    printLine(
+      `✅ Packages "${args.packageName} babel-loader @babel/core @babel/preset-env webpack" installed`,
+      { color: PrintColor.GREEN },
+    );
   };
 }

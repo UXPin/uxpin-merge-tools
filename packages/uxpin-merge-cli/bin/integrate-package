@@ -1,0 +1,50 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const cp = require('child_process');
+const path = require('path');
+const fs = require('fs-extra');
+
+program
+    .option('--token <string>' , 'Library token')
+    .option('--package-name <string>', 'NPM Package name')
+    .option('--components <string>', 'List of imported components and categories')
+    .option('--styles <url>', 'Url to CSS Styles');
+
+program.parse(process.argv);
+
+const uxpinMergePath = path.resolve(__dirname, './uxpin-merge');
+const appPath = path.resolve(process.cwd(), program.token);
+
+try {
+    const creatingAppResult = cp.spawnSync(uxpinMergePath, [
+        'create-app',
+        `--package-name=${program.packageName}`,
+        `--app-name=${program.token}`,
+        `--components=${program.components}`
+    ]);
+
+    if (creatingAppResult.status !== 0) {
+        throw new Error('Something went wrong during creating app');
+    }
+
+    const pushingAppResult = cp.spawnSync(uxpinMergePath, [
+        'push',
+        '--webpack-config=webpack.config.js',
+        `--disable-version-control`,
+        `--token=${program.token}`,
+        `--styles=${program.styles}`
+    ], { cwd: appPath });
+
+    if (pushingAppResult.status !== 0) {
+        throw new Error('Something went wrong during pushing app');
+    }
+
+} catch(e) {
+    console.error(e);
+} finally {
+    if (fs.pathExistsSync(appPath)) {
+        fs.removeSync(appPath);
+    }
+}
+

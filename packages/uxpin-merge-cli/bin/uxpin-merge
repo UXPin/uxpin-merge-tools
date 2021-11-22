@@ -51,7 +51,7 @@ program
     .option('--branch <branch>', 'branch to use when uploading. Default: master')
     .option('--tag <tag>', 'tag this push with a specific name or number. The provided name/number is unique and can be used only once.')
     .option('--styles <string>', 'Attach external css styles to pushed js bundle')
-    .option('--disableVersionControl', 'Turn off version control')
+    .option('--disable-version-control', 'Turn off version control')
 
     .action(() => {});
 
