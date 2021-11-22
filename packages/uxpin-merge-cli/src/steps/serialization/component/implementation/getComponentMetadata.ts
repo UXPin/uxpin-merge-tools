@@ -6,7 +6,6 @@ import { serializeTSComponent } from './typescript/serializeTSComponent';
 
 export function getComponentMetadata(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
   let promise:Promise<ImplSerializationResult>;
-
   if (component.lang === 'typescript') {
     promise = serializeTSComponent(component);
   } else {

@@ -16,7 +16,6 @@ export async function getComponentCategoryPaths(projectRoot:string, categoryConf
 
   // First check if each non negated pattern produces any paths
   const sortedPaths:string[] = flatten(await pMap(positivePatterns, async (pattern:string):Promise<string[]> => {
-
     let newPaths:string[] = await globby(pattern, { cwd: projectRoot });
 
     if (newPaths.length === 0) {

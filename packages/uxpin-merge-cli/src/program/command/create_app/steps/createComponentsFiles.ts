@@ -40,7 +40,7 @@ function decorateImport(parsedImport:Import):string {
 
   if (parsedImport.namedImports[0].name) {
     return [
-      `import { ${parsedImport.namedImports[0].name }as ${parsedImport.namedImports[0].name}${SUFFIX} }`,
+      `import { ${parsedImport.namedImports[0].name } as ${parsedImport.namedImports[0].name}${SUFFIX} }`,
       `from '${parsedImport.moduleName}'`,
     ].join(' ');
   }

@@ -1,5 +1,4 @@
 import { extname } from 'path';
-
 import { ComponentImplementationInfo } from '../ComponentInfo';
 
 export function getImplementationInfo(path:string):ComponentImplementationInfo | null {
@@ -7,7 +6,6 @@ export function getImplementationInfo(path:string):ComponentImplementationInfo |
     framework: 'reactjs',
     path,
   };
-
   const extension:string = extname(path);
   if (['.ts', '.tsx'].includes(extension)) {
     return { ...info, lang: 'typescript' };
@@ -15,6 +13,5 @@ export function getImplementationInfo(path:string):ComponentImplementationInfo |
   if (['.js', '.jsx'].includes(extension)) {
     return { ...info, lang: 'javascript' };
   }
-
   return null;
 }
