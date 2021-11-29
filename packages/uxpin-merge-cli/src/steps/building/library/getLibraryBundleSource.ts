@@ -4,7 +4,11 @@ import { TEMP_DIR_PATH } from '../config/getConfig';
 
 const CLASS_NAME_WRAPPER:string = 'Wrapper';
 
-export function getLibraryBundleSource(components:ComponentDefinition[], wrapperPath?:string, externalCssUrl?:string):string {
+export function getLibraryBundleSource(
+    components:ComponentDefinition[],
+    wrapperPath?:string,
+    externalCssUrl?:string,
+):string {
   const libImports:string[] = [
     'import * as React from \'react\';',
     'import * as ReactDOM from \'react-dom\';',

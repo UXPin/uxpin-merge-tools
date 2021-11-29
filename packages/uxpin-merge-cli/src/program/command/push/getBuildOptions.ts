@@ -19,8 +19,8 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
   return {
     branch,
     disableVersionControl,
-    projectRoot: getProjectRoot(args),
     externalCssUrl,
+    projectRoot: getProjectRoot(args),
     tag,
     token,
     uxpinApiDomain: getDefaultApiDomain(uxpinDomain!),
