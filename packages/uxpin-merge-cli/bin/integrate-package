@@ -47,13 +47,11 @@ async function spawn(args, options = {}) {
         });
 
         child.on('close', function (code) {
-            setTimeout(() => {
-                if (code !== 0) {
-                    reject(`Exited with code  ${code}`);
-                    return;
-                }
-                resolve();
-            });
+            if (code !== 0) {
+                reject(`Exited with code  ${code}`);
+                return;
+            }
+            resolve();
         });
     });
 }
