@@ -37,6 +37,7 @@ program
     .option('--app-name <string>', 'App name')
     .option('--components <string>', 'list of imports statements')
     .option('--package-name <string>', 'name of npm package')
+    .option('--package-version <string>', 'version of npm package')
     .action(() => {});
 
 

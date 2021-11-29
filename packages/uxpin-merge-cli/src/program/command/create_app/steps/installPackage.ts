@@ -15,7 +15,9 @@ export function thunkInstallPackage(args:CreateAppProgramArgs):() => Promise<voi
       throw new Error('Invalid package name');
     }
 
-    const { status } = cp.spawnSync('npm', ['install', args.packageName], {
+    const packageName:string = args.packageVersion ? `${args.packageName}@${args.packageVersion}` : args.packageName;
+
+    const { status } = cp.spawnSync('npm', ['install', packageName], {
       cwd: APP_DIRECTORY,
     });
 
