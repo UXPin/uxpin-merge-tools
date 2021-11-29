@@ -7,11 +7,11 @@ import { getLibraryBundleSource } from './getLibraryBundleSource';
 
 export async function createComponentsLibrary(
   componentInfos:ComponentDefinition[],
-  { uxpinDirPath, wrapperPath, styles }:BuildOptions,
+  { uxpinDirPath, wrapperPath, externalCssUrl }:BuildOptions,
 ):Promise<void> {
   await ensureDir(uxpinDirPath);
   await writeToFile(
       getComponentLibraryInputPath(uxpinDirPath),
-      getLibraryBundleSource(componentInfos, wrapperPath, styles),
+      getLibraryBundleSource(componentInfos, wrapperPath, externalCssUrl),
   );
 }

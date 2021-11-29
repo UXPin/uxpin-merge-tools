@@ -4,18 +4,35 @@ const program = require('commander');
 const cp = require('child_process');
 const path = require('path');
 const fs = require('fs-extra');
+const pMapSeries = require("p-map-series");
 
 program
     .option('--token <string>' , 'Library token')
     .option('--package-name <string>', 'NPM Package name')
     .option('--package-version <string>', 'NPM Package version')
     .option('--components <string>', 'List of imported components and categories')
-    .option('--styles <url>', 'Url to CSS Styles');
+    .option('--external-css-url <url>', 'Url to CSS Styles');
 
 program.parse(process.argv);
 
 const uxpinMergePath = path.resolve(__dirname, './uxpin-merge');
 const appPath = path.resolve(process.cwd(), program.token);
+const commands = [
+    spawn.bind(spawn, [
+        'create-app',
+        `--package-name=${program.packageName}`,
+        program.packageVersion ? `--package-version=${program.packageVersion}` : '',
+        `--app-name=${program.token}`,
+        `--components=${program.components}`
+    ].filter(Boolean)),
+    spawn.bind(spawn, [
+        'push',
+        '--webpack-config=webpack.config.js',
+        `--disable-version-control`,
+        `--token=${program.token}`,
+        program.externalCssUrl ? `--external-css-url=${program.externalCssUrl}` : ''
+    ].filter(Boolean), { cwd: appPath })
+];
 
 async function spawn(args, options = {}) {
     return new Promise((resolve, reject) => {
@@ -30,37 +47,29 @@ async function spawn(args, options = {}) {
         });
 
         child.on('close', function (code) {
-            if (code !== 0) {
-                reject(`Exited with code  ${code}`);
-                return;
-            }
-            resolve();
+            setTimeout(() => {
+                if (code !== 0) {
+                    reject(`Exited with code  ${code}`);
+                    return;
+                }
+                resolve();
+            });
         });
     });
 }
 
-spawn([
-    'create-app',
-    `--package-name=${program.packageName}`,
-    program.packageVersion ? `--package-version=${program.packageVersion}` : '',
-    `--app-name=${program.token}`,
-    `--components=${program.components}`
-].filter(Boolean))
-    .then(() => {
-        spawn( [
-            'push',
-            '--webpack-config=webpack.config.js',
-            `--disable-version-control`,
-            `--token=${program.token}`,
-            `--styles=${program.styles}`
-        ], { cwd: appPath });
-    })
-    .catch((e) => {
+async function executeCommands() {
+    try {
+        await pMapSeries(commands, (command) => command());
+    } catch (e) {
         console.error(e);
-    })
-    .finally(() => {
+    } finally {
         if (fs.pathExistsSync(appPath)) {
             fs.removeSync(appPath);
         }
-    })
+    }
+}
+
+executeCommands();
+
 

@@ -51,7 +51,7 @@ program
     .option('--token <token>', 'auth token for the library. Default: `UXPIN_AUTH_TOKEN` env variable')
     .option('--branch <branch>', 'branch to use when uploading. Default: master')
     .option('--tag <tag>', 'tag this push with a specific name or number. The provided name/number is unique and can be used only once.')
-    .option('--styles <string>', 'Attach external css styles to pushed js bundle')
+    .option('--external-css-url <string>', 'Attach external css styles to pushed js bundle')
     .option('--disable-version-control', 'Turn off version control')
 
     .action(() => {});
