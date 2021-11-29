@@ -3,7 +3,7 @@ import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './args/getProgramArgs';
-import { CreateAppProgramArgs, ProgramArgs, RawProgramArgs } from './args/ProgramArgs';
+import { CreateAppProgramArgs, ProgramArgs, RawProgramArgs, WatchProgramArgs } from './args/ProgramArgs';
 import { getProjectPaths } from './args/providers/paths/getProjectPaths';
 import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
@@ -19,9 +19,7 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
     setNodeEnv(process.env.UXPIN_ENV);
     printCurrentVersionInfo();
     const programArgs:ProgramArgs = getProgramArgs(program);
-    if (programArgs.command !== Command.CREATE_APP) {
-      await setupProjectWatcher(programArgs);
-    }
+    await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
   } catch (error) {
     endWithError(error);
@@ -32,12 +30,12 @@ async function runCommand(programArgs:ProgramArgs):Promise<any> {
   await executeCommandSteps(programArgs, getSteps(programArgs));
 }
 
-async function setupProjectWatcher(programArgs:Exclude<ProgramArgs, CreateAppProgramArgs>):Promise<void> {
+async function setupProjectWatcher(programArgs:ProgramArgs):Promise<void> {
   if (!isWatchChangesCommand(programArgs)) {
     return;
   }
 
-  await setupWatcher(programArgs, thunkRunCommandWhenFilesChanged(programArgs));
+  await setupWatcher(programArgs as WatchProgramArgs, thunkRunCommandWhenFilesChanged(programArgs));
 }
 
 function thunkRunCommandWhenFilesChanged(programArgs:ProgramArgs):(path:string) => void {

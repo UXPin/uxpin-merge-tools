@@ -16,6 +16,8 @@ export interface ConfigEnabledProgramArgs {
   uxpinDomain?:string;
 }
 
+export type WatchProgramArgs = ExperimentProgramArgs;
+
 export type ProgramArgs = CreateAppProgramArgs
     | DumpProgramArgs
     | ExperimentProgramArgs
