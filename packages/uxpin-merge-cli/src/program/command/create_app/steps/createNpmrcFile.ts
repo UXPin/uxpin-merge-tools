@@ -3,9 +3,9 @@ import { resolve } from 'path';
 import { printLine, printWarning } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
 import { writeToFile } from '../../../../utils/fs/writeToFile';
+import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
-import {CreateAppProgramArgs} from "../../../args/ProgramArgs";
 
 export function createNpmrcFile(args:CreateAppProgramArgs):Step {
   return { exec: thunkCreateNpmrcFile(args), shouldRun: true };
@@ -22,7 +22,7 @@ export function thunkCreateNpmrcFile(args:CreateAppProgramArgs):() => Promise<vo
       await writeToFile(npmrcFile, args.npmrc);
       printLine(`✅ File .npmrc created`, { color: PrintColor.GREEN });
     } else {
-      printWarning(`👉 File .npmrc  exists`);
+      printWarning(`👉 File .npmrc exists`);
     }
   };
 }
