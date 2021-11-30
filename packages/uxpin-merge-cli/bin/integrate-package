@@ -11,7 +11,8 @@ program
     .option('--package-name <string>', 'NPM Package name')
     .option('--package-version <string>', 'NPM Package version')
     .option('--components <string>', 'List of imported components and categories')
-    .option('--external-css-url <url>', 'Url to CSS Styles');
+    .option('--external-css-url <url>', 'Url to CSS Styles')
+    .option('--npmrc <string>', 'Content of .npmrc');
 
 program.parse(process.argv);
 
@@ -22,6 +23,7 @@ const commands = [
         'create-app',
         `--package-name=${program.packageName}`,
         program.packageVersion ? `--package-version=${program.packageVersion}` : '',
+        program.npmrc ? `--npmrc=${program.npmrc}` : '',
         `--app-name=${program.token}`,
         `--components=${program.components}`
     ].filter(Boolean)),

@@ -81,6 +81,7 @@ export interface CreateAppProgramArgs {
   packageName:string;
   packageVersion:string;
   appName:string;
+  npmrc?:string;
 }
 
 export interface ServerProgramArgs {
