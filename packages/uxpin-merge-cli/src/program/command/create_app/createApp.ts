@@ -13,11 +13,11 @@ export function createApp(args:CreateAppProgramArgs):Step[] {
   return [
     createAppDirectory(args),
     createPackageJsonFile(args),
+    createNpmrcFile(args),
     installPackage(args),
     installPeerDependencies(args),
     createComponentsFiles(args),
     createWebpackConfigFile(),
-    createNpmrcFile(args),
     createUXPinConfigFile(args),
   ];
 }
