@@ -12,7 +12,8 @@ program
     .option('--package-version <string>', 'NPM Package version')
     .option('--components <string>', 'List of imported components and categories')
     .option('--external-css-url <url>', 'Url to CSS Styles')
-    .option('--npmrc <string>', 'Content of .npmrc');
+    .option('--npmrc <string>', 'Content of .npmrc')
+    .option('--uxpin-domain <string>', 'Can be used to set a UXPin private cloud domain. Default: `uxpin.com`');
 
 program.parse(process.argv);
 
@@ -31,6 +32,7 @@ const commands = [
         'push',
         '--webpack-config=webpack.config.js',
         `--disable-version-control`,
+        program.uxpinDomain ? `--uxpin-domain=${program.uxpinDomain}` : '',
         `--token=${program.token}`,
         program.externalCssUrl ? `--external-css-url=${program.externalCssUrl}` : ''
     ].filter(Boolean), { cwd: appPath })
