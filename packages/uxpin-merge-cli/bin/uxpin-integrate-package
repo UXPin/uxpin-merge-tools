@@ -7,7 +7,7 @@ const fs = require('fs-extra');
 const pMapSeries = require("p-map-series");
 
 program
-    .option('--token <string>' , 'Library token')
+    .option('--token <string>', 'Library token')
     .option('--package-name <string>', 'NPM Package name')
     .option('--package-version <string>', 'NPM Package version')
     .option('--components <string>', 'List of imported components and categories')
@@ -61,17 +61,18 @@ async function spawn(args, options = {}) {
 }
 
 async function executeCommands() {
+    let exitCode = 0;
     try {
         await pMapSeries(commands, (command) => command());
     } catch (e) {
         console.error(e);
+        exitCode = 1;
     } finally {
         if (fs.pathExistsSync(appPath)) {
             fs.removeSync(appPath);
         }
+        process.exit(exitCode);
     }
 }
 
 executeCommands();
-
-
