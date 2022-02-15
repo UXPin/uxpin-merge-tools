@@ -33,6 +33,7 @@ jobs:
         working-directory: packages/uxpin-${{ github.event.inputs.package }}
 
     steps:
+      - uses: actions/checkout@v2
       - name: Set env var based on inputs
         run: |
           if [${{ github.event.inputs.target }} == 'github']
@@ -45,7 +46,6 @@ jobs:
           fi
 
       - run: echo $NPM_REGISTRY_HOST
-      # - uses: actions/checkout@v2
       # - name: Use Node.js 12.18.1
       #   uses: actions/setup-node@v1
       #   with:
