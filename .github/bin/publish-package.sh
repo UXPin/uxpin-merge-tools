@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "${NPMRC}"
-
 export PATH=$(yarn global dir)/node_modules/.bin:${PATH}
 
 if [ -n "${GITHUB_HEAD_REF}" ]; then
