@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Set env var based on inputs
         run: |
-          if [${{ github.event.inputs.target }} == 'github']
+          if [${{ github.event.inputs.target }} == github]
           then
               export NPM_REGISTRY_HOST=npm.pkg.github.com
               export NPMRC_PUBLISH_TOKEN=${{ secrets.GITHUB_TOKEN }}
