@@ -66,7 +66,7 @@ jobs:
         env:
           NPMRC: |
             @uxpin:registry=https://${{ env.NPM_REGISTRY_HOST }}/
-            //${{ env.NPM_REGISTRY_HOST }}/:_authToken="${{ env.NPMRC_PUBLISH_TOKEN }}"
+            //${{ env.NPM_REGISTRY_HOST }}/:_authToken=""
 
       - run: make dependencies
       - run: make build
