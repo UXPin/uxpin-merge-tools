@@ -38,11 +38,11 @@ jobs:
         run: |
           if [ "${{ github.event.inputs.target }}" = "github" ]
           then
-              export NPM_REGISTRY_HOST=npm.pkg.github.com
-              export NPMRC_PUBLISH_TOKEN=${{ secrets.GITHUB_TOKEN }}
+              echo "NPM_REGISTRY_HOST=npm.pkg.github.com" >> $GITHUB_ENV
+              echo "NPM_REGISTRY_HOST=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
           else
-              export NPM_REGISTRY_HOST=registry.npmjs.com
-              export NPMRC_PUBLISH_TOKEN=${{ secrets.NPMJS_TOKEN }}
+              echo "NPM_REGISTRY_HOST=registry.npmjs.com" >> $GITHUB_ENV
+              echo "NPM_REGISTRY_HOST=${{ secrets.NPMJS_TOKEN }}" >> $GITHUB_ENV
           fi
 
       - name: Use Node.js 12.18.1
@@ -65,8 +65,8 @@ jobs:
         run: echo "${NPMRC}" > .npmrc
         env:
           NPMRC: |
-            @uxpin:registry=https://$NPM_REGISTRY_HOST/
-            //$NPM_REGISTRY_HOST/:_authToken=""
+            @uxpin:registry=https://${{ env.NPM_REGISTRY_HOST }}/
+            //${{ env.NPM_REGISTRY_HOST }}/:_authToken=""
 
       # - run: make dependencies
       # - run: make build
