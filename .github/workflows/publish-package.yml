@@ -65,12 +65,12 @@ jobs:
         run: echo "${NPMRC}" > .npmrc
         env:
           NPMRC: |
-            @uxpin:registry=https://${{ env.NPM_REGISTRY_HOST }}/
-            //${{ env.NPM_REGISTRY_HOST }}/:_authToken=""
+            @uxpin:registry=https://$NPM_REGISTRY_HOST/
+            //$NPM_REGISTRY_HOST/:_authToken=""
 
-      - run: make dependencies
-      - run: make build
-      - name: publish package
-        run: bash ../../.github/bin/publish-package.sh
-        env:
-          PACKAGE_TAG: ${{ github.event.inputs.tag }}
+      # - run: make dependencies
+      # - run: make build
+      # - name: publish package
+      #   run: bash ../../.github/bin/publish-package.sh
+      #   env:
+      #     PACKAGE_TAG: ${{ github.event.inputs.tag }}
