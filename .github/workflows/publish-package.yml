@@ -44,8 +44,8 @@ jobs:
               export NPM_REGISTRY_HOST=registry.npmjs.com
               export NPMRC_PUBLISH_TOKEN=${{ secrets.NPMJS_TOKEN }}
           fi
+          echo "$NPM_REGISTRY_HOST"
 
-      - run: echo $NPM_REGISTRY_HOST
       # - name: Use Node.js 12.18.1
       #   uses: actions/setup-node@v1
       #   with:
