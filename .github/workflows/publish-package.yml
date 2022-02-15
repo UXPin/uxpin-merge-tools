@@ -27,8 +27,6 @@ on:
 
 jobs:
   publish:
-    env:
-
     runs-on: ubuntu-20.04
     defaults:
       run:
