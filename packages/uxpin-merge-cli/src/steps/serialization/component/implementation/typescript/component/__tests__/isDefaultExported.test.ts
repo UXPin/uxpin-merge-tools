@@ -16,6 +16,13 @@ export function getImplementation(componentName:string):ComponentImplementationI
 
 describe('getComponentNameFromStoriesTitle', () => {
   const cases:any[] = [
+    // detect any default in sperate export from component definition
+    {
+      componentName: 'NewComponentDefinitionExportNameDifferent',
+      expected: true,
+      filename: 'ComponentDefinitionExportNameDifferent',
+    },
+
     /////////// Class components
     ////// Default exported
     // export default class Component

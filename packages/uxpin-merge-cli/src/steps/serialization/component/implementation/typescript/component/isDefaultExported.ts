@@ -50,38 +50,25 @@ export function isDefaultExported(declaration:ComponentDeclaration, context:TSSe
     }
 
     // isExportAssignment returns true when the code looks like
-    // export default Component;
+    // "export default Component;"
+    // "export { component }" is not a ExportAssigment, it's a ExportDeclaration.
+    // so named export component doesn't pass below if condition.
+    // It means there is a default export statement if there is ANY ExportAssigment node exists in the file,
     if (!ts.isExportAssignment(node)) { return; }
-
-    const exportedName:string = (node.expression as any).escapedText;
-
-    // const Component = () => {}
-    if (isDefaultExportedArrowFunctionWithName(exportedName, componentName, declaration)) {
-      isDefault = true;
-    }
-
-    // function Component()
-    if (isDefaultExportedFunctionWithName(exportedName, declaration)) {
-      isDefault = true;
-    }
-
-    // class Component
-    if (isDefaultExportedClassWithName(exportedName, declaration)) {
-      isDefault = true;
-    }
-
-    // component wrapped with HOC.
-    // export default withHOC(Component);
-    if (isWrappedWithHOC(componentName, node.expression)) {
-      isDefault = true;
-    }
-
-    // export default forwardRef<HTMLBaseElement, Props>((props) => {}
-    if (isDefaultExportedForwardRef(node)) {
-      isDefault = true;
-    }
+    isDefault = true;
+    return;
   });
   return isDefault;
+}
+
+function isDefaultExportedFunctionWithAnyName(exportedName:string, declaration:ComponentDeclaration):boolean {
+  console.log('DECLARATION', declaration)
+  console.log('ts.isFunctionDeclaration(DECLARATION)', ts.isFunctionDeclaration(declaration))
+  console.log('ts.isClassDeclaration(DECLARATION)', ts.isClassDeclaration(declaration))
+  console.log('ts.isFunction(DECLARATION)', ts.isArrowFunction(declaration))
+  console.log('EXPORTEDNAME', exportedName)
+  console.log('GETNODENAME', getNodeName(declaration))
+  return ((ts.isFunctionDeclaration(declaration) || ts.isArrowFunction(declaration) || ts.isClassDeclaration(declaration)) && exportedName !== undefined);
 }
 
 function isDefaultExportedArrowFunctionWithName(
