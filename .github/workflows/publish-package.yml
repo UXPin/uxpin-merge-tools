@@ -2,40 +2,75 @@ name: Publish package
 
 on:
   workflow_dispatch:
+    inputs:
+      package:
+        type: choice
+        description: Package to publish
+        options:
+          - merge-cli
+          - storybook-deployer
+        required: true
+      tag:
+        type: choice
+        description: Package tag
+        options:
+          - dev
+          - latest
+        required: true
+      target:
+        type: choice
+        description: Target registry
+        options:
+          - github
+          - npmjs
+        required: true
 
 jobs:
   publish:
     runs-on: ubuntu-20.04
     defaults:
       run:
-        working-directory: packages/uxpin-merge-cli
+        working-directory: packages/uxpin-${{ github.event.inputs.package }}
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 12.18.1
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.18.1
-    - run: yarn policies set-version 1.22.4
+      - uses: actions/checkout@v2
+      - name: Set env var based on inputs
+        run: |
+          if [ "${{ github.event.inputs.target }}" = "github" ]
+          then
+              echo "NPM_REGISTRY_HOST=npm.pkg.github.com" >> $GITHUB_ENV
+              echo "NPMRC_PUBLISH_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+          else
+              echo "NPM_REGISTRY_HOST=registry.npmjs.com" >> $GITHUB_ENV
+              echo "NPMRC_PUBLISH_TOKEN=${{ secrets.NPMJS_TOKEN }}" >> $GITHUB_ENV
+          fi
 
-    - name: Setting $HOME/.npmrc to install built-utils
-      run: echo "${NPMRC}" > $HOME/.npmrc
-      env:
-        NPMRC: |
-          @uxpin:registry=https://npm.pkg.github.com/
-          //npm.pkg.github.com/:_authToken="${{ secrets.NPMRC_READ_TOKEN }}"
+      - name: Use Node.js 12.18.1
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.18.1
+      - run: yarn policies set-version 1.22.4
 
-    - name: Install build-utils
-      run: yarn global add @uxpin/build-utils
+      - name: Setting $HOME/.npmrc to install built-utils
+        run: echo "${NPMRC}" > $HOME/.npmrc
+        env:
+          NPMRC: |
+            @uxpin:registry=https://npm.pkg.github.com/
+            //npm.pkg.github.com/:_authToken="${{ secrets.NPMRC_READ_TOKEN }}"
 
-    - name: Setting .npmrc to publish a package on github
-      run: echo "${NPMRC}" > .npmrc
-      env:
-        NPMRC: |
-          @uxpin:registry=https://npm.pkg.github.com/
-          //npm.pkg.github.com/:_authToken="${{ secrets.GITHUB_TOKEN }}"
+      - name: Install build-utils
+        run: yarn global add @uxpin/build-utils
 
-    - run: make dependencies
-    - run: make build
-    - name: publish package
-      run: bash ../../.github/bin/publish-package.sh
+      - name: Setting .npmrc to publish a package on github
+        run: echo "${NPMRC}" > .npmrc
+        env:
+          NPMRC: |
+            @uxpin:registry=https://${{ env.NPM_REGISTRY_HOST }}/
+            //${{ env.NPM_REGISTRY_HOST }}/:_authToken="${{ env.NPMRC_PUBLISH_TOKEN }}"
+
+      - run: make dependencies
+      - run: make build
+      - name: publish package
+        run: bash ../../.github/bin/publish-package.sh
+        env:
+          PACKAGE_TAG: ${{ github.event.inputs.tag }}
