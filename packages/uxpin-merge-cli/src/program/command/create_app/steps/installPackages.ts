@@ -1,5 +1,4 @@
 import * as cp from 'child_process';
-import { isArray } from 'lodash';
 import { printLine } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
 import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
