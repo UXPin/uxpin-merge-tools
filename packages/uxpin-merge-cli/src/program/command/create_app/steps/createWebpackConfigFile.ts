@@ -10,12 +10,16 @@ const WEBPACK_FILE:string =
 `
 const path = require("path");
 const webpack = require("webpack");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     output: {
         path: path.resolve(__dirname, "build"),
         filename: "bundle.js",
         publicPath: "/"
+    },
+    optimization: {
+        minimizer: [new UglifyJsPlugin()],
     },
     resolve: {
         modules: [__dirname, "node_modules"],
@@ -24,6 +28,20 @@ module.exports = {
     devtool: "source-map",
     module: {
         rules: [
+            {
+                test: /\\.css$/,
+                use: [
+                    {
+                        loader: require.resolve('style-loader'),
+                    },
+                    {
+                        loader: require.resolve('css-loader'),
+                        options: {
+                          importLoaders: 1,
+                        }
+                    },
+                ]
+            },
             {
                 loader: require.resolve('babel-loader'),
                 test: /\\.jsx?$/,

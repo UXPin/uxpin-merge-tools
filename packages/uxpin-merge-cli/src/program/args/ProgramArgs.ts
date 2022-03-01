@@ -65,7 +65,7 @@ export interface PushProgramArgs {
   branch?:string;
   tag?:string;
   disableVersionControl?:boolean;
-  externalCssUrl?:string;
+  cssResources?:string;
 }
 
 export interface GeneratePresetsProgramArgs {
@@ -78,8 +78,7 @@ export interface GeneratePresetsProgramArgs {
 export interface CreateAppProgramArgs {
   command:Command.CREATE_APP;
   components?:string;
-  packageName:string;
-  packageVersion:string;
+  packages:string;
   appName:string;
   npmrc?:string;
 }

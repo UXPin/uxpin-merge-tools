@@ -36,8 +36,7 @@ program
     .description('Create app based on package name')
     .option('--app-name <string>', 'App name')
     .option('--components <string>', 'list of imports statements')
-    .option('--package-name <string>', 'name of npm package')
-    .option('--package-version <string>', 'version of npm package')
+    .option('--packages <string>', 'names and versions of npm packages')
     .option('--npmrc <string>', 'Content of .npmrc')
     .action(() => {});
 
@@ -52,7 +51,7 @@ program
     .option('--token <token>', 'auth token for the library. Default: `UXPIN_AUTH_TOKEN` env variable')
     .option('--branch <branch>', 'branch to use when uploading. Default: master')
     .option('--tag <tag>', 'tag this push with a specific name or number. The provided name/number is unique and can be used only once.')
-    .option('--external-css-url <string>', 'Attach external css styles to pushed js bundle')
+    .option('--css-resources <string>', 'Attach external css styles to pushed js bundle')
     .option('--disable-version-control', 'Turn off version control')
 
     .action(() => {});

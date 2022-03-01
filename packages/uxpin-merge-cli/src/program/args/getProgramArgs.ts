@@ -17,8 +17,7 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     appName: 'react-app',
     command: Command.CREATE_APP,
     npmrc: '',
-    packageName: '',
-    packageVersion: '',
+    packages: '',
   },
   [Command.DUMP]: {
     command: Command.DUMP,

@@ -11,7 +11,14 @@ export function installPeerDependencies(args:CreateAppProgramArgs):Step {
 
 export function thunkInstallPeerDependencies(args:CreateAppProgramArgs):() => Promise<void> {
   return async () => {
-    const packageJSON:any = require(`${APP_DIRECTORY}/node_modules/${args.packageName}/package.json`);
+    let packages:Array<{ name:string, version?:string}> = [];
+    try {
+      packages = JSON.parse(args.packages || '');
+    } catch (e) {
+      console.log(e);
+      // do nothing
+    }
+    const packageJSON:any = require(`${APP_DIRECTORY}/node_modules/${packages[0].name}/package.json`);
 
     const peerDependencies:any = packageJSON.peerDependencies || {};
     Object.keys(peerDependencies).forEach((dependencyName) => {

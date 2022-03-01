@@ -8,10 +8,9 @@ const pMapSeries = require("p-map-series");
 
 program
     .option('--token <string>' , 'Library token')
-    .option('--package-name <string>', 'NPM Package name')
-    .option('--package-version <string>', 'NPM Package version')
+    .option('--packages <string>', 'NPM Package name')
     .option('--components <string>', 'List of imported components and categories')
-    .option('--external-css-url <url>', 'Url to CSS Styles')
+    .option('--css-resources <url>', 'Urls or paths to CSS Styles')
     .option('--npmrc <string>', 'Content of .npmrc')
     .option('--uxpin-domain <string>', 'Can be used to set a UXPin private cloud domain. Default: `uxpin.com`');
 
@@ -22,8 +21,7 @@ const appPath = path.resolve(process.cwd(), program.token);
 const commands = [
     spawn.bind(spawn, [
         'create-app',
-        `--package-name=${program.packageName}`,
-        program.packageVersion ? `--package-version=${program.packageVersion}` : '',
+        `--packages=${program.packages}`,
         program.npmrc ? `--npmrc=${program.npmrc}` : '',
         `--app-name=${program.token}`,
         `--components=${program.components}`
@@ -34,7 +32,7 @@ const commands = [
         `--disable-version-control`,
         program.uxpinDomain ? `--uxpin-domain=${program.uxpinDomain}` : '',
         `--token=${program.token}`,
-        program.externalCssUrl ? `--external-css-url=${program.externalCssUrl}` : ''
+        program.cssResources ? `--css-resources=${program.cssResources}` : ''
     ].filter(Boolean), { cwd: appPath })
 ];
 

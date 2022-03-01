@@ -7,7 +7,7 @@ const CLASS_NAME_WRAPPER:string = 'Wrapper';
 export function getLibraryBundleSource(
     components:ComponentDefinition[],
     wrapperPath?:string,
-    externalCssUrl?:string,
+    cssResources?:string,
 ):string {
   const libImports:string[] = [
     'import * as React from \'react\';',
@@ -22,17 +22,27 @@ export function getLibraryBundleSource(
 
   const namespacedComponentDeclarations:string[] = getNamespacedComponentDeclarations(components);
 
-  let cssStyles:string[] = [];
-
-  if (externalCssUrl) {
-    cssStyles = [
-      `const link = document.createElement('link');`,
-      `link.rel = 'stylesheet';`,
-      `link.type = 'text/css';`,
-      `link.href = "${externalCssUrl}";`,
-      `document.getElementsByTagName("head")[0].appendChild(link);`,
-    ];
+  let cssFiles:string[] = [];
+  try {
+    cssFiles = cssResources ? JSON.parse(cssResources) : [];
+  } catch (e) {
+    console.error(e);
+    // do nothing
   }
+
+  const cssImports:string[] = cssFiles
+      .filter((cssFile) => !/^https.*/i.test(cssFile))
+      .map((cssImport) => `import '../node_modules/${cssImport}';`);
+
+  const cssUrls:string[] = cssFiles
+      .filter((cssFile) => /^https.*/i.test(cssFile))
+      .map((cssUrl,i) => ([
+        `const link${i} = document.createElement('link');`,
+        `link${i}.rel = 'stylesheet';`,
+        `link${i}.type = 'text/css';`,
+        `link${i}.href = "${cssUrl}";`,
+        `document.getElementsByTagName("head")[0].appendChild(link${i});`,
+      ].join('\n')));
 
   const exports:string[] = [
     `export {`,
@@ -47,8 +57,9 @@ export function getLibraryBundleSource(
     ...libImports,
     ...imports,
     ...wrapperImport,
+    ...cssImports,
     ...namespacedComponentDeclarations,
-    ...cssStyles,
+    ...cssUrls,
     ...exports,
   ].join('\n');
 }

@@ -6,7 +6,7 @@ import { createNpmrcFile } from './steps/createNpmrcFile';
 import { createPackageJsonFile } from './steps/createPackageJsonFile';
 import { createUXPinConfigFile } from './steps/createUXPinConfigFile';
 import { createWebpackConfigFile } from './steps/createWebpackConfigFile';
-import { installPackage } from './steps/installPackage';
+import { installPackages } from './steps/installPackages';
 import { installPeerDependencies } from './steps/installPeerDependencies';
 
 export function createApp(args:CreateAppProgramArgs):Step[] {
@@ -14,7 +14,7 @@ export function createApp(args:CreateAppProgramArgs):Step[] {
     createAppDirectory(args),
     createPackageJsonFile(args),
     createNpmrcFile(args),
-    installPackage(args),
+    installPackages(args),
     installPeerDependencies(args),
     createComponentsFiles(args),
     createWebpackConfigFile(),
