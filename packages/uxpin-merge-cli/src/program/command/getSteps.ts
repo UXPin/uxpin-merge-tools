@@ -26,6 +26,9 @@ export function getSteps(args:ProgramArgs):Step[] {
     case Command.PUSH:
       return getPushCommandSteps(args);
 
+    case Command.DELETE_VERSION:
+      //create method for deleting tag or branch  
+
     case Command.SERVER:
       return getServerCommandSteps(args);
 

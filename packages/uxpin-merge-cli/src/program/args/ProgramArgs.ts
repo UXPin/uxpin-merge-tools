@@ -20,6 +20,7 @@ export type ProgramArgs = DumpProgramArgs
     | ExperimentProgramArgs
     | InitProgramArgs
     | PushProgramArgs
+    | DeleteVersionArgs
     | GeneratePresetsProgramArgs
     | ServerProgramArgs
     | SummaryProgramArgs;
@@ -61,6 +62,14 @@ export interface PushProgramArgs {
   // https://github.com/UXPin/uxpin-merge-tools/issues/206
   branch?:string;
   tag?:string;
+}
+
+export interface DeleteVersionArgs {
+  command:Command.DELETE_VERSION;
+  token?:string;
+  uxpinDomain?:string;
+  branch?:string,
+  tag?:string,
 }
 
 export interface GeneratePresetsProgramArgs {

@@ -39,6 +39,11 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     token: process.env.UXPIN_AUTH_TOKEN,
     uxpinDomain: DEFAULT_UXPIN_DOMAIN,
   },
+  [Command.DELETE_VERSION]: {
+    command: Command.DELETE_VERSION,
+    token: process.env.UXPIN_AUTH_TOKEN,
+    uxpinDomain: DEFAULT_UXPIN_DOMAIN,
+  },
   [Command.SERVER]: {
     command: Command.SERVER,
     config: DEFAULT_CONFIG_PATH,
