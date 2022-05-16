@@ -41,6 +41,8 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
   },
   [Command.DELETE_VERSION]: {
     command: Command.DELETE_VERSION,
+    config: DEFAULT_CONFIG_PATH,
+    cwd: process.cwd(),
     token: process.env.UXPIN_AUTH_TOKEN,
     uxpinDomain: DEFAULT_UXPIN_DOMAIN,
   },

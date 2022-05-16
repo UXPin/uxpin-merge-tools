@@ -67,6 +67,8 @@ export interface PushProgramArgs {
 export interface DeleteVersionArgs {
   command:Command.DELETE_VERSION;
   token?:string;
+  cwd:string;
+  config?:string;
   uxpinDomain?:string;
   branch?:string,
   tag?:string,

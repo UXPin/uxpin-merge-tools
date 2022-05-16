@@ -5,6 +5,7 @@ import { getExperimentationCommandSteps } from './experimentation/getExperimenta
 import { getGeneratePresetsCommandSteps } from './generate_presets/getGeneratePresetsCommandSteps';
 import { getInitCommandSteps } from './init/getInitCommandSteps';
 import { getPushCommandSteps } from './push/getPushCommandSteps';
+import { getDeleteVersionCommandSteps } from './delete_version/getDeleteVersionCommandSteps';
 import { getServerCommandSteps } from './server/getServerCommandSteps';
 import { Step } from './Step';
 import { getSummaryCommandSteps } from './summary/getSummaryCommandSteps';
@@ -27,7 +28,7 @@ export function getSteps(args:ProgramArgs):Step[] {
       return getPushCommandSteps(args);
 
     case Command.DELETE_VERSION:
-      //create method for deleting tag or branch  
+      return getDeleteVersionCommandSteps(args);
 
     case Command.SERVER:
       return getServerCommandSteps(args);
