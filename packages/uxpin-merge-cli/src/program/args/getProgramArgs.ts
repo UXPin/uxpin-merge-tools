@@ -87,7 +87,6 @@ function getCLIArgs(program:RawProgramArgs, command:Command):ProgramArgs {
 function getCommandArgs(program:RawProgramArgs, command:Command):ProgramArgs | {} {
   const commanderStatic:CommanderStatic = (program.args || [])
     .find(isArgKnownCommand([command])) as CommanderStatic;
-
   if (!commanderStatic) {
     return {};
   }

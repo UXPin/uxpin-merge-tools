@@ -49,7 +49,8 @@ program
     .description('Delete the selected tag or branch in the Merge library')
     .option('--token <token>', 'auth token for the library to delete from.')
     .option('--branch <branch>', 'branch to delete in the Merge library')
-    .option('--tag <tag>', 'tag to delete in the Merge library')    
+    .option('--tag <tag>', 'tag to delete in the Merge library')
+    .action(() => {});    
 
 program
     .command(Command.DUMP)
