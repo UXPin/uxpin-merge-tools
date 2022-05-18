@@ -9,30 +9,30 @@ export const enum RepositoryPointerType {
     Tag = 'tag',
 }
 
-export async function DeleteRepositoryPointerToBranch(
+export async function deleteRepositoryPointerToBranch(
     opts:{
-        apiDomain:string,
-        authToken:string,
-        branch:string,
+      apiDomain:string,
+      authToken:string,
+      branch:string,
     }):Promise<void> {
 
         // Skip deleteing repository pointers in test environment
-        if (isTestEnv()) {
-            return Promise.resolve();
-        }
+  if (isTestEnv()) {
+    return Promise.resolve();
+  }
 
-        const branchName:string = encodeBranchName(opts.branch);
+  const branchName:string = encodeBranchName(opts.branch);
 
-        return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/delete-repository-pointer`, {
-            body: {
-                pointerName: branchName,
-                pointerType: RepositoryPointerType.Branch,
-            },
-            headers: {
-                ...getAuthHeaders(opts.authToken),
-                ...getUserAgentHeaders(),
-            },
-            json: true,
-            method: 'DELETE',
-        }).then(() => undefined);
-    }
+  return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/delete-repository-pointer`, {
+    body: {
+      pointerName: branchName,
+      pointerType: RepositoryPointerType.Branch,
+    },
+    headers: {
+      ...getAuthHeaders(opts.authToken),
+      ...getUserAgentHeaders(),
+    },
+    json: true,
+    method: 'DELETE',
+  }).then(() => undefined);
+}

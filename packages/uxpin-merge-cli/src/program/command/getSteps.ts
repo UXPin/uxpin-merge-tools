@@ -1,11 +1,11 @@
 import { ProgramArgs } from '../args/ProgramArgs';
 import { Command } from './Command';
+import { getDeleteVersionCommandSteps } from './delete_version/getDeleteVersionCommandSteps';
 import { getDumpCommandSteps } from './dump/getDumpCommandSteps';
 import { getExperimentationCommandSteps } from './experimentation/getExperimentationCommandSteps';
 import { getGeneratePresetsCommandSteps } from './generate_presets/getGeneratePresetsCommandSteps';
 import { getInitCommandSteps } from './init/getInitCommandSteps';
 import { getPushCommandSteps } from './push/getPushCommandSteps';
-import { getDeleteVersionCommandSteps } from './delete_version/getDeleteVersionCommandSteps';
 import { getServerCommandSteps } from './server/getServerCommandSteps';
 import { Step } from './Step';
 import { getSummaryCommandSteps } from './summary/getSummaryCommandSteps';

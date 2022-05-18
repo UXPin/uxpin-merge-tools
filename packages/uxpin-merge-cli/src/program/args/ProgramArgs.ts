@@ -70,8 +70,8 @@ export interface DeleteVersionArgs {
   cwd:string;
   config?:string;
   uxpinDomain?:string;
-  branch?:string,
-  tag?:string,
+  branch?:string;
+  tag?:string;
 }
 
 export interface GeneratePresetsProgramArgs {
