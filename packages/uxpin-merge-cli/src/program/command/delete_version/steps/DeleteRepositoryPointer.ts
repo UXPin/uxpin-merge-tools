@@ -49,11 +49,19 @@ async function DeleteTagWithPrintMessage(opts:{
     commitHash:string,
     tag:string,
 }):Promise<void> {
+    try {
         await DeleteTag(opts);
         printLine(
-            `🏷️  Library tag version [${opts.tag}] at commit hash [${opts.commitHash}] has been deleted.`,
+            `🏷️  Library tag version [${opts.tag}] has been deleted.`,
             {color: PrintColor.YELLOW}
         );
+    } catch(error) {
+        printLine(
+        `🛑 There was an error while deleting tag [${opts.tag}] at commit hash [${opts.commitHash}]`,
+            { color: PrintColor.RED },
+        );
+        throw new Error(error.message);
+    }      
 }
 
 async function DeleteRepositoryPointerWithPrintMessage(opts:{
@@ -62,10 +70,17 @@ async function DeleteRepositoryPointerWithPrintMessage(opts:{
     branch:string,
     commitHash:string,
 }):Promise<void> {
-    
+    try { 
     await DeleteRepositoryPointerToBranch(opts);
     printLine(
-        `Library branch version [${opts.branch}] at commit hash [${opts.commitHash}] has been deleted.`,
+        `Library branch version [${opts.branch}] has been deleted.`,
         {color: PrintColor.YELLOW}
-    )
+    );
+    } catch(error) {
+        printLine(
+        `🛑 There was an error while deleting branch [${opts.branch}]`,
+        { color: PrintColor.RED },
+        );
+        throw new Error(error.message);
+    }
 }
