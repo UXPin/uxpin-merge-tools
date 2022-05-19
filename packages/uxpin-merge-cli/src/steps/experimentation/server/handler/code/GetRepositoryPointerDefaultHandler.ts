@@ -1,15 +1,11 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { OK } from 'http-status-codes';
+import { RepositoryPointerType } from '../../../../../../src/common/RepositoryPointerType';
 import { DEFAULT_BRANCH_NAME } from '../../../../../common/constants';
 import { getAccessControlHeaders } from '../../headers/getAccessControlHeaders';
 import { getNoCacheHeaders } from '../../headers/getNoCacheHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { RequestHandler } from '../RequestHandler';
-
-export const enum RepositoryPointerType {
-  Branch = 'branch',
-  Tag = 'tag',
-}
 
 export interface RepoPointerNameAndType {
   name:string;

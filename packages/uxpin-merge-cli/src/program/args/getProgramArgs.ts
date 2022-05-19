@@ -39,6 +39,13 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     token: process.env.UXPIN_AUTH_TOKEN,
     uxpinDomain: DEFAULT_UXPIN_DOMAIN,
   },
+  [Command.DELETE_VERSION]: {
+    command: Command.DELETE_VERSION,
+    config: DEFAULT_CONFIG_PATH,
+    cwd: process.cwd(),
+    token: process.env.UXPIN_AUTH_TOKEN,
+    uxpinDomain: DEFAULT_UXPIN_DOMAIN,
+  },
   [Command.SERVER]: {
     command: Command.SERVER,
     config: DEFAULT_CONFIG_PATH,
@@ -80,7 +87,6 @@ function getCLIArgs(program:RawProgramArgs, command:Command):ProgramArgs {
 function getCommandArgs(program:RawProgramArgs, command:Command):ProgramArgs | {} {
   const commanderStatic:CommanderStatic = (program.args || [])
     .find(isArgKnownCommand([command])) as CommanderStatic;
-
   if (!commanderStatic) {
     return {};
   }
