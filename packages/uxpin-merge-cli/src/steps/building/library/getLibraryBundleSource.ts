@@ -1,4 +1,4 @@
-import { parse, relative } from 'path';
+import { parse, relative, posix } from 'path';
 import { ComponentDefinition } from '../../serialization/component/ComponentDefinition';
 import { TEMP_DIR_PATH } from '../config/getConfig';
 
@@ -36,6 +36,10 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
   ].join('\n');
 }
 
+function normalizePath(path:string):string {
+  return posix.normalize(path.replace(/\\/g, '/'));
+}
+
 function getImportName({ name, namespace, defaultExported }:ComponentDefinition):string {
   const componentName:string = namespace ? namespace.importSlug : name;
   if (defaultExported) {
@@ -51,14 +55,14 @@ function getExportName({ name, namespace }:ComponentDefinition):string {
 function getImportPath({ info }:ComponentDefinition):string {
   const path:string = relative(TEMP_DIR_PATH, `./${info.dirPath}`);
   const fileName:string = parse(info.implementation.path).name;
-  return `${path}/${fileName}`;
+  return normalizePath(`${path}/${fileName}`);
 }
 
 function getWrapperImport(wrapperPath?:string):string[] {
   if (!wrapperPath) {
     return [];
   }
-  return [`import ${CLASS_NAME_WRAPPER} from '${relative(TEMP_DIR_PATH, wrapperPath)}';`];
+  return [`import ${CLASS_NAME_WRAPPER} from '${normalizePath(relative(TEMP_DIR_PATH, wrapperPath))}';`];
 }
 
 function getNamespacedComponentDeclarations(components:ComponentDefinition[]):string[] {
