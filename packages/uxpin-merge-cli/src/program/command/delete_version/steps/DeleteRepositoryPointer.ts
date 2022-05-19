@@ -20,6 +20,13 @@ export function deleteRepositoryPointer(deleteOptions:DeleteOptions):StepExecuto
     : undefined;
     const tag:string | undefined = deleteOptions.tag;
 
+    if (tag && branch) {
+      printError(
+      `🛑 Please specify --branch or --tag. Only one option is required.`,
+                );
+      return designSystem;
+    }
+
     if (!tag && !branch) {
       printError(
       `🛑 Please specify --branch or --tag and the name of the version you would like to delete.`,
