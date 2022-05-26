@@ -44,6 +44,7 @@ export function thunkInstallPackages(args:CreateAppProgramArgs):() => Promise<vo
         'css-loader@0.23.1',
         'webpack@4.8.1',
         'uglifyjs-webpack-plugin@2.2.0',
+        'prop-types',
       ], {
         cwd: APP_DIRECTORY,
       });

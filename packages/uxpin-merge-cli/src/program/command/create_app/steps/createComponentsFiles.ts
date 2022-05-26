@@ -17,17 +17,18 @@ const SUFFIX:string = 'El';
 export let components:Array<{ name:string, include:string[] }> = [];
 
 function getComponentContent(name:string, packageName:string):string {
+  const normalizedName:string = name.replace(/\./g, '');
   return [
     `import React from 'react';`,
-    '',
+    `import PropTypes from 'prop-types'`,
     `const packageData = require('${packageName}') || {};`,
-    `const ${name}${SUFFIX} = packageData.${name} ? packageData.${name} : packageData.default;`,
+    `const ${normalizedName}${SUFFIX} = packageData.${name} ? packageData.${name} : packageData.default;`,
     '',
-    `const ${name} = (props) => (`,
-    ` <${name}${SUFFIX} {...props} />`,
+    `const ${normalizedName} = (props) => (`,
+    ` <${normalizedName}${SUFFIX} {...props} />`,
     `);`,
-    '',
-    `export default ${name};`,
+    `${normalizedName}.mergeData = { PropTypes, props: ${normalizedName}${SUFFIX}.propTypes }`,
+    `export default ${normalizedName};`,
   ].join('\n');
 }
 
@@ -50,10 +51,11 @@ export function thunkCreateComponentsFiles(args:CreateAppProgramArgs):() => Prom
     await pMapSeries(componentsList, async (componentData) => {
       components.push({ name: componentData.categoryName, include: [] });
       await pMapSeries(componentData.components, async ({ name, packageName }) => {
-        const componentFile:string = `${componentsPath}/${name}.jsx`;
+        const normalizedName:string = name.replace(/\./g, '');
+        const componentFile:string = `${componentsPath}/${normalizedName}.jsx`;
 
         await writeToFile(componentFile, getComponentContent(name, packageName));
-        components[components.length - 1].include.push(`components/${name}.jsx`);
+        components[components.length - 1].include.push(`components/${normalizedName}.jsx`);
         printLine(`✅ File ${componentFile} created`, { color: PrintColor.GREEN });
       });
     });
