@@ -23,6 +23,7 @@ export type ProgramArgs = CreateAppProgramArgs
     | ExperimentProgramArgs
     | InitProgramArgs
     | PushProgramArgs
+    | DeleteVersionArgs
     | GeneratePresetsProgramArgs
     | ServerProgramArgs
     | SummaryProgramArgs;
@@ -66,6 +67,16 @@ export interface PushProgramArgs {
   tag?:string;
   disableVersionControl?:boolean;
   cssResources?:string;
+}
+
+export interface DeleteVersionArgs {
+  command:Command.DELETE_VERSION;
+  token?:string;
+  cwd:string;
+  config?:string;
+  uxpinDomain?:string;
+  branch?:string;
+  tag?:string;
 }
 
 export interface GeneratePresetsProgramArgs {

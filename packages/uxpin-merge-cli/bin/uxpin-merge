@@ -57,6 +57,14 @@ program
     .action(() => {});
 
 program
+    .command(Command.DELETE_VERSION)
+    .description('Delete the selected tag or branch in the Merge library')
+    .option('--token <token>', 'auth token for the library to delete from.')
+    .option('--branch <branch>', 'branch to delete in the Merge library')
+    .option('--tag <tag>', 'tag to delete in the Merge library')
+    .action(() => {});    
+
+program
     .command(Command.DUMP)
     .description('Shows all information (in JSON) about the design system repository and NOT send to UXPin')
     .option('--cwd <path>', 'working directory: path to root of the DS repository')

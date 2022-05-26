@@ -5,6 +5,7 @@ export enum Command {
   CREATE_APP = 'create-app',
   GENERATE_PRESETS = 'generate-presets',
   PUSH = 'push',
+  DELETE_VERSION = 'delete-version',
   SERVER = 'server',
   SUMMARY = 'summary',
 }
