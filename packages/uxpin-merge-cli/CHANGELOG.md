@@ -1,4 +1,9 @@
 # Changelog
+## [2.8.0] - 2022-06-09
+
+## Changed
+- `delete-version` command with `--tag` and `--branch` options ([#314](https://github.com/UXPin/uxpin-merge-tools/pull/314))
+-  GitHub action to publish to packages to both npmjs and github registry ([#308](https://github.com/UXPin/uxpin-merge-tools/pull/308))
 
 ## [2.7.10] - 2021-11-17
 
