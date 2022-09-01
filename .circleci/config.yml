@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:12.18.1
+      - image: circleci/node:16.17.0
     resource_class: medium
     working_directory: ~/project/packages/uxpin-merge-cli
     steps:
