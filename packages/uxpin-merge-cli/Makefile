@@ -4,7 +4,8 @@ UXPIN_CODE=$(shell pwd)/bin/uxpin-merge
 YARN ?= yarn
 
 .PHONY: dependencies install build build-watch \
-				check check2 check-fix test test-unit test-integration test-ci \
+				check check-fix check-types check-format \
+				test test-unit test-integration test-ci \
 				clean clean-test-resources \
 				test-remap-coverage test-resources test-rename-snapshots \
 				serve-mineral serve-polaris
