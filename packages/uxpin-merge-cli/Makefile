@@ -4,7 +4,7 @@ UXPIN_CODE=$(shell pwd)/bin/uxpin-merge
 YARN ?= yarn
 
 .PHONY: dependencies install build build-watch \
-				check check-fix test test-unit test-integration test-ci \
+				check check2 check-fix test test-unit test-integration test-ci \
 				clean clean-test-resources \
 				test-remap-coverage test-resources test-rename-snapshots \
 				serve-mineral serve-polaris
@@ -25,10 +25,16 @@ build-server-app:
 	webpack --config "./config/webpack.config.js"
 
 check:
-	tslint --project tsconfig.json
+	eslint src/**/*.ts
 
 check-fix:
-	tslint --project tsconfig.json --fix
+	eslint src/**/*.ts --fix
+
+check-types:
+	tsc --project tsconfig.json --pretty --noEmit
+
+check-format:
+	prettier src/**/*.ts --list-different
 
 test:
 	make test-resources
