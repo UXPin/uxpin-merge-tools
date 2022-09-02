@@ -1,6 +1,7 @@
 export type FlowType = KnownFlowType | FlowUnknownType;
 
-export type KnownFlowType = FlowArray
+export type KnownFlowType =
+  | FlowArray
   | FlowTypeSignature<'function'>
   | FlowTypeSignature<'object'>
   | FlowPrimitiveType
@@ -10,73 +11,65 @@ export type KnownFlowType = FlowArray
 export type KnownFlowTypeName = KnownFlowType['name'];
 
 export interface FlowArray {
-  name:'Array';
-  elements:FlowType[];
-  raw:string;
+  name: 'Array';
+  elements: FlowType[];
+  raw: string;
 }
 
 export interface FlowTypeSignature<T extends keyof FlowTypeSignaturesMap> {
-  name:'signature';
-  type:T;
-  raw:string;
-  signature:FlowTypeSignaturesMap[T];
+  name: 'signature';
+  type: T;
+  raw: string;
+  signature: FlowTypeSignaturesMap[T];
 }
 
 export interface FlowTypeSignaturesMap {
-  function:FlowFunctionSignature;
-  object:FlowObjectSignature;
+  function: FlowFunctionSignature;
+  object: FlowObjectSignature;
 }
 
 export type FlowSignatureTypeName = keyof FlowTypeSignaturesMap;
 
 export interface FlowFunctionSignature {
-  arguments:FlowFunctionSignatureArgumentType[];
-  return:FlowType;
+  arguments: FlowFunctionSignatureArgumentType[];
+  return: FlowType;
 }
 
 export interface FlowFunctionSignatureArgumentType {
-  name:string;
-  type:FlowType;
+  name: string;
+  type: FlowType;
 }
 
 export interface FlowObjectSignature {
-  properties:FlowObjectSignatureProperty[];
+  properties: FlowObjectSignatureProperty[];
 }
 
 export interface FlowObjectSignatureProperty {
-  key:string;
-  value:FlowObjectSignaturePropertyValueType;
+  key: string;
+  value: FlowObjectSignaturePropertyValueType;
 }
 
 type FlowObjectSignaturePropertyValueType = FlowType & {
-  required:boolean;
+  required: boolean;
 };
 
 export interface FlowUnionType {
-  name:'union';
-  raw:string;
-  elements:FlowType[];
+  name: 'union';
+  raw: string;
+  elements: FlowType[];
 }
 
 export interface FlowLiteralType {
-  name:'literal';
-  value:string;
+  name: 'literal';
+  value: string;
 }
 
 export interface FlowUnknownType {
-  name:string;
+  name: string;
 }
 
 export interface FlowPrimitiveType {
-  name:FlowPrimitiveTypeName;
+  name: FlowPrimitiveTypeName;
 }
 
-type FlowPrimitiveTypeName = 'any'
-  | 'bool'
-  | 'boolean'
-  | 'Function'
-  | 'Object'
-  | 'null'
-  | 'number'
-  | 'string'
-  | 'void';
+type FlowPrimitiveTypeName = 'any' | 'bool' | 'boolean' | 'Function' | 'Object' | 'null' | 'number' | 'string' | 'void';

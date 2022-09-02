@@ -14,11 +14,11 @@ import { setNodeEnv } from './env/setNodeEnv';
 import { printCurrentVersionInfo } from './utils/version/printCurrentVersion';
 import { setupWatcher } from './watcher/setupWatcher';
 
-export async function runProgram(program:RawProgramArgs):Promise<any> {
+export async function runProgram(program: RawProgramArgs): Promise<any> {
   try {
     setNodeEnv(process.env.UXPIN_ENV);
     printCurrentVersionInfo();
-    const programArgs:ProgramArgs = getProgramArgs(program);
+    const programArgs: ProgramArgs = getProgramArgs(program);
     await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
   } catch (error) {
@@ -26,11 +26,11 @@ export async function runProgram(program:RawProgramArgs):Promise<any> {
   }
 }
 
-async function runCommand(programArgs:ProgramArgs):Promise<any> {
+async function runCommand(programArgs: ProgramArgs): Promise<any> {
   await executeCommandSteps(programArgs, getSteps(programArgs));
 }
 
-async function setupProjectWatcher(programArgs:ProgramArgs):Promise<void> {
+async function setupProjectWatcher(programArgs: ProgramArgs): Promise<void> {
   if (!isWatchChangesCommand(programArgs)) {
     return;
   }
@@ -38,7 +38,7 @@ async function setupProjectWatcher(programArgs:ProgramArgs):Promise<void> {
   await setupWatcher(programArgs, thunkRunCommandWhenFilesChanged(programArgs));
 }
 
-function thunkRunCommandWhenFilesChanged(programArgs:ProgramArgs):(path:string) => void {
+function thunkRunCommandWhenFilesChanged(programArgs: ProgramArgs): (path: string) => void {
   return async () => {
     try {
       await executeCommandSteps(programArgs, getStepsForWatcher(programArgs));
@@ -48,34 +48,34 @@ function thunkRunCommandWhenFilesChanged(programArgs:ProgramArgs):(path:string) 
   };
 }
 
-async function executeCommandSteps(programArgs:ProgramArgs, steps:Step[]):Promise<void> {
-  const stepFunctions:Array<StepExecutor|StepWithoutDSExecutor> = steps
+async function executeCommandSteps(programArgs: ProgramArgs, steps: Step[]): Promise<void> {
+  const stepFunctions: Array<StepExecutor | StepWithoutDSExecutor> = steps
     .filter((step) => step.shouldRun)
     .map((step) => tapPromise(step.exec));
 
   if (shouldPassDesignSystemToCommand(programArgs)) {
-    const paths:ProjectPaths = getProjectPaths(programArgs);
-    const designSystem:DSMetadata = await getDesignSystemMetadata(programArgs, paths);
+    const paths: ProjectPaths = getProjectPaths(programArgs);
+    const designSystem: DSMetadata = await getDesignSystemMetadata(programArgs, paths);
     await pMapSeries(stepFunctions as StepExecutor[], (step) => step(designSystem));
   } else {
     await pMapSeries(stepFunctions as StepWithoutDSExecutor[], (step) => step());
   }
 }
 
-function shouldPassDesignSystemToCommand(programArgs:ProgramArgs):boolean {
+function shouldPassDesignSystemToCommand(programArgs: ProgramArgs): boolean {
   return programArgs.command !== Command.GENERATE_PRESETS;
 }
 
-function isWatchChangesCommand(programArgs:ProgramArgs):boolean {
+function isWatchChangesCommand(programArgs: ProgramArgs): boolean {
   return programArgs.command === Command.EXPERIMENT;
 }
 
-function endWithError(error:Error | string):void {
+function endWithError(error: Error | string): void {
   logError(error);
 
   process.exit(1);
 }
 
-function logError(error:Error | string):void {
+function logError(error: Error | string): void {
   console.error('ERROR:', error instanceof Error ? error.message : error);
 }
