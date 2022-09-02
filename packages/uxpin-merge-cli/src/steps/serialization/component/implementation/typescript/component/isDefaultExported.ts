@@ -107,7 +107,7 @@ function isWrappedWithHOC(exportedName: string, expression?: ts.Expression): boo
   }
 
   // @ts-ignore
-  return expression?.arguments.some((node) => {
+  return expression.arguments?.some((node) => {
     if (node.escapedText === exportedName) {
       return true;
     }
