@@ -43,6 +43,9 @@ lint-fix:
 check-types:
 	tsc --project tsconfig.json --pretty --noEmit
 
+check-types-watch:
+	tsc --project tsconfig.json --watch --noEmit
+
 check-format:
 	prettier --ignore-path ../.gitignore --list-different "src/**/*.+(ts|tsx)"
 

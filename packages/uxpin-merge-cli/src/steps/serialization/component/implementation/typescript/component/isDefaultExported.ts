@@ -107,15 +107,12 @@ function isWrappedWithHOC(exportedName: string, expression?: ts.Expression): boo
   }
 
   // @ts-ignore
-  return (
-    expression.arguments &&
-    expression.arguments.some((node) => {
-      if (node.escapedText === exportedName) {
-        return true;
-      }
-      return isWrappedWithHOC(exportedName, node.expression);
-    })
-  );
+  return expression?.arguments.some((node) => {
+    if (node.escapedText === exportedName) {
+      return true;
+    }
+    return isWrappedWithHOC(exportedName, node.expression);
+  });
 }
 
 function hasDefaultKeywordInModifiers(declaration: ComponentDeclaration): boolean {
