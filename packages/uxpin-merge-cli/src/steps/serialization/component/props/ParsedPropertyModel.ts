@@ -14,35 +14,34 @@ import { PropDefinitionParsingResult } from '../implementation/PropDefinitionPar
 import { PropDefinitionSerializationResult } from '../implementation/PropDefinitionSerializationResult';
 
 export class ParsedPropertyModel {
+  private warnings: WarningDetails[];
+  private descriptors: ParsedPropertyDescriptor[];
+  private propertyDefinition: ComponentProperty;
+  private autoUpdate?: PropertyAutoUpdate;
 
-  private warnings:WarningDetails[];
-  private descriptors:ParsedPropertyDescriptor[];
-  private propertyDefinition:ComponentProperty;
-  private autoUpdate?:PropertyAutoUpdate;
-
-  constructor({ warnings, result: { descriptors, ...definition } }:PropDefinitionParsingResult) {
+  constructor({ warnings, result: { descriptors, ...definition } }: PropDefinitionParsingResult) {
     this.warnings = warnings;
     this.descriptors = descriptors;
     this.propertyDefinition = definition;
   }
 
-  public get name():string {
+  public get name(): string {
     return this.propertyDefinition.name;
   }
 
-  public hasAutoUpdate():boolean {
+  public hasAutoUpdate(): boolean {
     return !!this.autoUpdate;
   }
 
-  public setAutoUpdate(autoUpdate:PropertyAutoUpdate):void {
+  public setAutoUpdate(autoUpdate: PropertyAutoUpdate): void {
     this.autoUpdate = autoUpdate;
   }
 
-  public getBindingDescriptor():ParsedBindingDescriptor | undefined {
+  public getBindingDescriptor(): ParsedBindingDescriptor | undefined {
     return this.descriptors.find(isBindingDescriptor);
   }
 
-  public serialize():PropDefinitionSerializationResult {
+  public serialize(): PropDefinitionSerializationResult {
     return {
       result: {
         ...this.propertyDefinition,
@@ -53,14 +52,14 @@ export class ParsedPropertyModel {
     };
   }
 
-  private serializeDescriptors():ComponentPropertyCustomDescriptors {
+  private serializeDescriptors(): ComponentPropertyCustomDescriptors {
     return this.descriptors.reduce<ComponentPropertyCustomDescriptors>((result, descriptor) => {
       Object.assign(result, descriptor.serialized);
       return result;
     }, {});
   }
 
-  private serializeAutoUpdate():Pick<ComponentPropertyCustomDescriptors, 'autoUpdate'> {
+  private serializeAutoUpdate(): Pick<ComponentPropertyCustomDescriptors, 'autoUpdate'> {
     if (this.autoUpdate) {
       return { autoUpdate: this.autoUpdate };
     }

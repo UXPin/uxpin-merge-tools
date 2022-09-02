@@ -1,17 +1,17 @@
 export type ComponentWrapper = BuiltInComponentWrapper | CustomComponentWrapper;
 
 export interface GenericComponentWrapper {
-  name:string;
-  type:ComponentWrapperType;
+  name: string;
+  type: ComponentWrapperType;
 }
 
 export type BuiltInComponentWrapper = GenericComponentWrapper & {
-  type:ComponentWrapperType.BUILT_IN;
+  type: ComponentWrapperType.BUILT_IN;
 };
 
 export type CustomComponentWrapper = GenericComponentWrapper & {
-  path:string;
-  type:ComponentWrapperType.CUSTOM;
+  path: string;
+  type: ComponentWrapperType.CUSTOM;
 };
 
 export enum ComponentWrapperType {

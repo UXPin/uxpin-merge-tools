@@ -5,10 +5,10 @@ import { getLatestCommit } from '../getLatestCommit';
 describe('getLatestCommit', () => {
   it('should get info about latest commit', async () => {
     // given
-    const path:string = resolve(__dirname, '../../../../../../../../test/resources/repos/nordnet-ui-kit');
+    const path: string = resolve(__dirname, '../../../../../../../../test/resources/repos/nordnet-ui-kit');
 
     // when
-    const commit:CommitMetadata = await getLatestCommit(path);
+    const commit: CommitMetadata = await getLatestCommit(path);
 
     // then
     expect(commit).toEqual({

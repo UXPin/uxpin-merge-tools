@@ -5,10 +5,10 @@ describe('parseWrapperAnnotation', () => {
   describe('when empty tag is provided', () => {
     it('should return an empty array', () => {
       // having
-      const tag:string = '';
+      const tag = '';
 
       // when
-      const wrappers:ComponentWrapper[] = parseWrapperAnnotation(tag);
+      const wrappers: ComponentWrapper[] = parseWrapperAnnotation(tag);
 
       // then
       expect(wrappers).toEqual([]);
@@ -18,10 +18,10 @@ describe('parseWrapperAnnotation', () => {
   describe('when invalid tag is provided', () => {
     it('should return an empty array', () => {
       // having
-      const tag:string = '@uxpincomponent';
+      const tag = '@uxpincomponent';
 
       // when
-      const wrappers:ComponentWrapper[] = parseWrapperAnnotation(tag);
+      const wrappers: ComponentWrapper[] = parseWrapperAnnotation(tag);
 
       // then
       expect(wrappers).toEqual([]);
@@ -32,14 +32,16 @@ describe('parseWrapperAnnotation', () => {
     describe('and it is a built in wrapper', () => {
       it('should return array with this wrapper', () => {
         // having
-        const tag:string = '@uxpinwrappers NonResizableWrapper';
-        const expectedWrappers:ComponentWrapper[] = [{
-          name: 'NonResizableWrapper',
-          type: ComponentWrapperType.BUILT_IN,
-        }];
+        const tag = '@uxpinwrappers NonResizableWrapper';
+        const expectedWrappers: ComponentWrapper[] = [
+          {
+            name: 'NonResizableWrapper',
+            type: ComponentWrapperType.BUILT_IN,
+          },
+        ];
 
         // when
-        const wrappers:ComponentWrapper[] = parseWrapperAnnotation(tag);
+        const wrappers: ComponentWrapper[] = parseWrapperAnnotation(tag);
 
         // then
         expect(wrappers).toEqual(expectedWrappers);
@@ -49,15 +51,17 @@ describe('parseWrapperAnnotation', () => {
     describe('and it is a custom wrapper', () => {
       it('should return array with this wrapper', () => {
         // having
-        const tag:string = '@uxpinwrappers ./path/to/customWrapper';
-        const expectedWrappers:ComponentWrapper[] = [{
-          name: 'customWrapper',
-          path: './path/to/customWrapper',
-          type: ComponentWrapperType.CUSTOM,
-        }];
+        const tag = '@uxpinwrappers ./path/to/customWrapper';
+        const expectedWrappers: ComponentWrapper[] = [
+          {
+            name: 'customWrapper',
+            path: './path/to/customWrapper',
+            type: ComponentWrapperType.CUSTOM,
+          },
+        ];
 
         // when
-        const wrappers:ComponentWrapper[] = parseWrapperAnnotation(tag);
+        const wrappers: ComponentWrapper[] = parseWrapperAnnotation(tag);
 
         // then
         expect(wrappers).toEqual(expectedWrappers);
@@ -69,8 +73,8 @@ describe('parseWrapperAnnotation', () => {
     describe('in a single line comment', () => {
       it('should return array of wrappers', () => {
         // having
-        const tag:string = '@uxpinwrappers ./path/to/customWrapper, NonResizableWrapper';
-        const expectedWrappers:ComponentWrapper[] = [
+        const tag = '@uxpinwrappers ./path/to/customWrapper, NonResizableWrapper';
+        const expectedWrappers: ComponentWrapper[] = [
           {
             name: 'customWrapper',
             path: './path/to/customWrapper',
@@ -83,7 +87,7 @@ describe('parseWrapperAnnotation', () => {
         ];
 
         // when
-        const wrappers:ComponentWrapper[] = parseWrapperAnnotation(tag);
+        const wrappers: ComponentWrapper[] = parseWrapperAnnotation(tag);
 
         // then
         expect(wrappers).toEqual(expectedWrappers);
@@ -93,10 +97,10 @@ describe('parseWrapperAnnotation', () => {
     describe('in a multi line comment', () => {
       it('should return array of wrappers', () => {
         // having
-        const tag:string = `@uxpinwrappers
+        const tag = `@uxpinwrappers
 ./path/to/customWrapper,
 NonResizableWrapper`;
-        const expectedWrappers:ComponentWrapper[] = [
+        const expectedWrappers: ComponentWrapper[] = [
           {
             name: 'customWrapper',
             path: './path/to/customWrapper',
@@ -109,7 +113,7 @@ NonResizableWrapper`;
         ];
 
         // when
-        const wrappers:ComponentWrapper[] = parseWrapperAnnotation(tag);
+        const wrappers: ComponentWrapper[] = parseWrapperAnnotation(tag);
 
         // then
         expect(wrappers).toEqual(expectedWrappers);

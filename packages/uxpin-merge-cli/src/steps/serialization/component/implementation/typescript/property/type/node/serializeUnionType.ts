@@ -7,11 +7,11 @@ import { shouldSortPropertyValues } from '../helpers/shouldSortPropertyValues';
 import { convertTypeToPropertyType } from './convertTypeToPropertyType';
 
 export function serializeUnionType(
-  context:TSSerializationContext,
-  type:ts.UnionType,
-  jsDocsTag:ts.JSDocTagInfo[],
-):PropertyType<'union'> {
-  let elements:any = type.types.map((node) => convertTypeToPropertyType(context, node, jsDocsTag));
+  context: TSSerializationContext,
+  type: ts.UnionType,
+  jsDocsTag: ts.JSDocTagInfo[]
+): PropertyType<'union'> {
+  let elements: any = type.types.map((node) => convertTypeToPropertyType(context, node, jsDocsTag));
 
   if (shouldSortPropertyValues(jsDocsTag)) {
     elements = orderBy(elements, [(el) => el.structure.value], [getOrderType(jsDocsTag)]);

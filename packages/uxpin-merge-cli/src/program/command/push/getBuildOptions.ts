@@ -4,7 +4,7 @@ import { PushProgramArgs } from '../../args/ProgramArgs';
 import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../args/providers/paths/getTempDirPath';
 
-export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
+export function getBuildOptions(args: BuildProgramArgs): BuildOptions {
   const { token, uxpinDomain, webpackConfig, wrapper, branch, tag } = args;
 
   return {
@@ -20,5 +20,7 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
   };
 }
 
-export type BuildProgramArgs = Pick<PushProgramArgs, 'cwd' | 'token'
-  | 'uxpinDomain' | 'webpackConfig' | 'wrapper' | 'branch' | 'tag'>;
+export type BuildProgramArgs = Pick<
+  PushProgramArgs,
+  'cwd' | 'token' | 'uxpinDomain' | 'webpackConfig' | 'wrapper' | 'branch' | 'tag'
+>;

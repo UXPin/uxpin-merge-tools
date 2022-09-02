@@ -5,7 +5,7 @@ import { BuiltInWrappers, ComponentWrapper, ComponentWrapperType } from '../../.
 import { customWrapperPathValidator } from '../customWrapperPathValidator';
 
 describe('customWrapperPathValidator', () => {
-  const implInfo:ComponentImplementationInfo = {
+  const implInfo: ComponentImplementationInfo = {
     framework: 'reactjs',
     lang: 'typescript',
     path: resolve(__dirname, '../../../../../../', 'test/resources/designSystems/withWrappers/Button.js'),
@@ -14,7 +14,7 @@ describe('customWrapperPathValidator', () => {
   describe('when custom wrapper with valid path is provided', () => {
     it('should return warned object without warnings', () => {
       // having
-      const wrappers:Array<Warned<ComponentWrapper>> = [
+      const wrappers: Array<Warned<ComponentWrapper>> = [
         {
           result: {
             name: 'CustomWrapper',
@@ -43,7 +43,7 @@ describe('customWrapperPathValidator', () => {
   describe('when custom wrapper with invalid path is provided', () => {
     it('should return warned object with warning', () => {
       // having
-      const wrappers:Array<Warned<ComponentWrapper>> = [
+      const wrappers: Array<Warned<ComponentWrapper>> = [
         {
           result: {
             name: 'CustomWrapper',
@@ -63,9 +63,7 @@ describe('customWrapperPathValidator', () => {
             path: './NonExistingPath.ts',
             type: ComponentWrapperType.CUSTOM,
           },
-          warnings: [
-            { message: 'Invalid wrapper path "./NonExistingPath.ts"!' },
-          ],
+          warnings: [{ message: 'Invalid wrapper path "./NonExistingPath.ts"!' }],
         },
       ]);
     });
@@ -74,7 +72,7 @@ describe('customWrapperPathValidator', () => {
   describe('when built in wrapper is provided', () => {
     it('should return object withour warnings', () => {
       // having
-      const wrappers:Array<Warned<ComponentWrapper>> = [
+      const wrappers: Array<Warned<ComponentWrapper>> = [
         {
           result: {
             name: BuiltInWrappers.NON_RESIZABLE_WRAPPER,

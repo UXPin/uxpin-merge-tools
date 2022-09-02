@@ -4,14 +4,17 @@ import { WarningDetails } from '../../../../../../../common/warning/WarningDetai
 import { ComponentPropertyDefinition } from '../../../ComponentPropertyDefinition';
 import { convertPropertyType } from './convertPropertyType';
 
-export function convertReactPropertyTypeWithWarnings(propName:string, propType:PropItemType):Promise<ConversionResult> {
+export function convertReactPropertyTypeWithWarnings(
+  propName: string,
+  propType: PropItemType
+): Promise<ConversionResult> {
   return new Promise<ConversionResult>((resolve) => {
     resolve({
       result: { type: convertPropertyType(propType) },
       warnings: [],
     });
   }).catch(() => {
-    const warning:WarningDetails = {
+    const warning: WarningDetails = {
       message: `Cannot parse type of a property '${propName}'`,
     };
     return { result: {}, warnings: [warning] };

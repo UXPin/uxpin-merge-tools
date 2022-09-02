@@ -3,10 +3,10 @@ import { getApiDomain } from '../getApiDomain';
 describe('getApiDomain', () => {
   it('should return valid api domain url', () => {
     // given
-    const domain:string = 'uxpin.com';
+    const domain = 'uxpin.com';
 
     // when
-    const apiDomain:string = getApiDomain(domain);
+    const apiDomain: string = getApiDomain(domain);
 
     // then
     expect(apiDomain).toEqual('https://uxpin.com');
@@ -14,11 +14,11 @@ describe('getApiDomain', () => {
 
   it('should be able to specify protocol', () => {
     // given
-    const domain:string = 'uxpin.com';
-    const protocol:string = 'http';
+    const domain = 'uxpin.com';
+    const protocol = 'http';
 
     // when
-    const apiDomain:string = getApiDomain(domain, protocol);
+    const apiDomain: string = getApiDomain(domain, protocol);
 
     // then
     expect(apiDomain).toEqual('http://uxpin.com');

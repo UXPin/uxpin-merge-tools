@@ -5,8 +5,8 @@ import { parseWrapperAnnotation } from '../../../wrappers/parseWrapperAnnotation
 import { getNodeJsDocTag } from '../comments/getNodeJsDocTag';
 import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
 
-export function getComponentWrappers(component:ComponentDeclaration):ComponentWrapper[] {
-  const wrappersTag:ts.JSDocTag | undefined = getNodeJsDocTag(component, CommentTags.UXPIN_WRAPPERS);
+export function getComponentWrappers(component: ComponentDeclaration): ComponentWrapper[] {
+  const wrappersTag: ts.JSDocTag | undefined = getNodeJsDocTag(component, CommentTags.UXPIN_WRAPPERS);
   if (!wrappersTag) {
     return [];
   }

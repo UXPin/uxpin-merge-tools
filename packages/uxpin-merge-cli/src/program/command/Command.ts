@@ -9,4 +9,4 @@ export enum Command {
   SUMMARY = 'summary',
 }
 
-export const DEFAULT_COMMAND:Command = Command.EXPERIMENT;
+export const DEFAULT_COMMAND: Command = Command.EXPERIMENT;

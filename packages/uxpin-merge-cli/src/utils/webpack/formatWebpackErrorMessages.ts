@@ -1,6 +1,6 @@
 import { Stats } from 'webpack';
 
-export function formatWebpackErrorMessages(stats:Stats):string {
+export function formatWebpackErrorMessages(stats: Stats): string {
   return stats.toString({
     assets: false,
     chunkModules: false,

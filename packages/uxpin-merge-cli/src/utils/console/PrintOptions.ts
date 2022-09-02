@@ -1,9 +1,9 @@
 type OutStreamName = 'stdout' | 'stderr';
 
 export interface PrintOptions {
-  color?:PrintColor;
-  underline?:boolean;
-  channel?:OutStreamName;
+  color?: PrintColor;
+  underline?: boolean;
+  channel?: OutStreamName;
 }
 
 export enum PrintColor {

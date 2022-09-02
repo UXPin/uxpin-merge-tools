@@ -4,8 +4,8 @@ import { MovedFilePathsMap } from '../../DesignSystemSnapshot';
 import { filterMovedFiles } from '../filterMovedFiles';
 
 describe('filterMovedFiles', () => {
-  let movedFiles:MovedFilePathsMap;
-  let categorizedComponents:ComponentCategory[];
+  let movedFiles: MovedFilePathsMap;
+  let categorizedComponents: ComponentCategory[];
 
   beforeEach(() => {
     // given
@@ -64,7 +64,7 @@ describe('filterMovedFiles', () => {
   });
 
   describe('filtered', () => {
-    let filtered:MovedFilePathsMap;
+    let filtered: MovedFilePathsMap;
 
     beforeEach(() => {
       // when
@@ -82,7 +82,7 @@ describe('filterMovedFiles', () => {
       expect(values(filtered)).not.toContain('src/NewBar/presets/0-default.json');
     });
 
-    it('should not contain component\'s files that are not used in design system', () => {
+    it("should not contain component's files that are not used in design system", () => {
       // then
       expect(values(filtered)).not.toContain('src/NewBaz/NewBaz.js');
     });

@@ -12,23 +12,21 @@ import { PrepareUploadFormData } from './PrepareUploadFormData';
 import { PrepareUploadResponse } from './PrepareUploadResponse';
 import { UploadItemMetadata } from './UploadItemMetadata';
 
-export const UPLOAD_DIR_NAME:string = 'user-upload';
-export const UPLOAD_METADATA_FILE_NAME:string = 'upload-metadata.json';
+export const UPLOAD_DIR_NAME = 'user-upload';
+export const UPLOAD_METADATA_FILE_NAME = 'upload-metadata.json';
 
 export class PrepareUploadHandler implements RequestHandler {
+  constructor(private context: ExperimentationServerContext) {}
 
-  constructor(private context:ExperimentationServerContext) {
-  }
-
-  public handle(request:IncomingMessage, response:ServerResponse):void {
+  public handle(request: IncomingMessage, response: ServerResponse): void {
     this.handlePrepareUpload(request, response).catch((error) => handleImplementationError(response, error));
   }
 
-  private async handlePrepareUpload(request:IncomingMessage, response:ServerResponse):Promise<void> {
-    const requestPayload:PrepareUploadFormData = await prepareDataFromPayload(request);
-    const fileId:string = await this.createFileId();
+  private async handlePrepareUpload(request: IncomingMessage, response: ServerResponse): Promise<void> {
+    const requestPayload: PrepareUploadFormData = await prepareDataFromPayload(request);
+    const fileId: string = await this.createFileId();
     await this.writeMetadata(fileId, requestPayload);
-    const responseBody:string = JSON.stringify(await this.getResponseData(fileId, requestPayload));
+    const responseBody: string = JSON.stringify(await this.getResponseData(fileId, requestPayload));
     response.writeHead(OK, {
       'Content-Type': 'text/xml; charset=utf-8',
       ...getAccessControlHeaders(request.headers),
@@ -36,8 +34,8 @@ export class PrepareUploadHandler implements RequestHandler {
     response.end(responseBody);
   }
 
-  private async getResponseData(fileId:string, uploadDetails:PrepareUploadFormData):Promise<PrepareUploadResponse> {
-    const parsedName:ParsedPath = parse(uploadDetails.file_name);
+  private async getResponseData(fileId: string, uploadDetails: PrepareUploadFormData): Promise<PrepareUploadResponse> {
+    const parsedName: ParsedPath = parse(uploadDetails.file_name);
     return {
       file_data: {
         extension: parsedName.ext.split('.')[1],
@@ -61,33 +59,32 @@ export class PrepareUploadHandler implements RequestHandler {
     };
   }
 
-  private getFinalFileUrl(fileId:string, fileName:string):string {
+  private getFinalFileUrl(fileId: string, fileName: string): string {
     const { port } = this.context;
     return `http://localhost:${port}/upload/${fileId}/${fileName}`;
   }
 
-  private getUploadUrl():string {
+  private getUploadUrl(): string {
     const { port } = this.context;
     return `http://localhost:${port}/upload`;
   }
 
-  private async createFileId():Promise<string> {
-    const uploadDirPath:string = join(this.context.uxpinDirPath, UPLOAD_DIR_NAME);
+  private async createFileId(): Promise<string> {
+    const uploadDirPath: string = join(this.context.uxpinDirPath, UPLOAD_DIR_NAME);
     await ensureDir(uploadDirPath);
-    const dirContents:string[] = await readdir(uploadDirPath);
-    const dirContentsAsNumbers:number[] = dirContents.map((n) => parseInt(n, 10));
-    const newId:string = (Math.max(0, ...dirContentsAsNumbers) + 1).toString();
+    const dirContents: string[] = await readdir(uploadDirPath);
+    const dirContentsAsNumbers: number[] = dirContents.map((n) => parseInt(n, 10));
+    const newId: string = (Math.max(0, ...dirContentsAsNumbers) + 1).toString();
     await mkdir(join(uploadDirPath, newId));
     return newId;
   }
 
-  private async writeMetadata(fileId:string, uploadDetails:PrepareUploadFormData):Promise<void> {
-    const metadata:UploadItemMetadata = {
+  private async writeMetadata(fileId: string, uploadDetails: PrepareUploadFormData): Promise<void> {
+    const metadata: UploadItemMetadata = {
       contentType: uploadDetails.file_type,
       fileName: uploadDetails.file_name,
     };
-    const metadataPath:string = getUploadMetadataPath(this.context.uxpinDirPath, fileId);
+    const metadataPath: string = getUploadMetadataPath(this.context.uxpinDirPath, fileId);
     await writeJson(metadataPath, metadata);
   }
-
 }

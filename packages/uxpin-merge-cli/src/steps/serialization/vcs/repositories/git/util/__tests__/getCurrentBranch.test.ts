@@ -4,7 +4,7 @@ import { execAsync } from '../../../../../../../utils/child_process/execAsync';
 import { getCurrentBranch } from '../getCurrentBranch';
 
 describe('getCurrentBranch', () => {
-  let path:string;
+  let path: string;
 
   beforeEach(async () => {
     // given
@@ -14,7 +14,7 @@ describe('getCurrentBranch', () => {
 
   it('should return current branch name', async () => {
     // when
-    const branch:string = await getCurrentBranch(path);
+    const branch: string = await getCurrentBranch(path);
 
     // then
     expect(branch).toEqual('master');
@@ -28,7 +28,7 @@ describe('getCurrentBranch', () => {
 
     it('should return master if not given an override', async () => {
       // when
-      const branch:string = await getCurrentBranch(path);
+      const branch: string = await getCurrentBranch(path);
 
       // then
       expect(branch).toEqual(DEFAULT_BRANCH_NAME);
@@ -36,7 +36,7 @@ describe('getCurrentBranch', () => {
 
     it('should return the real branch name only if given an override', async () => {
       // when
-      const branch:string = await getCurrentBranch(path, 'test');
+      const branch: string = await getCurrentBranch(path, 'test');
 
       // then
       expect(branch).toEqual('test');

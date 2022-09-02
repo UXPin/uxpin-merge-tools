@@ -5,10 +5,10 @@ import { isExported } from './isExported';
 import { isNodeExported } from './isNodeExported';
 
 function getFunctionDeclaration(
-  context:TSSerializationContext,
-  functionName:string,
-):ts.FunctionDeclaration | undefined {
-  let result:ts.FunctionDeclaration | undefined;
+  context: TSSerializationContext,
+  functionName: string
+): ts.FunctionDeclaration | undefined {
+  let result: ts.FunctionDeclaration | undefined;
   ts.forEachChild(context.file, (node) => {
     if (ts.isFunctionDeclaration(node) && getNodeName(node) === functionName) {
       result = node;
@@ -19,16 +19,16 @@ function getFunctionDeclaration(
 }
 
 export function findExportedFunctionWithName(
-  context:TSSerializationContext,
-  functionName:string,
-):ts.FunctionDeclaration | undefined {
-  const result:ts.FunctionDeclaration | undefined = getFunctionDeclaration(context, functionName);
+  context: TSSerializationContext,
+  functionName: string
+): ts.FunctionDeclaration | undefined {
+  const result: ts.FunctionDeclaration | undefined = getFunctionDeclaration(context, functionName);
 
   if (result && isExported(result)) {
     return result;
   }
 
-  let isFunctionExported:boolean = false;
+  let isFunctionExported = false;
 
   ts.forEachChild(context.file, (node) => {
     if (!isFunctionExported) {

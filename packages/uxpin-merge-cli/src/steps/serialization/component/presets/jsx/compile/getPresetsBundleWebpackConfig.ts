@@ -5,11 +5,11 @@ import * as VirtualModulesPlugin from 'webpack-virtual-modules';
 import { VirtualComponentModule } from './generateVirtualModules';
 
 export interface WebpackConfigPaths {
-  bundlePath:string;
-  projectRoot:string;
-  sourcePath:string;
-  virtualModules:VirtualComponentModule[];
-  webpackConfig?:string;
+  bundlePath: string;
+  projectRoot: string;
+  sourcePath: string;
+  virtualModules: VirtualComponentModule[];
+  webpackConfig?: string;
 }
 
 type ConfigurationFunction = () => Configuration;
@@ -20,14 +20,11 @@ export function getPresetsBundleWebpackConfig({
   sourcePath,
   virtualModules,
   webpackConfig,
-}:WebpackConfigPaths):Configuration {
+}: WebpackConfigPaths): Configuration {
   const { base, dir } = parse(bundlePath);
 
-  const config:Configuration = {
-    entry: [
-      resolve(__dirname, './globals/__uxpinParsePreset.js'),
-      sourcePath,
-    ],
+  const config: Configuration = {
+    entry: [resolve(__dirname, './globals/__uxpinParsePreset.js'), sourcePath],
     mode: 'development',
     module: {
       rules: [
@@ -35,14 +32,15 @@ export function getPresetsBundleWebpackConfig({
           loader: require.resolve('babel-loader'),
           options: {
             babelrc: false,
-            plugins: [
-              require.resolve('@babel/plugin-proposal-class-properties'),
-            ],
+            plugins: [require.resolve('@babel/plugin-proposal-class-properties')],
             presets: [
               require.resolve('@babel/preset-flow'),
-              [require.resolve('@babel/preset-react'), {
-                pragma: '__uxpinParsePreset',
-              }],
+              [
+                require.resolve('@babel/preset-react'),
+                {
+                  pragma: '__uxpinParsePreset',
+                },
+              ],
             ],
           },
           test: /\.jsx?$/,
@@ -62,9 +60,7 @@ export function getPresetsBundleWebpackConfig({
       libraryTarget: 'commonjs',
       path: dir,
     },
-    plugins: [
-      getVirtualModulesPlugin(virtualModules),
-    ],
+    plugins: [getVirtualModulesPlugin(virtualModules)],
     resolve: {
       extensions: ['.js', '.jsx'],
       modules: [
@@ -83,20 +79,22 @@ export function getPresetsBundleWebpackConfig({
   };
 
   if (webpackConfig) {
-    const configProvider:Configuration|ConfigurationFunction = require(join(projectRoot, webpackConfig));
-    const userWebpackConfig:Configuration = isConfigurationFunction(configProvider) ? configProvider() : configProvider;
+    const configProvider: Configuration | ConfigurationFunction = require(join(projectRoot, webpackConfig));
+    const userWebpackConfig: Configuration = isConfigurationFunction(configProvider)
+      ? configProvider()
+      : configProvider;
     return smartStrategy({ entry: 'replace' })(userWebpackConfig, config);
   }
 
   return config;
 }
 
-function getVirtualModulesPlugin(virtualModules:VirtualComponentModule[]):any {
+function getVirtualModulesPlugin(virtualModules: VirtualComponentModule[]): any {
   return new VirtualModulesPlugin(
-    virtualModules.reduce((result, { moduleSource, path }) => ({ ...result, [path]: moduleSource }), {}),
+    virtualModules.reduce((result, { moduleSource, path }) => ({ ...result, [path]: moduleSource }), {})
   );
 }
 
-function isConfigurationFunction(conf:Configuration|ConfigurationFunction):conf is ConfigurationFunction {
+function isConfigurationFunction(conf: Configuration | ConfigurationFunction): conf is ConfigurationFunction {
   return typeof conf === 'function';
 }

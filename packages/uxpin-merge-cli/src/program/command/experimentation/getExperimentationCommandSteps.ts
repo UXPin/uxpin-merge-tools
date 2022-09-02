@@ -9,14 +9,13 @@ import { experimentationRunNgrok } from './steps/experimentationRunNgrok';
 import { experimentationRunServerStep } from './steps/experimentationRunServerStep';
 
 export interface ExperimentationState {
-  ngrokUrl?:string;
+  ngrokUrl?: string;
 }
 
-const defaultState:ExperimentationState = {
-};
+const defaultState: ExperimentationState = {};
 
-export function getExperimentationCommandSteps(args:ExperimentProgramArgs):Step[] {
-  const store:Store<ExperimentationState> = new Store(defaultState);
+export function getExperimentationCommandSteps(args: ExperimentProgramArgs): Step[] {
+  const store: Store<ExperimentationState> = new Store(defaultState);
 
   return [
     experimentationBuildLibraryStep(args),

@@ -8,15 +8,13 @@ import { GeneratePresetsProgramArgs } from '../../args/ProgramArgs';
 import { getProjectPaths } from '../../args/providers/paths/getProjectPaths';
 import { Step } from '../Step';
 
-export function getGeneratePresetsCommandSteps(args:GeneratePresetsProgramArgs):Step[] {
-  return [
-    { exec: thunkGenerateFiles(args), shouldRun: true },
-  ];
+export function getGeneratePresetsCommandSteps(args: GeneratePresetsProgramArgs): Step[] {
+  return [{ exec: thunkGenerateFiles(args), shouldRun: true }];
 }
 
-async function generatePresetFile(path:string):Promise<void> {
+async function generatePresetFile(path: string): Promise<void> {
   try {
-    const presetFile:PresetFileGenerator = new PresetFileGenerator(path);
+    const presetFile: PresetFileGenerator = new PresetFileGenerator(path);
     await presetFile.init();
     await presetFile.createPresetFile();
   } catch (e) {
@@ -24,16 +22,16 @@ async function generatePresetFile(path:string):Promise<void> {
   }
 }
 
-function thunkGenerateFiles(args:GeneratePresetsProgramArgs):() => Promise<void> {
+function thunkGenerateFiles(args: GeneratePresetsProgramArgs): () => Promise<void> {
   return async () => {
     const { componentPath } = args;
 
     if (componentPath) {
       await generatePresetFile(componentPath);
     } else {
-      const data:ComponentCategoryInfo[] = await getComponentCategoryInfos(getProjectPaths(args));
-      pMapSeries(data, (component:ComponentCategoryInfo) => {
-        pMapSeries(component.componentInfos, async (info:ComponentInfo) => {
+      const data: ComponentCategoryInfo[] = await getComponentCategoryInfos(getProjectPaths(args));
+      pMapSeries(data, (component: ComponentCategoryInfo) => {
+        pMapSeries(component.componentInfos, async (info: ComponentInfo) => {
           await generatePresetFile(info.implementation.path);
         });
       });

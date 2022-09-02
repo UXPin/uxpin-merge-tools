@@ -7,10 +7,10 @@ import { getImplementation } from './utils/getImplementation';
 
 describe('SerializeJSComponent - with annotations', () => {
   describe('function with component declaration', () => {
-    let serialized:ImplSerializationResult;
+    let serialized: ImplSerializationResult;
 
     beforeAll(async () => {
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithComponentDeclaration');
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithComponentDeclaration');
       serialized = await serializeJSComponent(component);
     });
 
@@ -60,11 +60,12 @@ describe('SerializeJSComponent - with annotations', () => {
   });
 
   describe('default exported functional component composed with HOC and comment', () => {
-    let serialized:ImplSerializationResult;
+    let serialized: ImplSerializationResult;
 
     beforeAll(async () => {
-      const component:ComponentImplementationInfo =
-        getImplementation('DefaultExportedFunctionalComponentComposedWithHOCAndComment');
+      const component: ComponentImplementationInfo = getImplementation(
+        'DefaultExportedFunctionalComponentComposedWithHOCAndComment'
+      );
 
       serialized = await serializeJSComponent(component);
     });
@@ -105,10 +106,10 @@ describe('SerializeJSComponent - with annotations', () => {
   });
 
   describe('function with namespace declaration', () => {
-    let serialized:ImplSerializationResult;
+    let serialized: ImplSerializationResult;
 
     beforeAll(async () => {
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithNamespaceDeclaration');
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithNamespaceDeclaration');
       serialized = await serializeJSComponent(component);
     });
 
@@ -139,7 +140,7 @@ describe('SerializeJSComponent - with annotations', () => {
   });
 
   describe('multiple functions without annotation', () => {
-    let component:ComponentImplementationInfo;
+    let component: ComponentImplementationInfo;
 
     beforeAll(() => {
       component = getImplementation('MultipleFunctionsWithoutAnnotation');
@@ -147,7 +148,7 @@ describe('SerializeJSComponent - with annotations', () => {
 
     it('throws "Multiple exported component definitions" error', async () => {
       expect.assertions(1);
-      let error:Error = new Error('Error not thrown');
+      let error: Error = new Error('Error not thrown');
 
       try {
         await serializeJSComponent(component);
@@ -160,10 +161,10 @@ describe('SerializeJSComponent - with annotations', () => {
   });
 
   describe('function with namespace and wrappers declaration', () => {
-    let serialized:ImplSerializationResult;
+    let serialized: ImplSerializationResult;
 
     beforeAll(async () => {
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithNamespaceAndWrappersDeclaration');
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithNamespaceAndWrappersDeclaration');
       serialized = await serializeJSComponent(component);
     });
 
@@ -199,10 +200,10 @@ describe('SerializeJSComponent - with annotations', () => {
   });
 
   describe('function with componentDocUrl declaration', () => {
-    let serialized:ImplSerializationResult;
+    let serialized: ImplSerializationResult;
 
     beforeAll(async () => {
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithDocUrlDeclaration');
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithDocUrlDeclaration');
       serialized = await serializeJSComponent(component);
     });
 
@@ -229,10 +230,10 @@ describe('SerializeJSComponent - with annotations', () => {
   });
 
   describe('function with componentDocUrl and wrappers declaration', () => {
-    let serialized:ImplSerializationResult;
+    let serialized: ImplSerializationResult;
 
     beforeAll(async () => {
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithDocUrlAndWrappersDeclaration');
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithDocUrlAndWrappersDeclaration');
       serialized = await serializeJSComponent(component);
     });
 
@@ -270,12 +271,12 @@ describe('SerializeJSComponent - with annotations', () => {
   describe('class with bind annotation', () => {
     it('serializes correctly including bind declaration in both function and bound property', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithBindAnnotation');
+      const component: ComponentImplementationInfo = getImplementation('ClassWithBindAnnotation');
 
       // when
       return serializeJSComponent(component).then((serializedProps) => {
         // then
-        const expectedMetadata:ComponentMetadata = {
+        const expectedMetadata: ComponentMetadata = {
           defaultExported: true,
           name: 'ClassWithBindAnnotation',
           properties: [
@@ -341,7 +342,7 @@ describe('SerializeJSComponent - with annotations', () => {
   describe('class with broken bind annotation', () => {
     it('rejects with an error message', async () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithBrokenBindAnnotation');
+      const component: ComponentImplementationInfo = getImplementation('ClassWithBrokenBindAnnotation');
 
       // when
       await expect(serializeJSComponent(component)).rejects.toThrowError(
@@ -349,18 +350,19 @@ describe('SerializeJSComponent - with annotations', () => {
   Expected syntax: @uxpinbind [source property name] [value path - optional].
   Examples:
     @uxpinbind onChange 0.target.checked
-    @uxpinbind onSelect`);
+    @uxpinbind onSelect`
+      );
     });
   });
 
   describe('class with a binding annotation to nonexistent property', () => {
     it('rejects with an error message', async () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithBindAnnotationToNonexistentProp');
+      const component: ComponentImplementationInfo = getImplementation('ClassWithBindAnnotationToNonexistentProp');
 
       // when
-      await expect(serializeJSComponent(component))
-        .rejects.toThrowError(`Incorrect property name pointed as a binding source.
+      await expect(serializeJSComponent(component)).rejects
+        .toThrowError(`Incorrect property name pointed as a binding source.
       No such property: "onChanged"`);
     });
   });
@@ -368,11 +370,12 @@ describe('SerializeJSComponent - with annotations', () => {
   describe('class with overlapping bind annotations', () => {
     it('rejects with an error message', async () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithOverlappingBindAnnotations');
+      const component: ComponentImplementationInfo = getImplementation('ClassWithOverlappingBindAnnotations');
 
       // when
-      await expect(serializeJSComponent(component))
-        .rejects.toThrowError(`More than one property is trying to bind the same source property "onChange"`);
+      await expect(serializeJSComponent(component)).rejects.toThrowError(
+        `More than one property is trying to bind the same source property "onChange"`
+      );
     });
   });
 });

@@ -1,7 +1,7 @@
 import { CustomDescriptorsTags } from '../../../implementation/ComponentPropertyDefinition';
 import { ParsedPropertyDescriptor } from '../../../implementation/ParsedPropertyDescriptor';
 
-export function parseBindTag(value:string):ParsedPropertyDescriptor {
+export function parseBindTag(value: string): ParsedPropertyDescriptor {
   const [firstLine] = value.split('\n');
   const [sourcePropName, optionalPath] = firstLine.split(' ');
   return {

@@ -8,12 +8,12 @@ import { parseTypeTag } from '../../../props/parsing/descriptors/parseTypeTag';
 import { CustomDescriptorsTags } from '../../ComponentPropertyDefinition';
 import { ParsedPropertyDescriptor } from '../../ParsedPropertyDescriptor';
 
-export function parseTags(tags:string[]):ParsedPropertyDescriptor[] {
+export function parseTags(tags: string[]): ParsedPropertyDescriptor[] {
   return tags.map(parseTag).filter(isDefined);
 }
 
-function parseTag(tag:string):ParsedPropertyDescriptor | undefined {
-  const matches:RegExpMatchArray | null = tag.match(/(^@[a-z]+)(\ ?)+([^]+)?/m);
+function parseTag(tag: string): ParsedPropertyDescriptor | undefined {
+  const matches: RegExpMatchArray | null = tag.match(/(^@[a-z]+)(\ ?)+([^]+)?/m);
   if (!matches) {
     return;
   }

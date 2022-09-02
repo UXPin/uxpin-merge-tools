@@ -3,10 +3,10 @@ import { getNgrokSessionId } from '../getNgrokSessionId';
 describe('getNgrokSessionId', () => {
   it('should return session id when correct url is provided', () => {
     // given
-    const url:string = 'https://d8bbcb13.ngrok.io';
+    const url = 'https://d8bbcb13.ngrok.io';
 
     // when
-    const sessionId:string | undefined = getNgrokSessionId(url);
+    const sessionId: string | undefined = getNgrokSessionId(url);
 
     // then
     expect(sessionId).toEqual('d8bbcb13');
@@ -14,10 +14,10 @@ describe('getNgrokSessionId', () => {
 
   it('should return undefined if it cant extract session id from url', () => {
     // given
-    const url:string = '';
+    const url = '';
 
     // when
-    const sessionId:string | undefined = getNgrokSessionId(url);
+    const sessionId: string | undefined = getNgrokSessionId(url);
 
     // then
     expect(sessionId).toBeUndefined();
@@ -26,7 +26,7 @@ describe('getNgrokSessionId', () => {
   it('should return undefined when URL is not provided', () => {
     // given
     // when
-    const sessionId:string | undefined = getNgrokSessionId();
+    const sessionId: string | undefined = getNgrokSessionId();
 
     // then
     expect(sessionId).toBeUndefined();

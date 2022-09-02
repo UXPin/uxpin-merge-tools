@@ -4,7 +4,7 @@ import { parseNameTag } from '../parseNameTag';
 describe('parseNameTag', () => {
   it('should return valid custom name', () => {
     // having
-    const value:string = 'foo';
+    const value = 'foo';
 
     // when
     // then
@@ -17,7 +17,7 @@ describe('parseNameTag', () => {
   it('should trim whitespaces', () => {
     // having
     // tslint:disable:no-trailing-whitespace
-    const value:string = `
+    const value = `
     foo`;
     // tslint:enable:no-trailing-whitespace
 
@@ -31,7 +31,7 @@ describe('parseNameTag', () => {
 
   it('should return empty object if name is not provided', () => {
     // having
-    const value:string = `
+    const value = `
 
 `;
 

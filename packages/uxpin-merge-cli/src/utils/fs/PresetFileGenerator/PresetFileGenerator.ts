@@ -11,40 +11,39 @@ import { writeToFile } from '../writeToFile';
 import { generatePropertyValuePair, INDENTATION_CHAR } from './helpers/generatePropertyValuePair';
 import { getPropTypeValue } from './helpers/getPropTypeValue';
 
-const PRESET_FILE_NAME:string = '0-default.jsx';
+const PRESET_FILE_NAME = '0-default.jsx';
 
 interface Property {
-  name:string;
-  value:any;
+  name: string;
+  value: any;
 }
 
-function isChildrenProp(property:Property):boolean {
+function isChildrenProp(property: Property): boolean {
   return property.name === 'children';
 }
 
 export class PresetFileGenerator {
+  private componentDirectory: string;
+  private componentPath: string;
+  private componentName!: string;
+  private componentMetadata!: ComponentMetadata;
+  private componentProperties!: Property[];
+  private presetDirectory: string;
+  private presetFilePath: string;
 
-  private componentDirectory:string;
-  private componentPath:string;
-  private componentName!:string;
-  private componentMetadata!:ComponentMetadata;
-  private componentProperties!:Property[];
-  private presetDirectory:string;
-  private presetFilePath:string;
-
-  constructor(componentPath:string) {
+  constructor(componentPath: string) {
     this.componentPath = componentPath;
     this.componentDirectory = dirname(componentPath);
     this.presetDirectory = `${this.componentDirectory}/presets`;
     this.presetFilePath = `${this.presetDirectory}/${PRESET_FILE_NAME}`;
   }
 
-  public async init():Promise<void> {
+  public async init(): Promise<void> {
     if (await pathExists(resolve(__dirname, this.componentPath))) {
       throw new Error(`🛑 Component ${this.componentPath} does not exists`);
     }
 
-    const implementationInfo:ComponentImplementationInfo | null = getImplementationInfo(this.componentPath);
+    const implementationInfo: ComponentImplementationInfo | null = getImplementationInfo(this.componentPath);
 
     if (!implementationInfo) {
       throw Error(`🛑 Invalid component path - ${this.componentPath}`);
@@ -61,8 +60,8 @@ export class PresetFileGenerator {
     this.setPropertiesValues();
   }
 
-  public async createPresetFile():Promise<void> {
-    if (!await pathExists(this.presetDirectory)) {
+  public async createPresetFile(): Promise<void> {
+    if (!(await pathExists(this.presetDirectory))) {
       await mkdir(this.presetDirectory);
     }
 
@@ -71,12 +70,12 @@ export class PresetFileGenerator {
       return;
     }
 
-    const componentFileContent:string = await this.generateComponentFile();
+    const componentFileContent: string = await this.generateComponentFile();
     await writeToFile(this.presetFilePath, componentFileContent);
     printLine(`✅ File ${this.presetFilePath} created successfully`, { color: PrintColor.GREEN });
   }
 
-  public async generateComponentFile():Promise<string> {
+  public async generateComponentFile(): Promise<string> {
     return [
       await this.generateImports(),
       '',
@@ -88,20 +87,25 @@ export class PresetFileGenerator {
     ].join('\n');
   }
 
-  private setPropertiesValues():void {
-    this.componentProperties = this.componentMetadata.properties.reduce((result:Property[], prop) => {
-      result.push({
-        name: prop.name,
-        value: (prop.defaultValue && prop.defaultValue.value) || getPropTypeValue(prop.type),
-      });
-      return result;
-    }, [{
-      name: 'uxpId',
-      value: `${kebabCase(this.componentName)}-1`,
-    }]);
+  private setPropertiesValues(): void {
+    this.componentProperties = this.componentMetadata.properties.reduce(
+      (result: Property[], prop) => {
+        result.push({
+          name: prop.name,
+          value: (prop.defaultValue && prop.defaultValue.value) || getPropTypeValue(prop.type),
+        });
+        return result;
+      },
+      [
+        {
+          name: 'uxpId',
+          value: `${kebabCase(this.componentName)}-1`,
+        },
+      ]
+    );
   }
 
-  private generateComponentEnd():string {
+  private generateComponentEnd(): string {
     if (this.hasChildren()) {
       return `${INDENTATION_CHAR}>Put ${this.componentName} contents here</${this.componentName}>`;
     }
@@ -109,40 +113,39 @@ export class PresetFileGenerator {
     return `${INDENTATION_CHAR}/>`;
   }
 
-  private hasChildren():boolean {
+  private hasChildren(): boolean {
     return !!this.componentProperties.find(isChildrenProp);
   }
 
-  private async hasDefaultExport():Promise<boolean> {
+  private async hasDefaultExport(): Promise<boolean> {
     try {
-      const file:string = await readFile(this.componentPath, 'utf8');
+      const file: string = await readFile(this.componentPath, 'utf8');
       return file.indexOf('export default') !== -1 || /export (.*) as default/.test(file);
     } catch (e) {
       return false;
     }
   }
 
-  private async generateImports():Promise<string> {
-    const relativeComponentPath:string = relative(this.presetDirectory, this.componentPath)
+  private async generateImports(): Promise<string> {
+    const relativeComponentPath: string = relative(this.presetDirectory, this.componentPath)
       .split('.')
       .slice(0, -1)
       .join('.');
-    const importName:string = (await this.hasDefaultExport()) ? this.componentName : `{ ${this.componentName} }`;
-    const imports:string[] = [
-      `import React from 'react';`,
-      `import ${importName} from '${relativeComponentPath}';`,
-    ];
+    const importName: string = (await this.hasDefaultExport()) ? this.componentName : `{ ${this.componentName} }`;
+    const imports: string[] = [`import React from 'react';`, `import ${importName} from '${relativeComponentPath}';`];
 
     return imports.join('\n');
   }
 
-  private generatePropertiesList():string {
-    return this.componentProperties.reduce((result:string[], property:Property) => {
-      if (!isChildrenProp(property)) {
-        result.push(generatePropertyValuePair(property.name, property.value));
-      }
+  private generatePropertiesList(): string {
+    return this.componentProperties
+      .reduce((result: string[], property: Property) => {
+        if (!isChildrenProp(property)) {
+          result.push(generatePropertyValuePair(property.name, property.value));
+        }
 
-      return result;
-    }, []).join('\n');
+        return result;
+      }, [])
+      .join('\n');
   }
 }

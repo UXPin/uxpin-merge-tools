@@ -4,7 +4,7 @@ describe('sortFilePaths', () => {
   describe('when one-level deep paths are provided', () => {
     it('correctly sorts paths to files ', () => {
       // given
-      const paths:string[] = [
+      const paths: string[] = [
         'src/input-autocomplete/input-autocomplete.jsx',
         'src/calendar/calendar.jsx',
         'src/amount/amount.js',
@@ -19,7 +19,7 @@ describe('sortFilePaths', () => {
         'src/input/input.jsx',
       ];
 
-      const expectedPaths:string[] = [
+      const expectedPaths: string[] = [
         'src/amount/amount.gif',
         'src/amount/amount.js',
         'src/amount/amount.jsx',
@@ -43,7 +43,7 @@ describe('sortFilePaths', () => {
   describe('when nested paths are given', () => {
     it('should correclty sort paths list', () => {
       // having
-      const paths:string[] = [
+      const paths: string[] = [
         'src/components/Card/Card.js',
         'src/components/Card/components/Header/components/Button.js',
         'src/components/Button/Button.js',
@@ -56,7 +56,7 @@ describe('sortFilePaths', () => {
         'src/components/Select/Select.js',
       ];
 
-      const expectedPaths:string[] = [
+      const expectedPaths: string[] = [
         'src/components/Button/Button.js',
         'src/components/Card/Card.js',
         'src/components/Card/components/Header/Header.js',

@@ -9,17 +9,18 @@ import {
 import { isClassComponentDeclaration } from './isClassComponentDeclaration';
 import { isFunctionalComponentDeclaration } from './isFunctionalComponentDeclaration';
 
-export const findSpecifiedClassComponent:(context:TSSerializationContext) => ClassComponentDeclaration | undefined =
+export const findSpecifiedClassComponent: (context: TSSerializationContext) => ClassComponentDeclaration | undefined =
   createFindSpecifiedComponent(isClassComponentDeclaration);
 
-export const findSpecifiedFunctionComponent:(context:TSSerializationContext) =>
-  FunctionalComponentDeclaration | undefined = createFindSpecifiedComponent(isFunctionalComponentDeclaration);
+export const findSpecifiedFunctionComponent: (
+  context: TSSerializationContext
+) => FunctionalComponentDeclaration | undefined = createFindSpecifiedComponent(isFunctionalComponentDeclaration);
 
 function createFindSpecifiedComponent<T extends ComponentDeclaration>(
-  declarationChecker:(node:ts.Node) => node is T,
-):(context:TSSerializationContext) => T | undefined {
-  return (context:TSSerializationContext) => {
-    let result:T | undefined;
+  declarationChecker: (node: ts.Node) => node is T
+): (context: TSSerializationContext) => T | undefined {
+  return (context: TSSerializationContext) => {
+    let result: T | undefined;
 
     ts.forEachChild(context.file, (node) => {
       if (!result && declarationChecker(node) && hasUXPinComponentComment(node)) {

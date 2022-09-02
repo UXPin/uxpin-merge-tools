@@ -10,7 +10,7 @@ import { getServerCommandSteps } from './server/getServerCommandSteps';
 import { Step } from './Step';
 import { getSummaryCommandSteps } from './summary/getSummaryCommandSteps';
 
-export function getSteps(args:ProgramArgs):Step[] {
+export function getSteps(args: ProgramArgs): Step[] {
   switch (args.command) {
     case Command.DUMP:
       return getDumpCommandSteps();

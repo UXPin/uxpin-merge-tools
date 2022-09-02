@@ -21,34 +21,34 @@ import { UploadHandler } from './handler/upload/UploadHandler';
 import { ServerRouter } from './router/ServerRouter';
 
 export interface ExperimentationServerOptions extends ExperimentationServerContext {
-  projectName:string;
-  projectRoot:string;
-  skipBrowser:boolean;
+  projectName: string;
+  projectRoot: string;
+  skipBrowser: boolean;
 
-  projectMetadata?:DesignSystemSnapshot;
+  projectMetadata?: DesignSystemSnapshot;
 }
 
 export interface ExperimentationServerContext {
-  ngrokSessionId?:string;
-  port:number;
-  bundlePath:string;
-  epid:EPID;
-  uxpinDirPath:string;
-  uxpinDomain:string;
+  ngrokSessionId?: string;
+  port: number;
+  bundlePath: string;
+  epid: EPID;
+  uxpinDirPath: string;
+  uxpinDomain: string;
 
-  projectMetadata?:DesignSystemSnapshot;
+  projectMetadata?: DesignSystemSnapshot;
 }
 
-export async function startExperimentationServer(options:ExperimentationServerOptions):Promise<void> {
-  const router:ServerRouter = new ServerRouter();
+export async function startExperimentationServer(options: ExperimentationServerOptions): Promise<void> {
+  const router: ServerRouter = new ServerRouter();
   registerHandlers(router, options);
-  const server:Server = createServer((request, response) => router.handle(request, response));
+  const server: Server = createServer((request, response) => router.handle(request, response));
   server.listen(options.port);
-  const experimentationAppURL:string = getAPPExperimentationRemoteURL(options);
+  const experimentationAppURL: string = getAPPExperimentationRemoteURL(options);
   await printServerReadyMessage(experimentationAppURL);
 }
 
-function registerHandlers(router:ServerRouter, context:ExperimentationServerContext):void {
+function registerHandlers(router: ServerRouter, context: ExperimentationServerContext): void {
   router.register('/ajax/dmsDPPage/Save/', new PageSaveHandler(context));
   router.register('/ajax/dmsDPPage/SetActivePage/', new SetActivePageHandler(context));
   router.register('/ajax/dmsFileManager/PrepareUpload/', new PrepareUploadHandler(context));

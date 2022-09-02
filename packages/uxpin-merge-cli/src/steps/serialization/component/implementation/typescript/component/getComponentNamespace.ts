@@ -4,8 +4,8 @@ import { getComponentNamespaceImportSlug } from '../../getComponentNamespaceImpo
 import { getUXpinNamespaceComment } from '../comments/getUXPinNamespaceComment';
 import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
 
-export function getComponentNamespace(component:ComponentDeclaration, name:string):ComponentNamespace | undefined {
-  const namespace:ts.JSDocTag | undefined = getUXpinNamespaceComment(component);
+export function getComponentNamespace(component: ComponentDeclaration, name: string): ComponentNamespace | undefined {
+  const namespace: ts.JSDocTag | undefined = getUXpinNamespaceComment(component);
 
   if (!namespace || !namespace.comment) {
     return;

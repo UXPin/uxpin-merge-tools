@@ -3,7 +3,7 @@ import { CustomControlTypeName, CustomDescriptorsTags } from '../../../../implem
 import { ParsedPlainPropertyDescriptor } from '../../../../implementation/ParsedPropertyDescriptor';
 import { parseTypeTag } from '../parseTypeTag';
 
-const cases:TestCase[] = [
+const cases: TestCase[] = [
   ...Object.values(CustomControlTypeName)
     .filter((customType) => customType !== CustomControlTypeName.Textfield)
     .map((customType) => {
@@ -63,13 +63,12 @@ const cases:TestCase[] = [
 ];
 
 describe('parseTypeTag', () => {
-  using(cases)
-    .describe('should parse custom types', ({ tag, expectedValue }) => {
-      it(tag, () => expect(parseTypeTag(tag)).toEqual(expectedValue));
-    });
+  using(cases).describe('should parse custom types', ({ tag, expectedValue }) => {
+    it(tag, () => expect(parseTypeTag(tag)).toEqual(expectedValue));
+  });
 });
 
 interface TestCase {
-  expectedValue:ParsedPlainPropertyDescriptor | undefined;
-  tag:CustomControlTypeName | string;
+  expectedValue: ParsedPlainPropertyDescriptor | undefined;
+  tag: CustomControlTypeName | string;
 }

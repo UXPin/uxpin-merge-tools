@@ -18,22 +18,22 @@ import { isDefaultExported } from './component/isDefaultExported';
 import { getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
 import { parseTSComponentProperties } from './parseTSComponentProperties';
 
-export async function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
-  const context:TSSerializationContext = getSerializationContext(component);
+export async function serializeTSComponent(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
+  const context: TSSerializationContext = getSerializationContext(component);
 
-  const declaration:ComponentDeclaration | undefined = getComponentDeclaration(context);
+  const declaration: ComponentDeclaration | undefined = getComponentDeclaration(context);
   if (!declaration) {
     throw new Error('No component found!');
   }
 
-  const name:string = getComponentName(context, declaration);
-  const parsedProps:PropDefinitionParsingResult[] = parseTSComponentProperties(context, declaration);
-  const validatedProps:PropDefinitionSerializationResult[] = serializeAndValidateParsedProperties(parsedProps);
-  const namespace:ComponentNamespace | undefined = getComponentNamespace(declaration, name);
-  const componentDocUrl:string | undefined = getComponentDocUrl(declaration);
-  const wrappers:ComponentWrapper[] = getComponentWrappers(declaration);
-  const validatedWrappers:Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
-  const defaultExported:boolean = isDefaultExported(declaration, context);
+  const name: string = getComponentName(context, declaration);
+  const parsedProps: PropDefinitionParsingResult[] = parseTSComponentProperties(context, declaration);
+  const validatedProps: PropDefinitionSerializationResult[] = serializeAndValidateParsedProperties(parsedProps);
+  const namespace: ComponentNamespace | undefined = getComponentNamespace(declaration, name);
+  const componentDocUrl: string | undefined = getComponentDocUrl(declaration);
+  const wrappers: ComponentWrapper[] = getComponentWrappers(declaration);
+  const validatedWrappers: Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
+  const defaultExported: boolean = isDefaultExported(declaration, context);
 
   return {
     result: {
@@ -45,11 +45,8 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
       wrappers: validatedWrappers.result,
     },
     warnings: joinWarningLists(
-      [
-        ...validatedProps.map(({ warnings }) => warnings),
-        validatedWrappers.warnings,
-      ],
-      component.path,
+      [...validatedProps.map(({ warnings }) => warnings), validatedWrappers.warnings],
+      component.path
     ),
   };
 }

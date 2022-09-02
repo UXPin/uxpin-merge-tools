@@ -5,19 +5,17 @@ import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 import { encodeBranchName } from './params/encodeBranchName';
 
-export async function deleteRepositoryPointerToBranch(
-    opts:{
-      apiDomain:string,
-      authToken:string,
-      branch:string,
-    }):Promise<void> {
-
-        // Skip deleteing repository pointers in test environment
+export async function deleteRepositoryPointerToBranch(opts: {
+  apiDomain: string;
+  authToken: string;
+  branch: string;
+}): Promise<void> {
+  // Skip deleteing repository pointers in test environment
   if (isTestEnv()) {
     return Promise.resolve();
   }
 
-  const branchName:string = encodeBranchName(opts.branch);
+  const branchName: string = encodeBranchName(opts.branch);
 
   await requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/delete-repository-pointer`, {
     body: {

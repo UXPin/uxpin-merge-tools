@@ -8,15 +8,15 @@ import { thunkBuildComponentsLibrary } from '../../utils/thunkBuildComponentsLib
 import { getBuildOptions } from '../push/getBuildOptions';
 import { Step } from '../Step';
 
-export function getServerCommandSteps(args:ServerProgramArgs):Step[] {
-  const buildOptions:BuildOptions = getBuildOptions(args);
+export function getServerCommandSteps(args: ServerProgramArgs): Step[] {
+  const buildOptions: BuildOptions = getBuildOptions(args);
   return [
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },
     { exec: thunkStartServer(args), shouldRun: true },
   ];
 }
 
-function thunkStartServer(args:ServerProgramArgs):(ds:DSMetadata) => Promise<any> {
+function thunkStartServer(args: ServerProgramArgs): (ds: DSMetadata) => Promise<any> {
   return ({ result: { categorizedComponents } }) => {
     const { port } = args;
     return startDebugServer(getAllComponentsFromCategories(categorizedComponents), {

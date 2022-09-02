@@ -6,7 +6,7 @@ import { convertObjectSignatureFlowType } from './signature/convertObjectSignatu
 
 type KnownFlowTypeSignature = FlowTypeSignature<'function'> | FlowTypeSignature<'object'>;
 
-export function convertSignatureFlowType(flowType:KnownFlowTypeSignature | any):PropertyType {
+export function convertSignatureFlowType(flowType: KnownFlowTypeSignature | any): PropertyType {
   switch (flowType.type) {
     case 'function':
       return convertFunctionSignatureFlowType(flowType);

@@ -6,25 +6,21 @@ import { CommentTags } from '../../CommentTags';
 import { hasCommentTag } from './hasCommentTag';
 
 interface ReactDocgenOptionsWithBabelConfig extends ReactDocgenOptions {
-  babelrc?:boolean;
-  configFile?:boolean;
+  babelrc?: boolean;
+  configFile?: boolean;
 }
 
 // tslint:disable-next-line: max-line-length
-const parsers:Array<(file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig) => ComponentDoc | undefined> = [
-  parseWithAnnotation,
-  parseDefault,
-];
+const parsers: Array<
+  (file: string, handlers: Handler[], options: ReactDocgenOptionsWithBabelConfig) => ComponentDoc | undefined
+> = [parseWithAnnotation, parseDefault];
 
-export async function getDefaultComponentFrom(filePath:string):Promise<ComponentDoc> {
-  const file:string = await readFile(filePath, { encoding: 'utf8' });
-  let componentDoc:ComponentDoc | undefined;
-  let error:Error;
+export async function getDefaultComponentFrom(filePath: string): Promise<ComponentDoc> {
+  const file: string = await readFile(filePath, { encoding: 'utf8' });
+  let componentDoc: ComponentDoc | undefined;
+  let error: Error;
 
-  const handlers:Handler[] = [
-    ...defaultHandlers,
-    importedPropTypesHandler(filePath),
-  ];
+  const handlers: Handler[] = [...defaultHandlers, importedPropTypesHandler(filePath)];
 
   // Passing `filename` helps babel to load correct babel configuration file.
   // (NOTE: Without filename option, babel behave as if `babelrc: false` is set)
@@ -34,7 +30,7 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
   // to make sure we are not breaking existing customers integration by this change, we
   // 1. try with react-docgen default babel plugins
   // 2. try with user configured babel config(e.g. .babelrc, babel.config.js)
-  const docgenOptions:ReactDocgenOptionsWithBabelConfig[] = [
+  const docgenOptions: ReactDocgenOptionsWithBabelConfig[] = [
     {
       babelrc: false,
       configFile: false,
@@ -67,9 +63,11 @@ export async function getDefaultComponentFrom(filePath:string):Promise<Component
 }
 
 function parseWithAnnotation(
-    file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig):ComponentDoc | undefined {
-  const parsed:ComponentDoc[] =
-    parse(file, resolver.findAllComponentDefinitions, handlers, options) as ComponentDoc[];
+  file: string,
+  handlers: Handler[],
+  options: ReactDocgenOptionsWithBabelConfig
+): ComponentDoc | undefined {
+  const parsed: ComponentDoc[] = parse(file, resolver.findAllComponentDefinitions, handlers, options) as ComponentDoc[];
 
   for (const componentDoc of parsed) {
     if (hasCommentTag(componentDoc.description, CommentTags.UXPIN_COMPONENT)) {
@@ -79,6 +77,9 @@ function parseWithAnnotation(
 }
 
 function parseDefault(
-    file:string, handlers:Handler[], options:ReactDocgenOptionsWithBabelConfig):ComponentDoc | undefined {
+  file: string,
+  handlers: Handler[],
+  options: ReactDocgenOptionsWithBabelConfig
+): ComponentDoc | undefined {
   return parse(file, undefined, handlers, options) as ComponentDoc;
 }

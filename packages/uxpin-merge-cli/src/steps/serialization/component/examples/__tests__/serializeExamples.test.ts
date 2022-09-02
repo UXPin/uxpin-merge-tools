@@ -1,16 +1,14 @@
 import { resolve } from 'path';
 
 import { ComponentExample } from '../ComponentExample';
-import {
-  ExamplesSerializationResult,
-} from '../ExamplesSerializationResult';
+import { ExamplesSerializationResult } from '../ExamplesSerializationResult';
 import { serializeExamples } from '../serializeExamples';
 
 describe('getExamples', () => {
   describe('getting list of examples', () => {
     it('should return list of examples for markdown file with many examples', () => {
-      const path:string = resolve('./test/resources/documentation/examples/DocumentationWithExamples.md');
-      const expectedExamples:ComponentExample[] = [
+      const path: string = resolve('./test/resources/documentation/examples/DocumentationWithExamples.md');
+      const expectedExamples: ComponentExample[] = [
         {
           code: '<DocumentationWithExamples />',
         },
@@ -21,64 +19,74 @@ describe('getExamples', () => {
           code: '<DocumentationWithExamples disabled />',
         },
       ];
-      const expectedResult:ExamplesSerializationResult = {
+      const expectedResult: ExamplesSerializationResult = {
         result: expectedExamples,
         warnings: [],
       };
 
       // when
-      return serializeExamples(path)
-      // then
-        .then((result) => expect(result).toEqual(expectedResult));
+      return (
+        serializeExamples(path)
+          // then
+          .then((result) => expect(result).toEqual(expectedResult))
+      );
     });
 
     it('should return one example for markdown file with one example', () => {
-      const path:string = resolve('./test/resources/documentation/examples/DocumentationWithOneExample.md');
-      const expectedExamples:ComponentExample[] = [{
-        code: '<DocumentationWithExamples />',
-      }];
-      const expectedResult:ExamplesSerializationResult = {
+      const path: string = resolve('./test/resources/documentation/examples/DocumentationWithOneExample.md');
+      const expectedExamples: ComponentExample[] = [
+        {
+          code: '<DocumentationWithExamples />',
+        },
+      ];
+      const expectedResult: ExamplesSerializationResult = {
         result: expectedExamples,
         warnings: [],
       };
 
       // when
-      return serializeExamples(path)
-      // then
-        .then((result) => expect(result).toEqual(expectedResult));
+      return (
+        serializeExamples(path)
+          // then
+          .then((result) => expect(result).toEqual(expectedResult))
+      );
     });
 
     it('should return empty list for markdown file with no example', () => {
-      const path:string = resolve('./test/resources/documentation/examples/DocumentationWithNoExample.md');
-      const expectedExamples:ComponentExample[] = [];
-      const expectedResult:ExamplesSerializationResult = {
+      const path: string = resolve('./test/resources/documentation/examples/DocumentationWithNoExample.md');
+      const expectedExamples: ComponentExample[] = [];
+      const expectedResult: ExamplesSerializationResult = {
         result: expectedExamples,
         warnings: [],
       };
 
       // when
-      return serializeExamples(path)
-      // then
-        .then((result) => expect(result).toEqual(expectedResult));
+      return (
+        serializeExamples(path)
+          // then
+          .then((result) => expect(result).toEqual(expectedResult))
+      );
     });
 
     it('should return empty list for markdown file with examples defined with tab char', () => {
-      const path:string = resolve('./test/resources/documentation/examples/DocumentationWithTabCharacterExamples.md');
-      const expectedExamples:ComponentExample[] = [];
-      const expectedResult:ExamplesSerializationResult = {
+      const path: string = resolve('./test/resources/documentation/examples/DocumentationWithTabCharacterExamples.md');
+      const expectedExamples: ComponentExample[] = [];
+      const expectedResult: ExamplesSerializationResult = {
         result: expectedExamples,
         warnings: [],
       };
 
       // when
-      return serializeExamples(path)
-      // then
-        .then((result) => expect(result).toEqual(expectedResult));
+      return (
+        serializeExamples(path)
+          // then
+          .then((result) => expect(result).toEqual(expectedResult))
+      );
     });
 
     it('should return list of supported examples for markdown file with both supported & unsupported examples', () => {
-      const path:string = resolve('./test/resources/documentation/examples/DocumentationWithNotSupportedExamples.md');
-      const expectedExamples:ComponentExample[] = [
+      const path: string = resolve('./test/resources/documentation/examples/DocumentationWithNotSupportedExamples.md');
+      const expectedExamples: ComponentExample[] = [
         {
           code: '<DocumentationWithExamples javascript />',
         },
@@ -92,20 +100,22 @@ describe('getExamples', () => {
           code: '<DocumentationWithExamples tsx />',
         },
       ];
-      const expectedResult:ExamplesSerializationResult = {
+      const expectedResult: ExamplesSerializationResult = {
         result: expectedExamples,
         warnings: [],
       };
 
       // when
-      return serializeExamples(path)
-      // then
-        .then((result) => expect(result).toEqual(expectedResult));
+      return (
+        serializeExamples(path)
+          // then
+          .then((result) => expect(result).toEqual(expectedResult))
+      );
     });
 
     it('should return list of multiline examples for markdown file with examples', () => {
-      const path:string = resolve('./test/resources/documentation/examples/DocumentationWithMultilineExamples.md');
-      const expectedExamples:ComponentExample[] = [
+      const path: string = resolve('./test/resources/documentation/examples/DocumentationWithMultilineExamples.md');
+      const expectedExamples: ComponentExample[] = [
         {
           code: `<DocumentationWithMultilineExamples>
     <Line />
@@ -122,32 +132,36 @@ describe('getExamples', () => {
 </DocumentationWithMultilineExamples>`,
         },
       ];
-      const expectedResult:ExamplesSerializationResult = {
+      const expectedResult: ExamplesSerializationResult = {
         result: expectedExamples,
         warnings: [],
       };
 
       // when
-      return serializeExamples(path)
-      // then
-        .then((result) => expect(result).toEqual(expectedResult));
+      return (
+        serializeExamples(path)
+          // then
+          .then((result) => expect(result).toEqual(expectedResult))
+      );
     });
   });
 
   describe('when error occurs', () => {
     it('should return warning', () => {
-      const expectedErrorMessage:string = 'Cannot serialize component examples';
-      const expectedOriginalErrorMessage:string = 'no such file or directory';
-      const path:string = resolve('./test/resources/documentation/examples/DontExist.md');
+      const expectedErrorMessage = 'Cannot serialize component examples';
+      const expectedOriginalErrorMessage = 'no such file or directory';
+      const path: string = resolve('./test/resources/documentation/examples/DontExist.md');
 
       // when
-      return serializeExamples(path)
-      // then
-        .then((result) => {
-          expect(result.warnings).toHaveLength(1);
-          expect(result.warnings[0].message).toEqual(expectedErrorMessage);
-          expect((result.warnings[0].originalError as Error).message).toMatch(expectedOriginalErrorMessage);
-        });
+      return (
+        serializeExamples(path)
+          // then
+          .then((result) => {
+            expect(result.warnings).toHaveLength(1);
+            expect(result.warnings[0].message).toEqual(expectedErrorMessage);
+            expect((result.warnings[0].originalError as Error).message).toMatch(expectedOriginalErrorMessage);
+          })
+      );
     });
   });
 });

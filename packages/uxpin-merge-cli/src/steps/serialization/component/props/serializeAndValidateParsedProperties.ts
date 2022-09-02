@@ -4,8 +4,8 @@ import { PropDefinitionSerializationResult } from '../implementation/PropDefinit
 import { serializeComponentProps } from './serializeComponentProps';
 
 export function serializeAndValidateParsedProperties(
-  props:PropDefinitionParsingResult[],
-):PropDefinitionSerializationResult[] {
-  const serializedProps:PropDefinitionSerializationResult[] = serializeComponentProps(props);
+  props: PropDefinitionParsingResult[]
+): PropDefinitionSerializationResult[] {
+  const serializedProps: PropDefinitionSerializationResult[] = serializeComponentProps(props);
   return validateProps(serializedProps);
 }
