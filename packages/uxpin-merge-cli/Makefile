@@ -2,9 +2,10 @@ PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 UXPIN_CODE=$(shell pwd)/bin/uxpin-merge
 YARN ?= yarn
+ESLINT_TARGETS = --ext .ts,.tsx ./src ./test ./__mocks__
 
 .PHONY: dependencies install build build-watch \
-				check lint check-lint-errors lint-fix check-types check-format \
+				check lint check-lint-errors lint-fix check-types \
 				test test-unit test-integration test-ci \
 				clean clean-test-resources \
 				test-remap-coverage test-resources test-rename-snapshots \
@@ -27,30 +28,23 @@ build-server-app:
 
 # Run on CI before building the package
 check:
-	make check-format
 	make check-lint-errors
 	make check-types
 
 lint:
-	eslint --ext .ts,.tsx ./src ./test
+	eslint $(ESLINT_TARGETS)
 
 check-lint-errors:
-	eslint --quiet --ext .ts,.tsx ./src ./test
+	eslint --quiet $(ESLINT_TARGETS)
 
 lint-fix:
-	eslint --fix --ext .ts,.tsx ./src ./test
+	eslint --fix $(ESLINT_TARGETS)
 
 check-types:
 	tsc --project tsconfig.json --pretty --noEmit
 
 check-types-watch:
 	tsc --project tsconfig.json --watch --noEmit
-
-check-format:
-	prettier --ignore-path ../.gitignore --list-different "**/*.+(ts|tsx)"
-
-check-format-fix:
-	prettier --ignore-path ../.gitignore --fix "src/**/*.+(ts|tsx)"
 
 test:
 	make test-resources
