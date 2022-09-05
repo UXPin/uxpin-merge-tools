@@ -15,7 +15,7 @@
   "author": "UXPin Inc.",
   "license": "GPL-3.0-only",
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=16"
   },
   "keywords": [
     "UXPin",
