@@ -1020,14 +1020,16 @@ describe('serializeTSComponent', () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithKeyOfTypeOfOperatorInType');
       const expectedMetadata: ComponentMetadata = {
+        componentDocUrl: undefined,
         defaultExported: true,
         name: 'ClassWithKeyOfTypeOfOperatorInType',
+        namespace: undefined,
         properties: [
           {
             description: '',
             isRequired: true,
             name: 'typeOfProp',
-            type: { name: 'number', structure: {} },
+            type: { name: 'literal', structure: { value: 5 } },
           },
           {
             description: '',
