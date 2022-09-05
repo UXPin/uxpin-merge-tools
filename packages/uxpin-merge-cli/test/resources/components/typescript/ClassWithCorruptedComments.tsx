@@ -4,19 +4,19 @@ export interface Props {
   /**
    * @uxpinpropname duplicatedCustomName
    */
-  buttonType:string;
+  buttonType: string;
   /**
    * @uxpinpropname duplicatedCustomName
    */
-  isDisabled:boolean;
+  isDisabled: boolean;
   /**
    * @uxpinpropname isDisabled
    */
-  isDisabledDuplicate:boolean;
+  isDisabledDuplicate: boolean;
 }
 
 export default class ClassWithCorruptedComments extends React.Component<Props> {
-  public render():JSX.Element {
+  public render(): JSX.Element {
     const { isDisabled } = this.props;
 
     return <button disabled={isDisabled} />;

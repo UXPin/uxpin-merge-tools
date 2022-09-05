@@ -32,13 +32,13 @@ check:
 	make check-types
 
 lint:
-	eslint --ext .ts,.tsx ./src
+	eslint --ext .ts,.tsx ./src ./test
 
 check-lint-errors:
-	eslint --quiet --ext .ts,.tsx ./src
+	eslint --quiet --ext .ts,.tsx ./src ./test
 
 lint-fix:
-	eslint --fix --ext .js,.ts,.tsx ./src
+	eslint --fix --ext .ts,.tsx ./src ./test
 
 check-types:
 	tsc --project tsconfig.json --pretty --noEmit
@@ -47,7 +47,10 @@ check-types-watch:
 	tsc --project tsconfig.json --watch --noEmit
 
 check-format:
-	prettier --ignore-path ../.gitignore --list-different "src/**/*.+(ts|tsx)"
+	prettier --ignore-path ../.gitignore --list-different "**/*.+(ts|tsx)"
+
+check-format-fix:
+	prettier --ignore-path ../.gitignore --fix "src/**/*.+(ts|tsx)"
 
 test:
 	make test-resources

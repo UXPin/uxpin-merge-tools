@@ -1,7 +1,7 @@
 import { NO_CONTENT } from 'http-status-codes';
 import { StubbyStub } from 'stubby';
 
-export function getStubUploadMetadata():StubbyStub {
+export function getStubUploadMetadata(): StubbyStub {
   return {
     request: {
       method: 'POST',

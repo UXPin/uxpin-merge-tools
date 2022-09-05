@@ -13,19 +13,18 @@ import { setTimeoutBeforeAll } from '../../../../utils/command/setTimeoutBeforeA
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 import { getBufferChecksum, getFileChecksum } from '../../../../utils/file/getFileChecksum';
 
-const CURRENT_TIMEOUT:number = 10000;
+const CURRENT_TIMEOUT = 10000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('GetUploadedFileHandler', () => {
-
   const { request, getWorkingDir } = setupExperimentationServerTest();
 
   it('responds with a file for given id', async () => {
     // given
-    const fileId:string = `12311`;
-    const fixtureFilePath:string = join(__dirname, 'fixtures', 'uxpin_logo_white_720-1.png');
-    const expectedFileChecksum:string = await getFileChecksum(fixtureFilePath);
-    const requestOptions:RequestPromiseOptions = {
+    const fileId = `12311`;
+    const fixtureFilePath: string = join(__dirname, 'fixtures', 'uxpin_logo_white_720-1.png');
+    const expectedFileChecksum: string = await getFileChecksum(fixtureFilePath);
+    const requestOptions: RequestPromiseOptions = {
       encoding: null,
       method: 'GET',
       resolveWithFullResponse: true,
@@ -33,7 +32,7 @@ describe('GetUploadedFileHandler', () => {
     await placeFixtureInUploadDir(fixtureFilePath, fileId);
 
     // when
-    const response:Response = await request('/upload/12311/uxpin_logo_white_720-1.png', requestOptions);
+    const response: Response = await request('/upload/12311/uxpin_logo_white_720-1.png', requestOptions);
 
     // then
     expect(response.statusCode).toEqual(OK);
@@ -41,12 +40,12 @@ describe('GetUploadedFileHandler', () => {
     expect(getBufferChecksum(response.body)).toEqual(expectedFileChecksum);
   });
 
-  async function placeFixtureInUploadDir(fixturePath:string, fileId:string):Promise<void> {
-    const fixtureFileName:string = parse(fixturePath).base;
-    const uploadedFileLocation:string = join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, fileId);
+  async function placeFixtureInUploadDir(fixturePath: string, fileId: string): Promise<void> {
+    const fixtureFileName: string = parse(fixturePath).base;
+    const uploadedFileLocation: string = join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, fileId);
     await ensureDir(uploadedFileLocation);
     await copy(fixturePath, join(uploadedFileLocation, fixtureFileName));
-    const metadata:UploadItemMetadata = {
+    const metadata: UploadItemMetadata = {
       contentType: 'image/png',
       fileName: fixtureFileName,
     };

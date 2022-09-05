@@ -4,71 +4,81 @@ import { getComponentByName } from '../../utils/dom/getComponentByName';
 import { waitForComponent } from '../../utils/e2e/chromeless/waitForComponent';
 import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 
-const CURRENT_TIMEOUT:number = 300000;
+const CURRENT_TIMEOUT = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('server run in polaris', () => {
-  let chromeless:Chromeless<any>;
+  let chromeless: Chromeless<any>;
 
-  setupDebugServerTest({
-    projectPath: 'resources/repos/polaris',
-    serverCmdArgs: [
-      '--webpack-config "./playground/webpack.config"',
-    ],
-  }, (c) => chromeless = c);
+  setupDebugServerTest(
+    {
+      projectPath: 'resources/repos/polaris',
+      serverCmdArgs: ['--webpack-config "./playground/webpack.config"'],
+    },
+    (c) => (chromeless = c)
+  );
 
-  it('renders `Banner` component with preview', async () => {
-    // given
-    const expectedDetails = { // tslint:disable-line
-      backgroundColor: 'rgb(244, 246, 248)',
-      bannerHeaderText: 'Order archived',
-      borderRadius: '0px 0px 3px 3px',
-    };
-
-    const getComponentDetails:() => typeof expectedDetails = () => {
-      const banner:Element = document.querySelector('[class*="Banner-Banner"]') as HTMLElement;
-      const bannerStyles:CSSStyleDeclaration = getComputedStyle(banner);
-      const bannerHeader:HTMLElement = (banner.querySelector('[class*="Banner-Heading"]') as HTMLElement);
-      const bannerHeaderText:string = (bannerHeader.innerText as string).replace(/(\r\n|\n|\r)/gm, '');
-      return {
-        backgroundColor: bannerStyles.backgroundColor as string,
-        bannerHeaderText,
-        borderRadius: bannerStyles.borderRadius as string,
+  it(
+    'renders `Banner` component with preview',
+    async () => {
+      // given
+      const expectedDetails = {
+        // tslint:disable-line
+        backgroundColor: 'rgb(244, 246, 248)',
+        bannerHeaderText: 'Order archived',
+        borderRadius: '0px 0px 3px 3px',
       };
-    };
 
-    // when
-    await chromeless.wait('[class*="Banner-Banner"]', CURRENT_TIMEOUT);
-    const scratchedDetails:any = await chromeless.evaluate(getComponentDetails);
+      const getComponentDetails: () => typeof expectedDetails = () => {
+        const banner: Element = document.querySelector('[class*="Banner-Banner"]') as HTMLElement;
+        const bannerStyles: CSSStyleDeclaration = getComputedStyle(banner);
+        const bannerHeader: HTMLElement = banner.querySelector('[class*="Banner-Heading"]') as HTMLElement;
+        const bannerHeaderText: string = (bannerHeader.innerText as string).replace(/(\r\n|\n|\r)/gm, '');
+        return {
+          backgroundColor: bannerStyles.backgroundColor as string,
+          bannerHeaderText,
+          borderRadius: bannerStyles.borderRadius as string,
+        };
+      };
 
-    // then
-    expect(scratchedDetails).toEqual(expectedDetails);
-  }, CURRENT_TIMEOUT);
+      // when
+      await chromeless.wait('[class*="Banner-Banner"]', CURRENT_TIMEOUT);
+      const scratchedDetails: any = await chromeless.evaluate(getComponentDetails);
 
-  it('renders `Popover` component with `this.props.onClose is not a function` error', async () => {
-    const componentName:string = 'Popover';
+      // then
+      expect(scratchedDetails).toEqual(expectedDetails);
+    },
+    CURRENT_TIMEOUT
+  );
 
-    const expectedHeader:string = '<h3 id="header-popover">Popover</h3>';
-    const expectedExample:string = '⛔ Error: this.props.onClose is not a function';
+  it(
+    'renders `Popover` component with `this.props.onClose is not a function` error',
+    async () => {
+      const componentName = 'Popover';
 
-    // when
-    await waitForComponent(chromeless, componentName, CURRENT_TIMEOUT);
-    const contents:any = await chromeless.evaluate(getComponentByName, componentName);
+      const expectedHeader = '<h3 id="header-popover">Popover</h3>';
+      const expectedExample = '⛔ Error: this.props.onClose is not a function';
 
-    // then
-    expect(contents).toContain(expectedHeader);
-    expect(contents).toContain(expectedExample);
-  }, CURRENT_TIMEOUT);
+      // when
+      await waitForComponent(chromeless, componentName, CURRENT_TIMEOUT);
+      const contents: any = await chromeless.evaluate(getComponentByName, componentName);
+
+      // then
+      expect(contents).toContain(expectedHeader);
+      expect(contents).toContain(expectedExample);
+    },
+    CURRENT_TIMEOUT
+  );
 
   it('renders `Breadcrumbs` component with `no code examples` warning', async () => {
-    const componentName:string = 'Breadcrumbs';
+    const componentName = 'Breadcrumbs';
 
-    const expectedHeader:string = '<h3 id="header-breadcrumbs">Breadcrumbs</h3>';
-    const expectedExample:string = '⚠️ Warning: no code examples';
+    const expectedHeader = '<h3 id="header-breadcrumbs">Breadcrumbs</h3>';
+    const expectedExample = '⚠️ Warning: no code examples';
 
     // when
     await waitForComponent(chromeless, componentName);
-    const contents:any = await chromeless.evaluate(getComponentByName, componentName);
+    const contents: any = await chromeless.evaluate(getComponentByName, componentName);
 
     // then
     expect(contents).toContain(expectedHeader);

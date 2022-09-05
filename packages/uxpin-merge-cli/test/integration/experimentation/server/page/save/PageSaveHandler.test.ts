@@ -15,7 +15,7 @@ import { deleteChangedElementRequestPayload } from './fixtures/deleteChangedElem
 import { deleteElementRequestPayload } from './fixtures/deleteElementRequestPayload';
 import { updateElementRequestPayload } from './fixtures/updateElementRequestPayload';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 // tslint:disable-next-line:max-line-length typedef no-var-requires
 const introPageContent = require('../../../../../../src/steps/experimentation/server/common/page/content/introPageContent.json');
@@ -24,7 +24,7 @@ describe('Experimentation server – handling save page request', () => {
   const { request, getWorkingDir } = setupExperimentationServerTest();
 
   describe('saving the first elements', () => {
-    let response:Response;
+    let response: Response;
 
     beforeAll(async () => {
       // when
@@ -33,12 +33,12 @@ describe('Experimentation server – handling save page request', () => {
 
     it('responds with OK status code and correct headers', async () => {
       // given
-      const expectedHeaders:any = {
+      const expectedHeaders: any = {
         'access-control-allow-credentials': 'true',
         'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
         'access-control-allow-origin': 'https://app.uxpin.com',
       };
-      const expectedResponse:PageIncrementalUpdate = createFirstElementsRequestPayload;
+      const expectedResponse: PageIncrementalUpdate = createFirstElementsRequestPayload;
 
       // then
       expect(response.statusCode).toEqual(OK);
@@ -48,18 +48,16 @@ describe('Experimentation server – handling save page request', () => {
 
     it('correctly saves first element', async () => {
       // given
-      const expectedPageContent:PageContent = {
+      const expectedPageContent: PageContent = {
         ...introPageContent,
         '46a48bee': createFirstElementsRequestPayload.changed_elements['46a48bee'],
         '83ty393l': createFirstElementsRequestPayload.changed_elements['83ty393l'],
         canvas: {
           props: {
-            storedElements: [
-              ...introPageContent.canvas.props.storedElements,
-              '46a48bee',
-              '83ty393l',
-            ],
-          }, type: 'Canvas', v: '2.0',
+            storedElements: [...introPageContent.canvas.props.storedElements, '46a48bee', '83ty393l'],
+          },
+          type: 'Canvas',
+          v: '2.0',
         },
       };
 
@@ -75,7 +73,7 @@ describe('Experimentation server – handling save page request', () => {
 
       it('correctly updates existing elements', async () => {
         // given
-        const expectedPageContent:PageContent = {
+        const expectedPageContent: PageContent = {
           ...introPageContent,
           '46a48bee': {
             props: {
@@ -89,12 +87,10 @@ describe('Experimentation server – handling save page request', () => {
           '83ty393l': createFirstElementsRequestPayload.changed_elements['83ty393l'],
           canvas: {
             props: {
-              storedElements: [
-                ...introPageContent.canvas.props.storedElements,
-                '46a48bee',
-                '83ty393l',
-              ],
-            }, type: 'Canvas', v: '2.0',
+              storedElements: [...introPageContent.canvas.props.storedElements, '46a48bee', '83ty393l'],
+            },
+            type: 'Canvas',
+            v: '2.0',
           },
         };
 
@@ -110,7 +106,7 @@ describe('Experimentation server – handling save page request', () => {
 
         it('correctly saves the new element', async () => {
           // given
-          const expectedPageContent:PageContent = {
+          const expectedPageContent: PageContent = {
             ...introPageContent,
             '46a48bee': {
               props: {
@@ -125,13 +121,10 @@ describe('Experimentation server – handling save page request', () => {
             b5b84017: addSecondElementRequestPayload.changed_elements.b5b84017,
             canvas: {
               props: {
-                storedElements: [
-                  ...introPageContent.canvas.props.storedElements,
-                  '46a48bee',
-                  '83ty393l',
-                  'b5b84017',
-                ],
-              }, type: 'Canvas', v: '2.0',
+                storedElements: [...introPageContent.canvas.props.storedElements, '46a48bee', '83ty393l', 'b5b84017'],
+              },
+              type: 'Canvas',
+              v: '2.0',
             },
           };
 
@@ -147,18 +140,16 @@ describe('Experimentation server – handling save page request', () => {
 
           it('correctly removes elements', async () => {
             // given
-            const expectedPageContent:PageContent = {
+            const expectedPageContent: PageContent = {
               ...introPageContent,
               '83ty393l': createFirstElementsRequestPayload.changed_elements['83ty393l'],
               b5b84017: addSecondElementRequestPayload.changed_elements.b5b84017,
               canvas: {
                 props: {
-                  storedElements: [
-                    ...introPageContent.canvas.props.storedElements,
-                    '83ty393l',
-                    'b5b84017',
-                  ],
-                }, type: 'Canvas', v: '2.0',
+                  storedElements: [...introPageContent.canvas.props.storedElements, '83ty393l', 'b5b84017'],
+                },
+                type: 'Canvas',
+                v: '2.0',
               },
             };
 
@@ -174,16 +165,15 @@ describe('Experimentation server – handling save page request', () => {
 
             it('correctly removes the element', async () => {
               // given
-              const expectedPageContent:PageContent = {
+              const expectedPageContent: PageContent = {
                 ...introPageContent,
                 b5b84017: addSecondElementRequestPayload.changed_elements.b5b84017,
                 canvas: {
                   props: {
-                    storedElements: [
-                      ...introPageContent.canvas.props.storedElements,
-                      'b5b84017',
-                    ],
-                  }, type: 'Canvas', v: '2.0',
+                    storedElements: [...introPageContent.canvas.props.storedElements, 'b5b84017'],
+                  },
+                  type: 'Canvas',
+                  v: '2.0',
                 },
               };
 
@@ -196,9 +186,9 @@ describe('Experimentation server – handling save page request', () => {
     });
   });
 
-  function performSaveRequestWith(payload:PageIncrementalUpdate):RequestPromise {
-    const origin:string = 'https://app.uxpin.com';
-    const options:RequestPromiseOptions = {
+  function performSaveRequestWith(payload: PageIncrementalUpdate): RequestPromise {
+    const origin = 'https://app.uxpin.com';
+    const options: RequestPromiseOptions = {
       form: { json: JSON.stringify(payload) },
       headers: { origin },
       method: 'POST',
@@ -207,7 +197,7 @@ describe('Experimentation server – handling save page request', () => {
     return request('/ajax/dmsDPPage/Save/?__ajax_request=1', options);
   }
 
-  function getCurrentSavedPage():Promise<PageContent> {
+  function getCurrentSavedPage(): Promise<PageContent> {
     return readJson(join(getWorkingDir(), TEMP_DIR_NAME, PAGE_FILE_NAME));
   }
 });

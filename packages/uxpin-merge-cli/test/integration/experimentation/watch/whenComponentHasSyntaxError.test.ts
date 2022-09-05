@@ -5,14 +5,14 @@ import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll'
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../utils/file/getFileChecksum';
 
-const CURRENT_TIMEOUT:number = 100000;
+const CURRENT_TIMEOUT = 100000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental - watch - change file content with syntax error', () => {
-  let initialBundleChecksum:string;
-  const avatarJsxPath:string = './src/components/Avatar/Avatar.jsx';
+  let initialBundleChecksum: string;
+  const avatarJsxPath = './src/components/Avatar/Avatar.jsx';
 
-  const avatarSyntaxErrorContent:string = `
+  const avatarSyntaxErrorContent = `
 import PropTypes from 'prop-types';
 import React from 'react';
 import { PureComponent } from 'react';
@@ -39,7 +39,7 @@ export default class Avatar extends PureComponent {
 
 `;
 
-  const avatarCorrectContent:string = `
+  const avatarCorrectContent = `
 import PropTypes from 'prop-types';
 import React from 'react';
 import { PureComponent } from 'react';
@@ -68,10 +68,7 @@ export default class Avatar extends PureComponent {
 
   const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
-    serverCmdArgs: [
-      '--config "uxpin.config.js"',
-      '--webpack-config "./webpack.config.js"',
-    ],
+    serverCmdArgs: ['--config "uxpin.config.js"', '--webpack-config "./webpack.config.js"'],
     silent: true,
   });
 
@@ -80,7 +77,7 @@ export default class Avatar extends PureComponent {
   });
 
   describe('when component content has syntax error', () => {
-    let errorResponse:string;
+    let errorResponse: string;
     beforeAll(async () => {
       try {
         await changeProjectFile(avatarJsxPath, avatarSyntaxErrorContent);
@@ -104,8 +101,8 @@ export default class Avatar extends PureComponent {
     });
   });
 
-  function getBundleChecksum():Promise<string> {
-    const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
+  function getBundleChecksum(): Promise<string> {
+    const tempDirPath: string = getTempDirPath({ cwd: getWorkingDir() });
     return getFileChecksum(path.resolve(tempDirPath, LIBRARY_OUTPUT_FILENAME));
   }
 });

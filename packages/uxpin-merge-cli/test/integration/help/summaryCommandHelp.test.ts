@@ -2,8 +2,7 @@ import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 
 describe('--help option for `summary` command', () => {
-
-  let output:string;
+  let output: string;
 
   beforeAll(async () => {
     output = await runUXPinMergeCommand({ params: [Command.SUMMARY, '--help'] });
@@ -16,8 +15,7 @@ describe('--help option for `summary` command', () => {
 
   it('it prints help for --config <path> option', () => {
     // then
-    expect(output)
-      .toMatch(/--config <path>\s+path to a config file\. Default: `\.\/uxpin\.config\.js`/);
+    expect(output).toMatch(/--config <path>\s+path to a config file\. Default: `\.\/uxpin\.config\.js`/);
   });
 
   it('it prints help for --cwd <path> option', () => {

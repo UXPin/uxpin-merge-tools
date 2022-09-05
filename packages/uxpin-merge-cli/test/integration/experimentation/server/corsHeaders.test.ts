@@ -4,7 +4,7 @@ import { RequestPromiseOptions } from 'request-promise';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('CORS Headers', () => {
@@ -13,16 +13,16 @@ describe('CORS Headers', () => {
   describe('when `origin` header is set', () => {
     it('responds headers containing the correct domain', async () => {
       // given
-      const origin:string = 'https://app.merge.uxpin.cloud';
-      const options:RequestPromiseOptions = { headers: { origin }, method: 'GET', resolveWithFullResponse: true };
-      const expectedHeaders:any = {
+      const origin = 'https://app.merge.uxpin.cloud';
+      const options: RequestPromiseOptions = { headers: { origin }, method: 'GET', resolveWithFullResponse: true };
+      const expectedHeaders: any = {
         'access-control-allow-credentials': 'true',
         'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
         'access-control-allow-origin': 'https://app.merge.uxpin.cloud',
       };
 
       // when
-      const response:Response = await request('/libraries/items/index/', options);
+      const response: Response = await request('/libraries/items/index/', options);
 
       // then
       expect(response.statusCode).toEqual(OK);
@@ -34,15 +34,15 @@ describe('CORS Headers', () => {
   describe('when `origin` header is not set', () => {
     it('responds headers containing `*` wildcard', async () => {
       // given
-      const options:RequestPromiseOptions = { method: 'GET', resolveWithFullResponse: true };
-      const expectedHeaders:any = {
+      const options: RequestPromiseOptions = { method: 'GET', resolveWithFullResponse: true };
+      const expectedHeaders: any = {
         'access-control-allow-credentials': 'true',
         'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
         'access-control-allow-origin': '*',
       };
 
       // when
-      const response:Response = await request('/libraries/items/index/', options);
+      const response: Response = await request('/libraries/items/index/', options);
 
       // then
       expect(response.statusCode).toEqual(OK);

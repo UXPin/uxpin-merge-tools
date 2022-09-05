@@ -8,7 +8,7 @@ import { expectedMetadata } from '../../../resources/designSystems/twoComponents
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - save library metadata', () => {
@@ -24,13 +24,13 @@ describe('Experimentation mode - save library metadata', () => {
 
   it('should metadata file match expected metadata', async () => {
     // when
-    const metadataFile:DesignSystemSnapshot = await readJson(getMetadataPath());
+    const metadataFile: DesignSystemSnapshot = await readJson(getMetadataPath());
 
     // then
     expect(metadataFile).toEqual(expect.objectContaining(expectedMetadata));
   });
 
-  function getMetadataPath():string {
+  function getMetadataPath(): string {
     return join(getWorkingDir(), TEMP_DIR_NAME, METADATA_FILE_NAME);
   }
 });

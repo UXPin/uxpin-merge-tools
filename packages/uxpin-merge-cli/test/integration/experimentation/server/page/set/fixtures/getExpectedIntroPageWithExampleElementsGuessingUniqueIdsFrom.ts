@@ -4,8 +4,8 @@ import { PageContent } from '../../../../../../../src/common/types/PageData';
 // tslint:disable-next-line:typedef max-line-length no-var-requires
 const introPageContent = require('../../../../../../../src/steps/experimentation/server/common/page/content/introPageContent.json');
 
-export function getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(responsePage:PageContent):PageContent {
-  const firstDroppedExample:any = {
+export function getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(responsePage: PageContent): PageContent {
+  const firstDroppedExample: any = {
     props: {
       codeComponentId: 'f2dff102-3d25-5174-b733-12c4e58fdd5d',
       codeComponentPresetId: '02943eee-ab9a-57c6-adf8-d5c4978cd0b1',
@@ -16,7 +16,7 @@ export function getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(res
     },
     type: 'CodeComponent',
   };
-  const secondDroppedExample:any = {
+  const secondDroppedExample: any = {
     props: {
       codeComponentId: 'ba14886c-2674-52a3-a147-7b88e725e4ee',
       codeComponentPresetId: '364b2288-4144-5962-8ad2-7c5ebc0ab2ae',
@@ -28,11 +28,11 @@ export function getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(res
     type: 'CodeComponent',
   };
 
-  const knownIds:string[] = Object.keys(introPageContent);
-  const unknownIds:string[] = Object.keys(responsePage).filter((key) => !knownIds.includes(key));
+  const knownIds: string[] = Object.keys(introPageContent);
+  const unknownIds: string[] = Object.keys(responsePage).filter((key) => !knownIds.includes(key));
 
-  let firstNewId:string;
-  let secondNewId:string;
+  let firstNewId: string;
+  let secondNewId: string;
   if (responsePage[unknownIds[0]].props.codeComponentId === 'f2dff102-3d25-5174-b733-12c4e58fdd5d') {
     [firstNewId, secondNewId] = unknownIds;
   } else {
@@ -45,11 +45,7 @@ export function getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(res
     [secondNewId]: secondDroppedExample,
     canvas: {
       props: {
-        storedElements: [
-          ...introPageContent.canvas.props.storedElements,
-          firstNewId,
-          secondNewId,
-        ],
+        storedElements: [...introPageContent.canvas.props.storedElements, firstNewId, secondNewId],
       },
       type: 'Canvas',
       v: '2.1',

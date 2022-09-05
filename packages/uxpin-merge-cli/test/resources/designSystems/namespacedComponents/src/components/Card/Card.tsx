@@ -1,17 +1,13 @@
 import * as React from 'react';
 
 export interface Props {
-  children:React.ReactNode;
+  children: React.ReactNode;
 }
 
 export default class Card extends React.PureComponent<Props> {
-  public render():JSX.Element {
+  public render(): JSX.Element {
     const { children } = this.props;
 
-    return (
-      <div className="card">
-        {children}
-      </div>
-    );
+    return <div className="card">{children}</div>;
   }
 }

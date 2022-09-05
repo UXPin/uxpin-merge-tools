@@ -6,24 +6,24 @@ import { prepareTempDir } from '../temp/prepareTempDir';
 import { ExperimentationServerTestSetupOptions, getDefaultOptions } from './experimentationServerTestSetupOptions';
 
 export interface ExperimentationServerConfiguration {
-  cmdOptions:CmdOptions;
-  port:number;
-  workingDir:string;
-  cleanupTemp:() => void;
+  cmdOptions: CmdOptions;
+  port: number;
+  workingDir: string;
+  cleanupTemp: () => void;
 }
 
 export async function getServerConfiguration(
-  opts:ExperimentationServerTestSetupOptions,
-):Promise<ExperimentationServerConfiguration> {
+  opts: ExperimentationServerTestSetupOptions
+): Promise<ExperimentationServerConfiguration> {
   const { useTempDir, projectPath, port, serverCmdArgs, env, useExistingServer } = defaults(opts, getDefaultOptions());
-  let workingDir:string = resolveTestProjectPath(projectPath);
-  let cleanupTemp:() => void = noop;
-  let serverPort:number = port;
+  let workingDir: string = resolveTestProjectPath(projectPath);
+  let cleanupTemp: () => void = noop;
+  let serverPort: number = port;
   if (useExistingServer) {
     workingDir = resolveTestProjectPath(useExistingServer.projectPath);
     serverPort = useExistingServer.port;
   } else if (useTempDir) {
-    const tempDir:DirectoryResult = await prepareTempDir(workingDir, { initialise: true });
+    const tempDir: DirectoryResult = await prepareTempDir(workingDir, { initialise: true });
     workingDir = tempDir.path;
     cleanupTemp = tempDir.cleanup;
   }

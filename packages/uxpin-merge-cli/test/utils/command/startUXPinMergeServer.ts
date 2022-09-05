@@ -4,35 +4,38 @@ import { CmdOptions } from './CmdOptions';
 import { getAllCmdOptions } from './getAllCmdOptions';
 import { getSpawnOptions } from './getSpawnOptions';
 
-const EXPERIMENTATION_URL_REGEX:RegExp =
+const EXPERIMENTATION_URL_REGEX =
   /https?\:\/\/app\.uxpin\.com\/experiment\/([a-z0-9\-\_]+)\?(ngrok_session|port)\=(sessionId|[\d]+)/gim;
 
 export interface TestServerOptions {
-  onServerExperimentationUrlFound?:(url:string) => void;
-  onServerFailed?:() => void;
-  onServerReady?:() => void;
-  serverReadyOutput:string|RegExp;
-  serverFailOutput?:string|RegExp;
-  silent?:boolean;
+  onServerExperimentationUrlFound?: (url: string) => void;
+  onServerFailed?: () => void;
+  onServerReady?: () => void;
+  serverReadyOutput: string | RegExp;
+  serverFailOutput?: string | RegExp;
+  silent?: boolean;
 }
 
 export interface MergeServerResponse {
-  close:() => void;
-  subprocess:ChildProcess;
+  close: () => void;
+  subprocess: ChildProcess;
 }
 
-export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerOptions):Promise<MergeServerResponse> {
+export function startUXPinMergeServer(
+  cmdOptions: CmdOptions,
+  options: TestServerOptions
+): Promise<MergeServerResponse> {
   return new Promise((resolve, reject) => {
-    const command:string = buildCommand(getAllCmdOptions(cmdOptions));
-    const subprocess:ChildProcess = spawn(command, [], getSpawnOptions());
-    const kill:() => void = () => process.kill(-subprocess.pid);
+    const command: string = buildCommand(getAllCmdOptions(cmdOptions));
+    const subprocess: ChildProcess = spawn(command, [], getSpawnOptions());
+    const kill: () => void = () => process.kill(-subprocess.pid);
 
     onServerOutput(subprocess, EXPERIMENTATION_URL_REGEX, (data) => {
       if (!options.onServerExperimentationUrlFound) {
         return;
       }
 
-      const urlMatch:RegExpMatchArray | null = data.match(EXPERIMENTATION_URL_REGEX);
+      const urlMatch: RegExpMatchArray | null = data.match(EXPERIMENTATION_URL_REGEX);
       if (!urlMatch) {
         return;
       }
@@ -74,8 +77,8 @@ export function startUXPinMergeServer(cmdOptions:CmdOptions, options:TestServerO
   });
 }
 
-function onServerOutput(subprocess:ChildProcess, output:string|RegExp, callback:(data:string) => void):void {
-  const listener:(data:Buffer|string) => void = (data) => {
+function onServerOutput(subprocess: ChildProcess, output: string | RegExp, callback: (data: string) => void): void {
+  const listener: (data: Buffer | string) => void = (data) => {
     if (data.toString().match(output)) {
       callback(data.toString());
 
@@ -88,12 +91,12 @@ function onServerOutput(subprocess:ChildProcess, output:string|RegExp, callback:
   subprocess.stderr.on('data', listener);
 }
 
-function onError(subprocess:ChildProcess, callback:(error:any) => void):void {
+function onError(subprocess: ChildProcess, callback: (error: any) => void): void {
   subprocess.on('error', (data) => callback(data));
 }
 
-function onClose(subprocess:ChildProcess, silent:boolean, callback:(error:any) => void):void {
-  let errorOut:string = '';
+function onClose(subprocess: ChildProcess, silent: boolean, callback: (error: any) => void): void {
+  let errorOut = '';
   subprocess.stderr.on('data', (data) => {
     if (!silent) {
       console.error(data.toString());

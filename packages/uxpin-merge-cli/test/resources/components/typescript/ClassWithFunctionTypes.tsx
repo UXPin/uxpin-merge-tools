@@ -1,38 +1,33 @@
 import * as React from 'react';
 
-type OpenHandler = (somArg:string) => void;
+type OpenHandler = (somArg: string) => void;
 
 export interface Props {
-  value:string;
+  value: string;
   /**
    * Inline function type
    */
-  onClick?:() => void;
+  onClick?: () => void;
   /**
    * Type alias reference
    */
-  onOpen?:OpenHandler;
+  onOpen?: OpenHandler;
   /**
    * Method signature
    */
-  onResize(width:number, height:number):number;
+  onResize(width: number, height: number): number;
   /**
    * Optional method signature
    */
-  onMouseEnter?():void;
+  onMouseEnter?(): void;
 }
 
 export default class ClassWithFunctionTypes extends React.Component<Props> {
-
-  public render():JSX.Element {
+  public render(): JSX.Element {
     const { value } = this.props;
     return (
       <div>
-        <button>
-          {
-            value
-          }
-        </button>
+        <button>{value}</button>
       </div>
     );
   }

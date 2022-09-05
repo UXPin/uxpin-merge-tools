@@ -3,7 +3,7 @@ import { Response } from 'request';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
-const CURRENT_TIMEOUT:number = 20_000;
+const CURRENT_TIMEOUT = 20_000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server - handling repository pointer', () => {
@@ -11,7 +11,7 @@ describe('Experimentation server - handling repository pointer', () => {
 
   it('should responds with NO_CONTENT status code', async () => {
     // when
-    const response:Response = await request('/code/repositoryPointer', { resolveWithFullResponse: true });
+    const response: Response = await request('/code/repositoryPointer', { resolveWithFullResponse: true });
 
     // then
     expect(response.statusCode).toEqual(NO_CONTENT);
@@ -19,15 +19,15 @@ describe('Experimentation server - handling repository pointer', () => {
 
   it('should responds with correct CORS headers', async () => {
     // given
-    const origin:string = 'https://app.uxpin.com';
-    const expectedHeaders:any = {
+    const origin = 'https://app.uxpin.com';
+    const expectedHeaders: any = {
       'access-control-allow-credentials': 'true',
       'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
       'access-control-allow-origin': 'https://app.uxpin.com',
     };
 
     // when
-    const response:Response = await request('/code/repositoryPointer', {
+    const response: Response = await request('/code/repositoryPointer', {
       headers: { origin },
       resolveWithFullResponse: true,
     });

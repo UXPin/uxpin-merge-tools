@@ -5,19 +5,16 @@ import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll'
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../utils/file/getFileChecksum';
 
-const CURRENT_TIMEOUT:number = 60000;
+const CURRENT_TIMEOUT = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental - watch - change file content', () => {
-  let initialBundleChecksum:string;
-  const avatarJsxPath:string = './src/components/Avatar/Avatar.jsx';
+  let initialBundleChecksum: string;
+  const avatarJsxPath = './src/components/Avatar/Avatar.jsx';
 
   const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
-    serverCmdArgs: [
-      '--config "uxpin.config.js"',
-      '--webpack-config "./webpack.config.js"',
-    ],
+    serverCmdArgs: ['--config "uxpin.config.js"', '--webpack-config "./webpack.config.js"'],
   });
 
   beforeAll(async () => {
@@ -26,7 +23,7 @@ describe('Experimental - watch - change file content', () => {
 
   it('should update library bundle when component changed', async () => {
     // given
-    const changedFileContent:string = `
+    const changedFileContent = `
 import PropTypes from 'prop-types';
 import React from 'react';
 import { PureComponent } from 'react';
@@ -60,8 +57,8 @@ export default class Avatar extends PureComponent {
     expect(await getBundleChecksum()).not.toEqual(initialBundleChecksum);
   });
 
-  function getBundleChecksum():Promise<string> {
-    const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
+  function getBundleChecksum(): Promise<string> {
+    const tempDirPath: string = getTempDirPath({ cwd: getWorkingDir() });
     return getFileChecksum(path.resolve(tempDirPath, LIBRARY_OUTPUT_FILENAME));
   }
 });

@@ -6,22 +6,20 @@ import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll'
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom } from './page/set/fixtures/getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom';
 
-const CURRENT_TIMEOUT:number = 300000;
+const CURRENT_TIMEOUT = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - handling preview all data', () => {
-  const port:number = 8888;
-  let response:Response;
+  const port = 8888;
+  let response: Response;
   const { request } = setupExperimentationServerTest({
     port,
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
-    serverCmdArgs: [
-      '--webpack-config "./webpack.config.js"',
-    ],
+    serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
   });
 
   beforeAll(async () => {
-    const origin:string = 'https://app.uxpin.com';
+    const origin = 'https://app.uxpin.com';
     response = await request('/preview/all', { resolveWithFullResponse: true, headers: { origin } });
   });
 
@@ -31,7 +29,7 @@ describe('Experimentation mode - handling preview all data', () => {
 
   it('should responds with correct CORS headers and no-cache', async () => {
     // given
-    const expectedHeaders:any = {
+    const expectedHeaders: any = {
       'access-control-allow-credentials': 'true',
       'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
       'access-control-allow-origin': 'https://app.uxpin.com',
@@ -44,17 +42,17 @@ describe('Experimentation mode - handling preview all data', () => {
   });
 
   it('should respond with proper body', () => {
-    const responseBody:any = JSON.parse(response.body);
+    const responseBody: any = JSON.parse(response.body);
     expect(omit(responseBody, 'pagesData.1.canvasData.page')).toMatchSnapshot();
   });
 
   it('should contain correct page object in the body', () => {
     // when
-    const responseBody:any = JSON.parse(response.body);
-    const responsePage:PageContent = responseBody.pagesData['1'].canvasData.page;
+    const responseBody: any = JSON.parse(response.body);
+    const responsePage: PageContent = responseBody.pagesData['1'].canvasData.page;
 
     // then
-    const expectedPage:PageContent = getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(responsePage);
+    const expectedPage: PageContent = getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(responsePage);
     expect(responsePage).toEqual(expectedPage);
   });
 });

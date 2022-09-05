@@ -8,18 +8,18 @@ import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 import { setupTempProject } from '../../utils/temp/setupTempProject';
 
-const CURRENT_TIMEOUT:number = 60000;
+const CURRENT_TIMEOUT = 60000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Push command with latest commit which doesnt exist in tree', () => {
-  const sourceDir:string = resolve(__dirname, '../../resources/designSystems/twoComponentsWithConfig');
+  const sourceDir: string = resolve(__dirname, '../../resources/designSystems/twoComponentsWithConfig');
   const { getTlsPort } = setupStubbyServer(nonExistingLatestCommitStub);
   const { getDirectory } = setupTempProject({ sourceDir, gitOptions: { initialise: true } });
 
   it('shows error when latest commit retrieved from API doesnt exist in local tree', async () => {
     // having
-    const dir:DirectoryResult = getDirectory();
+    const dir: DirectoryResult = getDirectory();
 
     // when
     // then
@@ -30,11 +30,7 @@ describe('Push command with latest commit which doesnt exist in tree', () => {
           UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
           UXPIN_ENV: Environment.TEST,
         },
-        params: [
-          Command.PUSH,
-          '--webpack-config "./webpack.config.js"',
-          '--token DUMMY_TOKEN',
-        ],
+        params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN'],
       });
     } catch (error) {
       expect(error.stderr).toMatch('Unable to find revision');

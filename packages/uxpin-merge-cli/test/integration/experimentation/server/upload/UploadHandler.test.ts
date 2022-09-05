@@ -9,22 +9,21 @@ import { UPLOAD_DIR_NAME } from '../../../../../src/steps/experimentation/server
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../../utils/file/getFileChecksum';
 
-const TIMEOUT:number = 120000;
+const TIMEOUT = 120000;
 jest.setTimeout(TIMEOUT);
 
 describe('UploadHandler', () => {
-
   const { request, getWorkingDir } = setupExperimentationServerTest();
 
   it('receives uploaded file and saves in the correct dir based on given path parameter', async () => {
     // given
-    const fileName:string = 'uxpin_logo_white_720-1.png';
-    const fileId:string = `12311`;
-    const fixtureFilePath:string = join(__dirname, 'fixtures', fileName);
-    const expectedFileChecksum:string = await getFileChecksum(fixtureFilePath);
-    const targetDir:string = join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, fileId);
-    const expectedFileLocation:string = join(targetDir, fileName);
-    const requestOptions:RequestPromiseOptions = {
+    const fileName = 'uxpin_logo_white_720-1.png';
+    const fileId = `12311`;
+    const fixtureFilePath: string = join(__dirname, 'fixtures', fileName);
+    const expectedFileChecksum: string = await getFileChecksum(fixtureFilePath);
+    const targetDir: string = join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, fileId);
+    const expectedFileLocation: string = join(targetDir, fileName);
+    const requestOptions: RequestPromiseOptions = {
       formData: {
         file: createReadStream(fixtureFilePath),
         path: `${fileId}/${fileName}`,
@@ -35,7 +34,7 @@ describe('UploadHandler', () => {
 
     // when
     await ensureDir(targetDir);
-    const response:Response = await request('/upload', requestOptions);
+    const response: Response = await request('/upload', requestOptions);
 
     // then
     expect(response.statusCode).toEqual(OK);

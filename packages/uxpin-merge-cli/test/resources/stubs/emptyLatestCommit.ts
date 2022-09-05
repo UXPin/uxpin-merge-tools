@@ -3,7 +3,7 @@ import { getStubGetLatestCommitRequest } from './common/getStubGetLatestCommitRe
 import { getStubUploadBundle } from './common/getStubUploadBundle';
 import { getStubUploadMetadata } from './common/getStubUploadMetadata';
 
-export const emptyLatestCommitStub:StubbyStub[] = [
+export const emptyLatestCommitStub: StubbyStub[] = [
   getStubGetLatestCommitRequest(),
   getStubUploadBundle(),
   getStubUploadMetadata(),

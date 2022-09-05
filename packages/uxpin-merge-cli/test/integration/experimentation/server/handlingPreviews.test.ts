@@ -3,18 +3,18 @@ import { Response } from 'request';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
-const CURRENT_TIMEOUT:number = 300000;
+const CURRENT_TIMEOUT = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - handling previews', () => {
-  let response:Response;
+  let response: Response;
   const { request } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
   });
 
   beforeAll(async () => {
-    const origin:string = 'https://app.uxpin.com';
+    const origin = 'https://app.uxpin.com';
     response = await request('/code/previews', { resolveWithFullResponse: true, headers: { origin } });
   });
 
@@ -24,7 +24,7 @@ describe('Experimentation mode - handling previews', () => {
 
   it('should responds with correct CORS headers and no-cache', async () => {
     // given
-    const expectedHeaders:any = {
+    const expectedHeaders: any = {
       'access-control-allow-credentials': 'true',
       'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
       'access-control-allow-origin': 'https://app.uxpin.com',

@@ -1,16 +1,16 @@
 import * as React from 'react';
 
 interface Action {
-  actionType:string;
+  actionType: string;
 }
 
 interface DisableableAction extends Action {
-  disabled?:boolean;
+  disabled?: boolean;
 }
 
 interface IconableAction {
-  iconType:string;
-  size:number;
+  iconType: string;
+  size: number;
 }
 
 interface ExtendedInterface extends IconableAction, DisableableAction {
@@ -19,14 +19,11 @@ interface ExtendedInterface extends IconableAction, DisableableAction {
 }
 
 export default class ClassWithExtendedInterface extends React.Component<ExtendedInterface> {
-
-  public render():JSX.Element {
+  public render(): JSX.Element {
     const { helpText, disabled } = this.props;
     return (
       <div>
-        <button disabled={disabled}>
-          {helpText}
-        </button>
+        <button disabled={disabled}>{helpText}</button>
       </div>
     );
   }
