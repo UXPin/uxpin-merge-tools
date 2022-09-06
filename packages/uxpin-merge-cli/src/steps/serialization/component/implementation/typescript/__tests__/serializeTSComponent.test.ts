@@ -84,7 +84,7 @@ describe('serializeTSComponent', () => {
           },
           {
             defaultValue: {
-              value: '1997-02-01T01:01:01.001Z',
+              value: new Date(1997, 1, 1, 1, 1, 1, 1).toISOString(), // should pass no matter the timezone the code runs!
             },
             description: '',
             isRequired: true,
