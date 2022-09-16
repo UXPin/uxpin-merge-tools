@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export interface Props {
-  name:string;
+  name: string;
 }
 
 /**
@@ -10,12 +10,10 @@ export interface Props {
  *   SkipContainerWrapper
  */
 export default class ClassWithWrappersDeclaration extends React.Component<Props> {
-  public render():JSX.Element {
+  public render(): JSX.Element {
     return (
       <div>
-        <button id={name}>
-          {name}
-        </button>
+        <button id={name}>{name}</button>
       </div>
     );
   }

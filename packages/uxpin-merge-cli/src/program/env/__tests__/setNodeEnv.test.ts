@@ -2,7 +2,7 @@ import { Environment } from '../Environment';
 import { setNodeEnv } from '../setNodeEnv';
 
 describe('setNodeEnv', () => {
-  let initialEnv:any;
+  let initialEnv: any;
 
   beforeEach(() => {
     initialEnv = process.env.UXPIN_ENV;

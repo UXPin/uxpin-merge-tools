@@ -1,5 +1,4 @@
-
 export class Test {
-  public name!:string;
-  public abc!:number;
+  public name!: string;
+  public abc!: number;
 }

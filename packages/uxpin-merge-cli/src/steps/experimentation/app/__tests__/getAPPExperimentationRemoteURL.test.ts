@@ -4,7 +4,7 @@ import { getAPPExperimentationRemoteURL } from '../getAPPExperimentationRemoteUR
 describe('getAPPExperimentationRemoteURL', () => {
   it('should return url with ngrokSessionId if provided', () => {
     // having
-    const options:ExperimentationServerOptions = {
+    const options: ExperimentationServerOptions = {
       bundlePath: '',
       epid: {
         revisionId: 'abc_123',
@@ -19,7 +19,7 @@ describe('getAPPExperimentationRemoteURL', () => {
     };
 
     // when
-    const url:string = getAPPExperimentationRemoteURL(options);
+    const url: string = getAPPExperimentationRemoteURL(options);
 
     // then
     expect(url).toEqual('https://app.uxpin.com/experiment/abc_123?ngrok_session=sessionId&name=Uxpin Merge Library');
@@ -27,7 +27,7 @@ describe('getAPPExperimentationRemoteURL', () => {
 
   it('should return url with port if ngrokSessionId is not provided', () => {
     // having
-    const options:ExperimentationServerOptions = {
+    const options: ExperimentationServerOptions = {
       bundlePath: '',
       epid: {
         revisionId: 'abc_123',
@@ -41,7 +41,7 @@ describe('getAPPExperimentationRemoteURL', () => {
     };
 
     // when
-    const url:string = getAPPExperimentationRemoteURL(options);
+    const url: string = getAPPExperimentationRemoteURL(options);
 
     // then
     expect(url).toEqual('https://app.uxpin.com/experiment/abc_123?port=1234&name=Uxpin Merge Library');

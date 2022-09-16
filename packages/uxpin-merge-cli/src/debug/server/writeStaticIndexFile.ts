@@ -4,19 +4,19 @@ import { ComponentDefinition } from '../../steps/serialization/component/Compone
 import { writeToFile } from '../../utils/fs/writeToFile';
 
 export async function writeStaticIndexFile(
-  root:string,
-  bundlePath:string,
-  components:ComponentDefinition[],
-):Promise<string> {
-  const indexPath:string = join(root, 'index.html');
-  const relativeBundlePath:string = relative(root, bundlePath);
-  const fileContent:string = getIndexFileContent(relativeBundlePath, { components }, 'Design System styleguide');
+  root: string,
+  bundlePath: string,
+  components: ComponentDefinition[]
+): Promise<string> {
+  const indexPath: string = join(root, 'index.html');
+  const relativeBundlePath: string = relative(root, bundlePath);
+  const fileContent: string = getIndexFileContent(relativeBundlePath, { components }, 'Design System styleguide');
 
   await writeToFile(indexPath, fileContent);
   return indexPath;
 }
 
-function getIndexFileContent(bundlePath:string, preloadedState:{}, title:string = ''):string {
+function getIndexFileContent(bundlePath: string, preloadedState: {}, title = ''): string {
   return `<!DOCTYPE html>
 <html lang="en">
   <head>

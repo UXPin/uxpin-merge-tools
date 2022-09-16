@@ -6,23 +6,23 @@ import { ComponentPreview } from './ComponentPreview';
 import { ComponentProps } from './ComponentProps';
 
 interface Props extends ComponentDefinition {
-  renderExample:ExampleRenderer;
+  renderExample: ExampleRenderer;
 }
 
 // tslint:disable:variable-name
-export const ComponentContainer:React.SFC<Props> = ({
+export const ComponentContainer: React.SFC<Props> = ({
   documentation: { examples },
   name = '',
   properties,
   renderExample,
-}:Props) => {
-  const headerId:string = `header-${kebabCase(name)}`;
+}: Props) => {
+  const headerId = `header-${kebabCase(name)}`;
 
   return (
     <div>
       <h3 id={headerId}>{name}</h3>
-      <ComponentPreview examples={examples} renderExample={renderExample}/>
-      <ComponentProps properties={properties}/>
+      <ComponentPreview examples={examples} renderExample={renderExample} />
+      <ComponentProps properties={properties} />
     </div>
   );
 };

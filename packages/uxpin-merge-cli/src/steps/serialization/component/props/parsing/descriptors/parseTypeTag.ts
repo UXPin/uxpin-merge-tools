@@ -3,12 +3,12 @@ import { ParsedPlainPropertyDescriptor } from '../../../implementation/ParsedPro
 
 type ParseResult = ParsedPlainPropertyDescriptor | undefined;
 
-export function parseTypeTag(value:string):ParseResult {
+export function parseTypeTag(value: string): ParseResult {
   if (!value) {
     return;
   }
 
-  const typeMatch:RegExpMatchArray | null = value.match(/[a-z]+/);
+  const typeMatch: RegExpMatchArray | null = value.match(/[a-z]+/);
   if (!typeMatch) {
     return;
   }
@@ -33,17 +33,17 @@ export function parseTypeTag(value:string):ParseResult {
   }
 }
 
-const TEXTFIELD_REGEX:RegExp = /(^textfield$|^textfield(\(([\d]+)?\)))/;
-const TEXTFIELD_DEFAULT_ROWS:number = 3;
-const ROWS_MATCH_ID:number = 3;
+const TEXTFIELD_REGEX = /(^textfield$|^textfield(\(([\d]+)?\)))/;
+const TEXTFIELD_DEFAULT_ROWS = 3;
+const ROWS_MATCH_ID = 3;
 
-function parseTextfieldType(value:string):ParseResult {
-  const match:RegExpMatchArray | null = value.match(TEXTFIELD_REGEX);
+function parseTextfieldType(value: string): ParseResult {
+  const match: RegExpMatchArray | null = value.match(TEXTFIELD_REGEX);
   if (!match) {
     return;
   }
 
-  const rows:number = isNaN(parseInt(match[ROWS_MATCH_ID], 10))
+  const rows: number = isNaN(parseInt(match[ROWS_MATCH_ID], 10))
     ? TEXTFIELD_DEFAULT_ROWS
     : parseInt(match[ROWS_MATCH_ID], 10);
 
@@ -60,7 +60,7 @@ function parseTextfieldType(value:string):ParseResult {
   };
 }
 
-function parseCustomType(typeName:CustomControlTypeName):ParseResult {
+function parseCustomType(typeName: CustomControlTypeName): ParseResult {
   return {
     serialized: {
       customType: {

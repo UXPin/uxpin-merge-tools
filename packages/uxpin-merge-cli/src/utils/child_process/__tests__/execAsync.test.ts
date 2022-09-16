@@ -3,10 +3,10 @@ import { execAsync } from '../execAsync';
 describe('execAsync', () => {
   it('should execute command', async () => {
     // having
-    const command:string = 'pwd';
+    const command = 'pwd';
 
     // when
-    const result:string = await execAsync(command);
+    const result: string = await execAsync(command);
 
     // then
     expect(result).toContain('uxpin-merge-cli');
@@ -14,7 +14,7 @@ describe('execAsync', () => {
 
   it('should reject on error', async () => {
     // having
-    const command:string = 'some_unknown_command';
+    const command = 'some_unknown_command';
 
     try {
       // when

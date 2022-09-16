@@ -1,3 +1,3 @@
-export function getApiDomain(apiDomain:string, protocol:string = 'https'):string {
+export function getApiDomain(apiDomain: string, protocol = 'https'): string {
   return `${protocol}://${apiDomain}`;
 }

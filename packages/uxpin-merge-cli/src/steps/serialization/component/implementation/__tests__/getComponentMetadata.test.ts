@@ -10,12 +10,12 @@ describe('getComponentMetadata – integration', () => {
   describe('providing array of objects describing all properties of the component', () => {
     it('serializes component implemented in TypeScript', () => {
       // given
-      const component:ComponentImplementationInfo = {
+      const component: ComponentImplementationInfo = {
         framework: 'reactjs',
         lang: 'typescript',
         path: getTypeScriptComponentPath('IntegrationCombo'),
       };
-      const expectedMetadata:ComponentMetadata = {
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'IntegrationCombo',
         properties: [
@@ -66,7 +66,8 @@ describe('getComponentMetadata – integration', () => {
             isRequired: true,
             name: 'stringLiteralUnion',
             type: {
-              name: 'union', structure: {
+              name: 'union',
+              structure: {
                 elements: [
                   { name: 'literal', structure: { value: 'a' } },
                   { name: 'literal', structure: { value: 'b' } },
@@ -136,12 +137,12 @@ describe('getComponentMetadata – integration', () => {
 
     it('serializes component implemented in JavaScript', () => {
       // given
-      const component:ComponentImplementationInfo = {
+      const component: ComponentImplementationInfo = {
         framework: 'reactjs',
         lang: 'javascript',
         path: getJavaScriptComponentPath('IntegrationCombo'),
       };
-      const expectedMetadata:ComponentMetadata = {
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithDefaults',
         properties: [

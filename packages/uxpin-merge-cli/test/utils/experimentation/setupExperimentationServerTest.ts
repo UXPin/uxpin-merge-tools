@@ -23,40 +23,40 @@ export enum TestServerStatus {
 }
 
 export interface ExperimentationServerTestContext {
-  request:(uri:string, options?:RequestPromiseOptions) => RequestPromise;
-  changeProjectFile:(filePath:string, content:string) => Promise<void>;
-  getExperimentationUrl():string;
-  getServerStatus():TestServerStatus;
-  getWorkingDir():string;
+  request: (uri: string, options?: RequestPromiseOptions) => RequestPromise;
+  changeProjectFile: (filePath: string, content: string) => Promise<void>;
+  getExperimentationUrl(): string;
+  getServerStatus(): TestServerStatus;
+  getWorkingDir(): string;
 }
 
 interface ExperimentationServerState {
-  experimentationUrl:string;
-  status:TestServerStatus;
+  experimentationUrl: string;
+  status: TestServerStatus;
 }
 
 export function setupExperimentationServerTest(
-  options:ExperimentationServerTestSetupOptions = {},
-):ExperimentationServerTestContext {
-  const state:ExperimentationServerState = {
+  options: ExperimentationServerTestSetupOptions = {}
+): ExperimentationServerTestContext {
+  const state: ExperimentationServerState = {
     experimentationUrl: '',
     status: TestServerStatus.STARTING,
   };
 
-  const serverOptions:TestServerOptions = {
-    onServerExperimentationUrlFound: (url:string) => state.experimentationUrl = url,
-    onServerFailed: () => state.status = TestServerStatus.FAILED,
-    onServerReady: () => state.status = TestServerStatus.READY,
+  const serverOptions: TestServerOptions = {
+    onServerExperimentationUrlFound: (url: string) => (state.experimentationUrl = url),
+    onServerFailed: () => (state.status = TestServerStatus.FAILED),
+    onServerReady: () => (state.status = TestServerStatus.READY),
     serverFailOutput: options.serverFailOutput,
     serverReadyOutput: options.serverReadyOutput || SERVER_READY_OUTPUT,
     silent: options.silent,
   };
-  const deferredContext:DeferredChain<ExperimentationServerTestContext> = new DeferredChain();
+  const deferredContext: DeferredChain<ExperimentationServerTestContext> = new DeferredChain();
 
-  let mergeServerResponse:MergeServerResponse;
-  let cleanupTemp:() => void;
-  let server:any;
-  let tlsPort:number;
+  let mergeServerResponse: MergeServerResponse;
+  let cleanupTemp: () => void;
+  let server: any;
+  let tlsPort: number;
 
   beforeAll(async () => {
     tlsPort = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
@@ -67,7 +67,7 @@ export function setupExperimentationServerTest(
       tls: tlsPort,
     });
 
-    const config:ExperimentationServerConfiguration = await getServerConfiguration({
+    const config: ExperimentationServerConfiguration = await getServerConfiguration({
       ...options,
       env: {
         ...options.env,
@@ -91,12 +91,12 @@ export function setupExperimentationServerTest(
 }
 
 function getTestContext(
-  { port, workingDir }:ExperimentationServerConfiguration,
-  { subprocess }:MergeServerResponse,
-  { experimentationUrl, status }:ExperimentationServerState,
-):ExperimentationServerTestContext {
+  { port, workingDir }: ExperimentationServerConfiguration,
+  { subprocess }: MergeServerResponse,
+  { experimentationUrl, status }: ExperimentationServerState
+): ExperimentationServerTestContext {
   return {
-    changeProjectFile(relativeFilePath:string, content:string):Promise<void> {
+    changeProjectFile(relativeFilePath: string, content: string): Promise<void> {
       return changeWatchingFileContent({
         content,
         filePath: path.resolve(workingDir, relativeFilePath),
@@ -104,17 +104,17 @@ function getTestContext(
         successMatcher: COMPILATION_SUCCESS_MESSAGE,
       });
     },
-    getExperimentationUrl():string {
+    getExperimentationUrl(): string {
       return experimentationUrl;
     },
-    getServerStatus():TestServerStatus {
+    getServerStatus(): TestServerStatus {
       return status;
     },
-    getWorkingDir():string {
+    getWorkingDir(): string {
       return workingDir;
     },
-    request(uri:string, options:RequestPromiseOptions = {}):RequestPromise {
-      const url:URL = new URL(uri, `http://localhost:${port}`);
+    request(uri: string, options: RequestPromiseOptions = {}): RequestPromise {
+      const url: URL = new URL(uri, `http://localhost:${port}`);
       return requestPromise({ url, ...options });
     },
   };

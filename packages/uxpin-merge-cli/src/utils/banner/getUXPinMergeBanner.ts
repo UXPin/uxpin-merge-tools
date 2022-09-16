@@ -1,4 +1,4 @@
-export function getUXPinMergeBanner(mode:string = ''):string {
+export function getUXPinMergeBanner(mode = ''): string {
   return `
 ┌─────────┐
 │         │

@@ -1,18 +1,18 @@
 import * as React from 'react';
 
 export interface Props {
-  children?:React.ReactNode;
-  id:string;
-  appearance:string;
-  modifier?:string;
-  hidden:boolean;
+  children?: React.ReactNode;
+  id: string;
+  appearance: string;
+  modifier?: string;
+  hidden: boolean;
 }
 
-function labelID(id:string):string {
+function labelID(id: string): string {
   return `${id}Label`;
 }
 
-const ArrowFunctionWithSeparateNamedExportDeclaration:React.StatelessComponent<Props> = ({
+const ArrowFunctionWithSeparateNamedExportDeclaration: React.StatelessComponent<Props> = ({
   children,
   id,
   appearance,
@@ -21,15 +21,14 @@ const ArrowFunctionWithSeparateNamedExportDeclaration:React.StatelessComponent<P
 }) => {
   return (
     <div>
-      <button id={labelID(id)}
-              className={`${(hidden ? 'hidden' : '')} ${appearance} ${modifier}`}>
+      <button id={labelID(id)} className={`${hidden ? 'hidden' : ''} ${appearance} ${modifier}`}>
         {children}
       </button>
     </div>
   );
 };
 
-const DEFAULT_MODIFIER:string = 'neutral';
+const DEFAULT_MODIFIER = 'neutral';
 
 ArrowFunctionWithSeparateNamedExportDeclaration.defaultProps = {
   hidden: false,

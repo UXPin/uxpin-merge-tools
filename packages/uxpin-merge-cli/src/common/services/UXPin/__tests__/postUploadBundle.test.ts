@@ -4,14 +4,15 @@ import { postUploadBundle, UploadBundleResponse } from '../postUploadBundle';
 
 jest.mock('request-promise');
 
-const requestPromiseMock:jest.Mock<typeof requestPromise> =
-  requestPromise as unknown as jest.Mock<typeof requestPromise>;
+const requestPromiseMock: jest.Mock<typeof requestPromise> = requestPromise as unknown as jest.Mock<
+  typeof requestPromise
+>;
 
 describe('postUploadBundle', () => {
-  const domain:string = 'https://uxpin.mock';
-  const token:string = 'token';
-  const path:string = resolve(__dirname, './postUploadBundle.test.ts');
-  const commitHash:string = '123abc';
+  const domain = 'https://uxpin.mock';
+  const token = 'token';
+  const path: string = resolve(__dirname, './postUploadBundle.test.ts');
+  const commitHash = '123abc';
 
   beforeEach(() => {
     requestPromiseMock.mockRestore();
@@ -48,7 +49,7 @@ describe('postUploadBundle', () => {
   });
 
   describe('HTTP 200', () => {
-    let response:UploadBundleResponse|null;
+    let response: UploadBundleResponse | null;
 
     beforeEach(async () => {
       // given

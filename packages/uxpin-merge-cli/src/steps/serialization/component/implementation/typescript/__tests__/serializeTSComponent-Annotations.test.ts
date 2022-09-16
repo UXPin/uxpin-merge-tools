@@ -7,12 +7,12 @@ describe('serializeTSComponent-Annotations', () => {
   describe('function with bind annotation', () => {
     it('serializes correctly including bind declaration in both function and bound property', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithBindAnnotation');
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithBindAnnotation');
 
       // when
       return serializeTSComponent(component).then((serializedProps) => {
         // then
-        const expectedMetadata:ComponentMetadata = {
+        const expectedMetadata: ComponentMetadata = {
           defaultExported: false,
           name: 'FunctionWithBindAnnotation',
           properties: [

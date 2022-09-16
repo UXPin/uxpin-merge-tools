@@ -4,13 +4,14 @@ import { postPushMetadata, PushMetadataResponse } from '../postPushMetadata';
 
 jest.mock('request-promise');
 
-const requestPromiseMock:jest.Mock<typeof requestPromise> =
-  requestPromise as unknown as jest.Mock<typeof requestPromise>;
+const requestPromiseMock: jest.Mock<typeof requestPromise> = requestPromise as unknown as jest.Mock<
+  typeof requestPromise
+>;
 
 describe('postPushMetadata', () => {
-  const domain:string = 'https://uxpin.mock';
-  const token:string = 'token';
-  const metadata:DSMetadata = {
+  const domain = 'https://uxpin.mock';
+  const token = 'token';
+  const metadata: DSMetadata = {
     result: {
       categorizedComponents: [],
       name: 'Library name',
@@ -57,13 +58,15 @@ describe('postPushMetadata', () => {
   });
 
   describe('HTTP 200', () => {
-    let response:PushMetadataResponse | null;
+    let response: PushMetadataResponse | null;
 
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({
-        message: 'Design System snapshot has been uploaded successfully',
-      }));
+      requestPromiseMock.mockImplementation(() =>
+        Promise.resolve({
+          message: 'Design System snapshot has been uploaded successfully',
+        })
+      );
 
       // when
       response = await postPushMetadata(domain, token, metadata);

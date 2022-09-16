@@ -8,17 +8,17 @@ enum NumericEnum {
 enum CustomNumericEnum {
   Blue = 3,
   Red,
-  Green
+  Green,
 }
 
 enum ComputedEnum {
   Friday = 1,
-  Sunday = Friday * 40
+  Sunday = Friday * 40,
 }
 
 enum BooleanLikeHeterogeneousEnum {
   No = 0,
-  Yes = "YES",
+  Yes = 'YES',
 }
 
 enum PropSizeEnum {
@@ -31,31 +31,28 @@ export interface Props {
   /**
    * String only
    */
-  children?:string;
-  appearance:'secondary' | 'primary' | 'link';
-  size?:PropSizeEnum;
-  propNumeric:NumericEnum;
-  propCustomNumeric:CustomNumericEnum;
-  propComputed:ComputedEnum;
-  propHeterogeneous:BooleanLikeHeterogeneousEnum;
+  children?: string;
+  appearance: 'secondary' | 'primary' | 'link';
+  size?: PropSizeEnum;
+  propNumeric: NumericEnum;
+  propCustomNumeric: CustomNumericEnum;
+  propComputed: ComputedEnum;
+  propHeterogeneous: BooleanLikeHeterogeneousEnum;
 }
 
 export default class ClassEnumTypes extends React.PureComponent<Props> {
-
-  public static defaultProps:Partial<Props> = {
-    propNumeric:NumericEnum.One,
-    propCustomNumeric:CustomNumericEnum.Green,
-    propComputed:ComputedEnum.Sunday,
-    propHeterogeneous:BooleanLikeHeterogeneousEnum.No,
+  public static defaultProps: Partial<Props> = {
+    propNumeric: NumericEnum.One,
+    propCustomNumeric: CustomNumericEnum.Green,
+    propComputed: ComputedEnum.Sunday,
+    propHeterogeneous: BooleanLikeHeterogeneousEnum.No,
   };
 
-  public render():JSX.Element {
+  public render(): JSX.Element {
     const { children, appearance, propNumeric, propCustomNumeric, propComputed, propHeterogeneous } = this.props;
     return (
       <div>
-        <button className={appearance}>
-          {children}
-        </button>
+        <button className={appearance}>{children}</button>
         <button>{propNumeric}</button>
         <button>{propCustomNumeric}</button>
         <button>{propComputed}</button>

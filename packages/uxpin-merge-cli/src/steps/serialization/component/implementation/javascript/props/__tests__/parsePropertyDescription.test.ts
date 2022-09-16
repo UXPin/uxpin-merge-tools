@@ -4,10 +4,10 @@ import { getPropertyCustomDescriptors } from '../getPropertyCustomDescriptors';
 describe('getPropertyCustomDescriptors', () => {
   it('should not add any custom property descriptors if not provided in description', () => {
     // given
-    const desc:string = '';
+    const desc = '';
 
     // when
-    const descriptors:ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
+    const descriptors: ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
     expect(descriptors).toEqual({ descriptors: [] });
@@ -15,13 +15,13 @@ describe('getPropertyCustomDescriptors', () => {
 
   it('should parse single descriptor', () => {
     // given
-    const desc:string = '@uxpinpropname test';
+    const desc = '@uxpinpropname test';
 
     // when
-    const descriptors:ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
+    const descriptors: ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
-    const expected:ParsedPropertyDescriptors = {
+    const expected: ParsedPropertyDescriptors = {
       descriptors: [
         {
           serialized: { customName: 'test' },
@@ -34,14 +34,14 @@ describe('getPropertyCustomDescriptors', () => {
 
   it('should parse multiple descriptors', () => {
     // given
-    const desc:string = `@uxpindescription Some desc
+    const desc = `@uxpindescription Some desc
 @uxpinpropname test`;
 
     // when
-    const descriptors:ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
+    const descriptors: ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
-    const expected:ParsedPropertyDescriptors = {
+    const expected: ParsedPropertyDescriptors = {
       descriptors: [
         {
           serialized: { customDescription: 'Some desc' },
@@ -60,16 +60,16 @@ describe('getPropertyCustomDescriptors', () => {
 
   it('should deal with multiline descriptors', () => {
     // given
-    const desc:string = `@uxpindescription Multiline
+    const desc = `@uxpindescription Multiline
 awesome
 description.
 @uxpinpropname test`;
 
     // when
-    const descriptors:ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
+    const descriptors: ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
-    const expected:ParsedPropertyDescriptors = {
+    const expected: ParsedPropertyDescriptors = {
       descriptors: [
         {
           serialized: {
@@ -93,13 +93,14 @@ description.`,
   it('should trim whitespaces', () => {
     // given
     // tslint:disable-next-line:max-line-length
-    const desc:string = '    @uxpindescription      Multiline\nawesome     \n\n     description.\n   			@uxpinpropname      test     ';
+    const desc =
+      '    @uxpindescription      Multiline\nawesome     \n\n     description.\n   			@uxpinpropname      test     ';
 
     // when
-    const descriptors:ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
+    const descriptors: ParsedPropertyDescriptors = getPropertyCustomDescriptors(desc);
 
     // then
-    const expected:ParsedPropertyDescriptors = {
+    const expected: ParsedPropertyDescriptors = {
       descriptors: [
         {
           serialized: {

@@ -3,14 +3,12 @@ import { requestPromiseWithEnhancedError } from '../../../utils/requestPromiseWi
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
-export async function createTag(
-  opts:{
-    apiDomain:string,
-    authToken:string,
-    commitHash:string,
-    tag:string,
-  }):Promise<void> {
-
+export async function createTag(opts: {
+  apiDomain: string;
+  authToken: string;
+  commitHash: string;
+  tag: string;
+}): Promise<void> {
   // Skip updating repository pointers in test environment
   if (isTestEnv()) {
     return Promise.resolve();

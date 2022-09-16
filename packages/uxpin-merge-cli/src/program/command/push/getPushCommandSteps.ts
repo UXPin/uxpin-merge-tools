@@ -7,8 +7,8 @@ import { getBuildOptions } from './getBuildOptions';
 import { printBranchWarning } from './steps/printBranchWarning';
 import { uploadLibrary } from './steps/uploadLibrary';
 
-export function getPushCommandSteps(args:PushProgramArgs):Step[] {
-  const buildOptions:BuildOptions = getBuildOptions(args);
+export function getPushCommandSteps(args: PushProgramArgs): Step[] {
+  const buildOptions: BuildOptions = getBuildOptions(args);
 
   return [
     { exec: thunkBuildComponentsLibrary(buildOptions), shouldRun: true },

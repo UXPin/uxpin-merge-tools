@@ -6,7 +6,7 @@ import { getPropertyCustomDescriptorsWithWarnings } from '../getPropertyCustomDe
 describe('getPropertyCustomDescriptorsWithWarnings', () => {
   it('should not add any custom property descriptors if not provided in description', async () => {
     // given
-    const property:GeneralPropItem = {
+    const property: GeneralPropItem = {
       defaultValue: '',
       description: '',
       required: false,
@@ -14,8 +14,7 @@ describe('getPropertyCustomDescriptorsWithWarnings', () => {
     };
 
     // when
-    const descriptors:Warned<ParsedPropertyDescriptors> =
-      await getPropertyCustomDescriptorsWithWarnings(property);
+    const descriptors: Warned<ParsedPropertyDescriptors> = await getPropertyCustomDescriptorsWithWarnings(property);
 
     // then
     expect(descriptors).toEqual({
@@ -26,7 +25,7 @@ describe('getPropertyCustomDescriptorsWithWarnings', () => {
 
   it('should parse multiple descriptors', async () => {
     // given
-    const property:GeneralPropItem = {
+    const property: GeneralPropItem = {
       defaultValue: '',
       description: `@uxpindescription Some desc
 @uxpinpropname test`,
@@ -35,11 +34,10 @@ describe('getPropertyCustomDescriptorsWithWarnings', () => {
     };
 
     // when
-    const descriptors:Warned<ParsedPropertyDescriptors> =
-      await getPropertyCustomDescriptorsWithWarnings(property);
+    const descriptors: Warned<ParsedPropertyDescriptors> = await getPropertyCustomDescriptorsWithWarnings(property);
 
     // then
-    const expected:Warned<ParsedPropertyDescriptors> = {
+    const expected: Warned<ParsedPropertyDescriptors> = {
       result: {
         descriptors: [
           {

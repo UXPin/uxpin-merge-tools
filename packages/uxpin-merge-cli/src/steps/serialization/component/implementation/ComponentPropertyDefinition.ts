@@ -4,11 +4,11 @@ import { ParsedPropertyDescriptor } from './ParsedPropertyDescriptor';
 export type ComponentPropertyDefinition = ComponentProperty & ComponentPropertyCustomDescriptors;
 
 export interface ComponentProperty {
-  defaultValue?:PropertyDefaultValue;
-  description:string;
-  isRequired:boolean;
-  name:string;
-  type?:PropertyType;
+  defaultValue?: PropertyDefaultValue;
+  description: string;
+  isRequired: boolean;
+  name: string;
+  type?: PropertyType;
 }
 
 export interface ComponentPropertyCustomDescriptors {
@@ -18,19 +18,19 @@ export interface ComponentPropertyCustomDescriptors {
    * a variable in type of `ParsedComponentProperty` to a variable in type of `ComponentPropertyDefinition`
    * and the other way around.
    */
-  descriptors?:never;
-  autoUpdate?:PropertyAutoUpdate;
-  customDescription?:string;
-  customName?:string;
-  customType?:CustomControlType;
-  hidden?:boolean;
-  isAutoUpdated?:true;
+  descriptors?: never;
+  autoUpdate?: PropertyAutoUpdate;
+  customDescription?: string;
+  customName?: string;
+  customType?: CustomControlType;
+  hidden?: boolean;
+  isAutoUpdated?: true;
 }
 
 export type ParsedComponentProperty = ComponentProperty & ParsedPropertyDescriptors;
 
 export interface ParsedPropertyDescriptors {
-  descriptors:ParsedPropertyDescriptor[];
+  descriptors: ParsedPropertyDescriptor[];
 }
 
 export enum CustomDescriptorsTags {
@@ -42,74 +42,74 @@ export enum CustomDescriptorsTags {
 }
 
 export interface PropertyDefaultValue {
-  value:any;
+  value: any;
 }
 
 export interface PropertyAutoUpdate {
-  targetPropName:string;
-  valuePath:string;
+  targetPropName: string;
+  valuePath: string;
 }
 
 export interface PropertyType<T extends keyof PropertyTypeStructureMap = keyof PropertyTypeStructureMap> {
-  name:T;
-  structure:PropertyTypeStructureMap[T];
+  name: T;
+  structure: PropertyTypeStructureMap[T];
 }
 
 export type PropertyTypeName = keyof PropertyTypeStructureMap;
 
 export interface PropertyTypeStructureMap {
-  any:{};
-  array:{};
-  boolean:{};
-  custom:{};
-  date:{};
-  element:{};
-  enum:EnumTypeStructure;
-  func:FunctionStructure;
-  literal:{ value:string | number | ts.PseudoBigInt };
-  node:{};
-  number:{};
-  object:{};
-  shape:ShapeTypeStructure;
-  string:{};
-  symbol:{};
-  typedArray:TypedArrayStructure;
-  dictionary:{ valueType:PropertyType };
-  union:UnionTypeStructure;
-  unsupported:{ raw:string; };
-  empty:{};
+  any: {};
+  array: {};
+  boolean: {};
+  custom: {};
+  date: {};
+  element: {};
+  enum: EnumTypeStructure;
+  func: FunctionStructure;
+  literal: { value: string | number | ts.PseudoBigInt };
+  node: {};
+  number: {};
+  object: {};
+  shape: ShapeTypeStructure;
+  string: {};
+  symbol: {};
+  typedArray: TypedArrayStructure;
+  dictionary: { valueType: PropertyType };
+  union: UnionTypeStructure;
+  unsupported: { raw: string };
+  empty: {};
 }
 
 export interface EnumTypeStructure {
-  label:string | number;
-  value:string | number | ts.PseudoBigInt;
+  label: string | number;
+  value: string | number | ts.PseudoBigInt;
 }
 
 export interface UnionTypeStructure {
-  elements:PropertyType[];
+  elements: PropertyType[];
 }
 
 export interface ShapeTypeStructure {
-  [propName:string]:PropertyType;
+  [propName: string]: PropertyType;
 }
 
 export interface TypedArrayStructure {
-  memberType:PropertyType;
+  memberType: PropertyType;
 }
 
 export interface FunctionStructure {
-  arguments?:FunctionArgumentStructure[];
-  returnType?:PropertyType;
+  arguments?: FunctionArgumentStructure[];
+  returnType?: PropertyType;
 }
 
 export interface FunctionArgumentStructure {
-  name:string;
-  type:PropertyType;
+  name: string;
+  type: PropertyType;
 }
 
 export interface CustomControlType<T extends CustomControlTypeName = CustomControlTypeName> {
-  name:T;
-  structure:CustomControlTypeStructureMap[T];
+  name: T;
+  structure: CustomControlTypeStructureMap[T];
 }
 
 export enum CustomControlTypeName {
@@ -123,11 +123,11 @@ export enum CustomControlTypeName {
 }
 
 export interface CustomControlTypeStructureMap {
-  [CustomControlTypeName.CodeEditor]:{};
-  [CustomControlTypeName.Input]:{};
-  [CustomControlTypeName.Interactions]:{};
-  [CustomControlTypeName.Number]:{};
-  [CustomControlTypeName.Select]:{};
-  [CustomControlTypeName.Switcher]:{};
-  [CustomControlTypeName.Textfield]:{ rows?:number };
+  [CustomControlTypeName.CodeEditor]: {};
+  [CustomControlTypeName.Input]: {};
+  [CustomControlTypeName.Interactions]: {};
+  [CustomControlTypeName.Number]: {};
+  [CustomControlTypeName.Select]: {};
+  [CustomControlTypeName.Switcher]: {};
+  [CustomControlTypeName.Textfield]: { rows?: number };
 }

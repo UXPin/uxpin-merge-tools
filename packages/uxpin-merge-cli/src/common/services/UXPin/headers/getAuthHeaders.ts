@@ -1,8 +1,8 @@
 export interface UXPinAuthHeaders {
-  'auth-token':string;
+  'auth-token': string;
 }
 
-export function getAuthHeaders(token:string):UXPinAuthHeaders {
+export function getAuthHeaders(token: string): UXPinAuthHeaders {
   return {
     'auth-token': token,
   };

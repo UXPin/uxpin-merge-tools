@@ -7,10 +7,7 @@ import { findExportedArrowFunctionWithName } from './findExportedArrowFunctionWi
 import { findExportedClassWithName } from './findExportedClassWithName';
 import { findExportedFunctionWithName } from './findExportedFunctionWithName';
 import { findExportedFunctionWithReactForwardRef } from './findExportedFunctionWithReactForwardRef';
-import {
-  findSpecifiedClassComponent,
-  findSpecifiedFunctionComponent,
-} from './findSpecifiedComponent';
+import { findSpecifiedClassComponent, findSpecifiedFunctionComponent } from './findSpecifiedComponent';
 import {
   ClassComponentDeclaration,
   ComponentDeclaration,
@@ -18,30 +15,33 @@ import {
   VariableDeclaration,
 } from './getPropsTypeAndDefaultProps';
 
-export function getComponentDeclaration(context:TSSerializationContext):ComponentDeclaration | undefined {
-  const componentName:string = getComponentNameFromPath(context.componentPath);
+export function getComponentDeclaration(context: TSSerializationContext): ComponentDeclaration | undefined {
+  const componentName: string = getComponentNameFromPath(context.componentPath);
 
-  return findFunctionalComponent(context, componentName)
-    || findClassComponent(context, componentName);
+  return findFunctionalComponent(context, componentName) || findClassComponent(context, componentName);
 }
 
 function findFunctionalComponent(
-  context:TSSerializationContext,
-  componentName:string,
-):FunctionalComponentDeclaration | VariableDeclaration | undefined {
-  return findSpecifiedFunctionComponent(context)
-    || findDefaultExportedFunction(context)
-    || findExportedFunctionWithName(context, componentName)
-    || findDefaultExportedArrowFunction(context)
-    || findExportedArrowFunctionWithName(context, componentName)
-    || findExportedFunctionWithReactForwardRef(context, componentName);
+  context: TSSerializationContext,
+  componentName: string
+): FunctionalComponentDeclaration | VariableDeclaration | undefined {
+  return (
+    findSpecifiedFunctionComponent(context) ||
+    findDefaultExportedFunction(context) ||
+    findExportedFunctionWithName(context, componentName) ||
+    findDefaultExportedArrowFunction(context) ||
+    findExportedArrowFunctionWithName(context, componentName) ||
+    findExportedFunctionWithReactForwardRef(context, componentName)
+  );
 }
 
 function findClassComponent(
-  context:TSSerializationContext,
-  componentName:string,
-):ClassComponentDeclaration | undefined {
-  return findSpecifiedClassComponent(context)
-    || findDefaultExportedClass(context)
-    || findExportedClassWithName(context, componentName);
+  context: TSSerializationContext,
+  componentName: string
+): ClassComponentDeclaration | undefined {
+  return (
+    findSpecifiedClassComponent(context) ||
+    findDefaultExportedClass(context) ||
+    findExportedClassWithName(context, componentName)
+  );
 }

@@ -10,7 +10,7 @@ enum TYPES {
   union = 'union',
 }
 
-export function getPropTypeValue(propertyType?:PropertyType):any {
+export function getPropTypeValue(propertyType?: PropertyType): any {
   if (!propertyType) {
     return '';
   }
@@ -27,11 +27,10 @@ export function getPropTypeValue(propertyType?:PropertyType):any {
     case TYPES.shape:
       return reduce(
         (propertyType as PropertyType<TYPES.shape>).structure,
-        (result, value, propName) => (
-          Object.assign(result, { [propName]: getPropTypeValue(value) })
-        ), {});
+        (result, value, propName) => Object.assign(result, { [propName]: getPropTypeValue(value) }),
+        {}
+      );
     default:
       return getDefaultValueForPropType(propertyType.name);
-
   }
 }

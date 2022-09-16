@@ -5,10 +5,10 @@ import { isJSXSerializedElement } from './isJSXSerializedElement';
 import { AnySerializedElement } from './jsx/JSXSerializationResult';
 
 interface MapChildrenResult {
-  children?:Array<PresetElementReference | string> | string;
+  children?: Array<PresetElementReference | string> | string;
 }
 
-export function replaceElementsWithReferencesInChildren(element:AnySerializedElement):MapChildrenResult {
+export function replaceElementsWithReferencesInChildren(element: AnySerializedElement): MapChildrenResult {
   if (!isJSXSerializedElement(element) || !isArray(element.children) || isEmpty(element.children)) {
     return {};
   }

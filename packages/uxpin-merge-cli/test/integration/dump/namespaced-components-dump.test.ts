@@ -5,7 +5,7 @@ import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
-const CURRENT_TIMEOUT:number = 60000;
+const CURRENT_TIMEOUT = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
@@ -16,16 +16,13 @@ describe('The dump command', () => {
   describe('run for the namespacedComponents repository', () => {
     it('prints the JSON describing the full repository', async () => {
       // when
-      const output:string = await runUXPinMergeCommand({
+      const output: string = await runUXPinMergeCommand({
         cwd: 'resources/designSystems/namespacedComponents',
         env: {
           UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
           UXPIN_ENV: Environment.TEST,
         },
-        params: [
-          Command.DUMP,
-          '--webpack-config "./webpack.config.js"',
-        ],
+        params: [Command.DUMP, '--webpack-config "./webpack.config.js"'],
       });
 
       // then
@@ -50,11 +47,7 @@ describe('The dump command', () => {
             UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
             UXPIN_ENV: Environment.TEST,
           },
-          params: [
-            Command.DUMP,
-            '--webpack-config "./webpack.config.js"',
-            '--config "./uxpin.invalid.config.js"',
-          ],
+          params: [Command.DUMP, '--webpack-config "./webpack.config.js"', '--config "./uxpin.invalid.config.js"'],
         });
       } catch (error) {
         // then
@@ -73,11 +66,7 @@ describe('The dump command', () => {
             UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
             UXPIN_ENV: Environment.TEST,
           },
-          params: [
-            Command.DUMP,
-            '--webpack-config "./webpack.config.js"',
-            '--config "./uxpin.invalid2.config.js"',
-          ],
+          params: [Command.DUMP, '--webpack-config "./webpack.config.js"', '--config "./uxpin.invalid2.config.js"'],
         });
       } catch (error) {
         // then

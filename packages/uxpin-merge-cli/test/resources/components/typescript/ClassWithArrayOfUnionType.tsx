@@ -1,9 +1,6 @@
 import * as React from 'react';
 
-export type Error =
-  | string
-  | React.ReactElement<any>
-  | (string | React.ReactElement<any>)[];
+export type Error = string | React.ReactElement<any> | (string | React.ReactElement<any>)[];
 
 interface Props {
   propWithArrayOfUnion: Error;
@@ -11,10 +8,11 @@ interface Props {
 
 export default class ClassWithArrayOfUnionType extends React.Component<Props> {
   public render(): JSX.Element {
-    const {propWithArrayOfUnion} = this.props;
+    const { propWithArrayOfUnion } = this.props;
     return (
       <div>
         <button>{propWithArrayOfUnion}</button>
-      </div>)
+      </div>
+    );
   }
 }

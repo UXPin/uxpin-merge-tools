@@ -1,7 +1,7 @@
 import * as ts from 'typescript';
 import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
 
-export function isArrowFunction(node:ComponentDeclaration | ts.VariableStatement):boolean {
+export function isArrowFunction(node: ComponentDeclaration | ts.VariableStatement): boolean {
   return (
     ts.isVariableStatement(node) &&
     node.declarationList.declarations[0] &&

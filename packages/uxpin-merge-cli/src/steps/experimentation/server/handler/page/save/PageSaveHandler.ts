@@ -8,20 +8,18 @@ import { handleImplementationError } from '../../error/handleImplementationError
 import { RequestHandler } from '../../RequestHandler';
 import { updatePage } from './updatePage';
 
-export const PAGE_FILE_NAME:string = 'page.json';
+export const PAGE_FILE_NAME = 'page.json';
 
 // tslint:disable prefer-function-over-method
 export class PageSaveHandler implements RequestHandler {
+  constructor(private context: ExperimentationServerContext) {}
 
-  constructor(private context:ExperimentationServerContext) {
-  }
-
-  public handle(request:IncomingMessage, response:ServerResponse):void {
+  public handle(request: IncomingMessage, response: ServerResponse): void {
     this.handleSaveRequest(request, response).catch((error) => handleImplementationError(response, error));
   }
 
-  private async handleSaveRequest(request:IncomingMessage, response:ServerResponse):Promise<void> {
-    const requestPayload:PageIncrementalUpdate = await prepareDataFromPayload(request);
+  private async handleSaveRequest(request: IncomingMessage, response: ServerResponse): Promise<void> {
+    const requestPayload: PageIncrementalUpdate = await prepareDataFromPayload(request);
     await this.updatePage(requestPayload);
     response.writeHead(OK, {
       'Content-Type': 'application/json',
@@ -31,10 +29,13 @@ export class PageSaveHandler implements RequestHandler {
     response.end();
   }
 
-  private updatePage(changes:PageIncrementalUpdate):Promise<void> {
-    return updatePage({
-      revisionId: this.context.epid.revisionId,
-      uxpinDirPath: this.context.uxpinDirPath,
-    }, changes);
+  private updatePage(changes: PageIncrementalUpdate): Promise<void> {
+    return updatePage(
+      {
+        revisionId: this.context.epid.revisionId,
+        uxpinDirPath: this.context.uxpinDirPath,
+      },
+      changes
+    );
   }
 }

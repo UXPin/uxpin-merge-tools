@@ -4,9 +4,9 @@ import { GeneralPropItem } from '../FlowPropItem';
 import { getPropertyDescription } from './getPropertyDescription';
 
 export async function getPropertyDescriptionWithWarnings(
-  propName:string,
-  propItem:GeneralPropItem,
-):Promise<Warned<Pick<ComponentPropertyDefinition, 'description'> | {}>> {
+  propName: string,
+  propItem: GeneralPropItem
+): Promise<Warned<Pick<ComponentPropertyDefinition, 'description'> | {}>> {
   if (!propItem.description) {
     return {
       result: {},

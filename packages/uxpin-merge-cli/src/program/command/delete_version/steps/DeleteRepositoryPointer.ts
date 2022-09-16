@@ -9,28 +9,23 @@ import { VCSDetails } from '../../../../steps/serialization/DesignSystemSnapshot
 import { printError, printLine } from '../../../../utils/console/printLine';
 import { StepExecutor } from '../../Step';
 
-export function deleteRepositoryPointer(deleteOptions:DeleteOptions):StepExecutor {
-  return async (designSystem:DSMetadata) => {
-    const apiDomain:string = getApiDomain(deleteOptions.uxpinApiDomain!);
-    const authToken:string = deleteOptions.token!;
-    const vcsDetails:VCSDetails = designSystem.result.vcs;
-    const commitHash:string = vcsDetails.commitHash;
-    const branch:string | undefined = vcsDetails && vcsDetails.branchName !== DEFAULT_BRANCH_NAME
-    ? vcsDetails.branchName
-    : undefined;
-    const tag:string | undefined = deleteOptions.tag;
+export function deleteRepositoryPointer(deleteOptions: DeleteOptions): StepExecutor {
+  return async (designSystem: DSMetadata) => {
+    const apiDomain: string = getApiDomain(deleteOptions.uxpinApiDomain!);
+    const authToken: string = deleteOptions.token!;
+    const vcsDetails: VCSDetails = designSystem.result.vcs;
+    const commitHash: string = vcsDetails.commitHash;
+    const branch: string | undefined =
+      vcsDetails && vcsDetails.branchName !== DEFAULT_BRANCH_NAME ? vcsDetails.branchName : undefined;
+    const tag: string | undefined = deleteOptions.tag;
 
     if (tag && branch) {
-      printError(
-      `🛑 Please specify --branch or --tag. Only one option is required.`,
-                );
+      printError(`🛑 Please specify --branch or --tag. Only one option is required.`);
       return designSystem;
     }
 
     if (!tag && !branch) {
-      printError(
-      `🛑 Please specify --branch or --tag and the name of the version you would like to delete.`,
-                );
+      printError(`🛑 Please specify --branch or --tag and the name of the version you would like to delete.`);
       return designSystem;
     }
 
@@ -58,44 +53,34 @@ export function deleteRepositoryPointer(deleteOptions:DeleteOptions):StepExecuto
   };
 }
 
-async function deleteTagWithPrintMessage(opts:{
-  apiDomain:string,
-  authToken:string,
-  commitHash:string,
-  tag:string,
-}):Promise<void> {
+async function deleteTagWithPrintMessage(opts: {
+  apiDomain: string;
+  authToken: string;
+  commitHash: string;
+  tag: string;
+}): Promise<void> {
   try {
     await deleteTag(opts);
-    printLine(
-            `🏷️  Library tag version [${opts.tag}] has been deleted.`,
-            { color: PrintColor.YELLOW },
-        );
+    printLine(`🏷️  Library tag version [${opts.tag}] has been deleted.`, { color: PrintColor.YELLOW });
   } catch (error) {
-    printLine(
-        `🛑 There was an error while deleting tag [${opts.tag}] at commit hash [${opts.commitHash}]`,
-            { color: PrintColor.RED },
-        );
+    printLine(`🛑 There was an error while deleting tag [${opts.tag}] at commit hash [${opts.commitHash}]`, {
+      color: PrintColor.RED,
+    });
     throw new Error(error.message);
   }
 }
 
-async function deleteRepositoryPointerWithPrintMessage(opts:{
-  apiDomain:string,
-  authToken:string,
-  branch:string,
-  commitHash:string,
-}):Promise<void> {
+async function deleteRepositoryPointerWithPrintMessage(opts: {
+  apiDomain: string;
+  authToken: string;
+  branch: string;
+  commitHash: string;
+}): Promise<void> {
   try {
     await deleteRepositoryPointerToBranch(opts);
-    printLine(
-        `Library branch version [${opts.branch}] has been deleted.`,
-        { color: PrintColor.YELLOW },
-    );
+    printLine(`Library branch version [${opts.branch}] has been deleted.`, { color: PrintColor.YELLOW });
   } catch (error) {
-    printLine(
-        `🛑 There was an error while deleting branch [${opts.branch}]`,
-        { color: PrintColor.RED },
-        );
+    printLine(`🛑 There was an error while deleting branch [${opts.branch}]`, { color: PrintColor.RED });
     throw new Error(error.message);
   }
 }

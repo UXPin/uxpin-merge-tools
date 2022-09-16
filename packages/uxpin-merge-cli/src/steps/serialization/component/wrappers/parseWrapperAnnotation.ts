@@ -4,16 +4,16 @@ import { ComponentWrapper, ComponentWrapperType } from './ComponentWrapper';
 import { getWrapperNameFromPath } from './getWrapperNameFromPath';
 import { isBuiltInWrapper } from './isBuiltInWrapper';
 
-export function parseWrapperAnnotation(commentTag:string):ComponentWrapper[] {
+export function parseWrapperAnnotation(commentTag: string): ComponentWrapper[] {
   if (!commentTag.startsWith(CommentTags.UXPIN_WRAPPERS)) {
     return [];
   }
 
-  const wrappersNames:string[] = parseCommentToLines(commentTag);
-  return wrappersNames.map((name:string) => pathOrNameToWrapper(name));
+  const wrappersNames: string[] = parseCommentToLines(commentTag);
+  return wrappersNames.map((name: string) => pathOrNameToWrapper(name));
 }
 
-function pathOrNameToWrapper(nameOrPath:string):ComponentWrapper {
+function pathOrNameToWrapper(nameOrPath: string): ComponentWrapper {
   if (isBuiltInWrapper(nameOrPath)) {
     return {
       name: nameOrPath,
@@ -28,19 +28,14 @@ function pathOrNameToWrapper(nameOrPath:string):ComponentWrapper {
   };
 }
 
-const STRIP_TAG_REGEX:RegExp = new RegExp(`^(\\s)?\\${CommentTags.UXPIN_WRAPPERS}(\\s+)?`);
+const STRIP_TAG_REGEX = new RegExp(`^(\\s)?\\${CommentTags.UXPIN_WRAPPERS}(\\s+)?`);
 
-function parseCommentToLines(commentTag:string):string[] {
+function parseCommentToLines(commentTag: string): string[] {
   return getLines(commentTag.replace(STRIP_TAG_REGEX, ''))
-    .reduce((lines:string[], line:string) => {
-      const wrappers:string[] = line
-        .split(',')
-        .map((wrapper:string) => wrapper.trim());
+    .reduce((lines: string[], line: string) => {
+      const wrappers: string[] = line.split(',').map((wrapper: string) => wrapper.trim());
 
-      return [
-        ...lines,
-        ...wrappers,
-      ];
+      return [...lines, ...wrappers];
     }, [])
     .filter(Boolean);
 }

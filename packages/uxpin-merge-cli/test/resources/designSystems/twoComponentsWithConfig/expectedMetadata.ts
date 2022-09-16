@@ -1,7 +1,7 @@
 import { ComponentDefinition } from '../../../../src/steps/serialization/component/ComponentDefinition';
 import { DesignSystemSnapshot } from '../../../../src/steps/serialization/DesignSystemSnapshot';
 
-export const expectedAvatarMetadata:ComponentDefinition = {
+export const expectedAvatarMetadata: ComponentDefinition = {
   defaultExported: true,
   documentation: { examples: [] },
   info: {
@@ -11,9 +11,7 @@ export const expectedAvatarMetadata:ComponentDefinition = {
       lang: 'typescript',
       path: 'src/components/Avatar/Avatar.tsx',
     },
-    presets: [
-      { path: 'src/components/Avatar/presets/0-default.jsx' },
-    ],
+    presets: [{ path: 'src/components/Avatar/presets/0-default.jsx' }],
   },
   name: 'Avatar',
   presets: [
@@ -48,7 +46,7 @@ export const expectedAvatarMetadata:ComponentDefinition = {
   wrappers: [],
 };
 
-export const expectedButtonMetadata:ComponentDefinition = {
+export const expectedButtonMetadata: ComponentDefinition = {
   defaultExported: true,
   documentation: { examples: [] },
   info: {
@@ -58,9 +56,7 @@ export const expectedButtonMetadata:ComponentDefinition = {
       lang: 'typescript',
       path: 'src/components/Button/Button.tsx',
     },
-    presets: [
-      { path: 'src/components/Button/presets/0-default.jsx' },
-    ],
+    presets: [{ path: 'src/components/Button/presets/0-default.jsx' }],
   },
   name: 'Button',
   presets: [
@@ -95,18 +91,14 @@ export const expectedButtonMetadata:ComponentDefinition = {
   wrappers: [],
 };
 
-export const expectedMetadata:DesignSystemSnapshot = {
+export const expectedMetadata: DesignSystemSnapshot = {
   categorizedComponents: [
     {
-      components: [
-        expectedAvatarMetadata,
-      ],
+      components: [expectedAvatarMetadata],
       name: 'General',
     },
     {
-      components: [
-        expectedButtonMetadata,
-      ],
+      components: [expectedButtonMetadata],
       name: 'Forms',
     },
   ],

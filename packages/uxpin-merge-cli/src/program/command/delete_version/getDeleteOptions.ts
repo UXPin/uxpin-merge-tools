@@ -4,7 +4,7 @@ import { DeleteVersionArgs } from '../../args/ProgramArgs';
 import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../args/providers/paths/getTempDirPath';
 
-export function getDeleteOptions(args:DeleteVersionArgs):DeleteOptions {
+export function getDeleteOptions(args: DeleteVersionArgs): DeleteOptions {
   const { token, uxpinDomain, branch, tag } = args;
 
   return {
@@ -18,5 +18,4 @@ export function getDeleteOptions(args:DeleteVersionArgs):DeleteOptions {
   };
 }
 
-export type DeleteArgs = Pick<DeleteVersionArgs, 'cwd' | 'token' | 'uxpinDomain'
-| 'branch' | 'tag'>;
+export type DeleteArgs = Pick<DeleteVersionArgs, 'cwd' | 'token' | 'uxpinDomain' | 'branch' | 'tag'>;

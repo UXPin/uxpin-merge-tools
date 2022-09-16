@@ -6,7 +6,7 @@ jest.mock('fs-extra');
 describe('readFileFromPath', () => {
   it('should readFile from specific path using fs-extra', async () => {
     // given
-    const path:string = 'path';
+    const path = 'path';
 
     // when
     await readFileFromPath(path);

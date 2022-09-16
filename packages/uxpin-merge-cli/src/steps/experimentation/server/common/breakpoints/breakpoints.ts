@@ -1,11 +1,11 @@
 export interface Breakpoint {
-  height:number;
-  name:string;
-  version:number;
-  width:number;
+  height: number;
+  name: string;
+  version: number;
+  width: number;
 }
 
-export const breakpoints:Breakpoint[] = [
+export const breakpoints: Breakpoint[] = [
   {
     height: 768,
     name: 'Wide 1440',

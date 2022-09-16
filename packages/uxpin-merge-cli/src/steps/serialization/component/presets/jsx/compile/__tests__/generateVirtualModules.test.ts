@@ -3,7 +3,7 @@ import { generateVirtualModules, VirtualComponentModule } from '../generateVirtu
 
 describe('generateVirtualModules', () => {
   it('generates virtual module objects for component definitions', () => {
-    const components:ComponentDefinition[] = [
+    const components: ComponentDefinition[] = [
       {
         defaultExported: true,
         documentation: { examples: [] },
@@ -40,7 +40,7 @@ describe('generateVirtualModules', () => {
       },
     ];
 
-    const expectedResult:VirtualComponentModule[] = [
+    const expectedResult: VirtualComponentModule[] = [
       {
         moduleSource: `
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -56,14 +56,14 @@ exports.default = {"name":"Menu"};`,
     ];
 
     // when
-    const result:VirtualComponentModule[] = generateVirtualModules(components);
+    const result: VirtualComponentModule[] = generateVirtualModules(components);
 
     // then
     expect(result).toEqual(expectedResult);
   });
 
   it('generates virtual module objects for namespaced component definitions', () => {
-    const components:ComponentDefinition[] = [
+    const components: ComponentDefinition[] = [
       {
         defaultExported: true,
         documentation: { examples: [] },
@@ -164,7 +164,7 @@ exports.default = {"name":"Menu"};`,
     ];
 
     // tslint:disable max-line-length
-    const expectedResult:VirtualComponentModule[] = [
+    const expectedResult: VirtualComponentModule[] = [
       {
         moduleSource: `
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -199,7 +199,7 @@ exports.default = {"name":"Card.Header.Menu"};`,
     // tslint:enable max-line-length
 
     // when
-    const result:VirtualComponentModule[] = generateVirtualModules(components);
+    const result: VirtualComponentModule[] = generateVirtualModules(components);
 
     // then
     expect(result).toEqual(expectedResult);

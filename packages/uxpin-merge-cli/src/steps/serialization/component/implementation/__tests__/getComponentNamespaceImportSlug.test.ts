@@ -1,11 +1,11 @@
 import { getComponentNamespaceImportSlug } from '../getComponentNamespaceImportSlug';
 
 describe('getComponentNamespaceImportSlug', () => {
-  const componentName:string = 'ComponentName';
+  const componentName = 'ComponentName';
 
   describe('given single level namespace name', () => {
-    const namespaceName:string = 'SingleNamespace';
-    let importSlug:string;
+    const namespaceName = 'SingleNamespace';
+    let importSlug: string;
 
     beforeAll(() => {
       importSlug = getComponentNamespaceImportSlug(namespaceName, componentName);
@@ -17,8 +17,8 @@ describe('getComponentNamespaceImportSlug', () => {
   });
 
   describe('given multi-level namespace name', () => {
-    const namespaceName:string = 'Level1.level2.Namespace';
-    let importSlug:string;
+    const namespaceName = 'Level1.level2.Namespace';
+    let importSlug: string;
 
     beforeAll(() => {
       importSlug = getComponentNamespaceImportSlug(namespaceName, componentName);

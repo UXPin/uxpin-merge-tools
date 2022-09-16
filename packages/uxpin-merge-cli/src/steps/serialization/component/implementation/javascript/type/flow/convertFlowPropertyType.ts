@@ -8,7 +8,7 @@ import { convertSignatureFlowType } from './strategy/convertSignatureFlowType';
 import { convertUnionFlowType } from './strategy/convertUnionFlowType';
 import { thunkCreatePrimitivePropertyType } from './strategy/thunkCreatePrimitivePropertyType';
 
-const STRATEGIES:{ [typeName in NamesToBeConverted]:(type:FlowType | any) => PropertyType } = {
+const STRATEGIES: { [typeName in NamesToBeConverted]: (type: FlowType | any) => PropertyType } = {
   Array: convertArrayFlowType,
   Function: thunkCreatePrimitivePropertyType('func'),
   Object: thunkCreatePrimitivePropertyType('object'),
@@ -27,9 +27,9 @@ const STRATEGIES:{ [typeName in NamesToBeConverted]:(type:FlowType | any) => Pro
   void: thunkCreatePrimitivePropertyType('empty'),
 };
 
-export function convertFlowPropertyType(propType:FlowType):PropertyType {
+export function convertFlowPropertyType(propType: FlowType): PropertyType {
   if (STRATEGIES.hasOwnProperty(propType.name)) {
-    const strategies:{ [typeName:string]:(flowType:FlowType) => PropertyType } = STRATEGIES as any;
+    const strategies: { [typeName: string]: (flowType: FlowType) => PropertyType } = STRATEGIES as any;
     return strategies[propType.name](propType);
   }
   return createUnsupportedTypeDefinition(propType.name);

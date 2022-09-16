@@ -1,10 +1,10 @@
 import { getComponentNamespaceFromDescription } from '../getComponentNamespaceFromDescription';
 
 describe('getComponentNamespaceFromDescription', () => {
-  const componentName:string = 'ComponentName';
+  const componentName = 'ComponentName';
 
   describe('when description is empty', () => {
-    const description:string = '';
+    const description = '';
 
     it('returns undefined', () => {
       expect(getComponentNamespaceFromDescription(componentName, description)).toBeUndefined();
@@ -12,7 +12,7 @@ describe('getComponentNamespaceFromDescription', () => {
   });
 
   describe('when description does not contain @uxpinnamespace annotation', () => {
-    const description:string = 'Description string without annotation';
+    const description = 'Description string without annotation';
 
     it('returns undefined', () => {
       expect(getComponentNamespaceFromDescription(componentName, description)).toBeUndefined();
@@ -20,7 +20,7 @@ describe('getComponentNamespaceFromDescription', () => {
   });
 
   describe('when description contains single-line @uxpinnamespace annotation', () => {
-    const description:string = '@uxpinnamespace CustomNamespace';
+    const description = '@uxpinnamespace CustomNamespace';
 
     it('returns namespace name', () => {
       expect(getComponentNamespaceFromDescription(componentName, description)).toMatchObject({
@@ -30,7 +30,7 @@ describe('getComponentNamespaceFromDescription', () => {
   });
 
   describe('when description contains single-line, multi-level @uxpinnamespace annotation', () => {
-    const description:string = '@uxpinnamespace Level1.level2.CustomNamespace';
+    const description = '@uxpinnamespace Level1.level2.CustomNamespace';
 
     it('returns multi-level namespace name', () => {
       expect(getComponentNamespaceFromDescription(componentName, description)).toMatchObject({
@@ -40,7 +40,7 @@ describe('getComponentNamespaceFromDescription', () => {
   });
 
   describe('when description contains multi-line @uxpinnamespace annotation', () => {
-    const description:string = `Some component description
+    const description = `Some component description
 
 @uxpinnamespace CustomNamespace
 Another description line`;

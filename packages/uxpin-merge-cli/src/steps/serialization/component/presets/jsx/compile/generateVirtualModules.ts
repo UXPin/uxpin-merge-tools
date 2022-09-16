@@ -5,36 +5,39 @@ import { getComponentNamespacedName } from '../../../name/getComponentNamespaced
 import { getNamespacedComponentsTree, NamespacedComponentsTree } from './getNamespacedComponentsTree';
 
 export interface VirtualComponentModule {
-  path:string;
-  moduleSource:string;
+  path: string;
+  moduleSource: string;
 }
 
 export interface ComponentPlaceholder {
-  name:string;
-  [key:string]:ComponentPlaceholder | string;
+  name: string;
+  [key: string]: ComponentPlaceholder | string;
 }
 
-export function generateVirtualModules(components:ComponentDefinition[]):VirtualComponentModule[] {
-  const tree:NamespacedComponentsTree = getNamespacedComponentsTree(components);
+export function generateVirtualModules(components: ComponentDefinition[]): VirtualComponentModule[] {
+  const tree: NamespacedComponentsTree = getNamespacedComponentsTree(components);
   return components.map((component) => createVirtualModule(component, tree));
 }
 
-function createVirtualModule(component:ComponentDefinition, tree:NamespacedComponentsTree):VirtualComponentModule {
-  const exportName:string = component.defaultExported ? 'default' : component.name;
+function createVirtualModule(component: ComponentDefinition, tree: NamespacedComponentsTree): VirtualComponentModule {
+  const exportName: string = component.defaultExported ? 'default' : component.name;
 
-  return ({
+  return {
     moduleSource: `
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.${exportName} = ${JSON.stringify(createComponentPlaceholder(component, tree))};`,
     path: removeExtensionFromPath(component.info.implementation.path),
-  });
+  };
 }
 
-function createComponentPlaceholder(component:ComponentDefinition, tree:NamespacedComponentsTree):ComponentPlaceholder {
+function createComponentPlaceholder(
+  component: ComponentDefinition,
+  tree: NamespacedComponentsTree
+): ComponentPlaceholder {
   return get(tree, getComponentNamespacedName(component));
 }
 
-function removeExtensionFromPath(path:string):string {
+function removeExtensionFromPath(path: string): string {
   const { dir, name } = parse(path);
   return join(dir, name);
 }

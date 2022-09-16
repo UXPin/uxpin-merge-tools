@@ -2,11 +2,11 @@ import { ComponentDoc } from 'react-docgen-typescript/lib';
 import { getComponentName } from '../getComponentName';
 
 describe('parseComponentName', () => {
-  const componentPath:string = 'path/to/ComponentName.jsx';
+  const componentPath = 'path/to/ComponentName.jsx';
 
   describe('when parsed doc displaName is empty', () => {
-    let parsed:ComponentDoc;
-    let componentName:string;
+    let parsed: ComponentDoc;
+    let componentName: string;
 
     beforeAll(() => {
       parsed = {
@@ -24,8 +24,8 @@ describe('parseComponentName', () => {
   });
 
   describe('when parsed doc displayName is not empty', () => {
-    let parsed:ComponentDoc;
-    let componentName:string;
+    let parsed: ComponentDoc;
+    let componentName: string;
 
     beforeAll(() => {
       parsed = {

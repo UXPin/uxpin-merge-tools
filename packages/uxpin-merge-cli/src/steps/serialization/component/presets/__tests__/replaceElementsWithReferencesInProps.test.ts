@@ -5,7 +5,7 @@ import { replaceElementsWithReferencesInProps } from '../replaceElementsWithRefe
 describe('replaceElementsWithReferencesInProps', () => {
   it('should replace single element with reference', () => {
     // given
-    const props:PartialProps = {
+    const props: PartialProps = {
       icon: {
         name: 'Button',
         props: {
@@ -14,12 +14,12 @@ describe('replaceElementsWithReferencesInProps', () => {
         uxpinPresetElementType: 'CodeComponent',
       },
     };
-    const expectedProps:ComponentPresetElementProps = {
+    const expectedProps: ComponentPresetElementProps = {
       icon: { uxpinPresetElementId: '1' },
     };
 
     // when
-    const result:ComponentPresetElementProps = replaceElementsWithReferencesInProps(props);
+    const result: ComponentPresetElementProps = replaceElementsWithReferencesInProps(props);
 
     // then
     expect(result).toEqual(expectedProps);
@@ -27,7 +27,7 @@ describe('replaceElementsWithReferencesInProps', () => {
 
   it('should remove a few elements in array', () => {
     // given
-    const props:PartialProps = {
+    const props: PartialProps = {
       icon: [
         {
           name: 'Button',
@@ -45,12 +45,12 @@ describe('replaceElementsWithReferencesInProps', () => {
         },
       ],
     };
-    const expectedProps:ComponentPresetElementProps = {
+    const expectedProps: ComponentPresetElementProps = {
       icon: [],
     };
 
     // when
-    const result:ComponentPresetElementProps = replaceElementsWithReferencesInProps(props);
+    const result: ComponentPresetElementProps = replaceElementsWithReferencesInProps(props);
 
     // then
     expect(result).toEqual(expectedProps);
@@ -58,7 +58,7 @@ describe('replaceElementsWithReferencesInProps', () => {
 
   it('should remove deeply nested elements', () => {
     // given
-    const props:PartialProps = {
+    const props: PartialProps = {
       data: [
         {
           subtitle: [
@@ -89,7 +89,7 @@ describe('replaceElementsWithReferencesInProps', () => {
         },
       ],
     };
-    const expectedProps:ComponentPresetElementProps = {
+    const expectedProps: ComponentPresetElementProps = {
       data: [
         { subtitle: ['some text'], title: 'some title' },
         { title: 'some title' },
@@ -98,7 +98,7 @@ describe('replaceElementsWithReferencesInProps', () => {
     };
 
     // when
-    const result:ComponentPresetElementProps = replaceElementsWithReferencesInProps(props);
+    const result: ComponentPresetElementProps = replaceElementsWithReferencesInProps(props);
 
     // then
     expect(result).toEqual(expectedProps);
@@ -106,11 +106,11 @@ describe('replaceElementsWithReferencesInProps', () => {
 
   it('should return empty object', () => {
     // given
-    const props:PartialProps = {};
-    const expectedProps:ComponentPresetElementProps = {};
+    const props: PartialProps = {};
+    const expectedProps: ComponentPresetElementProps = {};
 
     // when
-    const result:ComponentPresetElementProps = replaceElementsWithReferencesInProps(props);
+    const result: ComponentPresetElementProps = replaceElementsWithReferencesInProps(props);
 
     // then
     expect(result).toEqual(expectedProps);

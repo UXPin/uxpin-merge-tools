@@ -2,8 +2,8 @@ import { isValidPropName } from '../../validation/props/isValidPropName';
 import { ParsedBindingDescriptor } from '../implementation/ParsedPropertyDescriptor';
 import { ParsedPropertyModel } from './ParsedPropertyModel';
 
-export function connectBindingFrom(propertyModel:ParsedPropertyModel, map:Map<string, ParsedPropertyModel>):void {
-  const binding:ParsedBindingDescriptor | undefined = propertyModel.getBindingDescriptor();
+export function connectBindingFrom(propertyModel: ParsedPropertyModel, map: Map<string, ParsedPropertyModel>): void {
+  const binding: ParsedBindingDescriptor | undefined = propertyModel.getBindingDescriptor();
 
   if (!binding) {
     return;
@@ -17,7 +17,7 @@ export function connectBindingFrom(propertyModel:ParsedPropertyModel, map:Map<st
     @uxpinbind onSelect`);
   }
 
-  const targetPropertyModel:ParsedPropertyModel | undefined = map.get(binding.sourcePropName);
+  const targetPropertyModel: ParsedPropertyModel | undefined = map.get(binding.sourcePropName);
   if (!targetPropertyModel) {
     throw new Error(`Incorrect property name pointed as a binding source.
       No such property: "${binding.sourcePropName}"`);

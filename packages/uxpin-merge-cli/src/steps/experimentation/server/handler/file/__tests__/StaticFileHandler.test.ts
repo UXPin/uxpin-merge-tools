@@ -6,10 +6,10 @@ import { StaticFileHandler } from '../StaticFileHandler';
 jest.mock('../../../../../../utils/fs/readFileFromPath');
 
 describe('StaticFileHandler', () => {
-  let request:IncomingMessage;
-  let response:ServerResponse;
-  let filePath:string;
-  let buffer:Buffer;
+  let request: IncomingMessage;
+  let response: ServerResponse;
+  let filePath: string;
+  let buffer: Buffer;
 
   beforeEach(() => {
     request = createFakeRequest();
@@ -23,7 +23,7 @@ describe('StaticFileHandler', () => {
   describe('when file exists', () => {
     it('should respond with file content', async () => {
       // given
-      const handler:StaticFileHandler = new StaticFileHandler(filePath);
+      const handler: StaticFileHandler = new StaticFileHandler(filePath);
 
       // when
       await handler.handle(request, response);
@@ -34,12 +34,12 @@ describe('StaticFileHandler', () => {
 
     it('should respond with headers from constructor', async () => {
       // given
-      const headers:OutgoingHttpHeaders = {
+      const headers: OutgoingHttpHeaders = {
         'Access-Control-Allow-Origin': '*',
         'Cache-Control': 'no-cache',
         'Content-Type': 'application/json',
       };
-      const handler:StaticFileHandler = new StaticFileHandler(filePath, headers);
+      const handler: StaticFileHandler = new StaticFileHandler(filePath, headers);
 
       // when
       await handler.handle(request, response);
@@ -50,13 +50,13 @@ describe('StaticFileHandler', () => {
 
     it('should respond with specific `Access-Control-Allow-Origin` header', async () => {
       // given
-      const origin:string = 'http://some.domain';
-      const headers:OutgoingHttpHeaders = {
+      const origin = 'http://some.domain';
+      const headers: OutgoingHttpHeaders = {
         'Access-Control-Allow-Origin': 'http://some.domain',
         'Cache-Control': 'no-cache',
         'Content-Type': 'application/json',
       };
-      const handler:StaticFileHandler = new StaticFileHandler(filePath, headers);
+      const handler: StaticFileHandler = new StaticFileHandler(filePath, headers);
 
       // when
       await handler.handle(createFakeRequest({ origin }), response);
@@ -69,7 +69,7 @@ describe('StaticFileHandler', () => {
   describe('when file not exists', () => {
     it('should respond with 404 status code', async () => {
       // given
-      const handler:StaticFileHandler = new StaticFileHandler('not exits');
+      const handler: StaticFileHandler = new StaticFileHandler('not exits');
 
       // when
       await handler.handle(request, response);
@@ -80,21 +80,21 @@ describe('StaticFileHandler', () => {
   });
 });
 
-function mockFile(filePath:string, content:Buffer):void {
-  ((readFileFromPath as jest.Mock).mockImplementation(async (path) => {
+function mockFile(filePath: string, content: Buffer): void {
+  (readFileFromPath as jest.Mock).mockImplementation(async (path) => {
     if (path === filePath) {
       return content;
     }
 
     throw new Error('File not found');
-  }));
+  });
 }
 
-function createFakeRequest(headers:IncomingHttpHeaders = {}):IncomingMessage {
+function createFakeRequest(headers: IncomingHttpHeaders = {}): IncomingMessage {
   return { headers } as any;
 }
 
-function createFakeResponse():ServerResponse {
+function createFakeResponse(): ServerResponse {
   return {
     end: jest.fn(),
     write: jest.fn(),

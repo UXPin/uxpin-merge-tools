@@ -1,3 +1,3 @@
-export function isValidPropName(prop:string):boolean {
+export function isValidPropName(prop: string): boolean {
   return /^(?!\d)[\w$]+$/.test(prop);
 }

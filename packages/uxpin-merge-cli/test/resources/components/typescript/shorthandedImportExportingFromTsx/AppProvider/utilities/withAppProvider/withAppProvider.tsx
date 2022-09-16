@@ -1,5 +1,5 @@
 export interface WithAppProviderProps {
   someProp: {
-    prop:string;
+    prop: string;
   };
 }

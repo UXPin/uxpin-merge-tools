@@ -5,11 +5,11 @@ import { getTempDirPath } from '../../../args/providers/paths/getTempDirPath';
 import { thunkBuildComponentsLibrary } from '../../../utils/thunkBuildComponentsLibrary';
 import { Step } from '../../Step';
 
-export function experimentationBuildLibraryStep(args:ExperimentProgramArgs):Step {
+export function experimentationBuildLibraryStep(args: ExperimentProgramArgs): Step {
   return { exec: thunkBuildComponentsLibrary(getBuildOptions(args)), shouldRun: true };
 }
 
-export function getBuildOptions(args:ExperimentProgramArgs):BuildOptions {
+export function getBuildOptions(args: ExperimentProgramArgs): BuildOptions {
   const { webpackConfig, wrapper } = args;
   return {
     development: true,

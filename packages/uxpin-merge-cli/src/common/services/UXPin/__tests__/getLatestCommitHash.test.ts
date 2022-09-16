@@ -3,13 +3,14 @@ import { getLatestCommitHash } from '../getLatestCommitHash';
 
 jest.mock('request-promise');
 
-const requestPromiseMock:jest.Mock<typeof requestPromise> =
-  requestPromise as unknown as jest.Mock<typeof requestPromise>;
+const requestPromiseMock: jest.Mock<typeof requestPromise> = requestPromise as unknown as jest.Mock<
+  typeof requestPromise
+>;
 
 describe('getLatestCommitHash', () => {
-  const domain:string = 'https://uxpin.mock';
-  const branch:string = 'master';
-  const token:string = 'token';
+  const domain = 'https://uxpin.mock';
+  const branch = 'master';
+  const token = 'token';
 
   beforeEach(() => {
     requestPromiseMock.mockRestore();
@@ -48,7 +49,7 @@ describe('getLatestCommitHash', () => {
   describe('request on a branch with name containing a slash character', () => {
     beforeEach(async () => {
       // given
-      const branchName:string = 'pull/27';
+      const branchName = 'pull/27';
       requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }));
 
       // when
@@ -67,7 +68,7 @@ describe('getLatestCommitHash', () => {
       requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }));
 
       // when
-      const commitHash:string | null = await getLatestCommitHash(domain, branch, token);
+      const commitHash: string | null = await getLatestCommitHash(domain, branch, token);
 
       // then
       expect(commitHash).toEqual('abc123');
@@ -78,7 +79,7 @@ describe('getLatestCommitHash', () => {
       requestPromiseMock.mockImplementation(() => Promise.resolve(undefined));
 
       // when
-      const commitHash:string | null = await getLatestCommitHash(domain, branch, token);
+      const commitHash: string | null = await getLatestCommitHash(domain, branch, token);
 
       // then
       expect(commitHash).toEqual(null);

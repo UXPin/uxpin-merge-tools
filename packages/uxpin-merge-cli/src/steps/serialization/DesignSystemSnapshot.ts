@@ -2,32 +2,32 @@ import { ProjectPaths } from '../discovery/paths/ProjectPaths';
 import { ComponentCategory } from './component/categories/ComponentCategory';
 
 export interface DesignSystemSnapshot {
-  name:string;
-  categorizedComponents:ComponentCategory[];
-  vcs:VCSDetails;
+  name: string;
+  categorizedComponents: ComponentCategory[];
+  vcs: VCSDetails;
 }
 
 export interface VCSDetails {
-  branchName:string;
-  commitHash:string;
-  movedObjects?:MovedObjects;
+  branchName: string;
+  commitHash: string;
+  movedObjects?: MovedObjects;
 
   // @todo: make `tags` property required after implementation of git tags
-  tags?:VCSTag[];
+  tags?: VCSTag[];
 
-  paths?:ProjectPaths;
+  paths?: ProjectPaths;
 }
 
 export interface MovedObjects {
-  diffSourceCommitHash:string;
-  components:MovedFilePathsMap;
+  diffSourceCommitHash: string;
+  components: MovedFilePathsMap;
 }
 
 export interface MovedFilePathsMap {
-  [sourcePath:string]:string;
+  [sourcePath: string]: string;
 }
 
 export interface VCSTag {
-  name:string;
-  commitHash:string;
+  name: string;
+  commitHash: string;
 }

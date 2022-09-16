@@ -8,8 +8,8 @@ describe('serializeTSComponent-Namespaces', () => {
   describe('class component', () => {
     it('is serialized correctly with provided namespace', async () => {
       // having
-      const component:ComponentImplementationInfo = getImplementation('ClassWithNamespaceDeclaration');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithNamespaceDeclaration');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithNamespaceDeclaration',
         namespace: {
@@ -28,7 +28,7 @@ describe('serializeTSComponent-Namespaces', () => {
       };
 
       // when
-      const metadata:Warned<ComponentMetadata> = await serializeTSComponent(component);
+      const metadata: Warned<ComponentMetadata> = await serializeTSComponent(component);
       // then
       expect(metadata.warnings).toEqual([]);
       expect(metadata.result).toEqual(expectedMetadata);
@@ -36,8 +36,8 @@ describe('serializeTSComponent-Namespaces', () => {
 
     it('is serialized correctly with multilevel namespace', async () => {
       // having
-      const component:ComponentImplementationInfo = getImplementation('ClassWithMultilevelNamespaceDeclaration');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithMultilevelNamespaceDeclaration');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithMultilevelNamespaceDeclaration',
         namespace: {
@@ -56,7 +56,7 @@ describe('serializeTSComponent-Namespaces', () => {
       };
 
       // when
-      const metadata:Warned<ComponentMetadata> = await serializeTSComponent(component);
+      const metadata: Warned<ComponentMetadata> = await serializeTSComponent(component);
 
       // then
       expect(metadata.warnings).toEqual([]);
@@ -67,8 +67,8 @@ describe('serializeTSComponent-Namespaces', () => {
   describe('functional component', () => {
     it('is serialized correctly with provided namespace', async () => {
       // having
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithNamespaceDeclaration');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithNamespaceDeclaration');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionWithNamespaceDeclaration',
         namespace: {
@@ -87,7 +87,7 @@ describe('serializeTSComponent-Namespaces', () => {
       };
 
       // when
-      const metadata:Warned<ComponentMetadata> = await serializeTSComponent(component);
+      const metadata: Warned<ComponentMetadata> = await serializeTSComponent(component);
       // then
       expect(metadata.warnings).toEqual([]);
       expect(metadata.result).toEqual(expectedMetadata);
@@ -95,8 +95,8 @@ describe('serializeTSComponent-Namespaces', () => {
 
     it('is serialized correctly with multilevel namespace', async () => {
       // having
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithMultilevelNamespaceDeclaration');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithMultilevelNamespaceDeclaration');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionWithMultilevelNamespaceDeclaration',
         namespace: {
@@ -115,7 +115,7 @@ describe('serializeTSComponent-Namespaces', () => {
       };
 
       // when
-      const metadata:Warned<ComponentMetadata> = await serializeTSComponent(component);
+      const metadata: Warned<ComponentMetadata> = await serializeTSComponent(component);
 
       // then
       expect(metadata.warnings).toEqual([]);

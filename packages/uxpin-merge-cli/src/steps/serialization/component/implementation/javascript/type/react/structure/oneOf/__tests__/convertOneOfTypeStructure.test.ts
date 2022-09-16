@@ -5,12 +5,12 @@ describe('convertOneOfTypeStructure', () => {
   describe('converting react-docgen enum type structure to common format', () => {
     it('correctly converts literal enum type with single quotes', () => {
       // given
-      const inputTypeStructure:any = [
-        { computed:false, value: '\'secondary\'' },
-        { computed:false, value: '\'primary\'' },
-        { computed:false, value: '\'link\'' },
+      const inputTypeStructure: any = [
+        { computed: false, value: "'secondary'" },
+        { computed: false, value: "'primary'" },
+        { computed: false, value: "'link'" },
       ];
-      const expectedOutputStructure:UnionTypeStructure = {
+      const expectedOutputStructure: UnionTypeStructure = {
         elements: [
           { name: 'literal', structure: { value: 'secondary' } },
           { name: 'literal', structure: { value: 'primary' } },
@@ -19,7 +19,7 @@ describe('convertOneOfTypeStructure', () => {
       };
 
       // when
-      const result:UnionTypeStructure = convertOneOfTypeStructure(inputTypeStructure);
+      const result: UnionTypeStructure = convertOneOfTypeStructure(inputTypeStructure);
 
       // then
       expect(result).toEqual(expectedOutputStructure);
@@ -27,12 +27,12 @@ describe('convertOneOfTypeStructure', () => {
 
     it('correctly converts literal enum type with double quotes', () => {
       // given
-      const inputTypeStructure:any = [
-        { computed:false, value: '"secondary"' },
-        { computed:false, value: '"primary"' },
-        { computed:false, value: '"link"' },
+      const inputTypeStructure: any = [
+        { computed: false, value: '"secondary"' },
+        { computed: false, value: '"primary"' },
+        { computed: false, value: '"link"' },
       ];
-      const expectedOutputStructure:UnionTypeStructure = {
+      const expectedOutputStructure: UnionTypeStructure = {
         elements: [
           { name: 'literal', structure: { value: 'secondary' } },
           { name: 'literal', structure: { value: 'primary' } },
@@ -41,7 +41,7 @@ describe('convertOneOfTypeStructure', () => {
       };
 
       // when
-      const result:UnionTypeStructure = convertOneOfTypeStructure(inputTypeStructure);
+      const result: UnionTypeStructure = convertOneOfTypeStructure(inputTypeStructure);
 
       // then
       expect(result).toEqual(expectedOutputStructure);
@@ -49,7 +49,7 @@ describe('convertOneOfTypeStructure', () => {
 
     it('correctly converts complex enum type structures', () => {
       // given
-      const inputTypeStructure:any = [
+      const inputTypeStructure: any = [
         {
           name: 'shape',
           value: {
@@ -62,7 +62,7 @@ describe('convertOneOfTypeStructure', () => {
           name: 'node',
         },
       ];
-      const expectedOutputStructure:UnionTypeStructure = {
+      const expectedOutputStructure: UnionTypeStructure = {
         elements: [
           { name: 'shape', structure: { property1: { name: 'node', structure: {} } } },
           { name: 'node', structure: {} },
@@ -70,7 +70,7 @@ describe('convertOneOfTypeStructure', () => {
       };
 
       // when
-      const result:UnionTypeStructure = convertOneOfTypeStructure(inputTypeStructure);
+      const result: UnionTypeStructure = convertOneOfTypeStructure(inputTypeStructure);
 
       // then
       expect(result).toEqual(expectedOutputStructure);
@@ -78,18 +78,16 @@ describe('convertOneOfTypeStructure', () => {
 
     it('ignores literal values which are not strings', () => {
       // given
-      const inputTypeStructure:any = [
+      const inputTypeStructure: any = [
         { computed: false, value: '{"secondary": true}' },
         { computed: false, value: '"link"' },
       ];
-      const expectedOutputStructure:UnionTypeStructure = {
-        elements: [
-          { name: 'literal', structure: { value: 'link' } },
-        ],
+      const expectedOutputStructure: UnionTypeStructure = {
+        elements: [{ name: 'literal', structure: { value: 'link' } }],
       };
 
       // when
-      const result:UnionTypeStructure = convertOneOfTypeStructure(inputTypeStructure);
+      const result: UnionTypeStructure = convertOneOfTypeStructure(inputTypeStructure);
 
       // then
       expect(result).toEqual(expectedOutputStructure);

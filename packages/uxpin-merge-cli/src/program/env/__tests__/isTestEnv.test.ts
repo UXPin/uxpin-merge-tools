@@ -3,7 +3,7 @@ import { isTestEnv } from '../isTestEnv';
 
 describe('isTestEnv', () => {
   describe('test env', () => {
-    let initialEnv:any;
+    let initialEnv: any;
 
     beforeEach(() => {
       initialEnv = process.env.UXPIN_ENV;
@@ -23,7 +23,7 @@ describe('isTestEnv', () => {
   });
 
   describe('different env', () => {
-    let initialEnv:any;
+    let initialEnv: any;
 
     beforeEach(() => {
       initialEnv = process.env.UXPIN_ENV;

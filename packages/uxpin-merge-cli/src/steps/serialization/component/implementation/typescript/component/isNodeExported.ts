@@ -2,23 +2,23 @@ import { find } from 'lodash';
 import * as ts from 'typescript';
 import { getNodeName } from '../node/getNodeName';
 
-function isNodeNamePassedAsArgument(expression:ts.CallExpression, nodeName:string):boolean {
+function isNodeNamePassedAsArgument(expression: ts.CallExpression, nodeName: string): boolean {
   return !!find(expression.arguments, (arg) => getNodeName(arg) === nodeName);
 }
 
-function hasProperName(nodeName:string, el:ts.ExportSpecifier):boolean {
+function hasProperName(nodeName: string, el: ts.ExportSpecifier): boolean {
   return getNodeName(el) === nodeName;
 }
 
-export function isNodeExported(node:ts.Node, nodeName:string):boolean {
-
+export function isNodeExported(node: ts.Node, nodeName: string): boolean {
   /**
    * Handling following cases:
    * export default Component
    * export HOC(Component)
    */
-  if (ts.isExportAssignment(node)
-    && (getNodeName(node) === nodeName || isNodeNamePassedAsArgument(node.expression as ts.CallExpression, nodeName))
+  if (
+    ts.isExportAssignment(node) &&
+    (getNodeName(node) === nodeName || isNodeNamePassedAsArgument(node.expression as ts.CallExpression, nodeName))
   ) {
     return true;
   }
@@ -29,7 +29,7 @@ export function isNodeExported(node:ts.Node, nodeName:string):boolean {
    * export { Component as default };
    */
   if (ts.isExportDeclaration(node) && node.exportClause) {
-    const { elements } = (node.exportClause as ts.NamedExports || { elements: [] });
+    const { elements } = (node.exportClause as ts.NamedExports) || { elements: [] };
     return !!find(elements, hasProperName.bind(null, nodeName));
   }
 

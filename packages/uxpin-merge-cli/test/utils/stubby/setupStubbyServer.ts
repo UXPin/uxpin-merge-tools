@@ -5,19 +5,19 @@ import { ADMIN_PORT_RANGE, startStubbyServer, STUBS_PORT_RANGE, TLS_PORT_RANGE }
 import { stopStubbyServer } from './stopStubbyServer';
 
 export interface StubbyServerContext {
-  getAdminPort():number;
-  getServer():Stubby;
-  getStubsPort():number;
-  getTlsPort():number;
+  getAdminPort(): number;
+  getServer(): Stubby;
+  getStubsPort(): number;
+  getTlsPort(): number;
 }
 
-export function setupStubbyServer(data:StubbyStub[]):StubbyServerContext {
-  const deferredContext:DeferredChain<StubbyServerContext> = new DeferredChain();
+export function setupStubbyServer(data: StubbyStub[]): StubbyServerContext {
+  const deferredContext: DeferredChain<StubbyServerContext> = new DeferredChain();
 
-  let tlsPort:number;
-  let adminPort:number;
-  let stubsPort:number;
-  let server:Stubby;
+  let tlsPort: number;
+  let adminPort: number;
+  let stubsPort: number;
+  let server: Stubby;
 
   beforeAll(async () => {
     adminPort = getRandomPortNumber(ADMIN_PORT_RANGE.min, ADMIN_PORT_RANGE.max);
@@ -41,11 +41,11 @@ export function setupStubbyServer(data:StubbyStub[]):StubbyServerContext {
   return deferredContext.getProxy();
 }
 
-function getContext(adminPort:number, server:Stubby, stubsPort:number, tlsPort:number):StubbyServerContext {
+function getContext(adminPort: number, server: Stubby, stubsPort: number, tlsPort: number): StubbyServerContext {
   return {
     getAdminPort: () => adminPort,
     getServer: () => server,
     getStubsPort: () => stubsPort,
-    getTlsPort: () =>  tlsPort,
+    getTlsPort: () => tlsPort,
   };
 }

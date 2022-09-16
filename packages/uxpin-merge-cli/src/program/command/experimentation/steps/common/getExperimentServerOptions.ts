@@ -11,15 +11,15 @@ import { getTempDirPath } from '../../../../args/providers/paths/getTempDirPath'
 import { ExperimentationState } from '../../getExperimentationCommandSteps';
 
 export async function getExperimentServerOptions(
-  args:ExperimentProgramArgs,
-  state:ExperimentationState,
-):Promise<ExperimentationServerOptions> {
+  args: ExperimentProgramArgs,
+  state: ExperimentationState
+): Promise<ExperimentationServerOptions> {
   const { port, uxpinDomain, skipBrowser } = args;
-  const uxpinDirPath:string = getTempDirPath(args);
-  const projectRoot:string = getProjectRoot(args);
-  const ngrokSessionId:string | undefined = getNgrokSessionId(state.ngrokUrl);
+  const uxpinDirPath: string = getTempDirPath(args);
+  const projectRoot: string = getProjectRoot(args);
+  const ngrokSessionId: string | undefined = getNgrokSessionId(state.ngrokUrl);
 
-  const projectMetadata:DesignSystemSnapshot = await getProjectMetadata(uxpinDirPath);
+  const projectMetadata: DesignSystemSnapshot = await getProjectMetadata(uxpinDirPath);
 
   return {
     bundlePath: getLibraryBundleFilePath(uxpinDirPath),

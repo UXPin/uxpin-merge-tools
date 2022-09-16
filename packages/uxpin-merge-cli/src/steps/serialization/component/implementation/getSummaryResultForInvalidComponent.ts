@@ -4,16 +4,16 @@ import { getComponentNameFromPath } from '../name/getComponentNameFromPath';
 import { ImplSerializationResult } from './ImplSerializationResult';
 import { isDefaultExported } from './javascript/isDefaultExported';
 
-export function thunkGetSummaryResultForInvalidComponent(sourcePath:string):(e:Error) => ImplSerializationResult {
+export function thunkGetSummaryResultForInvalidComponent(sourcePath: string): (e: Error) => ImplSerializationResult {
   return (originalError) => {
-    const warning:WarningDetails = {
+    const warning: WarningDetails = {
       message: 'Cannot serialize component properties',
       originalError,
       sourcePath,
     };
 
-    const componentName:string = getComponentNameFromPath(sourcePath);
-    const componentMetadata:ComponentMetadata = {
+    const componentName: string = getComponentNameFromPath(sourcePath);
+    const componentMetadata: ComponentMetadata = {
       defaultExported: isDefaultExported(sourcePath, componentName),
       name: componentName,
       properties: [],

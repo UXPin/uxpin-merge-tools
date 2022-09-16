@@ -12,23 +12,20 @@ import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll'
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../utils/file/getFileChecksum';
 
-const CURRENT_TIMEOUT:number = 60000;
+const CURRENT_TIMEOUT = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental - watch - change file content (changed prop types)', () => {
-  let initialBundleChecksum:string;
-  let initialMetadata:string;
-  const buttonJSXPath:string = './src/components/Button/Button.jsx';
+  let initialBundleChecksum: string;
+  let initialMetadata: string;
+  const buttonJSXPath = './src/components/Button/Button.jsx';
 
   const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
-    serverCmdArgs: [
-      '--config "uxpin.config.js"',
-      '--webpack-config "./webpack.config.js"',
-    ],
+    serverCmdArgs: ['--config "uxpin.config.js"', '--webpack-config "./webpack.config.js"'],
   });
 
-  const changedFileContent:string = `
+  const changedFileContent = `
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { classNames } from '../../utils/classNames';
@@ -81,7 +78,7 @@ export default class Button extends PureComponent {
 
   it('should metadata has added new props from changed file', async () => {
     // given
-    const expectedMetadata:DesignSystemSnapshot = {
+    const expectedMetadata: DesignSystemSnapshot = {
       ...expectedDSWatchingChangesMetadata,
       categorizedComponents: [
         expectedDSWatchingChangesMetadata.categorizedComponents[0],
@@ -113,23 +110,23 @@ export default class Button extends PureComponent {
     };
 
     // when
-    const metadataFile:DesignSystemSnapshot = await readJson(getMetadataPath());
+    const metadataFile: DesignSystemSnapshot = await readJson(getMetadataPath());
 
     // then
     expect(metadataFile).toEqual(expectedMetadata);
   });
 
-  function getBundleChecksum():Promise<string> {
-    const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
+  function getBundleChecksum(): Promise<string> {
+    const tempDirPath: string = getTempDirPath({ cwd: getWorkingDir() });
     return getFileChecksum(path.resolve(tempDirPath, LIBRARY_OUTPUT_FILENAME));
   }
 
-  function getMetadataChecksum():Promise<string> {
+  function getMetadataChecksum(): Promise<string> {
     return getFileChecksum(getMetadataPath());
   }
 
-  function getMetadataPath():string {
-    const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
+  function getMetadataPath(): string {
+    const tempDirPath: string = getTempDirPath({ cwd: getWorkingDir() });
     return path.resolve(tempDirPath, METADATA_FILE_NAME);
   }
 });

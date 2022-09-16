@@ -5,7 +5,7 @@ describe('getJSDocTagsArrayFromString', () => {
     it('should parse the tags correctly', () => {
       // having
       // tslint:disable:no-trailing-whitespace
-      const value:string = `
+      const value = `
 
 @tag1 value
 @tag2 multiline

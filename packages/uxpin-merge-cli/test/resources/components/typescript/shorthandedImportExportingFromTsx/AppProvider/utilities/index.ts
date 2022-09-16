@@ -1,2 +1,1 @@
 export { WithAppProviderProps } from './withAppProvider';
-

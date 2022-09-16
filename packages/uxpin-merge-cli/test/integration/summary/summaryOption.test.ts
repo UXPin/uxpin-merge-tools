@@ -5,7 +5,7 @@ import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
-const CURRENT_TIMEOUT:number = 15000;
+const CURRENT_TIMEOUT = 15000;
 
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
@@ -22,13 +22,11 @@ describe('summary command integration', () => {
             UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
             UXPIN_ENV: Environment.TEST,
           },
-          params: [
-            Command.SUMMARY,
-          ],
+          params: [Command.SUMMARY],
         });
       } catch (error) {
         // then
-        expect(error.stdout).toContain('uxpin.config.js\' not found. Using default configuration.');
+        expect(error.stdout).toContain("uxpin.config.js' not found. Using default configuration.");
       }
     });
   });

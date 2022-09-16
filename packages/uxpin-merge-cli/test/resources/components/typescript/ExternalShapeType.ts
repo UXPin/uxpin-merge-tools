@@ -1,10 +1,10 @@
 export interface ExternalShapeType {
-  name:string;
-  value:number;
-  nested:NestedShape;
+  name: string;
+  value: number;
+  nested: NestedShape;
 }
 
 export interface NestedShape {
-  keyA:string;
-  keyB:string;
+  keyA: string;
+  keyB: string;
 }
