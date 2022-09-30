@@ -40,6 +40,7 @@ export function thunkInstallPackages(args:CreateAppProgramArgs):() => Promise<vo
         '@babel/core',
         '@babel/preset-env',
         '@babel/preset-react',
+        '@babel/plugin-proposal-nullish-coalescing-operator',
         'style-loader@1.0.0',
         'css-loader@0.23.1',
         'webpack@4.8.1',
