@@ -78,14 +78,8 @@ export function thunkCreateWebpackConfigFile(args:CreateAppProgramArgs):() => Pr
     try {
       packages = JSON.parse(args.packages || '');
     } catch (e) {
-      //do nothing
+      // do nothing
     }
-
-  ./bin/uxpin-integrate-package --token='ccc4b0afb640cceab88597233b822adb2828c811' --packages='[{"name":"@chakra-ui/react","version":"latest"},{"name":"@emotion/react","version":"latest"},{"name":"@emotion/styled","version":"latest"},{"name":"framer-motion","version":"latest"}]' --components='[{"categoryName":"abc","components":[{"name":"Button","packageName":"@chakra-ui/react"}, {"name":"ChakraProvider","packageName":"@chakra-ui/react"}]}]' --uxpin-domain='uxpin.dev'
-
-    {"f3286331-5285-42f6-94f4-4a8811574540":
-      {"name": "a", "imports": {"210ec9ce-3751-5125-af10-31ea3be9219a": {"name": "Button", "package": "@chakra-ui/react"}, "38796d4e-eb30-5fcf-aa16-14140605e196": {"name": "ChakraProvider", "package": "@chakra-ui/react"}, "7c691137-34e7-5e5e-99bc-d118c9591f5e": {"name": "Breadcrumb", "package": "antd"}, "f2c2ade9-a1f4-5792-9a84-dc283eaf84d9": {"name": "DatePicker", "package": "antd"}}}}
-
 
     const shouldExcludeNodeModules:boolean = !packages
         .find((packageData) => ['@chakra-ui/react'].includes(packageData.name));
