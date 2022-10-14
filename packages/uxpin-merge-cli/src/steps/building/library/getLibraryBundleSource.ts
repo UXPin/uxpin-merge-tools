@@ -27,12 +27,12 @@ export function getLibraryBundleSource(components: ComponentDefinition[], wrappe
   return [...libImports, ...imports, ...wrapperImport, ...namespacedComponentDeclarations, ...exports].join('\n');
 }
 
-function normalizePath(path:string):string {
+function normalizePath(path: string): string {
   return posix.normalize(path.replace(/\\/g, '/'));
 }
 
-function getImportName({ name, namespace, defaultExported }:ComponentDefinition):string {
-  const componentName:string = namespace ? namespace.importSlug : name;
+function getImportName({ name, namespace, defaultExported }: ComponentDefinition): string {
+  const componentName: string = namespace ? namespace.importSlug : name;
 
   if (defaultExported) {
     return componentName;
@@ -44,9 +44,9 @@ function getExportName({ name, namespace }: ComponentDefinition): string {
   return namespace ? namespace.importSlug : name;
 }
 
-function getImportPath({ info }:ComponentDefinition):string {
-  const path:string = relative(TEMP_DIR_PATH, `./${info.dirPath}`);
-  const fileName:string = parse(info.implementation.path).name;
+function getImportPath({ info }: ComponentDefinition): string {
+  const path: string = relative(TEMP_DIR_PATH, `./${info.dirPath}`);
+  const fileName: string = parse(info.implementation.path).name;
   return normalizePath(`${path}/${fileName}`);
 }
 

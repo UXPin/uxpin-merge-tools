@@ -175,7 +175,7 @@ export {
   });
 
   it('returns content of library file for list of components and path of custom wrapper with normalized path', () => {
-    const components:ComponentDefinition[] = [
+    const components: ComponentDefinition[] = [
       {
         defaultExported: true,
         info: {
@@ -202,9 +202,9 @@ export {
       },
     ];
 
-    const wrapperPath:string = 'wrapper\\wrapper.jsx';
+    const wrapperPath = 'wrapper\\wrapper.jsx';
 
-    const expectedFileString:string = `import * as React from 'react';
+    const expectedFileString = `import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Button from '../src/components/button/button';
 import ButtonList from '../src/components/button-list/button-list';
@@ -218,7 +218,7 @@ export {
 };`;
 
     // when
-    const result:string = getLibraryBundleSource(components, wrapperPath);
+    const result: string = getLibraryBundleSource(components, wrapperPath);
 
     // then
     expect(result).toEqual(expectedFileString);

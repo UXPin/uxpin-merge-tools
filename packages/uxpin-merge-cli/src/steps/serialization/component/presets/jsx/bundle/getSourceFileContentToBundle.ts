@@ -20,10 +20,11 @@ ${exports}
 `;
 }
 
-function thunkGetImport(tempDirPath:string):({ path }:ComponentPresetInfo) => string {
-  return ({ path }) => (
-    `import ${getUniqPresetImportName(path)} from '${posix.normalize(relative(tempDirPath, path).replace(/\\/g, '/'))}';`
-  );
+function thunkGetImport(tempDirPath: string): ({ path }: ComponentPresetInfo) => string {
+  return ({ path }) =>
+    `import ${getUniqPresetImportName(path)} from '${posix.normalize(
+      relative(tempDirPath, path).replace(/\\/g, '/')
+    )}';`;
 }
 
 function getExport({ path }: ComponentPresetInfo): string {

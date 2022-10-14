@@ -44,6 +44,6 @@ function getFilePath(path: string): Promise<string | null> {
     .catch(() => null);
 }
 
-function getRelativePaths(fromPath:string, paths:string[]):string[] {
+function getRelativePaths(fromPath: string, paths: string[]): string[] {
   return paths.map((path) => posix.normalize(relative(fromPath, path).replace(/\\/g, '/')));
 }
