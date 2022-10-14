@@ -2,23 +2,20 @@ import { parse, relative, posix } from 'path';
 import { ComponentDefinition } from '../../serialization/component/ComponentDefinition';
 import { TEMP_DIR_PATH } from '../config/getConfig';
 
-const CLASS_NAME_WRAPPER:string = 'Wrapper';
+const CLASS_NAME_WRAPPER = 'Wrapper';
 
-export function getLibraryBundleSource(components:ComponentDefinition[], wrapperPath?:string):string {
-  const libImports:string[] = [
-    'import * as React from \'react\';',
-    'import * as ReactDOM from \'react-dom\';',
-  ];
+export function getLibraryBundleSource(components: ComponentDefinition[], wrapperPath?: string): string {
+  const libImports: string[] = ["import * as React from 'react';", "import * as ReactDOM from 'react-dom';"];
 
-  const imports:string[] = components
+  const imports: string[] = components
     .filter((comp) => !comp.namespace)
     .map((comp) => `import ${getImportName(comp)} from '${getImportPath(comp)}';`);
 
-  const wrapperImport:string[] = getWrapperImport(wrapperPath);
+  const wrapperImport: string[] = getWrapperImport(wrapperPath);
 
-  const namespacedComponentDeclarations:string[] = getNamespacedComponentDeclarations(components);
+  const namespacedComponentDeclarations: string[] = getNamespacedComponentDeclarations(components);
 
-  const exports:string[] = [
+  const exports: string[] = [
     `export {`,
     ...components.map((component) => `  ${getExportName(component)},`),
     ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER},`] : []),
@@ -27,13 +24,7 @@ export function getLibraryBundleSource(components:ComponentDefinition[], wrapper
     `};`,
   ];
 
-  return [
-    ...libImports,
-    ...imports,
-    ...wrapperImport,
-    ...namespacedComponentDeclarations,
-    ...exports,
-  ].join('\n');
+  return [...libImports, ...imports, ...wrapperImport, ...namespacedComponentDeclarations, ...exports].join('\n');
 }
 
 function normalizePath(path:string):string {
@@ -42,13 +33,14 @@ function normalizePath(path:string):string {
 
 function getImportName({ name, namespace, defaultExported }:ComponentDefinition):string {
   const componentName:string = namespace ? namespace.importSlug : name;
+
   if (defaultExported) {
     return componentName;
   }
   return `{ ${componentName} }`;
 }
 
-function getExportName({ name, namespace }:ComponentDefinition):string {
+function getExportName({ name, namespace }: ComponentDefinition): string {
   return namespace ? namespace.importSlug : name;
 }
 
@@ -58,20 +50,18 @@ function getImportPath({ info }:ComponentDefinition):string {
   return normalizePath(`${path}/${fileName}`);
 }
 
-function getWrapperImport(wrapperPath?:string):string[] {
+function getWrapperImport(wrapperPath?: string): string[] {
   if (!wrapperPath) {
     return [];
   }
   return [`import ${CLASS_NAME_WRAPPER} from '${normalizePath(relative(TEMP_DIR_PATH, wrapperPath))}';`];
 }
 
-function getNamespacedComponentDeclarations(components:ComponentDefinition[]):string[] {
-  return components
-    .filter((comp) => comp.namespace)
-    .map(getNamespacedComponentDeclaration);
+function getNamespacedComponentDeclarations(components: ComponentDefinition[]): string[] {
+  return components.filter((comp) => comp.namespace).map(getNamespacedComponentDeclaration);
 }
 
-function getNamespacedComponentDeclaration(component:ComponentDefinition):string {
+function getNamespacedComponentDeclaration(component: ComponentDefinition): string {
   const { name, namespace } = component;
   if (!namespace) {
     throw new Error('Namespace not found!');

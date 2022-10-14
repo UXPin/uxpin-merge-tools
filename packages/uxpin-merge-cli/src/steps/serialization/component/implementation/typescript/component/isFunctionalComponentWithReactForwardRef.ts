@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
 
-function extractExpression(node:ts.Node):ts.Identifier|ts.PropertyAccessExpression|undefined {
+function extractExpression(node: ts.Node): ts.Identifier | ts.PropertyAccessExpression | undefined {
   if (ts.isCallExpression(node)) {
     return node.expression as ts.Identifier;
   }
@@ -11,8 +11,9 @@ function extractExpression(node:ts.Node):ts.Identifier|ts.PropertyAccessExpressi
   }
 
   // const Component:any = React.forwardRef<HTMLElement, Props>(() => {})
-  if (ts.isVariableStatement(node)
-	  && ts.isCallExpression(node.declarationList?.declarations[0]?.initializer as ts.Node)
+  if (
+    ts.isVariableStatement(node) &&
+    ts.isCallExpression(node.declarationList?.declarations[0]?.initializer as ts.Node)
   ) {
     return extractExpression(node.declarationList.declarations[0].initializer as ts.CallExpression);
   }
@@ -24,11 +25,11 @@ function extractExpression(node:ts.Node):ts.Identifier|ts.PropertyAccessExpressi
   }
 }
 
-export function isFunctionalComponentWithReactForwardRef(node:ts.Node):boolean {
-  const expression:ts.Identifier|ts.PropertyAccessExpression|undefined = extractExpression(node);
+export function isFunctionalComponentWithReactForwardRef(node: ts.Node): boolean {
+  const expression: ts.Identifier | ts.PropertyAccessExpression | undefined = extractExpression(node);
 
   if (!expression) {
-  	return false;
+    return false;
   }
 
   /**
@@ -36,8 +37,10 @@ export function isFunctionalComponentWithReactForwardRef(node:ts.Node):boolean {
    *  React.forwardRef(() => {})
    */
   if (ts.isPropertyAccessExpression(expression as ts.PropertyAccessExpression)) {
-  	return ((expression as ts.PropertyAccessExpression)?.expression as ts.Identifier)?.escapedText === 'React'
-		  && (expression as ts.PropertyAccessExpression)?.name?.escapedText === 'forwardRef';
+    return (
+      ((expression as ts.PropertyAccessExpression)?.expression as ts.Identifier)?.escapedText === 'React' &&
+      (expression as ts.PropertyAccessExpression)?.name?.escapedText === 'forwardRef'
+    );
   }
 
   /**
@@ -45,7 +48,7 @@ export function isFunctionalComponentWithReactForwardRef(node:ts.Node):boolean {
    *  forwardRef(() => {})
    */
   if (ts.isIdentifier(expression as ts.Identifier)) {
-  	return (expression as ts.Identifier)?.escapedText === 'forwardRef';
+    return (expression as ts.Identifier)?.escapedText === 'forwardRef';
   }
 
   return false;

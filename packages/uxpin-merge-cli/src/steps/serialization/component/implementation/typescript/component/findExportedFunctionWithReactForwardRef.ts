@@ -6,39 +6,37 @@ import { isFunctionalComponentWithReactForwardRef } from './isFunctionalComponen
 import { isNodeExported } from './isNodeExported';
 
 interface ComponentData {
-  declaration:ts.ArrowFunction | ts.FunctionExpression | ts.VariableDeclaration | undefined;
-  isExported:boolean;
+  declaration: ts.ArrowFunction | ts.FunctionExpression | ts.VariableDeclaration | undefined;
+  isExported: boolean;
 }
 
-export function isDefaultExportedForwardRef(node:ts.Node):node is ts.ExportAssignment {
-  return ts.isExportAssignment(node)
-    && ts.isCallExpression(node.expression)
-   && isFunctionalComponentWithReactForwardRef(node);
+export function isDefaultExportedForwardRef(node: ts.Node): node is ts.ExportAssignment {
+  return (
+    ts.isExportAssignment(node) &&
+    ts.isCallExpression(node.expression) &&
+    isFunctionalComponentWithReactForwardRef(node)
+  );
 }
 
-function getComponentDeclaration(
-  sourceFile:ts.SourceFile,
-  functionName:string,
-):ComponentData|undefined {
-  const variable:ts.VariableStatement | undefined = getVariableStatement(sourceFile, functionName);
+function getComponentDeclaration(sourceFile: ts.SourceFile, functionName: string): ComponentData | undefined {
+  const variable: ts.VariableStatement | undefined = getVariableStatement(sourceFile, functionName);
 
   // const Component = forwardRef(() => {});
   // const Component = forwardRef(function() {});
   // const Component = forwardRef(_Component);
   if (variable && isFunctionalComponentWithReactForwardRef(variable)) {
-    const argument:ts.Expression = (
-      variable.declarationList.declarations[0].initializer as ts.CallExpression
-    ).arguments[0];
+    const argument: ts.Expression = (variable.declarationList.declarations[0].initializer as ts.CallExpression)
+      .arguments[0];
 
     // const Component = forwardRef(_Component);
     if (ts.isIdentifier(argument)) {
-      const internalVariable:ts.VariableStatement | undefined  = getVariableStatement(
+      const internalVariable: ts.VariableStatement | undefined = getVariableStatement(
         sourceFile,
-        (argument as ts.Identifier).escapedText as string,
+        (argument as ts.Identifier).escapedText as string
       );
-      const initializer:any = internalVariable?.declarationList?.declarations[0]?.initializer;
+      const initializer: any = internalVariable?.declarationList?.declarations[0]?.initializer;
 
-      if (initializer && ts.isArrowFunction(initializer) || ts.isFunctionExpression(initializer)) {
+      if ((initializer && ts.isArrowFunction(initializer)) || ts.isFunctionExpression(initializer)) {
         return { declaration: variable.declarationList.declarations[0], isExported: isExported(variable) };
       }
     }
@@ -50,10 +48,10 @@ function getComponentDeclaration(
 
   // export default forwardRef(function() {});
   // export default forwardRef(() => {});
-  let result:ts.ArrowFunction | ts.FunctionExpression | undefined;
+  let result: ts.ArrowFunction | ts.FunctionExpression | undefined;
   ts.forEachChild(sourceFile, (node) => {
     if (isDefaultExportedForwardRef(node)) {
-      const argument:ts.Expression = (node.expression as ts.CallExpression).arguments[0];
+      const argument: ts.Expression = (node.expression as ts.CallExpression).arguments[0];
 
       if (ts.isArrowFunction(argument) || ts.isFunctionExpression(argument)) {
         result = argument;
@@ -65,19 +63,16 @@ function getComponentDeclaration(
 }
 
 export function findExportedFunctionWithReactForwardRef(
-  context:TSSerializationContext,
-  functionName:string,
-):ts.FunctionDeclaration | ts.ArrowFunction | ts.FunctionExpression | ts.VariableDeclaration | undefined {
-  const result:ComponentData | undefined = getComponentDeclaration(
-    context.file,
-    functionName,
-  );
+  context: TSSerializationContext,
+  functionName: string
+): ts.FunctionDeclaration | ts.ArrowFunction | ts.FunctionExpression | ts.VariableDeclaration | undefined {
+  const result: ComponentData | undefined = getComponentDeclaration(context.file, functionName);
 
   if (result && result.isExported) {
     return result.declaration;
   }
 
-  let isFunctionExported:boolean = false;
+  let isFunctionExported = false;
 
   // non-inline export
   // const Component = forwardRef(() => {});

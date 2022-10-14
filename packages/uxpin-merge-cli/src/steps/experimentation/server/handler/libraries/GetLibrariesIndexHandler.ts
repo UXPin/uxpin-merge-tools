@@ -6,7 +6,7 @@ import { RequestHandler } from '../RequestHandler';
 
 // tslint:disable prefer-function-over-method
 export class GetLibrariesIndexHandler implements RequestHandler {
-  public handle(request:IncomingMessage, response:ServerResponse):void {
+  public handle(request: IncomingMessage, response: ServerResponse): void {
     response.writeHead(OK, {
       'Content-Type': 'application/json',
       ...getAccessControlHeaders(request.headers),

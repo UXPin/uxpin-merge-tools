@@ -4,8 +4,8 @@ import { getNoCacheHeaders } from '../../headers/getNoCacheHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { StaticFileHandler } from '../file/StaticFileHandler';
 
-export function createLibraryBundleHandler(context:ExperimentationServerContext):StaticFileHandler {
-  const headers:OutgoingHttpHeaders = {
+export function createLibraryBundleHandler(context: ExperimentationServerContext): StaticFileHandler {
+  const headers: OutgoingHttpHeaders = {
     'Content-Type': 'application/javascript',
     ...getNoCacheHeaders(),
     ...getAccessControlHeaders(),

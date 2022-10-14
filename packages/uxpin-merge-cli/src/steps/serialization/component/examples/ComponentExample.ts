@@ -1,3 +1,3 @@
 export interface ComponentExample {
-  code:string;
+  code: string;
 }

@@ -6,10 +6,10 @@ import { ComponentImplementationInfo } from '../../../discovery/component/Compon
 import { ComponentWrapper, ComponentWrapperType } from '../../component/wrappers/ComponentWrapper';
 
 export function customWrapperPathValidator(
-  wrappers:Array<Warned<ComponentWrapper>>,
-  implInfo:ComponentImplementationInfo,
-):Array<Warned<ComponentWrapper>> {
-  return wrappers.map(({ result: wrapper, warnings }:Warned<ComponentWrapper>) => {
+  wrappers: Array<Warned<ComponentWrapper>>,
+  implInfo: ComponentImplementationInfo
+): Array<Warned<ComponentWrapper>> {
+  return wrappers.map(({ result: wrapper, warnings }: Warned<ComponentWrapper>) => {
     if (wrapper.type === ComponentWrapperType.CUSTOM && !wrapperPathExists(implInfo.path, wrapper.path)) {
       warnings.push({ message: `Invalid wrapper path "${wrapper.path}"!` });
     }
@@ -18,9 +18,9 @@ export function customWrapperPathValidator(
   });
 }
 
-function wrapperPathExists(baseFilePath:string, pathToResolve:string):boolean {
-  const { dir }:ParsedPath = parse(baseFilePath);
-  const path:string = resolve(dir, pathToResolve);
+function wrapperPathExists(baseFilePath: string, pathToResolve: string): boolean {
+  const { dir }: ParsedPath = parse(baseFilePath);
+  const path: string = resolve(dir, pathToResolve);
 
   try {
     statSync(path);

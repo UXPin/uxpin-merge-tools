@@ -1,6 +1,6 @@
 import { PageContent } from '../../../../../../../src/common/types/PageData';
 
-export const examplePageContent:PageContent = {
+export const examplePageContent: PageContent = {
   '46a48bee71ce4c20bbc1d1ee97b3891f': {
     props: {
       anchorX: 0,
@@ -52,13 +52,13 @@ export const examplePageContent:PageContent = {
       width: 206,
       x: 162,
       y: 1275,
-    }, type: 'Box', v: '2.0',
+    },
+    type: 'Box',
+    v: '2.0',
   },
   canvas: {
     props: {
-      storedElements: [
-        '46a48bee71ce4c20bbc1d1ee97b3891f',
-      ],
+      storedElements: ['46a48bee71ce4c20bbc1d1ee97b3891f'],
     },
     type: 'Canvas',
     v: '2.0',

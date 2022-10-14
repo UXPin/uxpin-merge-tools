@@ -5,13 +5,11 @@ import { DesignSystemSnapshot } from '../../../../../../../serialization/DesignS
 import { getDesignSystemId } from '../getDesignSystemId';
 import { getComponentId } from './getComponentId';
 
-export function getComponentsCollection(
-  { revisionId, metadata }:ComponentsCollectionInput,
-):AllComponentsCollection {
-  const designSystemId:string = getDesignSystemId(revisionId);
-  const components:ComponentDefinition[] = flatMap(metadata.categorizedComponents, (c) => c.components);
+export function getComponentsCollection({ revisionId, metadata }: ComponentsCollectionInput): AllComponentsCollection {
+  const designSystemId: string = getDesignSystemId(revisionId);
+  const components: ComponentDefinition[] = flatMap(metadata.categorizedComponents, (c) => c.components);
   return components.reduce<AllComponentsCollection>((all, component) => {
-    const componentId:string = getComponentId(designSystemId, component.info);
+    const componentId: string = getComponentId(designSystemId, component.info);
     all[componentId] = {
       componentId,
       info: component.info,
@@ -26,6 +24,6 @@ export function getComponentsCollection(
 }
 
 export interface ComponentsCollectionInput {
-  metadata:DesignSystemSnapshot;
-  revisionId:string;
+  metadata: DesignSystemSnapshot;
+  revisionId: string;
 }

@@ -1,7 +1,7 @@
 import { NO_CONTENT, OK } from 'http-status-codes';
 import { StubbyStub } from 'stubby';
 
-export function getStubGetLatestCommitRequest(commitHash:string|null = null):StubbyStub {
+export function getStubGetLatestCommitRequest(commitHash: string | null = null): StubbyStub {
   return {
     request: {
       method: 'GET',

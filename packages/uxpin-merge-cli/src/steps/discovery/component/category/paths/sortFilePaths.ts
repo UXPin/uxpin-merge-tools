@@ -1,12 +1,12 @@
 import { parse, ParsedPath } from 'path';
 
-export function sortFilePaths(paths:string[]):string[] {
+export function sortFilePaths(paths: string[]): string[] {
   return paths.sort(sorter);
 }
 
-function sorter(fullPathA:string, fullPathB:string):number {
-  const parsedPathA:ParsedPath = parse(fullPathA);
-  const parsedPathB:ParsedPath = parse(fullPathB);
+function sorter(fullPathA: string, fullPathB: string): number {
+  const parsedPathA: ParsedPath = parse(fullPathA);
+  const parsedPathB: ParsedPath = parse(fullPathB);
 
   if (parsedPathA.dir === parsedPathB.dir) {
     return sortAZ(`${parsedPathA.name}${parsedPathA.ext}`, `${parsedPathB.name}${parsedPathB.ext}`);
@@ -23,10 +23,6 @@ function sorter(fullPathA:string, fullPathB:string):number {
   return sortAZ(parsedPathA.dir, parsedPathB.dir);
 }
 
-function sortAZ(a:string, b:string):number {
-  return a > b
-    ? 1
-    : a < b
-      ? -1
-      : 0;
+function sortAZ(a: string, b: string): number {
+  return a > b ? 1 : a < b ? -1 : 0;
 }

@@ -3,22 +3,22 @@ import { CommitMetadata, RepositoryAdapter, RepositoryPointer } from './Reposito
 
 // tslint:disable prefer-function-over-method
 export abstract class AbstractRepositoryAdapter implements RepositoryAdapter {
-  public async getRepositoryPointer():Promise<RepositoryPointer> {
+  public async getRepositoryPointer(): Promise<RepositoryPointer> {
     return {
       branchName: await this.getCurrentBranch(),
       commit: await this.getLatestCommit(),
     };
   }
 
-  public getCurrentBranch():Promise<string> {
+  public getCurrentBranch(): Promise<string> {
     throw new Error('Not implemented');
   }
 
-  public getMovedFiles(revision1:string, revision2:string):Promise<MovedFilePathsMap> {
+  public getMovedFiles(revision1: string, revision2: string): Promise<MovedFilePathsMap> {
     throw new Error('Not implemented');
   }
 
-  public getLatestCommit():Promise<CommitMetadata> {
+  public getLatestCommit(): Promise<CommitMetadata> {
     throw new Error('Not implemented');
   }
 }

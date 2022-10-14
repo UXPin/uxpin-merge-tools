@@ -4,24 +4,24 @@ import { getRandomString } from '../../../src/utils/getRandomString';
 import { resolveTestProjectPath } from '../resources/resolveTestProjectPath';
 import { AllCmdOptions } from './CmdOptions';
 
-const packageRootDir:string = join(__dirname, '../../../');
-const nycPath:string = join(packageRootDir, 'node_modules/.bin/nyc');
-const uxPinPath:string = join(packageRootDir, 'bin/uxpin-merge');
+const packageRootDir: string = join(__dirname, '../../../');
+const nycPath: string = join(packageRootDir, 'node_modules/.bin/nyc');
+const uxPinPath: string = join(packageRootDir, 'bin/uxpin-merge');
 
-export function buildCommand({ cwd, env, params }:AllCmdOptions):string {
-  const envVars:string = stringifyEnv(env);
-  const absoluteWorkingDir:string = resolveTestProjectPath(cwd);
-  const coverageCommand:string = `${nycPath} ${getNycOptions()}`;
+export function buildCommand({ cwd, env, params }: AllCmdOptions): string {
+  const envVars: string = stringifyEnv(env);
+  const absoluteWorkingDir: string = resolveTestProjectPath(cwd);
+  const coverageCommand = `${nycPath} ${getNycOptions()}`;
   return `cd ${absoluteWorkingDir} && ${envVars} ${coverageCommand} ${uxPinPath} ${params.join(' ')}`;
 }
 
-function getCoverageOutputDirPath():string {
-  const coverageDirName:string = getRandomString();
+function getCoverageOutputDirPath(): string {
+  const coverageDirName: string = getRandomString();
   return join(packageRootDir, 'coverage-cli', coverageDirName);
 }
 
-function getNycOptions():string {
-  const coverageDir:string = getCoverageOutputDirPath();
+function getNycOptions(): string {
+  const coverageDir: string = getCoverageOutputDirPath();
   return `--cwd="${packageRootDir}" \
 --report-dir="${coverageDir}" \
 --reporter=clover \
@@ -29,9 +29,13 @@ function getNycOptions():string {
 --extension=".ts"`;
 }
 
-function stringifyEnv(env:AllCmdOptions['env']):string {
-  return reduce(env, (result, value, name) => {
-    result.push(`${name}="${value}"`);
-    return result;
-  }, [] as string[]).join(' ');
+function stringifyEnv(env: AllCmdOptions['env']): string {
+  return reduce(
+    env,
+    (result, value, name) => {
+      result.push(`${name}="${value}"`);
+      return result;
+    },
+    [] as string[]
+  ).join(' ');
 }

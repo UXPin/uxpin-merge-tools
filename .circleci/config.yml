@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:12.18.1
+      - image: cimg/node:16.14-browsers
     resource_class: medium
     working_directory: ~/project/packages/uxpin-merge-cli
     steps:
@@ -50,6 +50,7 @@ jobs:
           no_output_timeout: 30m
           environment:
             CHROME_PATH: /usr/bin/google-chrome
+            NODE_OPTIONS: --max-old-space-size=4096
       - store_test_results:
           path: ./reports
       - run:

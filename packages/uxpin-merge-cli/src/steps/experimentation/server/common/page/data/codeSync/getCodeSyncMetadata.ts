@@ -3,7 +3,7 @@ import { DesignSystemSnapshot } from '../../../../../../serialization/DesignSyst
 import { getComponentsCollection } from './component/getComponentsCollection';
 import { getPresetsCollection } from './preset/getPresetsCollection';
 
-export function getCodeSyncMetadata(input:CodeSyncMetadataInput):CodeSyncMetadata {
+export function getCodeSyncMetadata(input: CodeSyncMetadataInput): CodeSyncMetadata {
   const { ngrokSessionId, port, revisionId } = input;
 
   return {
@@ -15,15 +15,15 @@ export function getCodeSyncMetadata(input:CodeSyncMetadataInput):CodeSyncMetadat
   };
 }
 
-function getBundleUrl(port:number, ngrokSessionId?:string):string {
+function getBundleUrl(port: number, ngrokSessionId?: string): string {
   return ngrokSessionId
     ? `https://${ngrokSessionId}.ngrok.io/code/library.js`
     : `http://localhost:${port}/code/library.js`;
 }
 
 export interface CodeSyncMetadataInput {
-  metadata:DesignSystemSnapshot;
-  ngrokSessionId?:string;
-  port:number;
-  revisionId:string;
+  metadata: DesignSystemSnapshot;
+  ngrokSessionId?: string;
+  port: number;
+  revisionId: string;
 }

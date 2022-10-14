@@ -4,7 +4,7 @@ describe('getPropertyDescription', () => {
   describe('without custom descriptors', () => {
     it('should return empty string when not provided', () => {
       // having
-      const desc:string = '';
+      const desc = '';
 
       // when
       // then
@@ -13,7 +13,7 @@ describe('getPropertyDescription', () => {
 
     it('should trim description', () => {
       // having
-      const desc:string = '     Some description    ';
+      const desc = '     Some description    ';
 
       // when
       // then
@@ -23,7 +23,7 @@ describe('getPropertyDescription', () => {
     it('should work well with multiline description', () => {
       // having
       // tslint:disable:no-trailing-whitespace
-      const desc:string = `   Some
+      const desc = `   Some
    multiline
 description    
 
@@ -47,7 +47,7 @@ lines.`);
   describe('with custom descriptors', () => {
     it('should return empty string if only descriptors are provided', () => {
       // having
-      const desc:string = `@uxpinfoo test
+      const desc = `@uxpinfoo test
 @uxpinfoo test2`;
 
       // when
@@ -57,7 +57,7 @@ lines.`);
 
     it('should return description provided before descriptors', () => {
       // having
-      const desc:string = `Some description
+      const desc = `Some description
 
 @uxpinfoo test
 @uxpinfoo test2`;
@@ -69,7 +69,7 @@ lines.`);
 
     it('should work well with multilines descriptions', () => {
       // having
-      const desc:string = `Some
+      const desc = `Some
 multiline
 description
 
@@ -98,7 +98,7 @@ lines.`);
   describe('with external JSDoc tags', () => {
     it('should keep external JSDoc tags', () => {
       // having
-      const desc:string = `Some description
+      const desc = `Some description
 
 @uxpindescription Multiline
 UXPin

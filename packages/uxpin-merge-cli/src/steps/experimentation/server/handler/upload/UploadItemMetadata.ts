@@ -1,4 +1,4 @@
 export interface UploadItemMetadata {
-  contentType:string;
-  fileName:string;
+  contentType: string;
+  fileName: string;
 }

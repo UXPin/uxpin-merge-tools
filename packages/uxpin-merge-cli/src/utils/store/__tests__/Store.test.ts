@@ -1,12 +1,12 @@
 import { Store } from '../Store';
 
 interface SimpleState {
-  foo:boolean;
-  bar:string;
+  foo: boolean;
+  bar: string;
 }
 
 describe('Store', () => {
-  let store:Store<SimpleState>;
+  let store: Store<SimpleState>;
 
   beforeEach(() => {
     // having

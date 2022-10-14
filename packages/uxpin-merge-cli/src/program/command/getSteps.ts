@@ -1,5 +1,6 @@
 import { ProgramArgs } from '../args/ProgramArgs';
 import { Command } from './Command';
+import { getDeleteVersionCommandSteps } from './delete_version/getDeleteVersionCommandSteps';
 import { getDumpCommandSteps } from './dump/getDumpCommandSteps';
 import { getExperimentationCommandSteps } from './experimentation/getExperimentationCommandSteps';
 import { getGeneratePresetsCommandSteps } from './generate_presets/getGeneratePresetsCommandSteps';
@@ -9,7 +10,7 @@ import { getServerCommandSteps } from './server/getServerCommandSteps';
 import { Step } from './Step';
 import { getSummaryCommandSteps } from './summary/getSummaryCommandSteps';
 
-export function getSteps(args:ProgramArgs):Step[] {
+export function getSteps(args: ProgramArgs): Step[] {
   switch (args.command) {
     case Command.DUMP:
       return getDumpCommandSteps();
@@ -25,6 +26,9 @@ export function getSteps(args:ProgramArgs):Step[] {
 
     case Command.PUSH:
       return getPushCommandSteps(args);
+
+    case Command.DELETE_VERSION:
+      return getDeleteVersionCommandSteps(args);
 
     case Command.SERVER:
       return getServerCommandSteps(args);

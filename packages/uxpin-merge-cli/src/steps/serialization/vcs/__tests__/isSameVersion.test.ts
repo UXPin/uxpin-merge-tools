@@ -4,7 +4,7 @@ import { isSameVersion } from '../isSameVersion';
 describe('isSameVersion', () => {
   it('should return true if repository points the same commit as source commit', () => {
     // given
-    const ds:DesignSystemSnapshot = {
+    const ds: DesignSystemSnapshot = {
       categorizedComponents: [],
       name: 'Library',
       vcs: {
@@ -18,7 +18,7 @@ describe('isSameVersion', () => {
     };
 
     // when
-    const isSame:boolean = isSameVersion(ds);
+    const isSame: boolean = isSameVersion(ds);
 
     // then
     expect(isSame).toBe(true);
@@ -26,7 +26,7 @@ describe('isSameVersion', () => {
 
   it('should return false if repository points different commit than source commit', () => {
     // given
-    const ds:DesignSystemSnapshot = {
+    const ds: DesignSystemSnapshot = {
       categorizedComponents: [],
       name: 'Library',
       vcs: {
@@ -40,7 +40,7 @@ describe('isSameVersion', () => {
     };
 
     // when
-    const isSame:boolean = isSameVersion(ds);
+    const isSame: boolean = isSameVersion(ds);
 
     // then
     expect(isSame).toBe(false);
@@ -48,7 +48,7 @@ describe('isSameVersion', () => {
 
   it('should return false if source commit is not provided', () => {
     // given
-    const ds:DesignSystemSnapshot = {
+    const ds: DesignSystemSnapshot = {
       categorizedComponents: [],
       name: 'Library',
       vcs: {
@@ -58,7 +58,7 @@ describe('isSameVersion', () => {
     };
 
     // when
-    const isSame:boolean = isSameVersion(ds);
+    const isSame: boolean = isSameVersion(ds);
 
     // then
     expect(isSame).toBe(false);

@@ -16,27 +16,24 @@ import { setupExperimentationServerTest } from '../../../../../utils/experimenta
 import { examplePageContent } from './fixtures/examplePageContent';
 import { getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom } from './fixtures/getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom';
 
-const TIMEOUT:number = 80000;
+const TIMEOUT = 80000;
 jest.setTimeout(TIMEOUT);
 
 describe('Experimentation server – handling set active page request', () => {
-
-  const port:number = getRandomPortNumber();
+  const port: number = getRandomPortNumber();
   const { request, getWorkingDir } = setupExperimentationServerTest({
     port,
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
-    serverCmdArgs: [
-      '--webpack-config="./webpack.config.js"',
-    ],
+    serverCmdArgs: ['--webpack-config="./webpack.config.js"'],
   });
 
-  let response:Response;
+  let response: Response;
 
   describe('when no page data is stored', () => {
     beforeAll(async () => {
       // given
-      const origin:string = 'https://app.uxpin.com';
-      const requestOptions:RequestPromiseOptions = {
+      const origin = 'https://app.uxpin.com';
+      const requestOptions: RequestPromiseOptions = {
         form: {
           json: '{"id_page":"112","id_project":456}',
         },
@@ -51,7 +48,7 @@ describe('Experimentation server – handling set active page request', () => {
 
     it('responds with OK status code and correct headers', async () => {
       // given
-      const expectedHeaders:any = {
+      const expectedHeaders: any = {
         'access-control-allow-credentials': 'true',
         'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
         'access-control-allow-origin': 'https://app.uxpin.com',
@@ -65,12 +62,12 @@ describe('Experimentation server – handling set active page request', () => {
 
     it('responds with a page object with the example elements on the canvas', () => {
       // when
-      const responseBody:any = JSON.parse(response.body);
+      const responseBody: any = JSON.parse(response.body);
 
       // then
-      const expectedPage:PageContent = getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(responseBody.page);
-      const revisionId:string = '3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762';
-      const expectedBody:PageData = {
+      const expectedPage: PageContent = getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(responseBody.page);
+      const revisionId = '3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762';
+      const expectedBody: PageData = {
         code_sync: getExpectedCodeSyncMetadata(revisionId),
         component_version: null,
         components_master_ids: [],
@@ -87,11 +84,11 @@ describe('Experimentation server – handling set active page request', () => {
 
   describe('when page data is stored in temp dir', () => {
     beforeAll(async () => {
-      const contentFilePath:string = join(getWorkingDir(), TEMP_DIR_NAME, PAGE_FILE_NAME);
+      const contentFilePath: string = join(getWorkingDir(), TEMP_DIR_NAME, PAGE_FILE_NAME);
       await writeJson(contentFilePath, examplePageContent);
 
       // given
-      const requestOptions:RequestPromiseOptions = {
+      const requestOptions: RequestPromiseOptions = {
         form: {
           json: '{"id_page":"112","id_project":456}',
         },
@@ -105,8 +102,8 @@ describe('Experimentation server – handling set active page request', () => {
 
     it('responds with a stored page content', () => {
       // given
-      const revisionId:string = '3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762';
-      const expectedBody:PageData = {
+      const revisionId = '3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762';
+      const expectedBody: PageData = {
         code_sync: getExpectedCodeSyncMetadata(revisionId),
         component_version: null,
         components_master_ids: [],
@@ -122,7 +119,7 @@ describe('Experimentation server – handling set active page request', () => {
     });
   });
 
-  function getExpectedCodeSyncMetadata(revisionId:string):CodeSyncMetadata {
+  function getExpectedCodeSyncMetadata(revisionId: string): CodeSyncMetadata {
     return {
       bundles: {
         [revisionId]: `https://sessionId.ngrok.io/code/library.js`,

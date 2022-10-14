@@ -1,13 +1,15 @@
 import { PageIncrementalUpdate } from '../../../../../../../src/common/types/PageIncrementalUpdate';
 
-export const updateElementRequestPayload:PageIncrementalUpdate = {
+export const updateElementRequestPayload: PageIncrementalUpdate = {
   can_break_cohesion: false,
   changed_elements: {
     '46a48bee': {
       props: {
         height: 163,
         width: 347,
-      }, type: 'Box', v: '2.0',
+      },
+      type: 'Box',
+      v: '2.0',
     },
   },
   comet_thread_id: '8997684629855957696973',

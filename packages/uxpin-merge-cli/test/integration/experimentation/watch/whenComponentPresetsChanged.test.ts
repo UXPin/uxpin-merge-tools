@@ -4,26 +4,26 @@ import { getTempDirPath } from '../../../../src/program/args/providers/paths/get
 import { LIBRARY_OUTPUT_FILENAME } from '../../../../src/steps/building/config/getConfig';
 import { METADATA_FILE_NAME } from '../../../../src/steps/experimentation/metadata/saveMetadata';
 import { DesignSystemSnapshot } from '../../../../src/steps/serialization/DesignSystemSnapshot';
-import { expectedButtonDefinition, expectedDSWatchingChangesMetadata } from '../../../resources/designSystems/watchingChanges/.uxpin-merge/expectedDSWatchingChangesMetadata';
+import {
+  expectedButtonDefinition,
+  expectedDSWatchingChangesMetadata,
+} from '../../../resources/designSystems/watchingChanges/.uxpin-merge/expectedDSWatchingChangesMetadata';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../utils/file/getFileChecksum';
 
-const CURRENT_TIMEOUT:number = 60000;
+const CURRENT_TIMEOUT = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental - watch - when component presets has changed', () => {
-  let initialBundleChecksum:string;
-  let initialMetadata:string;
+  let initialBundleChecksum: string;
+  let initialMetadata: string;
   const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
-    serverCmdArgs: [
-      '--config "uxpin.config.js"',
-      '--webpack-config "./webpack.config.js"',
-    ],
+    serverCmdArgs: ['--config "uxpin.config.js"', '--webpack-config "./webpack.config.js"'],
   });
 
-  const changedFileContent:string = `
+  const changedFileContent = `
 import React from 'react';
 import Button from '../Button';
 
@@ -36,7 +36,7 @@ export default (
     // given
     initialBundleChecksum = await getBundleChecksum();
     initialMetadata = await getMetadataChecksum();
-    const buttonPresetsPath:string = './src/components/Button/presets/0-default.jsx';
+    const buttonPresetsPath = './src/components/Button/presets/0-default.jsx';
 
     // when
     await changeProjectFile(buttonPresetsPath, changedFileContent);
@@ -52,7 +52,7 @@ export default (
 
   it('should update metadata file with new presets', async () => {
     // given
-    const expectedMetadata:DesignSystemSnapshot = {
+    const expectedMetadata: DesignSystemSnapshot = {
       ...expectedDSWatchingChangesMetadata,
       categorizedComponents: [
         expectedDSWatchingChangesMetadata.categorizedComponents[0],
@@ -83,23 +83,23 @@ export default (
     };
 
     // when
-    const metadataFile:DesignSystemSnapshot = await readJson(getMetadataPath());
+    const metadataFile: DesignSystemSnapshot = await readJson(getMetadataPath());
 
     // then
     expect(metadataFile).toEqual(expectedMetadata);
   });
 
-  function getBundleChecksum():Promise<string> {
-    const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
+  function getBundleChecksum(): Promise<string> {
+    const tempDirPath: string = getTempDirPath({ cwd: getWorkingDir() });
     return getFileChecksum(path.resolve(tempDirPath, LIBRARY_OUTPUT_FILENAME));
   }
 
-  function getMetadataChecksum():Promise<string> {
+  function getMetadataChecksum(): Promise<string> {
     return getFileChecksum(getMetadataPath());
   }
 
-  function getMetadataPath():string {
-    const tempDirPath:string = getTempDirPath({ cwd: getWorkingDir() });
+  function getMetadataPath(): string {
+    const tempDirPath: string = getTempDirPath({ cwd: getWorkingDir() });
     return path.resolve(tempDirPath, METADATA_FILE_NAME);
   }
 });

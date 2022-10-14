@@ -8,8 +8,8 @@ describe('serializeTSComponent-DocUrl', () => {
   describe('functional component', () => {
     it('is serialized correctly with the provided url', async () => {
       // having
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithDocUrlDeclaration');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithDocUrlDeclaration');
+      const expectedMetadata: ComponentMetadata = {
         componentDocUrl: 'https://app.uxpin.com/test',
         defaultExported: true,
         name: 'FunctionWithDocUrlDeclaration',
@@ -25,7 +25,7 @@ describe('serializeTSComponent-DocUrl', () => {
       };
 
       // when
-      const metadata:Warned<ComponentMetadata> = await serializeTSComponent(component);
+      const metadata: Warned<ComponentMetadata> = await serializeTSComponent(component);
       // then
       expect(metadata.warnings).toEqual([]);
       expect(metadata.result).toEqual(expectedMetadata);

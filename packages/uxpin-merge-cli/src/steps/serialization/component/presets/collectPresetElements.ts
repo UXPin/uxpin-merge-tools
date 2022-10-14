@@ -7,18 +7,22 @@ import { replaceElementsWithReferencesInChildren } from './replaceElementsWithRe
 import { replaceElementsWithReferencesInProps } from './replaceElementsWithReferencesInProps';
 
 export interface PresetElementsMap {
-  [id:string]:ComponentPresetElement;
+  [id: string]: ComponentPresetElement;
 }
 
 export function collectPresetElements(
-  element:AnySerializedElement,
-  elementsCollector:Warned<PresetElementsMap>,
-):Warned<PresetElementsMap> {
+  element: AnySerializedElement,
+  elementsCollector: Warned<PresetElementsMap>
+): Warned<PresetElementsMap> {
   if (!isJSXSerializedElement(element)) {
     return elementsCollector;
   }
 
-  const { children, name, props: { uxpId, ...props } } = element;
+  const {
+    children,
+    name,
+    props: { uxpId, ...props },
+  } = element;
 
   if (!uxpId) {
     throw new Error('Missing `uxpId` property');

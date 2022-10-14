@@ -4,7 +4,7 @@ import { BuiltInWrappers, ComponentWrapper, ComponentWrapperType } from '../../.
 import { builtInWrapperValidator } from '../builtInWrapperValidator';
 
 describe('isBuiltInWrapperValidator', () => {
-  const implInfo:ComponentImplementationInfo = {
+  const implInfo: ComponentImplementationInfo = {
     framework: 'reactjs',
     lang: 'typescript',
     path: './somePath/',
@@ -13,7 +13,7 @@ describe('isBuiltInWrapperValidator', () => {
   describe('when warned array of valid built in wrappers is provided', () => {
     it('should return this array without any warnings', () => {
       // having
-      const wrappers:Array<Warned<ComponentWrapper>> = [
+      const wrappers: Array<Warned<ComponentWrapper>> = [
         {
           result: {
             name: BuiltInWrappers.NON_RESIZABLE_WRAPPER,
@@ -40,7 +40,7 @@ describe('isBuiltInWrapperValidator', () => {
   describe('when warned array of invalid built in wrappers is provided', () => {
     it('should return array with warnings', () => {
       // having
-      const wrappers:Array<Warned<ComponentWrapper>> = [
+      const wrappers: Array<Warned<ComponentWrapper>> = [
         {
           result: {
             name: 'SomeFancyName',
@@ -58,9 +58,7 @@ describe('isBuiltInWrapperValidator', () => {
             name: 'SomeFancyName',
             type: ComponentWrapperType.BUILT_IN,
           },
-          warnings: [
-            { message: 'Unknown built in wrapper "SomeFancyName"!' },
-          ],
+          warnings: [{ message: 'Unknown built in wrapper "SomeFancyName"!' }],
         },
       ]);
     });
@@ -69,7 +67,7 @@ describe('isBuiltInWrapperValidator', () => {
   describe('when warned array with custom wrapper is provided', () => {
     it('should return array without warnings', () => {
       // having
-      const wrappers:Array<Warned<ComponentWrapper>> = [
+      const wrappers: Array<Warned<ComponentWrapper>> = [
         {
           result: {
             name: 'CustomWrapperName',
@@ -98,7 +96,7 @@ describe('isBuiltInWrapperValidator', () => {
   describe('when warned array with custom wrapper with name reserved for built in wrapper is provided', () => {
     it('should return array without warnings', () => {
       // having
-      const wrappers:Array<Warned<ComponentWrapper>> = [
+      const wrappers: Array<Warned<ComponentWrapper>> = [
         {
           result: {
             name: 'NonResizableWrapper',
@@ -118,9 +116,7 @@ describe('isBuiltInWrapperValidator', () => {
             path: '../path',
             type: ComponentWrapperType.CUSTOM,
           },
-          warnings: [
-            { message: '"NonResizableWrapper" is a reserved name for built in validators!' },
-          ],
+          warnings: [{ message: '"NonResizableWrapper" is a reserved name for built in validators!' }],
         },
       ]);
     });

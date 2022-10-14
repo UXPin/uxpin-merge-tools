@@ -4,10 +4,10 @@ import { pickConfigArgs } from './pickConfigArgs';
 import { Arg, ConfigEnabledProgramArgs, ProgramArgs, RawProgramArgs } from './ProgramArgs';
 import { getConfigPath } from './providers/paths/getConfigPath';
 
-export const DEFAULT_CONFIG_PATH:string = './uxpin.config.js';
-const DEFAULT_UXPIN_DOMAIN:string = 'uxpin.com';
+export const DEFAULT_CONFIG_PATH = './uxpin.config.js';
+const DEFAULT_UXPIN_DOMAIN = 'uxpin.com';
 
-const defaultArgs:{ [key in Command]:ProgramArgs } = {
+const defaultArgs: { [key in Command]: ProgramArgs } = {
   [Command.GENERATE_PRESETS]: {
     command: Command.GENERATE_PRESETS,
     config: DEFAULT_CONFIG_PATH,
@@ -39,6 +39,13 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
     token: process.env.UXPIN_AUTH_TOKEN,
     uxpinDomain: DEFAULT_UXPIN_DOMAIN,
   },
+  [Command.DELETE_VERSION]: {
+    command: Command.DELETE_VERSION,
+    config: DEFAULT_CONFIG_PATH,
+    cwd: process.cwd(),
+    token: process.env.UXPIN_AUTH_TOKEN,
+    uxpinDomain: DEFAULT_UXPIN_DOMAIN,
+  },
   [Command.SERVER]: {
     command: Command.SERVER,
     config: DEFAULT_CONFIG_PATH,
@@ -52,11 +59,13 @@ const defaultArgs:{ [key in Command]:ProgramArgs } = {
   },
 };
 
-export function getProgramArgs(program:RawProgramArgs):ProgramArgs {
-  const command:Command = getCommand(program);
-  const cliArgs:ProgramArgs = getCLIArgs(program, command);
-  const configArgs:ConfigEnabledProgramArgs =
-    pickConfigArgs(getConfigPath({ ...defaultArgs[command], ...cliArgs }), command);
+export function getProgramArgs(program: RawProgramArgs): ProgramArgs {
+  const command: Command = getCommand(program);
+  const cliArgs: ProgramArgs = getCLIArgs(program, command);
+  const configArgs: ConfigEnabledProgramArgs = pickConfigArgs(
+    getConfigPath({ ...defaultArgs[command], ...cliArgs }),
+    command
+  );
   return {
     ...defaultArgs[command],
     ...configArgs,
@@ -64,30 +73,29 @@ export function getProgramArgs(program:RawProgramArgs):ProgramArgs {
   } as ProgramArgs;
 }
 
-function getCommand(program:RawProgramArgs):Command {
-  const args:Arg[] = program.args || [];
-  return args.filter(isArgKnownCommand(Object.keys(defaultArgs)))
+function getCommand(program: RawProgramArgs): Command {
+  const args: Arg[] = program.args || [];
+  return args
+    .filter(isArgKnownCommand(Object.keys(defaultArgs)))
     .reduce<Command>((command, arg) => arg.name() as Command, DEFAULT_COMMAND);
 }
 
-function getCLIArgs(program:RawProgramArgs, command:Command):ProgramArgs {
+function getCLIArgs(program: RawProgramArgs, command: Command): ProgramArgs {
   return {
     ...program,
     ...getCommandArgs(program, command),
   } as ProgramArgs;
 }
 
-function getCommandArgs(program:RawProgramArgs, command:Command):ProgramArgs | {} {
-  const commanderStatic:CommanderStatic = (program.args || [])
-    .find(isArgKnownCommand([command])) as CommanderStatic;
-
+function getCommandArgs(program: RawProgramArgs, command: Command): ProgramArgs | {} {
+  const commanderStatic: CommanderStatic = (program.args || []).find(isArgKnownCommand([command])) as CommanderStatic;
   if (!commanderStatic) {
     return {};
   }
 
-  return { ...commanderStatic as any } as RawProgramArgs;
+  return { ...(commanderStatic as any) } as RawProgramArgs;
 }
 
-function isArgKnownCommand(knownCommands:string[]):(arg:Arg) => arg is CommanderStatic {
-  return (arg:Arg):arg is CommanderStatic => typeof arg !== 'string' && knownCommands.includes(arg.name());
+function isArgKnownCommand(knownCommands: string[]): (arg: Arg) => arg is CommanderStatic {
+  return (arg: Arg): arg is CommanderStatic => typeof arg !== 'string' && knownCommands.includes(arg.name());
 }

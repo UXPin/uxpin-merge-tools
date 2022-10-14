@@ -8,16 +8,14 @@ import { handleImplementationError } from '../../error/handleImplementationError
 import { RequestHandler } from '../../RequestHandler';
 
 export class SetActivePageHandler implements RequestHandler {
+  constructor(private context: ExperimentationServerContext) {}
 
-  constructor(private context:ExperimentationServerContext) {
-  }
-
-  public handle(request:IncomingMessage, response:ServerResponse):void {
+  public handle(request: IncomingMessage, response: ServerResponse): void {
     this.respondWithPageContent(response, request.headers).catch((error) => handleImplementationError(response, error));
   }
 
-  private async respondWithPageContent(response:ServerResponse, headers:IncomingHttpHeaders):Promise<void> {
-    const body:string = JSON.stringify(await this.getPageData());
+  private async respondWithPageContent(response: ServerResponse, headers: IncomingHttpHeaders): Promise<void> {
+    const body: string = JSON.stringify(await this.getPageData());
     response.writeHead(OK, {
       'Content-Type': 'text/xml; charset=utf-8',
       ...getAccessControlHeaders(headers),
@@ -26,7 +24,7 @@ export class SetActivePageHandler implements RequestHandler {
     response.end();
   }
 
-  private async getPageData():Promise<PageData> {
+  private async getPageData(): Promise<PageData> {
     const { epid, ngrokSessionId, port, uxpinDirPath } = this.context;
     return await getPageData({ ngrokSessionId, port, revisionId: epid.revisionId, uxpinDirPath });
   }

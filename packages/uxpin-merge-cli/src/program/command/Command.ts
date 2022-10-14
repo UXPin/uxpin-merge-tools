@@ -4,8 +4,9 @@ export enum Command {
   INIT = 'init',
   GENERATE_PRESETS = 'generate-presets',
   PUSH = 'push',
+  DELETE_VERSION = 'delete-version',
   SERVER = 'server',
   SUMMARY = 'summary',
 }
 
-export const DEFAULT_COMMAND:Command = Command.EXPERIMENT;
+export const DEFAULT_COMMAND: Command = Command.EXPERIMENT;

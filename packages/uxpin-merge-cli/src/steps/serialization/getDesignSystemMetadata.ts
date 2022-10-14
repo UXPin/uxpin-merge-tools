@@ -20,18 +20,18 @@ import { validateComponentNamespaces } from './validation/validateComponentNames
 import { getVcsDetails } from './vcs/getVcsDetails';
 
 export async function getDesignSystemMetadata(
-  programArgs:ProgramArgs,
-  paths:ProjectPaths,
-):Promise<Warned<DesignSystemSnapshot>> {
-  const buildOptions:BuildOptions = getBuildOptions(programArgs);
-  const libraryName:string = getLibraryName(paths);
+  programArgs: ProgramArgs,
+  paths: ProjectPaths
+): Promise<Warned<DesignSystemSnapshot>> {
+  const buildOptions: BuildOptions = getBuildOptions(programArgs);
+  const libraryName: string = getLibraryName(paths);
 
-  const categoryInfos:ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
-  const categories:Array<Warned<ComponentCategory>> = await pMap(categoryInfos, categoryInfoToMetadata);
-  const categoriesWithPresets:Array<Warned<ComponentCategory>> = await decorateWithPresets(categories, programArgs);
+  const categoryInfos: ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
+  const categories: Array<Warned<ComponentCategory>> = await pMap(categoryInfos, categoryInfoToMetadata);
+  const categoriesWithPresets: Array<Warned<ComponentCategory>> = await decorateWithPresets(categories, programArgs);
 
-  const categorizedComponents:ComponentCategory[] = categoriesWithPresets.map((category) => category.result);
-  const vcs:VCSDetails = await getVcsDetails(paths, buildOptions, categorizedComponents);
+  const categorizedComponents: ComponentCategory[] = categoriesWithPresets.map((category) => category.result);
+  const vcs: VCSDetails = await getVcsDetails(paths, buildOptions, categorizedComponents);
 
   validateComponentNamespaces(categorizedComponents);
 
@@ -45,10 +45,11 @@ export async function getDesignSystemMetadata(
   };
 }
 
-async function categoryInfoToMetadata(
-  { componentInfos, name }:ComponentCategoryInfo,
-):Promise<Warned<ComponentCategory>> {
-  const components:Array<Warned<ComponentDefinition>> = await pMap(componentInfos, componentInfoToDefinition);
+async function categoryInfoToMetadata({
+  componentInfos,
+  name,
+}: ComponentCategoryInfo): Promise<Warned<ComponentCategory>> {
+  const components: Array<Warned<ComponentDefinition>> = await pMap(componentInfos, componentInfoToDefinition);
 
   return {
     result: {
@@ -59,7 +60,7 @@ async function categoryInfoToMetadata(
   };
 }
 
-async function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<ComponentDefinition>> {
+async function componentInfoToDefinition(info: ComponentInfo): Promise<Warned<ComponentDefinition>> {
   const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(info.implementation);
   const { result: examples, warnings: exampleWarnings } = await serializeOptionalExamples(info);
   return {
@@ -68,7 +69,7 @@ async function componentInfoToDefinition(info:ComponentInfo):Promise<Warned<Comp
   };
 }
 
-async function serializeOptionalExamples(info:ComponentInfo):Promise<ExamplesSerializationResult> {
+async function serializeOptionalExamples(info: ComponentInfo): Promise<ExamplesSerializationResult> {
   if (!info.documentation) {
     return { result: [], warnings: [] };
   }

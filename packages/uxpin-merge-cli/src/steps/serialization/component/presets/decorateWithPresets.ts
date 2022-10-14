@@ -11,35 +11,34 @@ import { PresetsSerializationResult } from './PresetsSerializationResult';
 import { serializePresets } from './serializePresets';
 
 export async function decorateWithPresets(
-  categories:Array<Warned<ComponentCategory>>,
-  programArgs:ProgramArgs,
-):Promise<Array<Warned<ComponentCategory>>> {
-  const components:ComponentDefinition[] = getAllComponentsFromCategories(flatMap(categories, (cat) => cat.result));
-  const bundle:PresetsBundle = await getPresetsBundle(programArgs, components);
+  categories: Array<Warned<ComponentCategory>>,
+  programArgs: ProgramArgs
+): Promise<Array<Warned<ComponentCategory>>> {
+  const components: ComponentDefinition[] = getAllComponentsFromCategories(flatMap(categories, (cat) => cat.result));
+  const bundle: PresetsBundle = await getPresetsBundle(programArgs, components);
 
   return categories.map(thunkDecorateComponentsWithPresets(bundle));
 }
 
 function thunkDecorateComponentsWithPresets(
-  bundle:PresetsBundle,
-):(category:Warned<ComponentCategory>) => Warned<ComponentCategory> {
-  return (category) => (
-    category.result.components.reduce((decorated, component) => {
-      const { result: presets, warnings } = serializeOptionalPresets(bundle, component.info);
-      decorated.result.components.push({ ...component, presets });
-      decorated.warnings.push(...warnings);
-      return decorated;
-    }, {
-      result: { ...category.result, components: [] },
-      warnings: [...category.warnings],
-    } as Warned<ComponentCategory>)
-  );
+  bundle: PresetsBundle
+): (category: Warned<ComponentCategory>) => Warned<ComponentCategory> {
+  return (category) =>
+    category.result.components.reduce(
+      (decorated, component) => {
+        const { result: presets, warnings } = serializeOptionalPresets(bundle, component.info);
+        decorated.result.components.push({ ...component, presets });
+        decorated.warnings.push(...warnings);
+        return decorated;
+      },
+      {
+        result: { ...category.result, components: [] },
+        warnings: [...category.warnings],
+      } as Warned<ComponentCategory>
+    );
 }
 
-function serializeOptionalPresets(
-  bundle:PresetsBundle,
-  info:ComponentInfo,
-):PresetsSerializationResult {
+function serializeOptionalPresets(bundle: PresetsBundle, info: ComponentInfo): PresetsSerializationResult {
   if (!info.presets || !info.presets.length) {
     return { result: [], warnings: [] };
   }

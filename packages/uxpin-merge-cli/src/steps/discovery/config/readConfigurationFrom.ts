@@ -1,6 +1,6 @@
 import { CliConfig } from './CliConfig';
 
-export function readConfigurationFrom(configPath:string):CliConfig | undefined {
+export function readConfigurationFrom(configPath: string): CliConfig | undefined {
   try {
     return require(configPath);
   } catch (e) {

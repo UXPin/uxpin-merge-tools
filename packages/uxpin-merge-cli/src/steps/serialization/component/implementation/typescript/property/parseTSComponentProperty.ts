@@ -9,12 +9,12 @@ import { isMethodSignatureSymbol } from './symbol/isMethodSignatureSymbol';
 import { isPropertySignatureSymbol, PropertySymbol } from './symbol/isPropertySignatureSymbol';
 
 export function parseTSComponentProperty(
-  context:TSSerializationContext,
-  property:ts.Symbol,
-  defaultProps:DefaultProps,
-):ParsedComponentProperty | undefined {
+  context: TSSerializationContext,
+  property: ts.Symbol,
+  defaultProps: DefaultProps
+): ParsedComponentProperty | undefined {
   try {
-    const propertySymbol:ts.Symbol | undefined = getValidSymbol(property);
+    const propertySymbol: ts.Symbol | undefined = getValidSymbol(property);
     if (!propertySymbol) {
       return;
     }
@@ -32,11 +32,11 @@ export function parseTSComponentProperty(
 }
 
 function propertySignatureToPropertyDefinition(
-  context:TSSerializationContext,
-  propSymbol:PropertySymbol,
-  defaultProps:DefaultProps,
-):ParsedComponentProperty {
-  const prop:ParsedComponentProperty = convertPropertySignatureSymbolToPropertyDefinition(context, propSymbol);
+  context: TSSerializationContext,
+  propSymbol: PropertySymbol,
+  defaultProps: DefaultProps
+): ParsedComponentProperty {
+  const prop: ParsedComponentProperty = convertPropertySignatureSymbolToPropertyDefinition(context, propSymbol);
   if (prop.name in defaultProps) {
     prop.defaultValue = { value: defaultProps[prop.name] };
   }

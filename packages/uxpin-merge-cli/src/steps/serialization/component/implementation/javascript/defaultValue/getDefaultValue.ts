@@ -4,16 +4,16 @@ import { ComponentPropertyDefinition } from '../../ComponentPropertyDefinition';
 import { GeneralPropItem } from '../FlowPropItem';
 import { parseValue } from './parseValue';
 
-export function getDefaultValue(propName:string, propItem:GeneralPropItem):Promise<DefaultValueParsingResult> {
-  const result:Pick<ComponentPropertyDefinition, 'defaultValue'> = {};
-  const warnings:WarningDetails[] = [];
+export function getDefaultValue(propName: string, propItem: GeneralPropItem): Promise<DefaultValueParsingResult> {
+  const result: Pick<ComponentPropertyDefinition, 'defaultValue'> = {};
+  const warnings: WarningDetails[] = [];
   return new Promise((resolve) => {
     if (propItem.defaultValue) {
       parseValue(propItem.defaultValue.value)
-        .then((value:any) => {
+        .then((value: any) => {
           result.defaultValue = { value };
         })
-        .catch((originalError:Error) => {
+        .catch((originalError: Error) => {
           warnings.push({
             message: `Cannot compute default value for property \`${propName}\`
 
@@ -29,7 +29,7 @@ ${getFirstLine(originalError.stack || '')}
   });
 }
 
-function getFirstLine(text:string):string {
+function getFirstLine(text: string): string {
   return text.split('\n')[0];
 }
 

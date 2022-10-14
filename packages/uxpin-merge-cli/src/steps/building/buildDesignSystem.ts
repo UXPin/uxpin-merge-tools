@@ -3,16 +3,16 @@ import { BuildOptions } from './BuildOptions';
 import { getCompiler } from './compiler/getCompiler';
 import { createComponentsLibrary } from './library/createComponentsLibrary';
 
-export async function buildDesignSystem(components:ComponentDefinition[], options:BuildOptions):Promise<void> {
+export async function buildDesignSystem(components: ComponentDefinition[], options: BuildOptions): Promise<void> {
   await createComponentsLibrary(components, options);
   await bundle(options);
 }
 
-function bundle(options:BuildOptions):Promise<void> {
+function bundle(options: BuildOptions): Promise<void> {
   setNodeEnvironment(options.development);
   return getCompiler(options).compile();
 }
 
-function setNodeEnvironment(development:boolean = false):void {
+function setNodeEnvironment(development = false): void {
   process.env.NODE_ENV = development ? 'development' : 'production';
 }

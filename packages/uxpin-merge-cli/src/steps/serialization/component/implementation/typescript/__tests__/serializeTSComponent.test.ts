@@ -8,8 +8,8 @@ describe('serializeTSComponent', () => {
   describe('providing array of objects describing all properties of the TypeScript component', () => {
     it('serializes functional component with primitive property types', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FunctionPrimitivesOnly');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionPrimitivesOnly');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionPrimitivesOnly',
         properties: [
@@ -51,8 +51,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes class component with date property ', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithDateType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithDateType');
+      const expectedMetadata: ComponentMetadata = {
         componentDocUrl: undefined,
         defaultExported: true,
         name: 'ClassWithDateType',
@@ -84,7 +84,7 @@ describe('serializeTSComponent', () => {
           },
           {
             defaultValue: {
-              value: '1997-02-01T01:01:01.001Z',
+              value: new Date(1997, 1, 1, 1, 1, 1, 1).toISOString(), // should pass no matter the timezone the code runs!
             },
             description: '',
             isRequired: true,
@@ -108,29 +108,31 @@ describe('serializeTSComponent', () => {
 
     it('serializes class component with empty date property ', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithEmptyDateType');
+      const component: ComponentImplementationInfo = getImplementation('ClassWithEmptyDateType');
       // when
       return serializeTSComponent(component).then((serializedProps) => {
         // then
-        expect(serializedProps.result).toEqual(expect.objectContaining({
-          name: expect.any(String),
-          properties: expect.arrayContaining([
-            expect.objectContaining({
-              defaultValue: expect.objectContaining({
-                value: expect.any(String),
+        expect(serializedProps.result).toEqual(
+          expect.objectContaining({
+            name: expect.any(String),
+            properties: expect.arrayContaining([
+              expect.objectContaining({
+                defaultValue: expect.objectContaining({
+                  value: expect.any(String),
+                }),
               }),
-            }),
-          ]),
-          wrappers: expect.any(Array),
-        }));
+            ]),
+            wrappers: expect.any(Array),
+          })
+        );
         expect(serializedProps.warnings).toEqual([]);
       });
     });
 
     it('serializes class component with enum property types', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassEnumTypes');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassEnumTypes');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassEnumTypes',
         properties: [
@@ -171,7 +173,7 @@ describe('serializeTSComponent', () => {
             },
           },
           {
-            defaultValue:  {
+            defaultValue: {
               value: 1,
             },
             description: '',
@@ -180,7 +182,7 @@ describe('serializeTSComponent', () => {
             type: {
               name: 'union',
               structure: {
-                elements:  [
+                elements: [
                   { name: 'enum', structure: { label: 'Zero', value: 0 } },
                   { name: 'enum', structure: { label: 'One', value: 1 } },
                 ],
@@ -208,10 +210,11 @@ describe('serializeTSComponent', () => {
             name: 'propComputed',
             type: {
               name: 'unsupported',
-              structure: { raw: 'enum' } },
+              structure: { raw: 'enum' },
+            },
           },
           {
-            defaultValue:{
+            defaultValue: {
               value: 0,
             },
             description: '',
@@ -241,8 +244,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes class component with default property values', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithDefaults');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithDefaults');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithDefaults',
         properties: [
@@ -332,8 +335,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes component with interface property type', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassInterfaceTypes');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassInterfaceTypes');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassInterfaceTypes',
         properties: [
@@ -357,8 +360,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes component with imported interface property type', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithImportedTypes');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithImportedTypes');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionWithImportedTypes',
         properties: [
@@ -388,8 +391,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes component with imported type of properties object', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithImportedPropertiesType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithImportedPropertiesType');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithImportedPropertiesType',
         properties: [
@@ -425,8 +428,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes component with function property types', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithFunctionTypes');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithFunctionTypes');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithFunctionTypes',
         properties: [
@@ -474,8 +477,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes component with combined type of properties object', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithCombinedPropertiesType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithCombinedPropertiesType');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithCombinedPropertiesType',
         properties: [
@@ -517,8 +520,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes component with extended type of properties object', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithExtendedPropertiesType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithExtendedPropertiesType');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionWithExtendedPropertiesType',
         properties: [
@@ -561,8 +564,8 @@ describe('serializeTSComponent', () => {
     // @todo #20211: Support for arrow function component with static default props
     it.skip('serializes arrow function component with defaults declared as static property', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ArrowFunctionWithDefaultsAsStaticProperty');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ArrowFunctionWithDefaultsAsStaticProperty');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ArrowFunctionWithDefaultsAsStaticProperty',
         properties: [
@@ -612,9 +615,10 @@ describe('serializeTSComponent', () => {
 
     it('serializes default-exported arrow function with defaults declared in destructuring assignment', () => {
       // given
-      const component:ComponentImplementationInfo =
-        getImplementation('DefaultExportedArrowFunctionWithDefaultsInDestructuring');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation(
+        'DefaultExportedArrowFunctionWithDefaultsInDestructuring'
+      );
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'DefaultExportedArrowFunctionWithDefaultsInDestructuring',
         properties: [
@@ -652,8 +656,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes functional component with defaults declared in destructuring assignment', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithDefaultsInDestructuring');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithDefaultsInDestructuring');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionWithDefaultsInDestructuring',
         properties: [
@@ -703,8 +707,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes component props with index type', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithIndexedType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithIndexedType');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithIndexedType',
         properties: [
@@ -740,8 +744,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes component props with extended interface type', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithExtendedInterface');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithExtendedInterface');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithExtendedInterface',
         properties: [
@@ -795,8 +799,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes functional component with intersection type of properties object', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithCombinedPropertiesType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithCombinedPropertiesType');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionWithCombinedPropertiesType',
         properties: [
@@ -850,8 +854,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes functional component with intersection and union type of properties object', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithCombinedUnionPropertiesType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithCombinedUnionPropertiesType');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionWithCombinedUnionPropertiesType',
         properties: [
@@ -899,8 +903,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes functional component with property with intersection type', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithCombinedProperty');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithCombinedProperty');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionWithCombinedProperty',
         properties: [
@@ -928,40 +932,43 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    it('serializes component props imported from shorthanded file ' +
-      'exporting directly from import from index file', () => {
-      // given
-      const component:ComponentImplementationInfo =
-        getImplementation('ClassWithTypeImportedFromIndexFileExportingFromImport');
-      const expectedMetadata:ComponentMetadata = {
-        defaultExported: true,
-        name: 'ClassWithTypeImportedFromIndexFileExportingFromImport',
-        properties: [
-          {
-            description: '',
-            isRequired: true,
-            name: 'propLocal',
-            type: {
-              name: 'shape',
-              structure: {},
+    it(
+      'serializes component props imported from shorthanded file ' + 'exporting directly from import from index file',
+      () => {
+        // given
+        const component: ComponentImplementationInfo = getImplementation(
+          'ClassWithTypeImportedFromIndexFileExportingFromImport'
+        );
+        const expectedMetadata: ComponentMetadata = {
+          defaultExported: true,
+          name: 'ClassWithTypeImportedFromIndexFileExportingFromImport',
+          properties: [
+            {
+              description: '',
+              isRequired: true,
+              name: 'propLocal',
+              type: {
+                name: 'shape',
+                structure: {},
+              },
             },
-          },
-        ],
-        wrappers: [],
-      };
+          ],
+          wrappers: [],
+        };
 
-      // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
-    });
+        // when
+        return serializeTSComponent(component).then((serializedProps) => {
+          // then
+          expect(serializedProps.result).toEqual(expectedMetadata);
+          expect(serializedProps.warnings).toEqual([]);
+        });
+      }
+    );
 
     it('serializes component props with union type in type alias', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithUnionTypeInAliasType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithUnionTypeInAliasType');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithUnionTypeInAliasType',
         properties: [
@@ -1011,22 +1018,25 @@ describe('serializeTSComponent', () => {
 
     it('serializes component props with typeof/keyof operators', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithKeyOfTypeOfOperatorInType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithKeyOfTypeOfOperatorInType');
+      const expectedMetadata: ComponentMetadata = {
+        componentDocUrl: undefined,
         defaultExported: true,
         name: 'ClassWithKeyOfTypeOfOperatorInType',
+        namespace: undefined,
         properties: [
           {
             description: '',
             isRequired: true,
             name: 'typeOfProp',
-            type: { name: 'number', structure: {} },
+            type: { name: 'literal', structure: { value: 5 } },
           },
           {
             description: '',
             isRequired: true,
             name: 'keyOfProp',
-            type: { name: 'union',
+            type: {
+              name: 'union',
               structure: {
                 elements: [
                   { name: 'literal', structure: { value: 'name' } },
@@ -1040,7 +1050,8 @@ describe('serializeTSComponent', () => {
             description: '',
             isRequired: true,
             name: 'keyOfTypeOfProp',
-            type: { name: 'union',
+            type: {
+              name: 'union',
               structure: {
                 elements: [
                   { name: 'literal', structure: { value: 'name' } },
@@ -1064,8 +1075,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes component props with array of union type', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithArrayOfUnionType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithArrayOfUnionType');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithArrayOfUnionType',
         properties: [
@@ -1098,8 +1109,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes component props with two dimensional array', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithTwoDimensionalArray');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithTwoDimensionalArray');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithTwoDimensionalArray',
         properties: [
@@ -1124,9 +1135,9 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    it('doesn\'t support imported Component type in other way than `React.Component`', async () => {
+    it("doesn't support imported Component type in other way than `React.Component`", async () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithoutImportedReactComponent');
+      const component: ComponentImplementationInfo = getImplementation('ClassWithoutImportedReactComponent');
 
       // when
       await expect(serializeTSComponent(component)).rejects.toThrowError('No component properties found');
@@ -1134,7 +1145,7 @@ describe('serializeTSComponent', () => {
 
     it('rejects returned promise when there is no React component in the given file', (done) => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FileWithoutComponent');
+      const component: ComponentImplementationInfo = getImplementation('FileWithoutComponent');
 
       // when
       serializeTSComponent(component).catch((error) => {
@@ -1146,7 +1157,7 @@ describe('serializeTSComponent', () => {
 
     it('rejects returned promise when there is no file at the given path', (done) => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('NonexistentFile');
+      const component: ComponentImplementationInfo = getImplementation('NonexistentFile');
 
       // when
       serializeTSComponent(component).catch(() => {
@@ -1156,7 +1167,7 @@ describe('serializeTSComponent', () => {
     });
 
     describe('file with default exported component composed with HOC is given', () => {
-      const getI18nComponentMetadata:(expectedName:string) => ComponentMetadata = (expectedName:string) => {
+      const getI18nComponentMetadata: (expectedName: string) => ComponentMetadata = (expectedName: string) => {
         return {
           defaultExported: true,
           name: expectedName,
@@ -1195,15 +1206,17 @@ describe('serializeTSComponent', () => {
 
       it('serializes class component specified by a comment', async () => {
         // when
-        const expectedMetadata:ComponentMetadata =
-          getI18nComponentMetadata('ClassPrependedWithCommentToBeComposedWithHOC');
+        const expectedMetadata: ComponentMetadata = getI18nComponentMetadata(
+          'ClassPrependedWithCommentToBeComposedWithHOC'
+        );
 
         // given
-        const component:ComponentImplementationInfo =
-          getImplementation('DefaultExportedClassComposedWithHOCAndComment');
+        const component: ComponentImplementationInfo = getImplementation(
+          'DefaultExportedClassComposedWithHOCAndComment'
+        );
 
         // when
-        const serializedProps:Warned<ComponentMetadata> = await serializeTSComponent(component);
+        const serializedProps: Warned<ComponentMetadata> = await serializeTSComponent(component);
 
         // then
         expect(serializedProps.warnings).toEqual([]);
@@ -1212,15 +1225,17 @@ describe('serializeTSComponent', () => {
 
       it('serializes functional component specified by a comment', async () => {
         // when
-        const expectedMetadata:ComponentMetadata =
-          getI18nComponentMetadata('FunctionalComponentPrependedWithCommentToBeComposedWithHOC');
+        const expectedMetadata: ComponentMetadata = getI18nComponentMetadata(
+          'FunctionalComponentPrependedWithCommentToBeComposedWithHOC'
+        );
 
         // given
-        const component:ComponentImplementationInfo =
-          getImplementation('DefaultExportedFunctionalComponentComposedWithHOCAndComment');
+        const component: ComponentImplementationInfo = getImplementation(
+          'DefaultExportedFunctionalComponentComposedWithHOCAndComment'
+        );
 
         // when
-        const serializedProps:Warned<ComponentMetadata> = await serializeTSComponent(component);
+        const serializedProps: Warned<ComponentMetadata> = await serializeTSComponent(component);
 
         // then
         expect(serializedProps.warnings).toEqual([]);
@@ -1229,14 +1244,16 @@ describe('serializeTSComponent', () => {
 
       it('serializes class component matching file name', async () => {
         // when
-        const expectedMetadata:ComponentMetadata =
-          getI18nComponentMetadata('DefaultExportedClassMatchingFilenameComposedWithHOC');
+        const expectedMetadata: ComponentMetadata = getI18nComponentMetadata(
+          'DefaultExportedClassMatchingFilenameComposedWithHOC'
+        );
 
-        const component:ComponentImplementationInfo =
-          getImplementation('DefaultExportedClassMatchingFilenameComposedWithHOC');
+        const component: ComponentImplementationInfo = getImplementation(
+          'DefaultExportedClassMatchingFilenameComposedWithHOC'
+        );
 
         // when
-        const serializedProps:Warned<ComponentMetadata> = await serializeTSComponent(component);
+        const serializedProps: Warned<ComponentMetadata> = await serializeTSComponent(component);
 
         // then
         expect(serializedProps.warnings).toEqual([]);
@@ -1245,14 +1262,16 @@ describe('serializeTSComponent', () => {
 
       it('serializes functional component matching file name', async () => {
         // when
-        const expectedMetadata:ComponentMetadata =
-          getI18nComponentMetadata('DefaultExportedFunctionalComponentMatchingFilenameComposedWithHOC');
+        const expectedMetadata: ComponentMetadata = getI18nComponentMetadata(
+          'DefaultExportedFunctionalComponentMatchingFilenameComposedWithHOC'
+        );
 
-        const component:ComponentImplementationInfo =
-          getImplementation('DefaultExportedFunctionalComponentMatchingFilenameComposedWithHOC');
+        const component: ComponentImplementationInfo = getImplementation(
+          'DefaultExportedFunctionalComponentMatchingFilenameComposedWithHOC'
+        );
 
         // when
-        const serializedProps:Warned<ComponentMetadata> = await serializeTSComponent(component);
+        const serializedProps: Warned<ComponentMetadata> = await serializeTSComponent(component);
 
         // then
         expect(serializedProps.warnings).toEqual([]);
@@ -1262,8 +1281,8 @@ describe('serializeTSComponent', () => {
 
     it('serializes component with custom description, name and ignore', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithPropTypesWithComments');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithPropTypesWithComments');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithPropTypesWithComments',
         properties: [
@@ -1319,8 +1338,8 @@ component.`,
 
     it('serializes component with invalid custom names and gives proper warning', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithCorruptedComments');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithCorruptedComments');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithCorruptedComments',
         properties: [
@@ -1376,10 +1395,10 @@ component.`,
     });
 
     describe('FunctionWithMultilevelNamespaceDeclaration', () => {
-      let serialized:Warned<ComponentMetadata>;
+      let serialized: Warned<ComponentMetadata>;
 
       beforeAll(async () => {
-        const component:ComponentImplementationInfo = getImplementation('FunctionWithMultilevelNamespaceDeclaration');
+        const component: ComponentImplementationInfo = getImplementation('FunctionWithMultilevelNamespaceDeclaration');
         serialized = await serializeTSComponent(component);
       });
 
@@ -1394,7 +1413,7 @@ component.`,
   });
 });
 
-export function getImplementation(componentName:string):ComponentImplementationInfo {
+export function getImplementation(componentName: string): ComponentImplementationInfo {
   return {
     framework: 'reactjs',
     lang: 'typescript',

@@ -1,7 +1,7 @@
 import { NO_CONTENT } from 'http-status-codes';
 import { StubbyStub } from 'stubby';
 
-export function getStubUploadBundle():StubbyStub {
+export function getStubUploadBundle(): StubbyStub {
   return {
     request: {
       method: 'POST',

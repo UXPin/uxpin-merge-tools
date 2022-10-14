@@ -4,13 +4,13 @@ import { ComponentPresetInfo } from '../../../../../discovery/component/Componen
 import { ComponentDefinition } from '../../../ComponentDefinition';
 import { getUniqPresetImportName } from './getUniqPresetImportName';
 
-export function getSourceFileContentToBundle(tempDirPath:string, components:ComponentDefinition[]):string {
+export function getSourceFileContentToBundle(tempDirPath: string, components: ComponentDefinition[]): string {
   return getFileBody(tempDirPath, flattenComponentPresetInfos(components));
 }
 
-function getFileBody(tempDirPath:string, infos:ComponentPresetInfo[]):string {
-  const imports:string = infos.map(thunkGetImport(tempDirPath)).join('\n');
-  const exports:string = infos.map(getExport).join('\n');
+function getFileBody(tempDirPath: string, infos: ComponentPresetInfo[]): string {
+  const imports: string = infos.map(thunkGetImport(tempDirPath)).join('\n');
+  const exports: string = infos.map(getExport).join('\n');
 
   return `${imports}
 
@@ -26,10 +26,10 @@ function thunkGetImport(tempDirPath:string):({ path }:ComponentPresetInfo) => st
   );
 }
 
-function getExport({ path }:ComponentPresetInfo):string {
+function getExport({ path }: ComponentPresetInfo): string {
   return `  ${getUniqPresetImportName(path)},`;
 }
 
-function flattenComponentPresetInfos(components:ComponentDefinition[]):ComponentPresetInfo[] {
-  return flatMap(components, ({ info }) => (info.presets || []));
+function flattenComponentPresetInfos(components: ComponentDefinition[]): ComponentPresetInfo[] {
+  return flatMap(components, ({ info }) => info.presets || []);
 }

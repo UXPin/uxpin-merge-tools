@@ -6,9 +6,9 @@ import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { RequestHandler } from '../RequestHandler';
 
 export class GetInfoHandler implements RequestHandler {
-  constructor(private context:ExperimentationServerContext) {}
+  constructor(private context: ExperimentationServerContext) {}
 
-  public async handle(request:IncomingMessage, response:ServerResponse):Promise<void> {
+  public async handle(request: IncomingMessage, response: ServerResponse): Promise<void> {
     response.writeHead(OK, {
       'Content-Type': 'application/json',
       ...getAccessControlHeaders(request.headers),
@@ -18,11 +18,11 @@ export class GetInfoHandler implements RequestHandler {
     response.end();
   }
 
-  private async getInfoResponse():Promise<string> {
-    const commitHash:string = getCommitHash(this.context.epid.revisionId);
-    const date:Date = new Date();
+  private async getInfoResponse(): Promise<string> {
+    const commitHash: string = getCommitHash(this.context.epid.revisionId);
+    const date: Date = new Date();
 
-    const response:CodeInfoResponse = {
+    const response: CodeInfoResponse = {
       lastUpdate: {
         commitHash,
         time: date.toISOString(),
@@ -33,17 +33,17 @@ export class GetInfoHandler implements RequestHandler {
   }
 }
 
-function getCommitHash(revision:string):string {
+function getCommitHash(revision: string): string {
   const [commitHash] = revision.split('_').reverse();
 
   return commitHash;
 }
 
 interface CodeInfoResponse {
-  lastUpdate:CodeLibraryLastUpdate;
+  lastUpdate: CodeLibraryLastUpdate;
 }
 
 interface CodeLibraryLastUpdate {
-  commitHash:string;
-  time:string;
+  commitHash: string;
+  time: string;
 }

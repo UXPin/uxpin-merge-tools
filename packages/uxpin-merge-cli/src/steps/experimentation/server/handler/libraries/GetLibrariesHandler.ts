@@ -7,13 +7,13 @@ import { getNoCacheHeaders } from '../../headers/getNoCacheHeaders';
 import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { RequestHandler } from '../RequestHandler';
 
-export const EXPERIMENTAL_LIBRARY_ID:number = -1;
-export const LIBRARY_DEFAULT_NAME:string = 'Library from Code';
+export const EXPERIMENTAL_LIBRARY_ID = -1;
+export const LIBRARY_DEFAULT_NAME = 'Library from Code';
 
 export class GetLibrariesHandler implements RequestHandler {
-  constructor(private context:ExperimentationServerContext) {}
+  constructor(private context: ExperimentationServerContext) {}
 
-  public async handle(request:IncomingMessage, response:ServerResponse):Promise<void> {
+  public async handle(request: IncomingMessage, response: ServerResponse): Promise<void> {
     response.writeHead(OK, {
       'Content-Type': 'application/json',
       ...getAccessControlHeaders(request.headers),
@@ -23,8 +23,8 @@ export class GetLibrariesHandler implements RequestHandler {
     response.end();
   }
 
-  private async getLibrariesContent():Promise<string> {
-    const metadata:DesignSystemSnapshot = await this.getMetadata();
+  private async getLibrariesContent(): Promise<string> {
+    const metadata: DesignSystemSnapshot = await this.getMetadata();
     return JSON.stringify([
       {
         _links: {
@@ -67,7 +67,7 @@ export class GetLibrariesHandler implements RequestHandler {
     ]);
   }
 
-  private async getMetadata():Promise<DesignSystemSnapshot> {
+  private async getMetadata(): Promise<DesignSystemSnapshot> {
     return getProjectMetadata(this.context.uxpinDirPath);
   }
 }

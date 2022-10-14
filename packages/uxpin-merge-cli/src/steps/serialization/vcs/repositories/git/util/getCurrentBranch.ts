@@ -1,8 +1,8 @@
 import { DEFAULT_BRANCH_NAME } from '../../../../../../common/constants';
 
-export async function getCurrentBranch(cwd:string, override?:string):Promise<string> {
+export async function getCurrentBranch(cwd: string, override?: string): Promise<string> {
   // Use branch override if one is provided
-  const branch:string|undefined = override;
+  const branch: string | undefined = override;
 
   // If branch is not already provided, source from shell
   if (!branch) {

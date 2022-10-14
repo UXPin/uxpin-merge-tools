@@ -2,7 +2,7 @@ import { FlowTypeSignature } from '../../../../../../../../../types/babylon-ast'
 import { PropertyType } from '../../../../../ComponentPropertyDefinition';
 import { convertFlowPropertyType } from '../../convertFlowPropertyType';
 
-export function convertFunctionSignatureFlowType(func:FlowTypeSignature<'function'>):PropertyType<'func'> {
+export function convertFunctionSignatureFlowType(func: FlowTypeSignature<'function'>): PropertyType<'func'> {
   return {
     name: 'func',
     structure: {

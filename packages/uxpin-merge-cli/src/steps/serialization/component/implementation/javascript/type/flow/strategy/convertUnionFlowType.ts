@@ -2,7 +2,7 @@ import { FlowUnionType } from '../../../../../../../../types/babylon-ast';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
 import { convertFlowPropertyType } from '../convertFlowPropertyType';
 
-export function convertUnionFlowType(flowUnion:FlowUnionType):PropertyType<'union'> {
+export function convertUnionFlowType(flowUnion: FlowUnionType): PropertyType<'union'> {
   return {
     name: 'union',
     structure: {

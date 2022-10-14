@@ -7,8 +7,8 @@ import { getImplementation } from './serializeTSComponent.test';
 
 describe('serializeTSComponent-Wrappers', () => {
   describe('when class component with valid wrappers declaration is provided', () => {
-    let component:ComponentImplementationInfo;
-    let metadata:Warned<ComponentMetadata>;
+    let component: ComponentImplementationInfo;
+    let metadata: Warned<ComponentMetadata>;
 
     beforeEach(async () => {
       component = getImplementation('ClassWithWrappersDeclaration');
@@ -17,7 +17,7 @@ describe('serializeTSComponent-Wrappers', () => {
 
     it('serializes metadata correctly', () => {
       // having
-      const expectedMetadata:ComponentMetadata = {
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithWrappersDeclaration',
         properties: [
@@ -51,8 +51,8 @@ describe('serializeTSComponent-Wrappers', () => {
   });
 
   describe('when class component with invalid wrappers declaration is provided', () => {
-    let component:ComponentImplementationInfo;
-    let metadata:Warned<ComponentMetadata>;
+    let component: ComponentImplementationInfo;
+    let metadata: Warned<ComponentMetadata>;
 
     beforeEach(async () => {
       component = getImplementation('ClassWithInvalidWrappersDeclaration');
@@ -61,7 +61,7 @@ describe('serializeTSComponent-Wrappers', () => {
 
     it('serializes metadata correctly', () => {
       // having
-      const expectedMetadata:ComponentMetadata = {
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithWrappersDeclaration',
         properties: [

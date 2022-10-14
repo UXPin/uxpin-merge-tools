@@ -6,12 +6,15 @@ import { Step, StepExecutor } from '../../Step';
 import { ExperimentationState } from '../getExperimentationCommandSteps';
 import { getExperimentServerOptions } from './common/getExperimentServerOptions';
 
-export function experimentationRunServerStep(args:ExperimentProgramArgs, store:Store<ExperimentationState>):Step {
+export function experimentationRunServerStep(args: ExperimentProgramArgs, store: Store<ExperimentationState>): Step {
   return { exec: thunkStartExperimentationServer(args, store), shouldRun: true };
 }
 
-function thunkStartExperimentationServer(args:ExperimentProgramArgs, store:Store<ExperimentationState>):StepExecutor {
-  return async (ds:DSMetadata) => {
+function thunkStartExperimentationServer(
+  args: ExperimentProgramArgs,
+  store: Store<ExperimentationState>
+): StepExecutor {
+  return async (ds: DSMetadata) => {
     if (!args.disableTunneling && !store.state.ngrokUrl) {
       return ds;
     }

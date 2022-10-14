@@ -10,20 +10,20 @@ import { PageContentContext } from './getPageContent';
 
 // tslint:disable-next-line:no-var-requires
 
-const INTRO_COMPONENTS_COUNT:number = 3;
-const ELEMENT_ID_LENGTH:number = 32;
-const ELEMENT_PLACEMENT_OFFSET:number = 200;
-const ELEMENT_PLACEMENT_DISTANCE:number = 500;
-const ELEMENT_Y:number = 50;
+const INTRO_COMPONENTS_COUNT = 3;
+const ELEMENT_ID_LENGTH = 32;
+const ELEMENT_PLACEMENT_OFFSET = 200;
+const ELEMENT_PLACEMENT_DISTANCE = 500;
+const ELEMENT_Y = 50;
 
-export function createNewPageContent({ revisionId }:PageContentContext, metadata:DesignSystemSnapshot):PageContent {
-  const introPageContent:any = require('./introPageContent.json');
-  const introComponents:ComponentDefinition[] = findIntroComponents(metadata);
-  const designSystemId:string = getDesignSystemId(revisionId);
+export function createNewPageContent({ revisionId }: PageContentContext, metadata: DesignSystemSnapshot): PageContent {
+  const introPageContent: any = require('./introPageContent.json');
+  const introComponents: ComponentDefinition[] = findIntroComponents(metadata);
+  const designSystemId: string = getDesignSystemId(revisionId);
 
   return introComponents.reduce((result, component, index) => {
-    const componentId:string = getComponentId(designSystemId, component.info);
-    const elementId:string = getRandomString(ELEMENT_ID_LENGTH);
+    const componentId: string = getComponentId(designSystemId, component.info);
+    const elementId: string = getRandomString(ELEMENT_ID_LENGTH);
 
     return {
       ...result,
@@ -42,17 +42,14 @@ export function createNewPageContent({ revisionId }:PageContentContext, metadata
         ...result.canvas,
         props: {
           ...result.canvas.props,
-          storedElements: [
-            ...result.canvas.props.storedElements,
-            elementId,
-          ],
+          storedElements: [...result.canvas.props.storedElements, elementId],
         },
       },
     };
   }, introPageContent);
 }
 
-function getComponentPresetId(designSystemId:string, component:ComponentDefinition):string | undefined {
+function getComponentPresetId(designSystemId: string, component: ComponentDefinition): string | undefined {
   if (!component.info.presets || !component.info.presets[0]) {
     return undefined;
   }
@@ -60,6 +57,6 @@ function getComponentPresetId(designSystemId:string, component:ComponentDefiniti
   return getPresetId(designSystemId, component.info.presets[0].path);
 }
 
-function findIntroComponents(metadata:DesignSystemSnapshot):ComponentDefinition[] {
+function findIntroComponents(metadata: DesignSystemSnapshot): ComponentDefinition[] {
   return getAllComponentsFromCategories(metadata.categorizedComponents).slice(0, INTRO_COMPONENTS_COUNT);
 }

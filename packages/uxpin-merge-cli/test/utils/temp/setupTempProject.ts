@@ -3,17 +3,17 @@ import { DirectoryResult } from 'tmp-promise';
 import { GitOptions, prepareTempDir } from './prepareTempDir';
 
 export interface TempProjectContext {
-  getDirectory():DirectoryResult;
+  getDirectory(): DirectoryResult;
 }
 
 export interface TempProjectOptions {
-  gitOptions?:Partial<GitOptions>;
-  sourceDir:string;
+  gitOptions?: Partial<GitOptions>;
+  sourceDir: string;
 }
 
-export function setupTempProject(options:TempProjectOptions):TempProjectContext {
-  const deferredContext:DeferredChain<TempProjectContext> = new DeferredChain();
-  let directoryResult:DirectoryResult;
+export function setupTempProject(options: TempProjectOptions): TempProjectContext {
+  const deferredContext: DeferredChain<TempProjectContext> = new DeferredChain();
+  let directoryResult: DirectoryResult;
 
   beforeAll(async () => {
     directoryResult = await prepareTempDir(options.sourceDir, options.gitOptions);
@@ -27,7 +27,7 @@ export function setupTempProject(options:TempProjectOptions):TempProjectContext 
   return deferredContext.getProxy();
 }
 
-function getContext(directoryResult:DirectoryResult):TempProjectContext {
+function getContext(directoryResult: DirectoryResult): TempProjectContext {
   return {
     getDirectory: () => directoryResult,
   };

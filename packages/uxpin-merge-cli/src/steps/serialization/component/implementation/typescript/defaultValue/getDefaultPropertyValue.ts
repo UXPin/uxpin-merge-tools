@@ -4,9 +4,9 @@ import { TSSerializationContext } from '../context/getSerializationContext';
 export type SupportedDefaultValue = number | string | boolean;
 
 export function getDefaultPropertyValue(
-  context:TSSerializationContext,
-  valueInitializer:ts.Expression,
-):SupportedDefaultValue | undefined {
+  context: TSSerializationContext,
+  valueInitializer: ts.Expression
+): SupportedDefaultValue | undefined {
   switch (valueInitializer.kind) {
     case ts.SyntaxKind.StringLiteral:
       return (valueInitializer as ts.StringLiteral).text;
@@ -28,10 +28,10 @@ export function getDefaultPropertyValue(
 }
 
 export function getDefaultValueFromPropertyAccessExpression(
-  context:TSSerializationContext,
-  propertyInitializer:any,
-):SupportedDefaultValue | undefined {
-  const symbol:ts.Symbol | undefined = context.checker.getSymbolAtLocation(propertyInitializer);
+  context: TSSerializationContext,
+  propertyInitializer: any
+): SupportedDefaultValue | undefined {
+  const symbol: ts.Symbol | undefined = context.checker.getSymbolAtLocation(propertyInitializer);
   if (symbol && ts.isEnumMember(symbol.valueDeclaration) && symbol.valueDeclaration.initializer) {
     return getDefaultPropertyValue(context, symbol.valueDeclaration.initializer);
   }
@@ -40,33 +40,31 @@ export function getDefaultValueFromPropertyAccessExpression(
 }
 
 export function getDefaultValueFromNewExpression(
-  propertyInitializer:ts.NewExpression,
-):SupportedDefaultValue | undefined {
-  if (propertyInitializer.arguments &&
-      (propertyInitializer.expression as ts.Identifier).escapedText === 'Date') {
-    const dateProps:Array<unknown> = propertyInitializer.arguments
-      .map((argument):string | number | undefined => {
-        switch (argument.kind) {
-          case ts.SyntaxKind.StringLiteral:
-            return (argument as ts.Identifier).text;
-          case ts.SyntaxKind.NumericLiteral:
-            return parseInt((argument as ts.Identifier).text, 10);
-          default:
-            return;
-        }
-      });
+  propertyInitializer: ts.NewExpression
+): SupportedDefaultValue | undefined {
+  if (propertyInitializer.arguments && (propertyInitializer.expression as ts.Identifier).escapedText === 'Date') {
+    const dateProps: Array<unknown> = propertyInitializer.arguments.map((argument): string | number | undefined => {
+      switch (argument.kind) {
+        case ts.SyntaxKind.StringLiteral:
+          return (argument as ts.Identifier).text;
+        case ts.SyntaxKind.NumericLiteral:
+          return parseInt((argument as ts.Identifier).text, 10);
+        default:
+          return;
+      }
+    });
 
-    return new Date(...dateProps as [number, number, number, number, number, number]).toJSON();
+    return new Date(...(dateProps as [number, number, number, number, number, number])).toJSON();
   }
 
   return false;
 }
 
 export function getDefaultValueFromIdentifier(
-  context:TSSerializationContext,
-  propertyInitializer:ts.Identifier,
-):SupportedDefaultValue | undefined {
-  const symbol:ts.Symbol | undefined = context.checker.getSymbolAtLocation(propertyInitializer);
+  context: TSSerializationContext,
+  propertyInitializer: ts.Identifier
+): SupportedDefaultValue | undefined {
+  const symbol: ts.Symbol | undefined = context.checker.getSymbolAtLocation(propertyInitializer);
   if (symbol && ts.isVariableDeclaration(symbol.valueDeclaration) && symbol.valueDeclaration.initializer) {
     return getDefaultPropertyValue(context, symbol.valueDeclaration.initializer);
   }

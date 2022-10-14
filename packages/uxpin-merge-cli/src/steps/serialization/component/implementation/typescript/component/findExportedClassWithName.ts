@@ -6,10 +6,10 @@ import { isExported } from './isExported';
 import { isNodeExported } from './isNodeExported';
 
 export function getClassComponentDeclaration(
-  context:TSSerializationContext,
-  className:string,
-):ClassComponentDeclaration | undefined {
-  let result:ts.ClassDeclaration | ts.ClassExpression | undefined;
+  context: TSSerializationContext,
+  className: string
+): ClassComponentDeclaration | undefined {
+  let result: ts.ClassDeclaration | ts.ClassExpression | undefined;
 
   ts.forEachChild(context.file, (node) => {
     if (ts.isClassDeclaration(node) && getNodeName(node) === className) {
@@ -21,19 +21,16 @@ export function getClassComponentDeclaration(
 }
 
 export function findExportedClassWithName(
-  context:TSSerializationContext,
-  className:string,
-):ClassComponentDeclaration | undefined {
-  const result:ts.ClassDeclaration | ts.ClassExpression | undefined = getClassComponentDeclaration(
-    context,
-    className,
-  );
+  context: TSSerializationContext,
+  className: string
+): ClassComponentDeclaration | undefined {
+  const result: ts.ClassDeclaration | ts.ClassExpression | undefined = getClassComponentDeclaration(context, className);
 
   if (result && isExported(result)) {
     return result;
   }
 
-  let isClassExported:boolean = false;
+  let isClassExported = false;
 
   ts.forEachChild(context.file, (node) => {
     if (!isClassExported) {

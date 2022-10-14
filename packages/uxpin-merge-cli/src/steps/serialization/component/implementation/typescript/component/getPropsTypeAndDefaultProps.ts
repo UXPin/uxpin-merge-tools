@@ -10,12 +10,12 @@ import { isClassComponentDeclaration } from './isClassComponentDeclaration';
 import { isFunctionalComponentDeclaration } from './isFunctionalComponentDeclaration';
 
 export interface DefaultProps {
-  [propName:string]:any;
+  [propName: string]: any;
 }
 
 export interface ComponentDeclarationData {
-  propsTypeNode:ts.TypeNode | undefined;
-  defaultProps:DefaultProps;
+  propsTypeNode: ts.TypeNode | undefined;
+  defaultProps: DefaultProps;
 }
 
 export type ClassComponentDeclaration = ts.ClassDeclaration | ts.ClassExpression;
@@ -25,13 +25,13 @@ export type VariableDeclaration = ts.VariableDeclaration;
 export type ComponentDeclaration = FunctionalComponentDeclaration | ClassComponentDeclaration | VariableDeclaration;
 
 export function getPropsTypeAndDefaultProps(
-  context:TSSerializationContext,
-  component:ComponentDeclaration,
-):ComponentDeclarationData {
+  context: TSSerializationContext,
+  component: ComponentDeclaration
+): ComponentDeclarationData {
   if (ts.isVariableDeclaration(component)) {
-    const fnDeclaration:ts.FunctionLikeDeclaration | undefined = findFunctionFromVariableDeclaration(
+    const fnDeclaration: ts.FunctionLikeDeclaration | undefined = findFunctionFromVariableDeclaration(
       context.file,
-      component,
+      component
     );
 
     if (fnDeclaration) {
@@ -45,7 +45,7 @@ export function getPropsTypeAndDefaultProps(
   if (isFunctionalComponentDeclaration(component)) {
     return {
       defaultProps: getDefaultPropsFromParamDestructuring(context, component),
-      propsTypeNode: getPropsTypeOfFunctionalComponent(component,  getVariableDeclaration(context)),
+      propsTypeNode: getPropsTypeOfFunctionalComponent(component, getVariableDeclaration(context)),
     };
   }
 

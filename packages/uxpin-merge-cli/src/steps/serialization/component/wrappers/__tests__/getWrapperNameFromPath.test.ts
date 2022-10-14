@@ -4,7 +4,7 @@ describe('getWrapperNameFromPath', () => {
   describe('when path is provided', () => {
     it('should return file name as a wrapper name', () => {
       // having
-      const path:string = './path/to/CustomWrapper.ts';
+      const path = './path/to/CustomWrapper.ts';
 
       // when
       // then
@@ -15,7 +15,7 @@ describe('getWrapperNameFromPath', () => {
   describe('when path is provided which contains built in component name', () => {
     it('should return file name with prefix as a wrapper name', () => {
       // having
-      const path:string = './path/to/NonResizableWrapper.ts';
+      const path = './path/to/NonResizableWrapper.ts';
 
       // when
       // then

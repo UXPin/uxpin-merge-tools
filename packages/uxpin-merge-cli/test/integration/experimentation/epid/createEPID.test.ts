@@ -7,12 +7,12 @@ import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll'
 import { getRandomPortNumber } from '../../../utils/e2e/server/getRandomPortNumber';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('createEPID', () => {
-  describe('when epid file doesn\'t exist', () => {
-    let epidFilePath:string;
+  describe("when epid file doesn't exist", () => {
+    let epidFilePath: string;
 
     const { getWorkingDir } = setupExperimentationServerTest();
 
@@ -26,7 +26,7 @@ describe('createEPID', () => {
 
     it('should epid file has specific format', async () => {
       // given
-      const expectedEPID:EPID = {
+      const expectedEPID: EPID = {
         revisionId: expect.stringMatching(/^[0-9a-f-]{36}_[0-9a-f]{40}/),
       };
 
@@ -37,14 +37,14 @@ describe('createEPID', () => {
   });
 
   describe('when epid file exists', () => {
-    const projectPath:string = resolve(__dirname, '../../../resources/designSystems/withEpidFile');
+    const projectPath: string = resolve(__dirname, '../../../resources/designSystems/withEpidFile');
     const { getWorkingDir } = setupExperimentationServerTest({ port: getRandomPortNumber(), projectPath });
 
     it('should not override already existed epid file', () => {
       expect(getEpidContent(getWorkingDir())).toEqual(getEpidContent(projectPath));
     });
 
-    function getEpidContent(projectDir:string):string {
+    function getEpidContent(projectDir: string): string {
       return readFileSync(getEPIDFilePath(projectDir)).toString('utf-8');
     }
   });

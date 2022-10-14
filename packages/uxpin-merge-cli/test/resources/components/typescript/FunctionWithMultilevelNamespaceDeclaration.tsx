@@ -1,18 +1,16 @@
 import * as React from 'react';
 
 export interface Props {
-  name:string;
+  name: string;
 }
 
 /**
  * @uxpinnamespace Some.Nested.Namespace
  */
-export default function FunctionWithMultilevelNamespaceDeclaration({ name }:Props):JSX.Element {
+export default function FunctionWithMultilevelNamespaceDeclaration({ name }: Props): JSX.Element {
   return (
     <div>
-      <label className={name}>
-        {name}
-      </label>
+      <label className={name}>{name}</label>
     </div>
   );
 }
