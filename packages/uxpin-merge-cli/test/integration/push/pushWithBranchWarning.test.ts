@@ -30,10 +30,11 @@ describe('Push command', () => {
           UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
           UXPIN_ENV: Environment.TEST,
         },
-        params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN'],
+        params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN', '--branch test'],
       });
 
-      expect(result).not.toEqual(expect.stringMatching(/branch different than master are currently not supported/));
+      console.log(result);
+      expect(result).not.toEqual(expect.stringMatching(/The current commit is not on branch /));
     });
   });
 
@@ -57,7 +58,31 @@ describe('Push command', () => {
         params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN'],
       });
 
-      expect(result).not.toEqual(expect.stringMatching(/branch different than master are currently not supported/));
+      expect(result).not.toEqual(expect.stringMatching(/The current commit is not on branch /));
+    });
+  });
+
+  describe('from main branch', () => {
+    const sourceDir: string = resolve(__dirname, '../../resources/designSystems/twoComponentsWithConfig');
+    const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
+    const { getDirectory } = setupTempProject({ sourceDir, gitOptions: { branch: 'main', initialise: true } });
+
+    it('does not show warning that different branches are not supported', async () => {
+      // having
+      const dir: DirectoryResult = getDirectory();
+
+      // when
+      // then
+      const result: string = await runUXPinMergeCommand({
+        cwd: dir.path,
+        env: {
+          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+          UXPIN_ENV: Environment.TEST,
+        },
+        params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN'],
+      });
+
+      expect(result).not.toEqual(expect.stringMatching(/The current commit is not on branch /));
     });
   });
 });
