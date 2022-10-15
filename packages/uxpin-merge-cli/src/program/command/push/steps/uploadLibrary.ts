@@ -31,8 +31,8 @@ export function uploadLibrary(buildOptions: BuildOptions): StepExecutor {
     // NOTE: if the branch has changed locally, but latest commit has not (so a fresh branch)
     // then this will be the same as the current commit hash
     const latestCommitHash: string | null = buildOptions.force
-        ? null
-        : await getLatestCommitHash(apiDomain, vcsDetails.branchName, authToken);
+      ? null
+      : await getLatestCommitHash(apiDomain, vcsDetails.branchName, authToken);
 
     // Ensure vcsDetails.paths && branch were provided
     if (!vcsDetails.paths || !branch) {
@@ -46,7 +46,9 @@ export function uploadLibrary(buildOptions: BuildOptions): StepExecutor {
     // Prevent trying to push non-master commits to master or main
     if (!branchesAtCurrentCommit.includes(branch)) {
       if (isDefaultBranch(branch) && !branchesAtCurrentCommit.includes(ALTERNATIVE_DEFAULT_BRANCH_NAME)) {
-        printError(`🛑 The current commit is not on branch [${branch}], please specify --branch to use a custom branch`);
+        printError(
+          `🛑 The current commit is not on branch [${branch}], please specify --branch to use a custom branch`
+        );
         return designSystem;
       }
     }
