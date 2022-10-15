@@ -1,4 +1,3 @@
-import { DEFAULT_BRANCH_NAME } from '../../../../../src/common/constants';
 import { PrintColor } from '../../../../../src/utils/console/PrintOptions';
 import { deleteRepositoryPointerToBranch } from '../../../../common/services/UXPin/DeleteRepositoryPointerToBranch';
 import { deleteTag } from '../../../../common/services/UXPin/DeleteTag';
@@ -8,6 +7,7 @@ import { DeleteOptions } from '../../../../steps/deleting/DeleteOptions';
 import { VCSDetails } from '../../../../steps/serialization/DesignSystemSnapshot';
 import { printError, printLine } from '../../../../utils/console/printLine';
 import { StepExecutor } from '../../Step';
+import { isDefaultBranch } from '../../../../utils/isDefaultBranch';
 
 export function deleteRepositoryPointer(deleteOptions: DeleteOptions): StepExecutor {
   return async (designSystem: DSMetadata) => {
@@ -16,7 +16,7 @@ export function deleteRepositoryPointer(deleteOptions: DeleteOptions): StepExecu
     const vcsDetails: VCSDetails = designSystem.result.vcs;
     const commitHash: string = vcsDetails.commitHash;
     const branch: string | undefined =
-      vcsDetails && vcsDetails.branchName !== DEFAULT_BRANCH_NAME ? vcsDetails.branchName : undefined;
+      vcsDetails && !isDefaultBranch(vcsDetails.branchName) ? vcsDetails.branchName : undefined;
     const tag: string | undefined = deleteOptions.tag;
 
     if (tag && branch) {

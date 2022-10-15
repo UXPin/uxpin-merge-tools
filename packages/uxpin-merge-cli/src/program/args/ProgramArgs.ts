@@ -54,6 +54,7 @@ export interface PushProgramArgs {
   command: Command.PUSH;
   config: string;
   cwd: string;
+  force?: boolean;
   token?: string;
   uxpinDomain?: string;
   webpackConfig?: string;

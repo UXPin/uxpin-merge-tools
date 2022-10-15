@@ -36,6 +36,7 @@ const defaultArgs: { [key in Command]: ProgramArgs } = {
     command: Command.PUSH,
     config: DEFAULT_CONFIG_PATH,
     cwd: process.cwd(),
+    force: false,
     token: process.env.UXPIN_AUTH_TOKEN,
     uxpinDomain: DEFAULT_UXPIN_DOMAIN,
   },
