@@ -33,7 +33,6 @@ describe('Push command', () => {
         params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN', '--branch test'],
       });
 
-      console.log(result);
       expect(result).not.toEqual(expect.stringMatching(/The current commit is not on branch /));
     });
   });
