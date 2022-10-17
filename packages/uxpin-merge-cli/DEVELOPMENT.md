@@ -9,7 +9,7 @@ We haven't tested the development environment on Windows, so it's better to use 
 Tools required to set up a development environment:
 
 1. [make](https://www.gnu.org/software/make/)
-2. [Node.js](https://nodejs.org/) >=6.5.0
+2. [Node.js](https://nodejs.org/) 16.x
 3. [Yarn](https://yarnpkg.com/) >=1.2.1
 
 ### Basic commands

@@ -1,5 +1,5 @@
 import { flatMap } from 'lodash';
-import { relative } from 'path';
+import { relative, posix } from 'path';
 import { ComponentPresetInfo } from '../../../../../discovery/component/ComponentInfo';
 import { ComponentDefinition } from '../../../ComponentDefinition';
 import { getUniqPresetImportName } from './getUniqPresetImportName';
@@ -21,7 +21,10 @@ ${exports}
 }
 
 function thunkGetImport(tempDirPath: string): ({ path }: ComponentPresetInfo) => string {
-  return ({ path }) => `import ${getUniqPresetImportName(path)} from '${relative(tempDirPath, path)}';`;
+  return ({ path }) =>
+    `import ${getUniqPresetImportName(path)} from '${posix.normalize(
+      relative(tempDirPath, path).replace(/\\/g, '/')
+    )}';`;
 }
 
 function getExport({ path }: ComponentPresetInfo): string {
