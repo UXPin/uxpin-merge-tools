@@ -1,7 +1,7 @@
 PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 
-test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/repos/mineral-ui ../../test/resources/repos/git-repo ../../test/resources/repos/git-repo-rename
+test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/repos/polaris ../../test/resources/repos/mineral-ui ../../test/resources/repos/git-repo ../../test/resources/repos/git-repo-rename
 
 ../../test/resources/repos/nordnet-ui-kit:
 	cd ../../test/resources/repos \
@@ -11,6 +11,14 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& mkdir ./yarn-cache \
 	&& yarn install --cache-folder ./yarn-cache \
 	&& rm -rf ./yarn-cache
+
+../../test/resources/repos/polaris:
+	cd ../../test/resources/repos \
+	&& git clone https://github.com/uxpin-merge/polaris-react.git polaris \
+	&& cd polaris \
+	&& mkdir ./yarn-cache \
+	&& yarn install --cache-folder ./yarn-cache \
+	&& rm -rf ./yarn-cache	
 
 ../../test/resources/repos/mineral-ui:
 	cd ../../test/resources/repos \
