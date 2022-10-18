@@ -3,7 +3,7 @@ import { CommitMetadata } from '../../../RepositoryAdapter';
 import { getLatestCommit } from '../getLatestCommit';
 
 describe('getLatestCommit', () => {
-  it('should get info about latest commit', async () => {
+  xit('should get info about latest commit', async () => {
     // given
     const path: string = resolve(__dirname, '../../../../../../../../test/resources/repos/nordnet-ui-kit');
 
