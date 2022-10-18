@@ -76,7 +76,7 @@ export default class Button extends PureComponent {
     expect(await getMetadataChecksum()).not.toEqual(initialMetadata);
   });
 
-  xit('should metadata has added new props from changed file', async () => {
+  it('should metadata has added new props from changed file', async () => {
     // given
     const expectedMetadata: DesignSystemSnapshot = {
       ...expectedDSWatchingChangesMetadata,
