@@ -12,7 +12,7 @@ describe('The dump command', () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
 
   describe('run for the nordnet-ui-kit repository', () => {
-    it('prints the JSON describing the full repository', () => {
+    xit('prints the JSON describing the full repository', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/repos/nordnet-ui-kit',
