@@ -9,13 +9,13 @@ describe('isCommit', () => {
     path = resolve(__dirname, '../../../../../../../../test/resources/repos/nordnet-ui-kit');
   });
 
-  xit('should return true if commit exists', async () => {
+  it('should return true if commit exists', async () => {
     // when
     // then
     expect(await isCommit(path, 'd914edd5f97cadb284f7f47b783106c86fe430d9')).toBe(true);
   });
 
-  xit('should return false if commit does not exist', async () => {
+  it('should return false if commit does not exist', async () => {
     // when
     // then
     expect(await isCommit(path, 'abc123')).toBe(false);
