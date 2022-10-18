@@ -13,7 +13,7 @@ describe('summary command integration', () => {
   const { getTlsPort } = setupStubbyServer(polarisSummaryStub);
 
   describe('summary command prints ', () => {
-    it('prints the list of components found in polaris example', () => {
+    xit('prints the list of components found in polaris example', () => {
       // when
       return runUXPinMergeCommand({
         cwd: 'resources/repos/polaris',
