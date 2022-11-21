@@ -29,10 +29,10 @@ export function generateApp(args: GenerateAppProgramArgs): Step[] {
   return [
     createAppDirectory(args),
     createPackageJsonFile(args, appConfig),
-    createNpmrcFile(args),
-    installPackages(args),
-    installPeerDependencies(args),
-    createComponentsFiles(args),
+    createNpmrcFile(args, appConfig),
+    installPackages(args, appConfig),
+    installPeerDependencies(args, appConfig),
+    createComponentsFiles(args, appConfig),
     createWebpackConfigFile(args),
     createUXPinConfigFile(args),
   ];

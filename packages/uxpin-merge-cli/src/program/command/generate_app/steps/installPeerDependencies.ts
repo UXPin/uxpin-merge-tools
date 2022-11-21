@@ -1,28 +1,26 @@
 import * as cp from 'child_process';
 import { printLine } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
-import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
+import { GenerateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
+import { AppConfig } from '../types/appConfig';
 
-export function installPeerDependencies(args:CreateAppProgramArgs):Step {
-  return { exec: thunkInstallPeerDependencies(args), shouldRun: true };
+export function installPeerDependencies(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
+  return { exec: thunkInstallPeerDependencies(args, appConfig), shouldRun: true };
 }
 
-export function thunkInstallPeerDependencies(args:CreateAppProgramArgs):() => Promise<void> {
+export function thunkInstallPeerDependencies(args: GenerateAppProgramArgs, appConfig: AppConfig): () => Promise<void> {
   return async () => {
-    let packages:Array<{ name:string, version?:string}> = [];
-    try {
-      packages = JSON.parse(args.packages || '');
-    } catch (e) {
-      console.log(e);
-      // do nothing
+    if (!appConfig.packages || !appConfig.packages.length) {
+      return;
     }
-    const packageJSON:any = require(`${APP_DIRECTORY}/node_modules/${packages[0].name}/package.json`);
 
-    const peerDependencies:any = packageJSON.peerDependencies || {};
+    const packageJSON: any = require(`${APP_DIRECTORY}/node_modules/${appConfig.packages[0]}/package.json`);
+
+    const peerDependencies: any = packageJSON.peerDependencies || {};
     Object.keys(peerDependencies).forEach((dependencyName) => {
-      const version:string = peerDependencies[dependencyName];
+      const version: string = peerDependencies[dependencyName];
       const { status } = cp.spawnSync('npm', ['install', `${dependencyName}@${version}`], {
         cwd: APP_DIRECTORY,
       });
