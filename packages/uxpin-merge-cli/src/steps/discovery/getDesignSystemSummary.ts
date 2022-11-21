@@ -1,4 +1,4 @@
-import safe = require('colors/safe');
+import safe = require('@colors/colors/safe');
 import { ComponentCategory } from '../serialization/component/categories/ComponentCategory';
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
 
