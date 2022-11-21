@@ -2,6 +2,7 @@ export enum Command {
   DUMP = 'dump',
   EXPERIMENT = 'experiment',
   INIT = 'init',
+  GENERATE_APP = 'generate-app',
   GENERATE_PRESETS = 'generate-presets',
   PUSH = 'push',
   DELETE_VERSION = 'delete-version',

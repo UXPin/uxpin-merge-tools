@@ -31,6 +31,13 @@ program
     .option('--component-path <path>', 'path to a component path, relative to the current working directory')
     .action(() => {});
 
+program
+    .command(Command.GENERATE_APP)
+    .description('Create wrapper files, install dependencies based on app config')
+    .option('--directory <string>', 'Directory where wrappers should be generated Default: `./`')
+    .option('--app-config <string>', 'Path to app config')
+    .action(() => {});
+
 
 program
     .command(Command.PUSH)
@@ -50,7 +57,7 @@ program
     .option('--token <token>', 'auth token for the library to delete from.')
     .option('--branch <branch>', 'branch to delete in the Merge library')
     .option('--tag <tag>', 'tag to delete in the Merge library')
-    .action(() => {});    
+    .action(() => {});
 
 program
     .command(Command.DUMP)

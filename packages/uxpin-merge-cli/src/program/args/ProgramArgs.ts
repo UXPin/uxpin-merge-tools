@@ -20,6 +20,7 @@ export type ProgramArgs =
   | DumpProgramArgs
   | ExperimentProgramArgs
   | InitProgramArgs
+  | GenerateAppProgramArgs
   | PushProgramArgs
   | DeleteVersionArgs
   | GeneratePresetsProgramArgs
@@ -30,6 +31,12 @@ export interface DumpProgramArgs {
   command: Command.DUMP;
   cwd: string;
   config: string;
+}
+
+export interface GenerateAppProgramArgs {
+  appConfig: string;
+  command: Command.GENERATE_APP;
+  directory: string;
 }
 
 export interface ExperimentProgramArgs {
