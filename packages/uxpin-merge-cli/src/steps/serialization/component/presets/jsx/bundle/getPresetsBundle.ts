@@ -1,11 +1,11 @@
 import { unlink } from 'fs-extra';
-import { ProgramArgs } from '../../../../../../program/args/ProgramArgs';
+import { GenerateAppProgramArgs, ProgramArgs } from '../../../../../../program/args/ProgramArgs';
 import { ComponentDefinition } from '../../../ComponentDefinition';
 import { compilePresets } from '../compile/compilePresets';
 import { PresetsBundle } from './PresetsBundle';
 
 export async function getPresetsBundle(
-  programArgs: ProgramArgs,
+  programArgs: Exclude<ProgramArgs, GenerateAppProgramArgs>,
   components: ComponentDefinition[]
 ): Promise<PresetsBundle> {
   const bundlePath: string = await compilePresets(programArgs, components);

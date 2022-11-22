@@ -1,7 +1,7 @@
 import pMap from 'p-map';
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
-import { ProgramArgs } from '../../program/args/ProgramArgs';
+import { GenerateAppProgramArgs, ProgramArgs } from '../../program/args/ProgramArgs';
 import { getBuildOptions } from '../../program/command/push/getBuildOptions';
 import { BuildOptions } from '../building/BuildOptions';
 import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
@@ -20,7 +20,7 @@ import { validateComponentNamespaces } from './validation/validateComponentNames
 import { getVcsDetails } from './vcs/getVcsDetails';
 
 export async function getDesignSystemMetadata(
-  programArgs: ProgramArgs,
+  programArgs: Exclude<ProgramArgs, GenerateAppProgramArgs>,
   paths: ProjectPaths
 ): Promise<Warned<DesignSystemSnapshot>> {
   const buildOptions: BuildOptions = getBuildOptions(programArgs);

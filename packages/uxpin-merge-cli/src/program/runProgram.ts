@@ -3,7 +3,7 @@ import { ProjectPaths } from '../steps/discovery/paths/ProjectPaths';
 import { getDesignSystemMetadata } from '../steps/serialization/getDesignSystemMetadata';
 import { tapPromise } from '../utils/promise/tapPromise';
 import { getProgramArgs } from './args/getProgramArgs';
-import { ProgramArgs, RawProgramArgs } from './args/ProgramArgs';
+import { ExperimentProgramArgs, GenerateAppProgramArgs, ProgramArgs, RawProgramArgs } from './args/ProgramArgs';
 import { getProjectPaths } from './args/providers/paths/getProjectPaths';
 import { Command } from './command/Command';
 import { getSteps } from './command/getSteps';
@@ -35,7 +35,7 @@ async function setupProjectWatcher(programArgs: ProgramArgs): Promise<void> {
     return;
   }
 
-  await setupWatcher(programArgs, thunkRunCommandWhenFilesChanged(programArgs));
+  await setupWatcher(programArgs as ExperimentProgramArgs, thunkRunCommandWhenFilesChanged(programArgs));
 }
 
 function thunkRunCommandWhenFilesChanged(programArgs: ProgramArgs): (path: string) => void {
@@ -54,8 +54,11 @@ async function executeCommandSteps(programArgs: ProgramArgs, steps: Step[]): Pro
     .map((step) => tapPromise(step.exec));
 
   if (shouldPassDesignSystemToCommand(programArgs)) {
-    const paths: ProjectPaths = getProjectPaths(programArgs);
-    const designSystem: DSMetadata = await getDesignSystemMetadata(programArgs, paths);
+    const paths: ProjectPaths = getProjectPaths(programArgs as Exclude<ProgramArgs, GenerateAppProgramArgs>);
+    const designSystem: DSMetadata = await getDesignSystemMetadata(
+      programArgs as Exclude<ProgramArgs, GenerateAppProgramArgs>,
+      paths
+    );
     await pMapSeries(stepFunctions as StepExecutor[], (step) => step(designSystem));
   } else {
     await pMapSeries(stepFunctions as StepWithoutDSExecutor[], (step) => step());
@@ -63,7 +66,7 @@ async function executeCommandSteps(programArgs: ProgramArgs, steps: Step[]): Pro
 }
 
 function shouldPassDesignSystemToCommand(programArgs: ProgramArgs): boolean {
-  return programArgs.command !== Command.GENERATE_PRESETS;
+  return ![Command.GENERATE_PRESETS, Command.GENERATE_APP].includes(programArgs.command);
 }
 
 function isWatchChangesCommand(programArgs: ProgramArgs): boolean {
