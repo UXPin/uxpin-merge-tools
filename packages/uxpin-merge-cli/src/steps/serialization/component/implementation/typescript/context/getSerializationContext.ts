@@ -1,6 +1,7 @@
 import * as ts from 'typescript';
 import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
 import { findComponentFile } from '../component/findComponentFile';
+import { readFileSync } from 'fs-extra';
 
 export interface TSSerializationContext {
   checker: ts.TypeChecker;
@@ -15,6 +16,7 @@ export function getSerializationContext(component: ComponentImplementationInfo):
     jsx: ts.JsxEmit.React,
     module: ts.ModuleKind.CommonJS,
     target: ts.ScriptTarget.ES2015,
+    paths: getTypesciptPathAliases(),
   });
 
   const file: ts.SourceFile | undefined = findComponentFile(program, path);
@@ -28,4 +30,20 @@ export function getSerializationContext(component: ComponentImplementationInfo):
     file,
     program,
   };
+}
+
+function getTypesciptPathAliases(): ts.MapLike<string[]> | undefined {
+  let paths;
+
+  try {
+    const configFile = readFileSync('tsconfig.json', { encoding: 'utf8' });
+    const config = JSON.parse(configFile) as { compilerOptions: ts.CompilerOptions };
+    if (config.compilerOptions.paths) {
+      paths = config.compilerOptions.paths;
+    }
+  } catch (e) {
+    // ignore error
+  }
+
+  return paths;
 }
