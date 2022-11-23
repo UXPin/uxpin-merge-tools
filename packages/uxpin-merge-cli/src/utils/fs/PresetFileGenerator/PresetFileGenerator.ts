@@ -39,7 +39,7 @@ export class PresetFileGenerator {
   }
 
   public async init(): Promise<void> {
-    if (!(await pathExists(resolve(__dirname, this.componentPath)))) {
+    if (!(await pathExists(resolve(process.cwd(), this.componentPath)))) {
       throw new Error(`🛑 Component ${this.componentPath} does not exists`);
     }
 
