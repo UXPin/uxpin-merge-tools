@@ -30,7 +30,7 @@ module.exports = {
     rules: [
       {
         loader: require.resolve('babel-loader'),
-        exclude: /node_modules/
+        exclude: /node_modules/,
         test: /\\.jsx?$/,
         options: {
           presets: [
