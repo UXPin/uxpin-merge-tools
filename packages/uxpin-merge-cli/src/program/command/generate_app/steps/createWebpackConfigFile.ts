@@ -6,6 +6,7 @@ import { writeToFile } from '../../../../utils/fs/writeToFile';
 import { GenerateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
+import { yesNo } from '../../../utils/yesNo';
 
 function getWebpackFile(): string {
   return `const path = require("path");
@@ -50,12 +51,15 @@ export function createWebpackConfigFile(args: GenerateAppProgramArgs): Step {
 export function thunkCreateWebpackConfigFile(args: GenerateAppProgramArgs): () => Promise<void> {
   return async () => {
     const webpackConfigFile: string = resolve(APP_DIRECTORY, 'webpack.config.js');
+    let shouldOverwriteFile = true;
 
-    if (!(await pathExists(webpackConfigFile))) {
+    if (await pathExists(webpackConfigFile)) {
+      shouldOverwriteFile = await yesNo(`The file webpack.config.js already exists. Do you want to overwrite it`);
+    }
+
+    if (shouldOverwriteFile) {
       await writeToFile(webpackConfigFile, getWebpackFile());
       printLine(`✅ File webpack.config.js created`, { color: PrintColor.GREEN });
-    } else {
-      printWarning(`👉 File webpack.config.js exists`);
     }
   };
 }

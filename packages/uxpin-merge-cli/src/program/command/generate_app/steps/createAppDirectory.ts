@@ -1,6 +1,6 @@
-import { ensureDir } from 'fs-extra';
+import { ensureDir, pathExists } from 'fs-extra';
 import { resolve } from 'path';
-import { printError, printLine } from '../../../../utils/console/printLine';
+import { printError, printLine, printWarning } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
 import { GenerateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
@@ -16,6 +16,11 @@ export function thunkCreateAppDirectory(args: GenerateAppProgramArgs): () => Pro
     const appDirectory = resolve(process.cwd(), args.directory);
     APP_DIRECTORY = appDirectory;
     try {
+      if (await pathExists(appDirectory)) {
+        printWarning(`👉 App directory ${appDirectory} already exists`);
+        return;
+      }
+
       await ensureDir(appDirectory);
       printLine(`✅ App directory "${appDirectory}" created`, { color: PrintColor.GREEN });
     } catch {

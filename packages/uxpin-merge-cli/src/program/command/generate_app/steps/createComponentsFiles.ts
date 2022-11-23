@@ -9,6 +9,7 @@ import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 import { AppConfig, SerializedComponent, SerializedProperty } from '../types/appConfig';
 import { generatePresetFile } from '../../generate_presets/getGeneratePresetsCommandSteps';
+import { yesNo } from '../../../utils/yesNo';
 
 export function createComponentsFiles(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
   return { exec: thunkCreateComponentsFiles(args, appConfig), shouldRun: true };
@@ -96,10 +97,20 @@ export function thunkCreateComponentsFiles(args: GenerateAppProgramArgs, appConf
 
       const componentDir = `${componentsPath}/${componentData.name}`;
       const componentFile = `${componentDir}/${componentData.name}.jsx`;
-      await ensureDir(componentDir);
-      await writeToFile(componentFile, getComponentContent(componentData));
+      let shouldOverwriteFile = true;
+
+      if (await pathExists(componentFile)) {
+        shouldOverwriteFile = await yesNo(
+          `The file ${componentDir}/${componentData.name}.jsx already exists. Do you want to overwrite it`
+        );
+      }
+
+      if (shouldOverwriteFile) {
+        await ensureDir(componentDir);
+        await writeToFile(componentFile, getComponentContent(componentData));
+        printLine(`✅ File ${componentFile} created`, { color: PrintColor.GREEN });
+      }
       category.include.push(`components/${componentData.name}/${componentData.name}.jsx`);
-      printLine(`✅ File ${componentFile} created`, { color: PrintColor.GREEN });
       await generatePresetFile(componentFile);
     });
   };

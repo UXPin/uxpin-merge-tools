@@ -33,7 +33,7 @@ export function thunkCreatePackageJsonFile(args: GenerateAppProgramArgs, appConf
       await writeToFile(packageJsonPath, JSON.stringify(packageFile, null, INDENT));
       printLine(`✅ File package.json created`, { color: PrintColor.GREEN });
     } else {
-      printWarning(`👉 File package.json exists`);
+      printWarning(`👉 File package.json already exists`);
     }
   };
 }

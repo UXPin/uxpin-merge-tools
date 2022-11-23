@@ -7,6 +7,8 @@ import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 import { components } from './createComponentsFiles';
 import { AppConfig } from '../types/appConfig';
+import { pathExists } from 'fs-extra';
+import { yesNo } from '../../../utils/yesNo';
 
 export function createUXPinConfigFile(args: GenerateAppProgramArgs): Step {
   return { exec: thunkCreateUXPinConfigFile(args), shouldRun: true };
@@ -44,8 +46,16 @@ export function thunkCreateUXPinConfigFile(args: GenerateAppProgramArgs): () => 
       `};`,
     ].join('\n');
 
+    let shouldOverwriteFile = true;
     const uxpinConfigFilePath: string = resolve(APP_DIRECTORY, 'uxpin.config.js');
-    await writeToFile(uxpinConfigFilePath, uxpinConfigFile);
-    printLine(`✅ File uxpin.config.js created`, { color: PrintColor.GREEN });
+
+    if (await pathExists(uxpinConfigFilePath)) {
+      shouldOverwriteFile = await yesNo(`The file uxpin.config.js already exists. Do you want to overwrite it`);
+    }
+
+    if (shouldOverwriteFile) {
+      await writeToFile(uxpinConfigFilePath, uxpinConfigFile);
+      printLine(`✅ The file uxpin.config.js created`, { color: PrintColor.GREEN });
+    }
   };
 }

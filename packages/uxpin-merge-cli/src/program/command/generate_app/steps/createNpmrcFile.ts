@@ -23,7 +23,7 @@ export function thunkCreateNpmrcFile(args: GenerateAppProgramArgs, appConfig: Ap
       await writeToFile(npmrcFile, appConfig.npmrc);
       printLine(`✅ File .npmrc created`, { color: PrintColor.GREEN });
     } else {
-      printWarning(`👉 File .npmrc exists`);
+      printWarning(`👉 File .npmrc already exists`);
     }
   };
 }
