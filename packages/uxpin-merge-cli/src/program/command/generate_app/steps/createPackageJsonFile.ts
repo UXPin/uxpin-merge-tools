@@ -8,7 +8,7 @@ import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 import { AppConfig } from '../types/appConfig';
 
-const INDENT: number = 2;
+const INDENT = 2;
 
 export function createPackageJsonFile(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
   return { exec: thunkCreatePackageJsonFile(args, appConfig), shouldRun: true };

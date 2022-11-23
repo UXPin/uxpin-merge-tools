@@ -16,7 +16,7 @@ export function createComponentsFiles(args: GenerateAppProgramArgs, appConfig: A
 
 const SUFFIX: string = 'El';
 
-export let components: Array<{ name: string; include: string[] }> = [];
+export const components: Array<{ name: string; include: string[] }> = [];
 
 function getDefaultValue(value: string | number | boolean) {
   if (typeof value === 'string') {
@@ -81,7 +81,7 @@ function getComponentContent(componentData: SerializedComponent): string {
 
 export function thunkCreateComponentsFiles(args: GenerateAppProgramArgs, appConfig: AppConfig): () => Promise<void> {
   return async () => {
-    const componentsPath: string = resolve(APP_DIRECTORY, 'components');
+    const componentsPath = resolve(APP_DIRECTORY, 'components');
     if (!(await pathExists(componentsPath))) {
       mkdir(componentsPath);
     }
@@ -94,8 +94,8 @@ export function thunkCreateComponentsFiles(args: GenerateAppProgramArgs, appConf
         components.push(category);
       }
 
-      const componentDir: string = `${componentsPath}/${componentData.name}`;
-      const componentFile: string = `${componentDir}/${componentData.name}.jsx`;
+      const componentDir = `${componentsPath}/${componentData.name}`;
+      const componentFile = `${componentDir}/${componentData.name}.jsx`;
       await ensureDir(componentDir);
       await writeToFile(componentFile, getComponentContent(componentData));
       category.include.push(`components/${componentData.name}/${componentData.name}.jsx`);
