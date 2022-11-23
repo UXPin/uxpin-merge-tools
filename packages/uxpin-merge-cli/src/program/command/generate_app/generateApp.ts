@@ -10,6 +10,7 @@ import { installPackages } from './steps/installPackages';
 import { installPeerDependencies } from './steps/installPeerDependencies';
 import { printError } from '../../../utils/console/printLine';
 import { AppConfig } from './types/appConfig';
+import { resolve } from 'path';
 
 export function generateApp(args: GenerateAppProgramArgs): Step[] {
   let appConfig: AppConfig;
@@ -20,7 +21,7 @@ export function generateApp(args: GenerateAppProgramArgs): Step[] {
   }
 
   try {
-    appConfig = require(args.appConfig);
+    appConfig = require(resolve(process.cwd(), args.appConfig));
   } catch (e) {
     printError(`Invalid config file ${args.appConfig}`);
     return [];

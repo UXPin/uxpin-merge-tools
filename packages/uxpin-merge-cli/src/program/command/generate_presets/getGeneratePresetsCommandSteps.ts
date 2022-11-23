@@ -12,7 +12,7 @@ export function getGeneratePresetsCommandSteps(args: GeneratePresetsProgramArgs)
   return [{ exec: thunkGenerateFiles(args), shouldRun: true }];
 }
 
-async function generatePresetFile(path: string): Promise<void> {
+export async function generatePresetFile(path: string): Promise<void> {
   try {
     const presetFile: PresetFileGenerator = new PresetFileGenerator(path);
     await presetFile.init();

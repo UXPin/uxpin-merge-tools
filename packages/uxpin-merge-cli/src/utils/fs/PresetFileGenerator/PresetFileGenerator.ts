@@ -39,7 +39,7 @@ export class PresetFileGenerator {
   }
 
   public async init(): Promise<void> {
-    if (await pathExists(resolve(__dirname, this.componentPath))) {
+    if (!(await pathExists(resolve(__dirname, this.componentPath)))) {
       throw new Error(`🛑 Component ${this.componentPath} does not exists`);
     }
 
@@ -63,11 +63,6 @@ export class PresetFileGenerator {
   public async createPresetFile(): Promise<void> {
     if (!(await pathExists(this.presetDirectory))) {
       await mkdir(this.presetDirectory);
-    }
-
-    if (await pathExists(this.presetFilePath)) {
-      printWarning(`👉 File ${this.presetFilePath} exists`);
-      return;
     }
 
     const componentFileContent: string = await this.generateComponentFile();
@@ -107,7 +102,10 @@ export class PresetFileGenerator {
 
   private generateComponentEnd(): string {
     if (this.hasChildren()) {
-      return `${INDENTATION_CHAR}>Put ${this.componentName} contents here</${this.componentName}>`;
+      const property = this.componentProperties.find(isChildrenProp);
+      return `${INDENTATION_CHAR}>${property!.value || `Put ${this.componentName} contents here`}</${
+        this.componentName
+      }>`;
     }
 
     return `${INDENTATION_CHAR}/>`;

@@ -9,11 +9,15 @@ import { getPushCommandSteps } from './push/getPushCommandSteps';
 import { getServerCommandSteps } from './server/getServerCommandSteps';
 import { Step } from './Step';
 import { getSummaryCommandSteps } from './summary/getSummaryCommandSteps';
+import { generateApp } from './generate_app/generateApp';
 
 export function getSteps(args: ProgramArgs): Step[] {
   switch (args.command) {
     case Command.DUMP:
       return getDumpCommandSteps();
+
+    case Command.GENERATE_APP:
+      return generateApp(args);
 
     case Command.EXPERIMENT:
       return getExperimentationCommandSteps(args);

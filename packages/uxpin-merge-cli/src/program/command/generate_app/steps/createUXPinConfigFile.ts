@@ -6,18 +6,28 @@ import { GenerateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 import { components } from './createComponentsFiles';
+import { AppConfig } from '../types/appConfig';
 
 export function createUXPinConfigFile(args: GenerateAppProgramArgs): Step {
   return { exec: thunkCreateUXPinConfigFile(args), shouldRun: true };
 }
 
 function getComponents(includes: string[]) {
-  return includes.map((include) => `'${include}'`).join(',\n');
+  return includes.map((include) => `          '${include}',`).join('\n');
 }
 
 function getCategories(components: Array<{ name: string; include: string[] }>) {
   return components
-    .map(({ name, include }) => ['{', `  name: ${name}`, `  include: [`, `    ${getComponents(include)}`, `  ]`, '}'])
+    .map(({ name, include }) =>
+      [
+        '      {',
+        `        name: '${name}',`,
+        `        include: [`,
+        `${getComponents(include)}`,
+        `        ]`,
+        '      }',
+      ].join('\n')
+    )
     .join('\n');
 }
 
@@ -25,12 +35,13 @@ export function thunkCreateUXPinConfigFile(args: GenerateAppProgramArgs): () => 
   return async () => {
     const uxpinConfigFile = [
       `module.exports = {`,
-      `  name: '${basename(process.cwd())}',`,
+      `  name: '${basename(resolve(process.cwd(), args.directory))}',`,
       `  components: {`,
       `    categories: [`,
-      `      ${getCategories(components)}`,
+      `${getCategories(components)}`,
       `    ]`,
       `  }`,
+      `};`,
     ].join('\n');
 
     const uxpinConfigFilePath: string = resolve(APP_DIRECTORY, 'uxpin.config.js');

@@ -20,5 +20,36 @@ module.exports = {
         },
       ],
     },
+    {
+      name: 'Checkbox',
+      category: 'General',
+      isExportDefault: true,
+      packageName: '@mui/material/Checkbox',
+      properties: [
+        {
+          name: 'label',
+          type: 'PropTypes.string',
+          defaultValue: 'Label',
+        },
+        {
+          name: 'defaultChecked',
+          type: 'PropTypes.bool',
+          defaultValue: false,
+        },
+      ],
+    },
+    {
+      name: 'Avatar',
+      category: 'General',
+      isExportDefault: true,
+      packageName: '@mui/material/Avatar',
+      properties: [
+        {
+          name: 'src',
+          type: 'PropTypes.string',
+          defaultValue: 'https://mui.com/static/images/avatar/1.jpg',
+        },
+      ],
+    },
   ],
 };
