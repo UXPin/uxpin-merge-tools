@@ -14,7 +14,7 @@ export function createComponentsFiles(args: GenerateAppProgramArgs, appConfig: A
   return { exec: thunkCreateComponentsFiles(args, appConfig), shouldRun: true };
 }
 
-const SUFFIX: string = 'El';
+const SUFFIX = 'El';
 
 export const components: Array<{ name: string; include: string[] }> = [];
 
