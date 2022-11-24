@@ -1,4 +1,4 @@
-import { readFile, rmdirSync, unlinkSync } from 'fs-extra';
+import { pathExists, readFile, rmdirSync, unlinkSync } from 'fs-extra';
 import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
@@ -11,9 +11,14 @@ describe('The generate presets command', () => {
   describe('run for Avatar component', () => {
     const COMPONENT_DIR = 'src/components/Avatar';
 
-    beforeEach(() => {
-      unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
-      rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
+    beforeEach(async () => {
+      if (await pathExists(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`)) {
+        unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
+      }
+
+      if (await pathExists(`${DS_DIR}/${COMPONENT_DIR}/presets`)) {
+        rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
+      }
     });
 
     it('create 0-default.jsx', () => {
@@ -32,9 +37,14 @@ describe('The generate presets command', () => {
   describe('run for Button component', () => {
     const COMPONENT_DIR = 'src/components/Button';
 
-    beforeEach(() => {
-      unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
-      rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
+    beforeEach(async () => {
+      if (await pathExists(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`)) {
+        unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
+      }
+
+      if (await pathExists(`${DS_DIR}/${COMPONENT_DIR}/presets`)) {
+        rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
+      }
     });
 
     it('create 0-default.jsx', () => {
@@ -53,10 +63,15 @@ describe('The generate presets command', () => {
   describe('run for whole ds based on uxpin.config.js', () => {
     const COMPONENT_DIRS: string[] = ['src/components/Avatar', 'src/components/Button'];
 
-    afterAll(async () => {
-      COMPONENT_DIRS.forEach((dir) => {
-        unlinkSync(`${DS_DIR}/${dir}/presets/0-default.jsx`);
-        rmdirSync(`${DS_DIR}/${dir}/presets`);
+    beforeAll(async () => {
+      COMPONENT_DIRS.forEach(async (dir) => {
+        if (await pathExists(`${DS_DIR}/${dir}/presets/0-default.jsx`)) {
+          unlinkSync(`${DS_DIR}/${dir}/presets/0-default.jsx`);
+        }
+
+        if (await pathExists(`${DS_DIR}/${dir}/presets`)) {
+          rmdirSync(`${DS_DIR}/${dir}/presets`);
+        }
       });
     });
 
