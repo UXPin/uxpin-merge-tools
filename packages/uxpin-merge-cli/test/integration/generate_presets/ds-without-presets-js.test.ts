@@ -11,7 +11,7 @@ describe('The generate presets command', () => {
   describe('run for Avatar component', () => {
     const COMPONENT_DIR = 'src/components/Avatar';
 
-    afterEach(() => {
+    beforeEach(() => {
       unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
       rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
     });
@@ -32,7 +32,7 @@ describe('The generate presets command', () => {
   describe('run for Button component', () => {
     const COMPONENT_DIR = 'src/components/Button';
 
-    afterEach(() => {
+    beforeEach(() => {
       unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
       rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
     });
