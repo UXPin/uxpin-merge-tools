@@ -10,6 +10,8 @@ import { PrintColor } from '../../console/PrintOptions';
 import { writeToFile } from '../writeToFile';
 import { generatePropertyValuePair, INDENTATION_CHAR } from './helpers/generatePropertyValuePair';
 import { getPropTypeValue } from './helpers/getPropTypeValue';
+import { APP_DIRECTORY } from '../../../program/command/generate_app/steps/createAppDirectory';
+import { yesNo } from '../../../program/utils/yesNo';
 
 const PRESET_FILE_NAME = '0-default.jsx';
 
@@ -66,8 +68,19 @@ export class PresetFileGenerator {
     }
 
     const componentFileContent: string = await this.generateComponentFile();
-    await writeToFile(this.presetFilePath, componentFileContent);
-    printLine(`✅ File ${this.presetFilePath} created successfully`, { color: PrintColor.GREEN });
+
+    let shouldOverwriteFile = true;
+
+    if (await pathExists(this.presetFilePath)) {
+      shouldOverwriteFile = await yesNo(
+        `The preset file ${this.presetFilePath} already exists. Do you want to overwrite it`
+      );
+    }
+
+    if (shouldOverwriteFile) {
+      await writeToFile(this.presetFilePath, componentFileContent);
+      printLine(`✅ File ${this.presetFilePath} created`, { color: PrintColor.GREEN });
+    }
   }
 
   public async generateComponentFile(): Promise<string> {

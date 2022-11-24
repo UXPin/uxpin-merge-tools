@@ -15,5 +15,6 @@ export interface SerializedComponent {
 export interface AppConfig {
   packages?: string[];
   npmrc?: string;
+  webpack?: boolean;
   components: SerializedComponent[];
 }

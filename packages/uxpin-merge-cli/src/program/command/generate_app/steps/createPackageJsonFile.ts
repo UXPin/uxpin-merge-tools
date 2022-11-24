@@ -21,7 +21,7 @@ export function thunkCreatePackageJsonFile(args: GenerateAppProgramArgs, appConf
       dependencies?: { [key: string]: number | string };
     } = {};
 
-    if (!appConfig.packages || !appConfig.packages.length) {
+    if ((!appConfig.packages || !appConfig.packages.length) && !appConfig.webpack) {
       return;
     }
 

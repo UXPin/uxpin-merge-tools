@@ -57,5 +57,7 @@ export function thunkCreateUXPinConfigFile(args: GenerateAppProgramArgs): () => 
       await writeToFile(uxpinConfigFilePath, uxpinConfigFile);
       printLine(`✅ The file uxpin.config.js created`, { color: PrintColor.GREEN });
     }
+
+    process.exit(0);
   };
 }

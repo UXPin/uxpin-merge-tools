@@ -34,7 +34,7 @@ export function generateApp(args: GenerateAppProgramArgs): Step[] {
     installPackages(args, appConfig),
     installPeerDependencies(args, appConfig),
     createComponentsFiles(args, appConfig),
-    createWebpackConfigFile(args),
+    createWebpackConfigFile(args, appConfig),
     createUXPinConfigFile(args),
   ];
 }

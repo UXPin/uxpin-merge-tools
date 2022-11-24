@@ -7,6 +7,7 @@ import { GenerateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 import { yesNo } from '../../../utils/yesNo';
+import { AppConfig } from '../types/appConfig';
 
 function getWebpackFile(): string {
   return `const path = require("path");
@@ -44,12 +45,17 @@ module.exports = {
   }
 }`;
 }
-export function createWebpackConfigFile(args: GenerateAppProgramArgs): Step {
-  return { exec: thunkCreateWebpackConfigFile(args), shouldRun: true };
+
+export function createWebpackConfigFile(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
+  return { exec: thunkCreateWebpackConfigFile(args, appConfig), shouldRun: true };
 }
 
-export function thunkCreateWebpackConfigFile(args: GenerateAppProgramArgs): () => Promise<void> {
+export function thunkCreateWebpackConfigFile(args: GenerateAppProgramArgs, appConfig: AppConfig): () => Promise<void> {
   return async () => {
+    if (!appConfig.webpack) {
+      return;
+    }
+
     const webpackConfigFile: string = resolve(APP_DIRECTORY, 'webpack.config.js');
     let shouldOverwriteFile = true;
 

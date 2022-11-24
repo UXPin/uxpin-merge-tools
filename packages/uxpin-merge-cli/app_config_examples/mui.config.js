@@ -1,6 +1,7 @@
 module.exports = {
   packages: ['@mui/material', '@emotion/react', '@emotion/styled'],
   npmrc: '',
+  webpack: true,
   components: [
     {
       name: 'Button',
