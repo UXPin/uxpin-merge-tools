@@ -1,4 +1,4 @@
-import { readFile, rmdirSync, unlinkSync } from 'fs-extra';
+import { pathExists, readFile, rmdirSync, unlinkSync } from 'fs-extra';
 import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
@@ -11,9 +11,14 @@ describe('The generate presets command', () => {
   describe('run for Avatar component', () => {
     const COMPONENT_DIR = 'src/components/Avatar';
 
-    afterEach(() => {
-      unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
-      rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
+    beforeEach(async () => {
+      if (await pathExists(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`)) {
+        unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
+      }
+
+      if (await pathExists(`${DS_DIR}/${COMPONENT_DIR}/presets`)) {
+        rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
+      }
     });
 
     it('create 0-default.jsx', () => {
@@ -32,9 +37,14 @@ describe('The generate presets command', () => {
   describe('run for MenuWithData component', () => {
     const COMPONENT_DIR = 'src/components/MenuWithData';
 
-    afterEach(() => {
-      unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
-      rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
+    beforeEach(async () => {
+      if (await pathExists(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`)) {
+        unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
+      }
+
+      if (await pathExists(`${DS_DIR}/${COMPONENT_DIR}/presets`)) {
+        rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
+      }
     });
 
     it('create 0-default.jsx', () => {
@@ -53,9 +63,14 @@ describe('The generate presets command', () => {
   describe('run for ButtonWithIconAsProp component', () => {
     const COMPONENT_DIR = 'src/components/ButtonWithIconAsProp';
 
-    afterEach(() => {
-      unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
-      rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
+    beforeEach(async () => {
+      if (await pathExists(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`)) {
+        unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
+      }
+
+      if (await pathExists(`${DS_DIR}/${COMPONENT_DIR}/presets`)) {
+        rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
+      }
     });
 
     it('create 0-default.jsx', () => {
@@ -78,10 +93,15 @@ describe('The generate presets command', () => {
       'src/components/ButtonWithIconAsProp',
     ];
 
-    afterAll(async () => {
-      COMPONENT_DIRS.forEach((dir) => {
-        unlinkSync(`${DS_DIR}/${dir}/presets/0-default.jsx`);
-        rmdirSync(`${DS_DIR}/${dir}/presets`);
+    beforeAll(async () => {
+      COMPONENT_DIRS.forEach(async (dir) => {
+        if (await pathExists(`${DS_DIR}/${dir}/presets/0-default.jsx`)) {
+          unlinkSync(`${DS_DIR}/${dir}/presets/0-default.jsx`);
+        }
+
+        if (await pathExists(`${DS_DIR}/${dir}/presets`)) {
+          rmdirSync(`${DS_DIR}/${dir}/presets`);
+        }
       });
     });
 
