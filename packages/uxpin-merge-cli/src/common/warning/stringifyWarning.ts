@@ -1,6 +1,6 @@
 import cleanStacktrace = require('clean-stacktrace');
 import cleanStacktraceRelativePaths = require('clean-stacktrace-relative-paths');
-import safe = require('colors/safe');
+import safe = require('@colors/colors/safe');
 import { WarningDetails } from './WarningDetails';
 
 export function stringifyWarning(warning: WarningDetails, includeError = false): string {

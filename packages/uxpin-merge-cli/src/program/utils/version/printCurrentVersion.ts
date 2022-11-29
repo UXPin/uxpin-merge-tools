@@ -1,4 +1,4 @@
-import * as safe from 'colors/safe';
+import * as safe from '@colors/colors/safe';
 import { printLine } from '../../../utils/console/printLine';
 import { PrintOptions } from '../../../utils/console/PrintOptions';
 import { isTestEnv } from '../../env/isTestEnv';

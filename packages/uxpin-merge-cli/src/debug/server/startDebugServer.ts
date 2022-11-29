@@ -1,4 +1,4 @@
-import safe = require('colors/safe');
+import safe = require('@colors/colors/safe');
 import { readFile } from 'fs-extra';
 import { createServer, IncomingMessage, Server, ServerResponse } from 'http';
 
