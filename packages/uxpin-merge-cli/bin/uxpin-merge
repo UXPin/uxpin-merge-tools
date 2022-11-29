@@ -42,6 +42,7 @@ program
     .option('--token <token>', 'auth token for the library. Default: `UXPIN_AUTH_TOKEN` env variable')
     .option('--branch <branch>', 'branch to use when uploading. Default: master')
     .option('--tag <tag>', 'tag this push with a specific name or number. The provided name/number is unique and can be used only once.')
+    .option('--force', 'ignore the last commit saved in uxpin db and push the library without checking history. It could break old prototypes if components were created before 07.2021')
     .action(() => {});
 
 program
@@ -50,7 +51,7 @@ program
     .option('--token <token>', 'auth token for the library to delete from.')
     .option('--branch <branch>', 'branch to delete in the Merge library')
     .option('--tag <tag>', 'tag to delete in the Merge library')
-    .action(() => {});    
+    .action(() => {});
 
 program
     .command(Command.DUMP)

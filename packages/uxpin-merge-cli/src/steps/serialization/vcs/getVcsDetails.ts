@@ -17,7 +17,7 @@ export async function getVcsDetails(
   const repositoryPointer: RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
   let latestCommitHash: string | null = null;
 
-  if (buildOptions.token) {
+  if (buildOptions.token && !buildOptions.force) {
     latestCommitHash = await getLatestCommitHash(
       getApiDomain(buildOptions.uxpinApiDomain!),
       repositoryPointer.branchName,
