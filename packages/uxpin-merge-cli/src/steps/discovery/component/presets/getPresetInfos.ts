@@ -1,6 +1,6 @@
 import { readdir } from 'fs-extra';
 import pReduce = require('p-reduce');
-import { join, relative } from 'path';
+import { join, relative, posix } from 'path';
 import { isFile } from '../../../../utils/fs/isFile';
 import { ComponentPresetInfo } from '../ComponentInfo';
 import { ComponentPaths } from '../paths/ComponentPaths';
@@ -45,5 +45,5 @@ function getFilePath(path: string): Promise<string | null> {
 }
 
 function getRelativePaths(fromPath: string, paths: string[]): string[] {
-  return paths.map((path) => relative(fromPath, path));
+  return paths.map((path) => posix.normalize(relative(fromPath, path).replace(/\\/g, '/')));
 }

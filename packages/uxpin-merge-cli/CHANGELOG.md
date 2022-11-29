@@ -1,4 +1,8 @@
 # Changelog
+## [2.8.1] - 2022-10-18
+
+## Changed
+- Support for normalize paths for windows  ([#328](https://github.com/UXPin/uxpin-merge-tools/pull/328))
 ## [2.8.0] - 2022-06-09
 
 ## Changed
