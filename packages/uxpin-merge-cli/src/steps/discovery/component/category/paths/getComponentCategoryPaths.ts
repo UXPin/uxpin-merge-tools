@@ -1,4 +1,4 @@
-import * as safe from 'colors/safe';
+import * as safe from '@colors/colors/safe';
 import globby = require('globby');
 import { flatten, intersection } from 'lodash';
 import pMap from 'p-map';
