@@ -1,4 +1,11 @@
 # Changelog
+## [2.8.2] - 2022-11-29
+
+## Changed
+- `push` command with `--force` options ([#330](https://github.com/UXPin/uxpin-merge-tools/pull/330))
+- Support `main` branch as default branch name ([#330](https://github.com/UXPin/uxpin-merge-tools/pull/330))
+
+# Changelog
 ## [2.8.1] - 2022-10-18
 
 ## Changed
