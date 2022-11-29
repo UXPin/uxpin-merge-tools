@@ -3,7 +3,6 @@
 
 ## Changed
 - Replace `colors` by `@colors/colors` ([#337](https://github.com/UXPin/uxpin-merge-tools/pull/337)) Thanks to ([@JuhG](https://github.com/JuhG))
-
 - `push` command with `--force` options ([#330](https://github.com/UXPin/uxpin-merge-tools/pull/330))
 - Support `main` branch as default branch name ([#330](https://github.com/UXPin/uxpin-merge-tools/pull/330))
 
