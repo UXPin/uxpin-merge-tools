@@ -31,7 +31,7 @@ describe('serializeTSComponent-DocUrl', () => {
       expect(metadata.result).toEqual(expectedMetadata);
     });
 
-    it('serializes FC with forwardRef() and url doc declaration', async () => {
+    it('is serialized correctly with the provided url and forwardRef()', async () => {
       // having
       const component: ComponentImplementationInfo = getImplementation(
         'NamedExportedComponentWithForwardRefAndDocUrlDeclaration'
