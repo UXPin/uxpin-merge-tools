@@ -42,8 +42,7 @@ function getComponentDeclaration(sourceFile: ts.SourceFile, functionName: string
     }
 
     if (ts.isArrowFunction(argument) || ts.isFunctionExpression(argument)) {
-      // return { declaration: argument, isExported: isExported(variable) };
-      return { declaration: variable.declarationList.declarations[0], isExported: isExported(variable) };
+      return { declaration: argument, isExported: isExported(variable) };
     }
   }
 
