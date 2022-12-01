@@ -229,6 +229,19 @@ describe('SerializeJSComponent - with annotations', () => {
     });
   });
 
+  describe('named export with componentDocUrl declaration and forwardRef', () => {
+    let serialized: ImplSerializationResult;
+
+    beforeAll(async () => {
+      const component: ComponentImplementationInfo = getImplementation('NamedExportedComponentWithForwardRefAndDocUrl');
+      serialized = await serializeJSComponent(component);
+    });
+
+    it('returns correct url', () => {
+      expect(serialized.result.componentDocUrl).toEqual('https://app.uxpin.com/test');
+    });
+  });
+
   describe('function with componentDocUrl and wrappers declaration', () => {
     let serialized: ImplSerializationResult;
 
