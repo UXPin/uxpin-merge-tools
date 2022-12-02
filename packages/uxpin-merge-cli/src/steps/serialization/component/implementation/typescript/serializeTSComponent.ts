@@ -9,7 +9,7 @@ import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getComponentDeclaration } from './component/getComponentDeclaration';
-import { getComponentDocUrl } from './component/getComponentDocUrl';
+import { getComponentDocUrl } from './comments/jsdoc-docurl';
 import { getComponentName } from './component/getComponentName';
 import { getComponentNamespace } from './component/getComponentNamespace';
 import { getComponentWrappers } from './component/getComponentWrappers';
