@@ -56,16 +56,20 @@ export function thunkCreateWebpackConfigFile(args: GenerateAppProgramArgs, appCo
       return;
     }
 
-    const webpackConfigFile: string = resolve(APP_DIRECTORY, 'webpack.config.js');
+    const webpackConfigFileName = typeof appConfig.webpack === 'string' ? appConfig.webpack : 'webpack.config.js';
+
+    const webpackConfigFile = resolve(APP_DIRECTORY, webpackConfigFileName);
     let shouldOverwriteFile = true;
 
     if (await pathExists(webpackConfigFile)) {
-      shouldOverwriteFile = await yesNo(`The file webpack.config.js already exists. Do you want to overwrite it`);
+      shouldOverwriteFile = await yesNo(
+        `The file ${webpackConfigFileName} already exists. Do you want to overwrite it`
+      );
     }
 
     if (shouldOverwriteFile) {
       await writeToFile(webpackConfigFile, getWebpackFile());
-      printLine(`✅ File webpack.config.js created`, { color: PrintColor.GREEN });
+      printLine(`✅ File ${webpackConfigFileName} created`, { color: PrintColor.GREEN });
     }
   };
 }

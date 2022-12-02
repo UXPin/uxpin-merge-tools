@@ -44,29 +44,39 @@ function getDefaultProps(name: string, properties: SerializedProperty[]): string
   ].join('\n');
 }
 
+function getPropType(property: SerializedProperty) {
+  if (property.uxpinPropName || property.uxpinControlType || property.uxpinDescription) {
+    return [
+      `  /**`,
+      `   ${property.uxpinPropName ? `* @uxpinpropname ${property.uxpinPropName}` : ''}`,
+      `   ${property.uxpinControlType ? `* @uxpincontroltype ${property.uxpinControlType}` : ''}`,
+      `   ${property.uxpinDescription ? `* @uxpindescription ${property.uxpinDescription}` : ''}`,
+      `   */`,
+      `  ${property.name}: ${property.type},`,
+    ]
+      .filter((value) => Boolean(value.trim()))
+      .join('\n');
+  }
+
+  return `  ${property.name}: ${property.type},`;
+}
+
 function getPropTypes(name: string, properties: SerializedProperty[]): string {
   if (!properties || !properties.length) {
     return '';
   }
 
-  return [
-    `${name}.propTypes = {`,
-    properties.map((property) => `  ${property.name}: ${property.type},`).join('\n'),
-    `};`,
-  ].join('\n');
+  return [`${name}.propTypes = {`, properties.map((property) => getPropType(property)).join('\n'), `};`].join('\n');
 }
 
 function getComponentContent(componentData: SerializedComponent): string {
-  const { name, packageName, properties, isExportDefault } = componentData;
+  const { name, importStatement, properties } = componentData;
   const propTypes = getPropTypes(name, properties);
   const defaultProps = getDefaultProps(name, properties);
-
   return [
     `import React from 'react';`,
     `import PropTypes from 'prop-types';`,
-    isExportDefault
-      ? `import ${name}${SUFFIX} from '${packageName}';`
-      : `import { ${name} as ${name}${SUFFIX} } from '${packageName}';`,
+    importStatement.trim(),
     '',
     `const ${name} = (props) => {`,
     `  return <${name}${SUFFIX} {...props} />;`,
