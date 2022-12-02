@@ -1,4 +1,5 @@
 import * as ts from 'typescript';
+import { CommentTags } from '../../../CommentTags';
 
 export function getNodeJsDocAllTags(node: ts.Node): ts.JSDocTag[] {
   return Array.from(ts.getJSDocTags(node));
