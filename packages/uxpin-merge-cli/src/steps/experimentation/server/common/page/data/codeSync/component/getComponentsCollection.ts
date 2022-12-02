@@ -17,6 +17,7 @@ export function getComponentsCollection({ revisionId, metadata }: ComponentsColl
       namespace: component.namespace,
       properties: component.properties,
       revisionId,
+      usePortal: component.usePortal,
       wrappers: component.wrappers,
     };
     return all;

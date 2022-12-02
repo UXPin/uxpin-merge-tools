@@ -11,6 +11,7 @@ export interface ComponentMetadata {
   properties: ComponentPropertyDefinition[];
   wrappers?: ComponentWrapper[];
   defaultExported: boolean;
+  usePortal?: boolean;
 }
 
 export interface ComponentDefinition extends ComponentMetadata {
