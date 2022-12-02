@@ -1,8 +1,9 @@
 import * as ts from 'typescript';
+import { CommentTags } from '../../../CommentTags';
 import { ComponentNamespace } from '../../../ComponentDefinition';
 import { getComponentNamespaceImportSlug } from '../../getComponentNamespaceImportSlug';
-import { getUXpinNamespaceComment } from '../comments/getUXPinNamespaceComment';
-import { ComponentDeclaration } from './getPropsTypeAndDefaultProps';
+import { ComponentDeclaration } from '../component/getPropsTypeAndDefaultProps';
+import { getNodeJsDocTag } from './jsdoc-helpers';
 
 export function getComponentNamespace(component: ComponentDeclaration, name: string): ComponentNamespace | undefined {
   const namespace: ts.JSDocTag | undefined = getUXpinNamespaceComment(component);
@@ -15,4 +16,8 @@ export function getComponentNamespace(component: ComponentDeclaration, name: str
     importSlug: getComponentNamespaceImportSlug(namespace.comment, name),
     name: namespace.comment,
   };
+}
+
+export function getUXpinNamespaceComment(node: ts.Node): ts.JSDocTag | undefined {
+  return getNodeJsDocTag(node, CommentTags.UXPIN_NAMESPACE);
 }
