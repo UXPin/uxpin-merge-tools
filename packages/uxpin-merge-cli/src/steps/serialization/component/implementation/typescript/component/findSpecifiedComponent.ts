@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { hasUXPinComponentComment } from '../comments/hasUXPinComponentComment';
+import { hasUXPinComponentComment } from '../comments/jsdoc-component';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import {
   ClassComponentDeclaration,
