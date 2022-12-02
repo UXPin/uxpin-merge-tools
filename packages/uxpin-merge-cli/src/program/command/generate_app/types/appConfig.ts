@@ -19,4 +19,5 @@ export interface AppConfig {
   npmrc?: string;
   webpack?: boolean | string;
   components: SerializedComponent[];
+  wrapper?: string;
 }
