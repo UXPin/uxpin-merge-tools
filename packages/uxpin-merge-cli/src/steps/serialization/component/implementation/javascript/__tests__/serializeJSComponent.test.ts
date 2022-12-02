@@ -576,5 +576,31 @@ ReferenceError: some is not defined
         expect(serializedProps.warnings).toEqual([]);
       });
     });
+
+    it('serializes component with `usePortal` attribute', () => {
+      // given
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithUsePortalDeclaration');
+      const expectedMetadata: ComponentMetadata = {
+        defaultExported: true,
+        usePortal: true,
+        name: 'FunctionWithUsePortalDeclaration',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'name',
+            type: { name: 'string', structure: {} },
+          },
+        ],
+        wrappers: [],
+      };
+
+      // when
+      return serializeJSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
   });
 });

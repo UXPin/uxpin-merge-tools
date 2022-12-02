@@ -64,14 +64,15 @@ function getComponentWrappers(parsed: ComponentDoc, implInfo: ComponentImplement
 function getValuesFromComments(
   name: string,
   parsed: ComponentDoc
-): Pick<PartialResult, 'namespace' | 'componentDocUrl'> {
+): Pick<PartialResult, 'namespace' | 'componentDocUrl' | 'usePortal'> {
   const jsDocTags: string[] = getJSDocTagsArrayFromString(parsed.description);
   const namespaceTag: string = getCommentTag(CommentTags.UXPIN_NAMESPACE, jsDocTags) || '';
   const componentDocUrlTag: string = getCommentTag(CommentTags.UXPIN_DOC_URL, jsDocTags) || '';
 
   const namespace: ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
   const componentDocUrl: string | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
-  return { namespace, componentDocUrl };
+  const usePortal: boolean | undefined = !!getCommentTag(CommentTags.UXPIN_USE_PORTAL, jsDocTags) || undefined;
+  return { namespace, componentDocUrl, usePortal };
 }
 
 function thunkGetSummaryResult(path: string): (propResults: PartialResult) => ImplSerializationResult {
@@ -92,4 +93,5 @@ interface PartialResult {
   properties: PropDefinitionSerializationResult[];
   wrappers: Warned<ComponentWrapper[]>;
   defaultExported: boolean;
+  usePortal?: boolean;
 }

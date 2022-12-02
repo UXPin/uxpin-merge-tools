@@ -11,6 +11,7 @@ import { PropDefinitionSerializationResult } from '../PropDefinitionSerializatio
 import { getComponentDeclaration } from './component/getComponentDeclaration';
 import { getComponentDocUrl } from './comments/jsdoc-docurl';
 import { getComponentNamespace } from './comments/jsdoc-namespace';
+import { getComponentUsePortal } from './comments/jsdoc-useportal';
 import { getComponentName } from './component/getComponentName';
 import { getComponentWrappers } from './component/getComponentWrappers';
 import { ComponentDeclaration } from './component/getPropsTypeAndDefaultProps';
@@ -34,6 +35,7 @@ export async function serializeTSComponent(component: ComponentImplementationInf
   const wrappers: ComponentWrapper[] = getComponentWrappers(declaration);
   const validatedWrappers: Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
   const defaultExported: boolean = isDefaultExported(declaration, context);
+  const usePortal: boolean | undefined = getComponentUsePortal(declaration) || undefined;
 
   return {
     result: {
@@ -43,6 +45,7 @@ export async function serializeTSComponent(component: ComponentImplementationInf
       namespace,
       properties: validatedProps.map(({ result }) => result),
       wrappers: validatedWrappers.result,
+      usePortal,
     },
     warnings: joinWarningLists(
       [...validatedProps.map(({ warnings }) => warnings), validatedWrappers.warnings],
