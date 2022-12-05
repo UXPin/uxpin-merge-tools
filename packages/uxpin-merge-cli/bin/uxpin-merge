@@ -36,6 +36,7 @@ program
     .description('Create wrapper files, install dependencies based on app config')
     .option('--directory <string>', 'Directory where wrappers should be generated Default: `./`')
     .option('--app-config <string>', 'Path to app config')
+    .option('--component-config <string>', 'Path to component config')
     .action(() => {});
 
 

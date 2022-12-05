@@ -9,23 +9,35 @@ import { createWebpackConfigFile } from './steps/createWebpackConfigFile';
 import { installPackages } from './steps/installPackages';
 import { installPeerDependencies } from './steps/installPeerDependencies';
 import { printError } from '../../../utils/console/printLine';
-import { AppConfig } from './types/appConfig';
+import { AppConfig, SerializedComponent } from './types/appConfig';
 import { resolve } from 'path';
 import { createWrapperFile } from './steps/createWrapperFile';
 
 export function generateApp(args: GenerateAppProgramArgs): Step[] {
-  let appConfig: AppConfig;
+  let appConfig;
+  let componentConfig;
 
-  if (!args.appConfig) {
-    printError(`Missing app config file`);
+  if (!args.appConfig && !args.componentConfig) {
+    printError(`Missing app and component config file`);
     return [];
   }
 
-  try {
-    appConfig = require(resolve(process.cwd(), args.appConfig));
-  } catch (e) {
-    printError(`Invalid config file ${args.appConfig}`);
-    return [];
+  if (args.appConfig) {
+    try {
+      appConfig = require(resolve(process.cwd(), args.appConfig));
+    } catch (e) {
+      printError(`Invalid config file ${args.appConfig}`);
+      return [];
+    }
+  }
+
+  if (args.componentConfig) {
+    try {
+      componentConfig = require(resolve(process.cwd(), args.componentConfig));
+    } catch (e) {
+      printError(`Invalid config file ${args.componentConfig}`);
+      return [];
+    }
   }
 
   return [
@@ -34,9 +46,9 @@ export function generateApp(args: GenerateAppProgramArgs): Step[] {
     createNpmrcFile(args, appConfig),
     installPackages(args, appConfig),
     installPeerDependencies(args, appConfig),
-    createComponentsFiles(args, appConfig),
+    createComponentsFiles(args, appConfig, componentConfig),
     createWrapperFile(args, appConfig),
     createWebpackConfigFile(args, appConfig),
-    createUXPinConfigFile(args, appConfig),
+    createUXPinConfigFile(args, appConfig, componentConfig),
   ];
 }

@@ -6,13 +6,13 @@ import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 import { AppConfig } from '../types/appConfig';
 
-export function installPeerDependencies(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
+export function installPeerDependencies(args: GenerateAppProgramArgs, appConfig?: AppConfig): Step {
   return { exec: thunkInstallPeerDependencies(args, appConfig), shouldRun: true };
 }
 
-export function thunkInstallPeerDependencies(args: GenerateAppProgramArgs, appConfig: AppConfig): () => Promise<void> {
+export function thunkInstallPeerDependencies(args: GenerateAppProgramArgs, appConfig?: AppConfig): () => Promise<void> {
   return async () => {
-    if (!appConfig.packages || !appConfig.packages.length) {
+    if (!appConfig || !appConfig.packages || !appConfig.packages.length) {
       return;
     }
 

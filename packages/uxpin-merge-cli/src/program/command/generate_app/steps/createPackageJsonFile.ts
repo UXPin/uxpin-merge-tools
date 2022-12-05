@@ -10,18 +10,18 @@ import { AppConfig } from '../types/appConfig';
 
 const INDENT = 2;
 
-export function createPackageJsonFile(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
+export function createPackageJsonFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): Step {
   return { exec: thunkCreatePackageJsonFile(args, appConfig), shouldRun: true };
 }
 
-export function thunkCreatePackageJsonFile(args: GenerateAppProgramArgs, appConfig: AppConfig): () => Promise<void> {
+export function thunkCreatePackageJsonFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): () => Promise<void> {
   return async () => {
     const packageFile: {
       name?: string;
       dependencies?: { [key: string]: number | string };
     } = {};
 
-    if ((!appConfig.packages || !appConfig.packages.length) && !appConfig.webpack) {
+    if (!appConfig || ((!appConfig.packages || !appConfig.packages.length) && !appConfig.webpack)) {
       return;
     }
 

@@ -9,7 +9,7 @@ import { APP_DIRECTORY } from './createAppDirectory';
 import { AppConfig } from '../types/appConfig';
 import { yesNo } from '../../../utils/yesNo';
 
-export function createWrapperFile(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
+export function createWrapperFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): Step {
   return { exec: thunkCreateWrapperFile(args, appConfig), shouldRun: true };
 }
 
@@ -33,9 +33,9 @@ function capitalizeFirstLetter(string: string) {
   return string[0].toUpperCase() + string.slice(1);
 }
 
-export function thunkCreateWrapperFile(args: GenerateAppProgramArgs, appConfig: AppConfig): () => Promise<void> {
+export function thunkCreateWrapperFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): () => Promise<void> {
   return async () => {
-    if (!appConfig.wrapper) {
+    if (!appConfig || !appConfig.wrapper) {
       return;
     }
 

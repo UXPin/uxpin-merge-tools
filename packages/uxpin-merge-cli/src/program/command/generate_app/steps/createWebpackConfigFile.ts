@@ -48,13 +48,13 @@ module.exports = {
 
 export let webpackConfigPath = '';
 
-export function createWebpackConfigFile(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
+export function createWebpackConfigFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): Step {
   return { exec: thunkCreateWebpackConfigFile(args, appConfig), shouldRun: true };
 }
 
-export function thunkCreateWebpackConfigFile(args: GenerateAppProgramArgs, appConfig: AppConfig): () => Promise<void> {
+export function thunkCreateWebpackConfigFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): () => Promise<void> {
   return async () => {
-    if (!appConfig.webpack) {
+    if (!appConfig || !appConfig.webpack) {
       return;
     }
 

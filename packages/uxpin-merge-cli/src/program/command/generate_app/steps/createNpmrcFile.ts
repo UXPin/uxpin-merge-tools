@@ -8,13 +8,13 @@ import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 import { AppConfig } from '../types/appConfig';
 
-export function createNpmrcFile(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
+export function createNpmrcFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): Step {
   return { exec: thunkCreateNpmrcFile(args, appConfig), shouldRun: true };
 }
 
-export function thunkCreateNpmrcFile(args: GenerateAppProgramArgs, appConfig: AppConfig): () => Promise<void> {
+export function thunkCreateNpmrcFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): () => Promise<void> {
   return async () => {
-    if (!appConfig.npmrc) {
+    if (!appConfig || !appConfig.npmrc) {
       return;
     }
 

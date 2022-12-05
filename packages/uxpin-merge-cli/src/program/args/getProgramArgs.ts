@@ -14,7 +14,8 @@ const defaultArgs: { [key in Command]: ProgramArgs } = {
     cwd: process.cwd(),
   },
   [Command.GENERATE_APP]: {
-    appConfig: './app.config.js',
+    appConfig: '',
+    componentConfig: '',
     command: Command.GENERATE_APP,
     directory: './',
   },

@@ -34,7 +34,8 @@ export interface DumpProgramArgs {
 }
 
 export interface GenerateAppProgramArgs {
-  appConfig: string;
+  appConfig?: string;
+  componentConfig?: string;
   command: Command.GENERATE_APP;
   directory: string;
 }

@@ -6,13 +6,13 @@ import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 import { AppConfig } from '../types/appConfig';
 
-export function installPackages(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
+export function installPackages(args: GenerateAppProgramArgs, appConfig?: AppConfig): Step {
   return { exec: thunkInstallPackages(args, appConfig), shouldRun: true };
 }
 
-export function thunkInstallPackages(args: GenerateAppProgramArgs, appConfig: AppConfig): () => Promise<void> {
+export function thunkInstallPackages(args: GenerateAppProgramArgs, appConfig?: AppConfig): () => Promise<void> {
   return async () => {
-    if ((!appConfig.packages || !appConfig.packages.length) && !appConfig.webpack) {
+    if (!appConfig || ((!appConfig.packages || !appConfig.packages.length) && !appConfig.webpack)) {
       return;
     }
 

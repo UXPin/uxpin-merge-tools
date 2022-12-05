@@ -11,8 +11,12 @@ import { AppConfig, SerializedComponent, SerializedProperty } from '../types/app
 import { generatePresetFile } from '../../generate_presets/getGeneratePresetsCommandSteps';
 import { yesNo } from '../../../utils/yesNo';
 
-export function createComponentsFiles(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
-  return { exec: thunkCreateComponentsFiles(args, appConfig), shouldRun: true };
+export function createComponentsFiles(
+  args: GenerateAppProgramArgs,
+  appConfig?: AppConfig,
+  componentConfig?: SerializedComponent
+): Step {
+  return { exec: thunkCreateComponentsFiles(args, appConfig, componentConfig), shouldRun: true };
 }
 
 const SUFFIX = 'El';
@@ -125,37 +129,41 @@ function getComponentContent(componentData: SerializedComponent): string {
     .join('\n');
 }
 
-export function thunkCreateComponentsFiles(args: GenerateAppProgramArgs, appConfig: AppConfig): () => Promise<void> {
+export function thunkCreateComponentsFiles(
+  args: GenerateAppProgramArgs,
+  appConfig?: AppConfig,
+  componentConfig?: SerializedComponent
+): () => Promise<void> {
   return async () => {
     const componentsPath = resolve(APP_DIRECTORY, 'components');
     if (!(await pathExists(componentsPath))) {
       mkdir(componentsPath);
     }
 
-    await pMapSeries(appConfig.components, async (componentData) => {
-      let category = components.find((data) => data.name === componentData.category);
+    await pMapSeries(appConfig ? appConfig.components : [componentConfig], async (componentData) => {
+      let category = components.find((data) => data.name === componentData!.category);
 
       if (!category) {
-        category = { name: componentData.category, include: [] };
+        category = { name: componentData!.category, include: [] };
         components.push(category);
       }
 
-      const componentDir = `${componentsPath}/${componentData.name}`;
-      const componentFile = `${componentDir}/${componentData.name}.jsx`;
+      const componentDir = `${componentsPath}/${componentData!.name}`;
+      const componentFile = `${componentDir}/${componentData!.name}.jsx`;
       let shouldOverwriteFile = true;
 
       if (await pathExists(componentFile)) {
         shouldOverwriteFile = await yesNo(
-          `The file ${componentDir}/${componentData.name}.jsx already exists. Do you want to overwrite it`
+          `The file ${componentDir}/${componentData!.name}.jsx already exists. Do you want to overwrite it`
         );
       }
 
       if (shouldOverwriteFile) {
         await ensureDir(componentDir);
-        await writeToFile(componentFile, getComponentContent(componentData));
+        await writeToFile(componentFile, getComponentContent(componentData!));
         printLine(`✅ File ${componentFile} created`, { color: PrintColor.GREEN });
       }
-      category.include.push(`components/${componentData.name}/${componentData.name}.jsx`);
+      category.include.push(`components/${componentData!.name}/${componentData!.name}.jsx`);
       await generatePresetFile(componentFile);
     });
   };
