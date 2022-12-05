@@ -1,4 +1,4 @@
-import { basename, resolve } from 'path';
+import { basename, resolve, relative } from 'path';
 import { printLine } from '../../../../utils/console/printLine';
 import { PrintColor } from '../../../../utils/console/PrintOptions';
 import { writeToFile } from '../../../../utils/fs/writeToFile';
@@ -9,9 +9,11 @@ import { components } from './createComponentsFiles';
 import { AppConfig } from '../types/appConfig';
 import { pathExists } from 'fs-extra';
 import { yesNo } from '../../../utils/yesNo';
+import { webpackConfigPath } from './createWebpackConfigFile';
+import { wrapperPath } from './createWrapperFile';
 
-export function createUXPinConfigFile(args: GenerateAppProgramArgs): Step {
-  return { exec: thunkCreateUXPinConfigFile(args), shouldRun: true };
+export function createUXPinConfigFile(args: GenerateAppProgramArgs, appConfig: AppConfig): Step {
+  return { exec: thunkCreateUXPinConfigFile(args, appConfig), shouldRun: true };
 }
 
 function getComponents(includes: string[]) {
@@ -33,18 +35,22 @@ function getCategories(components: Array<{ name: string; include: string[] }>) {
     .join('\n');
 }
 
-export function thunkCreateUXPinConfigFile(args: GenerateAppProgramArgs): () => Promise<void> {
+export function thunkCreateUXPinConfigFile(args: GenerateAppProgramArgs, appConfig: AppConfig): () => Promise<void> {
   return async () => {
     const uxpinConfigFile = [
       `module.exports = {`,
       `  name: '${basename(resolve(process.cwd(), args.directory))}',`,
+      appConfig.wrapper ? `  wrapper: '${relative(APP_DIRECTORY, wrapperPath)}',` : '',
+      appConfig.webpack ? `  webpackConfig: '${relative(APP_DIRECTORY, webpackConfigPath)}',` : '',
       `  components: {`,
       `    categories: [`,
       `${getCategories(components)}`,
       `    ]`,
       `  }`,
       `};`,
-    ].join('\n');
+    ]
+      .filter(Boolean)
+      .join('\n');
 
     let shouldOverwriteFile = true;
     const uxpinConfigFilePath: string = resolve(APP_DIRECTORY, 'uxpin.config.js');

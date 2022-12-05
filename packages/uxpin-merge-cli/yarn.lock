@@ -10185,6 +10185,11 @@ parse-entities@^1.0.2:
     is-decimal "^1.0.0"
     is-hexadecimal "^1.0.0"
 
+parse-es6-imports@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/parse-es6-imports/-/parse-es6-imports-1.0.1.tgz#fbfea61afcd94435c7f697fc439616c18853771b"
+  integrity sha512-WheMSatJ69ItiKNFTYYzYIbntAT4DC0+dM+a64bLQi6dxxqI5elYqJK9oCo5AYlDxeTo/bimmdo5kv4IxJy34A==
+
 parse-glob@^3.0.4:
   version "3.0.4"
   resolved "https://registry.npmjs.org/parse-glob/-/parse-glob-3.0.4.tgz#b2c376cfb11f35513badd173ef0bb6e3a388391c"

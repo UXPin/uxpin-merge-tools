@@ -18,7 +18,7 @@ function getWrapperContent(name: string): string {
     `import React from 'react';`,
     '',
     `const ${name} = ({ children }) => {`,
-    `  return <${name}>{children}</${name}>;`,
+    `  return children;`,
     `};`,
     '',
     `export default ${name};`,

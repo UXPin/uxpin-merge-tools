@@ -16,6 +16,7 @@ export function createComponentsFiles(args: GenerateAppProgramArgs, appConfig: A
 }
 
 const SUFFIX = 'El';
+const parseImports = require('parse-es6-imports');
 
 export const components: Array<{ name: string; include: string[] }> = [];
 
@@ -69,14 +70,48 @@ function getPropTypes(name: string, properties: SerializedProperty[]): string {
   return [`${name}.propTypes = {`, properties.map((property) => getPropType(property)).join('\n'), `};`].join('\n');
 }
 
+function getParsedImportStatement(importStatement: string) {
+  let imports = [];
+  try {
+    imports = parseImports(importStatement);
+    if (!imports || !imports.length) {
+      return null;
+    }
+
+    const isExportDefault = !!imports[0].defaultImport;
+    const packageName = imports[0].fromModule;
+    const importedComponentName = imports[0].defaultImport || imports[0].namedImports[0].name;
+
+    if (!importedComponentName || !packageName) {
+      throw new Error();
+    }
+
+    return {
+      importedComponentName,
+      isExportDefault,
+      packageName,
+    };
+  } catch (e) {
+    throw Error(`Invalid import statement - ${importStatement}`);
+  }
+}
+
 function getComponentContent(componentData: SerializedComponent): string {
-  const { name, importStatement, properties } = componentData;
+  const { name, properties, importStatement } = componentData;
   const propTypes = getPropTypes(name, properties);
   const defaultProps = getDefaultProps(name, properties);
+  const parsedImport = getParsedImportStatement(importStatement);
+
+  if (!parsedImport) {
+    throw Error(`Can't parse import statement - ${importStatement}`);
+  }
+
   return [
     `import React from 'react';`,
     `import PropTypes from 'prop-types';`,
-    importStatement.trim(),
+    parsedImport.isExportDefault
+      ? `import ${name}${SUFFIX} from '${parsedImport.packageName}';`
+      : `import { ${parsedImport.importedComponentName} as ${name}${SUFFIX} } from '${parsedImport.packageName}';`,
     '',
     `const ${name} = (props) => {`,
     `  return <${name}${SUFFIX} {...props} />;`,

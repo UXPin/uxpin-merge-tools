@@ -2,12 +2,12 @@ module.exports = {
   packages: ['@mui/material', '@emotion/react', '@emotion/styled'],
   npmrc: '',
   webpack: true,
+  wrapper: 'UXPinWrapper.jsx',
   components: [
     {
       name: 'Button',
       category: 'General',
-      isExportDefault: true,
-      packageName: '@mui/material/Button',
+      importStatement: 'import Button from @mui/material/Button;',
       properties: [
         {
           name: 'variant',
@@ -24,13 +24,13 @@ module.exports = {
     {
       name: 'Checkbox',
       category: 'General',
-      isExportDefault: true,
-      packageName: '@mui/material/Checkbox',
+      importStatement: 'import Checkbox from @mui/material/Checkbox;',
       properties: [
         {
           name: 'label',
           type: 'PropTypes.string',
           defaultValue: 'Label',
+          uxpinPropName: 'Label',
         },
         {
           name: 'defaultChecked',
@@ -42,13 +42,13 @@ module.exports = {
     {
       name: 'Avatar',
       category: 'General',
-      isExportDefault: true,
-      packageName: '@mui/material/Avatar',
+      importStatement: 'import Avatar from @mui/material/Avatar;',
       properties: [
         {
           name: 'src',
           type: 'PropTypes.string',
           defaultValue: 'https://mui.com/static/images/avatar/1.jpg',
+          uxpinDescription: 'Background image url',
         },
       ],
     },

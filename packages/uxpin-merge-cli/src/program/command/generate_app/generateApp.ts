@@ -11,6 +11,7 @@ import { installPeerDependencies } from './steps/installPeerDependencies';
 import { printError } from '../../../utils/console/printLine';
 import { AppConfig } from './types/appConfig';
 import { resolve } from 'path';
+import { createWrapperFile } from './steps/createWrapperFile';
 
 export function generateApp(args: GenerateAppProgramArgs): Step[] {
   let appConfig: AppConfig;
@@ -34,7 +35,8 @@ export function generateApp(args: GenerateAppProgramArgs): Step[] {
     installPackages(args, appConfig),
     installPeerDependencies(args, appConfig),
     createComponentsFiles(args, appConfig),
+    createWrapperFile(args, appConfig),
     createWebpackConfigFile(args, appConfig),
-    createUXPinConfigFile(args),
+    createUXPinConfigFile(args, appConfig),
   ];
 }
