@@ -8,8 +8,59 @@ import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 import { yesNo } from '../../../utils/yesNo';
 import { AppConfig } from '../types/appConfig';
+import { LOADERS_BASIC_CONFIG } from '../constants/webpackLoaders';
 
-function getWebpackFile(): string {
+export let webpackConfigPath = '';
+
+export function createWebpackConfigFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): Step {
+  return { exec: thunkCreateWebpackConfigFile(args, appConfig), shouldRun: true };
+}
+
+export function thunkCreateWebpackConfigFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): () => Promise<void> {
+  return async () => {
+    if (!appConfig || !appConfig.webpack) {
+      return;
+    }
+
+    const webpackConfigFileName = typeof appConfig.webpack === 'string' ? appConfig.webpack : 'webpack.config.js';
+
+    webpackConfigPath = resolve(APP_DIRECTORY, webpackConfigFileName);
+    let shouldOverwriteFile = true;
+
+    if (await pathExists(webpackConfigPath)) {
+      shouldOverwriteFile = await yesNo(
+        `The file ${webpackConfigFileName} already exists. Do you want to overwrite it`
+      );
+    }
+
+    if (shouldOverwriteFile) {
+      await writeToFile(webpackConfigPath, getWebpackFile(appConfig.webpackLoaders || []));
+      printLine(`✅ File ${webpackConfigFileName} created`, { color: PrintColor.GREEN });
+    }
+  };
+}
+
+// HELPERS
+
+function getRules(webpackLoaders?: string[]): string {
+  if (!webpackLoaders) {
+    return '';
+  }
+
+  const loaders = webpackLoaders.map((loader) =>
+    (LOADERS_BASIC_CONFIG[loader] || []).map((loader) => `      ${loader}`).join('\n')
+  );
+
+  if (!loaders.length) {
+    return '';
+  }
+
+  return loaders.filter(Boolean).join('\n');
+}
+
+function getWebpackFile(webpackLoaders: string[]): string {
+  const rules = getRules(webpackLoaders);
+
   return `const path = require("path");
 const webpack = require("webpack");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -40,38 +91,8 @@ module.exports = {
               require.resolve('@babel/preset-react')
           ],
         }
-      },
+      },${rules ? `\n${rules}` : ''}
     ]
   }
 }`;
-}
-
-export let webpackConfigPath = '';
-
-export function createWebpackConfigFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): Step {
-  return { exec: thunkCreateWebpackConfigFile(args, appConfig), shouldRun: true };
-}
-
-export function thunkCreateWebpackConfigFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): () => Promise<void> {
-  return async () => {
-    if (!appConfig || !appConfig.webpack) {
-      return;
-    }
-
-    const webpackConfigFileName = typeof appConfig.webpack === 'string' ? appConfig.webpack : 'webpack.config.js';
-
-    webpackConfigPath = resolve(APP_DIRECTORY, webpackConfigFileName);
-    let shouldOverwriteFile = true;
-
-    if (await pathExists(webpackConfigPath)) {
-      shouldOverwriteFile = await yesNo(
-        `The file ${webpackConfigFileName} already exists. Do you want to overwrite it`
-      );
-    }
-
-    if (shouldOverwriteFile) {
-      await writeToFile(webpackConfigPath, getWebpackFile());
-      printLine(`✅ File ${webpackConfigFileName} created`, { color: PrintColor.GREEN });
-    }
-  };
 }

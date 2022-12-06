@@ -3,6 +3,7 @@ module.exports = {
   npmrc: '',
   webpack: true,
   wrapper: 'UXPinWrapper.jsx',
+  webpackLoaders: [],
   components: [
     {
       name: 'Button',

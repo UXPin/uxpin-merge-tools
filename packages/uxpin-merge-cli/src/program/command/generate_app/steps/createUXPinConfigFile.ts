@@ -120,12 +120,12 @@ function getUXPinConfigFile(
   return [
     `module.exports = {`,
     `  name: '${basename(resolve(process.cwd(), args.directory))}',`,
-    appConfig && appConfig.wrapper ? `  wrapper: '${appConfig.wrapper}',` : '',
-    appConfig && appConfig.webpack ? `  webpackConfig: '${appConfig.webpack}',` : '',
     `  components: {`,
     `    categories: [`,
     `${getCategories(components)}`,
     `    ]`,
+    appConfig && appConfig.wrapper ? `    wrapper: '${appConfig.wrapper}',` : '',
+    appConfig && appConfig.webpack ? `    webpackConfig: '${appConfig.webpack}',` : '',
     `  }`,
     `};`,
   ]
