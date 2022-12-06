@@ -1,4 +1,8 @@
+import { pathExists, readJSON } from 'fs-extra';
+import { join } from 'path';
 import pMap from 'p-map';
+import * as ts from 'typescript';
+
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
 import { ProgramArgs } from '../../program/args/ProgramArgs';
@@ -6,7 +10,7 @@ import { getBuildOptions } from '../../program/command/push/getBuildOptions';
 import { BuildOptions } from '../building/BuildOptions';
 import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
 import { getComponentCategoryInfos } from '../discovery/component/category/getComponentCategoryInfos';
-import { ComponentInfo } from '../discovery/component/ComponentInfo';
+import { ComponentInfo, TypeScriptConfig } from '../discovery/component/ComponentInfo';
 import { getLibraryName } from '../discovery/library/getLibraryName';
 import { ProjectPaths } from '../discovery/paths/ProjectPaths';
 import { ComponentCategory } from './component/categories/ComponentCategory';
@@ -49,7 +53,10 @@ async function categoryInfoToMetadata({
   componentInfos,
   name,
 }: ComponentCategoryInfo): Promise<Warned<ComponentCategory>> {
-  const components: Array<Warned<ComponentDefinition>> = await pMap(componentInfos, componentInfoToDefinition);
+  const config = await getTypeScriptConfig();
+  const components: Array<Warned<ComponentDefinition>> = await pMap(componentInfos, (info: ComponentInfo) =>
+    componentInfoToDefinition(info, config)
+  );
 
   return {
     result: {
@@ -60,8 +67,11 @@ async function categoryInfoToMetadata({
   };
 }
 
-async function componentInfoToDefinition(info: ComponentInfo): Promise<Warned<ComponentDefinition>> {
-  const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(info.implementation);
+async function componentInfoToDefinition(
+  info: ComponentInfo,
+  config?: TypeScriptConfig
+): Promise<Warned<ComponentDefinition>> {
+  const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(info.implementation, config);
   const { result: examples, warnings: exampleWarnings } = await serializeOptionalExamples(info);
   return {
     result: { info, ...metadata, documentation: { examples }, presets: [] },
@@ -75,4 +85,14 @@ async function serializeOptionalExamples(info: ComponentInfo): Promise<ExamplesS
   }
 
   return await serializeExamples(info.documentation.path);
+}
+
+// Read the local TS config to take into account `paths` option used for absolute imports
+async function getTypeScriptConfig(): Promise<TypeScriptConfig | undefined> {
+  const configFilepath = join(process.cwd(), 'tsconfig.json');
+  const exists = await pathExists(configFilepath);
+  if (!exists) return undefined;
+  const tsConfig = (await readJSON(configFilepath)) as { compilerOptions: ts.CompilerOptions };
+
+  return { compilerOptions: tsConfig.compilerOptions };
 }

@@ -1,6 +1,6 @@
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { Warned } from '../../../../../common/warning/Warned';
-import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
+import { ComponentImplementationInfo, TypeScriptConfig } from '../../../../discovery/component/ComponentInfo';
 import { validateWrappers } from '../../../validation/validateWrappers';
 import { ComponentNamespace } from '../../ComponentDefinition';
 import { serializeAndValidateParsedProperties } from '../../props/serializeAndValidateParsedProperties';
@@ -19,8 +19,11 @@ import { isDefaultExported } from './component/isDefaultExported';
 import { getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
 import { parseTSComponentProperties } from './parseTSComponentProperties';
 
-export async function serializeTSComponent(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
-  const context: TSSerializationContext = getSerializationContext(component);
+export async function serializeTSComponent(
+  component: ComponentImplementationInfo,
+  config?: TypeScriptConfig
+): Promise<ImplSerializationResult> {
+  const context: TSSerializationContext = getSerializationContext(component, config);
 
   const declaration: ComponentDeclaration | undefined = getComponentDeclaration(context);
   if (!declaration) {
