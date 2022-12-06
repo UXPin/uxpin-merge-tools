@@ -13,26 +13,6 @@ export function createWrapperFile(args: GenerateAppProgramArgs, appConfig?: AppC
   return { exec: thunkCreateWrapperFile(args, appConfig), shouldRun: true };
 }
 
-function getWrapperContent(name: string): string {
-  return [
-    `import React from 'react';`,
-    '',
-    `const ${name} = ({ children }) => {`,
-    `  return children;`,
-    `};`,
-    '',
-    `export default ${name};`,
-  ]
-    .filter((value) => value !== null)
-    .join('\n');
-}
-
-export let wrapperPath = '';
-
-function capitalizeFirstLetter(string: string) {
-  return string[0].toUpperCase() + string.slice(1);
-}
-
 export function thunkCreateWrapperFile(args: GenerateAppProgramArgs, appConfig?: AppConfig): () => Promise<void> {
   return async () => {
     if (!appConfig || !appConfig.wrapper) {
@@ -60,4 +40,26 @@ export function thunkCreateWrapperFile(args: GenerateAppProgramArgs, appConfig?:
       printLine(`✅ File ${appConfig.wrapper} created`, { color: PrintColor.GREEN });
     }
   };
+}
+
+// HELPERS
+
+function getWrapperContent(name: string): string {
+  return [
+    `import React from 'react';`,
+    '',
+    `const ${name} = ({ children }) => {`,
+    `  return children;`,
+    `};`,
+    '',
+    `export default ${name};`,
+  ]
+    .filter((value) => value !== null)
+    .join('\n');
+}
+
+export let wrapperPath = '';
+
+function capitalizeFirstLetter(string: string) {
+  return string[0].toUpperCase() + string.slice(1);
 }
