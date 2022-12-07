@@ -5,7 +5,7 @@ module.exports = {
   properties: [
     {
       name: 'defaultChecked',
-      type: 'PropTypes.boolean',
+      type: 'PropTypes.bool',
       defaultValue: false,
     },
   ],
