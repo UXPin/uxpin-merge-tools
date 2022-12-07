@@ -8,9 +8,9 @@ interface LoadersConfig {
 
 export const SUPPORTED_LOADERS: Loaders = {
   svg: ['svg-inline-loader'],
-  sass: ['style-loader@2.0.0', 'css-loader@4.2.0', 'sass-loader@10.1.1'],
-  less: ['style-loader@2.0.0', 'css-loader@4.2.0', 'less-loader@7.3.0'],
-  css: ['style-loader@2.0.0', 'css-loader@4.2.0'],
+  sass: ['node-sass@4.14.1', 'style-loader@2.0.0', 'css-loader@3.6.0', 'sass-loader@7.3.0'],
+  less: ['style-loader@2.0.0', 'css-loader@3.6.0', 'less-loader@4.1.0'],
+  css: ['style-loader@2.0.0', 'css-loader@3.6.0'],
   url: ['url-loader'],
   file: ['file-loader'],
 };

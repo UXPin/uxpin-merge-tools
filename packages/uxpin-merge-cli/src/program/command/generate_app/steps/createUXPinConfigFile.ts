@@ -38,8 +38,8 @@ export function thunkCreateUXPinConfigFile(
           getUXPinConfigFile(
             args,
             {
-              wrapper: config.wrapper,
-              webpack: config.webpack,
+              wrapper: config.components.wrapper,
+              webpack: config.components.webpackConfig,
             },
             mergeComponents(config.components.categories, components)
           )
@@ -123,7 +123,7 @@ function getUXPinConfigFile(
     `  components: {`,
     `    categories: [`,
     `${getCategories(components)}`,
-    `    ]`,
+    `    ],`,
     appConfig && appConfig.wrapper ? `    wrapper: '${appConfig.wrapper}',` : '',
     appConfig && appConfig.webpack ? `    webpackConfig: '${appConfig.webpack}',` : '',
     `  }`,

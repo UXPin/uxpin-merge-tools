@@ -41,7 +41,7 @@ export function thunkInstallPackages(args: GenerateAppProgramArgs, appConfig?: A
       appConfig.webpack ? '@babel/core' : '',
       appConfig.webpack ? '@babel/preset-env' : '',
       appConfig.webpack ? '@babel/preset-react' : '',
-      appConfig.webpack ? 'webpack@4.44.2' : '',
+      appConfig.webpack ? 'webpack@4.40.2' : '',
       appConfig.webpack ? 'uglifyjs-webpack-plugin@2.2.0' : '',
       ...webpackLoaders,
     ].filter(Boolean);
@@ -51,7 +51,6 @@ export function thunkInstallPackages(args: GenerateAppProgramArgs, appConfig?: A
         cwd: APP_DIRECTORY,
       });
 
-      console.log(stderr.toString());
       if (babelLoaderStatus !== 0) {
         throw new Error('🛑 Something went wrong during installing packages');
       }
