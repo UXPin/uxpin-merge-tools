@@ -1,10 +1,10 @@
 import { getCommentTagInlineValue } from '../getCommentTagInlineValue';
 
 describe('getCommentTagInlineValue', () => {
-  const tag:string = '@uxpintag';
+  const tag = '@uxpintag';
 
   describe('when comment is empty', () => {
-    const comment:string = '';
+    const comment = '';
 
     it('returns undefined', () => {
       expect(getCommentTagInlineValue(comment, tag)).toBeUndefined();
@@ -12,7 +12,7 @@ describe('getCommentTagInlineValue', () => {
   });
 
   describe('when comment doesnt contain given tag', () => {
-    const comment:string = 'Some comment without tags';
+    const comment = 'Some comment without tags';
 
     it('returns undefined', () => {
       expect(getCommentTagInlineValue(comment, tag)).toBeUndefined();
@@ -20,7 +20,7 @@ describe('getCommentTagInlineValue', () => {
   });
 
   describe('when comment contains given tag with simple value', () => {
-    const comment:string = '@uxpintag tagvalue ';
+    const comment = '@uxpintag tagvalue ';
 
     it('returns tag value', () => {
       expect(getCommentTagInlineValue(comment, tag)).toEqual('tagvalue');
@@ -28,7 +28,7 @@ describe('getCommentTagInlineValue', () => {
   });
 
   describe('when comment contains given tag with complex value', () => {
-    const comment:string = '@uxpintag tag.value_foo-baz ';
+    const comment = '@uxpintag tag.value_foo-baz ';
 
     it('returns tag value', () => {
       expect(getCommentTagInlineValue(comment, tag)).toEqual('tag.value_foo-baz');
@@ -36,7 +36,7 @@ describe('getCommentTagInlineValue', () => {
   });
 
   describe('when comment contains #', () => {
-    const comment:string = '@uxpintag https://mui.com/components/buttons/#main-content';
+    const comment = '@uxpintag https://mui.com/components/buttons/#main-content';
 
     it('returns tag value', () => {
       expect(getCommentTagInlineValue(comment, tag)).toEqual('https://mui.com/components/buttons/#main-content');
@@ -44,7 +44,7 @@ describe('getCommentTagInlineValue', () => {
   });
 
   describe('when comment contains given tag with multi-word value', () => {
-    const comment:string = '@uxpintag Some multi word text';
+    const comment = '@uxpintag Some multi word text';
 
     it('returns undefined', () => {
       expect(getCommentTagInlineValue(comment, tag)).toBeUndefined();
@@ -52,7 +52,7 @@ describe('getCommentTagInlineValue', () => {
   });
 
   describe('when comment contains given tag and following text lines', () => {
-    const comment:string = `Component description
+    const comment = `Component description
       @uxpintag tag.value_foo-baz
       @param some param description
     `;

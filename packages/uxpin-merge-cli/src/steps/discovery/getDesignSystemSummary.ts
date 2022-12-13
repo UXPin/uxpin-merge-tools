@@ -1,17 +1,17 @@
-import safe = require('colors/safe');
+import safe = require('@colors/colors/safe');
 import { ComponentCategory } from '../serialization/component/categories/ComponentCategory';
 import { ComponentDefinition } from '../serialization/component/ComponentDefinition';
 
-export function getDesignSystemSummary(categories:ComponentCategory[]):string {
+export function getDesignSystemSummary(categories: ComponentCategory[]): string {
   return categories.map(describeCategory).join('\n');
 }
 
-function describeCategory(category:ComponentCategory):string {
+function describeCategory(category: ComponentCategory): string {
   return `${safe.bold(category.name)}
 ${category.components.map(describeComponent).join('')}`;
 }
 
-function describeComponent(component:ComponentDefinition):string {
+function describeComponent(component: ComponentDefinition): string {
   return `
     ${safe.bold(component.name)}
         📜 documentation: ${booleanToCheckmark(!!component.info.documentation)}
@@ -20,7 +20,7 @@ function describeComponent(component:ComponentDefinition):string {
 `;
 }
 
-function booleanToCheckmark(value:boolean):string {
+function booleanToCheckmark(value: boolean): string {
   if (value) {
     return safe.green('✔');
   }

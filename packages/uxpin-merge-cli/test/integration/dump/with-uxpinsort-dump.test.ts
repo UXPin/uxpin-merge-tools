@@ -5,7 +5,7 @@ import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
@@ -25,7 +25,7 @@ describe('The dump command', () => {
         params: [Command.DUMP, '--config="./uxpin.config.js"'],
       }).then((consoleOutput) => {
         // then
-        const output:any = JSON.parse(consoleOutput);
+        const output: any = JSON.parse(consoleOutput);
         expect(output.categorizedComponents).toMatchSnapshot();
       });
     });

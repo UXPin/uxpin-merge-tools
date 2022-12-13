@@ -5,16 +5,16 @@ import { compilePresets } from '../compile/compilePresets';
 import { PresetsBundle } from './PresetsBundle';
 
 export async function getPresetsBundle(
-  programArgs:Exclude<ProgramArgs, CreateAppProgramArgs>,
-  components:ComponentDefinition[],
-):Promise<PresetsBundle> {
-  const bundlePath:string = await compilePresets(programArgs, components);
-  const bundle:PresetsBundle = require(bundlePath);
+  programArgs: Exclude<ProgramArgs, CreateAppProgramArgs>,
+  components: ComponentDefinition[]
+): Promise<PresetsBundle> {
+  const bundlePath: string = await compilePresets(programArgs, components);
+  const bundle: PresetsBundle = require(bundlePath);
   unRequire(bundlePath);
   await unlink(bundlePath);
   return bundle;
 }
 
-function unRequire(name:string):void {
+function unRequire(name: string): void {
   delete require.cache[require.resolve(name)];
 }

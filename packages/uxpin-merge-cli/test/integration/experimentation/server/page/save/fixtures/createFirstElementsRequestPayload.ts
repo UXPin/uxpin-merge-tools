@@ -2,7 +2,7 @@ import { PageIncrementalUpdate } from '../../../../../../../src/common/types/Pag
 // tslint:disable-next-line:typedef no-var-requires max-line-length
 const introPageContent = require('../../../../../../../src/steps/experimentation/server/common/page/content/introPageContent.json');
 
-export const createFirstElementsRequestPayload:PageIncrementalUpdate = {
+export const createFirstElementsRequestPayload: PageIncrementalUpdate = {
   can_break_cohesion: false,
   changed_elements: {
     '46a48bee': {
@@ -56,7 +56,9 @@ export const createFirstElementsRequestPayload:PageIncrementalUpdate = {
         width: 206,
         x: 162,
         y: 1275,
-      }, type: 'Box', v: '2.0',
+      },
+      type: 'Box',
+      v: '2.0',
     },
     '83ty393l': {
       props: {
@@ -109,16 +111,16 @@ export const createFirstElementsRequestPayload:PageIncrementalUpdate = {
         width: 200,
         x: 10,
         y: 20,
-      }, type: 'Box', v: '2.0',
+      },
+      type: 'Box',
+      v: '2.0',
     },
     canvas: {
       props: {
-        storedElements: [
-          ...introPageContent.canvas.props.storedElements,
-          '46a48bee',
-          '83ty393l',
-        ],
-      }, type: 'Canvas', v: '2.0',
+        storedElements: [...introPageContent.canvas.props.storedElements, '46a48bee', '83ty393l'],
+      },
+      type: 'Canvas',
+      v: '2.0',
     },
   },
   deleted_elements: {},

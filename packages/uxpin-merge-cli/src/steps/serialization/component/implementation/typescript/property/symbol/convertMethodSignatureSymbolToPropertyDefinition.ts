@@ -7,10 +7,10 @@ import { MethodSymbol } from './isMethodSignatureSymbol';
 import { isPropertyRequired } from './isPropertyRequired';
 
 export function convertMethodSignatureSymbolToPropertyDefinition(
-  context:TSSerializationContext,
-  methodSymbol:MethodSymbol,
-):ParsedComponentProperty {
-  const name:string | undefined = getPropertyName(methodSymbol);
+  context: TSSerializationContext,
+  methodSymbol: MethodSymbol
+): ParsedComponentProperty {
+  const name: string | undefined = getPropertyName(methodSymbol);
 
   if (!name) {
     throw new Error('Cannot get name from method symbol');

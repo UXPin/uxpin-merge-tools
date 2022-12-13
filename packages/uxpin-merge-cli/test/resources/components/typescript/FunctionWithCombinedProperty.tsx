@@ -1,30 +1,25 @@
 import * as React from 'react';
 
 interface Person {
-  name:string,
+  name: string;
 }
 
 interface Employee {
-  salary:number,
+  salary: number;
 }
 
 export interface Props {
   /**
    * Local property
    */
-  id:string;
-  user:Person & Employee,
+  id: string;
+  user: Person & Employee;
 }
 
-export default function FunctionWithCombinedProperty({
-  id,
-  user,
-}:Props) {
+export default function FunctionWithCombinedProperty({ id, user }: Props) {
   return (
     <div>
-      <label id={id}>
-        {JSON.stringify(user)}
-      </label>
+      <label id={id}>{JSON.stringify(user)}</label>
     </div>
   );
 }

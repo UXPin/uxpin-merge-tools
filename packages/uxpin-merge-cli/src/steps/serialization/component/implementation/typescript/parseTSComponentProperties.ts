@@ -12,16 +12,16 @@ import { TSSerializationContext } from './context/getSerializationContext';
 import { getPropertiesFromType, TypeProps } from './property/type/getPropertiesFromType';
 
 export function parseTSComponentProperties(
-  context:TSSerializationContext,
-  componentDeclaration:ComponentDeclaration,
-):PropDefinitionParsingResult[] {
+  context: TSSerializationContext,
+  componentDeclaration: ComponentDeclaration
+): PropDefinitionParsingResult[] {
   const { propsTypeNode, defaultProps } = getPropsTypeAndDefaultProps(context, componentDeclaration);
   if (!propsTypeNode) {
     throw new Error('No component properties found');
   }
 
-  const typeFromTypeNode:ts.Type = context.checker.getTypeFromTypeNode(propsTypeNode);
-  const props:TypeProps = getPropertiesFromType(typeFromTypeNode);
+  const typeFromTypeNode: ts.Type = context.checker.getTypeFromTypeNode(propsTypeNode);
+  const props: TypeProps = getPropertiesFromType(typeFromTypeNode);
 
   return [
     ...getComponentPropertiesDefinition(context, props.baseProps, defaultProps),
@@ -30,17 +30,16 @@ export function parseTSComponentProperties(
 }
 
 function getComponentExclusivePropertiesDefinition(
-  context:TSSerializationContext,
-  props:ts.Symbol[],
-  defaultProps:DefaultProps,
-):PropDefinitionParsingResult[] {
-  return getComponentPropertiesDefinition(context, props, defaultProps)
-    .map(({ result, warnings }) => {
-      const property:ParsedComponentProperty = {
-        ...result,
-        isRequired: false,
-      };
+  context: TSSerializationContext,
+  props: ts.Symbol[],
+  defaultProps: DefaultProps
+): PropDefinitionParsingResult[] {
+  return getComponentPropertiesDefinition(context, props, defaultProps).map(({ result, warnings }) => {
+    const property: ParsedComponentProperty = {
+      ...result,
+      isRequired: false,
+    };
 
-      return getWarnedResult(property, warnings);
-    });
+    return getWarnedResult(property, warnings);
+  });
 }

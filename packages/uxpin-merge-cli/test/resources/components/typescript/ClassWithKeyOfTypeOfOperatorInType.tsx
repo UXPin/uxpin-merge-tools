@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ExternalShapeType } from './ExternalShapeType';
 
-const externalShape:ExternalShapeType = {
+const externalShape: ExternalShapeType = {
   name: 'someName',
   nested: {
     keyA: 'keyA',
@@ -10,23 +10,23 @@ const externalShape:ExternalShapeType = {
   value: 1,
 };
 
-const someValue:number = 5;
+const someValue = 5;
 
 interface Props {
-  typeOfProp:typeof someValue;
-  keyOfProp:keyof ExternalShapeType;
-  keyOfTypeOfProp:keyof typeof externalShape;
+  typeOfProp: typeof someValue;
+  keyOfProp: keyof ExternalShapeType;
+  keyOfTypeOfProp: keyof typeof externalShape;
 }
 
 export default class ClassWithKeyOfTypeOfOperatorInType extends React.Component<Props> {
-  public render():JSX.Element {
+  public render(): JSX.Element {
     const { typeOfProp, keyOfProp, keyOfTypeOfProp } = this.props;
     return (
-        <div>
-            <button>
-                {typeOfProp} {keyOfProp} {keyOfTypeOfProp}
-            </button>
-        </div>
+      <div>
+        <button>
+          {typeOfProp} {keyOfProp} {keyOfTypeOfProp}
+        </button>
+      </div>
     );
   }
 }

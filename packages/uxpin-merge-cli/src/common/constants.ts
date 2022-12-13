@@ -1,5 +1,7 @@
-export const DEFAULT_BRANCH_NAME:string = 'master';
+export const DEFAULT_BRANCH_NAME = 'master';
 
-export const HEAD_REF_NAME:string = 'HEAD';
+export const ALTERNATIVE_DEFAULT_BRANCH_NAME = 'main';
 
-export const SHORT_COMMIT_HASH_IDX:number = 7;
+export const HEAD_REF_NAME = 'HEAD';
+
+export const SHORT_COMMIT_HASH_IDX = 7;

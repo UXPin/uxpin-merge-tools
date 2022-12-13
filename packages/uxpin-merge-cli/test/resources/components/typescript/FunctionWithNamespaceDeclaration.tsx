@@ -1,18 +1,16 @@
 import * as React from 'react';
 
 export interface Props {
-  name:string;
+  name: string;
 }
 
 /**
  * @uxpinnamespace Namespace
  */
-export default function FunctionWithNamespaceDeclaration({ name }:Props):JSX.Element {
+export default function FunctionWithNamespaceDeclaration({ name }: Props): JSX.Element {
   return (
     <div>
-      <label className={name}>
-        {name}
-      </label>
+      <label className={name}>{name}</label>
     </div>
   );
 }

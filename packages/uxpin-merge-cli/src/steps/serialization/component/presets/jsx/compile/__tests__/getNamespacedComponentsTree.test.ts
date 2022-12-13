@@ -2,7 +2,7 @@ import { ComponentDefinition } from '../../../../ComponentDefinition';
 import { getNamespacedComponentsTree, NamespacedComponentsTree } from '../getNamespacedComponentsTree';
 
 describe('getNamespacedComponentsTree', () => {
-  const components:ComponentDefinition[] = [
+  const components: ComponentDefinition[] = [
     {
       defaultExported: true,
       documentation: { examples: [] },
@@ -104,7 +104,7 @@ describe('getNamespacedComponentsTree', () => {
 
   it('returns tree with namespaced components', () => {
     // given
-    const expectedTree:NamespacedComponentsTree = {
+    const expectedTree: NamespacedComponentsTree = {
       Button: {
         name: 'Button',
       },
@@ -123,7 +123,7 @@ describe('getNamespacedComponentsTree', () => {
     };
 
     // when
-    const result:NamespacedComponentsTree = getNamespacedComponentsTree(components);
+    const result: NamespacedComponentsTree = getNamespacedComponentsTree(components);
 
     // then
     expect(result).toEqual(expectedTree);
@@ -131,11 +131,11 @@ describe('getNamespacedComponentsTree', () => {
 
   it('returns empty tree', () => {
     // given
-    const emptyComponents:ComponentDefinition[] = [];
-    const expectedTree:NamespacedComponentsTree = {};
+    const emptyComponents: ComponentDefinition[] = [];
+    const expectedTree: NamespacedComponentsTree = {};
 
     // when
-    const result:NamespacedComponentsTree = getNamespacedComponentsTree(emptyComponents);
+    const result: NamespacedComponentsTree = getNamespacedComponentsTree(emptyComponents);
 
     // then
     expect(result).toEqual(expectedTree);

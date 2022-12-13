@@ -9,8 +9,8 @@ describe('serializeJSComponent-CustomMetadata', () => {
   describe('providing array of objects describing all properties of the JavaScript component', () => {
     it('serializes component with custom description, name and ignore', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('PropTypesWithComments');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('PropTypesWithComments');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'PropTypesWithComments',
         properties: [
@@ -55,8 +55,8 @@ component.`,
 
     it('serializes component with invalid custom names and gives proper warnings', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('PropTypesWithCorruptedComments');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('PropTypesWithCorruptedComments');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'PropTypesWithCorruptedComments',
         properties: [
@@ -113,8 +113,8 @@ component.`,
 
     it('serializes component with textfield custom type', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('PropTypesWithTextfieldCustomType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('PropTypesWithTextfieldCustomType');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'PropTypesWithTextfieldCustomType',
         properties: [
@@ -213,30 +213,30 @@ component.`,
             description: '',
             isRequired: false,
             name: 'childrenProp',
-            type:  {
+            type: {
               name: 'node',
-              structure:  {},
+              structure: {},
             },
           },
           {
-            customType:  {
+            customType: {
               name: CustomControlTypeName.Textfield,
-              structure:  {
+              structure: {
                 rows: 10,
               },
             },
             description: '',
             isRequired: false,
             name: 'childrenProp2',
-            type:  {
+            type: {
               name: 'node',
-              structure:  {},
+              structure: {},
             },
           },
         ],
         wrappers: [],
       };
-      const expectedWarnings:WarningDetails[] = [
+      const expectedWarnings: WarningDetails[] = [
         {
           message: 'Custom type "textfield" can not be applied to "number" ("numberProp").',
           sourcePath: component.path,
@@ -257,8 +257,8 @@ component.`,
 
     it('serializes component with unions', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('PropTypesWithSelectCustomType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('PropTypesWithSelectCustomType');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'PropTypesWithSelectCustomType',
         properties: [
@@ -337,7 +337,7 @@ component.`,
         ],
         wrappers: [],
       };
-      const expectedWarnings:WarningDetails[] = [
+      const expectedWarnings: WarningDetails[] = [
         {
           message: 'Custom type "switcher" can not be applied to "union" ("unionTypesWrongCustom").',
           sourcePath: component.path,

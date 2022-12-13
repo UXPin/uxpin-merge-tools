@@ -4,14 +4,14 @@ import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
 export interface PushMetadataResponse {
-  message:string;
+  message: string;
 }
 
 export async function postPushMetadata(
-  domain:string,
-  token:string,
-  metadata:DSMetadata,
-):Promise<PushMetadataResponse | null> {
+  domain: string,
+  token: string,
+  metadata: DSMetadata
+): Promise<PushMetadataResponse | null> {
   return requestPromiseWithEnhancedError(`${domain}/code/v/1.0/push`, {
     body: metadata.result,
     headers: {
@@ -20,6 +20,5 @@ export async function postPushMetadata(
     },
     json: true,
     method: 'POST',
-  })
-    .then((data:PushMetadataResponse | null) => data ? data : null);
+  }).then((data: PushMetadataResponse | null) => (data ? data : null));
 }

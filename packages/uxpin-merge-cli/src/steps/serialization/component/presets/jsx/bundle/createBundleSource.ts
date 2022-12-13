@@ -13,11 +13,11 @@ export async function createBundleSource(
 ):Promise<string> {
   const tempDirPath:string = getTempDirPath(programArgs);
   await ensureDir(tempDirPath);
-  const bundleSourcePath:string = resolve(tempDirPath, getUniqueFileName());
+  const bundleSourcePath: string = resolve(tempDirPath, getUniqueFileName());
   await writeToFile(bundleSourcePath, getSourceFileContentToBundle(tempDirPath, components));
   return bundleSourcePath;
 }
 
-function getUniqueFileName():string {
+function getUniqueFileName(): string {
   return `presets-${v4()}.js`;
 }

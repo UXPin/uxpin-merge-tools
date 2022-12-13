@@ -4,8 +4,8 @@ import { PushProgramArgs } from '../../args/ProgramArgs';
 import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../args/providers/paths/getTempDirPath';
 
-export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
-  const { token, uxpinDomain, webpackConfig, wrapper, branch, tag, disableVersionControl, cssResources } = args;
+export function getBuildOptions(args: BuildProgramArgs): BuildOptions {
+  const { token, uxpinDomain, webpackConfig, wrapper, branch, tag, force, disableVersionControl, cssResources } = args;
 
   return {
     branch,
@@ -13,6 +13,7 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
     disableVersionControl,
     projectRoot: getProjectRoot(args),
     tag,
+    force,
     token,
     uxpinApiDomain: getDefaultApiDomain(uxpinDomain!),
     uxpinDirPath: getTempDirPath(args),
@@ -23,4 +24,4 @@ export function getBuildOptions(args:BuildProgramArgs):BuildOptions {
 }
 
 export type BuildProgramArgs = Pick<PushProgramArgs, 'cwd' | 'token'
-  | 'uxpinDomain' | 'webpackConfig' | 'wrapper' | 'branch' | 'tag' | 'disableVersionControl' | 'cssResources'>;
+  | 'uxpinDomain' | 'webpackConfig' | 'wrapper' | 'branch' | 'tag' | 'disableVersionControl' | 'cssResources' | 'force'>;

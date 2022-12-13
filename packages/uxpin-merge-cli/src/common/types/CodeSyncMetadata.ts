@@ -2,19 +2,19 @@ import { ComponentPresetRevision } from './ComponentPresetRevision';
 import { ComponentRevision } from './ComponentRevision';
 
 export interface CodeSyncMetadata {
-  components:AllComponentsCollection;
-  presets:AllPresetsCollection;
-  bundles:AllBundlesCollection;
+  components: AllComponentsCollection;
+  presets: AllPresetsCollection;
+  bundles: AllBundlesCollection;
 }
 
 export interface AllComponentsCollection {
-  [componentId:string]:ComponentRevision;
+  [componentId: string]: ComponentRevision;
 }
 
 export interface AllPresetsCollection {
-  [presetId:string]:ComponentPresetRevision;
+  [presetId: string]: ComponentPresetRevision;
 }
 
 export interface AllBundlesCollection {
-  [fetchRevisionId:string]:string;
+  [fetchRevisionId: string]: string;
 }

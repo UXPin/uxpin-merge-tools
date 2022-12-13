@@ -30,10 +30,9 @@ export interface Props {
   yetAnotherValue: string;
 }
 
-const DEFAULT_VALUE: string = 'Submit';
+const DEFAULT_VALUE = 'Submit';
 
 class ClassWithSeparateDefaultExportDeclaratin extends React.Component<Props> {
-
   public static defaultProps: Partial<Props> = {
     appearance: 'secondary',
     isDisabled: false,
@@ -46,11 +45,7 @@ class ClassWithSeparateDefaultExportDeclaratin extends React.Component<Props> {
     const { value, appearance } = this.props;
     return (
       <div>
-        <button className={appearance}>
-          {
-            value
-          }
-        </button>
+        <button className={appearance}>{value}</button>
       </div>
     );
   }

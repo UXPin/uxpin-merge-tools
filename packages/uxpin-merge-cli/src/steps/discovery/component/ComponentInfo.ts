@@ -1,23 +1,23 @@
 export interface ComponentInfo {
-  dirPath:string;
-  implementation:ComponentImplementationInfo;
-  documentation?:ComponentDocumenationInfo;
-  presets?:ComponentPresetInfo[];
+  dirPath: string;
+  implementation: ComponentImplementationInfo;
+  documentation?: ComponentDocumenationInfo;
+  presets?: ComponentPresetInfo[];
 }
 
 export interface ComponentImplementationInfo {
-  path:string;
-  lang:ComponentImplementationLang;
-  framework:ComponentImplementationFramework;
+  path: string;
+  lang: ComponentImplementationLang;
+  framework: ComponentImplementationFramework;
 }
 
 export type ComponentImplementationLang = 'javascript' | 'typescript';
 export type ComponentImplementationFramework = 'reactjs';
 
 export interface ComponentDocumenationInfo {
-  path:string;
+  path: string;
 }
 
 export interface ComponentPresetInfo {
-  path:string;
+  path: string;
 }

@@ -3,7 +3,7 @@ import { using } from '../../../../../../../test/utils/using';
 import { isDefaultExported } from '../isDefaultExported';
 
 describe('getComponentNameFromStoriesTitle', () => {
-  const cases:any[] = [
+  const cases: any[] = [
     /////////// Class components
     ////// Default exported
     // export default class Component
@@ -126,9 +126,11 @@ describe('getComponentNameFromStoriesTitle', () => {
   ];
 
   using(cases).describe(
-    'checking if isDefaultExported correctly detect default export', ({ filename, componentName, expected }) => {
+    'checking if isDefaultExported correctly detect default export',
+    ({ filename, componentName, expected }) => {
       it(`for given ${componentName} in ${filename}`, () => {
         expect(isDefaultExported(getJavaScriptComponentPath(filename), componentName)).toEqual(expected);
       });
-    });
+    }
+  );
 });

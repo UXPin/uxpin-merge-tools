@@ -2,14 +2,13 @@ import { using } from '../../../../../../test/utils/using';
 import { encodeBranchName } from '../encodeBranchName';
 
 describe('encodeBranchName', () => {
-
   interface Case {
-    branchName:string;
-    expectedEncoded:string;
-    caseName:string;
+    branchName: string;
+    expectedEncoded: string;
+    caseName: string;
   }
 
-  const cases:Case[] = [
+  const cases: Case[] = [
     {
       branchName: '1234-my-regular-branch-name',
       caseName: 'regular branch name is not affected',

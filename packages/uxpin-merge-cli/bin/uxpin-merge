@@ -53,7 +53,7 @@ program
     .option('--tag <tag>', 'tag this push with a specific name or number. The provided name/number is unique and can be used only once.')
     .option('--css-resources <string>', 'Attach external css styles to pushed js bundle')
     .option('--disable-version-control', 'Turn off version control')
-
+    .option('--force', 'ignore the last commit saved in uxpin db and push the library without checking history. It could break old prototypes if components were created before 07.2021')
     .action(() => {});
 
 program
@@ -62,7 +62,7 @@ program
     .option('--token <token>', 'auth token for the library to delete from.')
     .option('--branch <branch>', 'branch to delete in the Merge library')
     .option('--tag <tag>', 'tag to delete in the Merge library')
-    .action(() => {});    
+    .action(() => {});
 
 program
     .command(Command.DUMP)

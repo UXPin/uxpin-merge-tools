@@ -4,12 +4,12 @@ import { getComponentNamespacedName } from '../../../name/getComponentNamespaced
 import { ComponentPlaceholder } from './generateVirtualModules';
 
 export interface NamespacedComponentsTree {
-  [key:string]:ComponentPlaceholder;
+  [key: string]: ComponentPlaceholder;
 }
 
-export function getNamespacedComponentsTree(components:ComponentDefinition[]):NamespacedComponentsTree {
+export function getNamespacedComponentsTree(components: ComponentDefinition[]): NamespacedComponentsTree {
   return components.reduce<NamespacedComponentsTree>((tree, component) => {
-    const namespacedName:string = getComponentNamespacedName(component);
+    const namespacedName: string = getComponentNamespacedName(component);
     set(tree, `${namespacedName}.name`, namespacedName);
     return tree;
   }, {});

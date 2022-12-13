@@ -45,10 +45,10 @@ jobs:
               echo "NPMRC_PUBLISH_TOKEN=${{ secrets.NPMJS_TOKEN }}" >> $GITHUB_ENV
           fi
 
-      - name: Use Node.js 12.18.1
+      - name: Use Node.js 16.17.0
         uses: actions/setup-node@v1
         with:
-          node-version: 12.18.1
+          node-version: 16.17.0
       - run: yarn policies set-version 1.22.4
 
       - name: Setting $HOME/.npmrc to install built-utils

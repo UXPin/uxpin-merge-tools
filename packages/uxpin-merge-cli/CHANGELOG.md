@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.9.0] - 2022-12-02
+
+### Added
+
+- Parse `@uxpinuseportal` JSdoc comment to render components in UXPin _Preview_ using React Portal ([#337](https://github.com/UXPin/uxpin-merge-tools/pull/346))
+
+## [2.8.2] - 2022-11-29
+
+### Changed
+
+- Replace `colors` by `@colors/colors` ([#337](https://github.com/UXPin/uxpin-merge-tools/pull/337)) Thanks to ([@JuhG](https://github.com/JuhG))
+- `push` command with `--force` options ([#330](https://github.com/UXPin/uxpin-merge-tools/pull/330))
+- Support `main` branch as default branch name ([#330](https://github.com/UXPin/uxpin-merge-tools/pull/330))
+
+## [2.8.1] - 2022-10-18
+
+### Changed
+- Support for normalize paths for windows  ([#328](https://github.com/UXPin/uxpin-merge-tools/pull/328))
+## [2.8.0] - 2022-06-09
+
+### Changed
+- `delete-version` command with `--tag` and `--branch` options ([#314](https://github.com/UXPin/uxpin-merge-tools/pull/314))
+-  GitHub action to publish to packages to both npmjs and github registry ([#308](https://github.com/UXPin/uxpin-merge-tools/pull/308))
+
 ## [2.7.10] - 2021-11-17
 
 ### Changed

@@ -3,14 +3,13 @@ import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
-const CURRENT_TIMEOUT:number = 30000;
+const CURRENT_TIMEOUT = 30000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
-const DS_DIR:string = 'test/resources/designSystems/withoutPresets';
+const DS_DIR = 'test/resources/designSystems/withoutPresets';
 describe('The generate presets command', () => {
-
   describe('run for Avatar component', () => {
-    const COMPONENT_DIR:string = 'src/components/Avatar';
+    const COMPONENT_DIR = 'src/components/Avatar';
 
     afterEach(() => {
       unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
@@ -24,14 +23,14 @@ describe('The generate presets command', () => {
         params: [Command.GENERATE_PRESETS, `--component-path "${COMPONENT_DIR}/Avatar.tsx"`],
       }).then(async () => {
         // then
-        const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
+        const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
         expect(content).toMatchSnapshot();
       });
     });
   });
 
   describe('run for MenuWithData component', () => {
-    const COMPONENT_DIR:string = 'src/components/MenuWithData';
+    const COMPONENT_DIR = 'src/components/MenuWithData';
 
     afterEach(() => {
       unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
@@ -45,14 +44,14 @@ describe('The generate presets command', () => {
         params: [Command.GENERATE_PRESETS, `--component-path "${COMPONENT_DIR}/MenuWithData.tsx"`],
       }).then(async () => {
         // then
-        const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
+        const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
         expect(content).toMatchSnapshot();
       });
     });
   });
 
   describe('run for ButtonWithIconAsProp component', () => {
-    const COMPONENT_DIR:string = 'src/components/ButtonWithIconAsProp';
+    const COMPONENT_DIR = 'src/components/ButtonWithIconAsProp';
 
     afterEach(() => {
       unlinkSync(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`);
@@ -66,14 +65,14 @@ describe('The generate presets command', () => {
         params: [Command.GENERATE_PRESETS, `--component-path "${COMPONENT_DIR}/ButtonWithIconAsProp.tsx"`],
       }).then(async () => {
         // then
-        const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
+        const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
         expect(content).toMatchSnapshot();
       });
     });
   });
 
   describe('run for whole ds based on uxpin.config.js', () => {
-    const COMPONENT_DIRS:string[] = [
+    const COMPONENT_DIRS: string[] = [
       'src/components/Avatar',
       'src/components/MenuWithData',
       'src/components/ButtonWithIconAsProp',
@@ -95,22 +94,22 @@ describe('The generate presets command', () => {
 
     it('create 0-default.jsx for Avatar', async () => {
       // when
-      const INDEX:number = 0;
-      const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[INDEX]}/presets/0-default.jsx`, 'utf-8');
+      const INDEX = 0;
+      const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[INDEX]}/presets/0-default.jsx`, 'utf-8');
       expect(content).toMatchSnapshot();
     });
 
     it('create 0-default.jsx for MenuWithData', async () => {
       // when
-      const INDEX:number = 1;
-      const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[INDEX]}/presets/0-default.jsx`, 'utf-8');
+      const INDEX = 1;
+      const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[INDEX]}/presets/0-default.jsx`, 'utf-8');
       expect(content).toMatchSnapshot();
     });
 
     it('create 0-default.jsx for ButtonWithIconAsProp', async () => {
       // when
-      const INDEX:number = 2;
-      const content:string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[INDEX]}/presets/0-default.jsx`, 'utf-8');
+      const INDEX = 2;
+      const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIRS[INDEX]}/presets/0-default.jsx`, 'utf-8');
       expect(content).toMatchSnapshot();
     });
   });

@@ -9,17 +9,17 @@ import { ComponentPlaceholder } from '../generateVirtualModules';
 
 // tslint:disable-next-line:function-name
 function __uxpinParsePreset(
-  component:ComponentPlaceholder | string | any,
-  props?:JSXSerializedElementProps,
-  ...children:AnySerializedElement[]):JSXSerializedElement {
-
+  component: ComponentPlaceholder | string | any,
+  props?: JSXSerializedElementProps,
+  ...children: AnySerializedElement[]
+): JSXSerializedElement {
   if (component === undefined) {
-    const error:Error = new Error('Unknown component!');
+    const error: Error = new Error('Unknown component!');
     error.message = parsePresetErrorMessage(error);
     throw error;
   }
 
-  const componentName:string = !!component.name ? component.name : 'Unknown';
+  const componentName: string = component.name ? component.name : 'Unknown';
 
   return {
     children,
@@ -30,13 +30,13 @@ function __uxpinParsePreset(
   };
 }
 
-function getPropertySerializationWarnings(props:JSXSerializedElementProps|undefined):WarningDetails[] {
+function getPropertySerializationWarnings(props: JSXSerializedElementProps | undefined): WarningDetails[] {
   if (!props) {
     return [];
   }
 
   return Object.keys(props).reduce<WarningDetails[]>((warnings, propName) => {
-    const propValue:JSXSerializedElementProp = props[propName];
+    const propValue: JSXSerializedElementProp = props[propName];
     if (typeof propValue === 'function') {
       warnings.push({ message: `Unsupported property \`${propName}\` of a type \`${typeof propValue}\`` });
     }
@@ -44,13 +44,13 @@ function getPropertySerializationWarnings(props:JSXSerializedElementProps|undefi
   }, []);
 }
 
-const ERROR_LINES:number = 5;
-function parsePresetErrorMessage(error:Error):string {
+const ERROR_LINES = 5;
+function parsePresetErrorMessage(error: Error): string {
   if (!error.stack) {
     return error.message;
   }
 
-  const lines:string[] = error.stack.split('\n').filter((line) => !line.match(/at __uxpinParsePreset/gi));
+  const lines: string[] = error.stack.split('\n').filter((line) => !line.match(/at __uxpinParsePreset/gi));
 
   return lines.slice(0, ERROR_LINES).join('\n');
 }

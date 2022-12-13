@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { isCommit } from '../isCommit';
 
 describe('isCommit', () => {
-  let path:string;
+  let path: string;
 
   beforeEach(async () => {
     // given

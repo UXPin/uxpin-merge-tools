@@ -7,25 +7,25 @@ import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 
-const INDENT:number = 2;
+const INDENT: number = 2;
 
-export function createPackageJsonFile(args:CreateAppProgramArgs):Step {
+export function createPackageJsonFile(args: CreateAppProgramArgs): Step {
   return { exec: thunkCreatePackageJsonFile(args), shouldRun: true };
 }
 
-export function thunkCreatePackageJsonFile(args:CreateAppProgramArgs):() => Promise<void> {
+export function thunkCreatePackageJsonFile(args: CreateAppProgramArgs): () => Promise<void> {
   return async () => {
-    const packageFile:{
-      name?:string;
-      dependencies?:{ [key:string]:number|string }
+    const packageFile: {
+      name?: string;
+      dependencies?: { [key: string]: number | string };
     } = {};
 
     packageFile.name = args.appName;
     packageFile.dependencies = {};
 
-    const packageJsonPath:string = resolve(APP_DIRECTORY, 'package.json');
-    if (!await pathExists(packageJsonPath)) {
-      await writeToFile(packageJsonPath, JSON.stringify(packageFile,null, INDENT));
+    const packageJsonPath: string = resolve(APP_DIRECTORY, 'package.json');
+    if (!(await pathExists(packageJsonPath))) {
+      await writeToFile(packageJsonPath, JSON.stringify(packageFile, null, INDENT));
       printLine(`✅ File package.json created`, { color: PrintColor.GREEN });
     } else {
       printWarning(`👉 File package.json exists`);

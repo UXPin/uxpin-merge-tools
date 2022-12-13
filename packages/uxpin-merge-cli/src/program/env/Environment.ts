@@ -4,4 +4,4 @@ export enum Environment {
   PRODUCTION = 'production',
 }
 
-export const DEFAULT_ENVIRONMENT:Environment = Environment.PRODUCTION;
+export const DEFAULT_ENVIRONMENT: Environment = Environment.PRODUCTION;

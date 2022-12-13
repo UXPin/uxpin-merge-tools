@@ -3,16 +3,15 @@ import { ComponentDefinition } from '../../../serialization/component/ComponentD
 import { getLibraryBundleSource } from '../getLibraryBundleSource';
 
 describe('getLibraryBundleSource', () => {
-
-  const commonImplementation:ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
-  const commonProps:Pick<ComponentDefinition, 'properties' | 'documentation' | 'presets'> = {
+  const commonImplementation: ComponentImplementationInfo = { path: '', framework: 'reactjs', lang: 'javascript' };
+  const commonProps: Pick<ComponentDefinition, 'properties' | 'documentation' | 'presets'> = {
     documentation: { examples: [] },
     presets: [],
     properties: [],
   };
 
   it('returns content of library file for list of components', () => {
-    const components:ComponentDefinition[] = [
+    const components: ComponentDefinition[] = [
       {
         defaultExported: true,
         info: {
@@ -39,7 +38,7 @@ describe('getLibraryBundleSource', () => {
       },
     ];
 
-    const expectedFileString:string = `import * as React from 'react';
+    const expectedFileString = `import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Button from '../src/components/button/button';
 import ButtonList from '../src/components/button-list/button-list';
@@ -51,14 +50,14 @@ export {
 };`;
 
     // when
-    const result:string = getLibraryBundleSource(components);
+    const result: string = getLibraryBundleSource(components);
 
     // then
     expect(result).toEqual(expectedFileString);
   });
 
   it('returns content of library file for list of components and path of custom wrapper', () => {
-    const components:ComponentDefinition[] = [
+    const components: ComponentDefinition[] = [
       {
         defaultExported: true,
         info: {
@@ -85,9 +84,9 @@ export {
       },
     ];
 
-    const wrapperPath:string = './wrapper/wrapper.jsx';
+    const wrapperPath = './wrapper/wrapper.jsx';
 
-    const expectedFileString:string = `import * as React from 'react';
+    const expectedFileString = `import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Button from '../src/components/button/button';
 import ButtonList from '../src/components/button-list/button-list';
@@ -101,14 +100,14 @@ export {
 };`;
 
     // when
-    const result:string = getLibraryBundleSource(components, wrapperPath);
+    const result: string = getLibraryBundleSource(components, wrapperPath);
 
     // then
     expect(result).toEqual(expectedFileString);
   });
 
   it('returns content of library file for list of components including namespaced components', () => {
-    const components:ComponentDefinition[] = [
+    const components: ComponentDefinition[] = [
       {
         defaultExported: true,
         info: {
@@ -155,7 +154,7 @@ export {
       },
     ];
 
-    const expectedFileString:string = `import * as React from 'react';
+    const expectedFileString = `import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Card from '../src/components/card/card';
 const Card_Header = Card.Header;
@@ -169,7 +168,57 @@ export {
 };`;
 
     // when
-    const result:string = getLibraryBundleSource(components);
+    const result: string = getLibraryBundleSource(components);
+
+    // then
+    expect(result).toEqual(expectedFileString);
+  });
+
+  it('returns content of library file for list of components and path of custom wrapper with normalized path', () => {
+    const components: ComponentDefinition[] = [
+      {
+        defaultExported: true,
+        info: {
+          dirPath: 'src\\components',
+          implementation: {
+            ...commonImplementation,
+            path: 'button\\button.jsx',
+          },
+        },
+        name: 'Button',
+        ...commonProps,
+      },
+      {
+        defaultExported: true,
+        info: {
+          dirPath: 'src\\components',
+          implementation: {
+            ...commonImplementation,
+            path: 'button-list\\button-list.jsx',
+          },
+        },
+        name: 'ButtonList',
+        ...commonProps,
+      },
+    ];
+
+    const wrapperPath = 'wrapper\\wrapper.jsx';
+
+    const expectedFileString = `import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import Button from '../src/components/button/button';
+import ButtonList from '../src/components/button-list/button-list';
+import Wrapper from '../wrapper/wrapper.jsx';
+export {
+  Button,
+  ButtonList,
+  Wrapper,
+  React,
+  ReactDOM,
+};`;
+
+    // when
+    const result: string = getLibraryBundleSource(components, wrapperPath);
 
     // then
     expect(result).toEqual(expectedFileString);

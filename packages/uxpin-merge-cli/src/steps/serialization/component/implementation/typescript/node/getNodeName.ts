@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
 
-export function getNodeName(node:any):ts.__String | undefined {
+export function getNodeName(node: any): ts.__String | undefined {
   switch (true) {
     case ts.isExportSpecifier(node):
       return (node.propertyName && node.propertyName.escapedText) || node.name.escapedText;

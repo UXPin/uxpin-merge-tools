@@ -5,7 +5,7 @@ import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
-const CURRENT_TIMEOUT:number = 120000;
+const CURRENT_TIMEOUT = 120000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
@@ -14,7 +14,7 @@ jest.mock('../../../src/program/utils/version/getToolVersion');
 describe('The dump command', () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
 
-  it('run for the polaris repository, prints the JSON describing the full repository', () => {
+  xit('run for the polaris repository, prints the JSON describing the full repository', () => {
     // when
     return runUXPinMergeCommand({
       cwd: 'resources/repos/polaris',

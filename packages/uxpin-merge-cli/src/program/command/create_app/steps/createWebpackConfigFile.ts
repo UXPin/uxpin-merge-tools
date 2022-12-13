@@ -7,7 +7,7 @@ import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 
-function getWebpackFile(shouldExcludeNodeModules:boolean):string {
+function getWebpackFile(shouldExcludeNodeModules: boolean): string {
   return `
     const path = require("path");
     const webpack = require("webpack");
@@ -67,24 +67,25 @@ function getWebpackFile(shouldExcludeNodeModules:boolean):string {
     }
   `;
 }
-export function createWebpackConfigFile(args:CreateAppProgramArgs):Step {
+export function createWebpackConfigFile(args: CreateAppProgramArgs): Step {
   return { exec: thunkCreateWebpackConfigFile(args), shouldRun: true };
 }
 
-export function thunkCreateWebpackConfigFile(args:CreateAppProgramArgs):() => Promise<void> {
+export function thunkCreateWebpackConfigFile(args: CreateAppProgramArgs): () => Promise<void> {
   return async () => {
-    const webpackConfigFile:string = resolve(APP_DIRECTORY, 'webpack.config.js');
-    let packages:Array<{ name:string, version?:string}> = [];
+    const webpackConfigFile: string = resolve(APP_DIRECTORY, 'webpack.config.js');
+    let packages: Array<{ name: string; version?: string }> = [];
     try {
       packages = JSON.parse(args.packages || '');
     } catch (e) {
       // do nothing
     }
 
-    const shouldExcludeNodeModules:boolean = !packages
-        .find((packageData) => ['@chakra-ui/react'].includes(packageData.name));
+    const shouldExcludeNodeModules: boolean = !packages.find((packageData) =>
+      ['@chakra-ui/react'].includes(packageData.name)
+    );
 
-    if (!await pathExists(webpackConfigFile)) {
+    if (!(await pathExists(webpackConfigFile))) {
       await writeToFile(webpackConfigFile, getWebpackFile(shouldExcludeNodeModules));
       printLine(`✅ File webpack.config.js created`, { color: PrintColor.GREEN });
     } else {

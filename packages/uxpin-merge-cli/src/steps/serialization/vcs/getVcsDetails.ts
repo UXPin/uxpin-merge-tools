@@ -9,35 +9,32 @@ import { getRepositoryAdapter } from './repositories/getRepositoryAdapter';
 import { RepositoryAdapter, RepositoryPointer } from './repositories/RepositoryAdapter';
 
 export async function getVcsDetails(
-  paths:ProjectPaths,
-  buildOptions:BuildOptions,
-  categorizedComponents:ComponentCategory[],
-):Promise<VCSDetails> {
-  const repositoryAdapter:RepositoryAdapter = await getRepositoryAdapter(
-    paths.projectRoot,
-    buildOptions,
-  );
-  const repositoryPointer:RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
-  let latestCommitHash:string|null = null;
+  paths: ProjectPaths,
+  buildOptions: BuildOptions,
+  categorizedComponents: ComponentCategory[]
+): Promise<VCSDetails> {
+  const repositoryAdapter: RepositoryAdapter = await getRepositoryAdapter(paths.projectRoot, buildOptions);
+  const repositoryPointer: RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
+  let latestCommitHash: string | null = null;
 
-  if (buildOptions.token) {
+  if (buildOptions.token && !buildOptions.force) {
     latestCommitHash = await getLatestCommitHash(
       getApiDomain(buildOptions.uxpinApiDomain!),
       repositoryPointer.branchName,
-      buildOptions.token,
+      buildOptions.token
     );
   }
 
-  const vcs:VCSDetails = {
+  const vcs: VCSDetails = {
     branchName: repositoryPointer.branchName,
     commitHash: repositoryPointer.commit.hash,
     paths,
   };
 
   if (latestCommitHash) {
-    const movedFiles:MovedFilePathsMap = await repositoryAdapter.getMovedFiles(
+    const movedFiles: MovedFilePathsMap = await repositoryAdapter.getMovedFiles(
       latestCommitHash,
-      repositoryPointer.commit.hash,
+      repositoryPointer.commit.hash
     );
 
     vcs.movedObjects = {

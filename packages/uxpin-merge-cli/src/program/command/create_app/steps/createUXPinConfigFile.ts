@@ -7,23 +7,23 @@ import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 import { components } from './createComponentsFiles';
 
-const INDENT:number = 2;
+const INDENT: number = 2;
 
-export function createUXPinConfigFile(args:CreateAppProgramArgs):Step {
+export function createUXPinConfigFile(args: CreateAppProgramArgs): Step {
   return { exec: thunkCreateUXPinConfigFile(args), shouldRun: true };
 }
 
-export function thunkCreateUXPinConfigFile(args:CreateAppProgramArgs):() => Promise<void> {
+export function thunkCreateUXPinConfigFile(args: CreateAppProgramArgs): () => Promise<void> {
   return async () => {
-    const uxpinConfigFile:any = {};
+    const uxpinConfigFile: any = {};
 
     uxpinConfigFile.name = args.appName;
     uxpinConfigFile.components = {
-      categories: components.map(({ name, include }:any) => ({ name, include })),
+      categories: components.map(({ name, include }: any) => ({ name, include })),
     };
 
-    const uxpinConfigFilePath:string = resolve(APP_DIRECTORY, 'uxpin.config.js');
-    await writeToFile(uxpinConfigFilePath, `module.exports = ${JSON.stringify(uxpinConfigFile,null, INDENT)}`);
+    const uxpinConfigFilePath: string = resolve(APP_DIRECTORY, 'uxpin.config.js');
+    await writeToFile(uxpinConfigFilePath, `module.exports = ${JSON.stringify(uxpinConfigFile, null, INDENT)}`);
     printLine(`✅ File uxpin.config.js created`, { color: PrintColor.GREEN });
   };
 }

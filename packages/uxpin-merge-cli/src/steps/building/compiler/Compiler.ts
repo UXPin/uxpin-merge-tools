@@ -1,3 +1,3 @@
 export interface Compiler {
-  compile():Promise<void>;
+  compile(): Promise<void>;
 }

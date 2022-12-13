@@ -8,8 +8,8 @@ describe('serializeJSComponent', () => {
   describe('providing array of objects describing all properties of the JavaScript component', () => {
     it('serializes functional component with primitive property types', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FunctionPrimitivesOnly');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionPrimitivesOnly');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionPrimitivesOnly',
         properties: [
@@ -51,8 +51,8 @@ describe('serializeJSComponent', () => {
 
     it('serializes class component with enum property types', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassEnumTypes');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassEnumTypes');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassEnumTypes',
         properties: [
@@ -100,8 +100,8 @@ describe('serializeJSComponent', () => {
 
     it('serializes class component with default property values', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassWithDefaults');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassWithDefaults');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassWithDefaults',
         properties: [
@@ -142,8 +142,8 @@ describe('serializeJSComponent', () => {
 
     it('serializes component with shape property type', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('ClassPropShapeType');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('ClassPropShapeType');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'ClassPropShapeType',
         properties: [
@@ -179,8 +179,8 @@ describe('serializeJSComponent', () => {
 
     it('serializes component with shape property type and a default value for it', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('PropShapeTypeWithDefault');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('PropShapeTypeWithDefault');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'PropShapeTypeWithDefault',
         properties: [
@@ -222,8 +222,8 @@ describe('serializeJSComponent', () => {
 
     it('serializes component with Flow property types', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('IntegrationComboFlow');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('IntegrationComboFlow');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'IntegrationComboFlow',
         properties: [
@@ -246,7 +246,7 @@ describe('serializeJSComponent', () => {
             },
           },
           {
-            description: 'Stretch button to it\'s parent',
+            description: "Stretch button to it's parent",
             isRequired: false,
             name: 'fullWidth',
             type: {
@@ -258,8 +258,9 @@ describe('serializeJSComponent', () => {
             defaultValue: {
               value: 'button',
             },
-            description: 'Element to be used as the root node - e.g. `a` can be used to create a link that is styled ' +
-            'like a Button',
+            description:
+              'Element to be used as the root node - e.g. `a` can be used to create a link that is styled ' +
+              'like a Button',
             isRequired: false,
             name: 'element',
             type: {
@@ -425,8 +426,8 @@ describe('serializeJSComponent', () => {
 
     it('serializes component with imported enum property types', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FunctionWithImportedEnum');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithImportedEnum');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'FunctionWithImportedEnum',
         properties: [
@@ -483,8 +484,8 @@ describe('serializeJSComponent', () => {
 
     it('provides warning details for corrupted default property values', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('CorruptedDefaultPropertyValue');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('CorruptedDefaultPropertyValue');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'CorruptedDefaultPropertyValue',
         properties: [
@@ -500,7 +501,7 @@ describe('serializeJSComponent', () => {
         ],
         wrappers: [],
       };
-      const expectedWarning:WarningDetails = {
+      const expectedWarning: WarningDetails = {
         message: `Cannot compute default value for property \`value\`
 
 ReferenceError: some is not defined
@@ -520,7 +521,7 @@ ReferenceError: some is not defined
 
     it('rejects returned promise when there is no React component in the given file', (done) => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('FileWithoutComponent');
+      const component: ComponentImplementationInfo = getImplementation('FileWithoutComponent');
 
       // when
       serializeJSComponent(component).catch((error) => {
@@ -532,7 +533,7 @@ ReferenceError: some is not defined
 
     it('rejects returned promise when there is no file at the given path', (done) => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('NonexistentFile');
+      const component: ComponentImplementationInfo = getImplementation('NonexistentFile');
 
       // when
       serializeJSComponent(component).catch((error) => {
@@ -544,8 +545,8 @@ ReferenceError: some is not defined
 
     it('serializes component with number as oneOf', () => {
       // given
-      const component:ComponentImplementationInfo = getImplementation('PropTypesOneOfNumber');
-      const expectedMetadata:ComponentMetadata = {
+      const component: ComponentImplementationInfo = getImplementation('PropTypesOneOfNumber');
+      const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'PropTypesOneOfNumber',
         properties: [
@@ -563,6 +564,32 @@ ReferenceError: some is not defined
                 ],
               },
             },
+          },
+        ],
+        wrappers: [],
+      };
+
+      // when
+      return serializeJSComponent(component).then((serializedProps) => {
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
+      });
+    });
+
+    it('serializes component with `usePortal` attribute', () => {
+      // given
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithUsePortalDeclaration');
+      const expectedMetadata: ComponentMetadata = {
+        defaultExported: true,
+        usePortal: true,
+        name: 'FunctionWithUsePortalDeclaration',
+        properties: [
+          {
+            description: '',
+            isRequired: true,
+            name: 'name',
+            type: { name: 'string', structure: {} },
           },
         ],
         wrappers: [],

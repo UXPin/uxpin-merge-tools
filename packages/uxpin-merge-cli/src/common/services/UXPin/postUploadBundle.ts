@@ -4,15 +4,15 @@ import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
 export interface UploadBundleResponse {
-  url:string;
+  url: string;
 }
 
 export async function postUploadBundle(
-  domain:string,
-  token:string,
-  commitHash:string,
-  path:string,
-):Promise<UploadBundleResponse | null> {
+  domain: string,
+  token: string,
+  commitHash: string,
+  path: string
+): Promise<UploadBundleResponse | null> {
   return requestPromiseWithEnhancedError(`${domain}/code/v/1.0/push/bundle`, {
     formData: {
       bundle: createReadStream(path),

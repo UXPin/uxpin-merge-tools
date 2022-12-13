@@ -4,14 +4,8 @@ import { requestPromiseWithEnhancedError } from '../../../utils/requestPromiseWi
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
-export async function deleteTag(
-    opts:{
-      apiDomain:string,
-      authToken:string,
-      tag:string,
-    }):Promise<void> {
-
- // Skip updating repository pointers in test environment
+export async function deleteTag(opts: { apiDomain: string; authToken: string; tag: string }): Promise<void> {
+  // Skip updating repository pointers in test environment
   if (isTestEnv()) {
     return Promise.resolve();
   }

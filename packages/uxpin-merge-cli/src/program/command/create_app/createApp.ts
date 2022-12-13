@@ -9,7 +9,7 @@ import { createWebpackConfigFile } from './steps/createWebpackConfigFile';
 import { installPackages } from './steps/installPackages';
 import { installPeerDependencies } from './steps/installPeerDependencies';
 
-export function createApp(args:CreateAppProgramArgs):Step[] {
+export function createApp(args: CreateAppProgramArgs): Step[] {
   return [
     createAppDirectory(args),
     createPackageJsonFile(args),

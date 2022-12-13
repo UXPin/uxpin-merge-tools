@@ -1,8 +1,7 @@
 import { CustomDescriptorsTags } from '../../../implementation/ComponentPropertyDefinition';
 import { ParsedPlainPropertyDescriptor } from '../../../implementation/ParsedPropertyDescriptor';
 
-export function parseDescriptionTag(
-  value:string):ParsedPlainPropertyDescriptor | undefined {
+export function parseDescriptionTag(value: string): ParsedPlainPropertyDescriptor | undefined {
   if (!value) {
     return;
   }

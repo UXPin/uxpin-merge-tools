@@ -2,7 +2,7 @@ import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
-const CURRENT_TIMEOUT:number = 60000;
+const CURRENT_TIMEOUT = 60000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
@@ -12,13 +12,9 @@ describe('The dump command', () => {
     it('prints the JSON including serialized presets', async () => {
       // given
       // when
-      const output:string = await runUXPinMergeCommand({
+      const output: string = await runUXPinMergeCommand({
         cwd: 'resources/designSystems/withPresets',
-        params: [
-          Command.DUMP,
-          '--config "uxpin.config.js"',
-          '--webpack-config "./webpack.config.js"',
-        ],
+        params: [Command.DUMP, '--config "uxpin.config.js"', '--webpack-config "./webpack.config.js"'],
       });
 
       // then
@@ -40,11 +36,7 @@ describe('The dump command', () => {
       try {
         await runUXPinMergeCommand({
           cwd: 'resources/designSystems/withCorruptedPresets',
-          params: [
-            Command.DUMP,
-            '--config ./uxpin.config.avatar.js',
-            '--webpack-config "./webpack.config.js"',
-          ],
+          params: [Command.DUMP, '--config ./uxpin.config.avatar.js', '--webpack-config "./webpack.config.js"'],
         });
       } catch (error) {
         expect(error.stderr).toMatch(/Can\'t resolve \'\.\.\/NonExistingFileWithAvatarComponent\'/gm);
@@ -60,11 +52,7 @@ describe('The dump command', () => {
       try {
         await runUXPinMergeCommand({
           cwd: 'resources/designSystems/withCorruptedPresets',
-          params: [
-            Command.DUMP,
-            '--config ./uxpin.config.button.js',
-            '--webpack-config "./webpack.config.js"',
-          ],
+          params: [Command.DUMP, '--config ./uxpin.config.button.js', '--webpack-config "./webpack.config.js"'],
         });
       } catch (error) {
         expect(error.stderr).toMatch(/Unknown component/gm);

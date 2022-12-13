@@ -5,18 +5,18 @@ import { getProjectEPID } from '../getProjectEPID';
 describe('getProjectEPID', () => {
   it('should read epid file and convert it to EPID object', async () => {
     // given
-    const projectPath:string = path.resolve(__dirname, '../../../../../test/resources/designSystems/withEpidFile/');
-    const filePath:string = getEPIDFilePath(projectPath);
+    const projectPath: string = path.resolve(__dirname, '../../../../../test/resources/designSystems/withEpidFile/');
+    const filePath: string = getEPIDFilePath(projectPath);
 
     // when
     // then
     expect(await getProjectEPID(filePath)).toMatchSnapshot();
   });
 
-  it('should throws error when epid file doesn\'t exists', async () => {
+  it("should throws error when epid file doesn't exists", async () => {
     // given
-    const projectPath:string = './not/exists';
-    const filePath:string = getEPIDFilePath(projectPath);
+    const projectPath = './not/exists';
+    const filePath: string = getEPIDFilePath(projectPath);
 
     // when
     // then

@@ -1,9 +1,9 @@
 import { parse } from 'path';
 import { isBuiltInWrapper } from './isBuiltInWrapper';
 
-const PREFIX:string = 'Custom';
+const PREFIX = 'Custom';
 
-export function getWrapperNameFromPath(path:string):string {
+export function getWrapperNameFromPath(path: string): string {
   const { name } = parse(path);
 
   if (isBuiltInWrapper(name)) {

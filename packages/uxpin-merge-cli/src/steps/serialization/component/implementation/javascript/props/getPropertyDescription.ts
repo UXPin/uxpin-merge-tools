@@ -1,24 +1,21 @@
 import { getLines, LINES_DELIMETER } from '../../../comments/getLines';
 
-const GENERAL_JSDOC_TAG_PREFIX:string = '@';
-const UXPIN_JSDOC_TAG_PREFIX:string = '@uxpin';
+const GENERAL_JSDOC_TAG_PREFIX = '@';
+const UXPIN_JSDOC_TAG_PREFIX = '@uxpin';
 
-export function getPropertyDescription(desc:string = ''):string {
-  const lines:string[] = getLines(desc);
+export function getPropertyDescription(desc = ''): string {
+  const lines: string[] = getLines(desc);
 
-  const descLines:string[] = [];
-  let isUXPinTagOpen:boolean = false;
-  for (let i:number = 0; i < lines.length; i += 1) {
-    const prevLine:string = lines[i - 1] || '';
-    const line:string = lines[i];
+  const descLines: string[] = [];
+  let isUXPinTagOpen = false;
+  for (let i = 0; i < lines.length; i += 1) {
+    const prevLine: string = lines[i - 1] || '';
+    const line: string = lines[i];
 
-    isUXPinTagOpen = line.startsWith(UXPIN_JSDOC_TAG_PREFIX)
-      || isUXPinTagOpen && !line.startsWith(GENERAL_JSDOC_TAG_PREFIX);
+    isUXPinTagOpen =
+      line.startsWith(UXPIN_JSDOC_TAG_PREFIX) || (isUXPinTagOpen && !line.startsWith(GENERAL_JSDOC_TAG_PREFIX));
 
-    if (
-      (line === '' && prevLine === '')
-        || isUXPinTagOpen
-    ) {
+    if ((line === '' && prevLine === '') || isUXPinTagOpen) {
       continue;
     }
 

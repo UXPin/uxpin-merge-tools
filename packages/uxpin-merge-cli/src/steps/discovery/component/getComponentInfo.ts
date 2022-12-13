@@ -5,22 +5,22 @@ import { ComponentPaths } from './paths/ComponentPaths';
 import { getComponentPaths } from './paths/getComponentPaths';
 import { getPresetInfos } from './presets/getPresetInfos';
 
-export async function getComponentInfo(projectRoot:string, implementationPath:string):Promise<ComponentInfo | null> {
-  const implementation:ComponentImplementationInfo | null = getImplementationInfo(implementationPath);
+export async function getComponentInfo(projectRoot: string, implementationPath: string): Promise<ComponentInfo | null> {
+  const implementation: ComponentImplementationInfo | null = getImplementationInfo(implementationPath);
   if (!implementation) {
     return null;
   }
 
-  const paths:ComponentPaths = getComponentPaths(projectRoot, implementationPath);
+  const paths: ComponentPaths = getComponentPaths(projectRoot, implementationPath);
   return {
     dirPath: paths.componentDirPath,
     implementation,
-    ...await getDocumentation(paths),
-    ...await getPresets(paths),
+    ...(await getDocumentation(paths)),
+    ...(await getPresets(paths)),
   };
 }
 
-async function getDocumentation(paths:ComponentPaths):Promise<Pick<ComponentInfo, 'documentation'>> {
+async function getDocumentation(paths: ComponentPaths): Promise<Pick<ComponentInfo, 'documentation'>> {
   try {
     return { documentation: await getDocumentationInfo(paths) };
   } catch {
@@ -28,7 +28,7 @@ async function getDocumentation(paths:ComponentPaths):Promise<Pick<ComponentInfo
   }
 }
 
-async function getPresets(paths:ComponentPaths):Promise<Pick<ComponentInfo, 'presets'>> {
+async function getPresets(paths: ComponentPaths): Promise<Pick<ComponentInfo, 'presets'>> {
   try {
     return { presets: await getPresetInfos(paths) };
   } catch {

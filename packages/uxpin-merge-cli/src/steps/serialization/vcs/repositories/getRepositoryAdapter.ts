@@ -4,8 +4,8 @@ import { GitRepositoryAdapter } from './git/GitRepositoryAdapter';
 import { isGitRepository } from './git/util/isGitRepository';
 import { RepositoryAdapter, RepositoryAdapterOptions } from './RepositoryAdapter';
 
-export async function getRepositoryAdapter(cwd:string, buildOptions?:BuildOptions):Promise<RepositoryAdapter> {
-  const options:RepositoryAdapterOptions = { path: cwd };
+export async function getRepositoryAdapter(cwd: string, buildOptions?: BuildOptions): Promise<RepositoryAdapter> {
+  const options: RepositoryAdapterOptions = { path: cwd };
 
   // Use branch for override if provided
   if (buildOptions && buildOptions.branch) {

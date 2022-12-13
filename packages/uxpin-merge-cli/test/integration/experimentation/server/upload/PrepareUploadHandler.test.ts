@@ -14,21 +14,19 @@ import { UploadItemMetadata } from '../../../../../src/steps/experimentation/ser
 import { getRandomPortNumber } from '../../../../utils/e2e/server/getRandomPortNumber';
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 
-const TIMEOUT:number = 120000;
+const TIMEOUT = 120000;
 jest.setTimeout(TIMEOUT);
 
 describe('Experimentation server – handling upload preparation', () => {
-
-  const port:number = getRandomPortNumber();
+  const port: number = getRandomPortNumber();
   const { request, getWorkingDir } = setupExperimentationServerTest({ port });
 
   describe('when requesting preparation of the upload', () => {
-
-    let response:Response;
+    let response: Response;
 
     describe('for the first file', () => {
       beforeAll(async () => {
-        const firstRequestFormDataJson:PrepareUploadFormData = {
+        const firstRequestFormDataJson: PrepareUploadFormData = {
           add_to_library: 1,
           directory_id: 0,
           file_name: 'uploaded_file_name.png',
@@ -40,7 +38,7 @@ describe('Experimentation server – handling upload preparation', () => {
           resolution: '128x110',
         };
 
-        const requestOptions:RequestPromiseOptions = {
+        const requestOptions: RequestPromiseOptions = {
           form: {
             json: JSON.stringify(firstRequestFormDataJson),
           },
@@ -57,7 +55,7 @@ describe('Experimentation server – handling upload preparation', () => {
 
       it('responds with OK status code and correct headers', async () => {
         // given
-        const expectedHeaders:any = {
+        const expectedHeaders: any = {
           'access-control-allow-credentials': 'true',
           'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
           'access-control-allow-origin': 'https://app.uxpin.com',
@@ -71,7 +69,7 @@ describe('Experimentation server – handling upload preparation', () => {
 
       it('returns upload params object with for the first file', () => {
         // given
-        const expectedResponse:PrepareUploadResponse = {
+        const expectedResponse: PrepareUploadResponse = {
           file_data: {
             extension: 'png',
             id_stored_file: '1',
@@ -99,7 +97,7 @@ describe('Experimentation server – handling upload preparation', () => {
 
       describe('and then requesting upload of the second file (even with the same name)', () => {
         beforeAll(async () => {
-          const secondRequestFormDataJson:PrepareUploadFormData = {
+          const secondRequestFormDataJson: PrepareUploadFormData = {
             add_to_library: 1,
             directory_id: 0,
             file_name: 'uploaded_file_name.png',
@@ -111,7 +109,7 @@ describe('Experimentation server – handling upload preparation', () => {
             resolution: '128x110',
           };
 
-          const requestOptions:RequestPromiseOptions = {
+          const requestOptions: RequestPromiseOptions = {
             form: {
               json: JSON.stringify(secondRequestFormDataJson),
             },
@@ -125,7 +123,7 @@ describe('Experimentation server – handling upload preparation', () => {
 
         it('responds with the correct final URL for the second file', () => {
           // given
-          const expectedResponse:PrepareUploadResponse = {
+          const expectedResponse: PrepareUploadResponse = {
             file_data: {
               extension: 'png',
               id_stored_file: '2',
@@ -153,12 +151,17 @@ describe('Experimentation server – handling upload preparation', () => {
 
         it('creates correct metadata file', async () => {
           // given
-          const expectedMetadata:UploadItemMetadata = {
+          const expectedMetadata: UploadItemMetadata = {
             contentType: 'image/png',
             fileName: 'uploaded_file_name.png',
           };
-          const expectedMetadataFilePath:string =
-            join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, '2', UPLOAD_METADATA_FILE_NAME);
+          const expectedMetadataFilePath: string = join(
+            getWorkingDir(),
+            TEMP_DIR_NAME,
+            UPLOAD_DIR_NAME,
+            '2',
+            UPLOAD_METADATA_FILE_NAME
+          );
 
           // then
           expect(await readJson(expectedMetadataFilePath)).toEqual(expectedMetadata);

@@ -4,7 +4,7 @@ import { convertLiteralUnionSegment } from '../convertLiteralUnionSegment';
 
 describe('convertLiteralUnionSegment', () => {
   describe('strings', () => {
-    const cases:TestCase[] = [
+    const cases: TestCase[] = [
       {
         expected: { name: 'literal', structure: { value: 'someValue' } },
         having: '"someValue"',
@@ -27,16 +27,15 @@ describe('convertLiteralUnionSegment', () => {
       },
     ];
 
-    using(cases)
-      .describe('should', (testCase:TestCase) => {
-        it(testCase.title, () => {
-          expect(convertLiteralUnionSegment(testCase.having)).toEqual(testCase.expected);
-        });
+    using(cases).describe('should', (testCase: TestCase) => {
+      it(testCase.title, () => {
+        expect(convertLiteralUnionSegment(testCase.having)).toEqual(testCase.expected);
       });
+    });
   });
 
   describe('numbers', () => {
-    const cases:TestCase[] = [
+    const cases: TestCase[] = [
       {
         expected: { name: 'literal', structure: { value: 123 } },
         having: '123',
@@ -59,17 +58,16 @@ describe('convertLiteralUnionSegment', () => {
       },
     ];
 
-    using(cases)
-      .describe('should', (testCase:TestCase) => {
-        it(testCase.title, () => {
-          expect(convertLiteralUnionSegment(testCase.having)).toEqual(testCase.expected);
-        });
+    using(cases).describe('should', (testCase: TestCase) => {
+      it(testCase.title, () => {
+        expect(convertLiteralUnionSegment(testCase.having)).toEqual(testCase.expected);
       });
+    });
   });
 });
 
 interface TestCase {
-  title:string;
-  having:string;
-  expected:PropertyType<'literal'> | null;
+  title: string;
+  having: string;
+  expected: PropertyType<'literal'> | null;
 }

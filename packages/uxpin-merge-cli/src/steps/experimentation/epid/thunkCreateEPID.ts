@@ -5,11 +5,11 @@ import { BuildOptions } from '../../building/BuildOptions';
 import { createEPID } from './createEPID';
 import { getEPIDFilePath } from './getEPIDFilePath';
 
-export function thunkCreateEPID(buildOptions:BuildOptions):StepExecutor {
-  return async (ds:DSMetadata) => {
+export function thunkCreateEPID(buildOptions: BuildOptions): StepExecutor {
+  return async (ds: DSMetadata) => {
     const { projectRoot } = buildOptions;
-    const epidFilePath:string = getEPIDFilePath(projectRoot);
-    const epidExists:boolean = await isFile(epidFilePath);
+    const epidFilePath: string = getEPIDFilePath(projectRoot);
+    const epidExists: boolean = await isFile(epidFilePath);
 
     if (!epidExists) {
       await createEPID(epidFilePath);

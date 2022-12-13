@@ -3,7 +3,7 @@ import { PageIncrementalUpdate } from '../../../../../../../src/common/types/Pag
 // tslint:disable-next-line:max-line-length typedef no-var-requires
 const introPageContent = require('../../../../../../../src/steps/experimentation/server/common/page/content/introPageContent.json');
 
-export const deleteChangedElementRequestPayload:PageIncrementalUpdate = {
+export const deleteChangedElementRequestPayload: PageIncrementalUpdate = {
   can_break_cohesion: false,
   changed_elements: {
     '83ty393l': {
@@ -16,10 +16,7 @@ export const deleteChangedElementRequestPayload:PageIncrementalUpdate = {
     },
     canvas: {
       props: {
-        storedElements: [
-          ...introPageContent.canvas.props.storedElements,
-          'b5b84017',
-        ],
+        storedElements: [...introPageContent.canvas.props.storedElements, 'b5b84017'],
       },
       type: 'Canvas',
       v: '2.0',

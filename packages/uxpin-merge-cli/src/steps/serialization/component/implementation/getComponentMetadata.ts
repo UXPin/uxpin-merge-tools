@@ -4,8 +4,8 @@ import { ImplSerializationResult } from './ImplSerializationResult';
 import { serializeJSComponent } from './javascript/serializeJSComponent';
 import { serializeTSComponent } from './typescript/serializeTSComponent';
 
-export function getComponentMetadata(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
-  let promise:Promise<ImplSerializationResult>;
+export function getComponentMetadata(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
+  let promise: Promise<ImplSerializationResult>;
   if (component.lang === 'typescript') {
     promise = serializeTSComponent(component);
   } else {

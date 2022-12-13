@@ -6,7 +6,7 @@ import { getComponentDeclaration } from '../getComponentDeclaration';
 import { ComponentDeclaration } from '../getPropsTypeAndDefaultProps';
 import { isDefaultExported } from '../isDefaultExported';
 
-export function getImplementation(componentName:string):ComponentImplementationInfo {
+export function getImplementation(componentName: string): ComponentImplementationInfo {
   return {
     framework: 'reactjs',
     lang: 'typescript',
@@ -15,7 +15,7 @@ export function getImplementation(componentName:string):ComponentImplementationI
 }
 
 describe('getComponentNameFromStoriesTitle', () => {
-  const cases:any[] = [
+  const cases: any[] = [
     /////////// Class components
     ////// Default exported
     // export default class Component
@@ -152,11 +152,12 @@ describe('getComponentNameFromStoriesTitle', () => {
   ];
 
   using(cases).describe(
-    'checking if isDefaultExported correctly detect default export', ({ filename, componentName, expected }) => {
+    'checking if isDefaultExported correctly detect default export',
+    ({ filename, componentName, expected }) => {
       it(`for given ${componentName} in ${filename}`, () => {
-        const component:ComponentImplementationInfo = getImplementation(filename);
-        const context:TSSerializationContext = getSerializationContext(component);
-        const declaration:ComponentDeclaration | undefined = getComponentDeclaration(context);
+        const component: ComponentImplementationInfo = getImplementation(filename);
+        const context: TSSerializationContext = getSerializationContext(component);
+        const declaration: ComponentDeclaration | undefined = getComponentDeclaration(context);
 
         if (declaration) {
           expect(isDefaultExported(declaration, context)).toEqual(expected);
@@ -164,5 +165,6 @@ describe('getComponentNameFromStoriesTitle', () => {
           console.log(`Failed to find declaration for ${filename}`);
         }
       });
-    });
+    }
+  );
 });

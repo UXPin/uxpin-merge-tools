@@ -5,24 +5,24 @@ import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 
-export function installPeerDependencies(args:CreateAppProgramArgs):Step {
+export function installPeerDependencies(args: CreateAppProgramArgs): Step {
   return { exec: thunkInstallPeerDependencies(args), shouldRun: true };
 }
 
-export function thunkInstallPeerDependencies(args:CreateAppProgramArgs):() => Promise<void> {
+export function thunkInstallPeerDependencies(args: CreateAppProgramArgs): () => Promise<void> {
   return async () => {
-    let packages:Array<{ name:string, version?:string}> = [];
+    let packages: Array<{ name: string; version?: string }> = [];
     try {
       packages = JSON.parse(args.packages || '');
     } catch (e) {
       console.log(e);
       // do nothing
     }
-    const packageJSON:any = require(`${APP_DIRECTORY}/node_modules/${packages[0].name}/package.json`);
+    const packageJSON: any = require(`${APP_DIRECTORY}/node_modules/${packages[0].name}/package.json`);
 
-    const peerDependencies:any = packageJSON.peerDependencies || {};
+    const peerDependencies: any = packageJSON.peerDependencies || {};
     Object.keys(peerDependencies).forEach((dependencyName) => {
-      const version:string = peerDependencies[dependencyName];
+      const version: string = peerDependencies[dependencyName];
       const { status } = cp.spawnSync('npm', ['install', `${dependencyName}@${version}`], {
         cwd: APP_DIRECTORY,
       });

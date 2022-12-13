@@ -2,9 +2,11 @@ PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 UXPIN_CODE=$(shell pwd)/bin/uxpin-merge
 YARN ?= yarn
+ESLINT_TARGETS = --ext .ts,.tsx ./src ./test ./__mocks__
 
 .PHONY: dependencies install build build-watch \
-				check check-fix test test-unit test-integration test-ci \
+				check lint check-lint-errors lint-fix check-types \
+				test test-unit test-integration test-ci \
 				clean clean-test-resources \
 				test-remap-coverage test-resources test-rename-snapshots \
 				serve-mineral serve-polaris
@@ -24,11 +26,25 @@ build-watch: build
 build-server-app:
 	webpack --config "./config/webpack.config.js"
 
+# Run on CI before building the package
 check:
-	tslint --project tsconfig.json
+	make check-lint-errors
+	make check-types
 
-check-fix:
-	tslint --project tsconfig.json --fix
+lint:
+	eslint $(ESLINT_TARGETS)
+
+check-lint-errors:
+	eslint --quiet $(ESLINT_TARGETS)
+
+lint-fix:
+	eslint --fix $(ESLINT_TARGETS)
+
+check-types:
+	tsc --project tsconfig.json --pretty --noEmit
+
+check-types-watch:
+	tsc --project tsconfig.json --watch --noEmit
 
 test:
 	make test-resources

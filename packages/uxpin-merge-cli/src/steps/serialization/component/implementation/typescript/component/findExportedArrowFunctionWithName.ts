@@ -6,11 +6,11 @@ import { isExported } from './isExported';
 import { isNodeExported } from './isNodeExported';
 
 export function findExportedArrowFunctionWithName(
-  context:TSSerializationContext,
-  functionName:string,
-):ts.ArrowFunction | undefined {
-  let result:ts.ArrowFunction | undefined;
-  let isFunctionExported:boolean = false;
+  context: TSSerializationContext,
+  functionName: string
+): ts.ArrowFunction | undefined {
+  let result: ts.ArrowFunction | undefined;
+  let isFunctionExported = false;
   ts.forEachChild(context.file, (node) => {
     if (
       ts.isVariableStatement(node) &&
@@ -18,7 +18,9 @@ export function findExportedArrowFunctionWithName(
       getNodeName(node.declarationList.declarations[0]) === functionName
     ) {
       // export const Component = () => {}
-      if (isExported(node)) { isFunctionExported = true; }
+      if (isExported(node)) {
+        isFunctionExported = true;
+      }
       result = node.declarationList.declarations[0].initializer as ts.ArrowFunction;
     }
 

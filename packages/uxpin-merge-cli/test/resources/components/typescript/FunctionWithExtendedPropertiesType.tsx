@@ -4,28 +4,26 @@ export interface BaseA {
   /**
    * Documentation of inherited property
    */
-  action?:number;
-  hidden?:boolean;
+  action?: number;
+  hidden?: boolean;
 }
 
 interface BaseB {
-  id:string;
+  id: string;
 }
 
 export interface Props extends BaseA, BaseB {
-  children?:string;
+  children?: string;
 }
 
-function labelID(id:string):string {
+function labelID(id: string): string {
   return `${id}Label`;
 }
 
-export default function FunctionWithExtendedPropertiesType({ children, id, action, hidden }:Props):JSX.Element {
+export default function FunctionWithExtendedPropertiesType({ children, id, action, hidden }: Props): JSX.Element {
   return (
     <div>
-      <label id={labelID(id)}
-             htmlFor={id}
-             className={hidden ? 'hidden' : ''}>
+      <label id={labelID(id)} htmlFor={id} className={hidden ? 'hidden' : ''}>
         {children}
       </label>
     </div>

@@ -5,17 +5,17 @@ import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 
-export function installPackages(args:CreateAppProgramArgs):Step {
+export function installPackages(args: CreateAppProgramArgs): Step {
   return { exec: thunkInstallPackages(args), shouldRun: true };
 }
 
-export function thunkInstallPackages(args:CreateAppProgramArgs):() => Promise<void> {
+export function thunkInstallPackages(args: CreateAppProgramArgs): () => Promise<void> {
   return async () => {
     if (!args.packages) {
       throw new Error('Invalid package names');
     }
 
-    let packages:Array<{ name:string, version?:string}> = [];
+    let packages: Array<{ name: string; version?: string }> = [];
     try {
       packages = JSON.parse(args.packages || '');
     } catch (e) {
@@ -24,7 +24,7 @@ export function thunkInstallPackages(args:CreateAppProgramArgs):() => Promise<vo
     }
 
     packages.forEach(({ name, version }) => {
-      const packageName:string = version ? `${name}@${version}` : name;
+      const packageName: string = version ? `${name}@${version}` : name;
       const { status } = cp.spawnSync('npm', ['install', packageName], {
         cwd: APP_DIRECTORY,
       });
@@ -35,7 +35,9 @@ export function thunkInstallPackages(args:CreateAppProgramArgs):() => Promise<vo
     });
 
     const { status: babelLoaderStatus } = cp.spawnSync(
-      'npm', ['install',
+      'npm',
+      [
+        'install',
         'babel-loader@8.2.5',
         '@babel/core',
         '@babel/preset-env',
@@ -46,18 +48,22 @@ export function thunkInstallPackages(args:CreateAppProgramArgs):() => Promise<vo
         'webpack@4.8.1',
         'uglifyjs-webpack-plugin@2.2.0',
         'prop-types',
-      ], {
+      ],
+      {
         cwd: APP_DIRECTORY,
-      });
+      }
+    );
 
     if (babelLoaderStatus !== 0) {
       throw new Error('🛑 Something went wrong during installing babel-loader');
     }
 
     printLine(
-        // tslint:disable-next-line:max-line-length
-      `✅ Packages "${packages.map(({ name }) => name).join(' ')} babel-loader @babel/core @babel/preset-env webpack" installed`,
-      { color: PrintColor.GREEN },
+      // tslint:disable-next-line:max-line-length
+      `✅ Packages "${packages
+        .map(({ name }) => name)
+        .join(' ')} babel-loader @babel/core @babel/preset-env webpack" installed`,
+      { color: PrintColor.GREEN }
     );
   };
 }

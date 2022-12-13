@@ -3,15 +3,15 @@ import { formatWebpackErrorMessages } from '../../../../utils/webpack/formatWebp
 import { Compiler } from '../Compiler';
 
 export class WebpackCompiler implements Compiler {
-  private compiler:webpack.Compiler;
+  private compiler: webpack.Compiler;
 
-  constructor(private readonly config:webpack.Configuration) {
+  constructor(private readonly config: webpack.Configuration) {
     this.compiler = webpack(this.config);
   }
 
-  public compile():Promise<void> {
+  public compile(): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.compiler.run(((err, stats) => {
+      this.compiler.run((err, stats) => {
         if (err) {
           return reject(err);
         }
@@ -21,8 +21,7 @@ export class WebpackCompiler implements Compiler {
         }
 
         resolve();
-      }));
+      });
     });
   }
-
 }

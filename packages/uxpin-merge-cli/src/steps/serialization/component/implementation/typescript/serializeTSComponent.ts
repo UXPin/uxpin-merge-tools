@@ -9,31 +9,33 @@ import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getComponentDeclaration } from './component/getComponentDeclaration';
-import { getComponentDocUrl } from './component/getComponentDocUrl';
+import { getComponentDocUrl } from './comments/jsdoc-docurl';
+import { getComponentNamespace } from './comments/jsdoc-namespace';
+import { getComponentUsePortal } from './comments/jsdoc-useportal';
 import { getComponentName } from './component/getComponentName';
-import { getComponentNamespace } from './component/getComponentNamespace';
 import { getComponentWrappers } from './component/getComponentWrappers';
 import { ComponentDeclaration } from './component/getPropsTypeAndDefaultProps';
 import { isDefaultExported } from './component/isDefaultExported';
 import { getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
 import { parseTSComponentProperties } from './parseTSComponentProperties';
 
-export async function serializeTSComponent(component:ComponentImplementationInfo):Promise<ImplSerializationResult> {
-  const context:TSSerializationContext = getSerializationContext(component);
+export async function serializeTSComponent(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
+  const context: TSSerializationContext = getSerializationContext(component);
 
-  const declaration:ComponentDeclaration | undefined = getComponentDeclaration(context);
+  const declaration: ComponentDeclaration | undefined = getComponentDeclaration(context);
   if (!declaration) {
     throw new Error('No component found!');
   }
 
-  const name:string = getComponentName(context, declaration);
-  const parsedProps:PropDefinitionParsingResult[] = parseTSComponentProperties(context, declaration);
-  const validatedProps:PropDefinitionSerializationResult[] = serializeAndValidateParsedProperties(parsedProps);
-  const namespace:ComponentNamespace | undefined = getComponentNamespace(declaration, name);
-  const componentDocUrl:string | undefined = getComponentDocUrl(declaration);
-  const wrappers:ComponentWrapper[] = getComponentWrappers(declaration);
-  const validatedWrappers:Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
-  const defaultExported:boolean = isDefaultExported(declaration, context);
+  const name: string = getComponentName(context, declaration);
+  const parsedProps: PropDefinitionParsingResult[] = parseTSComponentProperties(context, declaration);
+  const validatedProps: PropDefinitionSerializationResult[] = serializeAndValidateParsedProperties(parsedProps);
+  const namespace: ComponentNamespace | undefined = getComponentNamespace(declaration, name);
+  const componentDocUrl: string | undefined = getComponentDocUrl(declaration);
+  const wrappers: ComponentWrapper[] = getComponentWrappers(declaration);
+  const validatedWrappers: Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
+  const defaultExported: boolean = isDefaultExported(declaration, context);
+  const usePortal: boolean | undefined = getComponentUsePortal(declaration) || undefined;
 
   return {
     result: {
@@ -43,13 +45,11 @@ export async function serializeTSComponent(component:ComponentImplementationInfo
       namespace,
       properties: validatedProps.map(({ result }) => result),
       wrappers: validatedWrappers.result,
+      usePortal,
     },
     warnings: joinWarningLists(
-      [
-        ...validatedProps.map(({ warnings }) => warnings),
-        validatedWrappers.warnings,
-      ],
-      component.path,
+      [...validatedProps.map(({ warnings }) => warnings), validatedWrappers.warnings],
+      component.path
     ),
   };
 }

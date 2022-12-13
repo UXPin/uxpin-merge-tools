@@ -1,16 +1,16 @@
 import { ConfigEnabledProgramArgs } from '../../../program/args/ProgramArgs';
 
 export interface CliConfig {
-  components:ComponentsConfig;
-  name?:string;
+  components: ComponentsConfig;
+  name?: string;
 }
 
 export interface ComponentsConfig extends ConfigEnabledProgramArgs {
-  categories:CategoryConfig[];
+  categories: CategoryConfig[];
 }
 
 export interface CategoryConfig {
-  name:string;
+  name: string;
   /**
    * single glob pattern or list of glob patters of component files to be included in the category
    *
@@ -28,5 +28,5 @@ export interface CategoryConfig {
    * include: "src/components/*\/*.js",
    * ```
    */
-  include:string|string[];
+  include: string | string[];
 }

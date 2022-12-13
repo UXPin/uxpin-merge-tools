@@ -3,20 +3,16 @@ import { using } from '../../../../../../../test/utils/using';
 import { CategoryConfig } from '../../../../config/CliConfig';
 import { getComponentCategoryPaths } from '../getComponentCategoryPaths';
 
-const INVALID_PATTERN_REGEXP:RegExp = /Please check your config file and fix wrong patterns\./;
+const INVALID_PATTERN_REGEXP = /Please check your config file and fix wrong patterns\./;
 
 describe('getComponentCategoryPaths', () => {
   describe('returning list of component file paths for given category configuration', () => {
-
-    const testProjectPath:string = join(__dirname, 'resources', 'jsProjectWithSrcDir');
-    const cases:TestCase[] = [
+    const testProjectPath: string = join(__dirname, 'resources', 'jsProjectWithSrcDir');
+    const cases: TestCase[] = [
       {
         caseName: 'two patterns using single-start expressions specifying file extension',
         config: {
-          include: [
-            'src/*/*.js',
-            'src/Icons/*/*.jsx',
-          ],
+          include: ['src/*/*.js', 'src/Icons/*/*.jsx'],
           name: 'Category Name',
         },
         expectedPaths: [
@@ -30,10 +26,7 @@ describe('getComponentCategoryPaths', () => {
       {
         caseName: 'two patterns specifying multiple extensions',
         config: {
-          include: [
-            'src/*/*.js',
-            'src/Icons/*/*.{jsx,js}',
-          ],
+          include: ['src/*/*.js', 'src/Icons/*/*.{jsx,js}'],
           name: 'Category Name',
         },
         expectedPaths: [
@@ -51,10 +44,7 @@ describe('getComponentCategoryPaths', () => {
           include: 'src/*/*.js',
           name: 'Category Name',
         },
-        expectedPaths: [
-          'src/FirstComponent/FirstComponent.js',
-          'src/SecondComponent/SecondComponent.js',
-        ],
+        expectedPaths: ['src/FirstComponent/FirstComponent.js', 'src/SecondComponent/SecondComponent.js'],
         projectRoot: testProjectPath,
       },
       {
@@ -84,10 +74,7 @@ describe('getComponentCategoryPaths', () => {
       {
         caseName: 'multiple expressions matching no files',
         config: {
-          include: [
-            'src/**/*.ts',
-            'src/**/*.tsx',
-          ],
+          include: ['src/**/*.ts', 'src/**/*.tsx'],
           name: 'Category Name',
         },
         expectedPaths: [],
@@ -97,11 +84,7 @@ describe('getComponentCategoryPaths', () => {
       {
         caseName: 'patterns matching directory are ignored',
         config: {
-          include: [
-            'src/*/*.js',
-            'src/Icons/',
-            'src/Icons/*',
-          ],
+          include: ['src/*/*.js', 'src/Icons/', 'src/Icons/*'],
           name: 'Category Name',
         },
         expectedPaths: [],
@@ -111,61 +94,50 @@ describe('getComponentCategoryPaths', () => {
       {
         caseName: 'patterns support pattern fragment exclusion',
         config: {
-          include: [
-            'src/Icons/!(Play)/*.*',
-          ],
+          include: ['src/Icons/!(Play)/*.*'],
           name: 'Category Name',
         },
-        expectedPaths: [
-          'src/Icons/Flower/index.jsx',
-          'src/Icons/Search/index.jsx',
-        ],
+        expectedPaths: ['src/Icons/Flower/index.jsx', 'src/Icons/Search/index.jsx'],
         projectRoot: testProjectPath,
       },
       {
         caseName: 'exclusion patterns support pattern fragment exclusion',
         config: {
-          include: [
-            'src/Icons/*/*.*',
-            '!src/Icons/!(Play)/*.*',
-          ],
+          include: ['src/Icons/*/*.*', '!src/Icons/!(Play)/*.*'],
           name: 'Category Name',
         },
-        expectedPaths: [
-          'src/Icons/Play/Play.js',
-        ],
+        expectedPaths: ['src/Icons/Play/Play.js'],
         projectRoot: testProjectPath,
       },
     ];
 
-    using(cases)
-      .describe('correctly returns paths for', (testCase:TestCase) => {
-        const { caseName, expectedToThrow } = testCase;
+    using(cases).describe('correctly returns paths for', (testCase: TestCase) => {
+      const { caseName, expectedToThrow } = testCase;
 
-        it(caseName, expectedToThrow ? assertThrowableTestCase(testCase) : assertTestCase(testCase));
-      });
+      it(caseName, expectedToThrow ? assertThrowableTestCase(testCase) : assertTestCase(testCase));
+    });
   });
 });
 
 interface TestCase {
-  caseName:string;
-  config:CategoryConfig;
-  expectedPaths:string[];
-  expectedToThrow?:Error|RegExp|string;
-  projectRoot:string;
+  caseName: string;
+  config: CategoryConfig;
+  expectedPaths: string[];
+  expectedToThrow?: Error | RegExp | string;
+  projectRoot: string;
 }
 
-function assertTestCase({ projectRoot, config, expectedPaths }:TestCase):() => Promise<void> {
+function assertTestCase({ projectRoot, config, expectedPaths }: TestCase): () => Promise<void> {
   return async () => {
     // when
-    const result:string[] = await getComponentCategoryPaths(projectRoot, config);
+    const result: string[] = await getComponentCategoryPaths(projectRoot, config);
 
     // then
     expect(result.sort()).toEqual(expectedPaths);
   };
 }
 
-function assertThrowableTestCase({ projectRoot, config, expectedToThrow }:TestCase):() => Promise<void> {
+function assertThrowableTestCase({ projectRoot, config, expectedToThrow }: TestCase): () => Promise<void> {
   return async () => {
     // when
     // then

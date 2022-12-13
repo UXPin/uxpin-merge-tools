@@ -23,25 +23,25 @@ export async function compilePresets(
 }
 
 async function compileWithWebpack(
-  programArgs:Exclude<ProgramArgs, CreateAppProgramArgs>,
-  components:ComponentDefinition[],
-  sourcePath:string,
-):Promise<string> {
+  programArgs: Exclude<ProgramArgs, CreateAppProgramArgs>,
+  components: ComponentDefinition[],
+  sourcePath: string
+): Promise<string> {
   const { base } = parse(sourcePath);
-  const uxpinDirPath:string = getTempDirPath(programArgs);
-  const bundlePath:string = join(uxpinDirPath, `__bundle__${base}`);
+  const uxpinDirPath: string = getTempDirPath(programArgs);
+  const bundlePath: string = join(uxpinDirPath, `__bundle__${base}`);
   const { webpackConfig } = programArgs as RawProgramArgs;
-  const projectRoot:string = getProjectRoot(programArgs);
-  const virtualModules:VirtualComponentModule[] = generateVirtualModules(components);
+  const projectRoot: string = getProjectRoot(programArgs);
+  const virtualModules: VirtualComponentModule[] = generateVirtualModules(components);
 
-  const config:webpack.Configuration = getPresetsBundleWebpackConfig({
+  const config: webpack.Configuration = getPresetsBundleWebpackConfig({
     bundlePath,
     projectRoot,
     sourcePath,
     virtualModules,
     webpackConfig,
   });
-  const compiler:Compiler = new WebpackCompiler(config);
+  const compiler: Compiler = new WebpackCompiler(config);
   await compiler.compile();
 
   return bundlePath;

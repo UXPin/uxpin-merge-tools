@@ -6,25 +6,23 @@ import { NotFoundHandler } from '../error/NotFoundHandler';
 import { RequestHandler } from '../RequestHandler';
 
 export class StaticFileHandler implements RequestHandler {
-  private notFoundHandler:NotFoundHandler;
+  private notFoundHandler: NotFoundHandler;
 
-  constructor(
-    private filePath:string,
-    private headers:OutgoingHttpHeaders = {}) {
+  constructor(private filePath: string, private headers: OutgoingHttpHeaders = {}) {
     this.notFoundHandler = new NotFoundHandler();
   }
 
-  public async handle(request:IncomingMessage, response:ServerResponse):Promise<void> {
+  public async handle(request: IncomingMessage, response: ServerResponse): Promise<void> {
     response.writeHead(OK, decorateWithAccessControlAllowOrigin(this.headers, request.headers));
     try {
-      const content:Buffer = await this.readFileContent();
+      const content: Buffer = await this.readFileContent();
       response.end(content, 'utf-8');
     } catch (error) {
       this.notFoundHandler.handle(request, response);
     }
   }
 
-  private readFileContent():Promise<Buffer> {
+  private readFileContent(): Promise<Buffer> {
     return readFileFromPath(this.filePath);
   }
 }
