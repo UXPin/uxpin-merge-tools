@@ -5,7 +5,7 @@ import { PrintColor } from '../../../../utils/console/PrintOptions';
 import { CreateAppProgramArgs } from '../../../args/ProgramArgs';
 import { Step } from '../../Step';
 
-export let APP_DIRECTORY: string = '';
+export let APP_DIRECTORY = '';
 
 export function createAppDirectory(args: CreateAppProgramArgs): Step {
   return { exec: thunkCreateAppDirectory(args), shouldRun: true };
@@ -17,7 +17,7 @@ export function thunkCreateAppDirectory(args: CreateAppProgramArgs): () => Promi
       throw new Error('🛑 Invalid app name');
     }
 
-    const appDirectory: string = resolve(process.cwd(), args.appName);
+    const appDirectory = resolve(process.cwd(), args.appName);
     APP_DIRECTORY = appDirectory;
     if (!(await pathExists(appDirectory))) {
       await mkdir(appDirectory);

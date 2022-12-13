@@ -10,6 +10,6 @@ export interface BuildOptions {
   branch?: string;
   tag?: string;
   force?: boolean;
-  disableVersionControl?:boolean;
-  cssResources?:string;
+  disableVersionControl?: boolean;
+  cssResources?: string;
 }

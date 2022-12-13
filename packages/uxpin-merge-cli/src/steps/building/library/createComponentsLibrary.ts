@@ -11,7 +11,7 @@ export async function createComponentsLibrary(
 ): Promise<void> {
   await ensureDir(uxpinDirPath);
   await writeToFile(
-      getComponentLibraryInputPath(uxpinDirPath),
-      getLibraryBundleSource(componentInfos, wrapperPath, cssResources),
+    getComponentLibraryInputPath(uxpinDirPath),
+    getLibraryBundleSource(componentInfos, wrapperPath, cssResources)
   );
 }

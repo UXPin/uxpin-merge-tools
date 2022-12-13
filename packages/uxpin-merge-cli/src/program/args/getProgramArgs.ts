@@ -78,10 +78,7 @@ export function getProgramArgs(program: RawProgramArgs): ProgramArgs {
   }
 
   const { cwd, config } = { ...defaultArgs[command], ...cliArgs };
-  const configArgs: ConfigEnabledProgramArgs = pickConfigArgs(
-    getConfigPath({ cwd, config }),
-    command
-  );
+  const configArgs: ConfigEnabledProgramArgs = pickConfigArgs(getConfigPath({ cwd, config }), command);
   return {
     ...defaultArgs[command],
     ...configArgs,

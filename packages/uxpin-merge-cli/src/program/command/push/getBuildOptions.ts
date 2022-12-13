@@ -23,5 +23,16 @@ export function getBuildOptions(args: BuildProgramArgs): BuildOptions {
   };
 }
 
-export type BuildProgramArgs = Pick<PushProgramArgs, 'cwd' | 'token'
-  | 'uxpinDomain' | 'webpackConfig' | 'wrapper' | 'branch' | 'tag' | 'disableVersionControl' | 'cssResources' | 'force'>;
+export type BuildProgramArgs = Pick<
+  PushProgramArgs,
+  | 'cwd'
+  | 'token'
+  | 'uxpinDomain'
+  | 'webpackConfig'
+  | 'wrapper'
+  | 'branch'
+  | 'tag'
+  | 'disableVersionControl'
+  | 'cssResources'
+  | 'force'
+>;

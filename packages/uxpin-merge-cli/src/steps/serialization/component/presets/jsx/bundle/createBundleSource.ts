@@ -8,10 +8,10 @@ import { ComponentDefinition } from '../../../ComponentDefinition';
 import { getSourceFileContentToBundle } from './getSourceFileContentToBundle';
 
 export async function createBundleSource(
-    programArgs:Exclude<ProgramArgs, CreateAppProgramArgs>,
-    components:ComponentDefinition[],
-):Promise<string> {
-  const tempDirPath:string = getTempDirPath(programArgs);
+  programArgs: Exclude<ProgramArgs, CreateAppProgramArgs>,
+  components: ComponentDefinition[]
+): Promise<string> {
+  const tempDirPath: string = getTempDirPath(programArgs);
   await ensureDir(tempDirPath);
   const bundleSourcePath: string = resolve(tempDirPath, getUniqueFileName());
   await writeToFile(bundleSourcePath, getSourceFileContentToBundle(tempDirPath, components));

@@ -12,9 +12,9 @@ export function createComponentsFiles(args: CreateAppProgramArgs): Step {
   return { exec: thunkCreateComponentsFiles(args), shouldRun: true };
 }
 
-const SUFFIX: string = 'El';
+const SUFFIX = 'El';
 
-export let components: Array<{ name: string; include: string[] }> = [];
+export const components: Array<{ name: string; include: string[] }> = [];
 
 function getComponentContent(name: string, packageName: string): string {
   const normalizedName: string = name.replace(/\./g, '');
@@ -55,7 +55,7 @@ export function thunkCreateComponentsFiles(args: CreateAppProgramArgs): () => Pr
       components.push({ name: componentData.categoryName, include: [] });
       await pMapSeries(componentData.components, async ({ name, packageName }) => {
         const normalizedName: string = name.replace(/\./g, '');
-        const componentFile: string = `${componentsPath}/${normalizedName}.jsx`;
+        const componentFile = `${componentsPath}/${normalizedName}.jsx`;
 
         await writeToFile(componentFile, getComponentContent(name, packageName));
         components[components.length - 1].include.push(`components/${normalizedName}.jsx`);

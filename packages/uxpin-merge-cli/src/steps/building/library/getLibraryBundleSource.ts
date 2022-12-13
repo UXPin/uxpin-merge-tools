@@ -5,9 +5,9 @@ import { TEMP_DIR_PATH } from '../config/getConfig';
 const CLASS_NAME_WRAPPER = 'Wrapper';
 
 export function getLibraryBundleSource(
-    components: ComponentDefinition[],
-    wrapperPath?: string,
-    cssResources?:string,
+  components: ComponentDefinition[],
+  wrapperPath?: string,
+  cssResources?: string
 ): string {
   const libImports: string[] = ["import * as React from 'react';", "import * as ReactDOM from 'react-dom';"];
 
@@ -19,7 +19,7 @@ export function getLibraryBundleSource(
 
   const namespacedComponentDeclarations: string[] = getNamespacedComponentDeclarations(components);
 
-  let cssFiles:string[] = [];
+  let cssFiles: string[] = [];
   try {
     cssFiles = cssResources ? JSON.parse(cssResources) : [];
   } catch (e) {
@@ -27,19 +27,21 @@ export function getLibraryBundleSource(
     // do nothing
   }
 
-  const cssImports:string[] = cssFiles
-      .filter((cssFile) => !/^https.*/i.test(cssFile))
-      .map((cssImport) => `import '../node_modules/${cssImport}';`);
+  const cssImports: string[] = cssFiles
+    .filter((cssFile) => !/^https.*/i.test(cssFile))
+    .map((cssImport) => `import '../node_modules/${cssImport}';`);
 
-  const cssUrls:string[] = cssFiles
-      .filter((cssFile) => /^https.*/i.test(cssFile))
-      .map((cssUrl,i) => ([
+  const cssUrls: string[] = cssFiles
+    .filter((cssFile) => /^https.*/i.test(cssFile))
+    .map((cssUrl, i) =>
+      [
         `const link${i} = document.createElement('link');`,
         `link${i}.rel = 'stylesheet';`,
         `link${i}.type = 'text/css';`,
         `link${i}.href = "${cssUrl}";`,
         `document.getElementsByTagName("head")[0].appendChild(link${i});`,
-      ].join('\n')));
+      ].join('\n')
+    );
 
   const exports: string[] = [
     `export {`,
@@ -50,10 +52,15 @@ export function getLibraryBundleSource(
     `};`,
   ];
 
-  return [...libImports, ...imports, ...wrapperImport, ...cssImports,
+  return [
+    ...libImports,
+    ...imports,
+    ...wrapperImport,
+    ...cssImports,
     ...namespacedComponentDeclarations,
     ...cssUrls,
-    ...exports].join('\n');
+    ...exports,
+  ].join('\n');
 }
 
 function normalizePath(path: string): string {

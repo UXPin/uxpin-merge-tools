@@ -81,9 +81,7 @@ export function thunkCreateWebpackConfigFile(args: CreateAppProgramArgs): () => 
       // do nothing
     }
 
-    const shouldExcludeNodeModules: boolean = !packages.find((packageData) =>
-      ['@chakra-ui/react'].includes(packageData.name)
-    );
+    const shouldExcludeNodeModules = !packages.find((packageData) => ['@chakra-ui/react'].includes(packageData.name));
 
     if (!(await pathExists(webpackConfigFile))) {
       await writeToFile(webpackConfigFile, getWebpackFile(shouldExcludeNodeModules));

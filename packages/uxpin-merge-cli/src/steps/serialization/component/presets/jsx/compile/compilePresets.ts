@@ -12,11 +12,11 @@ import { generateVirtualModules, VirtualComponentModule } from './generateVirtua
 import { getPresetsBundleWebpackConfig } from './getPresetsBundleWebpackConfig';
 
 export async function compilePresets(
-    programArgs:Exclude<ProgramArgs, CreateAppProgramArgs>,
-    components:ComponentDefinition[],
-):Promise<string> {
-  const sourcePath:string = await createBundleSource(programArgs, components);
-  const bundlePath:string = await compileWithWebpack(programArgs, components, sourcePath);
+  programArgs: Exclude<ProgramArgs, CreateAppProgramArgs>,
+  components: ComponentDefinition[]
+): Promise<string> {
+  const sourcePath: string = await createBundleSource(programArgs, components);
+  const bundlePath: string = await compileWithWebpack(programArgs, components, sourcePath);
   await unlink(sourcePath);
 
   return bundlePath;

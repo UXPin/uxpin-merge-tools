@@ -18,15 +18,16 @@ export interface ConfigEnabledProgramArgs {
 
 export type WatchProgramArgs = ExperimentProgramArgs;
 
-export type ProgramArgs = CreateAppProgramArgs
-    | DumpProgramArgs
-    | ExperimentProgramArgs
-    | InitProgramArgs
-    | PushProgramArgs
-    | DeleteVersionArgs
-    | GeneratePresetsProgramArgs
-    | ServerProgramArgs
-    | SummaryProgramArgs;
+export type ProgramArgs =
+  | CreateAppProgramArgs
+  | DumpProgramArgs
+  | ExperimentProgramArgs
+  | InitProgramArgs
+  | PushProgramArgs
+  | DeleteVersionArgs
+  | GeneratePresetsProgramArgs
+  | ServerProgramArgs
+  | SummaryProgramArgs;
 
 export interface DumpProgramArgs {
   command: Command.DUMP;
@@ -66,8 +67,8 @@ export interface PushProgramArgs {
   // https://github.com/UXPin/uxpin-merge-tools/issues/206
   branch?: string;
   tag?: string;
-  disableVersionControl?:boolean;
-  cssResources?:string;
+  disableVersionControl?: boolean;
+  cssResources?: string;
 }
 
 export interface DeleteVersionArgs {
@@ -88,11 +89,11 @@ export interface GeneratePresetsProgramArgs {
 }
 
 export interface CreateAppProgramArgs {
-  command:Command.CREATE_APP;
-  components?:string;
-  packages:string;
-  appName:string;
-  npmrc?:string;
+  command: Command.CREATE_APP;
+  components?: string;
+  packages: string;
+  appName: string;
+  npmrc?: string;
 }
 
 export interface ServerProgramArgs {

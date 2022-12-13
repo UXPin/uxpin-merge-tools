@@ -56,8 +56,8 @@ async function executeCommandSteps(programArgs: ProgramArgs, steps: Step[]): Pro
   if (shouldPassDesignSystemToCommand(programArgs)) {
     const paths: ProjectPaths = getProjectPaths(programArgs as Exclude<ProgramArgs, CreateAppProgramArgs>);
     const designSystem: DSMetadata = await getDesignSystemMetadata(
-        programArgs  as Exclude<ProgramArgs, CreateAppProgramArgs>,
-        paths,
+      programArgs as Exclude<ProgramArgs, CreateAppProgramArgs>,
+      paths
     );
     await pMapSeries(stepFunctions as StepExecutor[], (step) => step(designSystem));
   } else {

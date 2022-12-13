@@ -7,7 +7,7 @@ import { Step } from '../../Step';
 import { APP_DIRECTORY } from './createAppDirectory';
 import { components } from './createComponentsFiles';
 
-const INDENT: number = 2;
+const INDENT = 2;
 
 export function createUXPinConfigFile(args: CreateAppProgramArgs): Step {
   return { exec: thunkCreateUXPinConfigFile(args), shouldRun: true };
