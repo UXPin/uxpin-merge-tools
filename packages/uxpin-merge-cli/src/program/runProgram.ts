@@ -22,6 +22,7 @@ export async function runProgram(program: RawProgramArgs): Promise<any> {
     await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
   } catch (error) {
+    console.log(error);
     endWithError(error);
   }
 }

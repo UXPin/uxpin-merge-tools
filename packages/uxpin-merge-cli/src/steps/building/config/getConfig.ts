@@ -46,6 +46,6 @@ function decorateWithDevToolsWhenDevelopment(config: Configuration, development 
 
   return {
     ...config,
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'hidden-source-map',
   };
 }
