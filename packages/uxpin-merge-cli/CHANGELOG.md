@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.10.0] - 2022-12-19
+
+### Added
+
+- Allow absolute imports by handling TypeScript path mapping ([#355](https://github.com/UXPin/uxpin-merge-tools/pull/355))
+
 ## [2.9.0] - 2022-12-02
 
 ### Added

@@ -1,5 +1,5 @@
 import * as ts from 'typescript';
-import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
+import { ComponentImplementationInfo, TypeScriptConfig } from '../../../../../discovery/component/ComponentInfo';
 import { findComponentFile } from '../component/findComponentFile';
 
 export interface TSSerializationContext {
@@ -9,12 +9,19 @@ export interface TSSerializationContext {
   program: ts.Program;
 }
 
-export function getSerializationContext(component: ComponentImplementationInfo): TSSerializationContext {
+export function getSerializationContext(
+  component: ComponentImplementationInfo,
+  config?: TypeScriptConfig
+): TSSerializationContext {
   const { path } = component;
+
   const program: ts.Program = ts.createProgram([path], {
     jsx: ts.JsxEmit.React,
     module: ts.ModuleKind.CommonJS,
     target: ts.ScriptTarget.ES2015,
+    // we can't just use `...config?.compilerOptions`
+    baseUrl: config?.compilerOptions?.baseUrl,
+    paths: config?.compilerOptions?.paths,
   });
 
   const file: ts.SourceFile | undefined = findComponentFile(program, path);

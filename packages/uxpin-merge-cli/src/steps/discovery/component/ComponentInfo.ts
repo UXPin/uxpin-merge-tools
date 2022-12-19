@@ -1,3 +1,5 @@
+import * as ts from 'typescript';
+
 export interface ComponentInfo {
   dirPath: string;
   implementation: ComponentImplementationInfo;
@@ -20,4 +22,8 @@ export interface ComponentDocumenationInfo {
 
 export interface ComponentPresetInfo {
   path: string;
+}
+
+export interface TypeScriptConfig {
+  compilerOptions: ts.CompilerOptions;
 }
