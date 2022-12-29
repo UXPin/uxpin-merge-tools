@@ -87,7 +87,7 @@ export default class Avatar extends PureComponent {
     });
 
     it('should display Parsing error message on stderr', () => {
-      expext(errorResponse).toEqual(expect.stringContaining('ERROR in ./src/components/Avatar/Avatar.jsx'));
+      expect(errorResponse).toEqual(expect.stringContaining('ERROR in ./src/components/Avatar/Avatar.jsx'));
     });
 
     describe('when user fix content syntax error', () => {
