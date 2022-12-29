@@ -52,7 +52,7 @@
     "@types/formidable": "^1.0.31",
     "@types/fs-extra": "^5.0.4",
     "@types/globby": "^6.1.0",
-    "@types/jest": "^23.3.5",
+    "@types/jest": "^26.0.24",
     "@types/locate-path": "^2.0.0",
     "@types/lodash": "^4.14.74",
     "@types/node": "^8.0.26",
