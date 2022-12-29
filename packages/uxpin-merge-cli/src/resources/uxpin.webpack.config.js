@@ -11,7 +11,7 @@ module.exports = {
     modules: [__dirname, "node_modules"],
     extensions: ["*", ".js", ".jsx"]
   },
-  devtool: "source-map",
+  devtool: "eval-source-map",
   module: {
     rules: [
       {
