@@ -34,8 +34,7 @@ describe('getConfig', () => {
 
     describe('and is development mode', () => {
       it(
-        "returns merged configuration from specific file with 'hidden-source-map devtool " +
-          'and with development mod',
+        "returns merged configuration from specific file with 'hidden-source-map devtool " + 'and with development mod',
         () => {
           // given
           const expectedConfig: Configuration = {
@@ -84,7 +83,7 @@ describe('getConfig', () => {
         () => {
           // given
           const expectedConfig: Configuration = {
-            devtool: 'eval-source-map',
+            devtool: 'eval',
             entry: entryPath,
             mode: 'production',
             module: { rules },
