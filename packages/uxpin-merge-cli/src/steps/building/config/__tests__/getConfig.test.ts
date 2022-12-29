@@ -1,5 +1,5 @@
 import { join, resolve } from 'path';
-import { Configuration, Rule } from 'webpack';
+import { Configuration, RuleSetRule } from 'webpack';
 import { BuildOptions } from '../../BuildOptions';
 import { getConfig, LIBRARY_INPUT_FILENAME, LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../getConfig';
 
@@ -9,7 +9,7 @@ describe('getConfig', () => {
 
   describe('when webpack config is defined', () => {
     const webpackConfigPath = './getconfig-webpack.config.js';
-    let rules: Rule[];
+    let rules: RuleSetRule[];
 
     beforeEach(() => {
       rules = [
