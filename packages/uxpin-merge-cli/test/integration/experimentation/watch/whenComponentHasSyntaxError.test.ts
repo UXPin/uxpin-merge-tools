@@ -82,7 +82,7 @@ export default class Avatar extends PureComponent {
       try {
         await changeProjectFile(avatarJsxPath, avatarSyntaxErrorContent);
       } catch (error) {
-        errorResponse = error;
+        errorResponse = (error as Error).message;
       }
     });
 
