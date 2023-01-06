@@ -6,7 +6,7 @@ export function getOrderType(jsDocsTags: ts.JSDocTagInfo[]): 'asc' | 'desc' {
     (tag: ts.JSDocTagInfo) => tag.name === JS_DOC_SORT_TAG_NAME
   );
 
-  if (jsDocTag && jsDocTag.text === 'desc') {
+  if (jsDocTag && (jsDocTag.text as unknown as string) === 'desc') {
     return 'desc';
   }
 

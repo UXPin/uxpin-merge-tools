@@ -5,7 +5,7 @@ import { getNodeJsDocTag } from './jsdoc-helpers';
 export function getComponentDocUrl(component: ts.Node): string | undefined {
   const componentDocUrl: ts.JSDocTag | undefined = getUXpinDocUrlComment(component);
 
-  return componentDocUrl?.comment;
+  return componentDocUrl?.comment as string;
 }
 
 export function getUXpinDocUrlComment(node: ts.Node): ts.JSDocTag | undefined {

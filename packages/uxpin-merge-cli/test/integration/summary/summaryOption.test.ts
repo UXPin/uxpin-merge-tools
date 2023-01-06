@@ -26,7 +26,7 @@ describe('summary command integration', () => {
         });
       } catch (error) {
         // then
-        expect(error.stdout).toContain("uxpin.config.js' not found. Using default configuration.");
+        expect((error as any).stdout).toContain("uxpin.config.js' not found. Using default configuration.");
       }
     });
   });

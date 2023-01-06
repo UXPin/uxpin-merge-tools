@@ -51,7 +51,7 @@ describe('The dump command', () => {
         });
       } catch (error) {
         // then
-        expect(error.stderr).toMatch(/Component \"Card\.Header\.Button\" already exists/);
+        expect((error as any).stderr).toMatch(/Component \"Card\.Header\.Button\" already exists/);
       }
     });
 
@@ -70,7 +70,7 @@ describe('The dump command', () => {
         });
       } catch (error) {
         // then
-        expect(error.stderr).toMatch(/Namespace \"Some\" does not exist/);
+        expect((error as any).stderr).toMatch(/Namespace \"Some\" does not exist/);
       }
     });
   });

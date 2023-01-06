@@ -153,7 +153,7 @@ describe('SerializeJSComponent - with annotations', () => {
       try {
         await serializeJSComponent(component);
       } catch (e) {
-        error = e; // standard .toThrow() assertion doesnt work in this case :dunno:
+        error = e as Error; // standard .toThrow() assertion doesnt work in this case :dunno:
       }
 
       expect(error.message).toMatch('Multiple exported component definitions found.');

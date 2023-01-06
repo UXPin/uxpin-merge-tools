@@ -13,8 +13,8 @@ export function getComponentNamespace(component: ComponentDeclaration, name: str
   }
 
   return {
-    importSlug: getComponentNamespaceImportSlug(namespace.comment, name),
-    name: namespace.comment,
+    importSlug: getComponentNamespaceImportSlug(namespace.comment as string, name),
+    name: namespace.comment as string,
   };
 }
 

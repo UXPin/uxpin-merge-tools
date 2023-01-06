@@ -22,7 +22,7 @@ export function getDefaultValueFromJSDoc(
 function getDefaultTagValue(tags: ts.JSDocTagInfo[]): string | undefined {
   const defaultTag: ts.JSDocTagInfo | undefined = tags.find((t) => t.name === JSDOC_TAG_NAME);
   if (defaultTag) {
-    return defaultTag.text;
+    return defaultTag.text as unknown as string;
   }
 }
 

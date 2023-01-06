@@ -51,7 +51,7 @@ describe('Pushing mineral-ui design system', () => {
           params,
         });
       } catch (error) {
-        expect(error.stderr).toMatch('Module parse failed: Unexpected token');
+        expect((error as any).stderr).toMatch('Module parse failed: Unexpected token');
       }
     });
   });

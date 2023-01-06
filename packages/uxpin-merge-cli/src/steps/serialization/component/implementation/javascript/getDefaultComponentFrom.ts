@@ -46,7 +46,7 @@ export async function getDefaultComponentFrom(filePath: string): Promise<Compone
       try {
         componentDoc = parser(file, handlers, options);
       } catch (e) {
-        error = e;
+        error = e as Error;
       }
 
       if (componentDoc) {
