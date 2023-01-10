@@ -83,7 +83,7 @@ describe('getConfig', () => {
         () => {
           // given
           const expectedConfig: Configuration = {
-            devtool: 'eval',
+            devtool: 'eval-source-map',
             entry: entryPath,
             mode: 'production',
             module: { rules },
