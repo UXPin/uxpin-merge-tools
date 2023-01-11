@@ -26,7 +26,14 @@ describe('The dump command', () => {
       });
 
       // then
-      expect(JSON.parse(output)).toMatchSnapshot();
+      expect(JSON.parse(output)).toMatchSnapshot({
+        vcs: {
+          paths: {
+            configPath: expect.any(String),
+            projectRoot: expect.any(String),
+          },
+        },
+      });
     });
   });
 });
