@@ -38,11 +38,10 @@ describe('Pushing mineral-ui design system', () => {
   });
 
   describe('without required user webpack config', () => {
-    // Giving up fixing this error for now: the build process fails in MineralUI because of resolutions
-    xit('throws an error', async () => {
+    it('throws an error', async () => {
       const params: string[] = [Command.PUSH];
 
-      try {
+      const runCommand = async () => {
         await runUXPinMergeCommand({
           cwd: 'resources/repos/mineral-ui',
           env: {
@@ -51,9 +50,9 @@ describe('Pushing mineral-ui design system', () => {
           },
           params,
         });
-      } catch (error) {
-        expect((error as any).stderr).toMatch('Module parse failed: Unexpected token');
-      }
+      };
+
+      await expect(runCommand()).rejects.toThrow(/Module.*parse.*failed/);
     });
   });
 });

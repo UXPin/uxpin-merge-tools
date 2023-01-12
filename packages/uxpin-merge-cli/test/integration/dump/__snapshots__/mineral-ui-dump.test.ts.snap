@@ -1308,7 +1308,7 @@ use with uncontrolled components.",
       </Icon>
     );
   }
-  
+
   const data = [
     {
       items: [
@@ -14469,7 +14469,7 @@ composes [Box](/components/box)",
   "name": "Library from Code",
   "vcs": Object {
     "branchName": "master",
-    "commitHash": "f4f518a7e58c02b113515c2677fbb32df8c231a4",
+    "commitHash": "e17bfa881b4813ef9d76f921ae38c91f9195fe38",
     "paths": Object {
       "configPath": Any<String>,
       "projectRoot": Any<String>,
