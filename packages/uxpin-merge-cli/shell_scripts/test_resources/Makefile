@@ -17,7 +17,7 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 	&& git clone git@github.com:UXPin/mineral-ui.git \
 	&& cd mineral-ui \
 	&& git remote add official https://github.com/mineral-ui/mineral-ui.git \
-	&& git checkout uxpin-merge-tests \
+	&& git checkout e17bfa881b4813ef9d76f921ae38c91f9195fe38 \
 	&& mkdir ./npm-cache \
 	&& npm install --force --legacy-peer-dep --cache=./npm-cache \
 	&& rm -rf ./npm-cache
