@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.0] - 2023-01-XX
+
+### Breaking changes
+
+- Webpack is now a **peer dependency** of the project, meaning that users have to install it by themselves, it's not installed automatically by the Merge CLI
+- Webpack 5 is supported. Webpack 4 should be supported, if it's used with compatible loaders.
+
 ## [2.10.0] - 2022-12-19
 
 ### Added
