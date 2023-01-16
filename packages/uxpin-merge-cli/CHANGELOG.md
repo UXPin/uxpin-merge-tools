@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.11.0] - 2022-01-16
+
+### Added
+
+- Supports color type with `@uxpincontroltype color`
+
 ## [2.10.0] - 2022-12-19
 
 ### Added
