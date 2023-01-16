@@ -71,7 +71,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "chromeless": "^1.5.2",
-    "codecov": "^2.3.0",
+    "codecov": "^3.7.1",
     "deferred-proxy-chain": "^0.0.1",
     "dts-bundle-generator": "^5.7.0",
     "eslint": "^8.23.0",
