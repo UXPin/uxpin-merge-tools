@@ -16,6 +16,7 @@ const CUSTOM_TYPE_ALLOWANCE_MAP: {
   [key in CustomControlTypeName]?: PropertyTypeName[];
 } = {
   [CustomControlTypeName.CodeEditor]: [...ARRAY_TYPES, ...ELEMENT_TYPES, ...OBJECT_TYPES, 'any', 'func', 'string'],
+  [CustomControlTypeName.Color]: ['string'],
   [CustomControlTypeName.Input]: TEXT_EDITABLE_TYPES,
   [CustomControlTypeName.Interactions]: ['func'],
   [CustomControlTypeName.Number]: ['number'],

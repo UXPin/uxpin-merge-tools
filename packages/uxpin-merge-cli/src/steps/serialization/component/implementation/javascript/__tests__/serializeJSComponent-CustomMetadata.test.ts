@@ -233,6 +233,19 @@ component.`,
               structure: {},
             },
           },
+          {
+            customType: {
+              name: CustomControlTypeName.Color,
+              structure: {},
+            },
+            description: '',
+            isRequired: false,
+            name: 'backgroundColor',
+            type: {
+              name: 'string',
+              structure: {},
+            },
+          },
         ],
         wrappers: [],
       };
