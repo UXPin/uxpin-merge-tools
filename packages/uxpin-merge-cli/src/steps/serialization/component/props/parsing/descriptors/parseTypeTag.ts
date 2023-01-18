@@ -15,6 +15,7 @@ export function parseTypeTag(value: string): ParseResult {
 
   switch (typeMatch[0]) {
     case CustomControlTypeName.CodeEditor:
+    case CustomControlTypeName.Color:
     case CustomControlTypeName.Input:
     case CustomControlTypeName.Interactions:
     case CustomControlTypeName.Number:

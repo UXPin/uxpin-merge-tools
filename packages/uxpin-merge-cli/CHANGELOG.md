@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.11.0] - 2023-01-18
+
+### Added
+
+- Supports color type with `@uxpincontroltype color` ([#361](https://github.com/UXPin/uxpin-merge-tools/pull/361))
+
+### Changed
+
+- Upgrade packages (`decode-uri-components`, `utils-loader`, `json5`, `minimist`, `follow-redirects`, `aws-sdk`, `minimatch`...) from dependabot alerts
+
 ## [2.10.0] - 2022-12-19
 
 ### Added

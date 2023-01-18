@@ -46,6 +46,10 @@ PropTypesWithTextfieldCustomType.propTypes = {
    * @uxpincontroltype textfield(10)
    */
   childrenProp2: PropTypes.node,
+  /**
+   * @uxpincontroltype color
+   */
+  backgroundColor: PropTypes.string,
 };
 
 export default PropTypesWithTextfieldCustomType;
