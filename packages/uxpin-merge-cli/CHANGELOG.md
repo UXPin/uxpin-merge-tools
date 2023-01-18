@@ -6,6 +6,15 @@
 
 - Webpack is now a **peer dependency** of the project, meaning that users have to install it by themselves, it's not installed automatically by the Merge CLI
 - Webpack 5 is supported. Webpack 4 should be supported, if it's used with compatible loaders.
+## [2.11.0] - 2023-01-18
+
+### Added
+
+- Supports color type with `@uxpincontroltype color` ([#361](https://github.com/UXPin/uxpin-merge-tools/pull/361))
+
+### Changed
+
+- Upgrade packages (`decode-uri-components`, `utils-loader`, `json5`, `minimist`, `follow-redirects`, `aws-sdk`, `minimatch`...) from dependabot alerts
 
 ## [2.10.0] - 2022-12-19
 
