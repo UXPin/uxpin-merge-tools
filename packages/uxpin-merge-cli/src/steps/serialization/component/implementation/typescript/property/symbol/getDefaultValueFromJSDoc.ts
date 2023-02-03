@@ -1,5 +1,6 @@
 import * as ts from 'typescript';
 import { ComponentPropertyDefinition } from '../../../ComponentPropertyDefinition';
+import { getJSDocTagInfoText } from '../../comments/jsdoc-helpers';
 import { PropertySymbol } from './isPropertySignatureSymbol';
 
 const JSDOC_TAG_NAME = 'default';
@@ -22,7 +23,7 @@ export function getDefaultValueFromJSDoc(
 function getDefaultTagValue(tags: ts.JSDocTagInfo[]): string | undefined {
   const defaultTag: ts.JSDocTagInfo | undefined = tags.find((t) => t.name === JSDOC_TAG_NAME);
   if (defaultTag) {
-    return defaultTag.text;
+    return getJSDocTagInfoText(defaultTag);
   }
 }
 

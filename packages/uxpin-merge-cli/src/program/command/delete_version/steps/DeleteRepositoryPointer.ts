@@ -66,7 +66,7 @@ async function deleteTagWithPrintMessage(opts: {
     printLine(`🛑 There was an error while deleting tag [${opts.tag}] at commit hash [${opts.commitHash}]`, {
       color: PrintColor.RED,
     });
-    throw new Error(error.message);
+    throw new Error((error as Error).message);
   }
 }
 
@@ -81,6 +81,6 @@ async function deleteRepositoryPointerWithPrintMessage(opts: {
     printLine(`Library branch version [${opts.branch}] has been deleted.`, { color: PrintColor.YELLOW });
   } catch (error) {
     printLine(`🛑 There was an error while deleting branch [${opts.branch}]`, { color: PrintColor.RED });
-    throw new Error(error.message);
+    throw new Error((error as Error).message);
   }
 }

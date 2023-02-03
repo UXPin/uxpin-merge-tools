@@ -22,7 +22,7 @@ export async function runProgram(program: RawProgramArgs): Promise<any> {
     await setupProjectWatcher(programArgs);
     await runCommand(programArgs);
   } catch (error) {
-    endWithError(error);
+    endWithError(error as Error);
   }
 }
 
@@ -43,7 +43,7 @@ function thunkRunCommandWhenFilesChanged(programArgs: ProgramArgs): (path: strin
     try {
       await executeCommandSteps(programArgs, getStepsForWatcher(programArgs));
     } catch (error) {
-      logError(error);
+      logError(error as Error);
     }
   };
 }

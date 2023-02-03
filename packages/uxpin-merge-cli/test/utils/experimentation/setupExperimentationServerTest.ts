@@ -115,6 +115,7 @@ function getTestContext(
     },
     request(uri: string, options: RequestPromiseOptions = {}): RequestPromise {
       const url: URL = new URL(uri, `http://localhost:${port}`);
+      // @ts-expect-error
       return requestPromise({ url, ...options });
     },
   };

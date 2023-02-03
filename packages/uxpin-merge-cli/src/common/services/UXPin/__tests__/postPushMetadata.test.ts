@@ -30,7 +30,7 @@ describe('postPushMetadata', () => {
   describe('request', () => {
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({}));
+      requestPromiseMock.mockImplementation(() => Promise.resolve({}) as any);
 
       // when
       await postPushMetadata(domain, token, metadata);
@@ -62,10 +62,11 @@ describe('postPushMetadata', () => {
 
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() =>
-        Promise.resolve({
-          message: 'Design System snapshot has been uploaded successfully',
-        })
+      requestPromiseMock.mockImplementation(
+        () =>
+          Promise.resolve({
+            message: 'Design System snapshot has been uploaded successfully',
+          }) as any
       );
 
       // when
@@ -87,7 +88,7 @@ describe('postPushMetadata', () => {
             message: 'Incorrect authorization token',
             statusCode: 401,
           },
-        });
+        }) as any;
       });
     });
 

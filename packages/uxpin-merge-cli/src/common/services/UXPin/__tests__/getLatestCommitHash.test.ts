@@ -19,7 +19,7 @@ describe('getLatestCommitHash', () => {
   describe('request on master branch', () => {
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }));
+      requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }) as any);
 
       // when
       await getLatestCommitHash(domain, branch, token);
@@ -50,7 +50,7 @@ describe('getLatestCommitHash', () => {
     beforeEach(async () => {
       // given
       const branchName = 'pull/27';
-      requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }));
+      requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }) as any);
 
       // when
       await getLatestCommitHash(domain, branchName, token);
@@ -65,7 +65,7 @@ describe('getLatestCommitHash', () => {
   describe('HTTP 200', () => {
     it('should return commitHash', async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }));
+      requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }) as any);
 
       // when
       const commitHash: string | null = await getLatestCommitHash(domain, branch, token);
@@ -76,7 +76,7 @@ describe('getLatestCommitHash', () => {
 
     it('should return null if commitHash is not available', async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve(undefined));
+      requestPromiseMock.mockImplementation(() => Promise.resolve(undefined) as any);
 
       // when
       const commitHash: string | null = await getLatestCommitHash(domain, branch, token);
@@ -95,7 +95,7 @@ describe('getLatestCommitHash', () => {
             message: 'Incorrect authorization token',
             statusCode: 401,
           },
-        });
+        }) as any;
       });
     });
 

@@ -35,7 +35,7 @@ function thunkSerializePreset(bundle: PresetsBundle): (info: ComponentPresetInfo
         warnings: warnings.map(thunkFillSourcePath(path)),
       };
     } catch (error) {
-      return getResultForInvalidPreset(path, error);
+      return getResultForInvalidPreset(path, error as Error);
     }
   };
 }

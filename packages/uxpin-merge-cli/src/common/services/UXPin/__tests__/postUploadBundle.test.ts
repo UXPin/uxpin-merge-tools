@@ -21,7 +21,7 @@ describe('postUploadBundle', () => {
   describe('request', () => {
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({ url: 'https://s3.mock/bundle.js' }));
+      requestPromiseMock.mockImplementation(() => Promise.resolve({ url: 'https://s3.mock/bundle.js' }) as any);
 
       // when
       await postUploadBundle(domain, token, commitHash, path);
@@ -53,7 +53,7 @@ describe('postUploadBundle', () => {
 
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({ url: 'https://s3.mock/bundle.js' }));
+      requestPromiseMock.mockImplementation(() => Promise.resolve({ url: 'https://s3.mock/bundle.js' }) as any);
 
       // when
       response = await postUploadBundle(domain, token, commitHash, path);
@@ -74,7 +74,7 @@ describe('postUploadBundle', () => {
             message: 'Incorrect authorization token',
             statusCode: 401,
           },
-        });
+        }) as any;
       });
     });
 

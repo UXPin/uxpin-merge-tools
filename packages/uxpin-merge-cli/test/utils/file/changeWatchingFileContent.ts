@@ -29,17 +29,17 @@ function setupOutputListeners(subprocess: ChildProcess, successMatcher: string):
         return;
       }
 
-      subprocess.stdout.removeListener(PROCESS_DATA_EVENT, changeListener);
+      subprocess.stdout!.removeListener(PROCESS_DATA_EVENT, changeListener);
       resolve();
     };
 
     const stdErrorDataListener: (data: Buffer) => void = (data) => {
-      subprocess.stdout.removeListener(PROCESS_DATA_EVENT, changeListener);
+      subprocess.stdout!.removeListener(PROCESS_DATA_EVENT, changeListener);
       reject(data.toString());
     };
 
-    subprocess.stdout.addListener(PROCESS_DATA_EVENT, changeListener);
-    subprocess.stderr.addListener(PROCESS_DATA_EVENT, stdErrorDataListener);
+    subprocess.stdout!.addListener(PROCESS_DATA_EVENT, changeListener);
+    subprocess.stderr!.addListener(PROCESS_DATA_EVENT, stdErrorDataListener);
   });
 }
 

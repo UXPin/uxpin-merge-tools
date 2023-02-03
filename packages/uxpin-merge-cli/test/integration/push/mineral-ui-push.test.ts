@@ -41,7 +41,7 @@ describe('Pushing mineral-ui design system', () => {
     it('throws an error', async () => {
       const params: string[] = [Command.PUSH];
 
-      try {
+      const runCommand = async () => {
         await runUXPinMergeCommand({
           cwd: 'resources/repos/mineral-ui',
           env: {
@@ -50,9 +50,9 @@ describe('Pushing mineral-ui design system', () => {
           },
           params,
         });
-      } catch (error) {
-        expect(error.stderr).toMatch('Module parse failed: Unexpected token');
-      }
+      };
+
+      await expect(runCommand()).rejects.toThrow(/Module.*parse.*failed/);
     });
   });
 });

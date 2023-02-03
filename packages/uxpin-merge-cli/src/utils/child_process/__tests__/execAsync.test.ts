@@ -21,7 +21,7 @@ describe('execAsync', () => {
       await execAsync(command);
     } catch (error) {
       // then
-      expect(error.toString()).toContain('not found');
+      expect((error as Error).toString()).toContain('not found');
     }
   });
 });

@@ -18,7 +18,7 @@ async function generatePresetFile(path: string): Promise<void> {
     await presetFile.init();
     await presetFile.createPresetFile();
   } catch (e) {
-    printError(e.message);
+    printError((e as Error).message);
   }
 }
 

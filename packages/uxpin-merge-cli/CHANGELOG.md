@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.0] - 2023-02-03
+
+### Breaking changes
+
+- Webpack is now a **peer dependency** of the project, users have to install it by themselves, it's not installed automatically by the Merge CLI ([#358](https://github.com/UXPin/uxpin-merge-tools/pull/358))
+- Webpack 5 is supported. Webpack 4 should be supported, if it's used with compatible loaders.
+
 ## [2.11.0] - 2023-01-18
 
 ### Added

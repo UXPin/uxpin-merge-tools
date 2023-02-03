@@ -39,7 +39,7 @@ describe('The dump command', () => {
           params: [Command.DUMP, '--config ./uxpin.config.avatar.js', '--webpack-config "./webpack.config.js"'],
         });
       } catch (error) {
-        expect(error.stderr).toMatch(/Can\'t resolve \'\.\.\/NonExistingFileWithAvatarComponent\'/gm);
+        expect((error as any).stderr).toMatch(/Can\'t resolve \'\.\.\/NonExistingFileWithAvatarComponent\'/gm);
       }
     });
 
@@ -55,8 +55,8 @@ describe('The dump command', () => {
           params: [Command.DUMP, '--config ./uxpin.config.button.js', '--webpack-config "./webpack.config.js"'],
         });
       } catch (error) {
-        expect(error.stderr).toMatch(/Unknown component/gm);
-        expect(error.stderr).toMatch(/src\/components\/Button\/presets\/1-corrupted-import\.jsx/gm);
+        expect((error as any).stderr).toMatch(/Unknown component/gm);
+        expect((error as any).stderr).toMatch(/src\/components\/Button\/presets\/1-corrupted-import\.jsx/gm);
       }
     });
   });

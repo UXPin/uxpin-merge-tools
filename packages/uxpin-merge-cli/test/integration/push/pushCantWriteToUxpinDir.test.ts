@@ -38,7 +38,7 @@ describe('Building designSystems/cantWriteToUxpinTemp design system', () => {
         params: [Command.PUSH],
       });
     } catch (error) {
-      expect(error.message!).toMatch('EACCES: permission denied');
+      expect((error as Error).message).toMatch('EACCES: permission denied');
     }
   });
 });

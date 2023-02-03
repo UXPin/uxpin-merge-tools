@@ -28,7 +28,7 @@ export function startUXPinMergeServer(
   return new Promise((resolve, reject) => {
     const command: string = buildCommand(getAllCmdOptions(cmdOptions));
     const subprocess: ChildProcess = spawn(command, [], getSpawnOptions());
-    const kill: () => void = () => process.kill(-subprocess.pid);
+    const kill: () => void = () => process.kill(-subprocess.pid!);
 
     onServerOutput(subprocess, EXPERIMENTATION_URL_REGEX, (data) => {
       if (!options.onServerExperimentationUrlFound) {
@@ -82,13 +82,13 @@ function onServerOutput(subprocess: ChildProcess, output: string | RegExp, callb
     if (data.toString().match(output)) {
       callback(data.toString());
 
-      subprocess.stdout.removeListener('data', listener);
-      subprocess.stderr.removeListener('data', listener);
+      subprocess.stdout!.removeListener('data', listener);
+      subprocess.stderr!.removeListener('data', listener);
     }
   };
 
-  subprocess.stdout.on('data', listener);
-  subprocess.stderr.on('data', listener);
+  subprocess.stdout!.on('data', listener);
+  subprocess.stderr!.on('data', listener);
 }
 
 function onError(subprocess: ChildProcess, callback: (error: any) => void): void {
@@ -97,7 +97,7 @@ function onError(subprocess: ChildProcess, callback: (error: any) => void): void
 
 function onClose(subprocess: ChildProcess, silent: boolean, callback: (error: any) => void): void {
   let errorOut = '';
-  subprocess.stderr.on('data', (data) => {
+  subprocess.stderr!.on('data', (data) => {
     if (!silent) {
       console.error(data.toString());
     }

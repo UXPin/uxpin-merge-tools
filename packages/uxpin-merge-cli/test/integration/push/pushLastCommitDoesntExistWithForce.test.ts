@@ -33,7 +33,7 @@ describe('Push command with latest commit which doesnt exist in tree with force 
         params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN', '--force'],
       });
     } catch (error) {
-      expect(error.stderr).not.toMatch('Unable to find revision');
+      expect((error as any).stderr).not.toMatch('Unable to find revision');
     }
   });
 });

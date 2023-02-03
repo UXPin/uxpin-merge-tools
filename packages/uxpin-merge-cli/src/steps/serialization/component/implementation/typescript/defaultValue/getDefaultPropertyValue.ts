@@ -32,7 +32,7 @@ export function getDefaultValueFromPropertyAccessExpression(
   propertyInitializer: any
 ): SupportedDefaultValue | undefined {
   const symbol: ts.Symbol | undefined = context.checker.getSymbolAtLocation(propertyInitializer);
-  if (symbol && ts.isEnumMember(symbol.valueDeclaration) && symbol.valueDeclaration.initializer) {
+  if (symbol && ts.isEnumMember(symbol.valueDeclaration!) && symbol.valueDeclaration.initializer) {
     return getDefaultPropertyValue(context, symbol.valueDeclaration.initializer);
   }
 
@@ -65,7 +65,7 @@ export function getDefaultValueFromIdentifier(
   propertyInitializer: ts.Identifier
 ): SupportedDefaultValue | undefined {
   const symbol: ts.Symbol | undefined = context.checker.getSymbolAtLocation(propertyInitializer);
-  if (symbol && ts.isVariableDeclaration(symbol.valueDeclaration) && symbol.valueDeclaration.initializer) {
+  if (symbol && ts.isVariableDeclaration(symbol.valueDeclaration!) && symbol.valueDeclaration.initializer) {
     return getDefaultPropertyValue(context, symbol.valueDeclaration.initializer);
   }
 }

@@ -3,7 +3,7 @@ import { CommentTags } from '../../../CommentTags';
 import { ComponentNamespace } from '../../../ComponentDefinition';
 import { getComponentNamespaceImportSlug } from '../../getComponentNamespaceImportSlug';
 import { ComponentDeclaration } from '../component/getPropsTypeAndDefaultProps';
-import { getNodeJsDocTag } from './jsdoc-helpers';
+import { getJSDocCommentText, getNodeJsDocTag } from './jsdoc-helpers';
 
 export function getComponentNamespace(component: ComponentDeclaration, name: string): ComponentNamespace | undefined {
   const namespace: ts.JSDocTag | undefined = getUXpinNamespaceComment(component);
@@ -12,9 +12,11 @@ export function getComponentNamespace(component: ComponentDeclaration, name: str
     return;
   }
 
+  const text = getJSDocCommentText(namespace);
+
   return {
-    importSlug: getComponentNamespaceImportSlug(namespace.comment, name),
-    name: namespace.comment,
+    importSlug: getComponentNamespaceImportSlug(text!, name),
+    name: text!,
   };
 }
 

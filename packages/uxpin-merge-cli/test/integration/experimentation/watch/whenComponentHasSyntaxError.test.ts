@@ -82,12 +82,12 @@ export default class Avatar extends PureComponent {
       try {
         await changeProjectFile(avatarJsxPath, avatarSyntaxErrorContent);
       } catch (error) {
-        errorResponse = error;
+        errorResponse = error as string;
       }
     });
 
     it('should display Parsing error message on stderr', () => {
-      expect(errorResponse).toContain('ERROR in ./src/components/Avatar/Avatar.jsx');
+      expect(errorResponse).toMatch(new RegExp('ERROR.*in.*./src/components/Avatar/Avatar.jsx'));
     });
 
     describe('when user fix content syntax error', () => {

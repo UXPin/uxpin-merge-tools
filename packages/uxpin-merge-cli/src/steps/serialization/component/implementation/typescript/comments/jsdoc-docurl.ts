@@ -1,11 +1,12 @@
 import * as ts from 'typescript';
 import { CommentTags } from '../../../CommentTags';
-import { getNodeJsDocTag } from './jsdoc-helpers';
+import { getJSDocCommentText, getNodeJsDocTag } from './jsdoc-helpers';
 
 export function getComponentDocUrl(component: ts.Node): string | undefined {
   const componentDocUrl: ts.JSDocTag | undefined = getUXpinDocUrlComment(component);
 
-  return componentDocUrl?.comment;
+  if (!componentDocUrl) return undefined;
+  return getJSDocCommentText(componentDocUrl);
 }
 
 export function getUXpinDocUrlComment(node: ts.Node): ts.JSDocTag | undefined {
