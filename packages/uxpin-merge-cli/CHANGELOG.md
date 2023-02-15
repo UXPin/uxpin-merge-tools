@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.1] - 2023-02-15
+
+### Fixed
+
+- Adds header in experimental mode to fix CORS error in Chrome ([#369](https://github.com/UXPin/uxpin-merge-tools/pull/369))
+
 ## [3.0.0] - 2023-02-03
 
 ### Breaking changes
