@@ -1,9 +1,13 @@
-import { RepositoryPointerType } from '../../../../src/common/RepositoryPointerType';
 import { isTestEnv } from '../../../program/env/isTestEnv';
-import { requestPromiseWithEnhancedError } from '../../../utils/requestPromiseWithEnhancedError';
+import { axiosWithEnhancedError } from '../../../utils/axiosWithEnhancedError';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 import { encodeBranchName } from './params/encodeBranchName';
+
+export const enum RepositoryPointerType {
+  Branch = 'branch',
+  Tag = 'tag',
+}
 
 export async function updateRepositoryPointerToBranch(opts: {
   apiDomain: string;
@@ -16,10 +20,26 @@ export async function updateRepositoryPointerToBranch(opts: {
     return Promise.resolve();
   }
 
+  if (!opts) {
+    throw new Error('Missing/invalid options');
+  }
+  if (!opts.apiDomain) {
+    throw new Error('Missing API domain for repository pointer update');
+  }
+  if (!opts.branch) {
+    throw new Error('Missing branch name for repository pointer update');
+  }
+  if (!opts.commitHash) {
+    throw new Error('Missing commit hash for repository pointer update');
+  }
+  if (!opts.authToken) {
+    throw new Error('Missing auth token for repository pointer update');
+  }
+
   const branchName: string = encodeBranchName(opts.branch);
 
-  return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/update-repository-pointer`, {
-    body: {
+  return axiosWithEnhancedError({
+    data: {
       commitHash: opts.commitHash,
       pointerName: branchName,
       pointerType: RepositoryPointerType.Branch,
@@ -28,7 +48,8 @@ export async function updateRepositoryPointerToBranch(opts: {
       ...getAuthHeaders(opts.authToken),
       ...getUserAgentHeaders(),
     },
-    json: true,
     method: 'POST',
+    responseType: 'json',
+    url: `${opts.apiDomain}/code/v/1.0/update-repository-pointer`,
   }).then(() => undefined);
 }

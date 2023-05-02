@@ -1,5 +1,5 @@
 import { isTestEnv } from '../../../program/env/isTestEnv';
-import { requestPromiseWithEnhancedError } from '../../../utils/requestPromiseWithEnhancedError';
+import { axiosWithEnhancedError } from '../../../utils/axiosWithEnhancedError';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
 
@@ -14,8 +14,8 @@ export async function createTag(opts: {
     return Promise.resolve();
   }
 
-  return requestPromiseWithEnhancedError(`${opts.apiDomain}/code/v/1.0/create-tag`, {
-    body: {
+  return axiosWithEnhancedError({
+    data: {
       commitHash: opts.commitHash,
       tagName: opts.tag,
     },
@@ -23,7 +23,9 @@ export async function createTag(opts: {
       ...getAuthHeaders(opts.authToken),
       ...getUserAgentHeaders(),
     },
-    json: true,
+    responseType: 'json',
     method: 'POST',
+
+    url: `${opts.apiDomain}/code/v/1.0/create-tag`,
   }).then(() => undefined);
 }

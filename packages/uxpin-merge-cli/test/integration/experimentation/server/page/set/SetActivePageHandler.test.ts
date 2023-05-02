@@ -1,8 +1,7 @@
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { writeJson } from 'fs-extra';
 import { OK } from 'http-status-codes';
 import { join } from 'path';
-import { Response } from 'request';
-import { RequestPromiseOptions } from 'request-promise';
 import { CodeSyncMetadata } from '../../../../../../src/common/types/CodeSyncMetadata';
 import { PageContent, PageData } from '../../../../../../src/common/types/PageData';
 import { TEMP_DIR_NAME } from '../../../../../../src/steps/building/config/getConfig';
@@ -20,30 +19,29 @@ const TIMEOUT = 80000;
 jest.setTimeout(TIMEOUT);
 
 describe('Experimentation server – handling set active page request', () => {
-  const port: number = getRandomPortNumber();
-  const { request, getWorkingDir } = setupExperimentationServerTest({
+  const port = getRandomPortNumber();
+  const { axiosPromise, getWorkingDir } = setupExperimentationServerTest({
     port,
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: ['--webpack-config="./webpack.config.js"'],
   });
 
-  let response: Response;
+  let response: AxiosResponse;
 
   describe('when no page data is stored', () => {
     beforeAll(async () => {
       // given
       const origin = 'https://app.uxpin.com';
-      const requestOptions: RequestPromiseOptions = {
-        form: {
+      const requestOptions: AxiosRequestConfig = {
+        data: {
           json: '{"id_page":"112","id_project":456}',
         },
         headers: { origin },
         method: 'POST',
-        resolveWithFullResponse: true,
       };
 
       // when
-      response = await request('/ajax/dmsDPPage/SetActivePage/', requestOptions);
+      response = await axiosPromise('/ajax/dmsDPPage/SetActivePage/', requestOptions);
     });
 
     it('responds with OK status code and correct headers', async () => {
@@ -56,13 +54,13 @@ describe('Experimentation server – handling set active page request', () => {
       };
 
       // then
-      expect(response.statusCode).toEqual(OK);
+      expect(response.status).toEqual(OK);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
 
     it('responds with a page object with the example elements on the canvas', () => {
       // when
-      const responseBody: any = JSON.parse(response.body);
+      const responseBody: any = response.data;
 
       // then
       const expectedPage: PageContent = getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom(responseBody.page);
@@ -88,16 +86,15 @@ describe('Experimentation server – handling set active page request', () => {
       await writeJson(contentFilePath, examplePageContent);
 
       // given
-      const requestOptions: RequestPromiseOptions = {
-        form: {
+      const requestOptions: AxiosRequestConfig = {
+        data: {
           json: '{"id_page":"112","id_project":456}',
         },
         method: 'POST',
-        resolveWithFullResponse: true,
       };
 
       // when
-      response = await request('/ajax/dmsDPPage/SetActivePage/', requestOptions);
+      response = await axiosPromise('/ajax/dmsDPPage/SetActivePage/', requestOptions);
     });
 
     it('responds with a stored page content', () => {
@@ -115,7 +112,7 @@ describe('Experimentation server – handling set active page request', () => {
       };
 
       // then
-      expect(JSON.parse(response.body)).toEqual(expectedBody);
+      expect(response.data).toEqual(expectedBody);
     });
   });
 

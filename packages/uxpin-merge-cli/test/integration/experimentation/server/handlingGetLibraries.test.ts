@@ -1,6 +1,5 @@
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { OK } from 'http-status-codes';
-import { Response } from 'request';
-import { RequestPromiseOptions } from 'request-promise';
 import { LIBRARY_DEFAULT_NAME } from '../../../../src/steps/experimentation/server/handler/libraries/GetLibrariesHandler';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
@@ -9,19 +8,19 @@ const CURRENT_TIMEOUT = 20_000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('handlingGetLibraries', () => {
-  const { request } = setupExperimentationServerTest({
+  const { axiosPromise } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/withEpidFile',
   });
 
   describe('should serve library bundle', () => {
-    let response: Response;
+    let response: AxiosResponse;
     beforeAll(async () => {
       // given
       const origin = 'https://app.uxpin.com';
-      const options: RequestPromiseOptions = { method: 'GET', resolveWithFullResponse: true, headers: { origin } };
+      const options: AxiosRequestConfig = { method: 'GET', headers: { origin } };
 
       // when
-      response = await request('/libraries/', options);
+      response = await axiosPromise('/libraries/', options);
     });
 
     it('with correct response headers', () => {
@@ -39,7 +38,7 @@ describe('handlingGetLibraries', () => {
     });
 
     it('with correct status code', () => {
-      expect(response.statusCode).toEqual(OK);
+      expect(response.status).toEqual(OK);
     });
 
     it('should server libraries content', async () => {
@@ -82,7 +81,7 @@ describe('handlingGetLibraries', () => {
         type: 'code-sync',
       };
 
-      expect(JSON.parse(response.body)).toEqual([expectedLibrary]);
+      expect(response.data).toEqual([expectedLibrary]);
     });
   });
 });

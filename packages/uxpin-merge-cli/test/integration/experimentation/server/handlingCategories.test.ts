@@ -1,5 +1,5 @@
+import { AxiosResponse } from 'axios';
 import { OK } from 'http-status-codes';
-import { Response } from 'request';
 import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
@@ -7,19 +7,19 @@ const CURRENT_TIMEOUT = 300000;
 setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - handling categories', () => {
-  let response: Response;
-  const { request } = setupExperimentationServerTest({
+  let response: AxiosResponse;
+  const { axiosPromise } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
   });
 
   beforeAll(async () => {
     const origin = 'https://app.uxpin.com';
-    response = await request('/code/categories', { resolveWithFullResponse: true, headers: { origin } });
+    response = await axiosPromise('/code/categories', { headers: { origin } });
   });
 
   it('should responds with OK status code', async () => {
-    expect(response.statusCode).toEqual(OK);
+    expect(response.status).toEqual(OK);
   });
 
   it('should responds with correct CORS headers and no-cache', async () => {
@@ -37,6 +37,6 @@ describe('Experimentation mode - handling categories', () => {
   });
 
   it('should respond with proper body', () => {
-    expect(JSON.parse(response.body)).toMatchSnapshot();
+    expect(response.data).toMatchSnapshot();
   });
 });

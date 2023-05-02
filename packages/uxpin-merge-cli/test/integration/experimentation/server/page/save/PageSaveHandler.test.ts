@@ -1,8 +1,7 @@
+import { AxiosPromise, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { readJson } from 'fs-extra';
 import { OK } from 'http-status-codes';
 import { join } from 'path';
-import { Response } from 'request';
-import { RequestPromise, RequestPromiseOptions } from 'request-promise';
 import { PageContent } from '../../../../../../src/common/types/PageData';
 import { PageIncrementalUpdate } from '../../../../../../src/common/types/PageIncrementalUpdate';
 import { TEMP_DIR_NAME } from '../../../../../../src/steps/building/config/getConfig';
@@ -21,10 +20,10 @@ setTimeoutBeforeAll(CURRENT_TIMEOUT);
 const introPageContent = require('../../../../../../src/steps/experimentation/server/common/page/content/introPageContent.json');
 
 describe('Experimentation server – handling save page request', () => {
-  const { request, getWorkingDir } = setupExperimentationServerTest();
+  const { axiosPromise, getWorkingDir } = setupExperimentationServerTest();
 
   describe('saving the first elements', () => {
-    let response: Response;
+    let response: AxiosResponse;
 
     beforeAll(async () => {
       // when
@@ -41,8 +40,8 @@ describe('Experimentation server – handling save page request', () => {
       const expectedResponse: PageIncrementalUpdate = createFirstElementsRequestPayload;
 
       // then
-      expect(response.statusCode).toEqual(OK);
-      expect(JSON.parse(response.body)).toEqual(expectedResponse);
+      expect(response.status).toEqual(OK);
+      expect(response.data).toEqual(expectedResponse);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
 
@@ -186,15 +185,14 @@ describe('Experimentation server – handling save page request', () => {
     });
   });
 
-  function performSaveRequestWith(payload: PageIncrementalUpdate): RequestPromise {
+  function performSaveRequestWith(payload: PageIncrementalUpdate): AxiosPromise {
     const origin = 'https://app.uxpin.com';
-    const options: RequestPromiseOptions = {
-      form: { json: JSON.stringify(payload) },
+    const options: AxiosRequestConfig = {
+      data: payload,
       headers: { origin },
       method: 'POST',
-      resolveWithFullResponse: true,
     };
-    return request('/ajax/dmsDPPage/Save/?__ajax_request=1', options);
+    return axiosPromise('/ajax/dmsDPPage/Save/?__ajax_request=1', options);
   }
 
   function getCurrentSavedPage(): Promise<PageContent> {
