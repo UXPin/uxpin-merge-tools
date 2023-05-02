@@ -1,41 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The dump command run for the withUXPinSort repository prints components with proper properties 1`] = `
-Array [
-  Object {
-    "components": Array [
-      Object {
+[
+  {
+    "components": [
+      {
         "defaultExported": true,
-        "documentation": Object {
-          "examples": Array [],
+        "documentation": {
+          "examples": [],
         },
-        "info": Object {
+        "info": {
           "dirPath": "src/components/Avatar",
-          "implementation": Object {
+          "implementation": {
             "framework": "reactjs",
             "lang": "typescript",
             "path": "src/components/Avatar/Avatar.tsx",
           },
-          "presets": Array [
-            Object {
+          "presets": [
+            {
               "path": "src/components/Avatar/presets/0-default.jsx",
             },
           ],
         },
         "name": "Avatar",
-        "presets": Array [
-          Object {
-            "elements": Object {
-              "1": Object {
+        "presets": [
+          {
+            "elements": {
+              "1": {
                 "name": "Avatar",
-                "props": Object {
+                "props": {
                   "imageUrl": "https://picsum.photos/100/100?image=1027",
                   "size": "small",
-                  "test": Object {
+                  "test": {
                     "abc": 123,
                     "name": "abc",
                   },
-                  "user": Object {
+                  "user": {
                     "id": 1,
                     "name": "abc",
                   },
@@ -46,57 +46,57 @@ Array [
             "rootId": "1",
           },
         ],
-        "properties": Array [
-          Object {
+        "properties": [
+          {
             "description": "",
             "isRequired": true,
             "name": "imageUrl",
-            "type": Object {
+            "type": {
               "name": "string",
-              "structure": Object {},
+              "structure": {},
             },
           },
-          Object {
+          {
             "description": "",
             "isRequired": true,
             "name": "test",
-            "type": Object {
+            "type": {
               "name": "shape",
-              "structure": Object {},
+              "structure": {},
             },
           },
-          Object {
+          {
             "description": "",
             "isRequired": true,
             "name": "user",
-            "type": Object {
+            "type": {
               "name": "shape",
-              "structure": Object {},
+              "structure": {},
             },
           },
-          Object {
+          {
             "description": "",
             "isRequired": false,
             "name": "appearance",
-            "type": Object {
+            "type": {
               "name": "union",
-              "structure": Object {
-                "elements": Array [
-                  Object {
+              "structure": {
+                "elements": [
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": "secondary",
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": "primary",
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": "link",
                     },
                   },
@@ -104,113 +104,113 @@ Array [
               },
             },
           },
-          Object {
+          {
             "description": "",
             "isRequired": false,
             "name": "size",
-            "type": Object {
+            "type": {
               "name": "union",
-              "structure": Object {
-                "elements": Array [
-                  Object {
+              "structure": {
+                "elements": [
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 16,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 18,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 20,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 22,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 24,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 28,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 30,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 32,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 36,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 42,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 44,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 48,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 52,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 60,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 62,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 72,
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": 88,
                     },
                   },
@@ -218,29 +218,29 @@ Array [
               },
             },
           },
-          Object {
+          {
             "description": "",
             "isRequired": false,
             "name": "type",
-            "type": Object {
+            "type": {
               "name": "union",
-              "structure": Object {
-                "elements": Array [
-                  Object {
+              "structure": {
+                "elements": [
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": "a",
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": "b",
                     },
                   },
-                  Object {
+                  {
                     "name": "literal",
-                    "structure": Object {
+                    "structure": {
                       "value": "c",
                     },
                   },
@@ -249,7 +249,7 @@ Array [
             },
           },
         ],
-        "wrappers": Array [],
+        "wrappers": [],
       },
     ],
     "name": "General",

@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Experimentation mode - handling categories should respond with proper body 1`] = `
-Array [
-  Object {
+[
+  {
     "id": 1,
     "isDefault": true,
     "name": "General",
     "sortIndex": 0,
     "type": "code-sync-component",
   },
-  Object {
+  {
     "id": 2,
     "isDefault": false,
     "name": "Forms",

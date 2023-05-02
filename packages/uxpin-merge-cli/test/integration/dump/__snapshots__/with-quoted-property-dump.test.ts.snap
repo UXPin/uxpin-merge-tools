@@ -1,34 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The dump command run for the with-quoted-property repository prints components with proper properties 1`] = `
-Array [
-  Object {
-    "components": Array [
-      Object {
+[
+  {
+    "components": [
+      {
         "defaultExported": true,
-        "documentation": Object {
-          "examples": Array [],
+        "documentation": {
+          "examples": [],
         },
-        "info": Object {
+        "info": {
           "dirPath": "src/components/Avatar",
-          "implementation": Object {
+          "implementation": {
             "framework": "reactjs",
             "lang": "typescript",
             "path": "src/components/Avatar/Avatar.tsx",
           },
-          "presets": Array [
-            Object {
+          "presets": [
+            {
               "path": "src/components/Avatar/presets/0-default.jsx",
             },
           ],
         },
         "name": "Avatar",
-        "presets": Array [
-          Object {
-            "elements": Object {
-              "1": Object {
+        "presets": [
+          {
+            "elements": {
+              "1": {
                 "name": "Avatar",
-                "props": Object {
+                "props": {
                   "imageUrl": "https://picsum.photos/100/100?image=1027",
                   "size": "small",
                 },
@@ -38,53 +38,53 @@ Array [
             "rootId": "1",
           },
         ],
-        "properties": Array [
-          Object {
+        "properties": [
+          {
             "description": "",
             "isRequired": false,
             "name": "size",
-            "type": Object {
+            "type": {
               "name": "string",
-              "structure": Object {},
+              "structure": {},
             },
           },
-          Object {
+          {
             "description": "",
             "isRequired": true,
             "name": "imageUrl",
-            "type": Object {
+            "type": {
               "name": "string",
-              "structure": Object {},
+              "structure": {},
             },
           },
         ],
-        "wrappers": Array [],
+        "wrappers": [],
       },
-      Object {
+      {
         "defaultExported": true,
-        "documentation": Object {
-          "examples": Array [],
+        "documentation": {
+          "examples": [],
         },
-        "info": Object {
+        "info": {
           "dirPath": "src/components/Button",
-          "implementation": Object {
+          "implementation": {
             "framework": "reactjs",
             "lang": "typescript",
             "path": "src/components/Button/Button.tsx",
           },
-          "presets": Array [
-            Object {
+          "presets": [
+            {
               "path": "src/components/Button/presets/0-default.jsx",
             },
           ],
         },
         "name": "Button",
-        "presets": Array [
-          Object {
-            "elements": Object {
-              "1": Object {
+        "presets": [
+          {
+            "elements": {
+              "1": {
                 "name": "Button",
-                "props": Object {
+                "props": {
                   "children": "Click me",
                   "isPrimary": true,
                 },
@@ -94,27 +94,27 @@ Array [
             "rootId": "1",
           },
         ],
-        "properties": Array [
-          Object {
+        "properties": [
+          {
             "description": "",
             "isRequired": true,
             "name": "children",
-            "type": Object {
+            "type": {
               "name": "node",
-              "structure": Object {},
+              "structure": {},
             },
           },
-          Object {
+          {
             "description": "",
             "isRequired": false,
             "name": "isPrimary",
-            "type": Object {
+            "type": {
               "name": "boolean",
-              "structure": Object {},
+              "structure": {},
             },
           },
         ],
-        "wrappers": Array [],
+        "wrappers": [],
       },
     ],
     "name": "General",

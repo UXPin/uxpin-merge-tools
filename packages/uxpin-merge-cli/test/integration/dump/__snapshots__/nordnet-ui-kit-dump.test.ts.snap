@@ -1,329 +1,329 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The dump command run for the nordnet-ui-kit repository prints the JSON describing the full repository 1`] = `
-Object {
-  "categorizedComponents": Array [
-    Object {
-      "components": Array [
-        Object {
+{
+  "categorizedComponents": [
+    {
+      "components": [
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/alert",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/alert/alert.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/alert/alert.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Alert",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/animate",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/animate/animate.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/animate/animate.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Animate",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/avatar",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/avatar/avatar.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/avatar/avatar.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Avatar",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/badge",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/badge/badge.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/badge/badge.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Badge",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/button",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/button/button.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/button/button.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Button",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/dropdown",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/dropdown/dropdown.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/dropdown/dropdown.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Dropdown",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/flag",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/flag/flag.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/flag/flag.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Flag",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "",
               "isRequired": false,
               "name": "className",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": "",
               },
               "description": "A valid 2-character country code",
               "isRequired": false,
               "name": "countryCode",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "ca",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "de",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "fr",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "ru",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "gb",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "dk",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "fi",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "no",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "se",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "us",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "jp",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "cn",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "eu",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "CA",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "DE",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "FR",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "RU",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "GB",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "DK",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "FI",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "NO",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "SE",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "US",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "JP",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "CN",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "EU",
                       },
                     },
@@ -331,167 +331,167 @@ Object {
                 },
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "secondaryCountryCode",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "ca",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "de",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "fr",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "ru",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "gb",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "dk",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "fi",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "no",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "se",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "us",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "jp",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "cn",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "eu",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "CA",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "DE",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "FR",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "RU",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "GB",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "DK",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "FI",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "NO",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "SE",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "US",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "JP",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "CN",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "EU",
                       },
                     },
@@ -499,244 +499,244 @@ Object {
                 },
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": 32,
               },
               "description": "Unitless pixel value",
               "isRequired": false,
               "name": "size",
-              "type": Object {
+              "type": {
                 "name": "number",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "style",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": false,
               },
               "description": "",
               "isRequired": false,
               "name": "round",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/icon",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/icon/icon.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/icon/icon.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Icon",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "",
               "isRequired": false,
               "name": "className",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
-                "value": Object {
+            {
+              "defaultValue": {
+                "value": {
                   "pointerEvents": "none",
                 },
               },
               "description": "",
               "isRequired": false,
               "name": "style",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": 16,
               },
               "description": "Unitless pixel value",
               "isRequired": false,
               "name": "width",
-              "type": Object {
+              "type": {
                 "name": "number",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": 16,
               },
               "description": "Unitless pixel value",
               "isRequired": false,
               "name": "height",
-              "type": Object {
+              "type": {
                 "name": "number",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": "0 0 16 16",
               },
               "description": "",
               "isRequired": false,
               "name": "viewBox",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": "#222",
               },
               "description": "",
               "isRequired": false,
               "name": "fill",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": "#222",
               },
               "description": "",
               "isRequired": false,
               "name": "stroke",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": 1,
               },
               "description": "",
               "isRequired": false,
               "name": "strokeWidth",
-              "type": Object {
+              "type": {
                 "name": "number",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": "true",
               },
               "isRequired": false,
               "name": "aria-hidden",
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": "false",
               },
               "isRequired": false,
               "name": "focusable",
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/input",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/input/input.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/input/input.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Input",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "",
               "isRequired": false,
               "name": "className",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "style",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": "text",
               },
               "description": "Needs to be a valid input type",
               "isRequired": false,
               "name": "type",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": "primary",
               },
               "description": "",
               "isRequired": false,
               "name": "variant",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "primary",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "secondary",
                       },
                     },
@@ -744,469 +744,469 @@ Object {
                 },
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "disabled",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "label",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "placeholder",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "id",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "value",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "string",
-                      "structure": Object {},
+                      "structure": {},
                     },
-                    Object {
+                    {
                       "name": "number",
-                      "structure": Object {},
+                      "structure": {},
                     },
-                    Object {
+                    {
                       "name": "boolean",
-                      "structure": Object {},
+                      "structure": {},
                     },
-                    Object {
+                    {
                       "name": "array",
-                      "structure": Object {},
+                      "structure": {},
                     },
-                    Object {
+                    {
                       "name": "object",
-                      "structure": Object {},
+                      "structure": {},
                     },
                   ],
                 },
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "onFocus",
-              "type": Object {
+              "type": {
                 "name": "func",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "onBlur",
-              "type": Object {
+              "type": {
                 "name": "func",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "onChange",
-              "type": Object {
+              "type": {
                 "name": "func",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "Manipulates the value of the input, eg. removing unsupported characters from number inputs",
               "isRequired": false,
               "name": "valueFormatter",
-              "type": Object {
+              "type": {
                 "name": "func",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "hasSuccess",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "hasError",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "hasWarning",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "helpText",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "leftAddon",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "rightAddon",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/labeled-value",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/labeled-value/labeled-value.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/labeled-value/labeled-value.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "LabeledValue",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/li",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/li/li.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/li/li.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Li",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/logo",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/logo/logo.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/logo/logo.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Logo",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "",
               "isRequired": false,
               "name": "className",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": false,
               },
               "description": "",
               "isRequired": false,
               "name": "onlyIcon",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "style",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": "#00A9EC",
               },
               "description": "",
               "isRequired": false,
               "name": "iconColor",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": "#222222",
               },
               "description": "",
               "isRequired": false,
               "name": "textColor",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": 27,
               },
               "description": "",
               "isRequired": false,
               "name": "height",
-              "type": Object {
+              "type": {
                 "name": "number",
-                "structure": Object {},
+                "structure": {},
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/pane",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/pane/pane.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/pane/pane.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Pane",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/radio-group",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/radio-group/radio-group.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/radio-group/radio-group.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "RadioGroup",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "The value to be selected",
               "isRequired": false,
               "name": "selectedValue",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "The name of the checkbox elements, leave blank to set names on child elements",
               "isRequired": true,
               "name": "name",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "onChange",
-              "type": Object {
+              "type": {
                 "name": "func",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "description": "Elements of type \`<Input type=\\"checkbox\\" />\`",
+            {
+              "description": "Elements of type \`<Input type="checkbox" />\`",
               "isRequired": true,
               "name": "children",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/segmented-control",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/segmented-control/segmented-control.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/segmented-control/segmented-control.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "SegmentedControl",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "@ignore",
               "isRequired": true,
               "name": "classes",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "children",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "onChange",
-              "type": Object {
+              "type": {
                 "name": "func",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "className",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "style",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "name",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": true,
               "name": "type",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "radio",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "checkbox",
                       },
                     },
@@ -1214,35 +1214,35 @@ Object {
                 },
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "value",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": "primary",
               },
               "description": "",
               "isRequired": false,
               "name": "variant",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "primary",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "secondary",
                       },
                     },
@@ -1251,105 +1251,105 @@ Object {
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/spinner",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/spinner/spinner.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/spinner/spinner.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Spinner",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/table",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/table/table.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/table/table.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Table",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "@ignore",
               "isRequired": true,
               "name": "classes",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "className",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "children",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "size",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "xs",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "sm",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "md",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "lg",
                       },
                     },
@@ -1357,112 +1357,112 @@ Object {
                 },
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": 700,
               },
               "description": "",
               "isRequired": false,
               "name": "minWidth",
-              "type": Object {
+              "type": {
                 "name": "number",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "style",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/tbody",
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/tbody/tbody.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Tbody",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "@ignore",
               "isRequired": true,
               "name": "classes",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "className",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "children",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "style",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "size",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "xs",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "sm",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "md",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "lg",
                       },
                     },
@@ -1470,181 +1470,181 @@ Object {
                 },
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": true,
               },
               "description": "",
               "isRequired": false,
               "name": "colorAlternateRows",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "Unitless pixel value",
               "isRequired": false,
               "name": "maxHeight",
-              "type": Object {
+              "type": {
                 "name": "number",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": false,
               },
               "description": "",
               "isRequired": false,
               "name": "border",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": false,
               },
               "description": "",
               "isRequired": false,
               "name": "borderTop",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": false,
               },
               "description": "",
               "isRequired": false,
               "name": "borderRight",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": false,
               },
               "description": "",
               "isRequired": false,
               "name": "borderBottom",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": false,
               },
               "description": "",
               "isRequired": false,
               "name": "borderLeft",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/td",
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/td/td.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Td",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/tfoot",
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/tfoot/tfoot.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Tfoot",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "@ignore",
               "isRequired": true,
               "name": "classes",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "className",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "children",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "size",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "xs",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "sm",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "md",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "lg",
                       },
                     },
@@ -1653,99 +1653,99 @@ Object {
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/th",
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/th/th.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Th",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/thead",
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/thead/thead.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Thead",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "@ignore",
               "isRequired": true,
               "name": "classes",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "className",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "children",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "size",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "xs",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "sm",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "md",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "lg",
                       },
                     },
@@ -1753,23 +1753,23 @@ Object {
                 },
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "variant",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "primary",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "secondary",
                       },
                     },
@@ -1778,102 +1778,102 @@ Object {
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/tooltip",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/tooltip/tooltip.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/tooltip/tooltip.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Tooltip",
-          "presets": Array [],
-          "properties": Array [],
+          "presets": [],
+          "properties": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/tr",
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/tr/tr.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Tr",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "@ignore",
               "isRequired": true,
               "name": "classes",
-              "type": Object {
+              "type": {
                 "name": "object",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "className",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "children",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "size",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "xs",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "sm",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "md",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "lg",
                       },
                     },
@@ -1881,35 +1881,35 @@ Object {
                 },
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": false,
               },
               "description": "",
               "isRequired": false,
               "name": "border",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "variant",
-              "type": Object {
+              "type": {
                 "name": "union",
-                "structure": Object {
-                  "elements": Array [
-                    Object {
+                "structure": {
+                  "elements": [
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "primary",
                       },
                     },
-                    Object {
+                    {
                       "name": "literal",
-                      "structure": Object {
+                      "structure": {
                         "value": "secondary",
                       },
                     },
@@ -1917,94 +1917,94 @@ Object {
                 },
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": false,
               },
               "description": "",
               "isRequired": false,
               "name": "sticky",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
-              "defaultValue": Object {
+            {
+              "defaultValue": {
                 "value": 0,
               },
               "description": "Unitless pixel value: if there are other sticky elements at the top of the page, use this to compensate",
               "isRequired": false,
               "name": "stickyOffset",
-              "type": Object {
+              "type": {
                 "name": "number",
-                "structure": Object {},
+                "structure": {},
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/ul",
-            "documentation": Object {
+            "documentation": {
               "path": "src/components/ul/ul.md",
             },
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "javascript",
               "path": "src/components/ul/ul.jsx",
             },
-            "presets": Array [],
+            "presets": [],
           },
           "name": "Ul",
-          "presets": Array [],
-          "properties": Array [
-            Object {
+          "presets": [],
+          "properties": [
+            {
               "description": "",
               "isRequired": false,
               "name": "children",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "style",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "className",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
       ],
       "name": "Uncategorized",
     },
   ],
   "name": "Library from Code",
-  "vcs": Object {
+  "vcs": {
     "branchName": "master",
     "commitHash": "d914edd5f97cadb284f7f47b783106c86fe430d9",
-    "paths": Object {
-      "configPath": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/configs/nordnet-ui-kit-uxpin.config.js",
-      "projectRoot": "/home/circleci/project/packages/uxpin-merge-cli/test/resources/repos/nordnet-ui-kit",
+    "paths": {
+      "configPath": "/Users/michaelrambeau/dev/uxpin/uxpin-merge-tools/packages/uxpin-merge-cli/test/resources/configs/nordnet-ui-kit-uxpin.config.js",
+      "projectRoot": "/Users/michaelrambeau/dev/uxpin/uxpin-merge-tools/packages/uxpin-merge-cli/test/resources/repos/nordnet-ui-kit",
     },
   },
 }

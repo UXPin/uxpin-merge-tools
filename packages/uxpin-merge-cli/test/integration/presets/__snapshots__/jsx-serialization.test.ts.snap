@@ -1,38 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The dump command run for the \`withPresets\` design system prints the JSON including serialized presets 1`] = `
-Object {
-  "categorizedComponents": Array [
-    Object {
-      "components": Array [
-        Object {
+{
+  "categorizedComponents": [
+    {
+      "components": [
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/Avatar",
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "typescript",
               "path": "src/components/Avatar/Avatar.tsx",
             },
-            "presets": Array [
-              Object {
+            "presets": [
+              {
                 "path": "src/components/Avatar/presets/0-default.jsx",
               },
-              Object {
+              {
                 "path": "src/components/Avatar/presets/1-with func as property.jsx",
               },
             ],
           },
           "name": "Avatar",
-          "presets": Array [
-            Object {
-              "elements": Object {
-                "1": Object {
+          "presets": [
+            {
+              "elements": {
+                "1": {
                   "name": "Avatar",
-                  "props": Object {
+                  "props": {
                     "imageUrl": "https://picsum.photos/100/100?image=1027",
                     "size": "small",
                   },
@@ -41,11 +41,11 @@ Object {
               "name": "default",
               "rootId": "1",
             },
-            Object {
-              "elements": Object {
-                "1": Object {
+            {
+              "elements": {
+                "1": {
                   "name": "Avatar",
-                  "props": Object {
+                  "props": {
                     "imageUrl": "https://picsum.photos/100/100?image=1027",
                   },
                 },
@@ -54,68 +54,68 @@ Object {
               "rootId": "1",
             },
           ],
-          "properties": Array [
-            Object {
+          "properties": [
+            {
               "description": "",
               "isRequired": true,
               "name": "size",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": true,
               "name": "imageUrl",
-              "type": Object {
+              "type": {
                 "name": "string",
-                "structure": Object {},
+                "structure": {},
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/ButtonWithIconAsProp",
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "typescript",
               "path": "src/components/ButtonWithIconAsProp/ButtonWithIconAsProp.tsx",
             },
-            "presets": Array [
-              Object {
+            "presets": [
+              {
                 "path": "src/components/ButtonWithIconAsProp/presets/0-default.jsx",
               },
-              Object {
+              {
                 "path": "src/components/ButtonWithIconAsProp/presets/1-with icon.jsx",
               },
-              Object {
+              {
                 "path": "src/components/ButtonWithIconAsProp/presets/2-with mixed children.jsx",
               },
-              Object {
+              {
                 "path": "src/components/ButtonWithIconAsProp/presets/3-with missing id.jsx",
               },
-              Object {
+              {
                 "path": "src/components/ButtonWithIconAsProp/presets/4-with dom primitive.jsx",
               },
-              Object {
+              {
                 "path": "src/components/ButtonWithIconAsProp/presets/5-with renaming import.jsx",
               },
             ],
           },
           "name": "ButtonWithIconAsProp",
-          "presets": Array [
-            Object {
-              "elements": Object {
-                "1": Object {
+          "presets": [
+            {
+              "elements": {
+                "1": {
                   "name": "ButtonWithIconAsProp",
-                  "props": Object {
+                  "props": {
                     "children": "Click me",
                     "isPrimary": true,
                   },
@@ -124,21 +124,21 @@ Object {
               "name": "default",
               "rootId": "1",
             },
-            Object {
-              "elements": Object {
-                "1": Object {
+            {
+              "elements": {
+                "1": {
                   "name": "ButtonWithIconAsProp",
-                  "props": Object {
+                  "props": {
                     "children": "Click me",
-                    "iconStart": Object {
+                    "iconStart": {
                       "uxpinPresetElementId": "2",
                     },
                     "isPrimary": true,
                   },
                 },
-                "2": Object {
+                "2": {
                   "name": "IconStar",
-                  "props": Object {
+                  "props": {
                     "stroke": "gray",
                     "strokeWidth": 2,
                   },
@@ -147,14 +147,14 @@ Object {
               "name": "with icon",
               "rootId": "1",
             },
-            Object {
-              "elements": Object {
-                "1": Object {
+            {
+              "elements": {
+                "1": {
                   "name": "ButtonWithIconAsProp",
-                  "props": Object {
-                    "children": Array [
+                  "props": {
+                    "children": [
                       "Add to",
-                      Object {
+                      {
                         "uxpinPresetElementId": "2",
                       },
                       "favourites",
@@ -162,9 +162,9 @@ Object {
                     "isPrimary": true,
                   },
                 },
-                "2": Object {
+                "2": {
                   "name": "IconStar",
-                  "props": Object {
+                  "props": {
                     "stroke": "gray",
                     "strokeWidth": 2,
                   },
@@ -173,11 +173,11 @@ Object {
               "name": "with mixed children",
               "rootId": "1",
             },
-            Object {
-              "elements": Object {
-                "1": Object {
+            {
+              "elements": {
+                "1": {
                   "name": "ButtonWithIconAsProp",
-                  "props": Object {
+                  "props": {
                     "children": "Add to favourites",
                     "isPrimary": true,
                   },
@@ -187,78 +187,78 @@ Object {
               "rootId": "1",
             },
           ],
-          "properties": Array [
-            Object {
+          "properties": [
+            {
               "description": "",
               "isRequired": true,
               "name": "children",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "iconStart",
-              "type": Object {
+              "type": {
                 "name": "node",
-                "structure": Object {},
+                "structure": {},
               },
             },
-            Object {
+            {
               "description": "",
               "isRequired": false,
               "name": "isPrimary",
-              "type": Object {
+              "type": {
                 "name": "boolean",
-                "structure": Object {},
+                "structure": {},
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
-        Object {
+        {
           "defaultExported": true,
-          "documentation": Object {
-            "examples": Array [],
+          "documentation": {
+            "examples": [],
           },
-          "info": Object {
+          "info": {
             "dirPath": "src/components/MenuWithData",
-            "implementation": Object {
+            "implementation": {
               "framework": "reactjs",
               "lang": "typescript",
               "path": "src/components/MenuWithData/MenuWithData.tsx",
             },
-            "presets": Array [
-              Object {
+            "presets": [
+              {
                 "path": "src/components/MenuWithData/presets/0-default.jsx",
               },
-              Object {
+              {
                 "path": "src/components/MenuWithData/presets/1-external data.jsx",
               },
-              Object {
+              {
                 "path": "src/components/MenuWithData/presets/2-with icon in data object.jsx",
               },
             ],
           },
           "name": "MenuWithData",
-          "presets": Array [
-            Object {
-              "elements": Object {
-                "1": Object {
+          "presets": [
+            {
+              "elements": {
+                "1": {
                   "name": "MenuWithData",
-                  "props": Object {
-                    "data": Array [
-                      Object {
+                  "props": {
+                    "data": [
+                      {
                         "subtitle": "this is item 1",
                         "title": "item 1",
                       },
-                      Object {
+                      {
                         "subtitle": "this is item 2",
                         "title": "item 2",
                       },
-                      Object {
+                      {
                         "subtitle": "this is item 3",
                         "title": "item 3",
                       },
@@ -269,17 +269,17 @@ Object {
               "name": "default",
               "rootId": "1",
             },
-            Object {
-              "elements": Object {
-                "1": Object {
+            {
+              "elements": {
+                "1": {
                   "name": "MenuWithData",
-                  "props": Object {
-                    "data": Array [
-                      Object {
+                  "props": {
+                    "data": [
+                      {
                         "subtitle": "this is another item 1",
                         "title": "item 1",
                       },
-                      Object {
+                      {
                         "subtitle": "this is another item 2",
                         "title": "item 2",
                       },
@@ -290,22 +290,22 @@ Object {
               "name": "external data",
               "rootId": "1",
             },
-            Object {
-              "elements": Object {
-                "1": Object {
+            {
+              "elements": {
+                "1": {
                   "name": "MenuWithData",
-                  "props": Object {
-                    "data": Array [
-                      Object {
+                  "props": {
+                    "data": [
+                      {
                         "subtitle": "this is item 1",
                         "title": "item 1",
                       },
-                      Object {
+                      {
                         "subtitle": "this is item 2",
                         "title": "item 2",
                       },
-                      Object {
-                        "icon": Array [],
+                      {
+                        "icon": [],
                         "subtitle": "this is item 3",
                         "title": "item 3",
                       },
@@ -317,18 +317,18 @@ Object {
               "rootId": "1",
             },
           ],
-          "properties": Array [
-            Object {
+          "properties": [
+            {
               "description": "",
               "isRequired": true,
               "name": "data",
-              "type": Object {
+              "type": {
                 "name": "array",
-                "structure": Object {},
+                "structure": {},
               },
             },
           ],
-          "wrappers": Array [],
+          "wrappers": [],
         },
       ],
       "name": "General",
