@@ -2,16 +2,14 @@ import { Command } from '../../../src';
 import { Environment } from '../../../src/program/env/Environment';
 import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
 const CURRENT_TIMEOUT = 30000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
 
 describe('The dump command', () => {
-  const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
+  const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub, CURRENT_TIMEOUT);
 
   describe('run for the with-forward-ref repository', () => {
     it('prints components with proper properties', () => {

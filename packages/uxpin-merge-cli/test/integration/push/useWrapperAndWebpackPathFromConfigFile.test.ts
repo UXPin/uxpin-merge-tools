@@ -4,17 +4,15 @@ import { Environment } from '../../../src/program/env/Environment';
 import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
 import { expectBundleToContain } from '../../utils/bundle/expectBundleToContain';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 import { setupTempProject } from '../../utils/temp/setupTempProject';
 
 const CURRENT_TIMEOUT = 60000;
 
 describe('use wrapper and webpack path from config file', () => {
-  setTimeoutBeforeAll(CURRENT_TIMEOUT);
   const sourceDir: string = resolve(__dirname, '../../resources/designSystems/twoComponentsWithConfig');
-  const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
-  const { getDirectory } = setupTempProject({ sourceDir, gitOptions: { initialise: true } });
+  const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub, CURRENT_TIMEOUT);
+  const { getDirectory } = setupTempProject({ sourceDir, gitOptions: { initialise: true }, timeout: CURRENT_TIMEOUT });
 
   describe('when wrapper path is specified in uxpin config', () => {
     let projectPath: string;

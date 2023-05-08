@@ -1,9 +1,5 @@
 import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
-
-const CURRENT_TIMEOUT = 60000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
 

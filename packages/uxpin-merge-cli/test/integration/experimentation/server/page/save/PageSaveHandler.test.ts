@@ -7,7 +7,6 @@ import { PageContent } from '../../../../../../src/common/types/PageData';
 import { PageIncrementalUpdate } from '../../../../../../src/common/types/PageIncrementalUpdate';
 import { TEMP_DIR_NAME } from '../../../../../../src/steps/building/config/getConfig';
 import { PAGE_FILE_NAME } from '../../../../../../src/steps/experimentation/server/handler/page/save/PageSaveHandler';
-import { setTimeoutBeforeAll } from '../../../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../../../utils/experimentation/setupExperimentationServerTest';
 import { addSecondElementRequestPayload } from './fixtures/addSecondElementRequestPayload';
 import { createFirstElementsRequestPayload } from './fixtures/createFirstElementsRequestPayload';
@@ -16,12 +15,13 @@ import { deleteElementRequestPayload } from './fixtures/deleteElementRequestPayl
 import { updateElementRequestPayload } from './fixtures/updateElementRequestPayload';
 
 const CURRENT_TIMEOUT = 30000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 // tslint:disable-next-line:max-line-length typedef no-var-requires
 const introPageContent = require('../../../../../../src/steps/experimentation/server/common/page/content/introPageContent.json');
 
 describe('Experimentation server – handling save page request', () => {
-  const { request, getWorkingDir } = setupExperimentationServerTest();
+  const { request, getWorkingDir } = setupExperimentationServerTest({
+    timeout: CURRENT_TIMEOUT,
+  });
 
   describe('saving the first elements', () => {
     let response: Response;
@@ -29,7 +29,7 @@ describe('Experimentation server – handling save page request', () => {
     beforeAll(async () => {
       // when
       response = await performSaveRequestWith(createFirstElementsRequestPayload);
-    });
+    }, CURRENT_TIMEOUT);
 
     it('responds with OK status code and correct headers', async () => {
       // given

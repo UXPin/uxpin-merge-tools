@@ -1,13 +1,13 @@
 import { NO_CONTENT } from 'http-status-codes';
 import { Response } from 'request';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 const CURRENT_TIMEOUT = 20_000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server - handling repository pointer', () => {
-  const { request } = setupExperimentationServerTest();
+  const { request } = setupExperimentationServerTest({
+    timeout: CURRENT_TIMEOUT,
+  });
 
   it('should responds with NO_CONTENT status code', async () => {
     // when

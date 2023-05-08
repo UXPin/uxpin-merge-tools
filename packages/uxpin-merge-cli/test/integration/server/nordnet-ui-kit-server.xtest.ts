@@ -1,10 +1,8 @@
 import Chromeless from 'chromeless';
-import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
 import { setupDebugServerTest } from '../../utils/e2e/setupDebugServerTest';
 
 const CURRENT_TIMEOUT = 300000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 const serverCmdArgs: string[] = [
   '--webpack-config "../../configs/nordnet-ui-kit-webpack.config.js"',

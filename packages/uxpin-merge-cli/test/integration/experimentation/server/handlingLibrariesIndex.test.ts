@@ -1,15 +1,15 @@
 import { OK } from 'http-status-codes';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 const CURRENT_TIMEOUT = 300000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation server - handling libraries index', () => {
   let response: Response;
-  const { request } = setupExperimentationServerTest();
+  const { request } = setupExperimentationServerTest({
+    timeout: CURRENT_TIMEOUT,
+  });
 
   beforeAll(async () => {
     // given
@@ -18,7 +18,7 @@ describe('Experimentation server - handling libraries index', () => {
 
     // when
     response = await request('/libraries/items/index/', options);
-  });
+  }, CURRENT_TIMEOUT);
 
   it('should responds with OK status code', async () => {
     expect(response.statusCode).toEqual(OK);

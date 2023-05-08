@@ -1,14 +1,14 @@
 import { OK } from 'http-status-codes';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 const CURRENT_TIMEOUT = 30000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('CORS Headers', () => {
-  const { request } = setupExperimentationServerTest();
+  const { request } = setupExperimentationServerTest({
+    timeout: CURRENT_TIMEOUT,
+  });
 
   describe('when `origin` header is set', () => {
     it('responds headers containing the correct domain', async () => {

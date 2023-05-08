@@ -2,15 +2,12 @@ import { Command } from '../../../src';
 import { Environment } from '../../../src/program/env/Environment';
 import { mineralUiServerStub } from '../../resources/stubs/mineralUi';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
 const CURRENT_TIMEOUT = 75000;
 
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
-
 describe('Pushing mineral-ui design system', () => {
-  const { getTlsPort } = setupStubbyServer(mineralUiServerStub);
+  const { getTlsPort } = setupStubbyServer(mineralUiServerStub, CURRENT_TIMEOUT);
 
   describe('with required user webpack config', () => {
     let consoleOutput: string;

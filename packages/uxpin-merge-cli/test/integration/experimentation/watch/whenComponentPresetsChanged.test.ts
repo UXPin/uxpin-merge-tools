@@ -8,12 +8,10 @@ import {
   expectedButtonDefinition,
   expectedDSWatchingChangesMetadata,
 } from '../../../resources/designSystems/watchingChanges/.uxpin-merge/expectedDSWatchingChangesMetadata';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../utils/file/getFileChecksum';
 
 const CURRENT_TIMEOUT = 60000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental - watch - when component presets has changed', () => {
   let initialBundleChecksum: string;
@@ -21,6 +19,7 @@ describe('Experimental - watch - when component presets has changed', () => {
   const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: ['--config "uxpin.config.js"', '--webpack-config "./webpack.config.js"'],
+    timeout: CURRENT_TIMEOUT,
   });
 
   const changedFileContent = `
@@ -40,7 +39,7 @@ export default (
 
     // when
     await changeProjectFile(buttonPresetsPath, changedFileContent);
-  });
+  }, CURRENT_TIMEOUT);
 
   it('should not change library bundle when only component presets changed', async () => {
     expect(await getBundleChecksum()).toEqual(initialBundleChecksum);

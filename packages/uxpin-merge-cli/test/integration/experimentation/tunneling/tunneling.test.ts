@@ -1,18 +1,17 @@
 import { resolve } from 'path';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import {
   setupExperimentationServerTest,
   TestServerStatus,
 } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 const CURRENT_TIMEOUT = 30000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('uxpin-merge runs experimental mode', () => {
   describe('without tunneling', () => {
     const { getExperimentationUrl, getServerStatus } = setupExperimentationServerTest({
       projectPath: resolve(__dirname, '../../../resources/designSystems/twoComponentsWithConfig'),
       serverCmdArgs: ['--webpack-config "./webpack.config.js"', '--config "./uxpin.config.js"', '--disable-tunneling'],
+      timeout: CURRENT_TIMEOUT,
     });
 
     it('should sucessfully run experimentation server', () => {
