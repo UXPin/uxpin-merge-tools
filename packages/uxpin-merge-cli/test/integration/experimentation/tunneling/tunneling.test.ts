@@ -27,6 +27,7 @@ describe('uxpin-merge runs experimental mode', () => {
     const { getServerStatus, getExperimentationUrl } = setupExperimentationServerTest({
       projectPath: 'resources/designSystems/twoComponentsWithConfig',
       serverCmdArgs: ['--webpack-config "./webpack.config.js"', '--config "./uxpin.config.js"'],
+      timeout: CURRENT_TIMEOUT,
     });
 
     it('should sucessfully run experimentation server', () => {

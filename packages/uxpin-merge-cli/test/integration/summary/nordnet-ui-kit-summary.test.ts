@@ -10,19 +10,23 @@ describe('summary command integration', () => {
   const { getTlsPort } = setupStubbyServer(nordnetUiKitSummaryStub, CURRENT_TIMEOUT);
 
   describe('summary command prints ', () => {
-    it('prints the list of components found in nordnet-ui-kit example', () => {
-      // when
-      return runUXPinMergeCommand({
-        cwd: 'resources/repos/nordnet-ui-kit',
-        env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-          UXPIN_ENV: Environment.TEST,
-        },
-        params: [Command.SUMMARY, '--config="../../configs/nordnet-ui-kit-uxpin.config.js"'],
-      }).then((output) => {
-        // then
-        expect(output).toMatchSnapshot();
-      });
-    });
+    it(
+      'prints the list of components found in nordnet-ui-kit example',
+      () => {
+        // when
+        return runUXPinMergeCommand({
+          cwd: 'resources/repos/nordnet-ui-kit',
+          env: {
+            UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+            UXPIN_ENV: Environment.TEST,
+          },
+          params: [Command.SUMMARY, '--config="../../configs/nordnet-ui-kit-uxpin.config.js"'],
+        }).then((output) => {
+          // then
+          expect(output).toMatchSnapshot();
+        });
+      },
+      CURRENT_TIMEOUT
+    );
   });
 });

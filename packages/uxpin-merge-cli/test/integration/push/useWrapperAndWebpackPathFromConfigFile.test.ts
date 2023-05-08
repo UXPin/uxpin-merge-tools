@@ -28,16 +28,24 @@ describe('use wrapper and webpack path from config file', () => {
         },
         params: [Command.PUSH, '--config "./uxpin.withCliFlags.config.js"', '--token DUMMY_TOKEN'],
       });
-    });
+    }, CURRENT_TIMEOUT);
 
-    it('is uses wrapper component from path given in config', async () => {
-      // then
-      await expectBundleToContain(projectPath, '__MY_CUSTOM_WRAPPER_COMPONENT_IS_HERE__');
-    });
+    it(
+      'is uses wrapper component from path given in config',
+      async () => {
+        // then
+        await expectBundleToContain(projectPath, '__MY_CUSTOM_WRAPPER_COMPONENT_IS_HERE__');
+      },
+      CURRENT_TIMEOUT
+    );
 
-    it('uses webpack config defined in uxpin.config file', async () => {
-      // then
-      await expectBundleToContain(projectPath, '__MY_CUSTOM_BANNER_ADDED_BY_WEBPACK_');
-    });
+    it(
+      'uses webpack config defined in uxpin.config file',
+      async () => {
+        // then
+        await expectBundleToContain(projectPath, '__MY_CUSTOM_BANNER_ADDED_BY_WEBPACK_');
+      },
+      CURRENT_TIMEOUT
+    );
   });
 });

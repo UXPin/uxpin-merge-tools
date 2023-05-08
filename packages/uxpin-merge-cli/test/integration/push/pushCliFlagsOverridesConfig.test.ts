@@ -18,29 +18,33 @@ describe('push cli flags overrides config', () => {
     'when wrapper path, webpack config path or uxpin domain is specified in uxpin config,' +
       ' but they are also specified as a CLI flags',
     () => {
-      it('the CLI flags takes precedence over the values specified in the uxpin.config.js file', async () => {
-        // given
-        const projectPath: string = getDirectory().path;
+      it(
+        'the CLI flags takes precedence over the values specified in the uxpin.config.js file',
+        async () => {
+          // given
+          const projectPath: string = getDirectory().path;
 
-        // when
-        await runUXPinMergeCommand({
-          cwd: projectPath,
-          env: {
-            UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-            UXPIN_ENV: Environment.TEST,
-          },
-          params: [
-            Command.PUSH,
-            '--config "./uxpin.invalidFlags.config.js"',
-            '--webpack-config "./webpack.config.js"',
-            '--wrapper "./src/components/WrapperComponent.ts"',
-            '--token DUMMY_TOKEN',
-          ],
-        });
+          // when
+          await runUXPinMergeCommand({
+            cwd: projectPath,
+            env: {
+              UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+              UXPIN_ENV: Environment.TEST,
+            },
+            params: [
+              Command.PUSH,
+              '--config "./uxpin.invalidFlags.config.js"',
+              '--webpack-config "./webpack.config.js"',
+              '--wrapper "./src/components/WrapperComponent.ts"',
+              '--token DUMMY_TOKEN',
+            ],
+          });
 
-        // then
-        await expectBundleToContain(projectPath, '__MY_CUSTOM_WRAPPER_COMPONENT_IS_HERE__');
-      });
+          // then
+          await expectBundleToContain(projectPath, '__MY_CUSTOM_WRAPPER_COMPONENT_IS_HERE__');
+        },
+        CURRENT_TIMEOUT
+      );
     }
   );
 });

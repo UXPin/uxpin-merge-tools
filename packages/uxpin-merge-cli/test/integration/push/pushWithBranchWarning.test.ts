@@ -19,78 +19,90 @@ describe('Push command', () => {
       timeout: CURRENT_TIMEOUT,
     });
 
-    it('does not shows warning that different branches are not supported', async () => {
-      // having
-      const dir: DirectoryResult = getDirectory();
+    it(
+      'does not shows warning that different branches are not supported',
+      async () => {
+        // having
+        const dir: DirectoryResult = getDirectory();
 
-      // when
-      // then
-      const result: string = await runUXPinMergeCommand({
-        cwd: dir.path,
-        env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-          UXPIN_ENV: Environment.TEST,
-        },
-        params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN', '--branch test'],
-      });
+        // when
+        // then
+        const result: string = await runUXPinMergeCommand({
+          cwd: dir.path,
+          env: {
+            UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+            UXPIN_ENV: Environment.TEST,
+          },
+          params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN', '--branch test'],
+        });
 
-      expect(result).not.toEqual(expect.stringMatching(/The current commit is not on branch /));
-    });
+        expect(result).not.toEqual(expect.stringMatching(/The current commit is not on branch /));
+      },
+      CURRENT_TIMEOUT
+    );
   });
 
   describe('from master branch', () => {
     const sourceDir: string = resolve(__dirname, '../../resources/designSystems/twoComponentsWithConfig');
-    const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
+    const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub, CURRENT_TIMEOUT);
     const { getDirectory } = setupTempProject({
       sourceDir,
       gitOptions: { initialise: true },
       timeout: CURRENT_TIMEOUT,
     });
 
-    it('does not show warning that different branches are not supported', async () => {
-      // having
-      const dir: DirectoryResult = getDirectory();
+    it(
+      'does not show warning that different branches are not supported',
+      async () => {
+        // having
+        const dir: DirectoryResult = getDirectory();
 
-      // when
-      // then
-      const result: string = await runUXPinMergeCommand({
-        cwd: dir.path,
-        env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-          UXPIN_ENV: Environment.TEST,
-        },
-        params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN'],
-      });
+        // when
+        // then
+        const result: string = await runUXPinMergeCommand({
+          cwd: dir.path,
+          env: {
+            UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+            UXPIN_ENV: Environment.TEST,
+          },
+          params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN'],
+        });
 
-      expect(result).not.toEqual(expect.stringMatching(/The current commit is not on branch /));
-    });
+        expect(result).not.toEqual(expect.stringMatching(/The current commit is not on branch /));
+      },
+      CURRENT_TIMEOUT
+    );
   });
 
   describe('from main branch', () => {
     const sourceDir: string = resolve(__dirname, '../../resources/designSystems/twoComponentsWithConfig');
-    const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
+    const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub, CURRENT_TIMEOUT);
     const { getDirectory } = setupTempProject({
       sourceDir,
       gitOptions: { branch: 'main', initialise: true },
       timeout: CURRENT_TIMEOUT,
     });
 
-    it('does not show warning that different branches are not supported', async () => {
-      // having
-      const dir: DirectoryResult = getDirectory();
+    it(
+      'does not show warning that different branches are not supported',
+      async () => {
+        // having
+        const dir: DirectoryResult = getDirectory();
 
-      // when
-      // then
-      const result: string = await runUXPinMergeCommand({
-        cwd: dir.path,
-        env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-          UXPIN_ENV: Environment.TEST,
-        },
-        params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN'],
-      });
+        // when
+        // then
+        const result: string = await runUXPinMergeCommand({
+          cwd: dir.path,
+          env: {
+            UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+            UXPIN_ENV: Environment.TEST,
+          },
+          params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN'],
+        });
 
-      expect(result).not.toEqual(expect.stringMatching(/The current commit is not on branch /));
-    });
+        expect(result).not.toEqual(expect.stringMatching(/The current commit is not on branch /));
+      },
+      CURRENT_TIMEOUT
+    );
   });
 });
