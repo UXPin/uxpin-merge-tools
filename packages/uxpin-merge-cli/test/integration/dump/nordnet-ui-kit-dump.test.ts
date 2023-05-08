@@ -23,7 +23,18 @@ describe('The dump command', () => {
           params: [Command.DUMP, '--config="../../configs/nordnet-ui-kit-uxpin.config.js"'],
         }).then((consoleOutput) => {
           // then
-          expect(JSON.parse(consoleOutput)).toMatchSnapshot();
+          expect(JSON.parse(consoleOutput)).toMatchSnapshot({
+            vcs: expect.objectContaining({
+              branchName: 'master',
+              commitHash: 'd914edd5f97cadb284f7f47b783106c86fe430d9',
+              paths: {
+                configPath: expect.stringMatching(
+                  new RegExp('uxpin-merge-cli/test/resources/configs/nordnet-ui-kit-uxpin.config.js')
+                ),
+                projectRoot: expect.stringMatching(new RegExp('uxpin-merge-cli/test/resources/repos/nordnet-ui-kit')),
+              },
+            }),
+          });
         });
       },
       CURRENT_TIMEOUT

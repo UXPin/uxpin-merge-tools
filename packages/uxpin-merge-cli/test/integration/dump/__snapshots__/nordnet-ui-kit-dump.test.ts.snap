@@ -1999,12 +1999,12 @@ exports[`The dump command run for the nordnet-ui-kit repository prints the JSON 
     },
   ],
   "name": "Library from Code",
-  "vcs": {
+  "vcs": ObjectContaining {
     "branchName": "master",
     "commitHash": "d914edd5f97cadb284f7f47b783106c86fe430d9",
     "paths": {
-      "configPath": "/Users/michaelrambeau/dev/uxpin/uxpin-merge-tools/packages/uxpin-merge-cli/test/resources/configs/nordnet-ui-kit-uxpin.config.js",
-      "projectRoot": "/Users/michaelrambeau/dev/uxpin/uxpin-merge-tools/packages/uxpin-merge-cli/test/resources/repos/nordnet-ui-kit",
+      "configPath": StringMatching /uxpin-merge-cli\\\\/test\\\\/resources\\\\/configs\\\\/nordnet-ui-kit-uxpin\\.config\\.js/,
+      "projectRoot": StringMatching /uxpin-merge-cli\\\\/test\\\\/resources\\\\/repos\\\\/nordnet-ui-kit/,
     },
   },
 }
