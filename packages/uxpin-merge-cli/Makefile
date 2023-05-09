@@ -62,8 +62,7 @@ test-integration:
 
 test-ci:
 	make test-rename-snapshots
-	UXPIN_ENV=test JEST_JUNIT_OUTPUT_DIR=./reports/jest jest --config="jest-ci.json" --maxWorkers=2 --detectOpenHandles --forceExit
-	make test-remap-coverage
+	UXPIN_ENV=test JEST_JUNIT_OUTPUT_DIR=./reports/jest jest --config="jest-ci.json" --maxWorkers=2
 
 clean:
 	rm -rf ./dist/
@@ -81,9 +80,6 @@ clean:
 
 clean-test-resources:
 	rm -rf ./test/resources/repos/*
-
-test-remap-coverage:
-	remap-istanbul -i coverage/coverage-final.json -o coverage/clover.xml -t clover
 
 test-resources:
 	cd ./shell_scripts/test_resources && make test-resources -j
