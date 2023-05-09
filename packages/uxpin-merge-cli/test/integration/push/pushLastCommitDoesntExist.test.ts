@@ -14,23 +14,27 @@ describe('Push command with latest commit which doesnt exist in tree', () => {
   const { getTlsPort } = setupStubbyServer(nonExistingLatestCommitStub, CURRENT_TIMEOUT);
   const { getDirectory } = setupTempProject({ sourceDir, gitOptions: { initialise: true }, timeout: CURRENT_TIMEOUT });
 
-  it('shows error when latest commit retrieved from API doesnt exist in local tree', async () => {
-    // having
-    const dir: DirectoryResult = getDirectory();
+  it(
+    'shows error when latest commit retrieved from API doesnt exist in local tree',
+    async () => {
+      // having
+      const dir: DirectoryResult = getDirectory();
 
-    // when
-    // then
-    try {
-      await runUXPinMergeCommand({
-        cwd: dir.path,
-        env: {
-          UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
-          UXPIN_ENV: Environment.TEST,
-        },
-        params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN'],
-      });
-    } catch (error) {
-      expect((error as any).stderr).toMatch('Unable to find revision');
-    }
-  });
+      // when
+      // then
+      try {
+        await runUXPinMergeCommand({
+          cwd: dir.path,
+          env: {
+            UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
+            UXPIN_ENV: Environment.TEST,
+          },
+          params: [Command.PUSH, '--webpack-config "./webpack.config.js"', '--token DUMMY_TOKEN'],
+        });
+      } catch (error) {
+        expect((error as any).stderr).toMatch('Unable to find revision');
+      }
+    },
+    CURRENT_TIMEOUT
+  );
 });

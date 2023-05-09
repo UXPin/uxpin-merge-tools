@@ -20,7 +20,6 @@
     "<rootDir>/test/resources/"
   ],
   "testEnvironment": "node",
-  "transform": {},
   "reporters": [
     "default",
     "jest-junit"
