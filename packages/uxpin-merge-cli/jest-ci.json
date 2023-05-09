@@ -6,7 +6,8 @@
   ],
   "coveragePathIgnorePatterns": [
     "/node_modules/",
-    "/__tests__/"
+    "/__tests__/",
+    "/src/resources/"
   ],
   "coverageReporters": [
     "json"
@@ -19,6 +20,7 @@
     "<rootDir>/test/resources/"
   ],
   "testEnvironment": "node",
+  "transform": {},
   "reporters": [
     "default",
     "jest-junit"
