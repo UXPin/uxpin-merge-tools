@@ -1,22 +1,21 @@
 import { AxiosResponse } from 'axios';
 import { OK } from 'http-status-codes';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 const CURRENT_TIMEOUT = 300000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - handling previews', () => {
   let response: AxiosResponse;
   const { axiosPromise } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
+    timeout: CURRENT_TIMEOUT,
   });
 
   beforeAll(async () => {
     const origin = 'https://app.uxpin.com';
     response = await axiosPromise('/code/previews', { headers: { origin } });
-  });
+  }, CURRENT_TIMEOUT);
 
   it('should responds with OK status code', async () => {
     expect(response.status).toEqual(OK);

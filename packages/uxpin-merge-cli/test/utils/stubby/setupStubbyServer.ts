@@ -11,7 +11,7 @@ export interface StubbyServerContext {
   getTlsPort(): number;
 }
 
-export function setupStubbyServer(data: StubbyStub[]): StubbyServerContext {
+export function setupStubbyServer(data: StubbyStub[], timeout?: number): StubbyServerContext {
   const deferredContext: DeferredChain<StubbyServerContext> = new DeferredChain();
 
   let tlsPort: number;
@@ -32,7 +32,7 @@ export function setupStubbyServer(data: StubbyStub[]): StubbyServerContext {
     });
 
     deferredContext.setTarget(getContext(adminPort, server, stubsPort, tlsPort));
-  });
+  }, timeout);
 
   afterAll(async () => {
     await stopStubbyServer(server);

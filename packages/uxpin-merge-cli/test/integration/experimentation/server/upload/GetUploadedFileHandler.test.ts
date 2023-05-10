@@ -8,15 +8,15 @@ import {
   UPLOAD_METADATA_FILE_NAME,
 } from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadHandler';
 import { UploadItemMetadata } from '../../../../../src/steps/experimentation/server/handler/upload/UploadItemMetadata';
-import { setTimeoutBeforeAll } from '../../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
 import { getBufferChecksum, getFileChecksum } from '../../../../utils/file/getFileChecksum';
 
 const CURRENT_TIMEOUT = 10000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('GetUploadedFileHandler', () => {
-  const { axiosPromise, getWorkingDir } = setupExperimentationServerTest();
+  const { axiosPromise, getWorkingDir } = setupExperimentationServerTest({
+    timeout: CURRENT_TIMEOUT,
+  });
 
   it('responds with a file for given id', async () => {
     // given

@@ -1,16 +1,15 @@
 import { AxiosResponse } from 'axios';
 import { OK } from 'http-status-codes';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { using } from '../../../utils/using';
 
 const CURRENT_TIMEOUT = 300000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('OptionsRequestHandler', () => {
   const { axiosPromise } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
+    timeout: CURRENT_TIMEOUT,
   });
 
   const getEndpoints = [

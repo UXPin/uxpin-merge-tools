@@ -4,19 +4,16 @@ import { TEMP_DIR_NAME } from '../../../src/steps/building/config/getConfig';
 import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
 import { runCommand } from '../../utils/command/runCommand';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
 const CURRENT_TIMEOUT = 60000;
-
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Building designSystems/cantWriteToUxpinTemp design system', () => {
   const DEFAULT_PERMISSIONS = '755';
   const READONLY_PERMISSIONS = '444';
   const workingDir = 'resources/designSystems/cantWriteToUxpinTemp';
   const uxpinTempPath = `test/${workingDir}/${TEMP_DIR_NAME}`;
-  const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub);
+  const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub, CURRENT_TIMEOUT);
   const chmod: (path: string, mode: string) => Promise<string> = (path, mode) => runCommand(`chmod ${mode} ${path}`);
 
   afterEach(() => {

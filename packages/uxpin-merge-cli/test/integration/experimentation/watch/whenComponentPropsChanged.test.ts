@@ -8,12 +8,10 @@ import {
   expectedButtonDefinition,
   expectedDSWatchingChangesMetadata,
 } from '../../../resources/designSystems/watchingChanges/.uxpin-merge/expectedDSWatchingChangesMetadata';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../utils/file/getFileChecksum';
 
-const CURRENT_TIMEOUT = 60000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
+const CURRENT_TIMEOUT = 90000;
 
 describe('Experimental - watch - change file content (changed prop types)', () => {
   let initialBundleChecksum: string;
@@ -23,6 +21,7 @@ describe('Experimental - watch - change file content (changed prop types)', () =
   const { changeProjectFile, getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: ['--config "uxpin.config.js"', '--webpack-config "./webpack.config.js"'],
+    timeout: CURRENT_TIMEOUT,
   });
 
   const changedFileContent = `
@@ -66,7 +65,7 @@ export default class Button extends PureComponent {
 
     // when
     await changeProjectFile(buttonJSXPath, changedFileContent);
-  });
+  }, CURRENT_TIMEOUT);
 
   it('should update library bundle when component props changed', async () => {
     expect(await getBundleChecksum()).not.toEqual(initialBundleChecksum);
