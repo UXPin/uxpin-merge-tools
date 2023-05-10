@@ -6,9 +6,9 @@ import Avatar from '../Avatar';
 
 export default (
   <Avatar
-    uxpId=\\"avatar-1\\"
-    size=\\"xs\\"
-    imageUrl=\\"\\"
+    uxpId="avatar-1"
+    size="xs"
+    imageUrl=""
   />
 );"
 `;
@@ -19,7 +19,7 @@ import Button from '../Button';
 
 export default (
   <Button
-    uxpId=\\"button-1\\"
+    uxpId="button-1"
     primary={false}
   >Put Button contents here</Button>
 );"
@@ -31,9 +31,9 @@ import Avatar from '../Avatar';
 
 export default (
   <Avatar
-    uxpId=\\"avatar-1\\"
-    size=\\"xs\\"
-    imageUrl=\\"\\"
+    uxpId="avatar-1"
+    size="xs"
+    imageUrl=""
   />
 );"
 `;
@@ -44,7 +44,7 @@ import Button from '../Button';
 
 export default (
   <Button
-    uxpId=\\"button-1\\"
+    uxpId="button-1"
     primary={false}
   >Put Button contents here</Button>
 );"

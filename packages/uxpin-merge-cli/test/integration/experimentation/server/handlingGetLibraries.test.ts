@@ -2,15 +2,14 @@ import { OK } from 'http-status-codes';
 import { Response } from 'request';
 import { RequestPromiseOptions } from 'request-promise';
 import { LIBRARY_DEFAULT_NAME } from '../../../../src/steps/experimentation/server/handler/libraries/GetLibrariesHandler';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 const CURRENT_TIMEOUT = 20_000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('handlingGetLibraries', () => {
   const { request } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/withEpidFile',
+    timeout: CURRENT_TIMEOUT,
   });
 
   describe('should serve library bundle', () => {
@@ -22,7 +21,7 @@ describe('handlingGetLibraries', () => {
 
       // when
       response = await request('/libraries/', options);
-    });
+    }, CURRENT_TIMEOUT);
 
     it('with correct response headers', () => {
       // given

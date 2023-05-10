@@ -1,41 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The dump command run for the with-ts4 repository prints components with proper properties 1`] = `
-Array [
-  Object {
-    "components": Array [
-      Object {
+[
+  {
+    "components": [
+      {
         "defaultExported": true,
-        "documentation": Object {
-          "examples": Array [],
+        "documentation": {
+          "examples": [],
         },
-        "info": Object {
+        "info": {
           "dirPath": "src/components/Avatar",
-          "implementation": Object {
+          "implementation": {
             "framework": "reactjs",
             "lang": "typescript",
             "path": "src/components/Avatar/Avatar.tsx",
           },
-          "presets": Array [
-            Object {
+          "presets": [
+            {
               "path": "src/components/Avatar/presets/0-default.jsx",
             },
           ],
         },
         "name": "Avatar",
-        "presets": Array [
-          Object {
-            "elements": Object {
-              "1": Object {
+        "presets": [
+          {
+            "elements": {
+              "1": {
                 "name": "Avatar",
-                "props": Object {
+                "props": {
                   "imageUrl": "https://picsum.photos/100/100?image=1027",
                   "size": "small",
-                  "test": Object {
+                  "test": {
                     "abc": 123,
                     "name": "abc",
                   },
-                  "user": Object {
+                  "user": {
                     "id": 1,
                     "name": "abc",
                   },
@@ -46,45 +46,45 @@ Array [
             "rootId": "1",
           },
         ],
-        "properties": Array [
-          Object {
+        "properties": [
+          {
             "description": "",
             "isRequired": true,
             "name": "size",
-            "type": Object {
+            "type": {
               "name": "string",
-              "structure": Object {},
+              "structure": {},
             },
           },
-          Object {
+          {
             "description": "",
             "isRequired": true,
             "name": "imageUrl",
-            "type": Object {
+            "type": {
               "name": "string",
-              "structure": Object {},
+              "structure": {},
             },
           },
-          Object {
+          {
             "description": "",
             "isRequired": true,
             "name": "test",
-            "type": Object {
+            "type": {
               "name": "shape",
-              "structure": Object {},
+              "structure": {},
             },
           },
-          Object {
+          {
             "description": "",
             "isRequired": true,
             "name": "user",
-            "type": Object {
+            "type": {
               "name": "shape",
-              "structure": Object {},
+              "structure": {},
             },
           },
         ],
-        "wrappers": Array [],
+        "wrappers": [],
       },
     ],
     "name": "General",

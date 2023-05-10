@@ -5,16 +5,15 @@ import { TEMP_DIR_NAME } from '../../../../src/steps/building/config/getConfig';
 import { METADATA_FILE_NAME } from '../../../../src/steps/experimentation/metadata/saveMetadata';
 import { DesignSystemSnapshot } from '../../../../src/types';
 import { expectedMetadata } from '../../../resources/designSystems/twoComponentsWithConfig/expectedMetadata';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 const CURRENT_TIMEOUT = 30000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - save library metadata', () => {
   const { getWorkingDir } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
+    timeout: CURRENT_TIMEOUT,
   });
 
   it('should create metadata.json file', () => {

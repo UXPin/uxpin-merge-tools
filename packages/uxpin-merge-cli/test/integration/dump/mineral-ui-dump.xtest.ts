@@ -4,29 +4,35 @@ import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
 import { setupStubbyServer } from '../../utils/stubby/setupStubbyServer';
 
-const CURRENT_TIMEOUT = 30000;
+const CURRENT_TIMEOUT = 60000;
 
 jest.mock('../../../src/program/utils/version/getToolVersion');
 
 describe('The dump command', () => {
   const { getTlsPort } = setupStubbyServer(emptyLatestCommitStub, CURRENT_TIMEOUT);
 
-  describe('run for the with-non-inline-exports repository', () => {
+  describe('run for the mineral-ui repository', () => {
     it(
-      'prints components with proper properties',
-      () => {
+      'prints the JSON describing the full repository',
+      async () => {
         // when
-        return runUXPinMergeCommand({
-          cwd: 'resources/designSystems/withNonInlineExports',
+        const output: string = await runUXPinMergeCommand({
+          cwd: 'resources/repos/mineral-ui',
           env: {
             UXPIN_API_DOMAIN: `0.0.0.0:${getTlsPort()}`,
             UXPIN_ENV: Environment.TEST,
           },
-          params: [Command.DUMP, '--config="./uxpin.config.js"'],
-        }).then((consoleOutput) => {
-          // then
-          const output: any = JSON.parse(consoleOutput);
-          expect(output.categorizedComponents).toMatchSnapshot();
+          params: [Command.DUMP, '--webpack-config "./webpack.config.js"'],
+        });
+
+        // then
+        expect(JSON.parse(output)).toMatchSnapshot({
+          vcs: {
+            paths: {
+              configPath: expect.any(String),
+              projectRoot: expect.any(String),
+            },
+          },
         });
       },
       CURRENT_TIMEOUT

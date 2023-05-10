@@ -1,10 +1,8 @@
 import { readFile, rmdirSync, unlinkSync } from 'fs-extra';
 import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT = 30000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 const DS_DIR = 'test/resources/designSystems/withoutPresets';
 describe('The generate presets command', () => {
@@ -90,7 +88,7 @@ describe('The generate presets command', () => {
         cwd: 'resources/designSystems/withoutPresets',
         params: [Command.GENERATE_PRESETS, `--config "uxpin.config.js"`],
       });
-    });
+    }, CURRENT_TIMEOUT);
 
     it('create 0-default.jsx for Avatar', async () => {
       // when

@@ -1,7 +1,9 @@
 import { CmdOptions } from '../command/CmdOptions';
 import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
 
-export type ExperimentationServerTestSetupOptions = Partial<ExperimentationServerOptionsWithDefaults>;
+export type ExperimentationServerTestSetupOptions = Partial<ExperimentationServerOptionsWithDefaults> & {
+  timeout?: number;
+};
 
 export interface ExperimentationServerOptionsWithDefaults {
   serverCmdArgs?: string[];

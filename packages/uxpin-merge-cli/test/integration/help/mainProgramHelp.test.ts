@@ -1,9 +1,6 @@
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT = 20000;
-
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('--help option', () => {
   let output: string;
@@ -11,7 +8,7 @@ describe('--help option', () => {
   beforeAll(async () => {
     // when
     output = await runUXPinMergeCommand({ params: ['--help'] });
-  });
+  }, CURRENT_TIMEOUT);
 
   it('it prints help for --webpack-config <path> option', () => {
     // then

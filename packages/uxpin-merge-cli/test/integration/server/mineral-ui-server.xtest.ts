@@ -1,7 +1,6 @@
 import Chromeless from 'chromeless';
 import { Environment } from '../../../src/program/env/Environment';
 import { mineralUiServerStub } from '../../resources/stubs/mineralUi';
-import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { getComponentByName } from '../../utils/dom/getComponentByName';
 import { waitForComponent } from '../../utils/e2e/chromeless/waitForComponent';
 import { getRandomPortNumber } from '../../utils/e2e/server/getRandomPortNumber';
@@ -15,7 +14,6 @@ import {
 import { stopStubbyServer } from '../../utils/stubby/stopStubbyServer';
 
 const CURRENT_TIMEOUT = 600000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('server run in mineral-ui', () => {
   let chromeless: Chromeless<any>;
@@ -29,7 +27,7 @@ describe('server run in mineral-ui', () => {
       stubs: getRandomPortNumber(STUBS_PORT_RANGE.min, STUBS_PORT_RANGE.max),
       tls: tlsPort,
     });
-  });
+  }, CURRENT_TIMEOUT);
 
   setupDebugServerTest(
     {

@@ -2,12 +2,10 @@ import { OK } from 'http-status-codes';
 import { omit } from 'lodash';
 import { Response } from 'request';
 import { PageContent } from '../../../../src/common/types/PageData';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom } from './page/set/fixtures/getExpectedIntroPageWithExampleElementsGuessingUniqueIdsFrom';
 
 const CURRENT_TIMEOUT = 300000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimentation mode - handling preview all data', () => {
   const port = 8888;
@@ -16,12 +14,13 @@ describe('Experimentation mode - handling preview all data', () => {
     port,
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
+    timeout: CURRENT_TIMEOUT,
   });
 
   beforeAll(async () => {
     const origin = 'https://app.uxpin.com';
     response = await request('/preview/all', { resolveWithFullResponse: true, headers: { origin } });
-  });
+  }, CURRENT_TIMEOUT);
 
   it('should responds with OK status code', async () => {
     expect(response.statusCode).toEqual(OK);

@@ -6,9 +6,9 @@ import Avatar from '../Avatar';
 
 export default (
   <Avatar
-    uxpId=\\"avatar-1\\"
-    size=\\"\\"
-    imageUrl=\\"\\"
+    uxpId="avatar-1"
+    size=""
+    imageUrl=""
   />
 );"
 `;
@@ -19,8 +19,8 @@ import ButtonWithIconAsProp from '../ButtonWithIconAsProp';
 
 export default (
   <ButtonWithIconAsProp
-    uxpId=\\"button-with-icon-as-prop-1\\"
-    iconStart=\\"\\"
+    uxpId="button-with-icon-as-prop-1"
+    iconStart=""
     isPrimary={false}
   >Put ButtonWithIconAsProp contents here</ButtonWithIconAsProp>
 );"
@@ -32,7 +32,7 @@ import MenuWithData from '../MenuWithData';
 
 export default (
   <MenuWithData
-    uxpId=\\"menu-with-data-1\\"
+    uxpId="menu-with-data-1"
     data={[]}
   />
 );"
@@ -44,9 +44,9 @@ import Avatar from '../Avatar';
 
 export default (
   <Avatar
-    uxpId=\\"avatar-1\\"
-    size=\\"\\"
-    imageUrl=\\"\\"
+    uxpId="avatar-1"
+    size=""
+    imageUrl=""
   />
 );"
 `;
@@ -57,8 +57,8 @@ import ButtonWithIconAsProp from '../ButtonWithIconAsProp';
 
 export default (
   <ButtonWithIconAsProp
-    uxpId=\\"button-with-icon-as-prop-1\\"
-    iconStart=\\"\\"
+    uxpId="button-with-icon-as-prop-1"
+    iconStart=""
     isPrimary={false}
   >Put ButtonWithIconAsProp contents here</ButtonWithIconAsProp>
 );"
@@ -70,7 +70,7 @@ import MenuWithData from '../MenuWithData';
 
 export default (
   <MenuWithData
-    uxpId=\\"menu-with-data-1\\"
+    uxpId="menu-with-data-1"
     data={[]}
   />
 );"

@@ -79,7 +79,7 @@ export function setupExperimentationServerTest(
     cleanupTemp = config.cleanupTemp;
     mergeServerResponse = await startUXPinMergeServer(config.cmdOptions, serverOptions);
     deferredContext.setTarget(getTestContext(config, mergeServerResponse, state));
-  });
+  }, options.timeout);
 
   afterAll(async () => {
     await mergeServerResponse.close();
