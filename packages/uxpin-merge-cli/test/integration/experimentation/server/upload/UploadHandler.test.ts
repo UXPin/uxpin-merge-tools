@@ -1,9 +1,9 @@
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import * as FormData from 'form-data';
 import { createReadStream } from 'fs';
 import { ensureDir } from 'fs-extra';
 import { OK } from 'http-status-codes';
 import { join } from 'path';
-import { Response } from 'request';
-import { RequestPromiseOptions } from 'request-promise';
 import { TEMP_DIR_NAME } from '../../../../../src/steps/building/config/getConfig';
 import { UPLOAD_DIR_NAME } from '../../../../../src/steps/experimentation/server/handler/upload/PrepareUploadHandler';
 import { setupExperimentationServerTest } from '../../../../utils/experimentation/setupExperimentationServerTest';
@@ -13,31 +13,33 @@ const TIMEOUT = 120000;
 jest.setTimeout(TIMEOUT);
 
 describe('UploadHandler', () => {
-  const { request, getWorkingDir } = setupExperimentationServerTest();
+  const { axiosPromise, getWorkingDir } = setupExperimentationServerTest();
 
   it('receives uploaded file and saves in the correct dir based on given path parameter', async () => {
     // given
     const fileName = 'uxpin_logo_white_720-1.png';
     const fileId = `12311`;
-    const fixtureFilePath: string = join(__dirname, 'fixtures', fileName);
-    const expectedFileChecksum: string = await getFileChecksum(fixtureFilePath);
-    const targetDir: string = join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, fileId);
-    const expectedFileLocation: string = join(targetDir, fileName);
-    const requestOptions: RequestPromiseOptions = {
-      formData: {
-        file: createReadStream(fixtureFilePath),
-        path: `${fileId}/${fileName}`,
-      },
+    const fixtureFilePath = join(__dirname, 'fixtures', fileName);
+    const expectedFileChecksum = await getFileChecksum(fixtureFilePath);
+    const targetDir = join(getWorkingDir(), TEMP_DIR_NAME, UPLOAD_DIR_NAME, fileId);
+    const expectedFileLocation = join(targetDir, fileName);
+
+    const formData: FormData = new FormData();
+    formData.append('file', createReadStream(fixtureFilePath));
+    formData.append('path', `${fileId}/${fileName}`);
+
+    const requestOptions: AxiosRequestConfig = {
+      data: formData,
+      headers: formData.getHeaders(),
       method: 'POST',
-      resolveWithFullResponse: true,
     };
 
     // when
     await ensureDir(targetDir);
-    const response: Response = await request('/upload', requestOptions);
+    const response: AxiosResponse = await axiosPromise('/upload', requestOptions);
 
     // then
-    expect(response.statusCode).toEqual(OK);
+    expect(response.status).toEqual(OK);
     expect(await getFileChecksum(expectedFileLocation)).toEqual(expectedFileChecksum);
   });
 });

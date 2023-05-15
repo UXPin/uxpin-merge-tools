@@ -2,7 +2,7 @@ PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 UXPIN_CODE=$(shell pwd)/bin/uxpin-merge
 YARN ?= yarn
-ESLINT_TARGETS = --ext .ts,.tsx ./src ./test ./__mocks__
+ESLINT_TARGETS = --ext .ts,.tsx ./src ./test
 
 .PHONY: dependencies install build build-watch \
 				check lint check-lint-errors lint-fix check-types \

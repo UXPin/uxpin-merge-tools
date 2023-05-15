@@ -1,18 +1,18 @@
+import { AxiosResponse } from 'axios';
 import { OK } from 'http-status-codes';
-import { Response } from 'request';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { using } from '../../../utils/using';
 
 const CURRENT_TIMEOUT = 300000;
 
 describe('OptionsRequestHandler', () => {
-  const { request } = setupExperimentationServerTest({
+  const { axiosPromise } = setupExperimentationServerTest({
     projectPath: 'resources/designSystems/twoComponentsWithConfig',
     serverCmdArgs: ['--webpack-config "./webpack.config.js"'],
     timeout: CURRENT_TIMEOUT,
   });
 
-  const getEndpoints: string[] = [
+  const getEndpoints = [
     '/libraries/',
     '/libraries/items/index/',
     '/code/repositoryPointer',
@@ -32,16 +32,15 @@ describe('OptionsRequestHandler', () => {
       };
 
       // when
-      const response: Response = await request(uri, {
+      const response: AxiosResponse = await axiosPromise(uri, {
         headers: { origin },
         method: 'OPTIONS',
-        resolveWithFullResponse: true,
       });
 
       // then
-      expect(response.statusCode).toEqual(OK);
+      expect(response.status).toEqual(OK);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
-      expect(response.body).toEqual('');
+      expect(response.data).toEqual('');
     });
   });
 });

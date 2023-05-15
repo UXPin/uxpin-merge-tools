@@ -1,11 +1,8 @@
-import * as requestPromise from 'request-promise';
+import axios, { AxiosRequestConfig } from 'axios';
 import { getLatestCommitHash } from '../getLatestCommitHash';
 
-jest.mock('request-promise');
-
-const requestPromiseMock: jest.Mock<typeof requestPromise> = requestPromise as unknown as jest.Mock<
-  typeof requestPromise
->;
+jest.mock('axios');
+const axiosMock = axios as jest.MockedFunction<typeof axios>;
 
 describe('getLatestCommitHash', () => {
   const domain = 'https://uxpin.mock';
@@ -13,36 +10,36 @@ describe('getLatestCommitHash', () => {
   const token = 'token';
 
   beforeEach(() => {
-    requestPromiseMock.mockRestore();
+    axiosMock.mockRestore();
   });
 
   describe('request on master branch', () => {
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }) as any);
+      axiosMock.mockResolvedValue({ data: { commitHash: 'abc123' } });
 
       // when
       await getLatestCommitHash(domain, branch, token);
     });
 
     it('should call proper url', () => {
-      const [url] = requestPromiseMock.mock.calls[0];
-      expect(url).toEqual('https://uxpin.mock/code/v/1.0/branch/master/latestCommit');
+      const [options] = axiosMock.mock.calls[0];
+      expect((options as AxiosRequestConfig).url).toEqual('https://uxpin.mock/code/v/1.0/branch/master/latestCommit');
     });
 
     it('should use proper HTTP method', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
-      expect(options.method).toEqual('GET');
+      const [options] = axiosMock.mock.calls[0];
+      expect((options as AxiosRequestConfig).method).toEqual('get');
     });
 
     it('should use proper auth-token', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
-      expect(options.headers['auth-token']).toEqual('token');
+      const [options] = axiosMock.mock.calls[0];
+      expect((options as AxiosRequestConfig).headers!['auth-token']).toEqual('token');
     });
 
     it('should have User-Agent header', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
-      expect(options.headers['User-Agent']).toContain('uxpin-merge-cli');
+      const [options] = axiosMock.mock.calls[0];
+      expect((options as AxiosRequestConfig).headers!['User-Agent']).toContain('uxpin-merge-cli');
     });
   });
 
@@ -50,22 +47,24 @@ describe('getLatestCommitHash', () => {
     beforeEach(async () => {
       // given
       const branchName = 'pull/27';
-      requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }) as any);
+      axiosMock.mockResolvedValue({ data: { commitHash: 'abc123' } });
 
       // when
       await getLatestCommitHash(domain, branchName, token);
     });
 
     it('should call proper url', () => {
-      const [url] = requestPromiseMock.mock.calls[0];
-      expect(url).toEqual('https://uxpin.mock/code/v/1.0/branch/pull:2F27/latestCommit');
+      const [options] = axiosMock.mock.calls[0];
+      expect((options as AxiosRequestConfig).url).toEqual(
+        'https://uxpin.mock/code/v/1.0/branch/pull:2F27/latestCommit'
+      );
     });
   });
 
   describe('HTTP 200', () => {
     it('should return commitHash', async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({ commitHash: 'abc123' }) as any);
+      axiosMock.mockResolvedValue({ data: { commitHash: 'abc123' } });
 
       // when
       const commitHash: string | null = await getLatestCommitHash(domain, branch, token);
@@ -76,7 +75,7 @@ describe('getLatestCommitHash', () => {
 
     it('should return null if commitHash is not available', async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve(undefined) as any);
+      axiosMock.mockResolvedValue({ data: {} });
 
       // when
       const commitHash: string | null = await getLatestCommitHash(domain, branch, token);
@@ -88,14 +87,14 @@ describe('getLatestCommitHash', () => {
 
   describe('HTTP 401', () => {
     beforeEach(() => {
-      requestPromiseMock.mockImplementation(() => {
-        return Promise.reject({
-          error: {
+      axiosMock.mockRejectedValue({
+        response: {
+          data: {
             error: 'Unauthorized',
             message: 'Incorrect authorization token',
             statusCode: 401,
           },
-        }) as any;
+        },
       });
     });
 
