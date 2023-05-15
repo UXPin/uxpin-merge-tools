@@ -14,8 +14,8 @@ describe('Experimentation mode - handling categories', () => {
 
   beforeAll(async () => {
     const origin = 'https://app.uxpin.com';
-    response = await axiosPromise('/code/categories', { resolveWithFullResponse: true, headers: { origin } });
-  }, CURRENT_TIMEOUT);
+    response = await axiosPromise('/code/categories', { headers: { origin } });
+  });
 
   it('should responds with OK status code', async () => {
     expect(response.status).toEqual(OK);
