@@ -20,7 +20,6 @@
     "<rootDir>/test/resources/"
   ],
   "testEnvironment": "node",
-  "testTimeout": 15000,
   "reporters": [
     "default",
     "jest-junit"
