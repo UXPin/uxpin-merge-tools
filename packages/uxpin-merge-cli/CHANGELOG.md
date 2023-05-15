@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.2] - 2023-05-15
+
+### Changed
+
+- Use Axios instead of deprecated `request-promise` package, upgrade `ngrok` ([#373](https://github.com/UXPin/uxpin-merge-tools/pull/373))
+
 ## [3.0.1] - 2023-02-15
 
 ### Fixed
