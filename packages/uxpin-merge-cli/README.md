@@ -1,3 +1,5 @@
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
 # UXPin Merge CLI
 
 This is the command line used to preview design system components locally and push it to [UXPin Merge](https://www.uxpin.com/merge). Once pushed, designers can use the components within the UXPin editor.
