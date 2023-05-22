@@ -1,4 +1,9 @@
 # Changelog
+## [3.0.3] - 2023-05-22
+
+### Changed
+
+- Upgrade dependencies to fix "critical" vulnerabilities ([#376](https://github.com/UXPin/uxpin-merge-tools/pull/376))
 
 ## [3.0.2] - 2023-05-15
 

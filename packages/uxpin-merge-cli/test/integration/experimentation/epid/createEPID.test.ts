@@ -38,7 +38,11 @@ describe('createEPID', () => {
 
   describe('when epid file exists', () => {
     const projectPath: string = resolve(__dirname, '../../../resources/designSystems/withEpidFile');
-    const { getWorkingDir } = setupExperimentationServerTest({ port: getRandomPortNumber(), projectPath });
+    const { getWorkingDir } = setupExperimentationServerTest({
+      port: getRandomPortNumber(),
+      projectPath,
+      timeout: CURRENT_TIMEOUT,
+    });
 
     it('should not override already existed epid file', () => {
       expect(getEpidContent(getWorkingDir())).toEqual(getEpidContent(projectPath));
