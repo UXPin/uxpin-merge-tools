@@ -1,16 +1,17 @@
-import { head } from 'lodash';
 import * as ts from 'typescript';
+import { createUnionTypeNode } from 'typescript';
 
-export function getValidSymbol(symbol: ts.Symbol): ts.Symbol | undefined {
+export function getValidSymbols(symbol: ts.Symbol): ts.Symbol[] {
   if (symbol.valueDeclaration) {
-    return symbol;
+    return [symbol];
   }
 
   if (symbol.declarations?.length && symbol.declarations.length > 0) {
-    const declaration: DeclarationWithSymbol | undefined = getFirstDeclarationWithSymbol(symbol.declarations);
-
-    return declaration ? declaration.symbol : undefined;
+    const declarations: DeclarationWithSymbol[] = getDeclarationsWithSymbol(symbol.declarations);
+    return declarations.map((declaration) => declaration.symbol);
   }
+
+  return [];
 }
 
 interface DeclarationWithSymbol extends ts.Declaration {
@@ -21,6 +22,6 @@ function hasSymbol(declaration: ts.Declaration): declaration is DeclarationWithS
   return declaration.hasOwnProperty('symbol');
 }
 
-function getFirstDeclarationWithSymbol(declarations: ts.Declaration[]): DeclarationWithSymbol | undefined {
-  return head(declarations.filter(hasSymbol));
+function getDeclarationsWithSymbol(declarations: ts.Declaration[]): DeclarationWithSymbol[] {
+  return declarations.filter(hasSymbol);
 }

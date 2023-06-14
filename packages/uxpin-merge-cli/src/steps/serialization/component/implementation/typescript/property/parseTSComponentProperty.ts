@@ -1,12 +1,80 @@
+import { reduce, tail, head } from 'lodash';
 import * as ts from 'typescript';
-import { ParsedComponentProperty } from '../../ComponentPropertyDefinition';
+import { ParsedComponentProperty, PropertyType } from '../../ComponentPropertyDefinition';
 import { DefaultProps } from '../component/getPropsTypeAndDefaultProps';
 import { TSSerializationContext } from '../context/getSerializationContext';
 import { convertMethodSignatureSymbolToPropertyDefinition } from './symbol/convertMethodSignatureSymbolToPropertyDefinition';
 import { convertPropertySignatureSymbolToPropertyDefinition } from './symbol/convertPropertySignatureSymbolToPropertyDefinition';
-import { getValidSymbol } from './symbol/getValidSymbol';
+import { getValidSymbols } from './symbol/getValidSymbol';
 import { isMethodSignatureSymbol } from './symbol/isMethodSignatureSymbol';
 import { isPropertySignatureSymbol, PropertySymbol } from './symbol/isPropertySignatureSymbol';
+import { forEach } from 'lodash';
+
+function everyTypeIsTheSame(propertyDefinitions: ParsedComponentProperty[]) {
+  return (
+    propertyDefinitions.length &&
+    propertyDefinitions.some(
+      (propertyDefinition) => propertyDefinition?.type?.name === propertyDefinitions[0]?.type?.name
+    )
+  );
+}
+
+function hasUnionType(propertyDefinitions: ParsedComponentProperty[]) {
+  return propertyDefinitions.some((propertyDefinition) => propertyDefinition?.type?.name === 'union');
+}
+
+function getPropertyDefinitions(
+  propertySymbols: ts.Symbol[],
+  context: TSSerializationContext,
+  defaultProps: DefaultProps
+) {
+  const propertyDefinitions: ParsedComponentProperty[] = [];
+  forEach(propertySymbols, (propertySymbol) => {
+    if (isPropertySignatureSymbol(propertySymbol)) {
+      propertyDefinitions.push(propertySignatureToPropertyDefinition(context, propertySymbol, defaultProps));
+    }
+
+    if (isMethodSignatureSymbol(propertySymbol)) {
+      propertyDefinitions.push(convertMethodSignatureSymbolToPropertyDefinition(context, propertySymbol));
+    }
+  });
+
+  return propertyDefinitions;
+}
+
+function decorateUnionTypesIfPossible(
+  propertySymbols: ts.Symbol[],
+  context: TSSerializationContext,
+  defaultProps: DefaultProps
+) {
+  const propertyDefinitions = getPropertyDefinitions(propertySymbols, context, defaultProps);
+  const unionType: PropertyType<'union'> = {
+    name: 'union',
+    structure: { elements: [] },
+  };
+
+  if (hasUnionType(propertyDefinitions)) {
+    forEach(propertyDefinitions, (propertyDefinition) => {
+      if (propertyDefinition.type?.name === 'union') {
+        unionType.structure.elements.push(...(propertyDefinition.type as PropertyType<'union'>).structure.elements);
+      } else if (propertyDefinition.type) {
+        unionType.structure.elements.push(propertyDefinition.type);
+      }
+    });
+
+    head(propertyDefinitions)!.type = unionType;
+  } else if (everyTypeIsTheSame(propertyDefinitions)) {
+    forEach(propertyDefinitions, (propertyDefinition) => {
+      if (propertyDefinition.type) {
+        unionType.structure.elements.push(propertyDefinition.type);
+      }
+    });
+
+    head(propertyDefinitions)!.type = unionType;
+  }
+
+  return head(propertyDefinitions)!;
+}
 
 export function parseTSComponentProperty(
   context: TSSerializationContext,
@@ -14,17 +82,41 @@ export function parseTSComponentProperty(
   defaultProps: DefaultProps
 ): ParsedComponentProperty | undefined {
   try {
-    const propertySymbol: ts.Symbol | undefined = getValidSymbol(property);
-    if (!propertySymbol) {
+    const propertySymbols: ts.Symbol[] = getValidSymbols(property);
+    if (!propertySymbols.length) {
       return;
     }
 
-    if (isPropertySignatureSymbol(propertySymbol)) {
-      return propertySignatureToPropertyDefinition(context, propertySymbol, defaultProps);
-    }
+    /**
+     * For this case
+     *
+     * type IconProps = {
+     *  icon: "icon";
+     * };
+     *
+     * type OtherProps = {
+     *  icon?: "disc" | "circle" | "square" | "number";
+     * };
+     *
+     * type Props = IconProps | OtherProps
+     *
+     * merge-cli returned only first symbol and user wasn't able to select
+     * "disc" | "circle" | "square" | "number" options
+     * this fix introduces support for more than one symbols.
+     * At this moment I handle the easiest case.
+     * I decorated union type when one of type is union or every symbol has the same type
+     */
+    if (propertySymbols.length > 1) {
+      return decorateUnionTypesIfPossible(propertySymbols, context, defaultProps);
+    } else {
+      const propertySymbol = propertySymbols[0];
+      if (isPropertySignatureSymbol(propertySymbol)) {
+        return propertySignatureToPropertyDefinition(context, propertySymbol, defaultProps);
+      }
 
-    if (isMethodSignatureSymbol(propertySymbol)) {
-      return convertMethodSignatureSymbolToPropertyDefinition(context, propertySymbol);
+      if (isMethodSignatureSymbol(propertySymbol)) {
+        return convertMethodSignatureSymbolToPropertyDefinition(context, propertySymbol);
+      }
     }
   } catch (e) {
     return;
