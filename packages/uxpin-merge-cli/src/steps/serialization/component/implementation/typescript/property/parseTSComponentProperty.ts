@@ -10,11 +10,15 @@ import { isMethodSignatureSymbol } from './symbol/isMethodSignatureSymbol';
 import { isPropertySignatureSymbol, PropertySymbol } from './symbol/isPropertySignatureSymbol';
 import { forEach } from 'lodash';
 
-function everyTypeIsTheSame(propertyDefinitions: ParsedComponentProperty[]) {
+function everyTypesAreValidAndTheSame(propertyDefinitions: ParsedComponentProperty[]) {
+  const ignoredTypes = ['any', 'unsupported'];
   return (
     propertyDefinitions.length &&
-    propertyDefinitions.some(
-      (propertyDefinition) => propertyDefinition?.type?.name === propertyDefinitions[0]?.type?.name
+    propertyDefinitions.every(
+      (propertyDefinition) =>
+        propertyDefinition?.type?.name &&
+        !ignoredTypes.includes(propertyDefinition?.type?.name) &&
+        propertyDefinition?.type?.name === propertyDefinitions[0]?.type?.name
     )
   );
 }
@@ -63,7 +67,7 @@ function decorateUnionTypesIfPossible(
     });
 
     head(propertyDefinitions)!.type = unionType;
-  } else if (everyTypeIsTheSame(propertyDefinitions)) {
+  } else if (everyTypesAreValidAndTheSame(propertyDefinitions)) {
     forEach(propertyDefinitions, (propertyDefinition) => {
       if (propertyDefinition.type) {
         unionType.structure.elements.push(propertyDefinition.type);
@@ -101,10 +105,10 @@ export function parseTSComponentProperty(
      * type Props = IconProps | OtherProps
      *
      * merge-cli returned only first symbol and user wasn't able to select
-     * "disc" | "circle" | "square" | "number" options
+     * "disc", "circle", "square", "number" options
      * this fix introduces support for more than one symbols.
      * At this moment I handle the easiest case.
-     * I decorated union type when one of type is union or every symbol has the same type
+     * I decorated union type when one of type is union or every symbol has the same type different than any or unsupported
      */
     if (propertySymbols.length > 1) {
       return decorateUnionTypesIfPossible(propertySymbols, context, defaultProps);

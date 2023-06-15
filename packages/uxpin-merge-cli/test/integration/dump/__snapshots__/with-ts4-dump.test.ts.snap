@@ -83,6 +83,48 @@ exports[`The dump command run for the with-ts4 repository prints components with
               "structure": {},
             },
           },
+          {
+            "description": "",
+            "isRequired": true,
+            "name": "icon",
+            "type": {
+              "name": "union",
+              "structure": {
+                "elements": [
+                  {
+                    "name": "literal",
+                    "structure": {
+                      "value": "icon",
+                    },
+                  },
+                  {
+                    "name": "literal",
+                    "structure": {
+                      "value": "number",
+                    },
+                  },
+                  {
+                    "name": "literal",
+                    "structure": {
+                      "value": "disc",
+                    },
+                  },
+                  {
+                    "name": "literal",
+                    "structure": {
+                      "value": "circle",
+                    },
+                  },
+                  {
+                    "name": "literal",
+                    "structure": {
+                      "value": "square",
+                    },
+                  },
+                ],
+              },
+            },
+          },
         ],
         "wrappers": [],
       },
