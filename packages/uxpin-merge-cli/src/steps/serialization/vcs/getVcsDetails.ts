@@ -16,8 +16,8 @@ export async function getVcsDetails(
 ): Promise<VCSDetails> {
   const repositoryAdapter: RepositoryAdapter = await getRepositoryAdapter(paths.projectRoot, buildOptions);
   const repositoryPointer: RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
+  const shouldGetLatestCommitHash = !buildOptions.force && ![Command.DELETE_VERSION].includes(buildOptions.command);
   let latestCommitHash: string | null = null;
-  let shouldGetLatestCommitHash = !buildOptions.force && ![Command.DELETE_VERSION].includes(buildOptions.command);
 
   if (buildOptions.token && shouldGetLatestCommitHash) {
     latestCommitHash = await getLatestCommitHash(
