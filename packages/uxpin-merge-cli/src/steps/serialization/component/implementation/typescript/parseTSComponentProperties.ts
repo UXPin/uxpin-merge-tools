@@ -16,13 +16,11 @@ export function parseTSComponentProperties(
   componentDeclaration: ComponentDeclaration
 ): PropDefinitionParsingResult[] {
   const { propsTypeNode, defaultProps } = getPropsTypeAndDefaultProps(context, componentDeclaration);
-
   if (!propsTypeNode) {
     throw new Error('No component properties found');
   }
 
   const typeFromTypeNode: ts.Type = context.checker.getTypeFromTypeNode(propsTypeNode);
-
   const props: TypeProps = getPropertiesFromType(typeFromTypeNode);
 
   return [
