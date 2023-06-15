@@ -7,6 +7,7 @@ import { MovedFilePathsMap, VCSDetails } from '../DesignSystemSnapshot';
 import { filterMovedFiles } from './filterMovedFiles';
 import { getRepositoryAdapter } from './repositories/getRepositoryAdapter';
 import { RepositoryAdapter, RepositoryPointer } from './repositories/RepositoryAdapter';
+import { Command } from '../../../program/command/Command';
 
 export async function getVcsDetails(
   paths: ProjectPaths,
@@ -16,8 +17,9 @@ export async function getVcsDetails(
   const repositoryAdapter: RepositoryAdapter = await getRepositoryAdapter(paths.projectRoot, buildOptions);
   const repositoryPointer: RepositoryPointer = await repositoryAdapter.getRepositoryPointer();
   let latestCommitHash: string | null = null;
+  let shouldGetLatestCommitHash = !buildOptions.force && ![Command.DELETE_VERSION].includes(buildOptions.command);
 
-  if (buildOptions.token && !buildOptions.force) {
+  if (buildOptions.token && shouldGetLatestCommitHash) {
     latestCommitHash = await getLatestCommitHash(
       getApiDomain(buildOptions.uxpinApiDomain!),
       repositoryPointer.branchName,

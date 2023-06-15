@@ -3,11 +3,13 @@ import { BuildOptions } from '../../../steps/building/BuildOptions';
 import { PushProgramArgs } from '../../args/ProgramArgs';
 import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../args/providers/paths/getTempDirPath';
+import { Command } from '../Command';
 
 export function getBuildOptions(args: BuildProgramArgs): BuildOptions {
-  const { token, uxpinDomain, webpackConfig, wrapper, branch, tag, force } = args;
+  const { command, token, uxpinDomain, webpackConfig, wrapper, branch, tag, force } = args;
 
   return {
+    command,
     branch,
     projectRoot: getProjectRoot(args),
     tag,
@@ -21,7 +23,15 @@ export function getBuildOptions(args: BuildProgramArgs): BuildOptions {
   };
 }
 
-export type BuildProgramArgs = Pick<
-  PushProgramArgs,
-  'cwd' | 'token' | 'uxpinDomain' | 'webpackConfig' | 'wrapper' | 'branch' | 'tag' | 'force'
->;
+export interface BuildProgramArgs {
+  command: Command;
+  config?: string;
+  cwd: string;
+  force?: boolean;
+  token?: string;
+  uxpinDomain?: string;
+  webpackConfig?: string;
+  wrapper?: string;
+  branch?: string;
+  tag?: string;
+}

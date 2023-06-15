@@ -2,6 +2,7 @@ import { join, resolve } from 'path';
 import { Configuration, RuleSetRule } from 'webpack';
 import { BuildOptions } from '../../BuildOptions';
 import { getConfig, LIBRARY_INPUT_FILENAME, LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../getConfig';
+import { Command } from '../../../../program/command/Command';
 
 describe('getConfig', () => {
   const projectRoot: string = resolve(__dirname, '../../../../../test/resources/configs/');
@@ -62,6 +63,7 @@ describe('getConfig', () => {
             target: 'web',
           };
           const options: BuildOptions = {
+            command: Command.PUSH,
             development: true,
             projectRoot,
             uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,
@@ -107,6 +109,7 @@ describe('getConfig', () => {
             target: 'web',
           };
           const options: BuildOptions = {
+            command: Command.PUSH,
             development: false,
             projectRoot,
             uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,
@@ -145,6 +148,7 @@ describe('getConfig', () => {
           },
         };
         const options: BuildOptions = {
+          command: Command.PUSH,
           development: true,
           projectRoot,
           uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,
@@ -178,6 +182,7 @@ describe('getConfig', () => {
           },
         };
         const options: BuildOptions = {
+          command: Command.PUSH,
           development: false,
           projectRoot,
           uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,
