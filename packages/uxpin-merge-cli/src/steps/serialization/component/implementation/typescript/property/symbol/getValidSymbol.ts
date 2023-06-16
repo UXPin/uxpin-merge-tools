@@ -1,5 +1,4 @@
 import * as ts from 'typescript';
-import { createUnionTypeNode } from 'typescript';
 
 export function getValidSymbols(symbol: ts.Symbol): ts.Symbol[] {
   if (symbol.valueDeclaration) {
