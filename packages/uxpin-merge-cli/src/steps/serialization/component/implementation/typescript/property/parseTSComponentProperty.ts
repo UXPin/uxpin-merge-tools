@@ -10,76 +10,6 @@ import { isMethodSignatureSymbol } from './symbol/isMethodSignatureSymbol';
 import { isPropertySignatureSymbol, PropertySymbol } from './symbol/isPropertySignatureSymbol';
 import { forEach } from 'lodash';
 
-function everyTypesAreValidAndTheSame(propertyDefinitions: ParsedComponentProperty[]) {
-  const ignoredTypes = ['any', 'unsupported'];
-  return (
-    propertyDefinitions.length &&
-    propertyDefinitions.every(
-      (propertyDefinition) =>
-        propertyDefinition?.type?.name &&
-        !ignoredTypes.includes(propertyDefinition?.type?.name) &&
-        propertyDefinition?.type?.name === propertyDefinitions[0]?.type?.name
-    )
-  );
-}
-
-function hasUnionType(propertyDefinitions: ParsedComponentProperty[]) {
-  return propertyDefinitions.some((propertyDefinition) => propertyDefinition?.type?.name === 'union');
-}
-
-function getPropertyDefinitions(
-  propertySymbols: ts.Symbol[],
-  context: TSSerializationContext,
-  defaultProps: DefaultProps
-) {
-  const propertyDefinitions: ParsedComponentProperty[] = [];
-  forEach(propertySymbols, (propertySymbol) => {
-    if (isPropertySignatureSymbol(propertySymbol)) {
-      propertyDefinitions.push(propertySignatureToPropertyDefinition(context, propertySymbol, defaultProps));
-    }
-
-    if (isMethodSignatureSymbol(propertySymbol)) {
-      propertyDefinitions.push(convertMethodSignatureSymbolToPropertyDefinition(context, propertySymbol));
-    }
-  });
-
-  return propertyDefinitions;
-}
-
-function decorateUnionTypesIfPossible(
-  propertySymbols: ts.Symbol[],
-  context: TSSerializationContext,
-  defaultProps: DefaultProps
-) {
-  const propertyDefinitions = getPropertyDefinitions(propertySymbols, context, defaultProps);
-  const unionType: PropertyType<'union'> = {
-    name: 'union',
-    structure: { elements: [] },
-  };
-
-  if (hasUnionType(propertyDefinitions)) {
-    forEach(propertyDefinitions, (propertyDefinition) => {
-      if (propertyDefinition.type?.name === 'union') {
-        unionType.structure.elements.push(...(propertyDefinition.type as PropertyType<'union'>).structure.elements);
-      } else if (propertyDefinition.type) {
-        unionType.structure.elements.push(propertyDefinition.type);
-      }
-    });
-
-    head(propertyDefinitions)!.type = unionType;
-  } else if (everyTypesAreValidAndTheSame(propertyDefinitions)) {
-    forEach(propertyDefinitions, (propertyDefinition) => {
-      if (propertyDefinition.type) {
-        unionType.structure.elements.push(propertyDefinition.type);
-      }
-    });
-
-    head(propertyDefinitions)!.type = unionType;
-  }
-
-  return head(propertyDefinitions)!;
-}
-
 export function parseTSComponentProperty(
   context: TSSerializationContext,
   property: ts.Symbol,
@@ -138,4 +68,103 @@ function propertySignatureToPropertyDefinition(
   }
 
   return prop;
+}
+
+function everyTypesAreValidAndTheSame(propertyDefinitions: ParsedComponentProperty[]) {
+  const ignoredTypes = ['any', 'unsupported'];
+  return (
+    propertyDefinitions.length &&
+    propertyDefinitions.every(
+      (propertyDefinition) =>
+        propertyDefinition?.type?.name &&
+        !ignoredTypes.includes(propertyDefinition?.type?.name) &&
+        propertyDefinition?.type?.name === propertyDefinitions[0]?.type?.name
+    )
+  );
+}
+
+function hasUnionType(propertyDefinitions: ParsedComponentProperty[]) {
+  return propertyDefinitions.some((propertyDefinition) => propertyDefinition?.type?.name === 'union');
+}
+
+function getPropertyDefinitions(
+  propertySymbols: ts.Symbol[],
+  context: TSSerializationContext,
+  defaultProps: DefaultProps
+) {
+  const propertyDefinitions: ParsedComponentProperty[] = [];
+  forEach(propertySymbols, (propertySymbol) => {
+    if (isPropertySignatureSymbol(propertySymbol)) {
+      propertyDefinitions.push(propertySignatureToPropertyDefinition(context, propertySymbol, defaultProps));
+    }
+
+    if (isMethodSignatureSymbol(propertySymbol)) {
+      propertyDefinitions.push(convertMethodSignatureSymbolToPropertyDefinition(context, propertySymbol));
+    }
+  });
+
+  return propertyDefinitions;
+}
+
+function decorateUnionTypesIfPossible(
+  propertySymbols: ts.Symbol[],
+  context: TSSerializationContext,
+  defaultProps: DefaultProps
+) {
+  const propertyDefinitions = getPropertyDefinitions(propertySymbols, context, defaultProps);
+  const unionType: PropertyType<'union'> = {
+    name: 'union',
+    structure: { elements: [] },
+  };
+
+  if (hasUnionType(propertyDefinitions)) {
+    /**
+     * it resolves this case
+     * type IconProps = {
+     *  icon: "icon";
+     * };
+     *
+     * type OtherProps = {
+     *  icon?: "disc" | "circle" | "square" | "number";
+     * };
+     *
+     * type Props = IconProps | OtherProps
+     */
+    forEach(propertyDefinitions, (propertyDefinition) => {
+      if (propertyDefinition.type?.name === 'union') {
+        unionType.structure.elements.push(...(propertyDefinition.type as PropertyType<'union'>).structure.elements);
+      } else if (propertyDefinition.type) {
+        unionType.structure.elements.push(propertyDefinition.type);
+      }
+    });
+
+    head(propertyDefinitions)!.type = unionType;
+  } else if (everyTypesAreValidAndTheSame(propertyDefinitions)) {
+    /**
+     * it resolves this case
+     * type IconProps = {
+     *  icon: "icon";
+     * };
+     *
+     * type OtherProps = {
+     *  icon?: "disc";
+     * };
+     *
+     * type OtherOtherProps = {
+     *  icon?: "square";
+     * };
+     *
+     * type Props = IconProps | OtherProps | OtherOtherProps
+     */
+    forEach(propertyDefinitions, (propertyDefinition) => {
+      if (propertyDefinition.type) {
+        unionType.structure.elements.push(propertyDefinition.type);
+      }
+    });
+
+    head(propertyDefinitions)!.type = unionType;
+  }
+
+  // if above conditions fails we support first valid property definition as we did before this fix
+  return head(propertyDefinitions)!;
 }
