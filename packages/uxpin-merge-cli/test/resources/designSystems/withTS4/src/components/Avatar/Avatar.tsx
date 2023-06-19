@@ -9,14 +9,24 @@ interface User {
 
 type UserWithoutEmail = Omit<User, 'email'>;
 
-export interface Props {
+type CommonProps = {
   size: string;
   imageUrl: string;
   test: Test;
   user: UserWithoutEmail;
-}
+};
 
-export default class Avatar extends React.PureComponent<Props> {
+type IconProps = CommonProps & {
+  icon: 'icon';
+};
+
+type Props = CommonProps & {
+  icon?: 'disc' | 'circle' | 'square' | 'number';
+};
+
+type AvatarProps = IconProps | Props;
+
+export default class Avatar extends React.PureComponent<AvatarProps> {
   public static displayName = 'Gravatar';
 
   public static defaultProps: Partial<Props> = {
