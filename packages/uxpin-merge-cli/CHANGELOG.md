@@ -3,7 +3,7 @@
 
 ### Changed
 
-- Fix for `unable to find revision...` issue during removing branch ([#378](https://github.com/UXPin/uxpin-merge-tools/pull/376))
+- Fix for `unable to find revision...` issue during removing branch ([#378](https://github.com/UXPin/uxpin-merge-tools/pull/378))
 - Improving parsing TS files for union type ([#377](https://github.com/UXPin/uxpin-merge-tools/pull/377))
 
 ## [3.0.3] - 2023-05-22
