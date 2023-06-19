@@ -1,4 +1,11 @@
 # Changelog
+## [3.0.4] - 2023-06-19
+
+### Changed
+
+- Fix for `unable to find revision...` issue during removing branch ([#378](https://github.com/UXPin/uxpin-merge-tools/pull/376))
+- Improving parsing TS files for union type ([#377](https://github.com/UXPin/uxpin-merge-tools/pull/377))
+
 ## [3.0.3] - 2023-05-22
 
 ### Changed
