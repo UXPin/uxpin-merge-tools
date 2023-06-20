@@ -14,7 +14,6 @@ export function deleteRepositoryPointer(deleteOptions: DeleteOptions): StepExecu
     const apiDomain: string = getApiDomain(deleteOptions.uxpinApiDomain!);
     const authToken: string = deleteOptions.token!;
     const vcsDetails: VCSDetails = designSystem.result.vcs;
-    const commitHash: string = vcsDetails.commitHash;
     const branch: string | undefined =
       vcsDetails && !isDefaultBranch(vcsDetails.branchName) ? vcsDetails.branchName : undefined;
     const tag: string | undefined = deleteOptions.tag;
@@ -33,7 +32,6 @@ export function deleteRepositoryPointer(deleteOptions: DeleteOptions): StepExecu
       await deleteTagWithPrintMessage({
         apiDomain,
         authToken,
-        commitHash,
         tag,
       });
       return designSystem;
@@ -44,7 +42,6 @@ export function deleteRepositoryPointer(deleteOptions: DeleteOptions): StepExecu
         apiDomain,
         authToken,
         branch,
-        commitHash,
       });
       return designSystem;
     }
@@ -53,17 +50,12 @@ export function deleteRepositoryPointer(deleteOptions: DeleteOptions): StepExecu
   };
 }
 
-async function deleteTagWithPrintMessage(opts: {
-  apiDomain: string;
-  authToken: string;
-  commitHash: string;
-  tag: string;
-}): Promise<void> {
+async function deleteTagWithPrintMessage(opts: { apiDomain: string; authToken: string; tag: string }): Promise<void> {
   try {
     await deleteTag(opts);
     printLine(`🏷️  Library tag version [${opts.tag}] has been deleted.`, { color: PrintColor.YELLOW });
   } catch (error) {
-    printLine(`🛑 There was an error while deleting tag [${opts.tag}] at commit hash [${opts.commitHash}]`, {
+    printLine(`🛑 There was an error while deleting tag [${opts.tag}]`, {
       color: PrintColor.RED,
     });
     throw new Error((error as Error).message);
@@ -74,7 +66,6 @@ async function deleteRepositoryPointerWithPrintMessage(opts: {
   apiDomain: string;
   authToken: string;
   branch: string;
-  commitHash: string;
 }): Promise<void> {
   try {
     await deleteRepositoryPointerToBranch(opts);
