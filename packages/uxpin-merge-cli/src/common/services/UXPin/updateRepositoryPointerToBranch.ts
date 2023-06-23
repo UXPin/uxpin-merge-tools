@@ -2,7 +2,6 @@ import { isTestEnv } from '../../../program/env/isTestEnv';
 import { axiosWithEnhancedError } from '../../../utils/axiosWithEnhancedError';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
-import { encodeBranchName } from './params/encodeBranchName';
 
 export const enum RepositoryPointerType {
   Branch = 'branch',
@@ -36,7 +35,7 @@ export async function updateRepositoryPointerToBranch(opts: {
     throw new Error('Missing auth token for repository pointer update');
   }
 
-  const branchName: string = encodeBranchName(opts.branch);
+  const branchName: string = opts.branch;
 
   return axiosWithEnhancedError({
     data: {
