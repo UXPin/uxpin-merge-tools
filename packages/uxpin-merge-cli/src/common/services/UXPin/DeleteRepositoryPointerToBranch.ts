@@ -3,7 +3,6 @@ import { isTestEnv } from '../../../program/env/isTestEnv';
 import { axiosWithEnhancedError } from '../../../utils/axiosWithEnhancedError';
 import { getAuthHeaders } from './headers/getAuthHeaders';
 import { getUserAgentHeaders } from './headers/getUserAgentHeaders';
-import { encodeBranchName } from './params/encodeBranchName';
 
 export async function deleteRepositoryPointerToBranch(opts: {
   apiDomain: string;
@@ -15,7 +14,7 @@ export async function deleteRepositoryPointerToBranch(opts: {
     return Promise.resolve();
   }
 
-  const branchName: string = encodeBranchName(opts.branch);
+  const branchName: string = opts.branch;
 
   await axiosWithEnhancedError({
     data: {

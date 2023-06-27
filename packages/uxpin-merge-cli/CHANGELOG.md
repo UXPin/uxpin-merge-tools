@@ -1,4 +1,9 @@
 # Changelog
+## [3.0.5] - 2023-06-26
+
+### Changed
+- Remove encoding of branch name when using push or delete commands ([#387](https://github.com/UXPin/uxpin-merge-tools/pull/387))
+
 ## [3.0.4] - 2023-06-19
 
 ### Changed
