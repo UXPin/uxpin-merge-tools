@@ -1,14 +1,22 @@
 import axios, { AxiosError, AxiosPromise, AxiosRequestConfig } from 'axios';
+import debug from 'debug';
 
-export function axiosWithEnhancedError(options: AxiosRequestConfig): AxiosPromise {
-  return axios(options).catch((error: AxiosError) => {
-    if (error.response) {
+const log = debug('uxpin:http');
+
+export async function axiosWithEnhancedError(options: AxiosRequestConfig): AxiosPromise {
+  log((options.method || 'GET').toUpperCase(), options.url);
+  try {
+    const result = await axios(options);
+    log(result.status + ' ' + result.statusText)
+    return result;
+  } catch (error) {
+    if ((error as AxiosError).response) {
       throw {
-        ...(error.response.data as any),
+        ...((error as AxiosError)?.response?.data as any),
         url: options.url,
       };
     } else {
       throw error;
     }
-  });
+  }
 }
