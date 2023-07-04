@@ -1,6 +1,6 @@
 {
   "name": "@uxpin/merge-cli",
-  "version": "3.0.5-debug-mode",
+  "version": "3.0.5-debug-http-redirects",
   "description": "The Command-line tool integrates the Design System repository with: https://www.uxpin.com/merge",
   "repository": {
     "type": "git",
