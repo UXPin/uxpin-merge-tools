@@ -3,10 +3,14 @@ import debug from 'debug';
 
 const log = debug('uxpin:http');
 
+const defaultOptions: AxiosRequestConfig = {
+  maxRedirects: 10, // override the default limit of `5` to see if it fixes a customer issue
+};
+
 export async function axiosWithEnhancedError(options: AxiosRequestConfig): AxiosPromise {
   log((options.method || 'GET').toUpperCase(), options.url);
   try {
-    const result = await axios(options);
+    const result = await axios({ ...defaultOptions, ...options });
     log(result.status + ' ' + result.statusText);
     return result;
   } catch (error) {
