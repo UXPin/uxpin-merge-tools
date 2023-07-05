@@ -55,3 +55,14 @@ will print the list of options:
     server [options]            Start local web server and display the list of design system components
     summary [options]           Show only design system summary without building it
 ```
+
+## Debug mode
+
+Set the environment variable `DEBUG=uxpin*` to get a verbose output. It can help when troubleshooting or investigating performance issues.
+It uses the NPM package [debug](https://github.com/debug-js/debug).
+
+Example:
+
+```bash
+DEBUG=uxpin* npx uxpin-merge push --token ***
+```
