@@ -4,7 +4,7 @@ import { joinWarningLists } from '../../../../../common/warning/joinWarningLists
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { validateWrappers } from '../../../validation/validateWrappers';
-import { getCommentTag } from '../../comments/getCommentTag';
+import { getCommentTag, getCommentTagRawValue } from '../../comments/getCommentTag';
 import { getJSDocTagsArrayFromString } from '../../comments/getJSDocTagsArrayFromString';
 import { CommentTags } from '../../CommentTags';
 import { ComponentNamespace } from '../../ComponentDefinition';
@@ -71,7 +71,11 @@ function getValuesFromComments(
 
   const namespace: ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
   const componentDocUrl: string | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
-  const usePortal: boolean | undefined = !!getCommentTag(CommentTags.UXPIN_USE_PORTAL, jsDocTags) || undefined;
+
+  const usePortal: boolean | string | undefined = getCommentTagRawValue(CommentTags.UXPIN_USE_PORTAL, jsDocTags);
+
+  console.log({usePortal});
+
   return { namespace, componentDocUrl, usePortal };
 }
 
@@ -93,5 +97,5 @@ interface PartialResult {
   properties: PropDefinitionSerializationResult[];
   wrappers: Warned<ComponentWrapper[]>;
   defaultExported: boolean;
-  usePortal?: boolean;
+  usePortal?: boolean | string;
 }

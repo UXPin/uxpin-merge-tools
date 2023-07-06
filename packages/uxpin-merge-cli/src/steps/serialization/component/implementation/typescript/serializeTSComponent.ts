@@ -38,7 +38,10 @@ export async function serializeTSComponent(
   const wrappers: ComponentWrapper[] = getComponentWrappers(declaration);
   const validatedWrappers: Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
   const defaultExported: boolean = isDefaultExported(declaration, context);
-  const usePortal: boolean | undefined = getComponentUsePortal(declaration) || undefined;
+  const usePortal = getComponentUsePortal(declaration) || undefined;
+
+  console.log({usePortal});
+
 
   return {
     result: {
