@@ -1,3 +1,5 @@
+import debug from 'debug';
+
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo, TypeScriptConfig } from '../../../../discovery/component/ComponentInfo';
@@ -19,6 +21,8 @@ import { isDefaultExported } from './component/isDefaultExported';
 import { getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
 import { parseTSComponentProperties } from './parseTSComponentProperties';
 
+const log = debug('uxpin:serialize');
+
 export async function serializeTSComponent(
   component: ComponentImplementationInfo,
   config?: TypeScriptConfig
@@ -38,10 +42,9 @@ export async function serializeTSComponent(
   const wrappers: ComponentWrapper[] = getComponentWrappers(declaration);
   const validatedWrappers: Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
   const defaultExported: boolean = isDefaultExported(declaration, context);
+
   const usePortal = getComponentUsePortal(declaration) || undefined;
-
-  console.log({usePortal});
-
+  if (usePortal) log(`Portal component detected`, name, usePortal);
 
   return {
     result: {

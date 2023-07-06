@@ -1,5 +1,7 @@
+import debug from 'debug';
 import { toPairs } from 'lodash';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
+
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
@@ -20,6 +22,8 @@ import { getComponentNamespaceFromDescription } from './getComponentNamespaceFro
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 import { isDefaultExported } from './isDefaultExported';
 import { parsePropertyItem } from './parsePropertyItem';
+
+const log = debug('uxpin:serialization')
 
 export function serializeJSComponent(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
   return getDefaultComponentFrom(component.path)
@@ -73,8 +77,7 @@ function getValuesFromComments(
   const componentDocUrl: string | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
 
   const usePortal: boolean | string | undefined = getCommentTagRawValue(CommentTags.UXPIN_USE_PORTAL, jsDocTags);
-
-  console.log({usePortal});
+  if (usePortal) log(`Portal component detected`, name, usePortal);
 
   return { namespace, componentDocUrl, usePortal };
 }
