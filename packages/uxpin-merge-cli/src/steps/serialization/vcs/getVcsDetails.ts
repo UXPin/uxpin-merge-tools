@@ -1,3 +1,4 @@
+import debug from 'debug';
 import { getApiDomain } from '../../../common/services/UXPin/getApiDomain';
 import { getLatestCommitHash } from '../../../common/services/UXPin/getLatestCommitHash';
 import { BuildOptions } from '../../../steps/building/BuildOptions';
@@ -8,6 +9,8 @@ import { filterMovedFiles } from './filterMovedFiles';
 import { getRepositoryAdapter } from './repositories/getRepositoryAdapter';
 import { RepositoryAdapter, RepositoryPointer } from './repositories/RepositoryAdapter';
 import { Command } from '../../../program/command/Command';
+
+const log = debug('uxpin');
 
 export async function getVcsDetails(
   paths: ProjectPaths,
@@ -20,6 +23,7 @@ export async function getVcsDetails(
   let latestCommitHash: string | null = null;
 
   if (buildOptions.token && shouldGetLatestCommitHash) {
+    log(`Fetch latest commit hash`);
     latestCommitHash = await getLatestCommitHash(
       getApiDomain(buildOptions.uxpinApiDomain!),
       repositoryPointer.branchName,
@@ -33,6 +37,8 @@ export async function getVcsDetails(
     paths,
   };
 
+  log(`Latest commit`, vcs.branchName, vcs.commitHash);
+
   if (latestCommitHash) {
     const movedFiles: MovedFilePathsMap = await repositoryAdapter.getMovedFiles(
       latestCommitHash,
@@ -43,6 +49,7 @@ export async function getVcsDetails(
       components: filterMovedFiles(movedFiles, categorizedComponents),
       diffSourceCommitHash: latestCommitHash,
     };
+    if (Object.keys(movedFiles).length) log(`Moved files`, Object.keys(movedFiles).length);
   }
 
   return vcs;

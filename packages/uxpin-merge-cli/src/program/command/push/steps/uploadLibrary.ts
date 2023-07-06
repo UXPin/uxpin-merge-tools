@@ -151,7 +151,7 @@ async function updateRepositoryPointerWithPrintMessage(opts: {
     // Update the repository pointer to point to the new branch
     await updateRepositoryPointerToBranch(opts);
 
-    printLine(`🛈  Projects using this Design System have been updated to branch [${opts.branch}]`, {
+    printLine(`√ Projects using this Design System have been updated to branch [${opts.branch}]`, {
       color: PrintColor.CYAN,
     });
   } catch (error) {

@@ -1,3 +1,4 @@
+import debug from 'debug';
 import { pathExists, readJSON } from 'fs-extra';
 import { join } from 'path';
 import pMap from 'p-map';
@@ -23,6 +24,8 @@ import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
 import { validateComponentNamespaces } from './validation/validateComponentNamespaces';
 import { getVcsDetails } from './vcs/getVcsDetails';
 
+const log = debug('uxpin');
+
 export async function getDesignSystemMetadata(
   programArgs: ProgramArgs,
   paths: ProjectPaths
@@ -31,7 +34,9 @@ export async function getDesignSystemMetadata(
   const libraryName: string = getLibraryName(paths);
 
   const categoryInfos: ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
-  const categories: Array<Warned<ComponentCategory>> = await pMap(categoryInfos, categoryInfoToMetadata);
+  const categories: Array<Warned<ComponentCategory>> = await pMap(categoryInfos, categoryInfoToMetadata, {
+    concurrency: 1,
+  });
   const categoriesWithPresets: Array<Warned<ComponentCategory>> = await decorateWithPresets(categories, programArgs);
 
   const categorizedComponents: ComponentCategory[] = categoriesWithPresets.map((category) => category.result);
@@ -54,8 +59,11 @@ async function categoryInfoToMetadata({
   name,
 }: ComponentCategoryInfo): Promise<Warned<ComponentCategory>> {
   const config = await getTypeScriptConfig();
-  const components: Array<Warned<ComponentDefinition>> = await pMap(componentInfos, (info: ComponentInfo) =>
-    componentInfoToDefinition(info, config)
+  log(`Get metadata from ${name} category components`);
+  const components: Array<Warned<ComponentDefinition>> = await pMap(
+    componentInfos,
+    (info: ComponentInfo) => componentInfoToDefinition(info, config),
+    { concurrency: 1 }
   );
 
   return {

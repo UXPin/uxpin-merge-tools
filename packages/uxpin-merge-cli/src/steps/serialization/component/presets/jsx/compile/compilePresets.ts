@@ -1,3 +1,4 @@
+import debug from 'debug';
 import { unlink } from 'fs-extra';
 import { join, parse } from 'path';
 import * as webpack from 'webpack';
@@ -11,9 +12,14 @@ import { createBundleSource } from '../bundle/createBundleSource';
 import { generateVirtualModules, VirtualComponentModule } from './generateVirtualModules';
 import { getPresetsBundleWebpackConfig } from './getPresetsBundleWebpackConfig';
 
+const log = debug('uxpin:serialization:presets');
+
 export async function compilePresets(programArgs: ProgramArgs, components: ComponentDefinition[]): Promise<string> {
+  log('Create temporary bundle');
   const sourcePath: string = await createBundleSource(programArgs, components);
+  log(`Compile presets with Webpack (${components.length} components)`);
   const bundlePath: string = await compileWithWebpack(programArgs, components, sourcePath);
+  log('Compilation OK, delete temporary bundle');
   await unlink(sourcePath);
 
   return bundlePath;
@@ -38,6 +44,7 @@ async function compileWithWebpack(
     virtualModules,
     webpackConfig,
   });
+
   const compiler: Compiler = new WebpackCompiler(config);
   await compiler.compile();
 
