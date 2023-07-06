@@ -6,10 +6,11 @@ const log = debug('uxpin');
 
 export async function isGitRepository(cwd: string): Promise<boolean> {
   try {
+    log('Git repository check');
     await execAsync('git status', { cwd });
     return true;
   } catch (error) {
-    log(`git status failed`, (error as Error).message);
+    log((error as Error).message);
     return false;
   }
 }
