@@ -1,10 +1,15 @@
+import debug from 'debug';
+
 import { execAsync } from '../../../../../../utils/child_process/execAsync';
+
+const log = debug('uxpin');
 
 export async function isGitRepository(cwd: string): Promise<boolean> {
   try {
     await execAsync('git status', { cwd });
     return true;
-  } catch (e) {
+  } catch (error) {
+    log(`git status failed`, (error as Error).message);
     return false;
   }
 }
