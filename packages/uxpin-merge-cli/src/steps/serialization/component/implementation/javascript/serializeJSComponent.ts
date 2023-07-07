@@ -6,7 +6,7 @@ import { joinWarningLists } from '../../../../../common/warning/joinWarningLists
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { validateWrappers } from '../../../validation/validateWrappers';
-import { getCommentTag, getCommentTagRawValue } from '../../comments/getCommentTag';
+import { getCommentTag } from '../../comments/getCommentTag';
 import { getJSDocTagsArrayFromString } from '../../comments/getJSDocTagsArrayFromString';
 import { CommentTags } from '../../CommentTags';
 import { ComponentNamespace } from '../../ComponentDefinition';
@@ -19,6 +19,7 @@ import { PropDefinitionSerializationResult } from '../PropDefinitionSerializatio
 import { getComponentDocUrlFromDescription } from './getComponentDocUrlFromDescription';
 import { getComponentName } from './getComponentName';
 import { getComponentNamespaceFromDescription } from './getComponentNamespaceFromDescription';
+import { getComponentUsePortalFromJsDocTags } from './getComponentUsePortalFromJsDocTags';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 import { isDefaultExported } from './isDefaultExported';
 import { parsePropertyItem } from './parsePropertyItem';
@@ -76,7 +77,7 @@ function getValuesFromComments(
   const namespace: ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
   const componentDocUrl: string | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
 
-  const usePortal: boolean | string | undefined = getCommentTagRawValue(CommentTags.UXPIN_USE_PORTAL, jsDocTags);
+  const usePortal: boolean | string | undefined = getComponentUsePortalFromJsDocTags(jsDocTags);
   if (usePortal) log(`Portal component detected`, name, usePortal);
 
   return { namespace, componentDocUrl, usePortal };

@@ -4,6 +4,7 @@ import {
   ExportDefaultDeclaration,
   ExportNamedDeclaration,
   ExportSpecifier,
+  ExpressionStatement,
   FunctionDeclaration,
   Identifier,
   ImportDeclaration,
@@ -27,7 +28,7 @@ export function isDefaultExported(componentPath: string, name: string): boolean 
     return false;
   }
 
-  type nodeTypes = ExportDefaultDeclaration | ExportNamedDeclaration | ImportDeclaration;
+  type nodeTypes = ExportDefaultDeclaration | ExportNamedDeclaration | ImportDeclaration | ExpressionStatement;
   let isNamedExported = false;
   let exportDefaultDeclaration: ExportDefaultDeclaration | undefined;
 

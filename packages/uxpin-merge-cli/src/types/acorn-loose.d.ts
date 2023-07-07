@@ -4,7 +4,7 @@ import { Node, Options } from 'acorn';
 export declare function parse(code: string, opts?: Options): ModuleNode;
 
 export interface ModuleNode extends Node {
-  body?: (ImportDeclaration | ExportDefaultDeclaration)[];
+  body?: (ImportDeclaration | ExportDefaultDeclaration | ExpressionStatement)[];
 }
 
 export interface ExportDefaultDeclaration extends Node {
@@ -90,4 +90,12 @@ export interface VariableDeclarator extends Node {
 export interface CallExpression extends Node {
   type: 'CallExpression';
   arguments: (Identifier | CallExpression)[];
+}
+
+export interface ExpressionStatement extends Node {
+  type: 'ExpressionStatement';
+  expression: {
+    type: string;
+    raw: string;
+  };
 }
