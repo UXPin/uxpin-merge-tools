@@ -24,7 +24,7 @@ import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 import { isDefaultExported } from './isDefaultExported';
 import { parsePropertyItem } from './parsePropertyItem';
 
-const log = debug('uxpin:serialization');
+const log = debug('uxpin:serialization:js');
 
 export function serializeJSComponent(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
   return getDefaultComponentFrom(component.path)

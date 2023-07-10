@@ -21,7 +21,7 @@ import { isDefaultExported } from './component/isDefaultExported';
 import { getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
 import { parseTSComponentProperties } from './parseTSComponentProperties';
 
-const log = debug('uxpin:serialize');
+const log = debug('uxpin:serialization:ts');
 
 export async function serializeTSComponent(
   component: ComponentImplementationInfo,
