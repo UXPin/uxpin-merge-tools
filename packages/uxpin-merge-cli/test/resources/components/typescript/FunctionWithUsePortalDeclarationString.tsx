@@ -5,9 +5,9 @@ export interface Props {
 }
 
 /**
- * @uxpinuseportal
+ * @uxpinuseportal props.mode === "modal"
  */
-export default function FunctionWithUsePortalDeclaration({ name }: Props): JSX.Element {
+export default function FunctionWithUsePortalDeclarationString({ name }: Props): JSX.Element {
   return (
     <div>
       <label className={name}>{name}</label>
