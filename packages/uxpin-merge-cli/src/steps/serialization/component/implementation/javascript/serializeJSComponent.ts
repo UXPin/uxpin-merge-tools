@@ -1,5 +1,7 @@
+import debug from 'debug';
 import { toPairs } from 'lodash';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
+
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
@@ -17,9 +19,12 @@ import { PropDefinitionSerializationResult } from '../PropDefinitionSerializatio
 import { getComponentDocUrlFromDescription } from './getComponentDocUrlFromDescription';
 import { getComponentName } from './getComponentName';
 import { getComponentNamespaceFromDescription } from './getComponentNamespaceFromDescription';
+import { getComponentUsePortalFromJsDocTags } from './getComponentUsePortalFromJsDocTags';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 import { isDefaultExported } from './isDefaultExported';
 import { parsePropertyItem } from './parsePropertyItem';
+
+const log = debug('uxpin:serialization:js');
 
 export function serializeJSComponent(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
   return getDefaultComponentFrom(component.path)
@@ -71,7 +76,10 @@ function getValuesFromComments(
 
   const namespace: ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
   const componentDocUrl: string | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
-  const usePortal: boolean | undefined = !!getCommentTag(CommentTags.UXPIN_USE_PORTAL, jsDocTags) || undefined;
+
+  const usePortal: boolean | string | undefined = getComponentUsePortalFromJsDocTags(jsDocTags);
+  if (usePortal) log(`Portal component detected`, name, usePortal);
+
   return { namespace, componentDocUrl, usePortal };
 }
 
@@ -93,5 +101,5 @@ interface PartialResult {
   properties: PropDefinitionSerializationResult[];
   wrappers: Warned<ComponentWrapper[]>;
   defaultExported: boolean;
-  usePortal?: boolean;
+  usePortal?: boolean | string;
 }
