@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.0.7] - 2023-07-11
+## [3.1.0] - 2023-07-11
 
 - Accept a function for `@uxpinuseportal` annotation to make the "Render in Portal" behavior dynamic ([#391](https://github.com/UXPin/uxpin-merge-tools/pull/391))
 
