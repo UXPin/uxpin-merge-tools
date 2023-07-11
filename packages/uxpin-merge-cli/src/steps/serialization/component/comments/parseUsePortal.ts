@@ -5,6 +5,9 @@ import debug from 'debug';
 const log = debug('uxpin:serialization:jsdoc-parsing');
 
 export function parseUsePortal(tagValue: string) {
+  if (tagValue.toLowerCase() === 'false') return false;
+  if (tagValue.toLowerCase() === 'true') return true;
+
   if (!ensureIsValidCondition(tagValue)) {
     throw new Error(
       '@uxpinuseportal annotation should be followed by a valid JavaScript condition using the `props` object'
