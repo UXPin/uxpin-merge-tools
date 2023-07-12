@@ -10,7 +10,6 @@ import { updatePage } from './updatePage';
 
 export const PAGE_FILE_NAME = 'page.json';
 
-// tslint:disable prefer-function-over-method
 export class PageSaveHandler implements RequestHandler {
   constructor(private context: ExperimentationServerContext) {}
 

@@ -7,7 +7,6 @@ import {
 } from '../../JSXSerializationResult';
 import { ComponentPlaceholder } from '../generateVirtualModules';
 
-// tslint:disable-next-line:function-name
 function __uxpinParsePreset(
   component: ComponentPlaceholder | string | any,
   props?: JSXSerializedElementProps,

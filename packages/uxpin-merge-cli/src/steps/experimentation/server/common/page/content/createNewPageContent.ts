@@ -8,8 +8,6 @@ import { getDesignSystemId } from '../data/codeSync/getDesignSystemId';
 import { getPresetId } from '../data/codeSync/preset/getPresetId';
 import { PageContentContext } from './getPageContent';
 
-// tslint:disable-next-line:no-var-requires
-
 const INTRO_COMPONENTS_COUNT = 3;
 const ELEMENT_ID_LENGTH = 32;
 const ELEMENT_PLACEMENT_OFFSET = 200;

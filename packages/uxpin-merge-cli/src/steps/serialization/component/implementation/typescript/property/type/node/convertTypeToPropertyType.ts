@@ -14,7 +14,6 @@ import { serializeKnownPropertyType } from './serializeKnownPropertyType';
 import { serializeLiteralType } from './serializeLiteralType';
 import { serializeUnionType } from './serializeUnionType';
 
-// tslint:disable no-bitwise
 export function convertTypeToPropertyType(
   context: TSSerializationContext,
   type: ts.Type,
