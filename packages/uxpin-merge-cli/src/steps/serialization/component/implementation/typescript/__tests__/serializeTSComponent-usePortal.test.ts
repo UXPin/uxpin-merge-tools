@@ -4,7 +4,6 @@ import { ComponentMetadata } from '../../../ComponentDefinition';
 import { serializeTSComponent } from '../serializeTSComponent';
 import { getImplementation } from './utils/getImplementation';
 
-
 describe('serializeTSComponent-usePortal', () => {
   it('is serialized with `usePortal` property set to the boolean `true`', async () => {
     // having
