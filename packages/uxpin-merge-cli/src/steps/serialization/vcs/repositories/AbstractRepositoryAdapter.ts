@@ -1,7 +1,6 @@
 import { MovedFilePathsMap } from '../../DesignSystemSnapshot';
 import { CommitMetadata, RepositoryAdapter, RepositoryPointer } from './RepositoryAdapter';
 
-// tslint:disable prefer-function-over-method
 export abstract class AbstractRepositoryAdapter implements RepositoryAdapter {
   public async getRepositoryPointer(): Promise<RepositoryPointer> {
     return {

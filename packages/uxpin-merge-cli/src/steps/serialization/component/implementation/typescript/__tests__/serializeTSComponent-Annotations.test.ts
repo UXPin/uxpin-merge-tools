@@ -1,7 +1,7 @@
 import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../ComponentDefinition';
 import { serializeTSComponent } from '../serializeTSComponent';
-import { getImplementation } from './serializeTSComponent.test';
+import { getImplementation } from './utils/getImplementation';
 
 describe('serializeTSComponent-Annotations', () => {
   describe('function with bind annotation', () => {

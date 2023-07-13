@@ -10,7 +10,6 @@ interface ReactDocgenOptionsWithBabelConfig extends ReactDocgenOptions {
   configFile?: boolean;
 }
 
-// tslint:disable-next-line: max-line-length
 const parsers: Array<
   (file: string, handlers: Handler[], options: ReactDocgenOptionsWithBabelConfig) => ComponentDoc | undefined
 > = [parseWithAnnotation, parseDefault];

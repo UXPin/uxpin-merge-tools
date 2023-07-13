@@ -2,7 +2,7 @@ import { Warned } from '../../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../ComponentDefinition';
 import { serializeTSComponent } from '../serializeTSComponent';
-import { getImplementation } from './serializeTSComponent.test';
+import { getImplementation } from './utils/getImplementation';
 
 describe('serializeTSComponent-usePortal', () => {
   it('is serialized with `usePortal` property set to the boolean `true`', async () => {

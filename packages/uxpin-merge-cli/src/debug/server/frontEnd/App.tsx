@@ -5,7 +5,6 @@ import { BuiltLibrary } from './BuiltLibrary';
 import { ComponentsList } from './ComponentsList';
 import { thunkRenderExample } from './thunkRenderExample';
 
-// tslint:disable:no-var-requires
 require('require1k');
 declare let R: any;
 const {

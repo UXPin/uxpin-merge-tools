@@ -9,7 +9,6 @@ interface Token {
   value?: string;
 }
 
-// tslint:disable variable-name
 export const Syntax: typeof ASTNodeTypes = ASTNodeTypes;
 
 export declare function parse(text: string): Token;
