@@ -144,7 +144,8 @@
   },
   "resolutions": {
     "@types/tapable": "1.0.0",
+    "chrome-launcher": "0.13.2",
     "minimist": "1.2.8",
-    "chrome-launcher": "0.13.2"
+    "kind-of": "6.0.3"
   }
 }
