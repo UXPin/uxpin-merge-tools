@@ -1,8 +1,6 @@
 import debug from 'debug';
-import { pathExists, readJSON } from 'fs-extra';
-import { join } from 'path';
+import { flatten } from 'lodash';
 import pMap from 'p-map';
-import * as ts from 'typescript';
 
 import { joinWarningLists } from '../../common/warning/joinWarningLists';
 import { Warned } from '../../common/warning/Warned';
@@ -11,7 +9,7 @@ import { getBuildOptions } from '../../program/command/push/getBuildOptions';
 import { BuildOptions } from '../building/BuildOptions';
 import { ComponentCategoryInfo } from '../discovery/component/category/ComponentCategoryInfo';
 import { getComponentCategoryInfos } from '../discovery/component/category/getComponentCategoryInfos';
-import { ComponentInfo, TypeScriptConfig } from '../discovery/component/ComponentInfo';
+import { ComponentInfo } from '../discovery/component/ComponentInfo';
 import { getLibraryName } from '../discovery/library/getLibraryName';
 import { ProjectPaths } from '../discovery/paths/ProjectPaths';
 import { ComponentCategory } from './component/categories/ComponentCategory';
@@ -23,6 +21,7 @@ import { decorateWithPresets } from './component/presets/decorateWithPresets';
 import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
 import { validateComponentNamespaces } from './validation/validateComponentNamespaces';
 import { getVcsDetails } from './vcs/getVcsDetails';
+import { MergeComponentSerializer } from './serializer';
 
 const log = debug('uxpin');
 
@@ -34,9 +33,18 @@ export async function getDesignSystemMetadata(
   const libraryName: string = getLibraryName(paths);
 
   const categoryInfos: ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
-  const categories: Array<Warned<ComponentCategory>> = await pMap(categoryInfos, categoryInfoToMetadata, {
-    concurrency: 1,
-  });
+
+  const components = flatten(
+    categoryInfos.map((category) => category.componentInfos.map((component) => component.implementation))
+  );
+  const serializer = new MergeComponentSerializer(components);
+  await serializer.init();
+
+  const categories: Array<Warned<ComponentCategory>> = await pMap(
+    categoryInfos,
+    (category) => categoryInfoToMetadata(category, serializer),
+    { concurrency: 1 }
+  );
   const categoriesWithPresets: Array<Warned<ComponentCategory>> = await decorateWithPresets(categories, programArgs);
 
   const categorizedComponents: ComponentCategory[] = categoriesWithPresets.map((category) => category.result);
@@ -54,15 +62,14 @@ export async function getDesignSystemMetadata(
   };
 }
 
-async function categoryInfoToMetadata({
-  componentInfos,
-  name,
-}: ComponentCategoryInfo): Promise<Warned<ComponentCategory>> {
-  const config = await getTypeScriptConfig();
-  log(`Get metadata from ${name} category components`);
+async function categoryInfoToMetadata(
+  { componentInfos, name }: ComponentCategoryInfo,
+  serializer: MergeComponentSerializer
+): Promise<Warned<ComponentCategory>> {
+  log(`Get metadata from "${name}" category components`);
   const components: Array<Warned<ComponentDefinition>> = await pMap(
     componentInfos,
-    (info: ComponentInfo) => componentInfoToDefinition(info, config),
+    (info: ComponentInfo) => componentInfoToDefinition(info, serializer),
     { concurrency: 1 }
   );
 
@@ -77,9 +84,9 @@ async function categoryInfoToMetadata({
 
 async function componentInfoToDefinition(
   info: ComponentInfo,
-  config?: TypeScriptConfig
+  serializer: MergeComponentSerializer
 ): Promise<Warned<ComponentDefinition>> {
-  const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(info.implementation, config);
+  const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(info.implementation, serializer);
   const { result: examples, warnings: exampleWarnings } = await serializeOptionalExamples(info);
   return {
     result: { info, ...metadata, documentation: { examples }, presets: [] },
@@ -93,14 +100,4 @@ async function serializeOptionalExamples(info: ComponentInfo): Promise<ExamplesS
   }
 
   return await serializeExamples(info.documentation.path);
-}
-
-// Read the local TS config to take into account `paths` option used for absolute imports
-async function getTypeScriptConfig(): Promise<TypeScriptConfig | undefined> {
-  const configFilepath = join(process.cwd(), 'tsconfig.json');
-  const exists = await pathExists(configFilepath);
-  if (!exists) return undefined;
-  const tsConfig = (await readJSON(configFilepath)) as { compilerOptions: ts.CompilerOptions };
-
-  return { compilerOptions: tsConfig.compilerOptions };
 }

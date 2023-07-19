@@ -1,23 +1,11 @@
-import debug from 'debug';
-import { ComponentImplementationInfo, TypeScriptConfig } from '../../../discovery/component/ComponentInfo';
-import { thunkGetSummaryResultForInvalidComponent } from './getSummaryResultForInvalidComponent';
+import { ComponentImplementationInfo } from '../../../discovery/component/ComponentInfo';
+import { MergeComponentSerializer } from '../../serializer';
 import { ImplSerializationResult } from './ImplSerializationResult';
-import { serializeJSComponent } from './javascript/serializeJSComponent';
-import { serializeTSComponent } from './typescript/serializeTSComponent';
 
-const log = debug('uxpin:serialization');
-
+// TODO: we don't need this function, we should use the serializer directly
 export function getComponentMetadata(
   component: ComponentImplementationInfo,
-  config?: TypeScriptConfig
+  serializer: MergeComponentSerializer
 ): Promise<ImplSerializationResult> {
-  let promise: Promise<ImplSerializationResult>;
-  if (component.lang === 'typescript') {
-    log(`Serialize TS component`, component.path);
-    promise = serializeTSComponent(component, config);
-  } else {
-    log(`Serialize JS component`, component.path);
-    promise = serializeJSComponent(component);
-  }
-  return promise.catch(thunkGetSummaryResultForInvalidComponent(component.path));
+  return serializer.serialize(component);
 }

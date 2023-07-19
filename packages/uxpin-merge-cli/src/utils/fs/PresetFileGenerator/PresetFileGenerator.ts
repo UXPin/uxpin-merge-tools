@@ -1,6 +1,7 @@
 import { mkdir, pathExists, readFile } from 'fs-extra';
 import { kebabCase } from 'lodash';
 import { dirname, relative, resolve } from 'path';
+import { MergeComponentSerializer } from '../../../steps/serialization/serializer';
 import { ComponentImplementationInfo } from '../../../steps/discovery/component/ComponentInfo';
 import { getImplementationInfo } from '../../../steps/discovery/component/implementation/getImplementationInfo';
 import { ComponentMetadata } from '../../../steps/serialization/component/ComponentDefinition';
@@ -49,7 +50,8 @@ export class PresetFileGenerator {
       throw Error(`🛑 Invalid component path - ${this.componentPath}`);
     }
 
-    const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(implementationInfo);
+    const serializer = new MergeComponentSerializer([implementationInfo]);
+    const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(implementationInfo, serializer);
 
     if (metadataWarnings.length && !metadata.properties.length) {
       throw new Error(metadataWarnings[0].message);

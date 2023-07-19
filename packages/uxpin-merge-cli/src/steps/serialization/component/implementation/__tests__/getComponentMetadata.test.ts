@@ -2,13 +2,14 @@ import {
   getJavaScriptComponentPath,
   getTypeScriptComponentPath,
 } from '../../../../../../test/utils/resources/getExampleComponentPath';
+import { MergeComponentSerializer } from '../../../serializer';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../ComponentDefinition';
 import { getComponentMetadata } from '../getComponentMetadata';
 
 describe('getComponentMetadata – integration', () => {
   describe('providing array of objects describing all properties of the component', () => {
-    it('serializes component implemented in TypeScript', () => {
+    it('serializes component implemented in TypeScript', async () => {
       // given
       const component: ComponentImplementationInfo = {
         framework: 'reactjs',
@@ -128,14 +129,16 @@ describe('getComponentMetadata – integration', () => {
       };
 
       // when
-      return getComponentMetadata(component).then((serializedProps) => {
+      const serializer = new MergeComponentSerializer([component]);
+      await serializer.init();
+      return getComponentMetadata(component, serializer).then((serializedProps) => {
         // then
         expect(serializedProps.warnings).toEqual([]);
         expect(serializedProps.result).toEqual(expectedMetadata);
       });
     });
 
-    it('serializes component implemented in JavaScript', () => {
+    it('serializes component implemented in JavaScript', async () => {
       // given
       const component: ComponentImplementationInfo = {
         framework: 'reactjs',
@@ -174,7 +177,9 @@ describe('getComponentMetadata – integration', () => {
       };
 
       // when
-      return getComponentMetadata(component).then((serializedProps) => {
+      const serializer = new MergeComponentSerializer([component]);
+      await serializer.init();
+      return getComponentMetadata(component, serializer).then((serializedProps) => {
         // then
         expect(serializedProps.result).toEqual(expectedMetadata);
         expect(serializedProps.warnings).toEqual([]);
