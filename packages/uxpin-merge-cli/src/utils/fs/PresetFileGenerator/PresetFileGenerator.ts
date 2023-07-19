@@ -51,6 +51,7 @@ export class PresetFileGenerator {
     }
 
     const serializer = new MergeComponentSerializer([implementationInfo]);
+    await serializer.init();
     const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(implementationInfo, serializer);
 
     if (metadataWarnings.length && !metadata.properties.length) {
