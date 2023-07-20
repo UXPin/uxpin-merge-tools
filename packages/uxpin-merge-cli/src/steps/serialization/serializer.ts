@@ -3,7 +3,7 @@ import { pathExists, readJSON } from 'fs-extra';
 import { join } from 'path';
 import * as ts from 'typescript';
 
-import { ComponentImplementationInfo, ComponentInfo, TypeScriptConfig } from '../discovery/component/ComponentInfo';
+import { ComponentImplementationInfo, TypeScriptConfig } from '../discovery/component/ComponentInfo';
 import { thunkGetSummaryResultForInvalidComponent } from './component/implementation/getSummaryResultForInvalidComponent';
 import { ImplSerializationResult } from './component/implementation/ImplSerializationResult';
 import { serializeJSComponent } from './component/implementation/javascript/serializeJSComponent';
@@ -15,13 +15,6 @@ const log = debug('uxpin:serialization');
 interface AbstractSerializer {
   serialize(component: ComponentImplementationInfo): Promise<ImplSerializationResult>;
 }
-
-// export class TypeScriptSerializer implements AbstractSerializer {
-//   constructor(paths: string[]) {
-//     this.program: ts.Program = createTSProgram(paths, config);
-//   }
-//   serialize(component: ComponentImplementationInfo) {}
-// }
 
 export class MergeComponentSerializer implements AbstractSerializer {
   components: ComponentImplementationInfo[];

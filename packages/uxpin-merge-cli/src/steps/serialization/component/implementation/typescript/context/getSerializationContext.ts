@@ -21,7 +21,7 @@ export function getSerializationContext(
 
   const file: ts.SourceFile | undefined = findComponentFile(program, path);
   if (!file) {
-    throw new Error(`TypeScript compiler couldn't find component file`);
+    throw new Error("TypeScript compiler couldn't find component file");
   }
 
   return {
