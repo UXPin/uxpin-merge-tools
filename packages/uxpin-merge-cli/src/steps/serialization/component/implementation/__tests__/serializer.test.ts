@@ -2,13 +2,13 @@ import {
   getJavaScriptComponentPath,
   getTypeScriptComponentPath,
 } from '../../../../../../test/utils/resources/getExampleComponentPath';
+import { MergeComponentSerializer } from '../../../serializer';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../ComponentDefinition';
-import { getComponentMetadata } from '../getComponentMetadata';
 
-describe('getComponentMetadata – integration', () => {
+describe('serializer – integration', () => {
   describe('providing array of objects describing all properties of the component', () => {
-    it('serializes component implemented in TypeScript', () => {
+    it('serializes component implemented in TypeScript', async () => {
       // given
       const component: ComponentImplementationInfo = {
         framework: 'reactjs',
@@ -128,14 +128,15 @@ describe('getComponentMetadata – integration', () => {
       };
 
       // when
-      return getComponentMetadata(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.warnings).toEqual([]);
-        expect(serializedProps.result).toEqual(expectedMetadata);
-      });
+      const serializer = new MergeComponentSerializer([component]);
+      await serializer.init();
+      const serializedProps = await serializer.serialize(component);
+      // then
+      expect(serializedProps.warnings).toEqual([]);
+      expect(serializedProps.result).toEqual(expectedMetadata);
     });
 
-    it('serializes component implemented in JavaScript', () => {
+    it('serializes component implemented in JavaScript', async () => {
       // given
       const component: ComponentImplementationInfo = {
         framework: 'reactjs',
@@ -174,11 +175,12 @@ describe('getComponentMetadata – integration', () => {
       };
 
       // when
-      return getComponentMetadata(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializer = new MergeComponentSerializer([component]);
+      await serializer.init();
+      const serializedProps = await serializer.serialize(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
   });
 });

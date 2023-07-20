@@ -1,8 +1,9 @@
 import debug from 'debug';
+import * as ts from 'typescript';
 
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { Warned } from '../../../../../common/warning/Warned';
-import { ComponentImplementationInfo, TypeScriptConfig } from '../../../../discovery/component/ComponentInfo';
+import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
 import { validateWrappers } from '../../../validation/validateWrappers';
 import { ComponentNamespace } from '../../ComponentDefinition';
 import { serializeAndValidateParsedProperties } from '../../props/serializeAndValidateParsedProperties';
@@ -18,17 +19,21 @@ import { getComponentName } from './component/getComponentName';
 import { getComponentWrappers } from './component/getComponentWrappers';
 import { ComponentDeclaration } from './component/getPropsTypeAndDefaultProps';
 import { isDefaultExported } from './component/isDefaultExported';
-import { getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
+import { createTSProgram, getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
 import { parseTSComponentProperties } from './parseTSComponentProperties';
 
 const log = debug('uxpin:serialization:ts');
 
-export async function serializeTSComponent(
-  component: ComponentImplementationInfo,
-  config?: TypeScriptConfig
-): Promise<ImplSerializationResult> {
-  const context: TSSerializationContext = getSerializationContext(component, config);
+// Called from a lot of unit tests but not from the main loop in `getDesignSystemMetadata()`
+// TODO Refactor to use only the `Serializer` class everywhere?
+export async function serializeTSComponent(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
+  const program = createTSProgram([component.path]);
+  return serializeTSComponentWithProgram(component, program);
+}
 
+// Called from the `serializer` class, to avoid the expensive creation of the `ts.Program`
+export async function serializeTSComponentWithProgram(component: ComponentImplementationInfo, program: ts.Program) {
+  const context: TSSerializationContext = getSerializationContext(component, program);
   const declaration: ComponentDeclaration | undefined = getComponentDeclaration(context);
   if (!declaration) {
     throw new Error('No component found!');
