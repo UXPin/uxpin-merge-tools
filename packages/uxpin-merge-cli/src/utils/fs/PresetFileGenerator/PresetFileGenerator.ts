@@ -5,7 +5,6 @@ import { MergeComponentSerializer } from '../../../steps/serialization/serialize
 import { ComponentImplementationInfo } from '../../../steps/discovery/component/ComponentInfo';
 import { getImplementationInfo } from '../../../steps/discovery/component/implementation/getImplementationInfo';
 import { ComponentMetadata } from '../../../steps/serialization/component/ComponentDefinition';
-import { getComponentMetadata } from '../../../steps/serialization/component/implementation/getComponentMetadata';
 import { printLine, printWarning } from '../../console/printLine';
 import { PrintColor } from '../../console/PrintOptions';
 import { writeToFile } from '../writeToFile';
@@ -52,7 +51,7 @@ export class PresetFileGenerator {
 
     const serializer = new MergeComponentSerializer([implementationInfo]);
     await serializer.init();
-    const { result: metadata, warnings: metadataWarnings } = await getComponentMetadata(implementationInfo, serializer);
+    const { result: metadata, warnings: metadataWarnings } = await serializer.serialize(implementationInfo);
 
     if (metadataWarnings.length && !metadata.properties.length) {
       throw new Error(metadataWarnings[0].message);
