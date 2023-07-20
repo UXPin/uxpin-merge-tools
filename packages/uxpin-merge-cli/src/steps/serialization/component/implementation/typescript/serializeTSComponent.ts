@@ -24,12 +24,15 @@ import { parseTSComponentProperties } from './parseTSComponentProperties';
 
 const log = debug('uxpin:serialization:ts');
 
+// Called from a lot of unit tests but not from the main loop in `getDesignSystemMetadata()`
+// TODO Refactor to use only the `Serializer` class everywhere?
 export async function serializeTSComponent(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
   const program = createTSProgram([component.path]);
-  return serializeTSComponentWithContext(component, program);
+  return serializeTSComponentWithProgram(component, program);
 }
 
-export async function serializeTSComponentWithContext(component: ComponentImplementationInfo, program: ts.Program) {
+// Called from the `serializer` class, to avoid the expensive creation of the `ts.Program`
+export async function serializeTSComponentWithProgram(component: ComponentImplementationInfo, program: ts.Program) {
   const context: TSSerializationContext = getSerializationContext(component, program);
   const declaration: ComponentDeclaration | undefined = getComponentDeclaration(context);
   if (!declaration) {

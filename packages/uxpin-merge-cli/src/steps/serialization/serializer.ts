@@ -8,7 +8,7 @@ import { thunkGetSummaryResultForInvalidComponent } from './component/implementa
 import { ImplSerializationResult } from './component/implementation/ImplSerializationResult';
 import { serializeJSComponent } from './component/implementation/javascript/serializeJSComponent';
 import { createTSProgram } from './component/implementation/typescript/context/getSerializationContext';
-import { serializeTSComponentWithContext } from './component/implementation/typescript/serializeTSComponent';
+import { serializeTSComponentWithProgram } from './component/implementation/typescript/serializeTSComponent';
 
 const log = debug('uxpin:serialization');
 
@@ -48,7 +48,7 @@ export class MergeComponentSerializer implements AbstractSerializer {
     if (component.lang === 'typescript') {
       if (!this.program) throw new Error(`TS program should have been initialized`);
       log(`TS`, component.path);
-      return serializeTSComponentWithContext(component, this.program);
+      return serializeTSComponentWithProgram(component, this.program);
     } else {
       log('JS', component.path);
       return serializeJSComponent(component);
