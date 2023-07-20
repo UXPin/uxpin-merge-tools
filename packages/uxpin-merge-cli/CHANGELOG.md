@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.2.0] - 2023-07-20
+
+- Faster serialization of TS components ([#398](https://github.com/UXPin/uxpin-merge-tools/pull/398))
+- Upgrade to latest Webpack 5 ([#397](https://github.com/UXPin/uxpin-merge-tools/pull/397))
+
 ## [3.1.0] - 2023-07-11
 
 - Accept a function for `@uxpinuseportal` annotation to make the "Render in Portal" behavior dynamic ([#391](https://github.com/UXPin/uxpin-merge-tools/pull/391))
