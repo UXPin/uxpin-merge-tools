@@ -1,10 +1,19 @@
+import debug from 'debug';
+
 import { parse, relative, posix } from 'path';
+import prettyBytes = require('pretty-bytes');
 import { ComponentDefinition } from '../../serialization/component/ComponentDefinition';
+import { BuildOptions } from '../BuildOptions';
 import { TEMP_DIR_PATH } from '../config/getConfig';
 
 const CLASS_NAME_WRAPPER = 'Wrapper';
 
-export function getLibraryBundleSource(components: ComponentDefinition[], wrapperPath?: string): string {
+const log = debug('uxpin:build');
+
+type LibraryBundleOptions = Pick<BuildOptions, 'wrapperPath' | 'pageHeadContent'>;
+
+export function getLibraryBundleSource(components: ComponentDefinition[], options?: LibraryBundleOptions): string {
+  const { wrapperPath, pageHeadContent } = options || {};
   const libImports: string[] = ["import * as React from 'react';", "import * as ReactDOM from 'react-dom';"];
 
   const imports: string[] = components
@@ -24,7 +33,16 @@ export function getLibraryBundleSource(components: ComponentDefinition[], wrappe
     `};`,
   ];
 
-  return [...libImports, ...imports, ...wrapperImport, ...namespacedComponentDeclarations, ...exports].join('\n');
+  const scriptToInjectPageHeadContent = pageHeadContent ? generateScriptToInjectPageHeadContent(pageHeadContent) : '';
+
+  return [
+    ...libImports,
+    ...imports,
+    ...wrapperImport,
+    ...namespacedComponentDeclarations,
+    ...exports,
+    scriptToInjectPageHeadContent,
+  ].join('\n');
 }
 
 function normalizePath(path: string): string {
@@ -68,4 +86,14 @@ function getNamespacedComponentDeclaration(component: ComponentDefinition): stri
   }
 
   return `const ${namespace.importSlug} = ${namespace.name}.${name};`;
+}
+
+function generateScriptToInjectPageHeadContent(html: string) {
+  log('Content to be injected in page <head>', html.slice(0, 100), prettyBytes(html.length));
+  return `
+const template = document.createElement('template');
+template.innerHTML = \`${html}\`;
+const element = template.content.firstChild;
+document.head.appendChild(element);
+`;
 }

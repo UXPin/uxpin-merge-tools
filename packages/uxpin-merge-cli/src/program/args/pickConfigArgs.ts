@@ -11,7 +11,12 @@ export function pickConfigArgs(configPath: string, command: Command): ConfigEnab
   } else {
     components = getConfiguration(configPath).components;
   }
-  const configFlags: Array<keyof ConfigEnabledProgramArgs> = ['webpackConfig', 'uxpinDomain', 'wrapper'];
+  const configFlags: Array<keyof ConfigEnabledProgramArgs> = [
+    'pageHeadContent',
+    'webpackConfig',
+    'uxpinDomain',
+    'wrapper',
+  ];
 
   return configFlags.reduce<ConfigEnabledProgramArgs>((result, flag) => {
     if (components[flag]) {

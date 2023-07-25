@@ -100,7 +100,7 @@ export {
 };`;
 
     // when
-    const result: string = getLibraryBundleSource(components, wrapperPath);
+    const result: string = getLibraryBundleSource(components, { wrapperPath });
 
     // then
     expect(result).toEqual(expectedFileString);
@@ -218,7 +218,7 @@ export {
 };`;
 
     // when
-    const result: string = getLibraryBundleSource(components, wrapperPath);
+    const result: string = getLibraryBundleSource(components, { wrapperPath });
 
     // then
     expect(result).toEqual(expectedFileString);

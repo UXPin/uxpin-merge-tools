@@ -11,6 +11,7 @@ export interface RawProgramArgs {
 }
 
 export interface ConfigEnabledProgramArgs {
+  pageHeadContent?: string;
   webpackConfig?: string;
   wrapper?: string;
   uxpinDomain?: string;
@@ -37,6 +38,7 @@ export interface ExperimentProgramArgs {
   config: string;
   cwd: string;
   disableTunneling?: boolean;
+  pageHeadContent?: string;
   port: number;
   webpackConfig?: string;
   wrapper?: string;
