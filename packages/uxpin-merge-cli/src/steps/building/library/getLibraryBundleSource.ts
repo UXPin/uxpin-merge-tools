@@ -94,6 +94,6 @@ function generateScriptToInjectPageHeadContent(html: string) {
 const template = document.createElement('template');
 template.innerHTML = \`${html}\`;
 const element = template.content.firstChild;
-document.head.appendChild(element);
+document.head.prepend(element);
 `;
 }
