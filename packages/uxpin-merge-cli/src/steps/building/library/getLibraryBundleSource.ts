@@ -1,4 +1,5 @@
 import debug from 'debug';
+import { compact } from 'lodash';
 
 import { parse, relative, posix } from 'path';
 import prettyBytes = require('pretty-bytes');
@@ -33,16 +34,16 @@ export function getLibraryBundleSource(components: ComponentDefinition[], option
     `};`,
   ];
 
-  const scriptToInjectPageHeadContent = pageHeadContent ? generateScriptToInjectPageHeadContent(pageHeadContent) : '';
+  const scriptToInjectPageHeadContent = pageHeadContent && generateScriptToInjectPageHeadContent(pageHeadContent);
 
-  return [
+  return compact([
     ...libImports,
     ...imports,
     ...wrapperImport,
     ...namespacedComponentDeclarations,
     ...exports,
     scriptToInjectPageHeadContent,
-  ].join('\n');
+  ]).join('\n');
 }
 
 function normalizePath(path: string): string {
