@@ -11,10 +11,10 @@ const CLASS_NAME_WRAPPER = 'Wrapper';
 
 const log = debug('uxpin:build');
 
-type LibraryBundleOptions = Pick<BuildOptions, 'wrapperPath' | 'pageHeadContent'>;
+type LibraryBundleOptions = Pick<BuildOptions, 'wrapperPath' | 'pageHeadTags'>;
 
 export function getLibraryBundleSource(components: ComponentDefinition[], options?: LibraryBundleOptions): string {
-  const { wrapperPath, pageHeadContent } = options || {};
+  const { wrapperPath, pageHeadTags } = options || {};
   const libImports: string[] = ["import * as React from 'react';", "import * as ReactDOM from 'react-dom';"];
 
   const imports: string[] = components
@@ -34,7 +34,7 @@ export function getLibraryBundleSource(components: ComponentDefinition[], option
     `};`,
   ];
 
-  const scriptToInjectTags = pageHeadContent?.length && generateScriptToInjectTagsInPageHead(pageHeadContent);
+  const scriptToInjectTags = pageHeadTags?.length && generateScriptToInjectTagsInPageHead(pageHeadTags);
 
   return compact([
     ...libImports,

@@ -12,7 +12,7 @@ export function pickConfigArgs(configPath: string, command: Command): ConfigEnab
     components = getConfiguration(configPath).components;
   }
   const configFlags: Array<keyof ConfigEnabledProgramArgs> = [
-    'pageHeadContent',
+    'pageHeadTags',
     'webpackConfig',
     'uxpinDomain',
     'wrapper',
@@ -36,7 +36,7 @@ function pickNonEmptyValues<T>(input: T, keys: Array<keyof T>) {
 function normalizeConfig(config: ConfigEnabledProgramArgs) {
   return {
     ...config,
-    pageHeadContent: makeArray(config.pageHeadContent),
+    pageHeadTags: makeArray(config.pageHeadTags),
   };
 }
 
