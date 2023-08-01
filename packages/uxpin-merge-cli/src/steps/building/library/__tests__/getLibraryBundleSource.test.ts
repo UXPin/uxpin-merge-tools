@@ -223,4 +223,57 @@ export {
     // then
     expect(result).toEqual(expectedFileString);
   });
+
+  it('handles `pageHeadTags` option to add a script in the bundle', () => {
+    const components: ComponentDefinition[] = [
+      {
+        defaultExported: true,
+        info: {
+          dirPath: 'src/components/button',
+          implementation: {
+            ...commonImplementation,
+            path: 'src/components/button/button.jsx',
+          },
+        },
+        name: 'Button',
+        ...commonProps,
+      },
+      {
+        defaultExported: true,
+        info: {
+          dirPath: 'src/components/button-list',
+          implementation: {
+            ...commonImplementation,
+            path: 'src/components/button-list/button-list.jsx',
+          },
+        },
+        name: 'ButtonList',
+        ...commonProps,
+      },
+    ];
+
+    const expectedFileString = `import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import Button from '../src/components/button/button';
+import ButtonList from '../src/components/button-list/button-list';
+export {
+  Button,
+  ButtonList,
+  React,
+  ReactDOM,
+};
+
+const template = document.createElement('template');
+template.innerHTML = \`<style>.blue {color: blue;}</style>\`;
+const nodes = Array.from(template.content.children);
+nodes.forEach(node => document.head.prepend(node));
+`;
+
+    // when
+    const pageHeadTags = ['<style>.blue {color: blue;}</style>'];
+    const result: string = getLibraryBundleSource(components, { pageHeadTags });
+
+    // then
+    expect(result).toEqual(expectedFileString);
+  });
 });
