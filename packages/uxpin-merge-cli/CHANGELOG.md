@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.3.0] - 2023-08-01
+
+- Let users inject HTML tags in page `<head>` ([#398](https://github.com/UXPin/uxpin-merge-tools/pull/401))
+
 ## [3.2.0] - 2023-07-20
 
 - Faster serialization of TS components ([#398](https://github.com/UXPin/uxpin-merge-tools/pull/398))
