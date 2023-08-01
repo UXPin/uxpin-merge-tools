@@ -10,34 +10,34 @@ describe('getLibraryBundleSource', () => {
     properties: [],
   };
 
-  it('returns content of library file for list of components', () => {
-    const components: ComponentDefinition[] = [
-      {
-        defaultExported: true,
-        info: {
-          dirPath: 'src/components/button',
-          implementation: {
-            ...commonImplementation,
-            path: 'src/components/button/button.jsx',
-          },
+  const components: ComponentDefinition[] = [
+    {
+      defaultExported: true,
+      info: {
+        dirPath: 'src/components/button',
+        implementation: {
+          ...commonImplementation,
+          path: 'src/components/button/button.jsx',
         },
-        name: 'Button',
-        ...commonProps,
       },
-      {
-        defaultExported: true,
-        info: {
-          dirPath: 'src/components/button-list',
-          implementation: {
-            ...commonImplementation,
-            path: 'src/components/button-list/button-list.jsx',
-          },
+      name: 'Button',
+      ...commonProps,
+    },
+    {
+      defaultExported: true,
+      info: {
+        dirPath: 'src/components/button-list',
+        implementation: {
+          ...commonImplementation,
+          path: 'src/components/button-list/button-list.jsx',
         },
-        name: 'ButtonList',
-        ...commonProps,
       },
-    ];
+      name: 'ButtonList',
+      ...commonProps,
+    },
+  ];
 
+  it('returns content of library file for list of components', () => {
     const expectedFileString = `import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Button from '../src/components/button/button';
@@ -57,33 +57,6 @@ export {
   });
 
   it('returns content of library file for list of components and path of custom wrapper', () => {
-    const components: ComponentDefinition[] = [
-      {
-        defaultExported: true,
-        info: {
-          dirPath: 'src/components/button',
-          implementation: {
-            ...commonImplementation,
-            path: 'src/components/button/button.jsx',
-          },
-        },
-        name: 'Button',
-        ...commonProps,
-      },
-      {
-        defaultExported: true,
-        info: {
-          dirPath: 'src/components/button-list',
-          implementation: {
-            ...commonImplementation,
-            path: 'src/components/button-list/button-list.jsx',
-          },
-        },
-        name: 'ButtonList',
-        ...commonProps,
-      },
-    ];
-
     const wrapperPath = './wrapper/wrapper.jsx';
 
     const expectedFileString = `import * as React from 'react';
@@ -225,33 +198,6 @@ export {
   });
 
   it('handles `pageHeadTags` option to add a script in the bundle', () => {
-    const components: ComponentDefinition[] = [
-      {
-        defaultExported: true,
-        info: {
-          dirPath: 'src/components/button',
-          implementation: {
-            ...commonImplementation,
-            path: 'src/components/button/button.jsx',
-          },
-        },
-        name: 'Button',
-        ...commonProps,
-      },
-      {
-        defaultExported: true,
-        info: {
-          dirPath: 'src/components/button-list',
-          implementation: {
-            ...commonImplementation,
-            path: 'src/components/button-list/button-list.jsx',
-          },
-        },
-        name: 'ButtonList',
-        ...commonProps,
-      },
-    ];
-
     const expectedFileString = `import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Button from '../src/components/button/button';
