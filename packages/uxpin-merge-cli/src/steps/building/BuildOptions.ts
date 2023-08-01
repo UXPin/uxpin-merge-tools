@@ -5,7 +5,7 @@ export interface BuildOptions {
   branch?: string;
   development?: boolean;
   force?: boolean;
-  pageHeadContent?: string;
+  pageHeadContent?: string[];
   projectRoot: string;
   tag?: string;
   token?: string;

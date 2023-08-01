@@ -34,7 +34,7 @@ export function getLibraryBundleSource(components: ComponentDefinition[], option
     `};`,
   ];
 
-  const scriptToInjectPageHeadContent = pageHeadContent && generateScriptToInjectPageHeadContent(pageHeadContent);
+  const scriptToInjectTags = pageHeadContent?.length && generateScriptToInjectTagsInPageHead(pageHeadContent);
 
   return compact([
     ...libImports,
@@ -42,7 +42,7 @@ export function getLibraryBundleSource(components: ComponentDefinition[], option
     ...wrapperImport,
     ...namespacedComponentDeclarations,
     ...exports,
-    scriptToInjectPageHeadContent,
+    scriptToInjectTags,
   ]).join('\n');
 }
 
@@ -89,12 +89,13 @@ function getNamespacedComponentDeclaration(component: ComponentDefinition): stri
   return `const ${namespace.importSlug} = ${namespace.name}.${name};`;
 }
 
-function generateScriptToInjectPageHeadContent(html: string) {
-  log('Content to be injected in page <head>', html.slice(0, 100), prettyBytes(html.length));
+function generateScriptToInjectTagsInPageHead(htmlTags: string[]) {
+  const html = htmlTags.reverse().join(''); // reverse the order before "prepending" to preserve the order of the tags
+  log(`Content to be injected in page <head> (${prettyBytes(html.length)})`, html.slice(0, 100));
   return `
 const template = document.createElement('template');
 template.innerHTML = \`${html}\`;
-const element = template.content.firstChild;
-document.head.prepend(element);
+const nodes = Array.from(template.content.children);
+nodes.forEach(node => document.head.prepend(node));
 `;
 }

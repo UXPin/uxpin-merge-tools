@@ -18,10 +18,29 @@ export function pickConfigArgs(configPath: string, command: Command): ConfigEnab
     'wrapper',
   ];
 
-  return configFlags.reduce<ConfigEnabledProgramArgs>((result, flag) => {
-    if (components[flag]) {
-      result[flag] = components[flag];
+  const config = pickNonEmptyValues<ConfigEnabledProgramArgs>(components, configFlags);
+  return normalizeConfig(config);
+}
+
+function pickNonEmptyValues<T>(input: T, keys: Array<keyof T>) {
+  const result = {} as T;
+  keys.forEach((key) => {
+    const value = input[key];
+    if (value) {
+      result[key] = value;
     }
-    return result;
-  }, {});
+  });
+  return result;
+}
+
+function normalizeConfig(config: ConfigEnabledProgramArgs) {
+  return {
+    ...config,
+    pageHeadContent: makeArray(config.pageHeadContent),
+  };
+}
+
+function makeArray(input: string | string[] | undefined) {
+  if (!input) return [];
+  return Array.isArray(input) ? (input as string[]) : [input];
 }

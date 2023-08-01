@@ -29,7 +29,7 @@ export interface BuildProgramArgs {
   config?: string;
   cwd: string;
   force?: boolean;
-  pageHeadContent?: string;
+  pageHeadContent?: string[];
   tag?: string;
   token?: string;
   uxpinDomain?: string;
