@@ -1,7 +1,16 @@
 import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
 import { TSSerializationContext } from '../../../context/getSerializationContext';
-import { isBooleanLike, isCallable, isEnum, isKnownPropertyType, isLiteral, isObjectLike, isUnion } from '../checker';
+import {
+  isAny,
+  isBooleanLike,
+  isCallable,
+  isEnum,
+  isKnownPropertyType,
+  isLiteral,
+  isObjectLike,
+  isUnion,
+} from '../checker';
 import { serializeAsUnsupportedType } from './serializeAsUnsupportedType';
 import { serializeEnumType } from './serializeEnumType';
 import { serializeKnownPropertyType } from './serializeKnownPropertyType';
@@ -25,7 +34,7 @@ export function convertTypeToPropertyType(
   if (isKnownPropertyType(type)) {
     return serializeKnownPropertyType(type);
   }
-  if (type.flags & ts.TypeFlags.Any) {
+  if (isAny(type)) {
     return { name: 'any', structure: {} };
   }
   if (isCallable(type)) {
