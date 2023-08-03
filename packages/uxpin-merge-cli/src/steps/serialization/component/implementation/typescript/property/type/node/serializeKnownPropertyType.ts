@@ -7,6 +7,11 @@ export const KNOWN_TYPES_MAP: { [typeName: string]: PropertyType } = {
   ReactElement: { name: 'element', structure: {} },
   ReactNode: { name: 'node', structure: {} },
   ReactChild: { name: 'node', structure: {} },
+  ReactNodeArray: { name: 'node', structure: {} },
+  // TODO Following types are very specific and should be handled in a different way
+  // Maybe defaulting unknown types to `string` instead of `any` would be better?
+  AnchorHTMLAttributes: { name: 'string', structure: {} },
+  ButtonHTMLAttributes: { name: 'string', structure: {} },
 };
 
 export function serializeKnownPropertyType(type: ts.Type): PropertyType {
