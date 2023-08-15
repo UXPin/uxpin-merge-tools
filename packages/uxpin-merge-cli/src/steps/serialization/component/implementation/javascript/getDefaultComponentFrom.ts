@@ -3,7 +3,7 @@ import { readFile } from 'fs-extra';
 import { defaultHandlers, Handler, parse, ReactDocgenOptions, resolver } from 'react-docgen';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
 import { CommentTags } from '../../CommentTags';
-import { hasCommentTag } from './hasCommentTag';
+import { hasCommentTag } from './jsdoc-uxpin-annotations';
 
 interface ReactDocgenOptionsWithBabelConfig extends ReactDocgenOptions {
   babelrc?: boolean;

@@ -16,10 +16,12 @@ import { parseWrapperAnnotation } from '../../wrappers/parseWrapperAnnotation';
 import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
-import { getComponentDocUrlFromDescription } from './getComponentDocUrlFromDescription';
+import {
+  getComponentDocUrlFromDescription,
+  getComponentNamespaceFromDescription,
+  getComponentUsePortalFromJsDocTags,
+} from './jsdoc-uxpin-annotations';
 import { getComponentName } from './getComponentName';
-import { getComponentNamespaceFromDescription } from './getComponentNamespaceFromDescription';
-import { getComponentUsePortalFromJsDocTags } from './getComponentUsePortalFromJsDocTags';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 import { isDefaultExported } from './isDefaultExported';
 import { parsePropertyItem } from './parsePropertyItem';

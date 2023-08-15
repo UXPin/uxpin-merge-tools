@@ -1,4 +1,4 @@
-import { getComponentDocUrlFromDescription } from '../getComponentDocUrlFromDescription';
+import { getComponentDocUrlFromDescription } from '../jsdoc-uxpin-annotations';
 
 describe('getComponentDocUrlFromDescription', () => {
   describe('when description is empty', () => {

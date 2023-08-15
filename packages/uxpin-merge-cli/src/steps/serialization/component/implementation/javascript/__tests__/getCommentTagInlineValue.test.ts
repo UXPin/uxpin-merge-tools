@@ -1,4 +1,4 @@
-import { getCommentTagInlineValue } from '../getCommentTagInlineValue';
+import { getCommentTagInlineValue } from '../jsdoc-uxpin-annotations';
 
 describe('getCommentTagInlineValue', () => {
   const tag = '@uxpintag';

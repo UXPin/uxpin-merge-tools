@@ -1,4 +1,4 @@
-import { getComponentNamespaceFromDescription } from '../getComponentNamespaceFromDescription';
+import { getComponentNamespaceFromDescription } from '../jsdoc-uxpin-annotations';
 
 describe('getComponentNamespaceFromDescription', () => {
   const componentName = 'ComponentName';
