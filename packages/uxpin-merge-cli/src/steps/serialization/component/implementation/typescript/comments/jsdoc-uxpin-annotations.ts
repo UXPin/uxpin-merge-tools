@@ -29,6 +29,12 @@ export function getComponentDocUrl(component: ts.Node): string | undefined {
   return getJSDocCommentText(componentDocUrl);
 }
 
+export function getComponentDescription(component: ts.Node): string | undefined {
+  const jsDocTag: ts.JSDocTag | undefined = getNodeJsDocTag(component, CommentTags.UXPIN_DESCRIPTION);
+  if (!jsDocTag) return undefined;
+  return getJSDocCommentText(jsDocTag);
+}
+
 export function getComponentUsePortal(declaration: ComponentDeclaration) {
   const node = getNodeJsDocTag(declaration, CommentTags.UXPIN_USE_PORTAL);
   if (!node) return undefined;

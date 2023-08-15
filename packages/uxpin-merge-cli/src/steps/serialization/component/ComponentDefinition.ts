@@ -5,13 +5,14 @@ import { ComponentPreset } from './presets/ComponentPreset';
 import { ComponentWrapper } from './wrappers/ComponentWrapper';
 
 export interface ComponentMetadata {
+  componentDocUrl?: string;
+  defaultExported: boolean;
+  description?: string;
   name: string;
   namespace?: ComponentNamespace;
-  componentDocUrl?: string;
   properties: ComponentPropertyDefinition[];
-  wrappers?: ComponentWrapper[];
-  defaultExported: boolean;
   usePortal?: boolean | string;
+  wrappers?: ComponentWrapper[];
 }
 
 export interface ComponentDefinition extends ComponentMetadata {
