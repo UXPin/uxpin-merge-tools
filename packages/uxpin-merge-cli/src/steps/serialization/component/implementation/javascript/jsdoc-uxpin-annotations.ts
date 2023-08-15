@@ -4,25 +4,15 @@ import { parseUsePortal } from '../../comments/parseUsePortal';
 import { ComponentNamespace } from './../../ComponentDefinition';
 import { getComponentNamespaceImportSlug } from '../getComponentNamespaceImportSlug';
 
-export function getComponentDocUrlFromDescription(description: string): string | undefined {
-  if (!description) {
-    return;
-  }
-  const componentDocUrl: string | undefined = getCommentTagInlineValue(description, CommentTags.UXPIN_DOC_URL);
-  if (!componentDocUrl) {
-    return;
-  }
-  return componentDocUrl;
+export function getComponentDocUrlFromJsDocTags(jsDocTags: string[]) {
+  return extractInlineValueFromJsDocTags(CommentTags.UXPIN_DOC_URL, jsDocTags);
 }
 
-export function getComponentNamespaceFromDescription(
+export function getComponentNamespaceFromJsDocTags(
   componentName: string,
-  description: string
+  jsDocTags: string[]
 ): ComponentNamespace | undefined {
-  if (!description) {
-    return;
-  }
-  const namespaceName: string | undefined = getCommentTagInlineValue(description, CommentTags.UXPIN_NAMESPACE);
+  const namespaceName = extractInlineValueFromJsDocTags(CommentTags.UXPIN_NAMESPACE, jsDocTags);
   if (!namespaceName) {
     return;
   }
@@ -52,6 +42,11 @@ export function getComponentUsePortalFromJsDocTags(jsDocTags: string[]) {
   }
 
   return parseUsePortal(inlineValue);
+}
+
+export function extractInlineValueFromJsDocTags(tagName: CommentTags, jsDocTags: string[]): string | undefined {
+  const foundLineWithTag = getCommentTag(tagName, jsDocTags) || '';
+  return getCommentTagInlineValue(foundLineWithTag, tagName);
 }
 
 export function getCommentTagInlineValue(comment: string, tag: string): string | undefined {
