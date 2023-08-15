@@ -17,8 +17,8 @@ import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import {
-  getComponentDocUrlFromDescription,
-  getComponentNamespaceFromDescription,
+  getComponentDocUrlFromJsDocTags,
+  getComponentNamespaceFromJsDocTags,
   getComponentUsePortalFromJsDocTags,
 } from './jsdoc-uxpin-annotations';
 import { getComponentName } from './getComponentName';
@@ -73,11 +73,9 @@ function getValuesFromComments(
   parsed: ComponentDoc
 ): Pick<PartialResult, 'namespace' | 'componentDocUrl' | 'usePortal'> {
   const jsDocTags: string[] = getJSDocTagsArrayFromString(parsed.description);
-  const namespaceTag: string = getCommentTag(CommentTags.UXPIN_NAMESPACE, jsDocTags) || '';
-  const componentDocUrlTag: string = getCommentTag(CommentTags.UXPIN_DOC_URL, jsDocTags) || '';
 
-  const namespace: ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
-  const componentDocUrl: string | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
+  const namespace: ComponentNamespace | undefined = getComponentNamespaceFromJsDocTags(name, jsDocTags);
+  const componentDocUrl: string | undefined = getComponentDocUrlFromJsDocTags(jsDocTags);
 
   const usePortal: boolean | string | undefined = getComponentUsePortalFromJsDocTags(jsDocTags);
   if (usePortal) log(`Portal component detected`, name, usePortal);
