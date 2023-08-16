@@ -6,6 +6,16 @@ export function extractSingleWordFromJsDocTags(tagName: CommentTags, jsDocTags: 
   return getCommentTagSingleWord(foundLineWithTag, tagName);
 }
 
+export function extractMultipleWordsFromJsDocTags(tagName: CommentTags, jsDocTags: string[]): string | undefined {
+  const description = getCommentTag(tagName, jsDocTags);
+  if (!description) {
+    return;
+  }
+  const firstLine = description.split('\n')[0];
+  const inlineValue: string | undefined = firstLine.slice(tagName.length).trim();
+  return inlineValue;
+}
+
 export function getCommentTagSingleWord(comment: string, tag: string): string | undefined {
   if (!hasCommentTag(comment, tag)) {
     return;
@@ -20,16 +30,6 @@ export function getCommentTagSingleWord(comment: string, tag: string): string | 
 
 export function hasCommentTag(comment: string, tag: string): boolean {
   return comment.includes(tag);
-}
-
-export function extractMultipleWordFromJsDocTags(tagName: CommentTags, jsDocTags: string[]): string | undefined {
-  const description = getCommentTag(tagName, jsDocTags);
-  if (!description) {
-    return;
-  }
-  const firstLine = description.split('\n')[0];
-  const inlineValue: string | undefined = firstLine.slice(tagName.length).trim();
-  return inlineValue;
 }
 
 function escapeForRegexp(string: string): string {
