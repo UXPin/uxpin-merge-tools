@@ -3,7 +3,7 @@ import { getCommentTag } from '../../../comments/getCommentTag';
 import { parseUsePortal } from '../../../comments/parseUsePortal';
 import { ComponentNamespace } from '../../../ComponentDefinition';
 import { getComponentNamespaceImportSlug } from '../../getComponentNamespaceImportSlug';
-import { extractMultipleWordFromJsDocTags, extractSingleWordFromJsDocTags } from './jsdoc-helpers';
+import { extractMultipleWordsFromJsDocTags, extractSingleWordFromJsDocTags } from './jsdoc-helpers';
 
 export function getComponentDocUrlFromJsDocTags(jsDocTags: string[]) {
   return extractSingleWordFromJsDocTags(CommentTags.UXPIN_DOC_URL, jsDocTags);
@@ -33,7 +33,7 @@ export function getComponentUsePortalFromJsDocTags(jsDocTags: string[]) {
   if (!description) {
     return;
   }
-  const inlineValue = extractMultipleWordFromJsDocTags(tagName, jsDocTags);
+  const inlineValue = extractMultipleWordsFromJsDocTags(tagName, jsDocTags);
   if (!inlineValue) {
     return true;
   }

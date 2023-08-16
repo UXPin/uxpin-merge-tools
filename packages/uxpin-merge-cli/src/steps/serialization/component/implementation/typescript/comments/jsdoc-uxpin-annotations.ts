@@ -7,8 +7,10 @@ import { ComponentDeclaration } from '../component/getPropsTypeAndDefaultProps';
 import { getComponentNamespaceImportSlug } from '../../getComponentNamespaceImportSlug';
 import { getJSDocCommentText, getNodeJsDocTag } from './jsdoc-helpers';
 
-export function hasUXPinComponentComment(node: ts.Node): boolean {
-  return getNodeJsDocTag(node, CommentTags.UXPIN_COMPONENT) !== undefined;
+export function getComponentDocUrl(component: ts.Node): string | undefined {
+  const componentDocUrl: ts.JSDocTag | undefined = getNodeJsDocTag(component, CommentTags.UXPIN_DOC_URL);
+  if (!componentDocUrl) return undefined;
+  return getJSDocCommentText(componentDocUrl);
 }
 
 export function getComponentNamespace(component: ComponentDeclaration, name: string): ComponentNamespace | undefined {
@@ -23,15 +25,13 @@ export function getComponentNamespace(component: ComponentDeclaration, name: str
   };
 }
 
-export function getComponentDocUrl(component: ts.Node): string | undefined {
-  const componentDocUrl: ts.JSDocTag | undefined = getNodeJsDocTag(component, CommentTags.UXPIN_DOC_URL);
-  if (!componentDocUrl) return undefined;
-  return getJSDocCommentText(componentDocUrl);
-}
-
 export function getComponentUsePortal(declaration: ComponentDeclaration) {
   const node = getNodeJsDocTag(declaration, CommentTags.UXPIN_USE_PORTAL);
   if (!node) return undefined;
   if (node.comment) return parseUsePortal(node.comment as string);
   return Boolean(node);
+}
+
+export function hasUXPinComponentComment(node: ts.Node): boolean {
+  return getNodeJsDocTag(node, CommentTags.UXPIN_COMPONENT) !== undefined;
 }
