@@ -5,14 +5,14 @@ import { ComponentNamespace } from './../../ComponentDefinition';
 import { getComponentNamespaceImportSlug } from '../getComponentNamespaceImportSlug';
 
 export function getComponentDocUrlFromJsDocTags(jsDocTags: string[]) {
-  return extractInlineValueFromJsDocTags(CommentTags.UXPIN_DOC_URL, jsDocTags);
+  return extractSingleWordFromJsDocTags(CommentTags.UXPIN_DOC_URL, jsDocTags);
 }
 
 export function getComponentNamespaceFromJsDocTags(
   componentName: string,
   jsDocTags: string[]
 ): ComponentNamespace | undefined {
-  const namespaceName = extractInlineValueFromJsDocTags(CommentTags.UXPIN_NAMESPACE, jsDocTags);
+  const namespaceName = extractSingleWordFromJsDocTags(CommentTags.UXPIN_NAMESPACE, jsDocTags);
   if (!namespaceName) {
     return;
   }
@@ -29,27 +29,22 @@ export function getComponentNamespaceFromJsDocTags(
 export function getComponentUsePortalFromJsDocTags(jsDocTags: string[]) {
   const tagName = CommentTags.UXPIN_USE_PORTAL;
   const description = getCommentTag(tagName, jsDocTags);
-
   if (!description) {
     return;
   }
-
-  const firstLine = description.split('\n')[0];
-  const inlineValue: string | undefined = firstLine.slice(tagName.length).trim();
-
+  const inlineValue = extractMultipleWordFromJsDocTags(tagName, jsDocTags);
   if (!inlineValue) {
     return true;
   }
-
   return parseUsePortal(inlineValue);
 }
 
-export function extractInlineValueFromJsDocTags(tagName: CommentTags, jsDocTags: string[]): string | undefined {
+export function extractSingleWordFromJsDocTags(tagName: CommentTags, jsDocTags: string[]): string | undefined {
   const foundLineWithTag = getCommentTag(tagName, jsDocTags) || '';
-  return getCommentTagInlineValue(foundLineWithTag, tagName);
+  return getCommentTagSingleWord(foundLineWithTag, tagName);
 }
 
-export function getCommentTagInlineValue(comment: string, tag: string): string | undefined {
+export function getCommentTagSingleWord(comment: string, tag: string): string | undefined {
   if (!hasCommentTag(comment, tag)) {
     return;
   }
@@ -63,6 +58,16 @@ export function getCommentTagInlineValue(comment: string, tag: string): string |
 
 export function hasCommentTag(comment: string, tag: string): boolean {
   return comment.includes(tag);
+}
+
+export function extractMultipleWordFromJsDocTags(tagName: CommentTags, jsDocTags: string[]): string | undefined {
+  const description = getCommentTag(tagName, jsDocTags);
+  if (!description) {
+    return;
+  }
+  const firstLine = description.split('\n')[0];
+  const inlineValue: string | undefined = firstLine.slice(tagName.length).trim();
+  return inlineValue;
 }
 
 function escapeForRegexp(string: string): string {

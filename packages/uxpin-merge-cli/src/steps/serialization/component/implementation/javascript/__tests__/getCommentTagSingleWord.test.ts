@@ -1,13 +1,13 @@
-import { getCommentTagInlineValue } from '../jsdoc-uxpin-annotations';
+import { getCommentTagSingleWord } from '../jsdoc-uxpin-annotations';
 
-describe('getCommentTagInlineValue', () => {
+describe('getCommentTagSingleWord', () => {
   const tag = '@uxpintag';
 
   describe('when comment is empty', () => {
     const comment = '';
 
     it('returns undefined', () => {
-      expect(getCommentTagInlineValue(comment, tag)).toBeUndefined();
+      expect(getCommentTagSingleWord(comment, tag)).toBeUndefined();
     });
   });
 
@@ -15,7 +15,7 @@ describe('getCommentTagInlineValue', () => {
     const comment = 'Some comment without tags';
 
     it('returns undefined', () => {
-      expect(getCommentTagInlineValue(comment, tag)).toBeUndefined();
+      expect(getCommentTagSingleWord(comment, tag)).toBeUndefined();
     });
   });
 
@@ -23,7 +23,7 @@ describe('getCommentTagInlineValue', () => {
     const comment = '@uxpintag tagvalue ';
 
     it('returns tag value', () => {
-      expect(getCommentTagInlineValue(comment, tag)).toEqual('tagvalue');
+      expect(getCommentTagSingleWord(comment, tag)).toEqual('tagvalue');
     });
   });
 
@@ -31,7 +31,7 @@ describe('getCommentTagInlineValue', () => {
     const comment = '@uxpintag tag.value_foo-baz ';
 
     it('returns tag value', () => {
-      expect(getCommentTagInlineValue(comment, tag)).toEqual('tag.value_foo-baz');
+      expect(getCommentTagSingleWord(comment, tag)).toEqual('tag.value_foo-baz');
     });
   });
 
@@ -39,7 +39,7 @@ describe('getCommentTagInlineValue', () => {
     const comment = '@uxpintag https://mui.com/components/buttons/#main-content';
 
     it('returns tag value', () => {
-      expect(getCommentTagInlineValue(comment, tag)).toEqual('https://mui.com/components/buttons/#main-content');
+      expect(getCommentTagSingleWord(comment, tag)).toEqual('https://mui.com/components/buttons/#main-content');
     });
   });
 
@@ -47,7 +47,7 @@ describe('getCommentTagInlineValue', () => {
     const comment = '@uxpintag Some multi word text';
 
     it('returns undefined', () => {
-      expect(getCommentTagInlineValue(comment, tag)).toBeUndefined();
+      expect(getCommentTagSingleWord(comment, tag)).toBeUndefined();
     });
   });
 
@@ -58,7 +58,7 @@ describe('getCommentTagInlineValue', () => {
     `;
 
     it('returns tag value', () => {
-      expect(getCommentTagInlineValue(comment, tag)).toEqual('tag.value_foo-baz');
+      expect(getCommentTagSingleWord(comment, tag)).toEqual('tag.value_foo-baz');
     });
   });
 });
