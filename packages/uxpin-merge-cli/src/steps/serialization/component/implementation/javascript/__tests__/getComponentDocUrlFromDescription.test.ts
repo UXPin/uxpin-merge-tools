@@ -1,5 +1,5 @@
 import { getJSDocTagsArrayFromString } from '../../../comments/getJSDocTagsArrayFromString';
-import { getComponentDocUrlFromJsDocTags } from '../jsdoc-uxpin-annotations';
+import { getComponentDocUrlFromJsDocTags } from '../comments/jsdoc-uxpin-annotations';
 
 describe('getComponentDocUrlFromJsDocTags', () => {
   describe('when description is empty', () => {

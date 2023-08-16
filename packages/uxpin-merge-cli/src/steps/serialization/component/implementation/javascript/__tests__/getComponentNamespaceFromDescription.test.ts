@@ -1,5 +1,5 @@
 import { getJSDocTagsArrayFromString } from '../../../comments/getJSDocTagsArrayFromString';
-import { getComponentNamespaceFromJsDocTags } from '../jsdoc-uxpin-annotations';
+import { getComponentNamespaceFromJsDocTags } from '../comments/jsdoc-uxpin-annotations';
 
 describe('getComponentNamespaceFromDescription', () => {
   const componentName = 'ComponentName';
