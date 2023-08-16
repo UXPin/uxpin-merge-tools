@@ -20,7 +20,7 @@ import {
   getComponentDocUrlFromJsDocTags,
   getComponentNamespaceFromJsDocTags,
   getComponentUsePortalFromJsDocTags,
-} from './jsdoc-uxpin-annotations';
+} from './comments/jsdoc-uxpin-annotations';
 import { getComponentName } from './getComponentName';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 import { isDefaultExported } from './isDefaultExported';

@@ -1,4 +1,4 @@
-import { getCommentTagSingleWord } from '../jsdoc-uxpin-annotations';
+import { getCommentTagSingleWord } from '../comments/jsdoc-helpers';
 
 describe('getCommentTagSingleWord', () => {
   const tag = '@uxpintag';
