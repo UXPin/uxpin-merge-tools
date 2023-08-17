@@ -7,4 +7,4 @@ export interface ComponentRevision extends ComponentDefinitionPersistedPart {
 
 export type ComponentDefinitionPersistedPart = Pick<ComponentDefinition, ComponentPersistedProps>;
 
-type ComponentPersistedProps = 'name' | 'info' | 'properties' | 'namespace' | 'wrappers' | 'usePortal';
+type ComponentPersistedProps = 'name' | 'description' | 'info' | 'properties' | 'namespace' | 'wrappers' | 'usePortal';
