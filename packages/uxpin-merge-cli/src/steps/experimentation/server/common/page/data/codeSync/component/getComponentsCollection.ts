@@ -12,6 +12,7 @@ export function getComponentsCollection({ revisionId, metadata }: ComponentsColl
     const componentId: string = getComponentId(designSystemId, component.info);
     all[componentId] = {
       componentId,
+      description: component.description,
       info: component.info,
       name: component.name,
       namespace: component.namespace,
