@@ -17,6 +17,7 @@ import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import {
+  getComponentDescriptionFromJsDocTags,
   getComponentDocUrlFromJsDocTags,
   getComponentNamespaceFromJsDocTags,
   getComponentUsePortalFromJsDocTags,
@@ -71,16 +72,17 @@ function getComponentWrappers(parsed: ComponentDoc, implInfo: ComponentImplement
 function getValuesFromComments(
   name: string,
   parsed: ComponentDoc
-): Pick<PartialResult, 'namespace' | 'componentDocUrl' | 'usePortal'> {
+): Pick<PartialResult, 'description' | 'namespace' | 'componentDocUrl' | 'usePortal'> {
   const jsDocTags: string[] = getJSDocTagsArrayFromString(parsed.description);
 
+  const description = getComponentDescriptionFromJsDocTags(jsDocTags);
   const namespace: ComponentNamespace | undefined = getComponentNamespaceFromJsDocTags(name, jsDocTags);
   const componentDocUrl: string | undefined = getComponentDocUrlFromJsDocTags(jsDocTags);
 
   const usePortal: boolean | string | undefined = getComponentUsePortalFromJsDocTags(jsDocTags);
   if (usePortal) log(`Portal component detected`, name, usePortal);
 
-  return { namespace, componentDocUrl, usePortal };
+  return { description, namespace, componentDocUrl, usePortal };
 }
 
 function thunkGetSummaryResult(path: string): (propResults: PartialResult) => ImplSerializationResult {
@@ -95,6 +97,7 @@ function thunkGetSummaryResult(path: string): (propResults: PartialResult) => Im
 }
 
 interface PartialResult {
+  description?: string;
   name: string;
   namespace?: ComponentNamespace;
   componentDocUrl?: string;
