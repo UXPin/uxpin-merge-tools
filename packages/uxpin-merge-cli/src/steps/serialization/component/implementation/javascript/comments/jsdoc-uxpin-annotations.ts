@@ -5,6 +5,10 @@ import { ComponentNamespace } from '../../../ComponentDefinition';
 import { getComponentNamespaceImportSlug } from '../../getComponentNamespaceImportSlug';
 import { extractMultipleWordsFromJsDocTags, extractSingleWordFromJsDocTags } from './jsdoc-helpers';
 
+export function getComponentDescriptionFromJsDocTags(jsDocTags: string[]) {
+  return extractMultipleWordsFromJsDocTags(CommentTags.UXPIN_DESCRIPTION, jsDocTags);
+}
+
 export function getComponentDocUrlFromJsDocTags(jsDocTags: string[]) {
   return extractSingleWordFromJsDocTags(CommentTags.UXPIN_DOC_URL, jsDocTags);
 }

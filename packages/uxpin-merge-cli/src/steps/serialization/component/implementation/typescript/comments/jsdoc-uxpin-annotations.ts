@@ -7,6 +7,12 @@ import { ComponentDeclaration } from '../component/getPropsTypeAndDefaultProps';
 import { getComponentNamespaceImportSlug } from '../../getComponentNamespaceImportSlug';
 import { getJSDocCommentText, getNodeJsDocTag } from './jsdoc-helpers';
 
+export function getComponentDescription(component: ts.Node): string | undefined {
+  const jsDocTag: ts.JSDocTag | undefined = getNodeJsDocTag(component, CommentTags.UXPIN_DESCRIPTION);
+  if (!jsDocTag) return undefined;
+  return getJSDocCommentText(jsDocTag);
+}
+
 export function getComponentDocUrl(component: ts.Node): string | undefined {
   const componentDocUrl: ts.JSDocTag | undefined = getNodeJsDocTag(component, CommentTags.UXPIN_DOC_URL);
   if (!componentDocUrl) return undefined;

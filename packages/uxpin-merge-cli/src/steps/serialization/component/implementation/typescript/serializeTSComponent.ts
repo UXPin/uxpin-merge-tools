@@ -12,7 +12,12 @@ import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getComponentDeclaration } from './component/getComponentDeclaration';
-import { getComponentDocUrl, getComponentNamespace, getComponentUsePortal } from './comments/jsdoc-uxpin-annotations';
+import {
+  getComponentDescription,
+  getComponentDocUrl,
+  getComponentNamespace,
+  getComponentUsePortal,
+} from './comments/jsdoc-uxpin-annotations';
 import { getComponentName } from './component/getComponentName';
 import { getComponentWrappers } from './component/getComponentWrappers';
 import { ComponentDeclaration } from './component/getPropsTypeAndDefaultProps';
@@ -41,6 +46,7 @@ export async function serializeTSComponentWithProgram(component: ComponentImplem
   const parsedProps: PropDefinitionParsingResult[] = parseTSComponentProperties(context, declaration);
   const validatedProps: PropDefinitionSerializationResult[] = serializeAndValidateParsedProperties(parsedProps);
   const namespace: ComponentNamespace | undefined = getComponentNamespace(declaration, name);
+  const description: string | undefined = getComponentDescription(declaration);
   const componentDocUrl: string | undefined = getComponentDocUrl(declaration);
   const wrappers: ComponentWrapper[] = getComponentWrappers(declaration);
   const validatedWrappers: Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
@@ -53,6 +59,7 @@ export async function serializeTSComponentWithProgram(component: ComponentImplem
     result: {
       componentDocUrl,
       defaultExported,
+      description,
       name,
       namespace,
       properties: validatedProps.map(({ result }) => result),

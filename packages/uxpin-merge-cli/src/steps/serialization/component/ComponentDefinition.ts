@@ -5,6 +5,7 @@ import { ComponentPreset } from './presets/ComponentPreset';
 import { ComponentWrapper } from './wrappers/ComponentWrapper';
 
 export interface ComponentMetadata {
+  description?: string;
   name: string;
   namespace?: ComponentNamespace;
   componentDocUrl?: string;
