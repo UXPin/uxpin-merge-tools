@@ -129,7 +129,7 @@ function axiosWithEnhancedError(options:AxiosRequestConfig):AxiosPromise {
   return axios(options).catch((error:AxiosError) => {
     if (error.response) {
       throw {
-        ...error.response.data,
+        ...(error.response.data as AxiosError),
         url: options.url,
       };
     }
