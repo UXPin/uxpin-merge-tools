@@ -2,8 +2,9 @@ import { importedPropTypesHandler } from '@uxpin/react-docgen-better-proptypes';
 import { readFile } from 'fs-extra';
 import { defaultHandlers, Handler, parse, ReactDocgenOptions, resolver } from 'react-docgen';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
+
 import { CommentTags } from '../../CommentTags';
-import { hasCommentTag } from './hasCommentTag';
+import { hasCommentTag } from './comments/jsdoc-helpers';
 
 interface ReactDocgenOptionsWithBabelConfig extends ReactDocgenOptions {
   babelrc?: boolean;
