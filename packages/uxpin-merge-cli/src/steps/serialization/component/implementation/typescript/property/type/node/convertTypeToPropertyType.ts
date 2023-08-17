@@ -1,13 +1,16 @@
 import * as ts from 'typescript';
 import { PropertyType } from '../../../../ComponentPropertyDefinition';
 import { TSSerializationContext } from '../../../context/getSerializationContext';
-import { isBooleanLike } from '../checker/isBooleanLike';
-import { isCallable } from '../checker/isCallable';
-import { isEnum } from '../checker/isEnum';
-import { isKnownPropertyType } from '../checker/isKnownPropertyType';
-import { isLiteral } from '../checker/isLiteral';
-import { isObjectLike } from '../checker/isObjectLike';
-import { isUnion } from '../checker/isUnion';
+import {
+  isAny,
+  isBooleanLike,
+  isCallable,
+  isEnum,
+  isKnownPropertyType,
+  isLiteral,
+  isObjectLike,
+  isUnion,
+} from '../checker';
 import { serializeAsUnsupportedType } from './serializeAsUnsupportedType';
 import { serializeEnumType } from './serializeEnumType';
 import { serializeKnownPropertyType } from './serializeKnownPropertyType';
@@ -28,11 +31,11 @@ export function convertTypeToPropertyType(
   if (isBooleanLike(type)) {
     return { name: 'boolean', structure: {} };
   }
-  if (type.flags & ts.TypeFlags.Any) {
-    return { name: 'any', structure: {} };
-  }
   if (isKnownPropertyType(type)) {
     return serializeKnownPropertyType(type);
+  }
+  if (isAny(type)) {
+    return { name: 'any', structure: {} };
   }
   if (isCallable(type)) {
     return { name: 'func', structure: {} };
