@@ -1,6 +1,6 @@
 {
   "name": "@uxpin/storybook-deployer",
-  "version": "1.0.0",
+  "version": "1.0.1-dev",
   "description": "CLI to deploy static Storybook to UXPin",
   "main": "src/deploy.js",
   "repository": {
