@@ -2,10 +2,8 @@ SHELL := /bin/bash -o pipefail
 
 .PHONY: dependencies check build clean test
 
-dependencies: packages/uxpin-merge-cli/node_modules
-
-packages/uxpin-merge-cli/node_modules: packages/uxpin-merge-cli/package.json
-	$(MAKE) -C packages/uxpin-merge-cli dependencies
+# The repo is set as a monorepo using Yarn workspaces, dependencies are installed at the root level
+dependencies: yarn install
 
 build:
 	$(MAKE) -C packages/uxpin-merge-cli build
