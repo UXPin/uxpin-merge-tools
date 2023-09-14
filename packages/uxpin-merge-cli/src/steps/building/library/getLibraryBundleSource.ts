@@ -11,7 +11,7 @@ const CLASS_NAME_WRAPPER = 'Wrapper';
 
 const log = debug('uxpin:build');
 
-type LibraryBundleOptions = Pick<BuildOptions, 'wrapperPath' | 'pageHeadTags' | 'cssResources''>;
+type LibraryBundleOptions = Pick<BuildOptions, 'wrapperPath' | 'pageHeadTags' | 'cssResources'>;
 
 export function getLibraryBundleSource(components: ComponentDefinition[], options?: LibraryBundleOptions): string {
   const { wrapperPath, cssResources, pageHeadTags } = options || {};
