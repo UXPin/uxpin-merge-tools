@@ -1,3 +1,5 @@
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
 # UXPin Merge CLI
 
 This is the command line used to preview design system components locally and push it to [UXPin Merge](https://www.uxpin.com/merge). Once pushed, designers can use the components within the UXPin editor.
@@ -52,4 +54,15 @@ will print the list of options:
     dump [options]              Shows all information (in JSON) about the design system repository and NOT send to UXPin
     server [options]            Start local web server and display the list of design system components
     summary [options]           Show only design system summary without building it
+```
+
+## Debug mode
+
+Set the environment variable `DEBUG=uxpin*` to get a verbose output. It can help when troubleshooting or investigating performance issues.
+It uses the NPM package [debug](https://github.com/debug-js/debug).
+
+Example:
+
+```bash
+DEBUG=uxpin* npx uxpin-merge push --token ***
 ```

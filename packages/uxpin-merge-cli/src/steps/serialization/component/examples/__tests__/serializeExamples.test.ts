@@ -121,7 +121,8 @@ describe('getExamples', () => {
     <Line />
     <Line />
     <Line />
-</DocumentationWithMultilineExamples>`,
+</DocumentationWithMultilineExamples>
+`,
         },
         {
           code: `// See first example
@@ -129,7 +130,8 @@ describe('getExamples', () => {
     <Line />
     <Line />
     <Line />
-</DocumentationWithMultilineExamples>`,
+</DocumentationWithMultilineExamples>
+`,
         },
       ];
       const expectedResult: ExamplesSerializationResult = {

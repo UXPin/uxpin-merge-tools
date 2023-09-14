@@ -1,5 +1,7 @@
+import debug from 'debug';
 import { toPairs } from 'lodash';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
+
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
@@ -14,12 +16,18 @@ import { parseWrapperAnnotation } from '../../wrappers/parseWrapperAnnotation';
 import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
-import { getComponentDocUrlFromDescription } from './getComponentDocUrlFromDescription';
+import {
+  getComponentDocUrlFromJsDocTags,
+  getComponentDescriptionFromJsDocTags,
+  getComponentNamespaceFromJsDocTags,
+  getComponentUsePortalFromJsDocTags,
+} from './comments/jsdoc-uxpin-annotations';
 import { getComponentName } from './getComponentName';
-import { getComponentNamespaceFromDescription } from './getComponentNamespaceFromDescription';
 import { getDefaultComponentFrom } from './getDefaultComponentFrom';
 import { isDefaultExported } from './isDefaultExported';
 import { parsePropertyItem } from './parsePropertyItem';
+
+const log = debug('uxpin:serialization:js');
 
 export function serializeJSComponent(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
   return getDefaultComponentFrom(component.path)
@@ -64,15 +72,17 @@ function getComponentWrappers(parsed: ComponentDoc, implInfo: ComponentImplement
 function getValuesFromComments(
   name: string,
   parsed: ComponentDoc
-): Pick<PartialResult, 'namespace' | 'componentDocUrl' | 'usePortal'> {
+): Pick<PartialResult, 'namespace' | 'componentDocUrl' | 'componentDescription' | 'usePortal'> {
   const jsDocTags: string[] = getJSDocTagsArrayFromString(parsed.description);
-  const namespaceTag: string = getCommentTag(CommentTags.UXPIN_NAMESPACE, jsDocTags) || '';
-  const componentDocUrlTag: string = getCommentTag(CommentTags.UXPIN_DOC_URL, jsDocTags) || '';
 
-  const namespace: ComponentNamespace | undefined = getComponentNamespaceFromDescription(name, namespaceTag);
-  const componentDocUrl: string | undefined = getComponentDocUrlFromDescription(componentDocUrlTag);
-  const usePortal: boolean | undefined = !!getCommentTag(CommentTags.UXPIN_USE_PORTAL, jsDocTags) || undefined;
-  return { namespace, componentDocUrl, usePortal };
+  const namespace: ComponentNamespace | undefined = getComponentNamespaceFromJsDocTags(name, jsDocTags);
+  const componentDocUrl: string | undefined = getComponentDocUrlFromJsDocTags(jsDocTags);
+  const componentDescription: string | undefined = getComponentDescriptionFromJsDocTags(jsDocTags);
+
+  const usePortal: boolean | string | undefined = getComponentUsePortalFromJsDocTags(jsDocTags);
+  if (usePortal) log(`Portal component detected`, name, usePortal);
+
+  return { namespace, componentDescription, componentDocUrl, usePortal };
 }
 
 function thunkGetSummaryResult(path: string): (propResults: PartialResult) => ImplSerializationResult {
@@ -90,8 +100,9 @@ interface PartialResult {
   name: string;
   namespace?: ComponentNamespace;
   componentDocUrl?: string;
+  componentDescription?: string;
   properties: PropDefinitionSerializationResult[];
   wrappers: Warned<ComponentWrapper[]>;
   defaultExported: boolean;
-  usePortal?: boolean;
+  usePortal?: boolean | string;
 }

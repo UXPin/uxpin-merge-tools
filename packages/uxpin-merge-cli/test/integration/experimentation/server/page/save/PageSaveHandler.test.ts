@@ -1,13 +1,11 @@
+import { AxiosPromise, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { readJson } from 'fs-extra';
 import { OK } from 'http-status-codes';
 import { join } from 'path';
-import { Response } from 'request';
-import { RequestPromise, RequestPromiseOptions } from 'request-promise';
 import { PageContent } from '../../../../../../src/common/types/PageData';
 import { PageIncrementalUpdate } from '../../../../../../src/common/types/PageIncrementalUpdate';
 import { TEMP_DIR_NAME } from '../../../../../../src/steps/building/config/getConfig';
 import { PAGE_FILE_NAME } from '../../../../../../src/steps/experimentation/server/handler/page/save/PageSaveHandler';
-import { setTimeoutBeforeAll } from '../../../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../../../utils/experimentation/setupExperimentationServerTest';
 import { addSecondElementRequestPayload } from './fixtures/addSecondElementRequestPayload';
 import { createFirstElementsRequestPayload } from './fixtures/createFirstElementsRequestPayload';
@@ -16,20 +14,21 @@ import { deleteElementRequestPayload } from './fixtures/deleteElementRequestPayl
 import { updateElementRequestPayload } from './fixtures/updateElementRequestPayload';
 
 const CURRENT_TIMEOUT = 30000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 // tslint:disable-next-line:max-line-length typedef no-var-requires
 const introPageContent = require('../../../../../../src/steps/experimentation/server/common/page/content/introPageContent.json');
 
 describe('Experimentation server – handling save page request', () => {
-  const { request, getWorkingDir } = setupExperimentationServerTest();
+  const { axiosPromise, getWorkingDir } = setupExperimentationServerTest({
+    timeout: CURRENT_TIMEOUT,
+  });
 
   describe('saving the first elements', () => {
-    let response: Response;
+    let response: AxiosResponse;
 
     beforeAll(async () => {
       // when
       response = await performSaveRequestWith(createFirstElementsRequestPayload);
-    });
+    }, CURRENT_TIMEOUT);
 
     it('responds with OK status code and correct headers', async () => {
       // given
@@ -41,8 +40,8 @@ describe('Experimentation server – handling save page request', () => {
       const expectedResponse: PageIncrementalUpdate = createFirstElementsRequestPayload;
 
       // then
-      expect(response.statusCode).toEqual(OK);
-      expect(JSON.parse(response.body)).toEqual(expectedResponse);
+      expect(response.status).toEqual(OK);
+      expect(response.data).toEqual(expectedResponse);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
 
@@ -186,15 +185,14 @@ describe('Experimentation server – handling save page request', () => {
     });
   });
 
-  function performSaveRequestWith(payload: PageIncrementalUpdate): RequestPromise {
+  function performSaveRequestWith(payload: PageIncrementalUpdate): AxiosPromise {
     const origin = 'https://app.uxpin.com';
-    const options: RequestPromiseOptions = {
-      form: { json: JSON.stringify(payload) },
+    const options: AxiosRequestConfig = {
+      data: payload,
       headers: { origin },
       method: 'POST',
-      resolveWithFullResponse: true,
     };
-    return request('/ajax/dmsDPPage/Save/?__ajax_request=1', options);
+    return axiosPromise('/ajax/dmsDPPage/Save/?__ajax_request=1', options);
   }
 
   function getCurrentSavedPage(): Promise<PageContent> {

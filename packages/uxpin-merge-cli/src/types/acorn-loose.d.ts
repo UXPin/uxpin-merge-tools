@@ -4,7 +4,7 @@ import { Node, Options } from 'acorn';
 export declare function parse(code: string, opts?: Options): ModuleNode;
 
 export interface ModuleNode extends Node {
-  body?: (ImportDeclaration | ExportDefaultDeclaration)[];
+  body?: (ImportDeclaration | ExportDefaultDeclaration | ExpressionStatement)[];
 }
 
 export interface ExportDefaultDeclaration extends Node {
@@ -87,7 +87,20 @@ export interface VariableDeclarator extends Node {
   id: Identifier;
 }
 
+// The 2 following types were added when implementing the parsing of @uxpinuseportal
+// TODO we should not have to add the types by ourselves
 export interface CallExpression extends Node {
   type: 'CallExpression';
   arguments: (Identifier | CallExpression)[];
+  callee: {
+    name: string;
+  };
+}
+
+export interface ExpressionStatement extends Node {
+  type: 'ExpressionStatement';
+  expression: {
+    type: string;
+    raw: string;
+  };
 }

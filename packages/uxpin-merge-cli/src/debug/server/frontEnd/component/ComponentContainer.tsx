@@ -9,7 +9,6 @@ interface Props extends ComponentDefinition {
   renderExample: ExampleRenderer;
 }
 
-// tslint:disable:variable-name
 export const ComponentContainer: React.SFC<Props> = ({
   documentation: { examples },
   name = '',

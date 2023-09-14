@@ -1,7 +1,8 @@
 import { join, resolve } from 'path';
-import { Configuration, Rule } from 'webpack';
+import { Configuration, RuleSetRule } from 'webpack';
 import { BuildOptions } from '../../BuildOptions';
 import { getConfig, LIBRARY_INPUT_FILENAME, LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../getConfig';
+import { Command } from '../../../../program/command/Command';
 
 describe('getConfig', () => {
   const projectRoot: string = resolve(__dirname, '../../../../../test/resources/configs/');
@@ -9,7 +10,7 @@ describe('getConfig', () => {
 
   describe('when webpack config is defined', () => {
     const webpackConfigPath = './getconfig-webpack.config.js';
-    let rules: Rule[];
+    let rules: RuleSetRule[];
 
     beforeEach(() => {
       rules = [
@@ -34,12 +35,11 @@ describe('getConfig', () => {
 
     describe('and is development mode', () => {
       it(
-        "returns merged configuration from specific file with 'cheap-module-eval-source-map devtool " +
-          'and with development mod',
+        "returns merged configuration from specific file with 'hidden-source-map devtool " + 'and with development mod',
         () => {
           // given
           const expectedConfig: Configuration = {
-            devtool: 'cheap-module-eval-source-map',
+            devtool: 'hidden-source-map',
             entry: entryPath,
             mode: 'development',
             module: { rules },
@@ -63,6 +63,7 @@ describe('getConfig', () => {
             target: 'web',
           };
           const options: BuildOptions = {
+            command: Command.PUSH,
             development: true,
             projectRoot,
             uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,
@@ -84,7 +85,7 @@ describe('getConfig', () => {
         () => {
           // given
           const expectedConfig: Configuration = {
-            devtool: 'eval',
+            devtool: 'eval-source-map',
             entry: entryPath,
             mode: 'production',
             module: { rules },
@@ -108,6 +109,7 @@ describe('getConfig', () => {
             target: 'web',
           };
           const options: BuildOptions = {
+            command: Command.PUSH,
             development: false,
             projectRoot,
             uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,
@@ -126,10 +128,10 @@ describe('getConfig', () => {
 
   describe('when webpack config is not defined', () => {
     describe('and is development mode', () => {
-      it("returns defined configuration with 'cheap-module-eval-source-map' devtool and development mode", () => {
+      it("returns defined configuration with 'hidden-source-map' devtool and development mode", () => {
         // given
         const expectedConfig: Configuration = {
-          devtool: 'cheap-module-eval-source-map',
+          devtool: 'hidden-source-map',
           entry: entryPath,
           mode: 'development',
           optimization: {
@@ -146,6 +148,7 @@ describe('getConfig', () => {
           },
         };
         const options: BuildOptions = {
+          command: Command.PUSH,
           development: true,
           projectRoot,
           uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,
@@ -179,6 +182,7 @@ describe('getConfig', () => {
           },
         };
         const options: BuildOptions = {
+          command: Command.PUSH,
           development: false,
           projectRoot,
           uxpinDirPath: `${projectRoot}/${TEMP_DIR_NAME}`,

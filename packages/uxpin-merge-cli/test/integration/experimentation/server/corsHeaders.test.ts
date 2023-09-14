@@ -1,20 +1,19 @@
+import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { OK } from 'http-status-codes';
-import { Response } from 'request';
-import { RequestPromiseOptions } from 'request-promise';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 const CURRENT_TIMEOUT = 30000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('CORS Headers', () => {
-  const { request } = setupExperimentationServerTest();
+  const { axiosPromise } = setupExperimentationServerTest({
+    timeout: CURRENT_TIMEOUT,
+  });
 
   describe('when `origin` header is set', () => {
     it('responds headers containing the correct domain', async () => {
       // given
       const origin = 'https://app.merge.uxpin.cloud';
-      const options: RequestPromiseOptions = { headers: { origin }, method: 'GET', resolveWithFullResponse: true };
+      const options: AxiosRequestConfig = { headers: { origin }, method: 'GET' };
       const expectedHeaders: any = {
         'access-control-allow-credentials': 'true',
         'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
@@ -22,11 +21,11 @@ describe('CORS Headers', () => {
       };
 
       // when
-      const response: Response = await request('/libraries/items/index/', options);
+      const response: AxiosResponse = await axiosPromise('/libraries/items/index/', options);
 
       // then
-      expect(response.statusCode).toEqual(OK);
-      expect(response.body).toEqual('[]');
+      expect(response.status).toEqual(OK);
+      expect(response.data).toEqual([]);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
   });
@@ -34,7 +33,7 @@ describe('CORS Headers', () => {
   describe('when `origin` header is not set', () => {
     it('responds headers containing `*` wildcard', async () => {
       // given
-      const options: RequestPromiseOptions = { method: 'GET', resolveWithFullResponse: true };
+      const options: AxiosRequestConfig = { method: 'GET' };
       const expectedHeaders: any = {
         'access-control-allow-credentials': 'true',
         'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Range',
@@ -42,11 +41,11 @@ describe('CORS Headers', () => {
       };
 
       // when
-      const response: Response = await request('/libraries/items/index/', options);
+      const response: AxiosResponse = await axiosPromise('/libraries/items/index/', options);
 
       // then
-      expect(response.statusCode).toEqual(OK);
-      expect(response.body).toEqual('[]');
+      expect(response.status).toEqual(OK);
+      expect(response.data).toEqual([]);
       expect(response.headers).toEqual(expect.objectContaining(expectedHeaders));
     });
   });

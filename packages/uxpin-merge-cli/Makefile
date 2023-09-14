@@ -2,7 +2,7 @@ PATH := $(shell yarn bin):$(PATH)
 SHELL := /bin/bash -o pipefail
 UXPIN_CODE=$(shell pwd)/bin/uxpin-merge
 YARN ?= yarn
-ESLINT_TARGETS = --ext .ts,.tsx ./src ./test ./__mocks__
+ESLINT_TARGETS = --ext .ts,.tsx ./src ./test
 
 .PHONY: dependencies install build build-watch \
 				check lint check-lint-errors lint-fix check-types \
@@ -62,8 +62,7 @@ test-integration:
 
 test-ci:
 	make test-rename-snapshots
-	UXPIN_ENV=test JEST_JUNIT_OUTPUT_DIR=./reports/jest jest --config="jest-ci.json" --maxWorkers=2 --detectOpenHandles --forceExit
-	make test-remap-coverage
+	UXPIN_ENV=test JEST_JUNIT_OUTPUT_DIR=./reports/jest jest --config="jest-ci.json" --maxWorkers=1
 
 clean:
 	rm -rf ./dist/
@@ -81,9 +80,6 @@ clean:
 
 clean-test-resources:
 	rm -rf ./test/resources/repos/*
-
-test-remap-coverage:
-	remap-istanbul -i coverage/coverage-final.json -o coverage/clover.xml -t clover
 
 test-resources:
 	cd ./shell_scripts/test_resources && make test-resources -j

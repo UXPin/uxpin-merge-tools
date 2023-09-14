@@ -3,18 +3,18 @@ import { resolve } from 'path';
 import { EPID } from '../../../../src/steps/experimentation/epid/EPID';
 import { getEPIDFilePath } from '../../../../src/steps/experimentation/epid/getEPIDFilePath';
 import { getProjectEPID } from '../../../../src/steps/experimentation/epid/getProjectEPID';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { getRandomPortNumber } from '../../../utils/e2e/server/getRandomPortNumber';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 
 const CURRENT_TIMEOUT = 30000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('createEPID', () => {
   describe("when epid file doesn't exist", () => {
     let epidFilePath: string;
 
-    const { getWorkingDir } = setupExperimentationServerTest();
+    const { getWorkingDir } = setupExperimentationServerTest({
+      timeout: CURRENT_TIMEOUT,
+    });
 
     beforeEach(() => {
       epidFilePath = getEPIDFilePath(getWorkingDir());
@@ -38,7 +38,11 @@ describe('createEPID', () => {
 
   describe('when epid file exists', () => {
     const projectPath: string = resolve(__dirname, '../../../resources/designSystems/withEpidFile');
-    const { getWorkingDir } = setupExperimentationServerTest({ port: getRandomPortNumber(), projectPath });
+    const { getWorkingDir } = setupExperimentationServerTest({
+      port: getRandomPortNumber(),
+      projectPath,
+      timeout: CURRENT_TIMEOUT,
+    });
 
     it('should not override already existed epid file', () => {
       expect(getEpidContent(getWorkingDir())).toEqual(getEpidContent(projectPath));

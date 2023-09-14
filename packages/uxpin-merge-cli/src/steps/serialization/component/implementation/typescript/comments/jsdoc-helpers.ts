@@ -20,3 +20,12 @@ function getNodeWithJsDoc(node: ts.Node) {
   }
   return node;
 }
+
+export function getJSDocCommentText(tag: ts.JSDocTag): string | undefined {
+  if (typeof tag?.comment === 'string') return tag?.comment;
+  return tag?.comment?.[0]?.text;
+}
+
+export function getJSDocTagInfoText(tagInfo: ts.JSDocTagInfo): string | undefined {
+  return tagInfo.text?.[0]?.text;
+}

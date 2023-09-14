@@ -5,7 +5,6 @@ import { ExperimentationServerContext } from '../../startExperimentationServer';
 import { handleImplementationError } from '../error/handleImplementationError';
 import { RequestHandler } from '../RequestHandler';
 
-// tslint:disable prefer-function-over-method
 export class GetVariablesHandler implements RequestHandler {
   // tslint:disable-next-line:no-unused-variable
   constructor(private context: ExperimentationServerContext) {}

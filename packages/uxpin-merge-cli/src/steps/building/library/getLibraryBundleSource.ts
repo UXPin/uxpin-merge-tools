@@ -1,14 +1,20 @@
+import debug from 'debug';
+import { compact } from 'lodash';
+
 import { parse, relative, posix } from 'path';
+import prettyBytes = require('pretty-bytes');
 import { ComponentDefinition } from '../../serialization/component/ComponentDefinition';
+import { BuildOptions } from '../BuildOptions';
 import { TEMP_DIR_PATH } from '../config/getConfig';
 
 const CLASS_NAME_WRAPPER = 'Wrapper';
 
-export function getLibraryBundleSource(
-  components: ComponentDefinition[],
-  wrapperPath?: string,
-  cssResources?: string
-): string {
+const log = debug('uxpin:build');
+
+type LibraryBundleOptions = Pick<BuildOptions, 'wrapperPath' | 'pageHeadTags' | 'cssResources''>;
+
+export function getLibraryBundleSource(components: ComponentDefinition[], options?: LibraryBundleOptions): string {
+  const { wrapperPath, cssResources, pageHeadTags } = options || {};
   const libImports: string[] = ["import * as React from 'react';", "import * as ReactDOM from 'react-dom';"];
 
   const imports: string[] = components
@@ -52,7 +58,9 @@ export function getLibraryBundleSource(
     `};`,
   ];
 
-  return [
+  const scriptToInjectTags = pageHeadTags?.length && generateScriptToInjectTagsInPageHead(pageHeadTags);
+
+  return compact([
     ...libImports,
     ...imports,
     ...wrapperImport,
@@ -60,7 +68,8 @@ export function getLibraryBundleSource(
     ...namespacedComponentDeclarations,
     ...cssUrls,
     ...exports,
-  ].join('\n');
+    scriptToInjectTags,
+  ]).join('\n');
 }
 
 function normalizePath(path: string): string {
@@ -104,4 +113,15 @@ function getNamespacedComponentDeclaration(component: ComponentDefinition): stri
   }
 
   return `const ${namespace.importSlug} = ${namespace.name}.${name};`;
+}
+
+function generateScriptToInjectTagsInPageHead(htmlTags: string[]) {
+  const html = htmlTags.reverse().join(''); // reverse the order before "prepending" to preserve the order of the tags
+  log(`Content to be injected in page <head> (${prettyBytes(html.length)})`, html.slice(0, 100));
+  return `
+const template = document.createElement('template');
+template.innerHTML = \`${html}\`;
+const nodes = Array.from(template.content.children);
+nodes.forEach(node => document.head.prepend(node));
+`;
 }

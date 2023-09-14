@@ -4,7 +4,7 @@ export function readConfigurationFrom(configPath: string): CliConfig | undefined
   try {
     return require(configPath);
   } catch (e) {
-    if (e.code === 'MODULE_NOT_FOUND') {
+    if ((e as any).code === 'MODULE_NOT_FOUND') {
       console.log(`'${configPath}' not found. Using default configuration.`);
       return;
     }

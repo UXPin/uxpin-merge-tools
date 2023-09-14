@@ -24,7 +24,6 @@ const DEFAULT_REPO_POINTER_METADATA: RepoPointerNameAndType = {
  * In non-experimental mode this will return the project metadata that the server was started with
  *
  */
-// tslint:disable prefer-function-over-method
 export class GetRepositoryPointerDefaultHandler implements RequestHandler {
   constructor(private context: ExperimentationServerContext) {}
 

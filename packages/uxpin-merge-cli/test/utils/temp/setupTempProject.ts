@@ -9,6 +9,7 @@ export interface TempProjectContext {
 export interface TempProjectOptions {
   gitOptions?: Partial<GitOptions>;
   sourceDir: string;
+  timeout?: number;
 }
 
 export function setupTempProject(options: TempProjectOptions): TempProjectContext {
@@ -18,7 +19,7 @@ export function setupTempProject(options: TempProjectOptions): TempProjectContex
   beforeAll(async () => {
     directoryResult = await prepareTempDir(options.sourceDir, options.gitOptions);
     deferredContext.setTarget(getContext(directoryResult));
-  });
+  }, options.timeout);
 
   afterAll(() => {
     directoryResult.cleanup();

@@ -3,12 +3,9 @@ import { Command } from '../../../src';
 
 import { LIBRARY_OUTPUT_FILENAME, TEMP_DIR_NAME } from '../../../src/steps/building/config/getConfig';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 import { testDirPath } from '../../utils/resources/testDirPath';
 
 const CURRENT_TIMEOUT = 75000;
-
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Building repos/nordnet-ui-kit design system', () => {
   describe('with required user webpack config', () => {
@@ -33,7 +30,7 @@ describe('Building repos/nordnet-ui-kit design system', () => {
         components = require(path);
         consoleOutput = output;
       });
-    });
+    }, CURRENT_TIMEOUT);
 
     it('contains Button component', () => {
       // when

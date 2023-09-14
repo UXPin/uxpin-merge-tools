@@ -1,9 +1,0 @@
-{
-  "extends": "tslint-config-uxpin",
-  "rules": {
-    "no-default-export": false,
-    "match-default-export-name": true,
-    "function-name": false,
-    "variable-name": false
-  }
-}

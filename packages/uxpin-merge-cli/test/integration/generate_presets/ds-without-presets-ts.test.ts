@@ -1,10 +1,8 @@
 import { readFile, rmdirSync, unlinkSync } from 'fs-extra';
 import { Command } from '../../../src';
 import { runUXPinMergeCommand } from '../../utils/command/runUXPinMergeCommand';
-import { setTimeoutBeforeAll } from '../../utils/command/setTimeoutBeforeAll';
 
 const CURRENT_TIMEOUT = 30000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 const DS_DIR = 'test/resources/designSystems/withoutPresets';
 describe('The generate presets command', () => {
@@ -16,17 +14,21 @@ describe('The generate presets command', () => {
       rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
     });
 
-    it('create 0-default.jsx', () => {
-      // when
-      return runUXPinMergeCommand({
-        cwd: 'resources/designSystems/withoutPresets',
-        params: [Command.GENERATE_PRESETS, `--component-path "${COMPONENT_DIR}/Avatar.tsx"`],
-      }).then(async () => {
-        // then
-        const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
-        expect(content).toMatchSnapshot();
-      });
-    });
+    it(
+      'create 0-default.jsx',
+      () => {
+        // when
+        return runUXPinMergeCommand({
+          cwd: 'resources/designSystems/withoutPresets',
+          params: [Command.GENERATE_PRESETS, `--component-path "${COMPONENT_DIR}/Avatar.tsx"`],
+        }).then(async () => {
+          // then
+          const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
+          expect(content).toMatchSnapshot();
+        });
+      },
+      CURRENT_TIMEOUT
+    );
   });
 
   describe('run for MenuWithData component', () => {
@@ -37,17 +39,21 @@ describe('The generate presets command', () => {
       rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
     });
 
-    it('create 0-default.jsx', () => {
-      // when
-      return runUXPinMergeCommand({
-        cwd: 'resources/designSystems/withoutPresets',
-        params: [Command.GENERATE_PRESETS, `--component-path "${COMPONENT_DIR}/MenuWithData.tsx"`],
-      }).then(async () => {
-        // then
-        const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
-        expect(content).toMatchSnapshot();
-      });
-    });
+    it(
+      'create 0-default.jsx',
+      () => {
+        // when
+        return runUXPinMergeCommand({
+          cwd: 'resources/designSystems/withoutPresets',
+          params: [Command.GENERATE_PRESETS, `--component-path "${COMPONENT_DIR}/MenuWithData.tsx"`],
+        }).then(async () => {
+          // then
+          const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
+          expect(content).toMatchSnapshot();
+        });
+      },
+      CURRENT_TIMEOUT
+    );
   });
 
   describe('run for ButtonWithIconAsProp component', () => {
@@ -58,17 +64,21 @@ describe('The generate presets command', () => {
       rmdirSync(`${DS_DIR}/${COMPONENT_DIR}/presets`);
     });
 
-    it('create 0-default.jsx', () => {
-      // when
-      return runUXPinMergeCommand({
-        cwd: 'resources/designSystems/withoutPresets',
-        params: [Command.GENERATE_PRESETS, `--component-path "${COMPONENT_DIR}/ButtonWithIconAsProp.tsx"`],
-      }).then(async () => {
-        // then
-        const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
-        expect(content).toMatchSnapshot();
-      });
-    });
+    it(
+      'create 0-default.jsx',
+      () => {
+        // when
+        return runUXPinMergeCommand({
+          cwd: 'resources/designSystems/withoutPresets',
+          params: [Command.GENERATE_PRESETS, `--component-path "${COMPONENT_DIR}/ButtonWithIconAsProp.tsx"`],
+        }).then(async () => {
+          // then
+          const content: string = await readFile(`${DS_DIR}/${COMPONENT_DIR}/presets/0-default.jsx`, 'utf-8');
+          expect(content).toMatchSnapshot();
+        });
+      },
+      CURRENT_TIMEOUT
+    );
   });
 
   describe('run for whole ds based on uxpin.config.js', () => {
@@ -90,7 +100,7 @@ describe('The generate presets command', () => {
         cwd: 'resources/designSystems/withoutPresets',
         params: [Command.GENERATE_PRESETS, `--config "uxpin.config.js"`],
       });
-    });
+    }, CURRENT_TIMEOUT);
 
     it('create 0-default.jsx for Avatar', async () => {
       // when

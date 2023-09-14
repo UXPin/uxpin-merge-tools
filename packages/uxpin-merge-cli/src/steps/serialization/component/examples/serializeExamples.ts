@@ -1,9 +1,10 @@
 import { readFile } from 'fs-extra';
-import { parse, Syntax, Token } from 'markdown-to-ast';
+import { parse, Syntax } from '@textlint/markdown-to-ast';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { ExamplesSerializationResult } from './ExamplesSerializationResult';
+import { TxtNode } from '@textlint/ast-node-types';
 
-interface TokenWithValue extends Token {
+interface TokenWithValue extends TxtNode {
   value: string;
 }
 
@@ -12,13 +13,13 @@ export function serializeExamples(filePath: string): Promise<ExamplesSerializati
     .then((content) =>
       parse(content)
         .children.filter(isSupportedLangTokenWithValue)
-        .map((codeBlock: TokenWithValue) => ({ code: codeBlock.value }))
+        .map((codeBlock: TxtNode) => ({ code: codeBlock.value }))
     )
     .then((examples) => ({ result: examples, warnings: [] }))
     .catch(thunkGetResultForInvalidExamples(filePath));
 }
 
-function isSupportedLangTokenWithValue(node: Token): node is TokenWithValue {
+function isSupportedLangTokenWithValue(node: TxtNode): node is TokenWithValue {
   return node.type === Syntax.CodeBlock && isSupportedLang(node.lang) && !!node.value;
 }
 

@@ -1,51 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Experimentation mode - handling preview all data should respond with proper body 1`] = `
-Object {
-  "breakpoints": Array [
-    Object {
+{
+  "breakpoints": [
+    {
       "height": 768,
       "name": "Wide 1440",
       "version": 0,
       "width": 1440,
     },
-    Object {
+    {
       "height": 480,
       "name": "iPhone (320px)",
       "version": 1,
       "width": 320,
     },
-    Object {
+    {
       "height": 320,
       "name": "Phone Landscape (480px)",
       "version": 2,
       "width": 480,
     },
-    Object {
+    {
       "height": 768,
       "name": "Tablets (600px)",
       "version": 3,
       "width": 600,
     },
-    Object {
+    {
       "height": 1024,
       "name": "iPads (768px)",
       "version": 4,
       "width": 768,
     },
-    Object {
+    {
       "height": 768,
       "name": "Standard websites (992px)",
       "version": 5,
       "width": 992,
     },
-    Object {
+    {
       "height": 768,
       "name": "iPad Landscape (1024px)",
       "version": 6,
       "width": 1024,
     },
-    Object {
+    {
       "height": 768,
       "name": "Wide websites (1224px)",
       "version": 7,
@@ -53,8 +53,8 @@ Object {
     },
   ],
   "pageId": 1,
-  "pages": Array [
-    Object {
+  "pages": [
+    {
       "documentationExists": false,
       "id_page": 1,
       "is_active": true,
@@ -66,100 +66,100 @@ Object {
       "version_type": 0,
     },
   ],
-  "pagesData": Object {
-    "1": Object {
-      "canvasData": Object {
-        "code_sync": Object {
-          "bundles": Object {
+  "pagesData": {
+    "1": {
+      "canvasData": {
+        "code_sync": {
+          "bundles": {
             "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762": "https://sessionId.ngrok.io/code/library.js",
           },
-          "components": Object {
-            "ba14886c-2674-52a3-a147-7b88e725e4ee": Object {
+          "components": {
+            "ba14886c-2674-52a3-a147-7b88e725e4ee": {
               "componentId": "ba14886c-2674-52a3-a147-7b88e725e4ee",
-              "info": Object {
+              "info": {
                 "dirPath": "src/components/Button",
-                "implementation": Object {
+                "implementation": {
                   "framework": "reactjs",
                   "lang": "typescript",
                   "path": "src/components/Button/Button.tsx",
                 },
-                "presets": Array [
-                  Object {
+                "presets": [
+                  {
                     "path": "src/components/Button/presets/0-default.jsx",
                   },
                 ],
               },
               "name": "Button",
-              "properties": Array [
-                Object {
+              "properties": [
+                {
                   "description": "",
                   "isRequired": true,
                   "name": "children",
-                  "type": Object {
+                  "type": {
                     "name": "node",
-                    "structure": Object {},
+                    "structure": {},
                   },
                 },
-                Object {
+                {
                   "description": "",
                   "isRequired": false,
                   "name": "isPrimary",
-                  "type": Object {
+                  "type": {
                     "name": "boolean",
-                    "structure": Object {},
+                    "structure": {},
                   },
                 },
               ],
               "revisionId": "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762",
-              "wrappers": Array [],
+              "wrappers": [],
             },
-            "f2dff102-3d25-5174-b733-12c4e58fdd5d": Object {
+            "f2dff102-3d25-5174-b733-12c4e58fdd5d": {
               "componentId": "f2dff102-3d25-5174-b733-12c4e58fdd5d",
-              "info": Object {
+              "info": {
                 "dirPath": "src/components/Avatar",
-                "implementation": Object {
+                "implementation": {
                   "framework": "reactjs",
                   "lang": "typescript",
                   "path": "src/components/Avatar/Avatar.tsx",
                 },
-                "presets": Array [
-                  Object {
+                "presets": [
+                  {
                     "path": "src/components/Avatar/presets/0-default.jsx",
                   },
                 ],
               },
               "name": "Avatar",
-              "properties": Array [
-                Object {
+              "properties": [
+                {
                   "description": "",
                   "isRequired": true,
                   "name": "size",
-                  "type": Object {
+                  "type": {
                     "name": "string",
-                    "structure": Object {},
+                    "structure": {},
                   },
                 },
-                Object {
+                {
                   "description": "",
                   "isRequired": true,
                   "name": "imageUrl",
-                  "type": Object {
+                  "type": {
                     "name": "string",
-                    "structure": Object {},
+                    "structure": {},
                   },
                 },
               ],
               "revisionId": "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762",
-              "wrappers": Array [],
+              "wrappers": [],
             },
           },
-          "presets": Object {
-            "02943eee-ab9a-57c6-adf8-d5c4978cd0b1": Object {
+          "presets": {
+            "02943eee-ab9a-57c6-adf8-d5c4978cd0b1": {
               "componentRevisionId": "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762_f2dff102-3d25-5174-b733-12c4e58fdd5d",
-              "elements": Object {
-                "1": Object {
+              "elements": {
+                "1": {
                   "name": "Avatar",
-                  "props": Object {
+                  "props": {
                     "imageUrl": "https://picsum.photos/100/100?image=1027",
                     "size": "small",
                   },
@@ -170,12 +170,12 @@ Object {
               "rootId": "1",
               "sortIndex": 0,
             },
-            "364b2288-4144-5962-8ad2-7c5ebc0ab2ae": Object {
+            "364b2288-4144-5962-8ad2-7c5ebc0ab2ae": {
               "componentRevisionId": "3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762_ba14886c-2674-52a3-a147-7b88e725e4ee",
-              "elements": Object {
-                "1": Object {
+              "elements": {
+                "1": {
                   "name": "Button",
-                  "props": Object {
+                  "props": {
                     "children": "Click me",
                     "isPrimary": true,
                   },
@@ -189,15 +189,15 @@ Object {
           },
         },
         "component_version": null,
-        "components_master_ids": Array [],
-        "components_versions": Array [],
-        "components_versions_map": Array [],
+        "components_master_ids": [],
+        "components_versions": [],
+        "components_versions_map": [],
         "is_component": "0",
         "last_update": "0",
       },
-      "metaData": Object {
+      "metaData": {
         "content": "/api/projects/3ab57996-fdf2-41cd-b3c6-85ba98596081_33a58bbfb9e97c671048f796c842723f13599762/pages/1/content",
-        "size": Object {
+        "size": {
           "height": 768,
           "scrollx": false,
           "scrolly": false,

@@ -1,12 +1,9 @@
-import * as requestPromise from 'request-promise';
+import axios, { AxiosRequestConfig } from 'axios';
 import { DSMetadata } from '../../../../program/DSMeta';
 import { postPushMetadata, PushMetadataResponse } from '../postPushMetadata';
 
-jest.mock('request-promise');
-
-const requestPromiseMock: jest.Mock<typeof requestPromise> = requestPromise as unknown as jest.Mock<
-  typeof requestPromise
->;
+jest.mock('axios');
+const axiosMock = axios as jest.MockedFunction<typeof axios>;
 
 describe('postPushMetadata', () => {
   const domain = 'https://uxpin.mock';
@@ -24,36 +21,36 @@ describe('postPushMetadata', () => {
   };
 
   beforeEach(() => {
-    requestPromiseMock.mockRestore();
+    axiosMock.mockRestore();
   });
 
   describe('request', () => {
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() => Promise.resolve({}));
+      axiosMock.mockResolvedValue({});
 
       // when
       await postPushMetadata(domain, token, metadata);
     });
 
     it('should call proper url', () => {
-      const [url] = requestPromiseMock.mock.calls[0];
-      expect(url).toEqual('https://uxpin.mock/code/v/1.0/push');
+      const [options] = axiosMock.mock.calls[0];
+      expect((options as AxiosRequestConfig).url).toEqual('https://uxpin.mock/code/v/1.0/push');
     });
 
     it('should use proper HTTP method', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
-      expect(options.method).toEqual('POST');
+      const [options] = axiosMock.mock.calls[0];
+      expect((options as AxiosRequestConfig).method).toEqual('POST');
     });
 
     it('should use proper auth-token', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
-      expect(options.headers['auth-token']).toEqual('token');
+      const [options] = axiosMock.mock.calls[0];
+      expect((options as AxiosRequestConfig).headers!['auth-token']).toEqual('token');
     });
 
     it('should have User-Agent header', () => {
-      const [, options] = requestPromiseMock.mock.calls[0];
-      expect(options.headers['User-Agent']).toContain('uxpin-merge-cli');
+      const [options] = axiosMock.mock.calls[0];
+      expect((options as AxiosRequestConfig).headers!['User-Agent']).toContain('uxpin-merge-cli');
     });
   });
 
@@ -62,11 +59,11 @@ describe('postPushMetadata', () => {
 
     beforeEach(async () => {
       // given
-      requestPromiseMock.mockImplementation(() =>
-        Promise.resolve({
+      axiosMock.mockResolvedValue({
+        data: {
           message: 'Design System snapshot has been uploaded successfully',
-        })
-      );
+        },
+      });
 
       // when
       response = await postPushMetadata(domain, token, metadata);
@@ -80,14 +77,14 @@ describe('postPushMetadata', () => {
   describe('HTTP 401', () => {
     beforeEach(() => {
       // given
-      requestPromiseMock.mockImplementation(() => {
-        return Promise.reject({
-          error: {
+      axiosMock.mockRejectedValue({
+        response: {
+          data: {
             error: 'Unauthorized',
             message: 'Incorrect authorization token',
             statusCode: 401,
           },
-        });
+        },
       });
     });
 

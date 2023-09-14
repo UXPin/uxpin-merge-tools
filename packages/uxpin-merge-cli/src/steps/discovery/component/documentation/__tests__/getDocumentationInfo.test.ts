@@ -47,15 +47,10 @@ describe('getDocumentationInfo', () => {
       );
     });
 
-    it('rejects a promise if a directory does not contain a documentation file', (done) => {
+    it('rejects a promise if a directory does not contain a documentation file', () => {
       const paths: ComponentPaths = getComponentsPath('directoryWithoutComponent');
 
-      // when
-      return (
-        getDocumentationInfo(paths)
-          // then
-          .catch(() => done())
-      );
+      expect(getDocumentationInfo(paths)).rejects.toThrow();
     });
 
     it('rejects a promise if a directory does not exist', (done) => {

@@ -5,9 +5,9 @@ export interface Props {
 }
 
 /**
- * @uxpinuseportal
+ * @uxpindescription 123 456 abc efg
  */
-export default function FunctionWithUsePortalDeclaration({ name }: Props): JSX.Element {
+export default function FunctionWithDocumentationDeclaration({ name }: Props): JSX.Element {
   return (
     <div>
       <label className={name}>{name}</label>

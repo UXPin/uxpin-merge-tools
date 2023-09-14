@@ -93,7 +93,7 @@ export function uploadLibrary(buildOptions: BuildOptions): StepExecutor {
       printLine('✅ Library bundle uploaded successfully!', { color: PrintColor.GREEN });
     } catch (error) {
       printLine('🛑 There was an error while uploading library bundle! Please try again.', { color: PrintColor.RED });
-      throw new Error(error.message);
+      throw new Error((error as Error).message);
     }
 
     try {
@@ -101,7 +101,7 @@ export function uploadLibrary(buildOptions: BuildOptions): StepExecutor {
       printLine('✅ Library metadata uploaded successfully!', { color: PrintColor.GREEN });
     } catch (error) {
       printLine('🛑 There was an error while uploading library metadata! Please try again.', { color: PrintColor.RED });
-      throw new Error(error.message);
+      throw new Error((error as Error).message);
     }
 
     await updateRepositoryPointerWithPrintMessage({
@@ -139,7 +139,7 @@ async function createTagWithPrintMessage(opts: {
     printLine(`🛑 There was an error while creating a tag [${opts.tag}] at commit hash [${opts.commitHash}]`, {
       color: PrintColor.RED,
     });
-    throw new Error(error.message);
+    throw new Error((error as Error).message);
   }
 }
 
@@ -153,13 +153,13 @@ async function updateRepositoryPointerWithPrintMessage(opts: {
     // Update the repository pointer to point to the new branch
     await updateRepositoryPointerToBranch(opts);
 
-    printLine(`🛈  Projects using this Design System have been updated to branch [${opts.branch}]`, {
+    printLine(`√ Projects using this Design System have been updated to branch [${opts.branch}]`, {
       color: PrintColor.CYAN,
     });
   } catch (error) {
     printLine(`🛑 There was an error while updating design system pointers [${opts.branch}]`, {
       color: PrintColor.RED,
     });
-    throw new Error(error.message);
+    throw new Error((error as Error).message);
   }
 }

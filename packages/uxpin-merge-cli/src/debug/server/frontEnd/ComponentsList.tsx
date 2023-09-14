@@ -7,7 +7,6 @@ interface Props {
   components: ComponentDefinition[];
   renderExample: ExampleRenderer;
 }
-// tslint:disable:variable-name
 export const ComponentsList: React.SFC<Props> = ({ components, renderExample }: Props) => (
   <div>
     {components.map((component) => (

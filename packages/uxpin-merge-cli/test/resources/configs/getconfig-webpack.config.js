@@ -5,7 +5,7 @@ const IMAGE_PATH_REGEX = /\.(jpe?g|png|gif|svg)$/;
 
 module.exports = {
     target: 'web',
-    devtool: 'eval',
+    devtool: 'eval-source-map',
     entry: [
         'react-hot-loader/patch',
         '@shopify/polaris/styles/global.scss',

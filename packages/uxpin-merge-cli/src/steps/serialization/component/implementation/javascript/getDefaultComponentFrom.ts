@@ -2,15 +2,15 @@ import { importedPropTypesHandler } from '@uxpin/react-docgen-better-proptypes';
 import { readFile } from 'fs-extra';
 import { defaultHandlers, Handler, parse, ReactDocgenOptions, resolver } from 'react-docgen';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
+
 import { CommentTags } from '../../CommentTags';
-import { hasCommentTag } from './hasCommentTag';
+import { hasCommentTag } from './comments/jsdoc-helpers';
 
 interface ReactDocgenOptionsWithBabelConfig extends ReactDocgenOptions {
   babelrc?: boolean;
   configFile?: boolean;
 }
 
-// tslint:disable-next-line: max-line-length
 const parsers: Array<
   (file: string, handlers: Handler[], options: ReactDocgenOptionsWithBabelConfig) => ComponentDoc | undefined
 > = [parseWithAnnotation, parseDefault];
@@ -46,7 +46,7 @@ export async function getDefaultComponentFrom(filePath: string): Promise<Compone
       try {
         componentDoc = parser(file, handlers, options);
       } catch (e) {
-        error = e;
+        error = e as Error;
       }
 
       if (componentDoc) {

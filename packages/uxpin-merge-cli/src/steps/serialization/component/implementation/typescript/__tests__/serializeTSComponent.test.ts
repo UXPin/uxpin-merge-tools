@@ -1,8 +1,8 @@
-import { getTypeScriptComponentPath } from '../../../../../../../test/utils/resources/getExampleComponentPath';
 import { Warned } from '../../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../../discovery/component/ComponentInfo';
 import { ComponentMetadata } from '../../../ComponentDefinition';
 import { serializeTSComponent } from '../serializeTSComponent';
+import { getImplementation } from './utils/getImplementation';
 
 describe('serializeTSComponent', () => {
   describe('providing array of objects describing all properties of the TypeScript component', () => {
@@ -1412,11 +1412,3 @@ component.`,
     });
   });
 });
-
-export function getImplementation(componentName: string): ComponentImplementationInfo {
-  return {
-    framework: 'reactjs',
-    lang: 'typescript',
-    path: getTypeScriptComponentPath(componentName),
-  };
-}

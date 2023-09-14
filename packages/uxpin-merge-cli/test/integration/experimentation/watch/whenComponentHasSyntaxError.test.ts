@@ -1,12 +1,10 @@
 import * as path from 'path';
 import { getTempDirPath } from '../../../../src/program/args/providers/paths/getTempDirPath';
 import { LIBRARY_OUTPUT_FILENAME } from '../../../../src/steps/building/config/getConfig';
-import { setTimeoutBeforeAll } from '../../../utils/command/setTimeoutBeforeAll';
 import { setupExperimentationServerTest } from '../../../utils/experimentation/setupExperimentationServerTest';
 import { getFileChecksum } from '../../../utils/file/getFileChecksum';
 
 const CURRENT_TIMEOUT = 100000;
-setTimeoutBeforeAll(CURRENT_TIMEOUT);
 
 describe('Experimental - watch - change file content with syntax error', () => {
   let initialBundleChecksum: string;
@@ -70,11 +68,12 @@ export default class Avatar extends PureComponent {
     projectPath: 'resources/designSystems/watchingChanges',
     serverCmdArgs: ['--config "uxpin.config.js"', '--webpack-config "./webpack.config.js"'],
     silent: true,
+    timeout: CURRENT_TIMEOUT,
   });
 
   beforeAll(async () => {
     initialBundleChecksum = await getBundleChecksum();
-  });
+  }, CURRENT_TIMEOUT);
 
   describe('when component content has syntax error', () => {
     let errorResponse: string;
@@ -82,12 +81,12 @@ export default class Avatar extends PureComponent {
       try {
         await changeProjectFile(avatarJsxPath, avatarSyntaxErrorContent);
       } catch (error) {
-        errorResponse = error;
+        errorResponse = error as string;
       }
-    });
+    }, CURRENT_TIMEOUT);
 
     it('should display Parsing error message on stderr', () => {
-      expect(errorResponse).toContain('ERROR in ./src/components/Avatar/Avatar.jsx');
+      expect(errorResponse).toMatch(new RegExp('ERROR.*in.*./src/components/Avatar/Avatar.jsx'));
     });
 
     describe('when user fix content syntax error', () => {

@@ -1,19 +1,21 @@
 import { getDefaultApiDomain } from '../../../../src/common/services/UXPin/getDefaultApiDomain';
 import { BuildOptions } from '../../../steps/building/BuildOptions';
-import { PushProgramArgs } from '../../args/ProgramArgs';
 import { getProjectRoot } from '../../args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../args/providers/paths/getTempDirPath';
+import { Command } from '../Command';
 
 export function getBuildOptions(args: BuildProgramArgs): BuildOptions {
-  const { token, uxpinDomain, webpackConfig, wrapper, branch, tag, force, disableVersionControl, cssResources } = args;
+  const { command, pageHeadTags, token, uxpinDomain, webpackConfig, wrapper, branch, tag, force, disableVersionControl, cssResources } = args;
 
   return {
     branch,
+    command,
+    force,
+    pageHeadTags,
     cssResources,
     disableVersionControl,
     projectRoot: getProjectRoot(args),
     tag,
-    force,
     token,
     uxpinApiDomain: getDefaultApiDomain(uxpinDomain!),
     uxpinDirPath: getTempDirPath(args),
@@ -23,16 +25,18 @@ export function getBuildOptions(args: BuildProgramArgs): BuildOptions {
   };
 }
 
-export type BuildProgramArgs = Pick<
-  PushProgramArgs,
-  | 'cwd'
-  | 'token'
-  | 'uxpinDomain'
-  | 'webpackConfig'
-  | 'wrapper'
-  | 'branch'
-  | 'tag'
-  | 'disableVersionControl'
-  | 'cssResources'
-  | 'force'
->;
+export interface BuildProgramArgs {
+  branch?: string;
+  command: Command;
+  config?: string;
+  cwd: string;
+  force?: boolean;
+  pageHeadTags?: string[];
+  tag?: string;
+  token?: string;
+  uxpinDomain?: string;
+  webpackConfig?: string;
+  wrapper?: string;
+  cssResources?: string;
+  disableVersionControl?: string;
+}

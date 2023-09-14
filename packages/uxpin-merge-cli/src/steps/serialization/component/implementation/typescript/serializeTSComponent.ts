@@ -1,3 +1,6 @@
+import debug from 'debug';
+import * as ts from 'typescript';
+
 import { joinWarningLists } from '../../../../../common/warning/joinWarningLists';
 import { Warned } from '../../../../../common/warning/Warned';
 import { ComponentImplementationInfo } from '../../../../discovery/component/ComponentInfo';
@@ -9,19 +12,31 @@ import { ImplSerializationResult } from '../ImplSerializationResult';
 import { PropDefinitionParsingResult } from '../PropDefinitionParsingResult';
 import { PropDefinitionSerializationResult } from '../PropDefinitionSerializationResult';
 import { getComponentDeclaration } from './component/getComponentDeclaration';
-import { getComponentDocUrl } from './comments/jsdoc-docurl';
-import { getComponentNamespace } from './comments/jsdoc-namespace';
-import { getComponentUsePortal } from './comments/jsdoc-useportal';
+import {
+  getComponentDescription,
+  getComponentDocUrl,
+  getComponentNamespace,
+  getComponentUsePortal,
+} from './comments/jsdoc-uxpin-annotations';
 import { getComponentName } from './component/getComponentName';
 import { getComponentWrappers } from './component/getComponentWrappers';
 import { ComponentDeclaration } from './component/getPropsTypeAndDefaultProps';
 import { isDefaultExported } from './component/isDefaultExported';
-import { getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
+import { createTSProgram, getSerializationContext, TSSerializationContext } from './context/getSerializationContext';
 import { parseTSComponentProperties } from './parseTSComponentProperties';
 
-export async function serializeTSComponent(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
-  const context: TSSerializationContext = getSerializationContext(component);
+const log = debug('uxpin:serialization:ts');
 
+// Called from a lot of unit tests but not from the main loop in `getDesignSystemMetadata()`
+// TODO Refactor to use only the `Serializer` class everywhere?
+export async function serializeTSComponent(component: ComponentImplementationInfo): Promise<ImplSerializationResult> {
+  const program = createTSProgram([component.path]);
+  return serializeTSComponentWithProgram(component, program);
+}
+
+// Called from the `serializer` class, to avoid the expensive creation of the `ts.Program`
+export async function serializeTSComponentWithProgram(component: ComponentImplementationInfo, program: ts.Program) {
+  const context: TSSerializationContext = getSerializationContext(component, program);
   const declaration: ComponentDeclaration | undefined = getComponentDeclaration(context);
   if (!declaration) {
     throw new Error('No component found!');
@@ -32,14 +47,18 @@ export async function serializeTSComponent(component: ComponentImplementationInf
   const validatedProps: PropDefinitionSerializationResult[] = serializeAndValidateParsedProperties(parsedProps);
   const namespace: ComponentNamespace | undefined = getComponentNamespace(declaration, name);
   const componentDocUrl: string | undefined = getComponentDocUrl(declaration);
+  const componentDescription: string | undefined = getComponentDescription(declaration);
   const wrappers: ComponentWrapper[] = getComponentWrappers(declaration);
   const validatedWrappers: Warned<ComponentWrapper[]> = validateWrappers(wrappers, component);
   const defaultExported: boolean = isDefaultExported(declaration, context);
-  const usePortal: boolean | undefined = getComponentUsePortal(declaration) || undefined;
+
+  const usePortal = getComponentUsePortal(declaration) || undefined;
+  if (usePortal) log(`Portal component detected`, name, usePortal);
 
   return {
     result: {
       componentDocUrl,
+      componentDescription,
       defaultExported,
       name,
       namespace,

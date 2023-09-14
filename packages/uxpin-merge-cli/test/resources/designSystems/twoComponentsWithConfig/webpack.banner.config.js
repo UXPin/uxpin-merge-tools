@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   module: {
@@ -6,12 +7,23 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/
-      }
-    ]
+        exclude: /node_modules/,
+      },
+    ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  mode: "development",
+  // To get a customized banner in the bundle,
+  // comments should not be extracted by TerserPlugin that comes with Webpack 5, see:
+  // https://stackoverflow.com/questions/69444934/webpack-bannerplugin-creates-separate-license-file
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false,
+      }),
+    ],
   },
   plugins: [
     new webpack.BannerPlugin({
