@@ -40,16 +40,18 @@ export function uploadLibrary(buildOptions: BuildOptions): StepExecutor {
       return designSystem;
     }
 
-    // Get the branches at the current commit
-    const branchesAtCurrentCommit: string[] = await getBranchesAtCommit(vcsDetails.paths.projectRoot, commitHash);
+    if (!buildOptions.disableVersionControl) {
+      // Get the branches at the current commit
+      const branchesAtCurrentCommit: string[] = await getBranchesAtCommit(vcsDetails.paths.projectRoot, commitHash);
 
-    // Prevent trying to push non-master commits to master or main
-    if (!branchesAtCurrentCommit.includes(branch)) {
-      if (isDefaultBranch(branch) && !branchesAtCurrentCommit.includes(ALTERNATIVE_DEFAULT_BRANCH_NAME)) {
-        printError(
-          `🛑 The current commit is not on branch [${branch}], please specify --branch to use a custom branch`
-        );
-        return designSystem;
+      // Prevent trying to push non-master commits to masteror main
+      if (!branchesAtCurrentCommit.includes(branch)) {
+        if (isDefaultBranch(branch) && !branchesAtCurrentCommit.includes(ALTERNATIVE_DEFAULT_BRANCH_NAME)) {
+          printError(
+            `🛑 The current commit is not on branch [${branch}], please specify --branch to use a custom branch`
+          );
+          return designSystem;
+        }
       }
     }
 

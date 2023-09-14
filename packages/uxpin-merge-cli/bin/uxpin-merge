@@ -31,6 +31,15 @@ program
     .option('--component-path <path>', 'path to a component path, relative to the current working directory')
     .action(() => {});
 
+program
+    .command(Command.CREATE_APP)
+    .description('Create app based on package name')
+    .option('--app-name <string>', 'App name')
+    .option('--components <string>', 'list of imports statements')
+    .option('--packages <string>', 'names and versions of npm packages')
+    .option('--npmrc <string>', 'Content of .npmrc')
+    .action(() => {});
+
 
 program
     .command(Command.PUSH)
@@ -42,6 +51,8 @@ program
     .option('--token <token>', 'auth token for the library. Default: `UXPIN_AUTH_TOKEN` env variable')
     .option('--branch <branch>', 'branch to use when uploading. Default: master')
     .option('--tag <tag>', 'tag this push with a specific name or number. The provided name/number is unique and can be used only once.')
+    .option('--css-resources <string>', 'Attach external css styles to pushed js bundle')
+    .option('--disable-version-control', 'Turn off version control')
     .option('--force', 'ignore the last commit saved in uxpin db and push the library without checking history. It could break old prototypes if components were created before 07.2021')
     .action(() => {});
 
