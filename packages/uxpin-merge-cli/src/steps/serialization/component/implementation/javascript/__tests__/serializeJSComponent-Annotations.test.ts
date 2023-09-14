@@ -26,6 +26,10 @@ describe('SerializeJSComponent - with annotations', () => {
       expect(serialized.result.componentDocUrl).toBeUndefined();
     });
 
+    it('doesnt return componentDescription value', () => {
+      expect(serialized.result.componentDescription).toBeUndefined();
+    });
+
     it('returns empty list of wrappers', () => {
       expect(serialized.result.wrappers).toEqual([]);
     });
@@ -209,6 +213,36 @@ describe('SerializeJSComponent - with annotations', () => {
 
     it('returns correct url', () => {
       expect(serialized.result.componentDocUrl).toEqual('https://app.uxpin.com/test');
+    });
+
+    it('returns empty list of wrappers', () => {
+      expect(serialized.result.wrappers).toEqual([]);
+    });
+
+    it('returns correct props list of component', () => {
+      expect(serialized.result.properties).toEqual([
+        expect.objectContaining({
+          isRequired: true,
+          name: 'name',
+        }),
+      ]);
+    });
+
+    it('returns empty warnings list', () => {
+      expect(serialized.warnings).toEqual([]);
+    });
+  });
+
+  describe('function with componentDescription declaration', () => {
+    let serialized: ImplSerializationResult;
+
+    beforeAll(async () => {
+      const component: ComponentImplementationInfo = getImplementation('FunctionWithDescriptionDeclaration');
+      serialized = await serializeJSComponent(component);
+    });
+
+    it('returns correct description', () => {
+      expect(serialized.result.componentDescription).toEqual('test test');
     });
 
     it('returns empty list of wrappers', () => {

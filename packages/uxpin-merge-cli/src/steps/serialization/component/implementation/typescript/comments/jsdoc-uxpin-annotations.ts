@@ -13,6 +13,12 @@ export function getComponentDocUrl(component: ts.Node): string | undefined {
   return getJSDocCommentText(componentDocUrl);
 }
 
+export function getComponentDescription(component: ts.Node): string | undefined {
+  const componentDescription: ts.JSDocTag | undefined = getNodeJsDocTag(component, CommentTags.UXPIN_DESCRIPTION);
+  if (!componentDescription) return undefined;
+  return getJSDocCommentText(componentDescription);
+}
+
 export function getComponentNamespace(component: ComponentDeclaration, name: string): ComponentNamespace | undefined {
   const namespace: ts.JSDocTag | undefined = getNodeJsDocTag(component, CommentTags.UXPIN_NAMESPACE);
   if (!namespace || !namespace.comment) {

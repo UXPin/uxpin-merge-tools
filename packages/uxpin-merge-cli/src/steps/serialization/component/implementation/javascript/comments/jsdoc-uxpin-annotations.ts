@@ -9,6 +9,10 @@ export function getComponentDocUrlFromJsDocTags(jsDocTags: string[]) {
   return extractSingleWordFromJsDocTags(CommentTags.UXPIN_DOC_URL, jsDocTags);
 }
 
+export function getComponentDescriptionFromJsDocTags(jsDocTags: string[]) {
+  return extractMultipleWordsFromJsDocTags(CommentTags.UXPIN_DESCRIPTION, jsDocTags);
+}
+
 export function getComponentNamespaceFromJsDocTags(
   componentName: string,
   jsDocTags: string[]
