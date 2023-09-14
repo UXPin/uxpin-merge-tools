@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.0] - 2023-01-18
+
+### Added
+
+- Supports component description visible in properties panel with `@uxpindescription` ([#361](https://github.com/UXPin/uxpin-merge-tools/pull/410))
+
+
 ## [3.3.0] - 2023-08-01
 
 - Let users inject HTML tags in page `<head>` ([#398](https://github.com/UXPin/uxpin-merge-tools/pull/401))
