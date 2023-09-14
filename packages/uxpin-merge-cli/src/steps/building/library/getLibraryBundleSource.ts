@@ -14,7 +14,7 @@ const log = debug('uxpin:build');
 type LibraryBundleOptions = Pick<BuildOptions, 'wrapperPath' | 'pageHeadTags' | 'cssResources'>;
 
 export function getLibraryBundleSource(components: ComponentDefinition[], options?: LibraryBundleOptions): string {
-  const { wrapperPath = '', cssResources = '', pageHeadTags = '' } = options || {};
+  const { wrapperPath = '', cssResources = '', pageHeadTags = [] } = options || {};
   const libImports: string[] = ["import * as React from 'react';", "import * as ReactDOM from 'react-dom';"];
 
   const imports: string[] = components
