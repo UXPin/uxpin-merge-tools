@@ -8,6 +8,7 @@ export interface ComponentMetadata {
   name: string;
   namespace?: ComponentNamespace;
   componentDocUrl?: string;
+  componentDescription?: string;
   properties: ComponentPropertyDefinition[];
   wrappers?: ComponentWrapper[];
   defaultExported: boolean;
