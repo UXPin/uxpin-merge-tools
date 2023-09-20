@@ -11,6 +11,8 @@ export function getComponentsCollection({ revisionId, metadata }: ComponentsColl
   return components.reduce<AllComponentsCollection>((all, component) => {
     const componentId: string = getComponentId(designSystemId, component.info);
     all[componentId] = {
+      componentDescription: component.componentDescription,
+      componentDocUrl: component.componentDocUrl,
       componentId,
       info: component.info,
       name: component.name,
