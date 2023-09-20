@@ -1,8 +1,11 @@
 # Changelog
 
-## [3.4.0] - 2023-01-18
+## [3.4.1] - 2023-01-18
 
-### Added
+- Displaying description and doc url in experimental mode ([#411](https://github.com/UXPin/uxpin-merge-tools/pull/411))
+
+
+## [3.4.0] - 2023-01-18
 
 - Supports component description visible in properties panel with `@uxpindescription` ([#410](https://github.com/UXPin/uxpin-merge-tools/pull/410))
 
