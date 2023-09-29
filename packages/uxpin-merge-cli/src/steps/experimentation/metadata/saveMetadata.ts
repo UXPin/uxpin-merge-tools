@@ -1,4 +1,3 @@
-import sortobject = require('sortobject');
 import { DSMetadata } from '../../../program/DSMeta';
 import { writeToFile } from '../../../utils/fs/writeToFile';
 import { DesignSystemSnapshot } from '../../serialization/DesignSystemSnapshot';
@@ -14,7 +13,7 @@ export function thunkSaveMetadataLibrary(buildOptions: ExperimentMetadataOptions
 }
 
 function saveMetadata(filePath: string, snapshot: DesignSystemSnapshot): Promise<void> {
-  const serializedSnapshot: string = JSON.stringify(sortobject(snapshot), null, INDENT);
+  const serializedSnapshot: string = JSON.stringify(snapshot, null, INDENT);
   return writeToFile(filePath, serializedSnapshot);
 }
 
