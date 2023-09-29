@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.4.2] - 2023-09-29
+
+- Removes sorting properties in experimental mode and dump command to keep the same order as declared in code ([#414](https://github.com/UXPin/uxpin-merge-tools/pull/414))
+
+
 ## [3.4.1] - 2023-09-20
 
 - Displaying description and doc url in experimental mode ([#413](https://github.com/UXPin/uxpin-merge-tools/pull/413))
