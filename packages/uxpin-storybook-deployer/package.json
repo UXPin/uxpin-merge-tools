@@ -36,6 +36,7 @@
     "chalk": "4.1.2",
     "commander": "^11.0.0",
     "form-data": "^4.0.0",
-    "mime-types": "^2.1.35"
+    "mime-types": "^2.1.35",
+    "node-dig-dns": "^0.3.3"
   }
 }
