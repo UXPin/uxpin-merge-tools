@@ -3,6 +3,10 @@ import { ConfigEnabledProgramArgs } from '../../../program/args/ProgramArgs';
 export interface CliConfig {
   components: ComponentsConfig;
   name?: string;
+  settings?: {
+    customComponentName?: string;
+    componentType?: string;
+  };
 }
 
 export interface ComponentsConfig extends ConfigEnabledProgramArgs {
