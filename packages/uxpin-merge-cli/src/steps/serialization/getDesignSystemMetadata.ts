@@ -53,11 +53,22 @@ export async function getDesignSystemMetadata(
 
   validateComponentNamespaces(categorizedComponents);
 
+  if (librarySettings) {
+    return {
+      result: {
+        categorizedComponents,
+        name: libraryName,
+        settings: librarySettings,
+        vcs,
+      },
+      warnings: joinWarningLists(categoriesWithPresets.map((category) => category.warnings)),
+    };
+  }
+
   return {
     result: {
       categorizedComponents,
       name: libraryName,
-      settings: librarySettings,
       vcs,
     },
     warnings: joinWarningLists(categoriesWithPresets.map((category) => category.warnings)),

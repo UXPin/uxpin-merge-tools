@@ -6,5 +6,13 @@ import { ProjectPaths } from '../paths/ProjectPaths';
 export function getLibrarySettings(projectPaths: ProjectPaths): string {
   const config: CliConfig = getConfiguration(projectPaths.configPath);
 
-  return JSON.stringify(config.settings || {});
+  if (!config.settings) {
+    return '';
+  }
+
+  try {
+    return JSON.stringify(config.settings || {});
+  } catch (e) {
+    return '';
+  }
 }
