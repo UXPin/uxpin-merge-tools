@@ -116,6 +116,7 @@ export enum CustomControlTypeName {
   CodeEditor = 'codeeditor',
   Color = 'color',
   Input = 'input',
+  Image = 'image',
   Interactions = 'interactions',
   Number = 'number',
   Select = 'select',
@@ -127,6 +128,7 @@ export interface CustomControlTypeStructureMap {
   [CustomControlTypeName.CodeEditor]: {};
   [CustomControlTypeName.Color]: {};
   [CustomControlTypeName.Input]: {};
+  [CustomControlTypeName.Image]: {};
   [CustomControlTypeName.Interactions]: {};
   [CustomControlTypeName.Number]: {};
   [CustomControlTypeName.Select]: {};

@@ -21,6 +21,7 @@ import { DesignSystemSnapshot, VCSDetails } from './DesignSystemSnapshot';
 import { validateComponentNamespaces } from './validation/validateComponentNamespaces';
 import { getVcsDetails } from './vcs/getVcsDetails';
 import { MergeComponentSerializer } from './serializer';
+import { getLibrarySettings } from '../discovery/library/getLibrarySettings';
 
 const log = debug('uxpin');
 
@@ -30,6 +31,7 @@ export async function getDesignSystemMetadata(
 ): Promise<Warned<DesignSystemSnapshot>> {
   const buildOptions: BuildOptions = getBuildOptions(programArgs);
   const libraryName: string = getLibraryName(paths);
+  const librarySettings = getLibrarySettings(paths);
 
   const categoryInfos: ComponentCategoryInfo[] = await getComponentCategoryInfos(paths);
 
@@ -50,6 +52,18 @@ export async function getDesignSystemMetadata(
   const vcs: VCSDetails = await getVcsDetails(paths, buildOptions, categorizedComponents);
 
   validateComponentNamespaces(categorizedComponents);
+
+  if (librarySettings) {
+    return {
+      result: {
+        categorizedComponents,
+        name: libraryName,
+        settings: librarySettings,
+        vcs,
+      },
+      warnings: joinWarningLists(categoriesWithPresets.map((category) => category.warnings)),
+    };
+  }
 
   return {
     result: {

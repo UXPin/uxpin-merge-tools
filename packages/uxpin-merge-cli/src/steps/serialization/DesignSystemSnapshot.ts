@@ -3,6 +3,7 @@ import { ComponentCategory } from './component/categories/ComponentCategory';
 
 export interface DesignSystemSnapshot {
   name: string;
+  settings?: string;
   categorizedComponents: ComponentCategory[];
   vcs: VCSDetails;
 }
