@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.3] - 2024-02-29
+
+### Added
+
+- Supports image type with `@uxpincontroltype image` 
+- Possibility of adding library settings in uxpin.config.js - currently handled only by global UXPin libraries
+
 ## [3.4.2] - 2023-09-29
 
 - Removes sorting properties in experimental mode and dump command to keep the same order as declared in code ([#414](https://github.com/UXPin/uxpin-merge-tools/pull/414))
