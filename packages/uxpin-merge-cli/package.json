@@ -9,6 +9,7 @@
   },
   "main": "src/index.js",
   "bin": {
+    "uxpin-integrate-package": "bin/uxpin-integrate-package",
     "uxpin-merge": "bin/uxpin-merge"
   },
   "typings": "src/types.d.ts",

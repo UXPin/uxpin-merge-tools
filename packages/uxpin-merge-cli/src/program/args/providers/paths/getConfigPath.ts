@@ -1,6 +1,8 @@
 import { resolve } from 'path';
-import { ProgramArgs } from '../../ProgramArgs';
 
-export function getConfigPath({ cwd, config }: ProgramArgs): string {
+export function getConfigPath({ cwd, config }: { cwd: string | undefined; config: string | undefined }): string {
+  if (!cwd) {
+    return '';
+  }
   return resolve(cwd, config || '');
 }
