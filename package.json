@@ -1,0 +1,19 @@
+{
+  "name": "uxpin-merge-tools",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:UXPin/uxpin-merge-tools.git",
+  "author": "michaelrambeau <mikeair@gmail.com>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/uxpin-merge-cli"
+  ],
+  "resolutions": {
+    "@types/tapable": "1.0.0",
+    "chrome-launcher": "0.13.2",
+    "minimist": "1.2.8",
+    "kind-of": "6.0.3",
+    "@types/webpack": "^5.28.1"
+  }
+}
