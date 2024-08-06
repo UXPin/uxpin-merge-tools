@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.4.4] - 2024-08-06
+
+- Handles cases when reference logs are empty and we can't determine that given commit is from the master/main or not
+
 ## [3.4.3] - 2024-02-29
 
 ### Added
