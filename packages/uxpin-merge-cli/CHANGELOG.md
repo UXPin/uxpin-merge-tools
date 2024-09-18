@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.4.5] - 2024-09-18
+
+- Improves finding component file based on relative path
+
+
 ## [3.4.4] - 2024-08-06
 
 - Handles cases when reference logs are empty and we can't determine that given commit is from the master/main or not
