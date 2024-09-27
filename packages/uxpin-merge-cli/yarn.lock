@@ -2276,9 +2276,10 @@
     "@typescript-eslint/types" "5.36.1"
     eslint-visitor-keys "^3.3.0"
 
-"@uxpin/react-docgen-better-proptypes@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.npmjs.org/@uxpin/react-docgen-better-proptypes/-/react-docgen-better-proptypes-0.1.1.tgz#35b51aa28cf6eafe10fb3447e8aa2eeed61b0c95"
+"@uxpin/react-docgen-better-proptypes@0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@uxpin/react-docgen-better-proptypes/-/react-docgen-better-proptypes-0.1.2.tgz#27e8f5ac1d9b4a7d4eb049060c6cd92419ebea67"
+  integrity sha512-NDvLg6RhxfpP41FFw3C+MlXbCLc2pFhDcI8mRuBiYG7ZUvqE+7wBCG/5+j3qTrz81wZuUKLcw+g4lo08NTcaZA==
   dependencies:
     "@babel/runtime" "^7.2.0"
     fs-extra "^7.0.1"

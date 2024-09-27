@@ -100,7 +100,7 @@
     "@textlint/ast-node-types": "^13.3.2",
     "@textlint/markdown-to-ast": "^13.3.2",
     "@types/yargs": "^16.0.0",
-    "@uxpin/react-docgen-better-proptypes": "^0.1.1",
+    "@uxpin/react-docgen-better-proptypes": "0.1.2",
     "acorn-loose": "^8.0.2",
     "acorn-walk": "^8.2.0",
     "ast-types": "^0.12.4",
