@@ -103,7 +103,7 @@
     "@uxpin/react-docgen-better-proptypes": "^0.1.1",
     "acorn-loose": "^8.0.2",
     "acorn-walk": "^8.2.0",
-    "ast-types": "^0.12.4",
+    "ast-types": "^0.14.2",
     "axios": "^1.4.0",
     "babel-loader": "^8.0.5",
     "babel-standalone": "^6.26.0",
