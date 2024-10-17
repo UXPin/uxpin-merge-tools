@@ -115,6 +115,7 @@ export interface CustomControlType<T extends CustomControlTypeName = CustomContr
 export enum CustomControlTypeName {
   CodeEditor = 'codeeditor',
   Color = 'color',
+  Css = 'css',
   Input = 'input',
   Image = 'image',
   Interactions = 'interactions',
@@ -127,6 +128,7 @@ export enum CustomControlTypeName {
 export interface CustomControlTypeStructureMap {
   [CustomControlTypeName.CodeEditor]: {};
   [CustomControlTypeName.Color]: {};
+  [CustomControlTypeName.Css]: {};
   [CustomControlTypeName.Input]: {};
   [CustomControlTypeName.Image]: {};
   [CustomControlTypeName.Interactions]: {};

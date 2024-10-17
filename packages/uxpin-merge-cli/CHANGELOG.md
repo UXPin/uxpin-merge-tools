@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.6] - 2024-10-17
+
+### Added
+
+- Supports css styles with `@uxpincontroltype css`
+
+
 ## [3.4.5] - 2024-09-18
 
 - Improves finding component file based on relative path
