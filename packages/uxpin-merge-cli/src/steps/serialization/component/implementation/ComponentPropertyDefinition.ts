@@ -120,6 +120,7 @@ export enum CustomControlTypeName {
   Image = 'image',
   Interactions = 'interactions',
   Number = 'number',
+  ReturningFunction = 'returningfunction',
   Select = 'select',
   Switcher = 'switcher',
   Textfield = 'textfield',
@@ -133,6 +134,7 @@ export interface CustomControlTypeStructureMap {
   [CustomControlTypeName.Image]: {};
   [CustomControlTypeName.Interactions]: {};
   [CustomControlTypeName.Number]: {};
+  [CustomControlTypeName.ReturningFunction]: { params?: string[] };
   [CustomControlTypeName.Select]: {};
   [CustomControlTypeName.Switcher]: {};
   [CustomControlTypeName.Textfield]: { rows?: number };

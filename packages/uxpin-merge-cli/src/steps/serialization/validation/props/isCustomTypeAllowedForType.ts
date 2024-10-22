@@ -22,6 +22,7 @@ const CUSTOM_TYPE_ALLOWANCE_MAP: {
   [CustomControlTypeName.Input]: TEXT_EDITABLE_TYPES,
   [CustomControlTypeName.Interactions]: ['func'],
   [CustomControlTypeName.Number]: ['number'],
+  [CustomControlTypeName.ReturningFunction]: ['func'],
   [CustomControlTypeName.Switcher]: ['boolean'],
   [CustomControlTypeName.Select]: ['literal'],
   [CustomControlTypeName.Textfield]: TEXT_EDITABLE_TYPES,
