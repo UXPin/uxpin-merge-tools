@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.7] - 2024-10-25
+
+### Added
+
+- Hotfix - Allows using css control for shape and custom type
+
+
 ## [3.4.6] - 2024-10-17
 
 ### Added
