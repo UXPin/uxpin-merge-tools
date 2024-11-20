@@ -1,4 +1,3 @@
-import { importedPropTypesHandler } from '@uxpin/react-docgen-better-proptypes';
 import { readFile } from 'fs-extra';
 import { defaultHandlers, Handler, parse, ReactDocgenOptions, resolver } from 'react-docgen';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
@@ -20,7 +19,7 @@ export async function getDefaultComponentFrom(filePath: string): Promise<Compone
   let componentDoc: ComponentDoc | undefined;
   let error: Error;
 
-  const handlers: Handler[] = [...defaultHandlers, importedPropTypesHandler(filePath)];
+  const handlers: Handler[] = [...defaultHandlers];
 
   // Passing `filename` helps babel to load correct babel configuration file.
   // (NOTE: Without filename option, babel behave as if `babelrc: false` is set)
