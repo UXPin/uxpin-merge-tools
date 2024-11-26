@@ -1,10 +1,11 @@
+import { values } from "lodash";
 import { using } from '../../../../../../../../test/utils/using';
 import { CustomControlTypeName, CustomDescriptorsTags } from '../../../../implementation/ComponentPropertyDefinition';
 import { ParsedPlainPropertyDescriptor } from '../../../../implementation/ParsedPropertyDescriptor';
 import { parseTypeTag } from '../parseTypeTag';
 
 const cases: TestCase[] = [
-  ...Object.values(CustomControlTypeName)
+  ...values(CustomControlTypeName)
     .filter((customType) => customType !== CustomControlTypeName.Textfield && customType !== CustomControlTypeName.ReturningFunction)
     .map((customType) => {
       return {
@@ -18,8 +19,8 @@ const cases: TestCase[] = [
           type: CustomDescriptorsTags.TYPE as CustomDescriptorsTags.TYPE,
         },
         tag: customType,
-      };
-    }),
+      } as TestCase;
+  }),
   {
     expectedValue: {
       serialized: {
