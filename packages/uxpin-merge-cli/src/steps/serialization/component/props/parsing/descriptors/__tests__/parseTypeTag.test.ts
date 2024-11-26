@@ -5,7 +5,7 @@ import { parseTypeTag } from '../parseTypeTag';
 
 const cases: TestCase[] = [
   ...Object.values(CustomControlTypeName)
-    .filter((customType) => customType !== CustomControlTypeName.Textfield)
+    .filter((customType) => customType !== CustomControlTypeName.Textfield && customType !== CustomControlTypeName.ReturningFunction)
     .map((customType) => {
       return {
         expectedValue: {
@@ -59,6 +59,18 @@ const cases: TestCase[] = [
   {
     expectedValue: undefined,
     tag: 'unknown',
+  },
+  {
+    expectedValue: {
+      serialized: {
+        customType: {
+          name: CustomControlTypeName.ReturningFunction,
+          structure: ['params'],
+        },
+      },
+      type: CustomDescriptorsTags.TYPE,
+    },
+    tag: 'returningfunction(params)',
   },
 ];
 
