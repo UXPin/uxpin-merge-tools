@@ -1,4 +1,4 @@
-import { values } from "lodash";
+import { values } from 'lodash';
 import { using } from '../../../../../../../../test/utils/using';
 import { CustomControlTypeName, CustomDescriptorsTags } from '../../../../implementation/ComponentPropertyDefinition';
 import { ParsedPlainPropertyDescriptor } from '../../../../implementation/ParsedPropertyDescriptor';
@@ -6,7 +6,10 @@ import { parseTypeTag } from '../parseTypeTag';
 
 const cases: TestCase[] = [
   ...values(CustomControlTypeName)
-    .filter((customType) => customType !== CustomControlTypeName.Textfield && customType !== CustomControlTypeName.ReturningFunction)
+    .filter(
+      (customType) =>
+        customType !== CustomControlTypeName.Textfield && customType !== CustomControlTypeName.ReturningFunction
+    )
     .map((customType) => {
       return {
         expectedValue: {
@@ -20,7 +23,7 @@ const cases: TestCase[] = [
         },
         tag: customType,
       } as TestCase;
-  }),
+    }),
   {
     expectedValue: {
       serialized: {
@@ -35,6 +38,7 @@ const cases: TestCase[] = [
     },
     tag: 'textfield',
   },
+
   {
     expectedValue: {
       serialized: {
@@ -66,7 +70,7 @@ const cases: TestCase[] = [
       serialized: {
         customType: {
           name: CustomControlTypeName.ReturningFunction,
-          structure: { params:  ['params'] },
+          structure: { params: ['params'] },
         },
       },
       type: CustomDescriptorsTags.TYPE,
