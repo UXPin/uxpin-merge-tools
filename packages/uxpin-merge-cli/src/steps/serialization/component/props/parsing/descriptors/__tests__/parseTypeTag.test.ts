@@ -65,7 +65,7 @@ const cases: TestCase[] = [
       serialized: {
         customType: {
           name: CustomControlTypeName.ReturningFunction,
-          structure: ['params'],
+          structure: { params:  ['params'] },
         },
       },
       type: CustomDescriptorsTags.TYPE,
