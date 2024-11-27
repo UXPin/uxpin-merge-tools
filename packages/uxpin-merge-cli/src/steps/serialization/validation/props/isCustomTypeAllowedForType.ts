@@ -21,7 +21,7 @@ const CUSTOM_TYPE_ALLOWANCE_MAP: {
   [CustomControlTypeName.Image]: ['string'],
   [CustomControlTypeName.Input]: TEXT_EDITABLE_TYPES,
   [CustomControlTypeName.Interactions]: ['func'],
-  [CustomControlTypeName.MuiIconsList]: ['union', 'string', 'literal'],
+  [CustomControlTypeName.MaterialIcons]: ['union', 'string', 'literal'],
   [CustomControlTypeName.Number]: ['number'],
   [CustomControlTypeName.ReturningFunction]: ['func'],
   [CustomControlTypeName.Switcher]: ['boolean'],

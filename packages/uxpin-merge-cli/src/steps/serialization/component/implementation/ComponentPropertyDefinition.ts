@@ -119,7 +119,7 @@ export enum CustomControlTypeName {
   Input = 'input',
   Image = 'image',
   Interactions = 'interactions',
-  MuiIconsList = 'muiiconslist',
+  MaterialIcons = 'materialicons',
   Number = 'number',
   ReturningFunction = 'returningfunction',
   Select = 'select',
@@ -134,7 +134,7 @@ export interface CustomControlTypeStructureMap {
   [CustomControlTypeName.Input]: {};
   [CustomControlTypeName.Image]: {};
   [CustomControlTypeName.Interactions]: {};
-  [CustomControlTypeName.MuiIconsList]: {};
+  [CustomControlTypeName.MaterialIcons]: {};
   [CustomControlTypeName.Number]: {};
   [CustomControlTypeName.ReturningFunction]: { params?: string[] };
   [CustomControlTypeName.Select]: {};

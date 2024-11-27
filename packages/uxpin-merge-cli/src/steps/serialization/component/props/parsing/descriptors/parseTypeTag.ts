@@ -20,7 +20,7 @@ export function parseTypeTag(value: string): ParseResult {
     case CustomControlTypeName.Image:
     case CustomControlTypeName.Input:
     case CustomControlTypeName.Interactions:
-    case CustomControlTypeName.MuiIconsList:
+    case CustomControlTypeName.MaterialIcons:
     case CustomControlTypeName.Number:
     case CustomControlTypeName.Select:
     case CustomControlTypeName.Switcher: {
