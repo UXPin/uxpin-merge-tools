@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.4.8] - 2024-11-28
+
+### Added
+
+- Supports returning function props `@uxpincontroltype returningfunction()`
+- Supports material icons props `@uxpincontroltype materialicons`
+
+
 ## [3.4.7] - 2024-10-25
 
 ### Added
