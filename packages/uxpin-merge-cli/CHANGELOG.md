@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.5.0] - 2024-12-13
+
+### Added
+
+- Upgrade react-docgen to v7.10 for ES2020 Support
+  - The upgrade to react-docgen version 7.10 introduces several enhancements and fixes that improve the maintainability and functionality of js parser
+
+  
 ## [3.4.8] - 2024-11-28
 
 ### Added

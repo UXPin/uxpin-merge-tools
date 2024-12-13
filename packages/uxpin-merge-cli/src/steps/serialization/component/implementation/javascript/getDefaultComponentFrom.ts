@@ -1,26 +1,22 @@
-import { importedPropTypesHandler } from '@uxpin/react-docgen-better-proptypes';
 import { readFile } from 'fs-extra';
-import { defaultHandlers, Handler, parse, ReactDocgenOptions, resolver } from 'react-docgen';
+import { TransformOptions } from 'babel-core';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
 
 import { CommentTags } from '../../CommentTags';
 import { hasCommentTag } from './comments/jsdoc-helpers';
 
-interface ReactDocgenOptionsWithBabelConfig extends ReactDocgenOptions {
+interface ReactDocgenOptionsWithBabelConfig extends TransformOptions {
   babelrc?: boolean;
   configFile?: boolean;
 }
 
-const parsers: Array<
-  (file: string, handlers: Handler[], options: ReactDocgenOptionsWithBabelConfig) => ComponentDoc | undefined
-> = [parseWithAnnotation, parseDefault];
+const parsers: Array<(file: string, options: ReactDocgenOptionsWithBabelConfig) => Promise<ComponentDoc | undefined>> =
+  [parseWithAnnotation, parseDefault];
 
 export async function getDefaultComponentFrom(filePath: string): Promise<ComponentDoc> {
   const file: string = await readFile(filePath, { encoding: 'utf8' });
   let componentDoc: ComponentDoc | undefined;
   let error: Error;
-
-  const handlers: Handler[] = [...defaultHandlers, importedPropTypesHandler(filePath)];
 
   // Passing `filename` helps babel to load correct babel configuration file.
   // (NOTE: Without filename option, babel behave as if `babelrc: false` is set)
@@ -30,10 +26,9 @@ export async function getDefaultComponentFrom(filePath: string): Promise<Compone
   // to make sure we are not breaking existing customers integration by this change, we
   // 1. try with react-docgen default babel plugins
   // 2. try with user configured babel config(e.g. .babelrc, babel.config.js)
-  const docgenOptions: ReactDocgenOptionsWithBabelConfig[] = [
+  const docgenOptions: TransformOptions[] = [
     {
       babelrc: false,
-      configFile: false,
       filename: filePath,
     },
     {
@@ -44,7 +39,7 @@ export async function getDefaultComponentFrom(filePath: string): Promise<Compone
   for (const options of docgenOptions) {
     for (const parser of parsers) {
       try {
-        componentDoc = parser(file, handlers, options);
+        componentDoc = await parser(file, options);
       } catch (e) {
         error = e as Error;
       }
@@ -62,12 +57,13 @@ export async function getDefaultComponentFrom(filePath: string): Promise<Compone
   return componentDoc;
 }
 
-function parseWithAnnotation(
-  file: string,
-  handlers: Handler[],
-  options: ReactDocgenOptionsWithBabelConfig
-): ComponentDoc | undefined {
-  const parsed: ComponentDoc[] = parse(file, resolver.findAllComponentDefinitions, handlers, options) as ComponentDoc[];
+async function parseWithAnnotation(file: string, options: TransformOptions): Promise<ComponentDoc | undefined> {
+  const docgen = await require('../../../../../../esm_modules-bridge/react-docgen-bridge')();
+  const parsed: ComponentDoc[] = docgen.parse(file, {
+    resolver: new docgen.builtinResolvers.FindAllDefinitionsResolver(),
+    builtinImporters: docgen.makeFsImporter(),
+    babelOptions: options,
+  }) as ComponentDoc[];
 
   for (const componentDoc of parsed) {
     if (hasCommentTag(componentDoc.description, CommentTags.UXPIN_COMPONENT)) {
@@ -76,10 +72,14 @@ function parseWithAnnotation(
   }
 }
 
-function parseDefault(
+async function parseDefault(
   file: string,
-  handlers: Handler[],
   options: ReactDocgenOptionsWithBabelConfig
-): ComponentDoc | undefined {
-  return parse(file, undefined, handlers, options) as ComponentDoc;
+): Promise<ComponentDoc | undefined> {
+  const docgen = await require('../../../../../../esm_modules-bridge/react-docgen-bridge')();
+  return docgen.parse(file, {
+    config: undefined,
+    builtinImporters: docgen.makeFsImporter(),
+    babelOptions: options,
+  })[0] as ComponentDoc;
 }
