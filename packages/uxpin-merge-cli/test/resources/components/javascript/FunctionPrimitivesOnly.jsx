@@ -4,12 +4,12 @@ function labelID(id) {
   return `${id}Label`;
 }
 
-export default function FunctionPrimitivesOnly({ children, id, action, hidden }) {
+export default function FunctionPrimitivesOnly(props) {
   return (
     <div>
-      <label id={labelID(id)}
-             htmlFor={id}
-             className={hidden ? 'hidden' : ''}>
+      <label id={labelID(props?.id)}
+             htmlFor={props?.id}
+             className={props?.hidden ? 'hidden' : ''}>
         {
           children
         }

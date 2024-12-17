@@ -96,7 +96,7 @@ async function deployStorybookToS3(args:DeployOptions, libraryHash:string, presi
     Object.entries(presignedS3urlResponse.fields).forEach(([field, value]) => {
       form.append(field, value);
     });
-    form.append('key', key);
+    form.append('key', key.replace(/\\/g, '/'));
     form.append('Content-Type', mime.contentType(mime.lookup(absFilePath) || 'application/octet-stream'));
     form.append('file', createReadStream(absFilePath));
 

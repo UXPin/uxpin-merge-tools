@@ -223,6 +223,7 @@ describe('serializeJSComponent', () => {
     it('serializes component with Flow property types', () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('IntegrationComboFlow');
+      console.log('FLOW', component);
       const expectedMetadata: ComponentMetadata = {
         defaultExported: true,
         name: 'IntegrationComboFlow',

@@ -62,7 +62,7 @@ test-integration:
 
 test-ci:
 	make test-rename-snapshots
-	UXPIN_ENV=test JEST_JUNIT_OUTPUT_DIR=./reports/jest jest --config="jest-ci.json" --maxWorkers=1
+	NODE_OPTIONS="$(NODE_OPTIONS) --experimental-vm-modules" UXPIN_ENV=test JEST_JUNIT_OUTPUT_DIR=./reports/jest jest --config=jest-ci.json --maxWorkers=1
 
 clean:
 	rm -rf ./dist/

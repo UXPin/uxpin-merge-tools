@@ -19,5 +19,5 @@ CorruptedDefaultPropertyValue.propTypes = {
 };
 
 CorruptedDefaultPropertyValue.defaultProps = {
-  value: `some value concatenated with ${some.value} – a value raising an exception`,
+  value: some,
 };

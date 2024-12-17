@@ -20,6 +20,7 @@ export function parseTypeTag(value: string): ParseResult {
     case CustomControlTypeName.Image:
     case CustomControlTypeName.Input:
     case CustomControlTypeName.Interactions:
+    case CustomControlTypeName.MaterialIcons:
     case CustomControlTypeName.Number:
     case CustomControlTypeName.Select:
     case CustomControlTypeName.Switcher: {
@@ -28,6 +29,10 @@ export function parseTypeTag(value: string): ParseResult {
 
     case CustomControlTypeName.Textfield: {
       return parseTextfieldType(value);
+    }
+
+    case CustomControlTypeName.ReturningFunction: {
+      return parseReturningFunctionType(value);
     }
 
     default: {
@@ -61,6 +66,27 @@ function parseTextfieldType(value: string): ParseResult {
     },
     type: CustomDescriptorsTags.TYPE,
   };
+}
+
+function parseReturningFunctionType(value: string): ParseResult {
+  const regex = /^returningfunction$|^returningfunction\(([^)]+)\)/;
+  const match = value.match(regex);
+
+  if (match) {
+    const params = match[1] || '';
+    const paramArray = params.split(',').map((param) => param.trim());
+    return {
+      serialized: {
+        customType: {
+          name: CustomControlTypeName.ReturningFunction,
+          structure: {
+            params: paramArray,
+          },
+        },
+      },
+      type: CustomDescriptorsTags.TYPE,
+    };
+  }
 }
 
 function parseCustomType(typeName: CustomControlTypeName): ParseResult {
