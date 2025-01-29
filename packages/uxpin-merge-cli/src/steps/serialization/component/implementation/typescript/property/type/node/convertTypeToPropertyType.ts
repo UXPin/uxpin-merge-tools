@@ -19,6 +19,7 @@ export function convertTypeToPropertyType(
   type: ts.Type,
   jsDocsTag: ts.JSDocTagInfo[]
 ): PropertyType {
+
   if (type.flags & ts.TypeFlags.String) {
     return { name: 'string', structure: {} };
   }
@@ -28,11 +29,11 @@ export function convertTypeToPropertyType(
   if (isBooleanLike(type)) {
     return { name: 'boolean', structure: {} };
   }
-  if (type.flags & ts.TypeFlags.Any) {
-    return { name: 'any', structure: {} };
-  }
   if (isKnownPropertyType(type)) {
     return serializeKnownPropertyType(type);
+  }
+  if (type.flags & ts.TypeFlags.Any) {
+    return { name: 'any', structure: {} };
   }
   if (isCallable(type)) {
     return { name: 'func', structure: {} };
