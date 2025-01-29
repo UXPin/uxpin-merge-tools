@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.5.2] - 2025-01-29
+- Fix parsing issues where ReactNode and ReactElement were not properly detected - part 2
+
 ## [3.5.1] - 2025-01-29
 - Fix parsing issues where ReactNode and ReactElement were not properly detected
 
