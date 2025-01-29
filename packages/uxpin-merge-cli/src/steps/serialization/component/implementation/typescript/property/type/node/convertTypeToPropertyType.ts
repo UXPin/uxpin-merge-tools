@@ -19,7 +19,6 @@ export function convertTypeToPropertyType(
   type: ts.Type,
   jsDocsTag: ts.JSDocTagInfo[]
 ): PropertyType {
-
   if (type.flags & ts.TypeFlags.String) {
     return { name: 'string', structure: {} };
   }
