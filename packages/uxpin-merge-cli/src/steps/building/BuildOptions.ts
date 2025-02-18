@@ -14,4 +14,6 @@ export interface BuildOptions {
   uxpinDomain?: string;
   webpackConfigPath?: string;
   wrapperPath?: string;
+  disableVersionControl?: boolean;
+  cssResources?: string;
 }

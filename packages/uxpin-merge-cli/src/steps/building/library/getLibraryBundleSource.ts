@@ -11,10 +11,10 @@ const CLASS_NAME_WRAPPER = 'Wrapper';
 
 const log = debug('uxpin:build');
 
-type LibraryBundleOptions = Pick<BuildOptions, 'wrapperPath' | 'pageHeadTags'>;
+type LibraryBundleOptions = Pick<BuildOptions, 'wrapperPath' | 'pageHeadTags' | 'cssResources'>;
 
 export function getLibraryBundleSource(components: ComponentDefinition[], options?: LibraryBundleOptions): string {
-  const { wrapperPath, pageHeadTags } = options || {};
+  const { wrapperPath = '', cssResources = '', pageHeadTags = [] } = options || {};
   const libImports: string[] = ["import * as React from 'react';", "import * as ReactDOM from 'react-dom';"];
 
   const imports: string[] = components
@@ -24,6 +24,30 @@ export function getLibraryBundleSource(components: ComponentDefinition[], option
   const wrapperImport: string[] = getWrapperImport(wrapperPath);
 
   const namespacedComponentDeclarations: string[] = getNamespacedComponentDeclarations(components);
+
+  let cssFiles: string[] = [];
+  try {
+    cssFiles = cssResources ? JSON.parse(cssResources) : [];
+  } catch (e) {
+    console.error(e);
+    // do nothing
+  }
+
+  const cssImports: string[] = cssFiles
+    .filter((cssFile) => !/^https.*/i.test(cssFile))
+    .map((cssImport) => `import '../node_modules/${cssImport}';`);
+
+  const cssUrls: string[] = cssFiles
+    .filter((cssFile) => /^https.*/i.test(cssFile))
+    .map((cssUrl, i) =>
+      [
+        `const link${i} = document.createElement('link');`,
+        `link${i}.rel = 'stylesheet';`,
+        `link${i}.type = 'text/css';`,
+        `link${i}.href = "${cssUrl}";`,
+        `document.getElementsByTagName("head")[0].appendChild(link${i});`,
+      ].join('\n')
+    );
 
   const exports: string[] = [
     `export {`,
@@ -40,7 +64,9 @@ export function getLibraryBundleSource(components: ComponentDefinition[], option
     ...libImports,
     ...imports,
     ...wrapperImport,
+    ...cssImports,
     ...namespacedComponentDeclarations,
+    ...cssUrls,
     ...exports,
     scriptToInjectTags,
   ]).join('\n');
