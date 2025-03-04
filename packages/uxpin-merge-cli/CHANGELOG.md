@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.5.3] - 2025-03-04
+- Support for parsing JSX passed in object and array properties in presets.
+
 ## [3.5.2] - 2025-01-29
 - Fix parsing issues where ReactNode and ReactElement were not properly detected - part 2
 
