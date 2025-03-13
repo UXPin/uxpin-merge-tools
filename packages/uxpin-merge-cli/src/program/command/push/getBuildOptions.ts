@@ -5,13 +5,27 @@ import { getTempDirPath } from '../../args/providers/paths/getTempDirPath';
 import { Command } from '../Command';
 
 export function getBuildOptions(args: BuildProgramArgs): BuildOptions {
-  const { command, pageHeadTags, token, uxpinDomain, webpackConfig, wrapper, branch, tag, force } = args;
+  const {
+    command,
+    pageHeadTags,
+    token,
+    uxpinDomain,
+    webpackConfig,
+    wrapper,
+    branch,
+    tag,
+    force,
+    disableVersionControl,
+    cssResources,
+  } = args;
 
   return {
     branch,
     command,
     force,
     pageHeadTags,
+    cssResources,
+    disableVersionControl,
     projectRoot: getProjectRoot(args),
     tag,
     token,
@@ -35,4 +49,6 @@ export interface BuildProgramArgs {
   uxpinDomain?: string;
   webpackConfig?: string;
   wrapper?: string;
+  cssResources?: string;
+  disableVersionControl?: boolean;
 }

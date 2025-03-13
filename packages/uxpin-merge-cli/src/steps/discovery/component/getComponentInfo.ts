@@ -10,6 +10,7 @@ export async function getComponentInfo(projectRoot: string, implementationPath: 
   if (!implementation) {
     return null;
   }
+
   const paths: ComponentPaths = getComponentPaths(projectRoot, implementationPath);
   return {
     dirPath: paths.componentDirPath,

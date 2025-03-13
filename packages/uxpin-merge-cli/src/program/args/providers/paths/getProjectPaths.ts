@@ -1,11 +1,12 @@
 import { ProjectPaths } from '../../../../steps/discovery/paths/ProjectPaths';
-import { ProgramArgs } from '../../ProgramArgs';
+import { CreateAppProgramArgs, ProgramArgs } from '../../ProgramArgs';
 import { getConfigPath } from './getConfigPath';
 import { getProjectRoot } from './getProjectRoot';
 
-export function getProjectPaths(programArgs: ProgramArgs): ProjectPaths {
+export function getProjectPaths(programArgs: Exclude<ProgramArgs, CreateAppProgramArgs>): ProjectPaths {
+  const { cwd, config } = programArgs;
   return {
-    configPath: getConfigPath(programArgs),
+    configPath: getConfigPath({ cwd, config }),
     projectRoot: getProjectRoot(programArgs),
   };
 }

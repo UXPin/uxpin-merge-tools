@@ -1,5 +1,6 @@
 import { ProgramArgs } from '../args/ProgramArgs';
 import { Command } from './Command';
+import { createApp } from './create_app/createApp';
 import { getDeleteVersionCommandSteps } from './delete_version/getDeleteVersionCommandSteps';
 import { getDumpCommandSteps } from './dump/getDumpCommandSteps';
 import { getExperimentationCommandSteps } from './experimentation/getExperimentationCommandSteps';
@@ -20,6 +21,9 @@ export function getSteps(args: ProgramArgs): Step[] {
 
     case Command.INIT:
       return getInitCommandSteps(args);
+
+    case Command.CREATE_APP:
+      return createApp(args);
 
     case Command.GENERATE_PRESETS:
       return getGeneratePresetsCommandSteps(args);

@@ -2,7 +2,7 @@ import debug from 'debug';
 import { unlink } from 'fs-extra';
 import { join, parse } from 'path';
 import * as webpack from 'webpack';
-import { ProgramArgs, RawProgramArgs } from '../../../../../../program/args/ProgramArgs';
+import { CreateAppProgramArgs, ProgramArgs, RawProgramArgs } from '../../../../../../program/args/ProgramArgs';
 import { getProjectRoot } from '../../../../../../program/args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../../../../../program/args/providers/paths/getTempDirPath';
 import { Compiler } from '../../../../../building/compiler/Compiler';
@@ -14,7 +14,10 @@ import { getPresetsBundleWebpackConfig } from './getPresetsBundleWebpackConfig';
 
 const log = debug('uxpin:serialization:presets');
 
-export async function compilePresets(programArgs: ProgramArgs, components: ComponentDefinition[]): Promise<string> {
+export async function compilePresets(
+  programArgs: Exclude<ProgramArgs, CreateAppProgramArgs>,
+  components: ComponentDefinition[]
+): Promise<string> {
   log('Create temporary bundle');
   const sourcePath: string = await createBundleSource(programArgs, components);
   log(`Compile presets with Webpack (${components.length} components)`);
@@ -26,7 +29,7 @@ export async function compilePresets(programArgs: ProgramArgs, components: Compo
 }
 
 async function compileWithWebpack(
-  programArgs: ProgramArgs,
+  programArgs: Exclude<ProgramArgs, CreateAppProgramArgs>,
   components: ComponentDefinition[],
   sourcePath: string
 ): Promise<string> {

@@ -1,0 +1,76 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const cp = require('child_process');
+const path = require('path');
+const fs = require('fs-extra');
+const pMapSeries = require("p-map-series");
+
+program
+    .option('--token <string>', 'Library token')
+    .option('--packages <string>', 'NPM Package name')
+    .option('--components <string>', 'List of imported components and categories')
+    .option('--css-resources <url>', 'Urls or paths to CSS Styles')
+    .option('--npmrc <string>', 'Content of .npmrc')
+    .option('--uxpin-domain <string>', 'Can be used to set a UXPin private cloud domain. Default: `uxpin.com`');
+
+program.parse(process.argv);
+
+const uxpinMergePath = path.resolve(__dirname, './uxpin-merge');
+const appPath = path.resolve(process.cwd(), program.token);
+const commands = [
+    spawn.bind(spawn, [
+        'create-app',
+        `--packages=${program.packages}`,
+        program.npmrc ? `--npmrc=${program.npmrc}` : '',
+        `--app-name=${program.token}`,
+        `--components=${program.components}`
+    ].filter(Boolean)),
+    spawn.bind(spawn, [
+        'push',
+        '--webpack-config=webpack.config.js',
+        `--disable-version-control`,
+        program.uxpinDomain ? `--uxpin-domain=${program.uxpinDomain}` : '',
+        `--token=${program.token}`,
+        program.cssResources ? `--css-resources=${program.cssResources}` : ''
+    ].filter(Boolean), { cwd: appPath })
+];
+
+async function spawn(args, options = {}) {
+    return new Promise((resolve, reject) => {
+        const child = cp.spawn(uxpinMergePath, args, options);
+
+        child.stdout.on('data', (data) => {
+            console.log(String(data));
+        });
+
+        child.stderr.on('data', function (data) {
+            console.log(String(data));
+        });
+
+        child.on('close', function (code) {
+            if (code !== 0) {
+                reject(`Exited with code  ${code}`);
+                return;
+            }
+            resolve();
+        });
+    });
+}
+
+async function executeCommands() {
+    let exitCode = 0;
+    try {
+        await pMapSeries(commands, (command) => command());
+    } catch (e) {
+        console.error(e);
+        exitCode = 1;
+    } finally {
+        if (fs.pathExistsSync(appPath)) {
+            fs.removeSync(appPath);
+        }
+        process.exit(exitCode);
+    }
+}
+
+executeCommands();
