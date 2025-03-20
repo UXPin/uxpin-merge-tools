@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.5.4] - 2025-03-20
+- Add experimental support for design systems in React 19.
+
 ## [3.5.3] - 2025-03-04
 - Support for parsing JSX passed in object and array properties in presets.
 
