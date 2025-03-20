@@ -42,7 +42,7 @@ export function getLibraryBundleSource(components: ComponentDefinition[], option
     ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER},`] : []),
     '  React,',
     '  ReactDOM,',
-    ' createRoot, ',
+    '  createRoot,',
     `};`,
   ];
 
