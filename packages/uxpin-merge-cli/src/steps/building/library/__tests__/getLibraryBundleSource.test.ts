@@ -42,11 +42,21 @@ describe('getLibraryBundleSource', () => {
 import * as ReactDOM from 'react-dom';
 import Button from '../src/components/button/button';
 import ButtonList from '../src/components/button-list/button-list';
+// react 19 -----
+let createRoot = null;
+try {
+  const reactDomClient = require('react-dom/client')
+  if (reactDomClient.createRoot) {
+    createRoot = reactDomClient.createRoot
+  }
+} catch (e) {}
+// react 19 -----
 export {
   Button,
   ButtonList,
   React,
   ReactDOM,
+  createRoot,
 };`;
 
     // when
@@ -64,12 +74,22 @@ import * as ReactDOM from 'react-dom';
 import Button from '../src/components/button/button';
 import ButtonList from '../src/components/button-list/button-list';
 import Wrapper from '../wrapper/wrapper.jsx';
+// react 19 -----
+let createRoot = null;
+try {
+  const reactDomClient = require('react-dom/client')
+  if (reactDomClient.createRoot) {
+    createRoot = reactDomClient.createRoot
+  }
+} catch (e) {}
+// react 19 -----
 export {
   Button,
   ButtonList,
   Wrapper,
   React,
   ReactDOM,
+  createRoot,
 };`;
 
     // when
@@ -132,12 +152,22 @@ import * as ReactDOM from 'react-dom';
 import Card from '../src/components/card/card';
 const Card_Header = Card.Header;
 const Card_Header_Menu = Card.Header.Menu;
+// react 19 -----
+let createRoot = null;
+try {
+  const reactDomClient = require('react-dom/client')
+  if (reactDomClient.createRoot) {
+    createRoot = reactDomClient.createRoot
+  }
+} catch (e) {}
+// react 19 -----
 export {
   Card,
   Card_Header,
   Card_Header_Menu,
   React,
   ReactDOM,
+  createRoot,
 };`;
 
     // when
@@ -182,12 +212,22 @@ import * as ReactDOM from 'react-dom';
 import Button from '../src/components/button/button';
 import ButtonList from '../src/components/button-list/button-list';
 import Wrapper from '../wrapper/wrapper.jsx';
+// react 19 -----
+let createRoot = null;
+try {
+  const reactDomClient = require('react-dom/client')
+  if (reactDomClient.createRoot) {
+    createRoot = reactDomClient.createRoot
+  }
+} catch (e) {}
+// react 19 -----
 export {
   Button,
   ButtonList,
   Wrapper,
   React,
   ReactDOM,
+  createRoot,
 };`;
 
     // when
@@ -202,11 +242,21 @@ export {
 import * as ReactDOM from 'react-dom';
 import Button from '../src/components/button/button';
 import ButtonList from '../src/components/button-list/button-list';
+// react 19 -----
+let createRoot = null;
+try {
+  const reactDomClient = require('react-dom/client')
+  if (reactDomClient.createRoot) {
+    createRoot = reactDomClient.createRoot
+  }
+} catch (e) {}
+// react 19 -----
 export {
   Button,
   ButtonList,
   React,
   ReactDOM,
+  createRoot,
 };
 
 const template = document.createElement('template');

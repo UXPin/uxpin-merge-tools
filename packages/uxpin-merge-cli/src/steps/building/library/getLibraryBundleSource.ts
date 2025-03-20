@@ -16,6 +16,17 @@ type LibraryBundleOptions = Pick<BuildOptions, 'wrapperPath' | 'pageHeadTags'>;
 export function getLibraryBundleSource(components: ComponentDefinition[], options?: LibraryBundleOptions): string {
   const { wrapperPath, pageHeadTags } = options || {};
   const libImports: string[] = ["import * as React from 'react';", "import * as ReactDOM from 'react-dom';"];
+  const createRootCode: string[] = [
+    '// react 19 -----',
+    'let createRoot = null;',
+    'try {',
+    "  const reactDomClient = require('react-dom/client')",
+    '  if (reactDomClient.createRoot) {',
+    '    createRoot = reactDomClient.createRoot',
+    '  }',
+    '} catch (e) {}',
+    '// react 19 -----',
+  ];
 
   const imports: string[] = components
     .filter((comp) => !comp.namespace)
@@ -31,6 +42,7 @@ export function getLibraryBundleSource(components: ComponentDefinition[], option
     ...(wrapperPath ? [`  ${CLASS_NAME_WRAPPER},`] : []),
     '  React,',
     '  ReactDOM,',
+    '  createRoot,',
     `};`,
   ];
 
@@ -41,6 +53,7 @@ export function getLibraryBundleSource(components: ComponentDefinition[], option
     ...imports,
     ...wrapperImport,
     ...namespacedComponentDeclarations,
+    ...createRootCode,
     ...exports,
     scriptToInjectTags,
   ]).join('\n');
