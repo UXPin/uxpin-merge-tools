@@ -46,7 +46,7 @@ describe('replaceElementsWithReferencesInProps', () => {
       ],
     };
     const expectedProps: ComponentPresetElementProps = {
-      icon: [],
+      icon: ['R$<Button uxpId={"1"} />$R', 'R$<Button uxpId={"2"} />$R'],
     };
 
     // when
@@ -91,8 +91,8 @@ describe('replaceElementsWithReferencesInProps', () => {
     };
     const expectedProps: ComponentPresetElementProps = {
       data: [
-        { subtitle: ['some text'], title: 'some title' },
-        { title: 'some title' },
+        { subtitle: ['some text', 'R$<Icon uxpId={"1"} />$R'], title: 'some title' },
+        { subtitle: 'R$<Icon uxpId={"1"} />$R', title: 'some title' },
         { subtitle: 'some subtitle', title: 'some title' },
       ],
     };

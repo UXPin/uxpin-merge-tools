@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.5.4] - 2025-03-20
+- Add experimental support for design systems in React 19.
+
+## [3.5.3] - 2025-03-04
+- Support for parsing JSX passed in object and array properties in presets.
+
+## [3.5.2] - 2025-01-29
+- Fix parsing issues where ReactNode and ReactElement were not properly detected - part 2
+
+## [3.5.1] - 2025-01-29
+- Fix parsing issues where ReactNode and ReactElement were not properly detected
+
 ## [3.5.0] - 2024-12-13
 
 ### Added

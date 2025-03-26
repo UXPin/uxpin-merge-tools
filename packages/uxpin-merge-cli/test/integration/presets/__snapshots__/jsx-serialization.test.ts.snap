@@ -297,15 +297,20 @@ exports[`The dump command run for the \`withPresets\` design system prints the J
                   "props": {
                     "data": [
                       {
+                        "icon": "R$<IconStar uxpId={"2"} stroke={"gray"} strokeWidth={2} />$R",
                         "subtitle": "this is item 1",
                         "title": "item 1",
                       },
                       {
+                        "icon": "R$<IconStar uxpId={"3"} stroke={"gray"} strokeWidth={2} />$R",
                         "subtitle": "this is item 2",
                         "title": "item 2",
                       },
                       {
-                        "icon": [],
+                        "icon": [
+                          "R$<IconStar uxpId={"4"} stroke={"gray"} strokeWidth={2} />$R",
+                          "R$<IconStar uxpId={"5"} stroke={"gray"} strokeWidth={2} />$R",
+                        ],
                         "subtitle": "this is item 3",
                         "title": "item 3",
                       },

@@ -17,7 +17,8 @@ import { serializeUnionType } from './serializeUnionType';
 export function convertTypeToPropertyType(
   context: TSSerializationContext,
   type: ts.Type,
-  jsDocsTag: ts.JSDocTagInfo[]
+  jsDocsTag: ts.JSDocTagInfo[],
+  rawTypeName?: string
 ): PropertyType {
   if (type.flags & ts.TypeFlags.String) {
     return { name: 'string', structure: {} };
@@ -28,11 +29,19 @@ export function convertTypeToPropertyType(
   if (isBooleanLike(type)) {
     return { name: 'boolean', structure: {} };
   }
-  if (type.flags & ts.TypeFlags.Any) {
-    return { name: 'any', structure: {} };
-  }
   if (isKnownPropertyType(type)) {
     return serializeKnownPropertyType(type);
+  }
+  if (type.flags & ts.TypeFlags.Any) {
+    if (rawTypeName?.includes('ReactNode')) {
+      return { name: 'node', structure: {} };
+    }
+
+    if (rawTypeName?.includes('ReactElement') || rawTypeName?.includes('JSX.Element')) {
+      return { name: 'node', structure: {} };
+    }
+
+    return { name: 'any', structure: {} };
   }
   if (isCallable(type)) {
     return { name: 'func', structure: {} };
