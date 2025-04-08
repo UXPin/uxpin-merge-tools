@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.5.5] - 2025-04-08
+- Removed ngrok from dependencies due to it being flagged as malicious.
+
 ## [3.5.4] - 2025-03-20
 - Add experimental support for design systems in React 19.
 
