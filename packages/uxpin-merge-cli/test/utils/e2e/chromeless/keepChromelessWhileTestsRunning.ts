@@ -9,7 +9,7 @@ export function keepChromelessWhileTestsRunning(
   path?: string
 ): void {
   let chromeless: Chromeless<any>;
-  let urlToOpenByChromeless = `${SERVER_URL}:${port}`;
+  const urlToOpenByChromeless = `${SERVER_URL}:${port}`;
 
   beforeAll((done) => {
     chromeless = createChromeless(urlToOpenByChromeless, path);
