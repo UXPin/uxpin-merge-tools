@@ -2,7 +2,6 @@ import * as safe from '@colors/colors/safe';
 import globby = require('globby');
 import { flatten, intersection } from 'lodash';
 import pMap from 'p-map';
-import { isArray } from 'util';
 import { printWarning } from '../../../../../utils/console/printLine';
 import { CategoryConfig } from '../../../config/CliConfig';
 import { sortFilePaths } from './sortFilePaths';
@@ -14,7 +13,7 @@ export async function getComponentCategoryPaths(
   categoryConfig: CategoryConfig
 ): Promise<string[]> {
   let hasInvalidPatterns = false;
-  const patterns: string[] = isArray(categoryConfig.include) ? categoryConfig.include : [categoryConfig.include];
+  const patterns: string[] = Array.isArray(categoryConfig.include) ? categoryConfig.include : [categoryConfig.include];
   const positivePatterns: string[] = patterns.filter((pattern) => !pattern.startsWith(NEGATED_PATTERN_MATCH));
 
   // First check if each non negated pattern produces any paths

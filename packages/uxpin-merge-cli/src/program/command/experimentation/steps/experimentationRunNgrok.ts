@@ -4,6 +4,7 @@ import { isTestEnv } from '../../../../program/env/isTestEnv';
 import { Store } from '../../../../utils/store/Store';
 import { Step, StepExecutor } from '../../Step';
 import { ExperimentationState } from '../getExperimentationCommandSteps';
+import { printWarning } from '../../../../utils/console/printLine';
 
 export function experimentationRunNgrok(args: ExperimentProgramArgs, store: Store<ExperimentationState>): Step {
   return { exec: startNgrok(args, store), shouldRun: !args.disableTunneling };
@@ -21,8 +22,31 @@ function startNgrok(args: ExperimentProgramArgs, store: Store<ExperimentationSta
       url = TEST_SESSION_ID;
     } else {
       // tslint:disable-next-line:typedef
-      const ngrok = require('ngrok');
-      url = await ngrok.connect(args.port);
+      let ngrok;
+
+      try {
+        ngrok = require('ngrok');
+      } catch (e) {
+        printWarning(`Failed to start tunnel. Install ngrok if you want to use tunneling.
+You can install it with:
+  npm install --save-dev ngrok
+or
+  yarn add --dev ngrok
+Starting experimental mode without tunneling.  
+        `);
+        return ds;
+      }
+
+      if (ngrok) {
+        try {
+          url = await ngrok.connect(args.port);
+        } catch (e) {
+          printWarning(`Failed to start tunnel. Starting experimental mode without tunneling.`);
+          return ds;
+        }
+      } else {
+        return ds;
+      }
     }
 
     store.setState({
