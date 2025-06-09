@@ -38,7 +38,8 @@ export async function deploy(args: DeployOptions):Promise<void> {
     const storybookUrl = join(getBaseUrl(args.uxpinDomain), 'libraries-storybook', libraryHash, 'index.html');
     console.log(chalk.green(`✅ DONE! Your storybook is available on ${storybookUrl}`));
   } catch (error) {
-    typeof(error) === 'string' ? console.log(chalk.red(error)) : console.log(error);
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    typeof(error) === 'string' ? console.log(chalk.red(error)) : console.log(error); 
   }
 }
 
@@ -61,7 +62,7 @@ async function getPresignedS3PostUrl(args:DeployOptions):Promise<PresignedPost> 
 function getLatestCommitHash(source:string):string {
   try {
     return execSync(`cd ${source} && git rev-parse HEAD`).toString().trim();
-  } catch (error) {
+  } catch (_error) { // eslint-disable-line @typescript-eslint/no-unused-vars
     throw `ERROR: Failed to get commit hash from ${source}. Please make sure you can run\ngit rev-parse HEAD \ncommand in the directory because UXPin requires latest commit hash`;
   }
 }
