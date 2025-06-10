@@ -6,7 +6,7 @@ import { getImplementation } from './utils/getImplementation';
 
 describe('serializeTSComponent', () => {
   describe('providing array of objects describing all properties of the TypeScript component', () => {
-    it('serializes functional component with primitive property types', () => {
+    it('serializes functional component with primitive property types', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('FunctionPrimitivesOnly');
       const expectedMetadata: ComponentMetadata = {
@@ -42,14 +42,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes class component with date property ', () => {
+    it('serializes class component with date property ', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithDateType');
       const expectedMetadata: ComponentMetadata = {
@@ -99,37 +98,35 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes class component with empty date property ', () => {
+    it('serializes class component with empty date property ', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithEmptyDateType');
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(
-          expect.objectContaining({
-            name: expect.any(String),
-            properties: expect.arrayContaining([
-              expect.objectContaining({
-                defaultValue: expect.objectContaining({
-                  value: expect.any(String),
-                }),
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(
+        expect.objectContaining({
+          name: expect.any(String),
+          properties: expect.arrayContaining([
+            expect.objectContaining({
+              defaultValue: expect.objectContaining({
+                value: expect.any(String),
               }),
-            ]),
-            wrappers: expect.any(Array),
-          })
-        );
-        expect(serializedProps.warnings).toEqual([]);
-      });
+            }),
+          ]),
+          wrappers: expect.any(Array),
+        })
+      );
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes class component with enum property types', () => {
+    it('serializes class component with enum property types', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassEnumTypes');
       const expectedMetadata: ComponentMetadata = {
@@ -209,8 +206,13 @@ describe('serializeTSComponent', () => {
             isRequired: true,
             name: 'propComputed',
             type: {
-              name: 'unsupported',
-              structure: { raw: 'enum' },
+              name: 'union',
+              structure: {
+                elements: [
+                  { name: 'enum', structure: { label: 'Friday', value: 1 } },
+                  { name: 'enum', structure: { label: 'Sunday', value: 40 } },
+                ],
+              },
             },
           },
           {
@@ -235,14 +237,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes class component with default property values', () => {
+    it('serializes class component with default property values', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithDefaults');
       const expectedMetadata: ComponentMetadata = {
@@ -326,14 +327,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component with interface property type', () => {
+    it('serializes component with interface property type', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassInterfaceTypes');
       const expectedMetadata: ComponentMetadata = {
@@ -351,14 +351,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component with imported interface property type', () => {
+    it('serializes component with imported interface property type', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('FunctionWithImportedTypes');
       const expectedMetadata: ComponentMetadata = {
@@ -382,14 +381,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component with imported type of properties object', () => {
+    it('serializes component with imported type of properties object', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithImportedPropertiesType');
       const expectedMetadata: ComponentMetadata = {
@@ -419,14 +417,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component with function property types', () => {
+    it('serializes component with function property types', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithFunctionTypes');
       const expectedMetadata: ComponentMetadata = {
@@ -468,14 +465,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component with combined type of properties object', () => {
+    it('serializes component with combined type of properties object', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithCombinedPropertiesType');
       const expectedMetadata: ComponentMetadata = {
@@ -511,14 +507,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component with extended type of properties object', () => {
+    it('serializes component with extended type of properties object', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('FunctionWithExtendedPropertiesType');
       const expectedMetadata: ComponentMetadata = {
@@ -554,15 +549,14 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
     // @todo #20211: Support for arrow function component with static default props
-    it.skip('serializes arrow function component with defaults declared as static property', () => {
+    it.skip('serializes arrow function component with defaults declared as static property', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ArrowFunctionWithDefaultsAsStaticProperty');
       const expectedMetadata: ComponentMetadata = {
@@ -606,14 +600,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes default-exported arrow function with defaults declared in destructuring assignment', () => {
+    it('serializes default-exported arrow function with defaults declared in destructuring assignment', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation(
         'DefaultExportedArrowFunctionWithDefaultsInDestructuring'
@@ -647,14 +640,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes functional component with defaults declared in destructuring assignment', () => {
+    it('serializes functional component with defaults declared in destructuring assignment', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('FunctionWithDefaultsInDestructuring');
       const expectedMetadata: ComponentMetadata = {
@@ -698,14 +690,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component props with index type', () => {
+    it('serializes component props with index type', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithIndexedType');
       const expectedMetadata: ComponentMetadata = {
@@ -735,14 +726,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component props with extended interface type', () => {
+    it('serializes component props with extended interface type', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithExtendedInterface');
       const expectedMetadata: ComponentMetadata = {
@@ -790,14 +780,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes functional component with intersection type of properties object', () => {
+    it('serializes functional component with intersection type of properties object', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('FunctionWithCombinedPropertiesType');
       const expectedMetadata: ComponentMetadata = {
@@ -845,14 +834,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes functional component with intersection and union type of properties object', () => {
+    it('serializes functional component with intersection and union type of properties object', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('FunctionWithCombinedUnionPropertiesType');
       const expectedMetadata: ComponentMetadata = {
@@ -894,14 +882,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes functional component with property with intersection type', () => {
+    it('serializes functional component with property with intersection type', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('FunctionWithCombinedProperty');
       const expectedMetadata: ComponentMetadata = {
@@ -925,16 +912,15 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
     it(
       'serializes component props imported from shorthanded file ' + 'exporting directly from import from index file',
-      () => {
+      async () => {
         // given
         const component: ComponentImplementationInfo = getImplementation(
           'ClassWithTypeImportedFromIndexFileExportingFromImport'
@@ -957,15 +943,14 @@ describe('serializeTSComponent', () => {
         };
 
         // when
-        return serializeTSComponent(component).then((serializedProps) => {
-          // then
-          expect(serializedProps.result).toEqual(expectedMetadata);
-          expect(serializedProps.warnings).toEqual([]);
-        });
+        const serializedProps = await serializeTSComponent(component);
+        // then
+        expect(serializedProps.result).toEqual(expectedMetadata);
+        expect(serializedProps.warnings).toEqual([]);
       }
     );
 
-    it('serializes component props with union type in type alias', () => {
+    it('serializes component props with union type in type alias', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithUnionTypeInAliasType');
       const expectedMetadata: ComponentMetadata = {
@@ -1009,14 +994,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component props with typeof/keyof operators', () => {
+    it('serializes component props with typeof/keyof operators', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithKeyOfTypeOfOperatorInType');
       const expectedMetadata: ComponentMetadata = {
@@ -1066,14 +1050,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component props with array of union type', () => {
+    it('serializes component props with array of union type', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithArrayOfUnionType');
       const expectedMetadata: ComponentMetadata = {
@@ -1100,14 +1083,13 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component props with two dimensional array', () => {
+    it('serializes component props with two dimensional array', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithTwoDimensionalArray');
       const expectedMetadata: ComponentMetadata = {
@@ -1128,11 +1110,10 @@ describe('serializeTSComponent', () => {
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
     it("doesn't support imported Component type in other way than `React.Component`", async () => {
@@ -1279,7 +1260,7 @@ describe('serializeTSComponent', () => {
       });
     });
 
-    it('serializes component with custom description, name and ignore', () => {
+    it('serializes component with custom description, name and ignore', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithPropTypesWithComments');
       const expectedMetadata: ComponentMetadata = {
@@ -1329,14 +1310,13 @@ component.`,
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([]);
     });
 
-    it('serializes component with invalid custom names and gives proper warning', () => {
+    it('serializes component with invalid custom names and gives proper warning', async () => {
       // given
       const component: ComponentImplementationInfo = getImplementation('ClassWithCorruptedComments');
       const expectedMetadata: ComponentMetadata = {
@@ -1378,20 +1358,19 @@ component.`,
       };
 
       // when
-      return serializeTSComponent(component).then((serializedProps) => {
-        // then
-        expect(serializedProps.result).toEqual(expectedMetadata);
-        expect(serializedProps.warnings).toEqual([
-          {
-            message: 'Duplicated custom property name ("duplicatedCustomName") for "isDisabled"',
-            sourcePath: component.path,
-          },
-          {
-            message: 'Custom property name ("isDisabled") for "isDisabledDuplicate" matches existing property name',
-            sourcePath: component.path,
-          },
-        ]);
-      });
+      const serializedProps = await serializeTSComponent(component);
+      // then
+      expect(serializedProps.result).toEqual(expectedMetadata);
+      expect(serializedProps.warnings).toEqual([
+        {
+          message: 'Duplicated custom property name ("duplicatedCustomName") for "isDisabled"',
+          sourcePath: component.path,
+        },
+        {
+          message: 'Custom property name ("isDisabled") for "isDisabledDuplicate" matches existing property name',
+          sourcePath: component.path,
+        },
+      ]);
     });
 
     describe('FunctionWithMultilevelNamespaceDeclaration', () => {

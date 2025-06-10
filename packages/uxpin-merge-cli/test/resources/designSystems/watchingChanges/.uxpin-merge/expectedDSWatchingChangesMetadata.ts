@@ -1,7 +1,7 @@
 import { ComponentDefinition } from '../../../../../src/steps/serialization/component/ComponentDefinition';
 import { DesignSystemSnapshot } from '../../../../../src/steps/serialization/DesignSystemSnapshot';
 
-export const expectedAvatarDefinition:ComponentDefinition = {
+export const expectedAvatarDefinition: ComponentDefinition = {
   defaultExported: true,
   documentation: {
     examples: [],
@@ -87,7 +87,7 @@ export const expectedAvatarDefinition:ComponentDefinition = {
   wrappers: [],
 };
 
-export const expectedButtonDefinition:ComponentDefinition = {
+export const expectedButtonDefinition: ComponentDefinition = {
   defaultExported: true,
   documentation: {
     examples: [],
@@ -144,18 +144,14 @@ export const expectedButtonDefinition:ComponentDefinition = {
   wrappers: [],
 };
 
-export const expectedDSWatchingChangesMetadata:DesignSystemSnapshot = {
+export const expectedDSWatchingChangesMetadata: DesignSystemSnapshot = {
   categorizedComponents: [
     {
-      components: [
-        expectedAvatarDefinition,
-      ],
+      components: [expectedAvatarDefinition],
       name: 'General',
     },
     {
-      components: [
-        expectedButtonDefinition,
-      ],
+      components: [expectedButtonDefinition],
       name: 'Forms',
     },
   ],

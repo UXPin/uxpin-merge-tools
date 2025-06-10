@@ -3,7 +3,7 @@ declare module 'stubby' {
     stubs?: number;
     admin?: number;
     tls?: number;
-    data?: Object | Array;
+    data?: object | Array;
     location?: string;
     key?: string;
     cert?: string;
