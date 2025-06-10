@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { Configuration } from 'webpack';
+import { Configuration, optimize } from 'webpack';
 import { smart } from 'webpack-merge';
 import { BuildOptions } from '../BuildOptions';
 import { getComponentLibraryInputPath } from '../library/getComponentLibraryInputPath';
@@ -10,6 +10,8 @@ export const TEMP_DIR_PATH = `./${TEMP_DIR_NAME}`;
 export const LIBRARY_INPUT_FILENAME = `components.js`;
 export const LIBRARY_OUTPUT_FILENAME = 'designsystemlibrary.js';
 
+const { LimitChunkCountPlugin } = optimize;
+
 export function getConfig({ development, webpackConfigPath, projectRoot, uxpinDirPath }: BuildOptions): Configuration {
   const config: Configuration = decorateWithDevToolsWhenDevelopment(
     {
@@ -19,6 +21,11 @@ export function getConfig({ development, webpackConfigPath, projectRoot, uxpinDi
         runtimeChunk: false,
         splitChunks: false,
       },
+      plugins: [
+        new LimitChunkCountPlugin({
+          maxChunks: 1,
+        }),
+      ],
       output: {
         filename: LIBRARY_OUTPUT_FILENAME,
         libraryTarget: 'commonjs',
