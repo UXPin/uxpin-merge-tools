@@ -45,6 +45,23 @@ async function compileWithWebpack(
     webpackConfig,
   });
 
+  // fix process variable - porsche issue
+  if (config.plugins && Array.isArray(config.plugins)) {
+    const definePlugin = config.plugins.find((plugin) => {
+      if (plugin && plugin.constructor && plugin.constructor.name && plugin.constructor.name === 'DefinePlugin') {
+        return true;
+      }
+
+      return false;
+    });
+
+    // @ts-ignore
+    if (definePlugin && definePlugin.definitions && definePlugin.definitions.process) {
+      // @ts-ignore
+      definePlugin.definitions.process = `({ "browser": true })`;
+    }
+  }
+
   const compiler: Compiler = new WebpackCompiler(config);
   await compiler.compile();
 
