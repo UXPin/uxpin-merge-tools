@@ -40,11 +40,20 @@ export function isDefaultExported(declaration: ComponentDeclaration, context: TS
     // export { Component as default }
     if (ts.isExportDeclaration(node) && node.exportClause && ts.isNamedExports(node.exportClause)) {
       isDefault = node.exportClause.elements.some((specifier: ts.ExportSpecifier) => {
-        return (
-          specifier.propertyName &&
-          specifier.propertyName.escapedText === componentName &&
-          specifier.name.escapedText === 'default'
-        );
+        if (!specifier.propertyName) {
+          return false;
+        }
+
+        const propName = ts.isStringLiteral(specifier.propertyName)
+          ? specifier.propertyName.text
+          : specifier.propertyName.escapedText;
+        if (propName !== componentName) {
+          return false;
+        }
+
+        const name = ts.isStringLiteral(specifier.name) ? specifier.name.text : specifier.name.escapedText;
+
+        return name === 'default';
       });
     }
 
@@ -117,6 +126,7 @@ function isWrappedWithHOC(exportedName: string, expression?: ts.Expression): boo
 
 function hasDefaultKeywordInModifiers(declaration: ComponentDeclaration): boolean {
   return (
+    ts.canHaveModifiers(declaration) &&
     !!declaration.modifiers &&
     isExported(declaration) &&
     declaration.modifiers.some((m) => m.kind === ts.SyntaxKind.DefaultKeyword)
