@@ -32,7 +32,7 @@ export function getPresetsBundleWebpackConfig({
           loader: require.resolve('babel-loader'),
           options: {
             babelrc: false,
-            plugins: [require.resolve('@babel/plugin-proposal-class-properties')],
+            plugins: [require.resolve('@babel/plugin-transform-class-properties')],
             presets: [
               require.resolve('@babel/preset-flow'),
               [
