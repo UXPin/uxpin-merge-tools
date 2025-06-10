@@ -40,7 +40,10 @@ module.exports = defineConfig([{
     rules: {
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/ban-ts-comment": "warn",
+        "@typescript-eslint/no-empty-object-type": "warn",
+        "@typescript-eslint/no-require-imports": "warn",
         "@typescript-eslint/no-restricted-types": "warn", // TODO fix "Don't use `{}` as a type"
+        "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/no-var-requires": "warn",
         "@typescript-eslint/prefer-as-const": "warn",
         "no-prototype-builtins": "warn",
