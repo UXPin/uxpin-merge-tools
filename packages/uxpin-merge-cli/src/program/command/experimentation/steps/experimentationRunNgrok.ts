@@ -39,7 +39,10 @@ Starting experimental mode without tunneling.
 
       if (ngrok) {
         try {
-          url = await ngrok.connect(args.port);
+          url = await Promise.race([
+            ngrok.connect(args.port),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 5000)),
+          ]);
         } catch (e) {
           printWarning(`Failed to start tunnel. Starting experimental mode without tunneling.`);
           return ds;
