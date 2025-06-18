@@ -28,11 +28,13 @@ function withoutUnsupportedElements(prop: ComponentPresetElementProps | any[] | 
     prop,
     (validProp, subProp, key) => {
       if (isJSXSerializedElement(subProp)) {
+        // @ts-expect-error
         validProp[key] = makeParsableByUXPin(convertToJSX(subProp));
         return validProp;
       }
 
       if (isArray(validProp)) {
+        // @ts-expect-error
         validProp.push(withoutUnsupportedElements(subProp));
       } else {
         validProp[key] = withoutUnsupportedElements(subProp);
