@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.7.0] - 2025-06-20
+- TypeScript updated to v4.2.3
+- fix package critical vulnerabilities
+- add @uxpindynamicoptions tag
+
 ## [3.5.5] - 2025-04-08
 - Removed ngrok from dependencies due to it being flagged as malicious.
 
