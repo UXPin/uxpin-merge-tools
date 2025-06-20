@@ -13,11 +13,19 @@ export function getNodeJsDocTag(node: ts.Node, tag: CommentTags): ts.JSDocTag | 
 }
 
 // When the component is wrapped inside a `React.forwardRef()` call,
-// we need to lookup the parent Node to access the JSDoc comments
+// we need to lookup through the parent Nodes to access the JSDoc comments.
+// In typescript 5, the immediate node parent does not always contain the JSDoc's,
+// so we are going up the tree until we find a variable statement.
 function getNodeWithJsDoc(node: ts.Node) {
-  if (node.parent.kind === ts.SyntaxKind.CallExpression) {
-    return node.parent;
+  let parent = node.parent;
+  while (parent) {
+    if (ts.isVariableStatement(parent)) {
+      return parent;
+    }
+
+    parent = parent.parent;
   }
+
   return node;
 }
 
