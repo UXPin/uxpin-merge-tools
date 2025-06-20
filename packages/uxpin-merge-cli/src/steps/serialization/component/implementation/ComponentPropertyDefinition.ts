@@ -23,6 +23,7 @@ export interface ComponentPropertyCustomDescriptors {
   customDescription?: string;
   customName?: string;
   customType?: CustomControlType;
+  conditionalFn?: string;
   hidden?: boolean;
   isAutoUpdated?: true;
 }
@@ -39,6 +40,7 @@ export enum CustomDescriptorsTags {
   HIDDEN = '@uxpinignoreprop',
   NAME = '@uxpinpropname',
   TYPE = '@uxpincontroltype',
+  DYNAMIC_OPTIONS = '@uxpindynamicoptions',
 }
 
 export interface PropertyDefaultValue {

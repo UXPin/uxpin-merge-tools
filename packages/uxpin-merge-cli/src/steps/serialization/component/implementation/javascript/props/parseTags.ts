@@ -7,6 +7,7 @@ import { parseNameTag } from '../../../props/parsing/descriptors/parseNameTag';
 import { parseTypeTag } from '../../../props/parsing/descriptors/parseTypeTag';
 import { CustomDescriptorsTags } from '../../ComponentPropertyDefinition';
 import { ParsedPropertyDescriptor } from '../../ParsedPropertyDescriptor';
+import { parseDynamicOptions } from '../../../props/parsing/descriptors/parseDynamicOptions';
 
 export function parseTags(tags: string[]): ParsedPropertyDescriptor[] {
   return tags.map(parseTag).filter(isDefined);
@@ -19,6 +20,7 @@ function parseTag(tag: string): ParsedPropertyDescriptor | undefined {
   }
 
   const [, descriptor, , value] = matches;
+
   if (!isValidDescriptor(descriptor)) {
     return;
   }
@@ -42,6 +44,9 @@ function parseTag(tag: string): ParsedPropertyDescriptor | undefined {
 
     case CustomDescriptorsTags.BIND: {
       return parseBindTag(value);
+    }
+    case CustomDescriptorsTags.DYNAMIC_OPTIONS: {
+      return parseDynamicOptions(value);
     }
 
     default:
