@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.7.1] - 2025-09-19
+- Supports tailwind className propropertyps `@uxpincontroltype tailwindclassname()`
+
 ## [3.7.0] - 2025-06-20
 - TypeScript updated to v4.2.3
 - fix package critical vulnerabilities

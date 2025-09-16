@@ -22,6 +22,7 @@ const CUSTOM_TYPE_ALLOWANCE_MAP: {
   [CustomControlTypeName.Input]: TEXT_EDITABLE_TYPES,
   [CustomControlTypeName.Interactions]: ['func'],
   [CustomControlTypeName.MaterialIcons]: ['union', 'string', 'literal'],
+  [CustomControlTypeName.TailwindClassName]: ['string'],
   [CustomControlTypeName.Number]: ['number'],
   [CustomControlTypeName.ReturningFunction]: ['func'],
   [CustomControlTypeName.Switcher]: ['boolean'],

@@ -124,6 +124,7 @@ export enum CustomControlTypeName {
   MaterialIcons = 'materialicons',
   Number = 'number',
   ReturningFunction = 'returningfunction',
+  TailwindClassName = 'tailwindclassname',
   Select = 'select',
   Switcher = 'switcher',
   Textfield = 'textfield',
@@ -137,6 +138,7 @@ export interface CustomControlTypeStructureMap {
   [CustomControlTypeName.Image]: {};
   [CustomControlTypeName.Interactions]: {};
   [CustomControlTypeName.MaterialIcons]: {};
+  [CustomControlTypeName.TailwindClassName]: {};
   [CustomControlTypeName.Number]: {};
   [CustomControlTypeName.ReturningFunction]: { params?: string[] };
   [CustomControlTypeName.Select]: {};

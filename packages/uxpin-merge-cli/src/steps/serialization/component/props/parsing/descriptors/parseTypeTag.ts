@@ -21,6 +21,7 @@ export function parseTypeTag(value: string): ParseResult {
     case CustomControlTypeName.Input:
     case CustomControlTypeName.Interactions:
     case CustomControlTypeName.MaterialIcons:
+    case CustomControlTypeName.TailwindClassName:
     case CustomControlTypeName.Number:
     case CustomControlTypeName.Select:
     case CustomControlTypeName.Switcher: {
