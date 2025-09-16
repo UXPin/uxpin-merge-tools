@@ -43,6 +43,19 @@ const cases: TestCase[] = [
     expectedValue: {
       serialized: {
         customType: {
+          name: CustomControlTypeName.TailwindClassName,
+          structure: {},
+        },
+      },
+      type: CustomDescriptorsTags.TYPE,
+    },
+    tag: 'tailwindclassname',
+  },
+
+  {
+    expectedValue: {
+      serialized: {
+        customType: {
           name: CustomControlTypeName.Textfield,
           structure: {
             rows: 10000,
