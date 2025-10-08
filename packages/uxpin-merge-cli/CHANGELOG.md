@@ -1,5 +1,10 @@
 # Changelog
 
+
+## [3.7.2] - 2025-10-08
+- Handle multiple present in one directory - uxpin-presets
+
+
 ## [3.7.1] - 2025-09-19
 - Supports tailwind className propropertyps `@uxpincontroltype tailwindclassname()`
 
