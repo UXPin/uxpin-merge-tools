@@ -10,7 +10,7 @@ export function getPresetName(path: string): string {
     return found[PRESET_NAME_INDEX_IN_MATCH_RESULT];
   }
 
-  return '';
+  return 'default';
 }
 
 export function isPreset(path: string): boolean {
