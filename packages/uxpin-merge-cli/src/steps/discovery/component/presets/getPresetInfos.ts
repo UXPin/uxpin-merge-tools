@@ -1,4 +1,4 @@
-import { readdir } from 'fs-extra';
+import { readdir, existsSync } from 'fs-extra';
 import pReduce = require('p-reduce');
 import { join, relative, posix } from 'path';
 import { isFile } from '../../../../utils/fs/isFile';
@@ -6,15 +6,32 @@ import { ComponentPresetInfo } from '../ComponentInfo';
 import { ComponentPaths } from '../paths/ComponentPaths';
 import { filterPresets } from './filterPresets';
 import { sortPresets } from './sortPresets';
+import { isPreset } from './presetFileNameParser';
 
 const PRESETS_DIR = 'presets';
+const UXPIN_PRESET_DIR = 'uxpin-presets';
 
-export function getPresetInfos(componentPaths: ComponentPaths): Promise<ComponentPresetInfo[]> {
+export function getPresetInfos(componentPaths: ComponentPaths, fileName: string): Promise<ComponentPresetInfo[]> {
+  const presetPath = join(
+    componentPaths.projectRoot,
+    componentPaths.componentDirPath,
+    UXPIN_PRESET_DIR,
+    fileName + '.jsx'
+  );
+
+  if (existsSync(presetPath)) {
+    return Promise.resolve([{ path: presetPath }]);
+  }
+
   return getFilePaths(join(componentPaths.projectRoot, componentPaths.componentDirPath, PRESETS_DIR))
     .then((paths) => getRelativePaths(componentPaths.projectRoot, paths))
     .then(filterPresets)
     .then(sortPresets)
-    .then((paths) => paths.map((path) => ({ path })));
+    .then((paths) =>
+      paths.map((path) => {
+        return { path };
+      })
+    );
 }
 
 function getFilePaths(dirPath: string): Promise<string[]> {
