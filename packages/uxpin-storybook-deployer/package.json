@@ -23,21 +23,21 @@
     "lint": "eslint . --ext .ts"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.28.0",
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^10.0.1",
     "@types/mime-types": "^2.1.1",
     "@types/node": "^16.11.7",
-    "@typescript-eslint/eslint-plugin": "^8.33.1",
-    "@typescript-eslint/parser": "^8.33.1",
-    "eslint": "^9.28.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "@typescript-eslint/parser": "^8.57.1",
+    "eslint": "^10.1.0",
     "typescript": "^5.8.0"
   },
   "dependencies": {
     "aws-sdk": "^2.1437.0",
-    "axios": "^1.9.0",
+    "axios": "^1.13.5",
     "chalk": "4.1.2",
     "commander": "^11.0.0",
-    "form-data": "^4.0.0",
+    "form-data": "^4.0.4",
     "mime-types": "^2.1.35"
   }
 }
