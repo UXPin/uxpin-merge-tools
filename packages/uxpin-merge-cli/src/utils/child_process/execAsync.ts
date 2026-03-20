@@ -7,7 +7,7 @@ export class ExecError extends Error {
 
 export function execAsync(command: string, options: ExecOptions = {}): Promise<string> {
   return new Promise((resolve, reject) => {
-    exec(command, options, (error: Error | null, stdout: string, stderr: string): void => {
+    exec(command, options, (error: Error | null, stdout: string | Buffer, stderr: string | Buffer): void => {
       if (error) {
         const execError: ExecError = new ExecError(error.message);
         execError.stdout = stdout;
@@ -18,7 +18,7 @@ export function execAsync(command: string, options: ExecOptions = {}): Promise<s
         return;
       }
 
-      resolve(stdout);
+      resolve(stdout.toString());
     });
   });
 }

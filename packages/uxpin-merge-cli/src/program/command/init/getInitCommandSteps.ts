@@ -48,6 +48,6 @@ function copyDefaultFiles(args: InitProgramArgs): any {
     }
   } catch (error) {
     printLine('🛑 There was an error while copying default config files. Please try again.', { color: PrintColor.RED });
-    throw new Error((error as Error).message);
+    throw new Error((error as Error).message, { cause: error });
   }
 }

@@ -1121,7 +1121,7 @@ describe('serializeTSComponent', () => {
       const component: ComponentImplementationInfo = getImplementation('ClassWithoutImportedReactComponent');
 
       // when
-      await expect(serializeTSComponent(component)).rejects.toThrowError('No component properties found');
+      await expect(serializeTSComponent(component)).rejects.toThrow('No component properties found');
     });
 
     it('rejects returned promise when there is no React component in the given file', (done) => {

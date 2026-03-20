@@ -15,7 +15,5 @@ function generateRandomRevisionId(): string {
 }
 
 function generateRandomCommitHash(): string {
-  return createHash('sha1')
-    .update(String(+new Date()))
-    .digest('hex');
+  return createHash('sha1').update(String(+new Date())).digest('hex');
 }
