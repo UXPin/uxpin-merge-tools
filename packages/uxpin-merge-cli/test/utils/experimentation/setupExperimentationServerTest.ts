@@ -7,9 +7,9 @@ import { Environment } from '../../../src/program/env/Environment';
 import { SERVER_READY_OUTPUT } from '../../../src/steps/experimentation/server/console/printServerReadyMessage';
 import { emptyLatestCommitStub } from '../../resources/stubs/emptyLatestCommit';
 import { MergeServerResponse, startUXPinMergeServer, TestServerOptions } from '../command/startUXPinMergeServer';
-import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
 import { changeWatchingFileContent } from '../file/changeWatchingFileContent';
-import { ADMIN_PORT_RANGE, startStubbyServer, STUBS_PORT_RANGE, TLS_PORT_RANGE } from '../stubby/startStubbyServer';
+import { getFreePort } from '../stubby/getFreePort';
+import { startStubbyServer } from '../stubby/startStubbyServer';
 import { stopStubbyServer } from '../stubby/stopStubbyServer';
 import { ExperimentationServerTestSetupOptions } from './experimentationServerTestSetupOptions';
 import { ExperimentationServerConfiguration, getServerConfiguration } from './getServerConfiguration';
@@ -57,11 +57,12 @@ export function setupExperimentationServerTest(
   let tlsPort: number;
 
   beforeAll(async () => {
-    tlsPort = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
+    const [adminPort, stubsPort, resolvedTlsPort] = await Promise.all([getFreePort(), getFreePort(), getFreePort()]);
+    tlsPort = resolvedTlsPort;
     server = await startStubbyServer({
-      admin: getRandomPortNumber(ADMIN_PORT_RANGE.min, ADMIN_PORT_RANGE.max),
+      admin: adminPort,
       data: emptyLatestCommitStub,
-      stubs: getRandomPortNumber(STUBS_PORT_RANGE.min, STUBS_PORT_RANGE.max),
+      stubs: stubsPort,
       tls: tlsPort,
     });
 
