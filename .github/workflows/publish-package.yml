@@ -49,8 +49,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'yarn'
-          cache-dependency-path: packages/uxpin-merge-cli/yarn.lock
       - run: yarn policies set-version 1.22.4
 
       - name: Setting $HOME/.npmrc to install build-utils

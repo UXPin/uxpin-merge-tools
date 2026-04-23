@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: 24
           cache: 'yarn'
+          cache-dependency-path: packages/uxpin-merge-cli/yarn.lock
 
       - name: Cache node_modules
         uses: actions/cache@v4
