@@ -1,6 +1,6 @@
 import { join, parse, resolve } from 'path';
 import { Configuration } from 'webpack';
-import { smartStrategy } from 'webpack-merge';
+import { mergeWithCustomize, customizeObject } from 'webpack-merge';
 import * as VirtualModulesPlugin from 'webpack-virtual-modules';
 import { VirtualComponentModule } from './generateVirtualModules';
 
@@ -83,7 +83,12 @@ export function getPresetsBundleWebpackConfig({
     const userWebpackConfig: Configuration = isConfigurationFunction(configProvider)
       ? configProvider()
       : configProvider;
-    return smartStrategy({ entry: 'replace' })(userWebpackConfig, config);
+
+    return mergeWithCustomize({
+      customizeObject: customizeObject({
+        entry: 'replace'
+      })
+    })(userWebpackConfig, config);
   }
 
   return config;

@@ -1,5 +1,5 @@
 import * as safe from '@colors/colors/safe';
-import globby = require('globby');
+import { glob } from 'tinyglobby';
 import { flatten, intersection } from 'lodash';
 import pMap from 'p-map';
 import { printWarning } from '../../../../../utils/console/printLine';
@@ -19,7 +19,7 @@ export async function getComponentCategoryPaths(
   // First check if each non negated pattern produces any paths
   const sortedPaths: string[] = flatten(
     await pMap(positivePatterns, async (pattern: string): Promise<string[]> => {
-      let newPaths: string[] = await globby(pattern, { cwd: projectRoot });
+      let newPaths: string[] = await glob(pattern, { cwd: projectRoot });
 
       if (newPaths.length === 0) {
         hasInvalidPatterns = true;
@@ -43,7 +43,7 @@ export async function getComponentCategoryPaths(
 
   // Finally get paths for all patterns, as this may produce different results than
   // checking each pattern separately (some patterns may be excluded)
-  const allPaths: string[] = await globby(patterns, { cwd: projectRoot });
+  const allPaths: string[] = await glob(patterns, { cwd: projectRoot });
 
   return intersection(sortedPaths, allPaths);
 }
