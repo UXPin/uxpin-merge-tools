@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`summary command integration summary command prints  prints the list of components found in nordnet-ui-kit example 1`] = `
 "[1mUncategorized[22m
