@@ -41,7 +41,9 @@ function setupOutputListeners(subprocess: ChildProcess, successMatcher: string):
       if (!data.toString().match(new RegExp(successMatcher))) {
         return;
       }
-      if (settled) { return; }
+      if (settled) {
+        return;
+      }
       settled = true;
       cleanup();
       resolve();
@@ -52,9 +54,13 @@ function setupOutputListeners(subprocess: ChildProcess, successMatcher: string):
     // when changeProjectFile is called again immediately after catching the error.
     const stdErrorDataListener: (data: Buffer) => void = (data) => {
       stderrAccumulated += data.toString();
-      if (debounceTimer !== null) { clearTimeout(debounceTimer); }
+      if (debounceTimer !== null) {
+        clearTimeout(debounceTimer);
+      }
       debounceTimer = setTimeout(() => {
-        if (settled) { return; }
+        if (settled) {
+          return;
+        }
         settled = true;
         cleanup();
         reject(stderrAccumulated);

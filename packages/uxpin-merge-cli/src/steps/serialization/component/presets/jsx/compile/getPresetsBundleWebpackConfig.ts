@@ -86,8 +86,8 @@ export function getPresetsBundleWebpackConfig({
 
     return mergeWithCustomize({
       customizeObject: customizeObject({
-        entry: 'replace'
-      })
+        entry: 'replace',
+      }),
     })(userWebpackConfig, config);
   }
 
