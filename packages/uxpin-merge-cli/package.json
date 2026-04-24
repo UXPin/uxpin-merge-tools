@@ -116,7 +116,7 @@
     "axios": "^1.15.0",
     "babel-loader": "^10.1.1",
     "babel-standalone": "^6.26.0",
-    "chokidar": "^3.6.0",
+    "chokidar": "^5.0.0",
     "clean-stacktrace": "^1.1.0",
     "clean-stacktrace-relative-paths": "^1.0.4",
     "commander": "^2.11.0",
@@ -151,7 +151,6 @@
     "webpack-cli": "^4.0.0 || ^5.0.0 || ^7.0.0"
   },
   "resolutions": {
-    "**/anymatch/picomatch": "^2.3.2",
     "**/micromatch/picomatch": "^2.3.2",
     "**/jest-message-util/picomatch": "^4.0.4"
   }

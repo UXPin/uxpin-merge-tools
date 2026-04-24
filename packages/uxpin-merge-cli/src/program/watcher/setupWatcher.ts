@@ -1,4 +1,4 @@
-import { FSWatcher, watch, WatchOptions } from 'chokidar';
+import { FSWatcher, watch, ChokidarOptions } from 'chokidar';
 import { ProgramArgs } from '../args/ProgramArgs';
 import { getConfigPath } from '../args/providers/paths/getConfigPath';
 import { getTempDirPath } from '../args/providers/paths/getTempDirPath';
@@ -8,7 +8,7 @@ const NODE_MODULES = /\/node_modules\//;
 
 export async function setupWatcher(programArgs: ProgramArgs, onChangeListener: WatchListener): Promise<void> {
   return new Promise<void>((resolve, reject) => {
-    const watchOptions: WatchOptions = {
+    const watchOptions: ChokidarOptions = {
       ignored: [DOT_FILES, NODE_MODULES, getConfigPath(programArgs), getTempDirPath(programArgs)],
     };
 
