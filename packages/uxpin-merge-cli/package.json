@@ -92,7 +92,7 @@
     "react-dom": "^17.0.1",
     "stubby": "^5.1.0",
     "terminate": "^2.1.2",
-    "tmp-promise": "^1.0.5",
+    "tmp-promise": "^3.0.3",
     "ts-jest": "^29.4.9",
     "ts-loader": "^9.5.7",
     "webpack": "^5.105.4",
@@ -113,7 +113,7 @@
     "acorn-loose": "^8.0.2",
     "acorn-walk": "^8.2.0",
     "ast-types": "^0.12.4",
-    "axios": "^1.15.0",
+    "axios": "^1.17.0",
     "babel-loader": "^10.1.1",
     "babel-standalone": "^6.26.0",
     "chokidar": "^5.0.0",
@@ -149,9 +149,5 @@
   "peerDependencies": {
     "webpack": "^4.0.0 || ^5.0.0",
     "webpack-cli": "^4.0.0 || ^5.0.0 || ^7.0.0"
-  },
-  "resolutions": {
-    "**/micromatch/picomatch": "^2.3.2",
-    "**/jest-message-util/picomatch": "^4.0.4"
   }
 }
