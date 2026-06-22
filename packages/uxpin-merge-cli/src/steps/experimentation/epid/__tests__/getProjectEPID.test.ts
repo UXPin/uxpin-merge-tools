@@ -20,6 +20,6 @@ describe('getProjectEPID', () => {
 
     // when
     // then
-    await expect(getProjectEPID(filePath)).rejects.toThrowError(/no such file or directory/);
+    await expect(getProjectEPID(filePath)).rejects.toThrow(/no such file or directory/);
   });
 });

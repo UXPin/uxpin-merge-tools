@@ -1,7 +1,7 @@
 import { DeferredChain } from 'deferred-proxy-chain';
 import { Stubby, StubbyStub } from 'stubby';
-import { getRandomPortNumber } from '../e2e/server/getRandomPortNumber';
-import { ADMIN_PORT_RANGE, startStubbyServer, STUBS_PORT_RANGE, TLS_PORT_RANGE } from './startStubbyServer';
+import { getFreePort } from './getFreePort';
+import { startStubbyServer } from './startStubbyServer';
 import { stopStubbyServer } from './stopStubbyServer';
 
 export interface StubbyServerContext {
@@ -20,9 +20,7 @@ export function setupStubbyServer(data: StubbyStub[], timeout?: number): StubbyS
   let server: Stubby;
 
   beforeAll(async () => {
-    adminPort = getRandomPortNumber(ADMIN_PORT_RANGE.min, ADMIN_PORT_RANGE.max);
-    stubsPort = getRandomPortNumber(STUBS_PORT_RANGE.min, STUBS_PORT_RANGE.max);
-    tlsPort = getRandomPortNumber(TLS_PORT_RANGE.min, TLS_PORT_RANGE.max);
+    [adminPort, stubsPort, tlsPort] = await Promise.all([getFreePort(), getFreePort(), getFreePort()]);
 
     server = await startStubbyServer({
       admin: adminPort,

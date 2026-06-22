@@ -25,7 +25,7 @@ export function ensureIsValidCondition(tagValue: string) {
     // Step 2: Only accept valid conditions
     return isValidCondition(tree.body);
   } catch (error) {
-    throw new Error(`Unable to parse the provided condition: ${tagValue}`);
+    throw new Error(`Unable to parse the provided condition: ${tagValue}`, { cause: error });
   }
 }
 

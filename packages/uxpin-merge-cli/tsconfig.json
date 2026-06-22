@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": ["es2015", "es2016.array.include", "es2017.object", "dom"],
+    "lib": ["es2015", "es2016.array.include", "es2017.object", "es2022", "dom", "esnext.disposable"],
     "module": "commonjs",
     "sourceMap": true,
     "strict": true,

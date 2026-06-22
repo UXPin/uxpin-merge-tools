@@ -1,7 +1,7 @@
 export const INDENTATION_CHAR = `  `;
 
 export function generatePropertyValuePair(property: string, value: any): string {
-  let pair = '';
+  let pair: string;
 
   switch (typeof value) {
     case 'function':

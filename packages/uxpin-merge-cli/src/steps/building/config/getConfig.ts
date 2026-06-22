@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { Configuration } from 'webpack';
-import { smart } from 'webpack-merge';
+import { merge } from 'webpack-merge';
 import { BuildOptions } from '../BuildOptions';
 import { getComponentLibraryInputPath } from '../library/getComponentLibraryInputPath';
 
@@ -33,7 +33,7 @@ export function getConfig({ development, webpackConfigPath, projectRoot, uxpinDi
 
   if (webpackConfigPath) {
     const userWebpackConfig: Configuration = require(join(projectRoot, webpackConfigPath));
-    return smart(userWebpackConfig, config);
+    return merge(userWebpackConfig, config);
   }
 
   return config;

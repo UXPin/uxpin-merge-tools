@@ -7,6 +7,7 @@ describe('getPropertyCustomDescriptorsWithWarnings', () => {
   it('should not add any custom property descriptors if not provided in description', async () => {
     // given
     const property: GeneralPropItem = {
+      name: 'prop',
       defaultValue: '',
       description: '',
       required: false,
@@ -26,6 +27,7 @@ describe('getPropertyCustomDescriptorsWithWarnings', () => {
   it('should parse multiple descriptors', async () => {
     // given
     const property: GeneralPropItem = {
+      name: 'prop',
       defaultValue: '',
       description: `@uxpindescription Some desc
 @uxpinpropname test`,

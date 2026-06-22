@@ -13,6 +13,8 @@ describe('parseComponentName', () => {
         description: '',
         displayName: '',
         props: {},
+        filePath: '',
+        methods: [],
       };
 
       componentName = getComponentName(componentPath, parsed);
@@ -32,6 +34,8 @@ describe('parseComponentName', () => {
         description: '',
         displayName: 'CustomComponentName',
         props: {},
+        filePath: '',
+        methods: [],
       };
 
       componentName = getComponentName(componentPath, parsed);

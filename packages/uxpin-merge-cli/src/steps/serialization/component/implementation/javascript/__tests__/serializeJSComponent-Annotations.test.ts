@@ -392,7 +392,7 @@ describe('SerializeJSComponent - with annotations', () => {
       const component: ComponentImplementationInfo = getImplementation('ClassWithBrokenBindAnnotation');
 
       // when
-      await expect(serializeJSComponent(component)).rejects.toThrowError(
+      await expect(serializeJSComponent(component)).rejects.toThrow(
         `Incorrect property name pointed as a binding source.
   Expected syntax: @uxpinbind [source property name] [value path - optional].
   Examples:
@@ -409,7 +409,7 @@ describe('SerializeJSComponent - with annotations', () => {
 
       // when
       await expect(serializeJSComponent(component)).rejects
-        .toThrowError(`Incorrect property name pointed as a binding source.
+        .toThrow(`Incorrect property name pointed as a binding source.
       No such property: "onChanged"`);
     });
   });
@@ -420,7 +420,7 @@ describe('SerializeJSComponent - with annotations', () => {
       const component: ComponentImplementationInfo = getImplementation('ClassWithOverlappingBindAnnotations');
 
       // when
-      await expect(serializeJSComponent(component)).rejects.toThrowError(
+      await expect(serializeJSComponent(component)).rejects.toThrow(
         `More than one property is trying to bind the same source property "onChange"`
       );
     });

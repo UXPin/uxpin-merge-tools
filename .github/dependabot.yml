@@ -1,0 +1,8 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directories:
+      - "packages/uxpin-merge-cli"
+      - "packages/uxpin-storybook-deployer"
+    schedule:
+      interval: "daily"

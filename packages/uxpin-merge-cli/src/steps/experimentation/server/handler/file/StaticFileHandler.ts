@@ -8,7 +8,10 @@ import { RequestHandler } from '../RequestHandler';
 export class StaticFileHandler implements RequestHandler {
   private notFoundHandler: NotFoundHandler;
 
-  constructor(private filePath: string, private headers: OutgoingHttpHeaders = {}) {
+  constructor(
+    private filePath: string,
+    private headers: OutgoingHttpHeaders = {}
+  ) {
     this.notFoundHandler = new NotFoundHandler();
   }
 

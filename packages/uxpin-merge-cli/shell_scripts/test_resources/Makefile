@@ -14,7 +14,7 @@ test-resources: ../../test/resources/repos/nordnet-ui-kit ../../test/resources/r
 
 ../../test/resources/repos/mineral-ui:
 	cd ../../test/resources/repos \
-	&& git clone git@github.com:UXPin/mineral-ui.git \
+	&& git clone https://github.com/uxpin-merge/mineral-ui.git \
 	&& cd mineral-ui \
 	&& git remote add official https://github.com/mineral-ui/mineral-ui.git \
 	&& git checkout e17bfa881b4813ef9d76f921ae38c91f9195fe38 \
