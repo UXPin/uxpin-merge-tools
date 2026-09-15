@@ -1,4 +1,4 @@
-import { ensureDir } from 'fs-extra';
+import { ensureDir } from '../../../../../../common/fs/projectFs';
 import { resolve } from 'path';
 import { v4 } from 'uuid';
 import { ProgramArgs } from '../../../../../../program/args/ProgramArgs';

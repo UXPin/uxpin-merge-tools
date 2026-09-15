@@ -1,4 +1,4 @@
-import { readdir, existsSync } from 'fs-extra';
+import { existsSync, readdir } from '../../../../common/fs/projectFs';
 import pReduce = require('p-reduce');
 import { join, relative, posix } from 'path';
 import { isFile } from '../../../../utils/fs/isFile';

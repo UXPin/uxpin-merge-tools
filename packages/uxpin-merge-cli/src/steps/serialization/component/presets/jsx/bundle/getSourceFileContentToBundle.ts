@@ -1,5 +1,6 @@
 import { flatMap } from 'lodash';
 import { relative, posix } from 'path';
+import { resolveProjectPath } from '../../../../../../common/fs/projectFs';
 import { ComponentPresetInfo } from '../../../../../discovery/component/ComponentInfo';
 import { ComponentDefinition } from '../../../ComponentDefinition';
 import { getUniqPresetImportName } from './getUniqPresetImportName';
@@ -22,8 +23,12 @@ ${exports}
 
 function thunkGetImport(tempDirPath: string): ({ path }: ComponentPresetInfo) => string {
   return ({ path }) =>
+    // Preset paths are relative to the project root, which for the CLI is also
+    // the working directory. A project that has no directory resolves them
+    // against its own root instead, so the import points at the preset either
+    // way.
     `import ${getUniqPresetImportName(path)} from '${posix.normalize(
-      relative(tempDirPath, path).replace(/\\/g, '/')
+      relative(tempDirPath, resolveProjectPath(path)).replace(/\\/g, '/')
     )}';`;
 }
 

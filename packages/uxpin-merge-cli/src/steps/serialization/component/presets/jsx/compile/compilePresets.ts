@@ -1,5 +1,6 @@
 import debug from 'debug';
-import { unlink } from 'fs-extra';
+import { getVirtualProject, remove } from '../../../../../../common/fs/projectFs';
+import { collectVolumeModules } from '../../../../../../common/fs/webpackProjectFs';
 import { join, parse } from 'path';
 import * as webpack from 'webpack';
 import { ProgramArgs, RawProgramArgs } from '../../../../../../program/args/ProgramArgs';
@@ -20,7 +21,7 @@ export async function compilePresets(programArgs: ProgramArgs, components: Compo
   log(`Compile presets with Webpack (${components.length} components)`);
   const bundlePath: string = await compileWithWebpack(programArgs, components, sourcePath);
   log('Compilation OK, delete temporary bundle');
-  await unlink(sourcePath);
+  await remove(sourcePath);
 
   return bundlePath;
 }
@@ -37,10 +38,13 @@ async function compileWithWebpack(
   const projectRoot: string = getProjectRoot(programArgs);
   const virtualModules: VirtualComponentModule[] = generateVirtualModules(components);
 
+  const project = getVirtualProject();
   const config: webpack.Configuration = getPresetsBundleWebpackConfig({
     bundlePath,
+    packagesRoot: project?.packagesRoot,
     projectRoot,
     sourcePath,
+    virtualFiles: project && collectVolumeModules(project.volume),
     virtualModules,
     webpackConfig,
   });
@@ -62,7 +66,10 @@ async function compileWithWebpack(
     }
   }
 
-  const compiler: Compiler = new WebpackCompiler(config);
+  // A virtual project is read and written where it lives: webpack resolves
+  // the presets out of the volume, falls through to the real node_modules for
+  // everything else, and emits the bundle back into the volume.
+  const compiler: Compiler = project ? new WebpackCompiler(config, { output: project.fs }) : new WebpackCompiler(config);
   await compiler.compile();
 
   return bundlePath;

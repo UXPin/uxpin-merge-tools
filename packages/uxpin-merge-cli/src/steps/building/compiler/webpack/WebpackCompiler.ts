@@ -6,11 +6,19 @@ import { formatWebpackErrorMessages } from '../../../../utils/webpack/formatWebp
 import { Compiler } from '../Compiler';
 
 const log = debug('uxpin:webpack');
+export interface CompilerFileSystems {
+  /** Where the output is written; defaults to the real filesystem. */
+  output?: any;
+}
+
 export class WebpackCompiler implements Compiler {
   private compiler: webpack.Compiler;
 
-  constructor(private readonly config: webpack.Configuration) {
+  constructor(private readonly config: webpack.Configuration, fileSystems: CompilerFileSystems = {}) {
     this.compiler = webpack(this.config);
+    if (fileSystems.output) {
+      this.compiler.outputFileSystem = fileSystems.output;
+    }
   }
 
   public compile(): Promise<void> {

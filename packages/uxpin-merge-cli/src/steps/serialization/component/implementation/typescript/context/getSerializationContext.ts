@@ -1,5 +1,6 @@
 import debug from 'debug';
 import * as ts from 'typescript';
+import { createVirtualCompilerHost } from '../../../../../../common/fs/tsProjectHost';
 import { ComponentImplementationInfo, TypeScriptConfig } from '../../../../../discovery/component/ComponentInfo';
 import { findComponentFile } from '../component/findComponentFile';
 
@@ -34,14 +35,18 @@ export function getSerializationContext(
 
 export function createTSProgram(paths: string[], config?: TypeScriptConfig) {
   log(`Create TS program for ${paths.length} path(s)`);
-  const program: ts.Program = ts.createProgram(paths, {
+  const options: ts.CompilerOptions = {
     jsx: ts.JsxEmit.React,
     module: ts.ModuleKind.CommonJS,
     target: ts.ScriptTarget.ES2015,
     // we can't just use `...config?.compilerOptions`
     baseUrl: config?.compilerOptions?.baseUrl,
     paths: config?.compilerOptions?.paths,
-  });
+  };
+  // Undefined unless the project is a virtual one, and then TypeScript uses
+  // its own host exactly as before.
+  const host: ts.CompilerHost | undefined = createVirtualCompilerHost(options);
+  const program: ts.Program = ts.createProgram(paths, options, host);
   log('Program created');
   return program;
 }

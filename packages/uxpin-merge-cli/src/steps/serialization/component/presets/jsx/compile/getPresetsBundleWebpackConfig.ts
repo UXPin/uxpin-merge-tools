@@ -10,6 +10,10 @@ export interface WebpackConfigPaths {
   sourcePath: string;
   virtualModules: VirtualComponentModule[];
   webpackConfig?: string;
+  /** A real directory whose node_modules the project's imports resolve against. */
+  packagesRoot?: string;
+  /** Sources of a project that is not on disk, by absolute path. */
+  virtualFiles?: Record<string, string>;
 }
 
 type ConfigurationFunction = () => Configuration;
@@ -20,8 +24,13 @@ export function getPresetsBundleWebpackConfig({
   sourcePath,
   virtualModules,
   webpackConfig,
+  packagesRoot,
+  virtualFiles,
 }: WebpackConfigPaths): Configuration {
   const { base, dir } = parse(bundlePath);
+  // A project held in memory has no node_modules under its root, so the
+  // packages it imports are looked up where the caller keeps them.
+  const packageDirs: string[] = packagesRoot ? [join(packagesRoot, 'node_modules')] : [];
 
   const config: Configuration = {
     entry: [resolve(__dirname, './globals/__uxpinParsePreset.js'), sourcePath],
@@ -60,11 +69,12 @@ export function getPresetsBundleWebpackConfig({
       libraryTarget: 'commonjs',
       path: dir,
     },
-    plugins: [getVirtualModulesPlugin(virtualModules)],
+    plugins: [getVirtualModulesPlugin(virtualModules, virtualFiles)],
     resolve: {
       extensions: ['.js', '.jsx'],
       modules: [
         'node_modules',
+        ...packageDirs,
         // @todo remove it after refactoring integration test structure
         resolve('../../../../../../../node_modules'),
       ],
@@ -72,6 +82,7 @@ export function getPresetsBundleWebpackConfig({
     resolveLoader: {
       modules: [
         'node_modules',
+        ...packageDirs,
         // @todo remove it after refactoring integration test structure
         resolve('../../../../../../../node_modules'),
       ],
@@ -89,9 +100,16 @@ export function getPresetsBundleWebpackConfig({
   return config;
 }
 
-function getVirtualModulesPlugin(virtualModules: VirtualComponentModule[]): any {
+function getVirtualModulesPlugin(
+  virtualModules: VirtualComponentModule[],
+  virtualFiles: Record<string, string> = {}
+): any {
+  // The component placeholders come last: where a project file and a
+  // placeholder describe the same module, the placeholder is the point.
   return new VirtualModulesPlugin(
-    virtualModules.reduce((result, { moduleSource, path }) => ({ ...result, [path]: moduleSource }), {})
+    virtualModules.reduce((result, { moduleSource, path }) => ({ ...result, [path]: moduleSource }), {
+      ...virtualFiles,
+    })
   );
 }
 

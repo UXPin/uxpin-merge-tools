@@ -1,4 +1,4 @@
-import { readFile } from 'fs-extra';
+import { readFile } from '../../../../common/fs/projectFs';
 import { parse, Syntax } from '@textlint/markdown-to-ast';
 import { WarningDetails } from '../../../../common/warning/WarningDetails';
 import { ExamplesSerializationResult } from './ExamplesSerializationResult';

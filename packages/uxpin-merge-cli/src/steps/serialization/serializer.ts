@@ -1,5 +1,5 @@
 import debug from 'debug';
-import { pathExists, readJSON } from 'fs-extra';
+import { pathExists, readJson } from '../../common/fs/projectFs';
 import { join } from 'path';
 import * as ts from 'typescript';
 
@@ -61,7 +61,7 @@ async function getTypeScriptConfig(): Promise<TypeScriptConfig | undefined> {
   const configFilepath = join(process.cwd(), 'tsconfig.json');
   const exists = await pathExists(configFilepath);
   if (!exists) return undefined;
-  const tsConfig = (await readJSON(configFilepath)) as { compilerOptions: ts.CompilerOptions };
+  const tsConfig = (await readJson(configFilepath)) as { compilerOptions: ts.CompilerOptions };
 
   return { compilerOptions: tsConfig.compilerOptions };
 }
