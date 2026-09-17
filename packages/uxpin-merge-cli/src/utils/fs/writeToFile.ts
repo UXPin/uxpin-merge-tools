@@ -1,5 +1,5 @@
-import { writeFile } from 'fs-extra';
+import { writeFile } from '../../common/fs/projectFs';
 
 export function writeToFile(filePath: string, content: string): Promise<void> {
-  return writeFile(filePath, content, { encoding: 'utf-8' });
+  return writeFile(filePath, content);
 }

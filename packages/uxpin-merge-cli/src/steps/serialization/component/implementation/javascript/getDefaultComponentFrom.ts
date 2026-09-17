@@ -1,4 +1,4 @@
-import { readFile } from 'fs-extra';
+import { readFile } from '../../../../../common/fs/projectFs';
 import { TransformOptions } from 'babel-core';
 import { ComponentDoc } from 'react-docgen-typescript/lib';
 

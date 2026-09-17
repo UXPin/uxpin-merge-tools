@@ -14,7 +14,7 @@ import {
   VariableDeclaration,
   VariableDeclarator,
 } from 'acorn-loose';
-import { readFileSync } from 'fs-extra';
+import { readFileSync } from '../../../../../common/fs/projectFs';
 
 // This function is checking if component is default exported by
 // checking if component is not named exported.

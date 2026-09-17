@@ -1,4 +1,4 @@
-import { pathExists } from 'fs-extra';
+import { pathExists } from '../../common/fs/projectFs';
 import { isFileCaseSensitive } from './isFile/isFileCaseSensitive';
 
 const defaults: IsFileOptions = {

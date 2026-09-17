@@ -1,4 +1,4 @@
-import { statSync } from 'fs';
+import { existsSync } from '../../../../common/fs/projectFs';
 import { parse, ParsedPath, resolve } from 'path';
 import { getWarnedResult } from '../../../../common/warning/getWarnedResult';
 import { Warned } from '../../../../common/warning/Warned';
@@ -23,9 +23,7 @@ function wrapperPathExists(baseFilePath: string, pathToResolve: string): boolean
   const path: string = resolve(dir, pathToResolve);
 
   try {
-    statSync(path);
-
-    return true;
+    return existsSync(path);
   } catch (e) {
     return false;
   }

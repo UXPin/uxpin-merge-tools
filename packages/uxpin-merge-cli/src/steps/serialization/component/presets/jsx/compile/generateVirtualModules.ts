@@ -1,5 +1,6 @@
 import { get } from 'lodash';
 import { join, parse } from 'path';
+import { resolveProjectPath } from '../../../../../../common/fs/projectFs';
 import { ComponentDefinition } from '../../../ComponentDefinition';
 import { getComponentNamespacedName } from '../../../name/getComponentNamespacedName';
 import { getNamespacedComponentsTree, NamespacedComponentsTree } from './getNamespacedComponentsTree';
@@ -26,7 +27,10 @@ function createVirtualModule(component: ComponentDefinition, tree: NamespacedCom
     moduleSource: `
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.${exportName} = ${JSON.stringify(createComponentPlaceholder(component, tree))};`,
-    path: removeExtensionFromPath(component.info.implementation.path),
+    // Webpack asks for the module by absolute path, and a component path is
+    // relative to the project root - the CLI's working directory, and a
+    // virtual project's root.
+    path: removeExtensionFromPath(resolveProjectPath(component.info.implementation.path)),
   };
 }
 
