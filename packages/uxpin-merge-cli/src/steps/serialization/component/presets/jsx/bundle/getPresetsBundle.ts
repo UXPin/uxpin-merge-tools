@@ -1,4 +1,4 @@
-import { getProjectVolume, readFile, remove } from '../../../../../../common/fs/projectFs';
+import { getProjectVolume, readFile, unlink } from '../../../../../../common/fs/projectFs';
 import { evaluateBundle } from '../../../../../../common/fs/webpackProjectFs';
 import { ProgramArgs } from '../../../../../../program/args/ProgramArgs';
 import { ComponentDefinition } from '../../../ComponentDefinition';
@@ -16,7 +16,7 @@ export async function getPresetsBundle(
   if (!getProjectVolume()) {
     unRequire(bundlePath);
   }
-  await remove(bundlePath);
+  await unlink(bundlePath);
   return bundle;
 }
 

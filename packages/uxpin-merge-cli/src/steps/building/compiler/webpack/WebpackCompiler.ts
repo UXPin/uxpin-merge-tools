@@ -7,8 +7,11 @@ import { Compiler } from '../Compiler';
 
 const log = debug('uxpin:webpack');
 export interface CompilerFileSystems {
-  /** Where the output is written; defaults to the real filesystem. */
-  output?: any;
+  /**
+   * Where the bundle is written. Defaults to the real filesystem; a project
+   * held in memory is compiled back into the volume it came from.
+   */
+  output?: webpack.Compiler['outputFileSystem'];
 }
 
 export class WebpackCompiler implements Compiler {

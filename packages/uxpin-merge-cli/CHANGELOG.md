@@ -1,6 +1,10 @@
 # Changelog
 
 
+## [3.8.0] - 2026-09-17
+- `dumpDesignSystem()`: serialize a design system from files held in memory, with no directory and no git repository. The project is read from a volume, its `uxpin.config.js` and presets are compiled from there, and the caller names the revision the snapshot is filed under.
+- Such a project is read exactly like one on disk: its own `tsconfig.json` decides how its imports resolve, props declared in another file or reached through a path alias are serialized, and a component's documentation file is found beside it.
+
 ## [3.7.2] - 2025-10-08
 - Handle multiple present in one directory - uxpin-presets
 

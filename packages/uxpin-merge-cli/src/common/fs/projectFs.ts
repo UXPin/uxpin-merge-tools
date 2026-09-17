@@ -7,6 +7,8 @@ import { createFsFromVolume, Volume } from 'memfs';
 
 /** memfs exports the class, not the instance type. */
 type ProjectVolume = InstanceType<typeof Volume>;
+/** What `createFsFromVolume` hands back: the volume, shaped like `fs`. */
+type ProjectFileSystem = ReturnType<typeof createFsFromVolume>;
 
 /**
  * Where the project being serialized is read from.
@@ -36,7 +38,7 @@ export interface VirtualProject {
    * they are handed, and unbound volume methods lose their `this` and quietly
    * find nothing.
    */
-  fs: any;
+  fs: ProjectFileSystem;
   /**
    * A real directory holding the node_modules the project's imports resolve
    * against. A virtual project carries no packages of its own, and both the
@@ -119,6 +121,13 @@ export async function readJson(path: string): Promise<any> {
   return fsExtra.readJSON(path);
 }
 
+/**
+ * Reads fall through to the real disk, because node_modules and the CLI's own
+ * resources are never in the volume. Questions about EXISTENCE do not: a
+ * virtual project answers about its own files only, or the directory the
+ * server happens to run in would answer for the project (its tsconfig.json,
+ * its node_modules) and a serialization would depend on where it ran.
+ */
 export async function pathExists(path: string): Promise<boolean> {
   if (virtualHas(path)) {
     return true;
@@ -161,7 +170,8 @@ export async function writeFile(path: string, content: string): Promise<void> {
   await fsExtra.writeFile(path, content);
 }
 
-export async function remove(path: string): Promise<void> {
+/** Deletes a file. Directories are not removed here, and nothing asks for it. */
+export async function unlink(path: string): Promise<void> {
   const volume = getProjectVolume();
   if (volume) {
     const target = resolveProjectPath(path);
@@ -181,7 +191,11 @@ export async function remove(path: string): Promise<void> {
 export async function glob(patterns: string | string[], options: { cwd: string }): Promise<string[]> {
   const project = getVirtualProject();
   if (project) {
-    return globby(patterns, { ...options, fs: project.fs });
+    // memfs types its callbacks more broadly than fast-glob's adapter does,
+    // while providing every method it asks for; the cast is that difference
+    // and nothing else.
+    const fs = project.fs as unknown as globby.GlobbyOptions['fs'];
+    return globby(patterns, { ...options, fs });
   }
   return globby(patterns, options);
 }

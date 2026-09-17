@@ -1,5 +1,5 @@
 import debug from 'debug';
-import { pathExists, readJson } from '../../common/fs/projectFs';
+import { getVirtualProject, pathExists, readJson, resolveProjectPath } from '../../common/fs/projectFs';
 import { join } from 'path';
 import * as ts from 'typescript';
 
@@ -58,7 +58,14 @@ export class MergeComponentSerializer implements AbstractSerializer {
 
 // Read the local TS config to take into account `paths` option used for absolute imports
 async function getTypeScriptConfig(): Promise<TypeScriptConfig | undefined> {
-  const configFilepath = join(process.cwd(), 'tsconfig.json');
+  // The project's own tsconfig, which for the CLI sits in the directory it
+  // runs in and for a project held in memory sits at its root. Read from the
+  // process's directory either way, a virtual project would be configured by
+  // whatever happens to be beside the server running it - or, more often, by
+  // nothing, and every prop that resolves through a path alias would be lost.
+  const configFilepath = getVirtualProject()
+    ? resolveProjectPath('tsconfig.json')
+    : join(process.cwd(), 'tsconfig.json');
   const exists = await pathExists(configFilepath);
   if (!exists) return undefined;
   const tsConfig = (await readJson(configFilepath)) as { compilerOptions: ts.CompilerOptions };

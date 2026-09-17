@@ -1,5 +1,5 @@
 import debug from 'debug';
-import { getVirtualProject, remove } from '../../../../../../common/fs/projectFs';
+import { getVirtualProject, unlink } from '../../../../../../common/fs/projectFs';
 import { collectVolumeModules } from '../../../../../../common/fs/webpackProjectFs';
 import { join, parse } from 'path';
 import * as webpack from 'webpack';
@@ -7,7 +7,7 @@ import { ProgramArgs, RawProgramArgs } from '../../../../../../program/args/Prog
 import { getProjectRoot } from '../../../../../../program/args/providers/paths/getProjectRoot';
 import { getTempDirPath } from '../../../../../../program/args/providers/paths/getTempDirPath';
 import { Compiler } from '../../../../../building/compiler/Compiler';
-import { WebpackCompiler } from '../../../../../building/compiler/webpack/WebpackCompiler';
+import { CompilerFileSystems, WebpackCompiler } from '../../../../../building/compiler/webpack/WebpackCompiler';
 import { ComponentDefinition } from '../../../ComponentDefinition';
 import { createBundleSource } from '../bundle/createBundleSource';
 import { generateVirtualModules, VirtualComponentModule } from './generateVirtualModules';
@@ -21,7 +21,7 @@ export async function compilePresets(programArgs: ProgramArgs, components: Compo
   log(`Compile presets with Webpack (${components.length} components)`);
   const bundlePath: string = await compileWithWebpack(programArgs, components, sourcePath);
   log('Compilation OK, delete temporary bundle');
-  await remove(sourcePath);
+  await unlink(sourcePath);
 
   return bundlePath;
 }
@@ -69,7 +69,11 @@ async function compileWithWebpack(
   // A virtual project is read and written where it lives: webpack resolves
   // the presets out of the volume, falls through to the real node_modules for
   // everything else, and emits the bundle back into the volume.
-  const compiler: Compiler = project ? new WebpackCompiler(config, { output: project.fs }) : new WebpackCompiler(config);
+  // memfs types its callbacks more broadly than webpack's filesystem
+  // interface does, while providing every method it asks for; the cast is
+  // that difference and nothing else.
+  const output = project?.fs as unknown as CompilerFileSystems['output'];
+  const compiler: Compiler = project ? new WebpackCompiler(config, { output }) : new WebpackCompiler(config);
   await compiler.compile();
 
   return bundlePath;

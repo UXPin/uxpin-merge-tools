@@ -1,27 +1,22 @@
+import * as vm from 'vm';
 import { Volume } from 'memfs';
 
 /** memfs exports the class, not the instance type. */
 type ProjectVolume = InstanceType<typeof Volume>;
-import * as vm from 'vm';
 
 /**
- * Webpack reading a project that is not on disk.
+ * Webpack compiling a project that is not on disk.
  *
- * The presets bundle is compiled from the project's own files, which may live
- * in a volume, and from node_modules, which never does. So the input
- * filesystem asks the volume first and falls through to the real one for
- * everything it does not hold, and the output is written into memory and read
- * straight back.
+ * The presets bundle is built from the project's own files, which may live in
+ * a volume, and from node_modules, which never do. The compiler's filesystem
+ * is left alone for that reason - and for another: webpack-virtual-modules
+ * patches it while the compiler is being constructed, and swapping it
+ * afterwards throws those patches away. The project's files are handed to that
+ * same plugin instead, so a file in memory is served exactly like the
+ * placeholder component modules already are.
  */
-/**
- * The volume's files as modules for webpack.
- *
- * The compiler's own filesystem is left alone: webpack-virtual-modules
- * patches it while the compiler is being built, and swapping it afterwards
- * breaks the plugin. The project's files are handed to that same plugin
- * instead, so a file in memory is served exactly like the placeholder
- * component modules already are, and node_modules keep coming from disk.
- */
+
+/** The volume's files as modules for that plugin, by absolute path. */
 export function collectVolumeModules(volume: ProjectVolume): Record<string, string> {
   const modules: Record<string, string> = {};
   const contents: Record<string, string | null> = volume.toJSON() as Record<string, string | null>;
